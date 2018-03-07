@@ -25,6 +25,12 @@ class Ui_MainWindow(object):
         self.tabWidget.setObjectName("tabWidget")
         self.tab_home = QtWidgets.QWidget()
         self.tab_home.setObjectName("tab_home")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.tab_home)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.label = QtWidgets.QLabel(self.tab_home)
+        self.label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.label.setObjectName("label")
+        self.verticalLayout_3.addWidget(self.label)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("image/home.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.tabWidget.addTab(self.tab_home, icon1, "")
@@ -281,6 +287,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Turing"))
+        self.label.setText(_translate("MainWindow", "<h1>Bienvenue dans Turing</h1>\n"
+""))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_home), _translate("MainWindow", "Accueil"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Tab 2"))
         self.menuFichier.setTitle(_translate("MainWindow", "Fichier"))

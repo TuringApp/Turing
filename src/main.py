@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -14,6 +16,7 @@ def getThemedBox():
     msg.setWindowTitle("Turing")
     msg.setStyle(DEFAULT_STYLE)
     msg.setWindowIcon(QIcon("image/icon.png"))
+    center_widget(msg, window)
     return msg
 
 class myMainWindow(QMainWindow):
@@ -26,9 +29,19 @@ class myMainWindow(QMainWindow):
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msg.setDefaultButton(QMessageBox.No)
         msg.setText("Voulez-vous vraiment quitter ?\nToutes les modifications non sauvegardées seront perdues.")
+        center_widget(msg, self)
         event.ignore()
         if msg.exec_() == QMessageBox.Yes:
             event.accept()
+
+def center_widget(wgt, host):
+    if not host:
+        host = wgt.parent()
+
+    if host:
+        wgt.move(host.geometry().center() - wgt.rect().center())
+    else:
+        wgt.move(app.desktop().screenGeometry().center() - wgt.rect().center())
 
 def getact(name):
     return getattr(ui, "action" + name)
@@ -61,6 +74,7 @@ def handler_AboutTuring():
     about.setFixedSize(about.size())
     txt = about_ui.textEdit_about.toHtml().replace("{version}", __version__).replace("{channel}", __channel__)
     about_ui.textEdit_about.setHtml(txt)
+    center_widget(about, window)
     about.exec_()
 
 def handler_ShowToolbar():
