@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from maths.expression import *
+from maths.parser import *
 import math
 import random
 from util.math import isclose, isnum
+import maths.lib as mlib
 
 def error(msg):
 	print(msg)
 
-class ExprEvaluator:
+class Evaluator:
 	variables = None
 	functions = None
 
@@ -52,14 +53,30 @@ class ExprEvaluator:
 			"abs": math.fabs,
 			"floor": math.floor,
 			"ceil": math.ceil,
-			"round": ExprEvaluator.round_ex,
+			"round": mlib.round,
 			
 			"random": random.random,
+			"randint": random.randint,
+			"uniform": random.uniform,
+			"distrib_beta": random.betavariate,
+			"distrib_expo": random.expovariate,
+			"distrib_gamma": random.gammavariate,
+			"distrib_gauss": random.gauss,
+			"distrib_lognorm": random.lognormvariate,
+			"distrib_normal": random.normalvariate,
+			"distrib_pareto": random.paretovariate,
+			"distrib_weibull": random.weibullvariate,
+
 			"fact": math.factorial,
-			"gamma": math.gamma
+			"gamma": math.gamma,
+			"binomial": mlib.binomial,
+
+			"list": mlib.genlist,
+			"sum": mlib.sum,
+			"average": mlib.average,
+			"max": max,
+			"min": min
 		}
-
-
 
 	def evaluate(self, expr):
 		par = Parser(expr)
@@ -87,7 +104,7 @@ class ExprEvaluator:
 		if type(node) == UnaryOpNode:
 			return self.evalUnary(node)
 
-		if type(node) == OPERATORNode:
+		if type(node) == BinOpNode:
 			return self.evalBinary(node)
 
 		if type(node) == CallNode:
@@ -95,10 +112,17 @@ class ExprEvaluator:
 				args = [self.evalNode(x) for x in node.args]
 				return self.functions[node.func](*args)
 			else:
-				error("Unknown function")
+				error("Unknown function '%s'" % node.func)
 
+		if type(node) == ArrayAccessNode:
+			val = evalNode(node.array)
+			idx = evalNode(node.index)
+			if idx < len(val):
+				return val[idx]
+			else:
+				error("Index '%s' too big for array" % idx)
 
-		error("Shit brixes")
+		return None
 
 	def evalUnary(self, node):
 		val = self.evalNode(node.value)
@@ -129,8 +153,8 @@ class ExprEvaluator:
 		if node.opType == "> ": return left >  right
 		if node.opType == ">=": return left >= right or utils.isclose(left, right)
 
-		if node.opType == "ET": return left and right
-		if node.opType == "OU": return left or right
-		if node.opType == "XOR": return left ^ right
+		if node.opType == "&": return int(left) and int(right)
+		if node.opType == "|": return int(left) or int(right)
+		if node.opType == "XOR": return int(left) ^ int(right)
 
 		error("Shit brixes")

@@ -16,7 +16,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>image/icon.png</normaloff>image/icon.png</iconset>
+    <normaloff>image/icon_64.png</normaloff>image/icon_64.png</iconset>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>true</bool>

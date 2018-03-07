@@ -1,3 +1,5 @@
+[![GitHub issues](https://img.shields.io/github/issues/TuringApp/Turing.svg)](https://github.com/TuringApp/Turing/issues) [![GitHub stars](https://img.shields.io/github/stars/TuringApp/Turing.svg)](https://github.com/TuringApp/Turing/stargazers) [![GitHub license](https://img.shields.io/github/license/TuringApp/Turing.svg)](https://github.com/TuringApp/Turing/blob/master/LICENSE)
+
 # Turing
 
 Turing is a free and cross-platform app whose main goal is to assist the learning of algorithms and programming languages by providing easy-to-use development tools to all.

@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
-print("modddd")
+
 from tests.framework import expect
 
-from maths.expression import Parser
-from maths.expression_eval import ExprEvaluator
-
-ev = ExprEvaluator()
+from maths.parser import Parser
+from maths.evaluator import Evaluator
 
 tests = [
 	("2+2", 4),
@@ -28,9 +26,18 @@ tests = [
 	("cos(0)", 1),
 	("sin(pi)", 0),
 	("deg(2pi)", 360),
-	("round(asin(acos(atan(tan(cos(sin(0.5)))))),5)", 0.5)
+	("round(asin(acos(atan(tan(cos(sin(0.5)))))),5)", 0.5),
+
+	("binomial(3, 2)", 3),
+	("binomial(3, 0)", 1),
+
+	("average(12, 82, 74, 36, 14, 94)", 52),
+	("sum(1, 8, 9, 6, 24, 54, 354)", 456)
 ]
 
-for e, r in tests:
-	ret = ev.evaluate(e)
-	expect(ret, r)
+def run_tests():
+	ev = Evaluator()
+
+	for e, r in tests:
+		ret = ev.evaluate(e)
+		expect(ret, r)	

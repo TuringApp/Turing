@@ -26,7 +26,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>&lt;img src=&quot;image/icon.png&quot;/&gt;</string>
+        <string>&lt;img src=&quot;image/icon_96.png&quot;/&gt;</string>
        </property>
        <property name="textFormat">
         <enum>Qt::RichText</enum>
