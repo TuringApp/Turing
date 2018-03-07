@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from expression import *
 import math
 import random
@@ -85,7 +87,7 @@ class ExprEvaluator:
 		if type(node) == UnaryOpNode:
 			return self.evalUnary(node)
 
-		if type(node) == BinOpNode:
+		if type(node) == OPERATORNode:
 			return self.evalBinary(node)
 
 		if type(node) == CallNode:

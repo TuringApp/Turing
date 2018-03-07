@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+
+from ..tests.framework import expect
+
 from expression import Parser
 from expression_eval import ExprEvaluator
 import utils
@@ -28,11 +32,6 @@ tests = [
 	("round(asin(acos(atan(tan(cos(sin(0.5)))))),5)", 0.5)
 ]
 
-i=1
 for e, r in tests:
 	ret = ev.evaluate(e)
-	if utils.isclose(r, ret):
-		print("test %d : OK (%f)" % (i, ret))
-	else:
-		print("test %d : FAIL (expected %f, got %f)" % (i, r, ret))
-	i+=1
+	expect(ret, r)

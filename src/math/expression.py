@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
+
 class TokenType:
-	BINOP, STRING, NUMBER, IDENTIFIER, COMMA, PAREN = range(6)
+	OPERATOR, STRING, NUMBER, IDENTIFIER, COMMA, PAREN = range(6)
 
 class Operators:
 	math = ["+", "-", "*", "/", "%", "^"]
@@ -11,7 +13,7 @@ class AstNode:
 	def __init__(self):
 		pass
 
-class BinOpNode(AstNode):
+class OPERATORNode(AstNode):
 	left = None
 	right = None
 	opType = None
@@ -92,7 +94,7 @@ class Parser:
 		return False
 
 	def acceptOp(self, opType):
-		return self.accept(TokenType.BINOP, opType)
+		return self.accept(TokenType.OPERATOR, opType)
 
 	def expect(self, opType, value=None):
 		if not self.match(opType, value):
@@ -111,7 +113,7 @@ class Parser:
 
 		for token in tok:
 			if token.upper() in Operators.ops:
-				self.tokens.append((TokenType.BINOP, token.upper()))
+				self.tokens.append((TokenType.OPERATOR, token.upper()))
 			elif token == ",":
 				self.tokens.append((TokenType.COMMA, ","))
 			elif token in ["(", ")"]:
@@ -144,11 +146,11 @@ class Parser:
 	def parseEquality(self):
 		expr = self.parseAdditive()
 
-		while self.match(TokenType.BINOP):
+		while self.match(TokenType.OPERATOR):
 			op = self.peekOp(Operators.comp)
 			if op:
-				self.accept(TokenType.BINOP)
-				expr = BinOpNode(expr, self.parseAdditive(), op)
+				self.accept(TokenType.OPERATOR)
+				expr = OPERATORNode(expr, self.parseAdditive(), op)
 				continue
 			break
 
@@ -157,11 +159,11 @@ class Parser:
 	def parseAdditive(self):
 		expr = self.parseMultiplicative()
 
-		while self.match(TokenType.BINOP):
+		while self.match(TokenType.OPERATOR):
 			op = self.peekOp(["+", "-"])
 			if op:
-				self.accept(TokenType.BINOP)
-				expr = BinOpNode(expr, self.parseMultiplicative(), op)
+				self.accept(TokenType.OPERATOR)
+				expr = OPERATORNode(expr, self.parseMultiplicative(), op)
 				continue
 			break
 
@@ -170,11 +172,11 @@ class Parser:
 	def parseMultiplicative(self):
 		expr = self.parseUnary()
 
-		while self.match(TokenType.BINOP):
+		while self.match(TokenType.OPERATOR):
 			op = self.peekOp(["^", "*", "/", "%"])
 			if op:
-				self.accept(TokenType.BINOP)
-				expr = BinOpNode(expr, self.parseUnary(), op)
+				self.accept(TokenType.OPERATOR)
+				expr = OPERATORNode(expr, self.parseUnary(), op)
 				continue
 			break
 
@@ -183,7 +185,7 @@ class Parser:
 	def parseUnary(self):
 		op = self.peekOp(["-", "NON"])
 		if op:
-			self.accept(TokenType.BINOP)
+			self.accept(TokenType.OPERATOR)
 			return UnaryOpNode(self.parseUnary(), op)
 
 		return self.parseCallPre()

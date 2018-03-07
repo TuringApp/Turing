@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class PCProgram:
 	def __init__(self):
 		pass
