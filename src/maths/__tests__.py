@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
+print("modddd")
+from tests.framework import expect
 
-from ..tests.framework import expect
-
-from expression import Parser
-from expression_eval import ExprEvaluator
-import utils
+from maths.expression import Parser
+from maths.expression_eval import ExprEvaluator
 
 ev = ExprEvaluator()
 

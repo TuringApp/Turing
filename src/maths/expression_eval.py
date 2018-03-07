@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from expression import *
+from maths.expression import *
 import math
 import random
-import utils
+from util.math import isclose, isnum
 
 def error(msg):
 	print(msg)
@@ -70,7 +70,7 @@ class ExprEvaluator:
 		val = self.evalNodeReal(node)
 		if val:
 			val = round(val, 9)
-			if utils.isclose(val, 0):
+			if isclose(val, 0):
 				val = 0
 		return val
 
@@ -118,7 +118,7 @@ class ExprEvaluator:
 		if node.opType == "+": return left + right
 		if node.opType == "-": return left - right
 		if node.opType == "*": return left * right
-		if node.opType == "/": return float("inf") if utils.isclose(right, 0) else left / right
+		if node.opType == "/": return float("inf") if isclose(right, 0) else left / right
 		if node.opType == "%": return math.fmod(left, right)
 		if node.opType == "^": return left ** right
 

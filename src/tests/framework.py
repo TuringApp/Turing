@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ..util import math
+from util.math import isnum, isclose
 
 def init_test():
 	global test_results, test_stack, current_results
@@ -35,6 +35,6 @@ def expect(x, expec, info = ""):
 		stat = "FAILED"
 		msg = "(expected: '%s', got: '%s')" % (str(expec), str(x))
 
-	print("[TEST] #%02d : %s %s | %s" % (len(current_results) + 1, stat, msg, info))
+	print("[TEST] #%02d : %s %s%s" % (len(current_results) + 1, stat, msg, " | " + info if info else ""))
 
 	current_results.append((val, x, expec, info))
