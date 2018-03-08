@@ -2,7 +2,7 @@
 
 class TokenType:
 	"""Token types used during the lexing process"""
-	OPERATOR, STRING, NUMBER, IDENTIFIER, COMMA, PAREN, BRACK = range(7)
+	OPERATOR, STRING, NUMBER, IDENTIFIER, COMMA, PAREN, BRACK, BRACE = range(8)
 
 class Operators:
 	"""Availaboe operators"""
@@ -46,8 +46,8 @@ class UnaryOpNode(AstNode):
 class CallNode(AstNode):
 	"""Function call node
 
-	func -- function name (str)
-	args -- arguments (list)"""
+	func -- function (AstNode)
+	args -- arguments (list of AstNode)"""
 	func = None
 	args = None
 
@@ -97,11 +97,25 @@ class IdentifierNode(AstNode):
 class ListNode(AstNode):
 	"""Identifier node
 
-	value -- value (list)"""
+	value -- value (list of object)"""
 	value = None
 
 	def __init__(self, value):
 		self.value = value
+
+class LambdaNode(AstNode):
+	"""Lambda (inline function) node
+
+	args -- arguments (list of str)
+	expr -- expression (AstNode)"""
+	args = None
+	expr = None
+
+	def __init__(self, args, expr):
+		self.args = args
+		self.expr = expr
+
+
 
 class Parser:
 	"""Main parser class. Transforms a string into an AST tree."""
@@ -171,7 +185,7 @@ class Parser:
 	def tokenize(self):
 		"""Converts the expression string into a linear list of tokens."""
 		import re
-		regex = re.compile(r'(\+|-|\*|/|%|\^|==|!=|<=|<|>|>=|\(|\)|\[|\]|\bET\b|\bOU\b|\bXOR\b|\bNON\b|&|\||,)')
+		regex = re.compile(r'(\+|-|\*|/|%|\^|==|!=|<=|<|>|>=|\(|\)|\[|\]|\{|\}|\bET\b|\bOU\b|\bXOR\b|\bNON\b|&|\||,)')
 		tok = [x.strip() for x in regex.split(self.expression) if x.strip()]
 
 		for token in tok:
@@ -183,6 +197,8 @@ class Parser:
 				self.tokens.append((TokenType.PAREN, token))
 			elif token in ["[", "]"]:
 				self.tokens.append((TokenType.BRACK, token))
+			elif token in ["{", "}"]:
+				self.tokens.append((TokenType.BRACE, token))
 			else:
 				if token[0] == token[-1] == '"':
 					self.tokens.append((TokenType.STRING, token[1:-1]))
@@ -332,6 +348,21 @@ class Parser:
 
 		return ret
 
+	def parseParamList(self):
+		"""Parses a lambda function parameter list."""
+		ret = []
+
+		self.expect(TokenType.BRACE, "{")
+
+		while not self.match(TokenType.BRACE, "}"):
+			ret.append(self.expect(TokenType.IDENTIFIER)[1])
+			if not self.accept(TokenType.COMMA):
+				break
+
+		self.expect(TokenType.BRACE, "}")
+
+		return ret
+
 	def parseIndexer(self):
 		"""Parses an indexer expression."""
 		self.expect(TokenType.BRACK, "[")
@@ -344,8 +375,8 @@ class Parser:
 
 	def parseCall(self, left):
 		"""Parses a function call (2)."""
-		if type(left) == IdentifierNode and self.match(TokenType.PAREN, "("):
-			return self.parseCall(CallNode(left.value, self.parseArgList()))
+		if self.match(TokenType.PAREN, "("):
+			return self.parseCall(CallNode(left, self.parseArgList()))
 		elif self.match(TokenType.BRACK, "["):
 			return self.parseCall(ArrayAccessNode(left, self.parseIndexer()))
 		else:
@@ -362,6 +393,12 @@ class Parser:
 		elif self.match(TokenType.BRACK, "["):
 			stmt = ListNode(self.parseArgList(True))
 			return stmt
+		elif self.match(TokenType.BRACE, "{"):
+			args = self.parseParamList()
+			self.expect(TokenType.PAREN, "(")
+			expr = self.parseExpr()
+			self.expect(TokenType.PAREN, ")")
+			return LambdaNode(args, expr)
 		elif self.match(TokenType.STRING):
 			return StringNode(self.nextToken()[1])
 		elif self.match(TokenType.IDENTIFIER):

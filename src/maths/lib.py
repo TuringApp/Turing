@@ -18,10 +18,6 @@ def binomial(n, k):
 	"""Calculates the binomial coefficient."""
 	return math.gamma(n + 1) / (math.gamma(k + 1) * math.gamma(n - k + 1))
 
-def genlist(*args):
-	"""Helper function. Generates a list from arguments."""
-	return list(args)
-
 def average(*args):
 	"""Returns the average of a list."""
 	if type(args[0]) == list:

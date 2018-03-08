@@ -11,7 +11,6 @@ def error(msg):
 
 class Evaluator:
 	variables = None
-	functions = None
 	arguments = None
 
 	def round_ex(num, prec=None):
@@ -22,13 +21,12 @@ class Evaluator:
 	def __init__(self):
 		self.variables = {
 			"pi": math.pi,
-			"e": math.e
-		}
-		self.functions = {
+			"e": math.e,
+
 			"sqrt": math.sqrt,
-                        "racine": math.sqrt,
+            "racine": math.sqrt,
 			"pow": math.pow,
-                        "puiss": math.pow,
+            "puiss": math.pow,
 
 			"cos": math.cos,
 			"sin": math.sin,
@@ -57,11 +55,10 @@ class Evaluator:
 			"floor": math.floor,
 			"ceil": math.ceil,
 			"round": mlib.round,
-                        "arrondi": mlib.round,
+            "arrondi": mlib.round,
 			
 			"random": random.random,
 			"randint": random.randint,
-                        "randent": random.randint,
 			"uniform": random.uniform,
 			"distrib_beta": random.betavariate,
 			"distrib_expo": random.expovariate,
@@ -76,11 +73,9 @@ class Evaluator:
 			"gamma": math.gamma,
 			"binomial": mlib.binomial,
 
-			"list": mlib.genlist,
-                        "liste": mlib.genlist,
 			"sum": mlib.sum,
 			"average": mlib.average,
-                        "moyenne": mlib.average,
+            "moyenne": mlib.average,
 			"max": max,
 			"min": min
 		}
@@ -110,7 +105,7 @@ class Evaluator:
 			if node.value in self.variables:
 				return self.variables[node.value]
 			else:
-				error("Can't find variable " + node.value)
+				error("Can't find variable or function " + node.value)
 
 		if type(node) == UnaryOpNode:
 			return self.evalUnary(node)
@@ -119,6 +114,9 @@ class Evaluator:
 			return self.evalBinary(node)
 
 		if type(node) == CallNode:
+			fn = self.evalNode(node.func)
+			args = [self.evalNode(x) for x in node.args]
+			return fn.__call__(*args)
 			if node.func in self.functions:
 				args = [self.evalNode(x) for x in node.args]
 				return self.functions[node.func](*args)
