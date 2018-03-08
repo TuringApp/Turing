@@ -30,6 +30,7 @@ def average(*args):
 	return builtins.sum(args) / len(args)
 
 def sum(*args):
+	"""Returns the sum of a list."""
 	if type(args[0]) == list:
 		args = args[0]
 	
