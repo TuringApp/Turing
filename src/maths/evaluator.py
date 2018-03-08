@@ -5,6 +5,7 @@ import math
 import random
 from util.math import isclose, isnum
 import maths.lib as mlib
+import maths.nodes as nodes
 
 def error(msg):
 	print(msg)
@@ -95,10 +96,10 @@ class Evaluator:
 		return val
 
 	def evalNodeReal(self, node):
-		if type(node) in [NumberNode, StringNode, ListNode]:
+		if type(node) in [nodes.NumberNode, nodes.StringNode, nodes.ListNode]:
 			return node.value
 
-		if type(node) == IdentifierNode:
+		if type(node) == nodes.IdentifierNode:
 			for a in self.arguments[::-1]:
 				if a[0] == node.value:
 					return a[1]
@@ -107,13 +108,13 @@ class Evaluator:
 			else:
 				error("Can't find variable or function " + node.value)
 
-		if type(node) == UnaryOpNode:
+		if type(node) == nodes.UnaryOpNode:
 			return self.evalUnary(node)
 
-		if type(node) == BinOpNode:
+		if type(node) == nodes.BinOpNode:
 			return self.evalBinary(node)
 
-		if type(node) == CallNode:
+		if type(node) == nodes.CallNode:
 			fn = self.evalNode(node.func)
 			args = [self.evalNode(x) for x in node.args]
 			return fn.__call__(*args)
@@ -123,7 +124,7 @@ class Evaluator:
 			else:
 				error("Unknown function '%s'" % node.func)
 
-		if type(node) == ArrayAccessNode:
+		if type(node) == nodes.ArrayAccessNode:
 			val = self.evalNode(node.array)
 			idx = int(self.evalNode(node.index))
 			if idx < len(val):
@@ -131,7 +132,7 @@ class Evaluator:
 			else:
 				error("Index '%s' too big for array" % idx)
 
-		if not isinstance(node, AstNode):
+		if not isinstance(node, nodes.AstNode):
 			return node
 
 		return None

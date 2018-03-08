@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import maths.nodes as nodes
+
 class TokenType:
 	"""Token types used during the lexing process"""
 	OPERATOR, STRING, NUMBER, IDENTIFIER, COMMA, PAREN, BRACK, BRACE = range(8)
@@ -10,112 +12,6 @@ class Operators:
 	comp = ["==", "!=", "<=", "<", ">", ">="]                    # Relational (comparison) operators
 	boolean = ["ET", "OU", "NON"]                                # Boolean operators
 	ops = math + comp + boolean                                  # All operators
-
-class AstNode:
-	"""Base node class"""
-	def __init__(self):
-		pass
-
-class BinOpNode(AstNode):
-	"""Binary (two operands) operator node
-
-	left   -- left operand (AstNode)
-	right  -- right operand (AstNode)
-	opType -- which binary operator (str)"""
-	left = None
-	right = None
-	opType = None
-
-	def __init__(self, left, right, opType):
-		self.left = left
-		self.right = right
-		self.opType = opType
-
-class UnaryOpNode(AstNode):
-	"""Unary operator node
-
-	value  -- value (AstNode)
-	opType -- which unary operator (str)"""
-	value = None
-	opType = None
-
-	def __init__(self, value, opType):
-		self.value = value
-		self.opType = opType
-
-class CallNode(AstNode):
-	"""Function call node
-
-	func -- function (AstNode)
-	args -- arguments (list of AstNode)"""
-	func = None
-	args = None
-
-	def __init__(self, func, args):
-		self.func = func
-		self.args = args
-
-class ArrayAccessNode(AstNode):
-	"""Array access node
-
-	array -- array (AstNode)
-	index -- index (AstNode)"""
-	array = None
-	index = None
-
-	def __init__(self, array, index):
-		self.array = array
-		self.index = index
-
-class NumberNode(AstNode):
-	"""Number node
-
-	value -- value (float)"""
-	value = None
-
-	def __init__(self, value):
-		self.value = value
-
-class StringNode(AstNode):
-	"""String node
-
-	value -- value (str)"""
-	value = None
-
-	def __init__(self, value):
-		self.value = value
-
-class IdentifierNode(AstNode):
-	"""Identifier node
-
-	value -- value (str)"""
-	value = None
-
-	def __init__(self, value):
-		self.value = value
-
-class ListNode(AstNode):
-	"""Identifier node
-
-	value -- value (list of object)"""
-	value = None
-
-	def __init__(self, value):
-		self.value = value
-
-class LambdaNode(AstNode):
-	"""Lambda (inline function) node
-
-	args -- arguments (list of str)
-	expr -- expression (AstNode)"""
-	args = None
-	expr = None
-
-	def __init__(self, args, expr):
-		self.args = args
-		self.expr = expr
-
-
 
 class Parser:
 	"""Main parser class. Transforms a string into an AST tree."""
@@ -235,7 +131,7 @@ class Parser:
 			op = self.peekOp(["OU", "|"])
 			if op:
 				self.accept(TokenType.OPERATOR)
-				expr = BinOpNode(expr, self.parseXor(), "|")
+				expr = nodes.BinOpNode(expr, self.parseXor(), "|")
 				continue
 			break
 
@@ -249,7 +145,7 @@ class Parser:
 			op = self.peekOp(["XOR"])
 			if op:
 				self.accept(TokenType.OPERATOR)
-				expr = BinOpNode(expr, self.parseAnd(), "XOR")
+				expr = nodes.BinOpNode(expr, self.parseAnd(), "XOR")
 				continue
 			break
 
@@ -263,7 +159,7 @@ class Parser:
 			op = self.peekOp(["ET", "&"])
 			if op:
 				self.accept(TokenType.OPERATOR)
-				expr = BinOpNode(expr, self.parseEquality(), "&")
+				expr = nodes.BinOpNode(expr, self.parseEquality(), "&")
 				continue
 			break
 
@@ -277,7 +173,7 @@ class Parser:
 			op = self.peekOp(Operators.comp)
 			if op:
 				self.accept(TokenType.OPERATOR)
-				expr = BinOpNode(expr, self.parseAdditive(), op)
+				expr = nodes.BinOpNode(expr, self.parseAdditive(), op)
 				continue
 			break
 
@@ -291,7 +187,7 @@ class Parser:
 			op = self.peekOp(["+", "-"])
 			if op:
 				self.accept(TokenType.OPERATOR)
-				expr = BinOpNode(expr, self.parseMultiplicative(), op)
+				expr = nodes.BinOpNode(expr, self.parseMultiplicative(), op)
 				continue
 			break
 
@@ -305,7 +201,7 @@ class Parser:
 			op = self.peekOp(["^", "*", "/", "%"])
 			if op:
 				self.accept(TokenType.OPERATOR)
-				expr = BinOpNode(expr, self.parseUnary(), op)
+				expr = nodes.BinOpNode(expr, self.parseUnary(), op)
 				continue
 			break
 
@@ -316,7 +212,7 @@ class Parser:
 		op = self.peekOp(["-", "NON"])
 		if op:
 			self.accept(TokenType.OPERATOR)
-			return UnaryOpNode(self.parseUnary(), op)
+			return nodes.UnaryOpNode(self.parseUnary(), op)
 
 		return self.parseCallPre()
 
@@ -376,33 +272,33 @@ class Parser:
 	def parseCall(self, left):
 		"""Parses a function call (2)."""
 		if self.match(TokenType.PAREN, "("):
-			return self.parseCall(CallNode(left, self.parseArgList()))
+			return self.parseCall(nodes.CallNode(left, self.parseArgList()))
 		elif self.match(TokenType.BRACK, "["):
-			return self.parseCall(ArrayAccessNode(left, self.parseIndexer()))
+			return self.parseCall(nodes.ArrayAccessNode(left, self.parseIndexer()))
 		else:
 			return left
 
 	def parseTerm(self):
 		"""Parses an atomic term."""
 		if self.match(TokenType.NUMBER):
-			return NumberNode(float(self.nextToken()[1]))
+			return nodes.NumberNode(float(self.nextToken()[1]))
 		elif self.accept(TokenType.PAREN, "("):
 			stmt = self.parseExpr()
 			self.expect(TokenType.PAREN, ")")
 			return stmt
 		elif self.match(TokenType.BRACK, "["):
-			stmt = ListNode(self.parseArgList(True))
+			stmt = nodes.ListNode(self.parseArgList(True))
 			return stmt
 		elif self.match(TokenType.BRACE, "{"):
 			args = self.parseParamList()
 			self.expect(TokenType.PAREN, "(")
 			expr = self.parseExpr()
 			self.expect(TokenType.PAREN, ")")
-			return LambdaNode(args, expr)
+			return nodes.LambdaNode(args, expr)
 		elif self.match(TokenType.STRING):
-			return StringNode(self.nextToken()[1])
+			return nodes.StringNode(self.nextToken()[1])
 		elif self.match(TokenType.IDENTIFIER):
-			return IdentifierNode(self.nextToken()[1])
+			return nodes.IdentifierNode(self.nextToken()[1])
 		else:
 			error("pk tu fais ça")
 			return None
