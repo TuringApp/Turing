@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_about.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -61,7 +61,7 @@ class Ui_AboutWindow(object):
     def retranslateUi(self, AboutWindow):
         _translate = QtCore.QCoreApplication.translate
         AboutWindow.setWindowTitle(_translate("AboutWindow", "À propos de Turing"))
-        self.label.setText(_translate("AboutWindow", "<img src=\"image/icon.png\"/>"))
+        self.label.setText(_translate("AboutWindow", "<img src=\"image/icon_96.png\"/>"))
         self.textEdit_about.setHtml(_translate("AboutWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
