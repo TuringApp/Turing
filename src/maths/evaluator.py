@@ -26,7 +26,9 @@ class Evaluator:
 		}
 		self.functions = {
 			"sqrt": math.sqrt,
+                        "racine": math.sqrt,
 			"pow": math.pow,
+                        "puiss": math.pow,
 
 			"cos": math.cos,
 			"sin": math.sin,
@@ -55,9 +57,11 @@ class Evaluator:
 			"floor": math.floor,
 			"ceil": math.ceil,
 			"round": mlib.round,
+                        "arrondi": mlib.round,
 			
 			"random": random.random,
 			"randint": random.randint,
+                        "randent": random.randint,
 			"uniform": random.uniform,
 			"distrib_beta": random.betavariate,
 			"distrib_expo": random.expovariate,
@@ -73,8 +77,10 @@ class Evaluator:
 			"binomial": mlib.binomial,
 
 			"list": mlib.genlist,
+                        "liste": mlib.genlist,
 			"sum": mlib.sum,
 			"average": mlib.average,
+                        "moyenne": mlib.average,
 			"max": max,
 			"min": min
 		}

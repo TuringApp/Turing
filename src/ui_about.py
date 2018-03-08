@@ -13,7 +13,7 @@ class Ui_AboutWindow(object):
         AboutWindow.setObjectName("AboutWindow")
         AboutWindow.resize(557, 371)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("image/icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("image/icon_32.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutWindow.setWindowIcon(icon)
         AboutWindow.setModal(True)
         self.verticalLayout = QtWidgets.QVBoxLayout(AboutWindow)
