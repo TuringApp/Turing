@@ -15,7 +15,7 @@ def getThemedBox():
     msg = QMessageBox()
     msg.setWindowTitle("Turing")
     msg.setStyle(DEFAULT_STYLE)
-    msg.setWindowIcon(QIcon("image/icon.png"))
+    msg.setWindowIcon(QIcon("media/icon.png"))
     center_widget(msg, window)
     return msg
 

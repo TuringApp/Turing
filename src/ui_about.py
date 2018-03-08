@@ -13,7 +13,7 @@ class Ui_AboutWindow(object):
         AboutWindow.setObjectName("AboutWindow")
         AboutWindow.resize(557, 371)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("image/icon_32.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("media/icon_32.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutWindow.setWindowIcon(icon)
         AboutWindow.setModal(True)
         self.verticalLayout = QtWidgets.QVBoxLayout(AboutWindow)
@@ -61,7 +61,7 @@ class Ui_AboutWindow(object):
     def retranslateUi(self, AboutWindow):
         _translate = QtCore.QCoreApplication.translate
         AboutWindow.setWindowTitle(_translate("AboutWindow", "À propos de Turing"))
-        self.label.setText(_translate("AboutWindow", "<img src=\"image/icon_96.png\"/>"))
+        self.label.setText(_translate("AboutWindow", "<img src=\"media/icon_96.png\"/>"))
         self.textEdit_about.setHtml(_translate("AboutWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

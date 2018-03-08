@@ -16,7 +16,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>image/icon_64.png</normaloff>image/icon_64.png</iconset>
+    <normaloff>media/icon_64.png</normaloff>media/icon_64.png</iconset>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>true</bool>
@@ -37,7 +37,7 @@
       <widget class="QWidget" name="tab_home">
        <attribute name="icon">
         <iconset>
-         <normaloff>image/home.png</normaloff>image/home.png</iconset>
+         <normaloff>media/home.png</normaloff>media/home.png</iconset>
        </attribute>
        <attribute name="title">
         <string>Accueil</string>
@@ -98,7 +98,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -108,6 +108,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QMenu" name="menuR_cents">
      <property name="title">
       <string>Récents</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>media/recent.png</normaloff>media/recent.png</iconset>
      </property>
      <addaction name="separator"/>
      <addaction name="actionClearRecent"/>
@@ -374,9 +378,9 @@ p, li { white-space: pre-wrap; }
         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;Voici la carte kiwiii&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Voici la carte kiwiii&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="acceptRichText">
         <bool>true</bool>
@@ -389,7 +393,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionNew">
    <property name="icon">
     <iconset>
-     <normaloff>image/new.png</normaloff>image/new.png</iconset>
+     <normaloff>media/new.png</normaloff>media/new.png</iconset>
    </property>
    <property name="text">
     <string>Nouveau</string>
@@ -401,7 +405,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionOpen">
    <property name="icon">
     <iconset>
-     <normaloff>image/open.png</normaloff>image/open.png</iconset>
+     <normaloff>media/open.png</normaloff>media/open.png</iconset>
    </property>
    <property name="text">
     <string>Ouvrir</string>
@@ -413,7 +417,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionSave">
    <property name="icon">
     <iconset>
-     <normaloff>image/save.png</normaloff>image/save.png</iconset>
+     <normaloff>media/save.png</normaloff>media/save.png</iconset>
    </property>
    <property name="text">
     <string>Enregistrer</string>
@@ -425,7 +429,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionSaveAs">
    <property name="icon">
     <iconset>
-     <normaloff>image/save_as.png</normaloff>image/save_as.png</iconset>
+     <normaloff>media/save_as.png</normaloff>media/save_as.png</iconset>
    </property>
    <property name="text">
     <string>Enregistrer sous</string>
@@ -442,7 +446,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionExit">
    <property name="icon">
     <iconset>
-     <normaloff>image/exit.png</normaloff>image/exit.png</iconset>
+     <normaloff>media/exit.png</normaloff>media/exit.png</iconset>
    </property>
    <property name="text">
     <string>Quitter</string>
@@ -462,7 +466,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionUndo">
    <property name="icon">
     <iconset>
-     <normaloff>image/undo.png</normaloff>image/undo.png</iconset>
+     <normaloff>media/undo.png</normaloff>media/undo.png</iconset>
    </property>
    <property name="text">
     <string>Annuler</string>
@@ -474,7 +478,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionRedo">
    <property name="icon">
     <iconset>
-     <normaloff>image/redo.png</normaloff>image/redo.png</iconset>
+     <normaloff>media/redo.png</normaloff>media/redo.png</iconset>
    </property>
    <property name="text">
     <string>Rétablir</string>
@@ -486,7 +490,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionCut">
    <property name="icon">
     <iconset>
-     <normaloff>image/cut.png</normaloff>image/cut.png</iconset>
+     <normaloff>media/cut.png</normaloff>media/cut.png</iconset>
    </property>
    <property name="text">
     <string>Couper</string>
@@ -498,7 +502,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionCopy">
    <property name="icon">
     <iconset>
-     <normaloff>image/copy.png</normaloff>image/copy.png</iconset>
+     <normaloff>media/copy.png</normaloff>media/copy.png</iconset>
    </property>
    <property name="text">
     <string>Copier</string>
@@ -510,7 +514,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionPaste">
    <property name="icon">
     <iconset>
-     <normaloff>image/paste.png</normaloff>image/paste.png</iconset>
+     <normaloff>media/paste.png</normaloff>media/paste.png</iconset>
    </property>
    <property name="text">
     <string>Coller</string>
@@ -522,7 +526,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionSettings">
    <property name="icon">
     <iconset>
-     <normaloff>image/settings.png</normaloff>image/settings.png</iconset>
+     <normaloff>media/settings.png</normaloff>media/settings.png</iconset>
    </property>
    <property name="text">
     <string>Préférences</string>
@@ -531,7 +535,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionQuickStart">
    <property name="icon">
     <iconset>
-     <normaloff>image/quick_start.png</normaloff>image/quick_start.png</iconset>
+     <normaloff>media/quick_start.png</normaloff>media/quick_start.png</iconset>
    </property>
    <property name="text">
     <string>Tutoriel rapide</string>
@@ -540,7 +544,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionHelpContents">
    <property name="icon">
     <iconset>
-     <normaloff>image/help.png</normaloff>image/help.png</iconset>
+     <normaloff>media/help.png</normaloff>media/help.png</iconset>
    </property>
    <property name="text">
     <string>Pages d'aide</string>
@@ -552,7 +556,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionAboutTuring">
    <property name="icon">
     <iconset>
-     <normaloff>image/icon.png</normaloff>image/icon.png</iconset>
+     <normaloff>media/icon_16.png</normaloff>media/icon_16.png</iconset>
    </property>
    <property name="text">
     <string>À propos de Turing</string>
@@ -567,7 +571,7 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>image/toolbar.png</normaloff>image/toolbar.png</iconset>
+     <normaloff>media/toolbar.png</normaloff>media/toolbar.png</iconset>
    </property>
    <property name="text">
     <string>Barre d'outils</string>
@@ -576,7 +580,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionExamples">
    <property name="icon">
     <iconset>
-     <normaloff>image/examples.png</normaloff>image/examples.png</iconset>
+     <normaloff>media/examples.png</normaloff>media/examples.png</iconset>
    </property>
    <property name="text">
     <string>Exemples</string>
@@ -585,7 +589,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionPrint">
    <property name="icon">
     <iconset>
-     <normaloff>image/print.png</normaloff>image/print.png</iconset>
+     <normaloff>media/print.png</normaloff>media/print.png</iconset>
    </property>
    <property name="text">
     <string>Imprimer</string>
@@ -597,7 +601,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionFind">
    <property name="icon">
     <iconset>
-     <normaloff>image/find.png</normaloff>image/find.png</iconset>
+     <normaloff>media/find.png</normaloff>media/find.png</iconset>
    </property>
    <property name="text">
     <string>Rechercher</string>
@@ -609,7 +613,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionReplace">
    <property name="icon">
     <iconset>
-     <normaloff>image/replace.png</normaloff>image/replace.png</iconset>
+     <normaloff>media/replace.png</normaloff>media/replace.png</iconset>
    </property>
    <property name="text">
     <string>Remplacer</string>
@@ -621,7 +625,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionCalculator">
    <property name="icon">
     <iconset>
-     <normaloff>image/calculator.png</normaloff>image/calculator.png</iconset>
+     <normaloff>media/calculator.png</normaloff>media/calculator.png</iconset>
    </property>
    <property name="text">
     <string>Calculatrice</string>
@@ -630,7 +634,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionClearRecent">
    <property name="icon">
     <iconset>
-     <normaloff>image/recent_clear.png</normaloff>image/recent_clear.png</iconset>
+     <normaloff>media/recent_clear.png</normaloff>media/recent_clear.png</iconset>
    </property>
    <property name="text">
     <string>Effacer</string>
@@ -639,7 +643,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionSelectAll">
    <property name="icon">
     <iconset>
-     <normaloff>image/select_all.png</normaloff>image/select_all.png</iconset>
+     <normaloff>media/select_all.png</normaloff>media/select_all.png</iconset>
    </property>
    <property name="text">
     <string>Sélectionner tout</string>
@@ -651,7 +655,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionRun">
    <property name="icon">
     <iconset>
-     <normaloff>image/run.png</normaloff>image/run.png</iconset>
+     <normaloff>media/run.png</normaloff>media/run.png</iconset>
    </property>
    <property name="text">
     <string>Exécuter</string>
@@ -663,7 +667,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionStep">
    <property name="icon">
     <iconset>
-     <normaloff>image/step.png</normaloff>image/step.png</iconset>
+     <normaloff>media/step.png</normaloff>media/step.png</iconset>
    </property>
    <property name="text">
     <string>Pas-à-pas</string>
@@ -681,7 +685,7 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>image/toolbar_text.png</normaloff>image/toolbar_text.png</iconset>
+     <normaloff>media/toolbar_text.png</normaloff>media/toolbar_text.png</iconset>
    </property>
    <property name="text">
     <string>Texte des icônes</string>
