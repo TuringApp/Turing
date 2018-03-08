@@ -20,7 +20,7 @@ def binomial(n, k):
 
 def genlist(*args):
 	"""Helper function. Generates a list from arguments."""
-	return args
+	return list(args)
 
 def average(*args):
 	"""Returns the average of a list."""

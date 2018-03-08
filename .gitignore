@@ -38,3 +38,7 @@ Makefile*
 CMakeLists.txt.user*
 
 __pycache__
+
+src/ui_about\.pyc
+
+src/ui_mainwindow\.pyc
