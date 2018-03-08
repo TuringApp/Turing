@@ -12,6 +12,7 @@ def error(msg):
 class Evaluator:
 	variables = None
 	functions = None
+	arguments = None
 
 	def round_ex(num, prec=None):
 		if prec:
@@ -83,6 +84,7 @@ class Evaluator:
 			"max": max,
 			"min": min
 		}
+		self.arguments = []
 
 	def evaluate(self, expr):
 		par = Parser(expr)
@@ -91,17 +93,20 @@ class Evaluator:
 
 	def evalNode(self, node):
 		val = self.evalNodeReal(node)
-		if val:
+		if val and isnum(val):
 			val = round(val, 9)
 			if isclose(val, 0):
 				val = 0
 		return val
 
 	def evalNodeReal(self, node):
-		if type(node) in [NumberNode, StringNode]:
+		if type(node) in [NumberNode, StringNode, ListNode]:
 			return node.value
 
 		if type(node) == IdentifierNode:
+			for a in self.arguments[::-1]:
+				if a[0] == node.value:
+					return a[1]
 			if node.value in self.variables:
 				return self.variables[node.value]
 			else:
@@ -121,12 +126,15 @@ class Evaluator:
 				error("Unknown function '%s'" % node.func)
 
 		if type(node) == ArrayAccessNode:
-			val = evalNode(node.array)
-			idx = evalNode(node.index)
+			val = self.evalNode(node.array)
+			idx = int(self.evalNode(node.index))
 			if idx < len(val):
-				return val[idx]
+				return self.evalNode(val[idx])
 			else:
 				error("Index '%s' too big for array" % idx)
+
+		if not isinstance(node, AstNode):
+			return node
 
 		return None
 

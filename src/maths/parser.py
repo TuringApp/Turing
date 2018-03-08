@@ -2,7 +2,7 @@
 
 class TokenType:
 	"""Token types used during the lexing process"""
-	OPERATOR, STRING, NUMBER, IDENTIFIER, COMMA, PAREN, BRACK= range(7)
+	OPERATOR, STRING, NUMBER, IDENTIFIER, COMMA, PAREN, BRACK = range(7)
 
 class Operators:
 	"""Availaboe operators"""
@@ -89,6 +89,15 @@ class IdentifierNode(AstNode):
 	"""Identifier node
 
 	value -- value (str)"""
+	value = None
+
+	def __init__(self, value):
+		self.value = value
+
+class ListNode(AstNode):
+	"""Identifier node
+
+	value -- value (list)"""
 	value = None
 
 	def __init__(self, value):
@@ -299,18 +308,27 @@ class Parser:
 		"""Parses a function call (1)."""
 		return self.parseCall(self.parseTerm())
 
-	def parseArgList(self):
+	def parseArgList(self, array = False):
 		"""Parses an argument list."""
 		ret = []
 
-		self.expect(TokenType.PAREN, "(")
+		if array:
+			ttype = TokenType.BRACK
+			topen = "["
+			tend = "]"
+		else:
+			ttype = TokenType.PAREN
+			topen = "("
+			tend = ")"
 
-		while not self.match(TokenType.PAREN, ")"):
+		self.expect(ttype, topen)
+
+		while not self.match(ttype, tend):
 			ret.append(self.parseExpr())
 			if not self.accept(TokenType.COMMA):
 				break
 
-		self.expect(TokenType.PAREN, ")")
+		self.expect(ttype, tend)
 
 		return ret
 
@@ -318,18 +336,18 @@ class Parser:
 		"""Parses an indexer expression."""
 		self.expect(TokenType.BRACK, "[")
 
-		expr = parseExpr(self)
+		expr = self.parseExpr()
 
 		self.expect(TokenType.BRACK, "]")
 
-		return ret
+		return expr
 
 	def parseCall(self, left):
 		"""Parses a function call (2)."""
 		if type(left) == IdentifierNode and self.match(TokenType.PAREN, "("):
-			return CallNode(left.value, self.parseArgList())
+			return self.parseCall(CallNode(left.value, self.parseArgList()))
 		elif self.match(TokenType.BRACK, "["):
-			return ArrayAccessNode(left, self.parseIndexer())
+			return self.parseCall(ArrayAccessNode(left, self.parseIndexer()))
 		else:
 			return left
 
@@ -340,6 +358,9 @@ class Parser:
 		elif self.accept(TokenType.PAREN, "("):
 			stmt = self.parseExpr()
 			self.expect(TokenType.PAREN, ")")
+			return stmt
+		elif self.match(TokenType.BRACK, "["):
+			stmt = ListNode(self.parseArgList(True))
 			return stmt
 		elif self.match(TokenType.STRING):
 			return StringNode(self.nextToken()[1])
