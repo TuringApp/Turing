@@ -29,3 +29,16 @@ def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
 def isnum(a):
     """Checks if the specified Python object is a number (int, float, long, etc)."""
     return isinstance(a, numbers.Number)
+
+def isint(a):
+    """Checks if the specified float is integral."""
+    if not isnum(a) or abs(a) == float("inf"):
+        return False
+
+    return isclose(a, round(a))
+
+def properstr(a):
+    """Converts the specified float to string, removing comma if the number is integral."""
+    if isint(a) and not isinstance(a, bool):
+        return str(round(a))
+    return str(a)

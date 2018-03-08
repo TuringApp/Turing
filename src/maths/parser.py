@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
 
 import maths.nodes as nodes
+from util.log import Logger
+from util.math import properstr
 
 class TokenType:
 	"""Token types used during the lexing process"""
 	OPERATOR, STRING, NUMBER, IDENTIFIER, COMMA, PAREN, BRACK, BRACE = range(8)
+
+	def getName(type):
+		for n, v in TokenType.__dict__.items():
+			if v == type:
+				return n
 
 class Operators:
 	"""Availaboe operators"""
@@ -19,6 +26,7 @@ class Parser:
 	expression = None
 	tokens = None
 	idx = None
+	log = None
 
 	def __init__(self, expr):
 		"""Initializes the Parser instance.
@@ -27,6 +35,7 @@ class Parser:
 		self.expression = expr
 		self.tokens = []
 		self.idx = 0
+		self.log = Logger("Parser")
 		self.fix_mul()
 
 	def fix_mul(self):
@@ -37,9 +46,20 @@ class Parser:
 			if self.expression[i - 1].isdigit() and self.expression[i].isalpha():
 				self.expression = self.expression[:i] + "*" + self.expression[i:]
 
-	def error(msg, dat=None):
-		"""Quick-and-dirty logger. Remove this in production."""
-		print("parser: " + msg)
+	def fix_mul_tok(self):
+		res = []
+
+		ptok = (None, None)
+
+		for tok in self.tokens:
+			if ptok[0] == TokenType.NUMBER and tok[0] == TokenType.IDENTIFIER:
+				res.append((TokenType.OPERATOR, "*"))
+
+			res.append(tok)
+
+			ptok = tok
+
+		self.tokens = res
 
 	def nextToken(self):
 		"""Reads the next token and advances the position."""
@@ -48,6 +68,9 @@ class Parser:
 
 	def peekToken(self):
 		"""Reads the next token without affecting position."""
+		if not self.canRead():
+			return None
+
 		return self.tokens[self.idx]
 
 	def match(self, tokType, value=None):
@@ -69,7 +92,7 @@ class Parser:
 	def expect(self, opType, value=None):
 		"""Asserts the next token is of the specified type and (optional) value. Explodes otherwise."""
 		if not self.match(opType, value):
-			print("'%s' attendu" % value)
+			self.log.error("Expected token (%s) '%s'" % (TokenType.getName(opType), value))
 			return None
 
 		return self.nextToken()
@@ -81,7 +104,7 @@ class Parser:
 	def tokenize(self):
 		"""Converts the expression string into a linear list of tokens."""
 		import re
-		regex = re.compile(r'(\+|-|\*|/|%|\^|==|!=|<=|<|>|>=|\(|\)|\[|\]|\{|\}|\bET\b|\bOU\b|\bXOR\b|\bNON\b|&|\||,)')
+		regex = re.compile(r'(\+|-|\*|/|%|\^|==|!=|<=|<|>|>=|\(|\)|\[|\]|\{|\}|\bET\b|\bOU\b|\bXOR\b|\bNON\b|&|\||,| )', re.IGNORECASE)
 		tok = [x.strip() for x in regex.split(self.expression) if x.strip()]
 
 		for token in tok:
@@ -107,6 +130,8 @@ class Parser:
 							self.tokens.append((TokenType.IDENTIFIER, token))
 						else:
 							self.tokens.append((None, token))
+
+		self.fix_mul_tok()
 
 	def peekOp(self, expected):
 		"""Checks if any of the specified operators are to be found."""
@@ -300,5 +325,32 @@ class Parser:
 		elif self.match(TokenType.IDENTIFIER):
 			return nodes.IdentifierNode(self.nextToken()[1])
 		else:
-			error("pk tu fais ça")
+			if not self.canRead():
+				self.log.error("Unexpected EOL")
+			else:
+				self.log.error("Unexpected token (%s) '%s'" % (TokenType.getName(self.peekToken()[0]), self.peekToken()[1]))
 			return None
+
+	def beautify(self):
+		"""Beautifies the expression (adds spaces between operators)."""
+		ret = ""
+
+		prev2 = None
+		prev1 = None
+
+		for typ, val in self.tokens:		
+			if ret and typ in [TokenType.COMMA, TokenType.PAREN, TokenType.BRACK, TokenType.BRACE] and ret[-1] == " " and ((not prev1) or (prev1[0] in [TokenType.NUMBER, TokenType.OPERATOR, TokenType.IDENTIFIER])):
+				ret = ret[:-1]
+
+			if typ == TokenType.NUMBER:
+				ret += properstr(val)
+			else:
+				ret += str(val)
+
+			if typ in [TokenType.NUMBER, TokenType.OPERATOR, TokenType.COMMA, TokenType.IDENTIFIER]:
+				ret += " "	
+
+			prev2 = prev1
+			prev1 = (typ, val)
+
+		return ret.strip()

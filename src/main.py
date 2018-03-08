@@ -15,7 +15,7 @@ def getThemedBox():
     msg = QMessageBox()
     msg.setWindowTitle("Turing")
     msg.setStyle(DEFAULT_STYLE)
-    msg.setWindowIcon(QIcon("media/icon.png"))
+    msg.setWindowIcon(QIcon("media/icon_16.png"))
     center_widget(msg, window)
     return msg
 
@@ -33,6 +33,7 @@ class myMainWindow(QMainWindow):
         event.ignore()
         if msg.exec_() == QMessageBox.Yes:
             event.accept()
+            exit()
 
 def center_widget(wgt, host):
     if not host:
@@ -66,6 +67,9 @@ def refresh_buttons_status():
     ]:
         getact(c).setEnabled(active_code)
 
+def handler_Calculator():
+    import calculator
+    calculator.run()
 
 def handler_AboutTuring():
     about = QDialog()
