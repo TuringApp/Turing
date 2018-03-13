@@ -30,6 +30,10 @@ def isnum(a):
     """Checks if the specified Python object is a number (int, float, long, etc)."""
     return isinstance(a, numbers.Number)
 
+def isbool(a):
+    """Checks if the specified Python object is a boolean."""
+    return type(a) == bool
+
 def isint(a):
     """Checks if the specified float is integral."""
     if not isnum(a) or abs(a) == float("inf"):
@@ -37,8 +41,13 @@ def isint(a):
 
     return isclose(a, round(a))
 
+def ispropnum(a):
+    return isnum(a) and not isbool(a)
+
 def properstr(a):
     """Converts the specified float to string, removing comma if the number is integral."""
-    if isint(a) and not isinstance(a, bool):
+    if isbool(a):
+        return "VRAI" if a else "FALSE"
+    if isint(a):
         return str(round(a))
     return str(a)

@@ -2,19 +2,39 @@
 
 import maths.nodes as nodes
 from util.log import Logger
-from util.math import properstr
+from util.math import properstr, isnum
+
+class ValueType:
+	"""Types of values"""
+	STRING, NUMBER, BOOLEAN = range(3)
+
+	Names = ["STRING", "NUMBER", "BOOLEAN"]
+
+	def getType(obj):
+		if type(obj) == str:
+			return ValueType.STRING
+
+		if type(obj) == bool:
+			return ValueType.BOOLEAN
+
+		if isnum(obj):
+			return ValueType.NUMBER
+
+		return None
 
 class TokenType:
 	"""Token types used during the lexing process"""
-	OPERATOR, STRING, NUMBER, IDENTIFIER, COMMA, PAREN, BRACK, BRACE = range(8)
+	OPERATOR, STRING, NUMBER, BOOLEAN, IDENTIFIER, COMMA, PAREN, BRACK, BRACE = range(9)
 
-	Term = [NUMBER, IDENTIFIER, STRING]
+	Term = [NUMBER, BOOLEAN, IDENTIFIER, STRING]
 	InBetween = [OPERATOR, COMMA]
 	SpaceAfter = [COMMA, PAREN, BRACK, BRACE]
 	SpaceBefore = Term + InBetween
 	UnaryVal = ["+", "-"]
 	Opening = ["(", "[", "{"]
 	Closing = [")", "]", "}"]
+	TrueVal = ["TRUE", "VRAI"]
+	FalseVal = ["FALSE", "FAUX"]
 
 	def getName(type):
 		for n, v in TokenType.__dict__.items():
@@ -22,11 +42,13 @@ class TokenType:
 				return n
 
 class Operators:
-	"""Availaboe operators"""
-	math = ["+", "-", "*", "/", "%", "^", "&", "|", "XOR"]       # Mathematical (numeric) operators
-	comp = ["==", "!=", "<=", "<", ">", ">="]                    # Relational (comparison) operators
-	boolean = ["ET", "OU", "NON"]                                # Boolean operators
-	ops = math + comp + boolean                                  # All operators
+	"""Available operators"""
+	math = ["+", "-", "*", "/", "%", "^", "&", "|", "ET", "OU", "XOR"]  # Mathematical (numeric) operators
+	eq = ["==", "!="]                                                   # Basic comparison operators
+	rel = ["<=", "<", ">", ">="]                                        # Relational operators
+	comp = eq + rel                                                     # Comparison operators
+	boolean = ["ET", "OU", "NON", "==", "!=", "&", "|", "XOR"]          # Boolean operators
+	ops = list(set(math + comp + boolean))                              # All operators
 
 class Parser:
 	"""Main parser class. Transforms a string into an AST tree."""
@@ -112,12 +134,16 @@ class Parser:
 	def tokenize(self):
 		"""Converts the expression string into a linear list of tokens."""
 		import re
-		regex = re.compile(r'(\+|-|\*|/|%|\^|==|!=|<=|<|>|>=|\(|\)|\[|\]|\{|\}|\bET\b|\bOU\b|\bXOR\b|\bNON\b|&|\||,| )', re.IGNORECASE)
+		regex = re.compile(r'(\+|-|\*|/|%|\^|==|!=|<=|<|>|>=|\(|\)|\[|\]|\{|\}|\bET\b|\bOU\b|\bXOR\b|\bNON\b|\bVRAI\b|\bFAUX\b|\bTRUE\b|\bFALSE\b|&|\||,| )', re.IGNORECASE)
 		tok = [x.strip() for x in regex.split(self.expression) if x.strip()]
 
 		for token in tok:
 			if token.upper() in Operators.ops:
 				self.tokens.append((TokenType.OPERATOR, token.upper()))
+			elif token.upper() in TokenType.TrueVal:
+				self.tokens.append((TokenType.BOOLEAN, True))
+			elif token.upper() in TokenType.FalseVal:
+				self.tokens.append((TokenType.BOOLEAN, False))
 			elif token == ",":
 				self.tokens.append((TokenType.COMMA, ","))
 			elif token in ["(", ")"]:
@@ -315,6 +341,8 @@ class Parser:
 		"""Parses an atomic term."""
 		if self.match(TokenType.NUMBER):
 			return nodes.NumberNode(float(self.nextToken()[1]))
+		elif self.match(TokenType.BOOLEAN):
+			return nodes.NumberNode(bool(self.nextToken()[1]))
 		elif self.accept(TokenType.PAREN, "("):
 			stmt = self.parseExpr()
 			self.expect(TokenType.PAREN, ")")
@@ -347,49 +375,26 @@ class Parser:
 		prev1 = None
 
 		for typ, val in self.tokens:
+			# remove space between operator and term only if operator is unary
 			if typ in TokenType.Term and (prev1 and (prev1[1] in TokenType.UnaryVal) and ((not prev2) or (prev2[1] in TokenType.Opening))):
 				ret = ret[:-1]
 
+			# add space before operator only if after term or closing
 			if typ == TokenType.OPERATOR and ((not prev1) or (prev1[1] not in TokenType.Opening)):
 				ret += " "
 
-			if typ == TokenType.NUMBER:
+			# token
+			if typ in [TokenType.NUMBER, TokenType.BOOLEAN]:
 				ret += properstr(val)
 			else:
 				ret += str(val)
 
+			# comma is always followed by
 			if typ == TokenType.COMMA:
 				ret += " "
 
 			if typ == TokenType.OPERATOR:
 				ret += " "
-
-			prev2 = prev1
-			prev1 = (typ, val)
-
-		return ret.strip()
-
-	def beautify2(self):
-		"""Beautifies the expression (adds spaces between operators)."""
-		ret = ""
-
-		prev2 = None
-		prev1 = None
-
-		for typ, val in self.tokens:		
-			if ret and typ in TokenType.SpaceAfter and typ and ret[-1] == " " and ((not prev1) or (prev1[0] in TokenType.SpaceBefore)):
-				ret = ret[:-1]
-
-			if ret and typ in [TokenType.OPERATOR] and val not in TokenType.UnaryVal and ret[:-1] != " " and (prev1 and (prev1[0] in TokenType.SpaceAfter)):
-				ret += " "
-
-			if typ == TokenType.NUMBER:
-				ret += properstr(val)
-			else:
-				ret += str(val)
-
-			if typ in TokenType.SpaceBefore + [TokenType.COMMA]:
-				ret += " "	
 
 			prev2 = prev1
 			prev1 = (typ, val)

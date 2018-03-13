@@ -3,7 +3,7 @@
 from maths.parser import *
 import math
 import random
-from util.math import isclose, isnum
+from util.math import isclose, isnum, isbool, ispropnum
 import maths.lib as mlib
 import maths.nodes as nodes
 from util.log import Logger
@@ -14,13 +14,14 @@ class Evaluator:
 	arguments = None
 	log = None
 	beautified = None
+	strictType = False
 
 	def round_ex(num, prec=None):
 		if prec:
 			return round(num, int(prec))
 		return round(num)
 
-	def __init__(self):
+	def __init__(self, strict = False):
 		self.variables = {
 			"pi": math.pi,
 			"e": math.e,
@@ -83,6 +84,7 @@ class Evaluator:
 		}
 		self.arguments = []
 		self.log = Logger("Eval")
+		self.strictType = strict
 
 	def evaluate(self, expr):
 		par = Parser(expr)
@@ -182,38 +184,74 @@ class Evaluator:
 	def evalUnary(self, node):
 		val = self.evalNode(node.value)
 
-		if node.opType == "-":
+		if node.opType == "-" and (isnum(val) and (not self.strictType or not isbool(val))):
 			return -val
 
-		if node.opType == "NON":
+		if node.opType == "NON" and (isbool(val) or (not self.strictType and isnum(val))):
 			return not val
 
 		self.log.error("Invalid unary operator '%s'" % node.opType)
 
 	def evalBinary(self, node):
 		left = self.evalNode(node.left)
+		ltype = ValueType.getType(left)
 		right = self.evalNode(node.right)
+		rtype = ValueType.getType(right)
 
 		if left == None or right == None:
 			self.log.error("Trying to use None")
 			return None
 
-		if node.opType == "+": return left + right
-		if node.opType == "-": return left - right
-		if node.opType == "*": return left * right
-		if node.opType == "/": return float("inf") if isclose(right, 0) else left / right
-		if node.opType == "%": return math.fmod(left, right)
-		if node.opType == "^": return left ** right
+		ret = None
+		allowed = Operators.ops
 
-		if node.opType == "==": return isclose(left, right)
-		if node.opType == "!=": return not isclose(left, right)
-		if node.opType == "<=": return left <= right or isclose(left, right)
-		if node.opType == "< ": return left <  right
-		if node.opType == "> ": return left >  right
-		if node.opType == ">=": return left >= right or isclose(left, right)
+		if self.strictType:
+			if ltype != rtype:
+				self.log.error("Type mismatch: operands have different type (%s and %s)" % (ValueType.Names[ltype], ValueTypes.Names[rtype]))
+				return None
 
-		if node.opType == "&": return int(left) & int(right)
-		if node.opType == "|": return int(left) | int(right)
-		if node.opType == "XOR": return int(left) ^ int(right)
+			if ltype == ValueType.BOOLEAN:
+				allowed = Operators.boolean
+			elif ltype == ValueType.NUMBER:
+				allowed = Operators.math + Operators.comp
+			elif ltype == ValueType.STRING:
+				allowed = Operators.eq
+			else:
+				errpos = []
+				if ltype == None:
+					errpos.append("left")
+				if rtype == None:
+					errpos.append("right")
 
-		self.log.error("Invalid binary operator '%s'" % node.opType)
+				self.log.error("Invalid value type for %s and operator '%s'" % (" and ".join(errpos), node.opType))
+				return None
+
+			if node.opType not in allowed:
+				self.log.error("Operator '%s' not allowed for value type %s" % (node.opType, ValueType.Names[ltype]))
+				return None
+
+		if node.opType == "+": ret = left + right
+		elif node.opType == "-": ret = left - right
+		elif node.opType == "*": ret = left * right
+		elif node.opType == "/": ret = float("inf") if isclose(right, 0) else left / right
+		elif node.opType == "%": ret = math.fmod(left, right)
+		elif node.opType == "^": ret = left ** right
+
+		elif node.opType == "<=": ret = left <= right or isclose(left, right)
+		elif node.opType == "< ": ret = left <  right
+		elif node.opType == "> ": ret = left >  right
+		elif node.opType == ">=": ret = left >= right or isclose(left, right)
+
+		elif node.opType == "==": ret = isclose(left, right)
+		elif node.opType == "!=": ret = not isclose(left, right)
+		elif node.opType == "&": ret = int(left) & int(right)
+		elif node.opType == "|": ret = int(left) | int(right)
+		elif node.opType == "XOR": ret = int(left) ^ int(right)
+
+		if ret == None:
+			self.log.error("Invalid binary operator '%s'" % node.opType)
+		else:
+			if isbool(left) and isbool(right):
+				ret = bool(ret)
+
+		return ret
