@@ -3,14 +3,19 @@
 import maths.nodes as nodes
 from util.log import Logger
 from util.math import properstr, isnum
+import types
 
 class ValueType:
 	"""Types of values"""
-	STRING, NUMBER, BOOLEAN = range(3)
-
-	Names = ["STRING", "NUMBER", "BOOLEAN"]
+	STRING, NUMBER, BOOLEAN, LIST, FUNCTION = range(5)
 
 	def getType(obj):
+		if type(obj) == list:
+			return ValueType.LIST
+
+		if type(obj) == types.FunctionType:
+			return ValueType.FUNCTION
+
 		if type(obj) == str:
 			return ValueType.STRING
 
@@ -21,6 +26,11 @@ class ValueType:
 			return ValueType.NUMBER
 
 		return None
+
+	def getName(type):
+		for n, v in ValueType.__dict__.items():
+			if v == type:
+				return n
 
 class TokenType:
 	"""Token types used during the lexing process"""

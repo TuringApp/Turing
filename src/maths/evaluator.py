@@ -183,9 +183,13 @@ class Evaluator:
 
 	def evalUnary(self, node):
 		val = self.evalNode(node.value)
+		vtype = ValueType.getType(val)
 
 		if node.opType == "-" and (isnum(val) and (not self.strictType or not isbool(val))):
 			return -val
+
+		if node.opType == "-" and vtype == ValueType.LIST:
+			return val[::-1]
 
 		if node.opType == "NON" and (isbool(val) or (not self.strictType and isnum(val))):
 			return not val
@@ -202,12 +206,15 @@ class Evaluator:
 			self.log.error("Trying to use None")
 			return None
 
+		if rtype == ValueType.LIST and ltype != ValueType.LIST:
+			(left, ltype, right, rtype) = (right, rtype, left, ltype)
+
 		ret = None
 		allowed = Operators.ops
 
 		if self.strictType:
 			if ltype != rtype:
-				self.log.error("Type mismatch: operands have different type (%s and %s)" % (ValueType.Names[ltype], ValueTypes.Names[rtype]))
+				self.log.error("Type mismatch: operands have different type (%s and %s)" % (ValueType.getName(ltype), ValueType.getName(rtype)))
 				return None
 
 			if ltype == ValueType.BOOLEAN:
@@ -216,6 +223,8 @@ class Evaluator:
 				allowed = Operators.math + Operators.comp
 			elif ltype == ValueType.STRING:
 				allowed = Operators.eq + ["+"]
+			elif ltype == ValueType.LIST:
+				allowed = Operators.eq + ["+", "-", "&", "|"]
 			else:
 				errpos = []
 				if ltype == None:
@@ -227,11 +236,15 @@ class Evaluator:
 				return None
 
 			if node.opType not in allowed:
-				self.log.error("Operator '%s' not allowed for value type %s" % (node.opType, ValueType.Names[ltype]))
+				self.log.error("Operator '%s' not allowed for value type %s" % (node.opType, ValueType.getName(ltype)))
 				return None
 
 		if node.opType == "+": ret = left + right
-		elif node.opType == "-": ret = left - right
+		elif node.opType == "-": 
+			if ltype == rtype == ValueType.LIST:
+				ret = [x for x in left if x not in right]
+			else:
+				ret = left - right
 		elif node.opType == "*": ret = left * right
 		elif node.opType == "/": ret = float("inf") if isclose(right, 0) else left / right
 		elif node.opType == "%": ret = math.fmod(left, right)
@@ -244,9 +257,21 @@ class Evaluator:
 
 		elif node.opType == "==": ret = isclose(left, right)
 		elif node.opType == "!=": ret = not isclose(left, right)
-		elif node.opType == "&": ret = int(left) & int(right)
-		elif node.opType == "|": ret = int(left) | int(right)
-		elif node.opType == "XOR": ret = int(left) ^ int(right)
+		elif node.opType == "&":
+			if ltype == rtype == ValueType.LIST:
+				ret = [x for x in left if x in right]
+			else:
+				ret = int(left) & int(right)
+		elif node.opType == "|":
+			if ltype == rtype == ValueType.LIST:
+				ret = list(set(left + right))
+			else:
+				ret = int(left) | int(right)
+		elif node.opType == "XOR":
+			if ltype == rtype == ValueType.LIST:
+				ret = list(set(x for x in left + right if x not in left or x not in right))
+			else:
+				ret = int(left) ^ int(right)
 
 		if ret == None:
 			self.log.error("Invalid binary operator '%s'" % node.opType)
