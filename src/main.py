@@ -8,7 +8,7 @@ from ui_about import Ui_AboutWindow
 import sys
 import os
 
-__version__ = "β-0.1"
+__version__ = "β-0.2"
 __channel__ = "beta"
 
 def getThemedBox():
