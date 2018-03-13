@@ -26,3 +26,5 @@ for folder in os.listdir(srcpath):
 			begin_test(folder)		
 			importlib.import_module(folder + ".__tests__").run_tests()
 			end_test(folder)
+
+show_summary()

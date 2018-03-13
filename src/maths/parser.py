@@ -8,6 +8,14 @@ class TokenType:
 	"""Token types used during the lexing process"""
 	OPERATOR, STRING, NUMBER, IDENTIFIER, COMMA, PAREN, BRACK, BRACE = range(8)
 
+	Term = [NUMBER, IDENTIFIER, STRING]
+	InBetween = [OPERATOR, COMMA]
+	SpaceAfter = [COMMA, PAREN, BRACK, BRACE]
+	SpaceBefore = Term + InBetween
+	UnaryVal = ["+", "-"]
+	Opening = ["(", "[", "{"]
+	Closing = [")", "]", "}"]
+
 	def getName(type):
 		for n, v in TokenType.__dict__.items():
 			if v == type:
@@ -338,16 +346,49 @@ class Parser:
 		prev2 = None
 		prev1 = None
 
-		for typ, val in self.tokens:		
-			if ret and typ in [TokenType.COMMA, TokenType.PAREN, TokenType.BRACK, TokenType.BRACE] and ret[-1] == " " and ((not prev1) or (prev1[0] in [TokenType.NUMBER, TokenType.OPERATOR, TokenType.IDENTIFIER])):
+		for typ, val in self.tokens:
+			if typ in TokenType.Term and (prev1 and (prev1[1] in TokenType.UnaryVal) and ((not prev2) or (prev2[1] in TokenType.Opening))):
 				ret = ret[:-1]
+
+			if typ == TokenType.OPERATOR and ((not prev1) or (prev1[1] not in TokenType.Opening)):
+				ret += " "
 
 			if typ == TokenType.NUMBER:
 				ret += properstr(val)
 			else:
 				ret += str(val)
 
-			if typ in [TokenType.NUMBER, TokenType.OPERATOR, TokenType.COMMA, TokenType.IDENTIFIER]:
+			if typ == TokenType.COMMA:
+				ret += " "
+
+			if typ == TokenType.OPERATOR:
+				ret += " "
+
+			prev2 = prev1
+			prev1 = (typ, val)
+
+		return ret.strip()
+
+	def beautify2(self):
+		"""Beautifies the expression (adds spaces between operators)."""
+		ret = ""
+
+		prev2 = None
+		prev1 = None
+
+		for typ, val in self.tokens:		
+			if ret and typ in TokenType.SpaceAfter and typ and ret[-1] == " " and ((not prev1) or (prev1[0] in TokenType.SpaceBefore)):
+				ret = ret[:-1]
+
+			if ret and typ in [TokenType.OPERATOR] and val not in TokenType.UnaryVal and ret[:-1] != " " and (prev1 and (prev1[0] in TokenType.SpaceAfter)):
+				ret += " "
+
+			if typ == TokenType.NUMBER:
+				ret += properstr(val)
+			else:
+				ret += str(val)
+
+			if typ in TokenType.SpaceBefore + [TokenType.COMMA]:
 				ret += " "	
 
 			prev2 = prev1

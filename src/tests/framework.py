@@ -14,7 +14,7 @@ def begin_test(name):
 
 	name -- Identifier for the component"""
 	test_stack.append(name)
-	print("[STAT] Beginning tests for: %s" % name)
+	print("[STAT] Beginning tests for '%s'" % name)
 
 def end_test(name):
 	"""Ends testing for the specified environment.
@@ -25,9 +25,12 @@ def end_test(name):
 
 	test_stack.pop()
 
-	test_results.append((name, current_results))
+	test_results.append((name, list(current_results)))
+	n_total = len(current_results)
+	n_passed = sum(1 for x in current_results if x[0])
+	n_failed = n_total - n_passed
+	print("[STAT] Ending tests for '%s' - [%d passed, %d failed] / %d total" % (name, n_passed, n_failed, n_total))
 	current_results.clear()
-	print("[STAT] Ending tests for: %s" % name)
 
 def expect(x, expec, info = ""):
 	"""Standard unit testing function. Asserts that two values are equal.
@@ -50,3 +53,11 @@ def expect(x, expec, info = ""):
 	print("[TEST] #%02d : %s %s%s" % (len(current_results) + 1, stat, msg, " | " + info if info else ""))
 
 	current_results.append((val, x, expec, info))
+
+def show_summary():
+	"""Shows the summary of all tests, shows stats for each test group."""
+	for grp, res in test_results:
+		n_total = len(res)
+		n_passed = sum(1 for x in res if x[0])
+		n_failed = n_total - n_passed
+		print("[STAT] Results for '%s' : %d%% [%d passed, %d failed] / %d total" % (grp, n_passed / n_total * 100, n_passed, n_failed, n_total))
