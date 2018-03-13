@@ -11,6 +11,11 @@ import os
 __version__ = "β-0.2"
 __channel__ = "beta"
 
+undo_objs = []
+
+current_file = -1
+
+
 def getThemedBox():
     msg = QMessageBox()
     msg.setWindowTitle("Turing")
@@ -66,6 +71,10 @@ def refresh_buttons_status():
         "ConvertToPseudocode"
     ]:
         getact(c).setEnabled(active_code)
+        
+    if currentFile != -1:
+        getact("Undo").setEnabled(undo_objs[currentFile].can_undo())
+        getact("Redo").setEnabled(undo_objs[currentFile].can_redo())
 
 def handler_Calculator():
     import calculator

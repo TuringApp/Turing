@@ -386,6 +386,8 @@ class Parser:
 			# token
 			if typ in [TokenType.NUMBER, TokenType.BOOLEAN]:
 				ret += properstr(val)
+			elif typ == TokenType.STRING:
+				ret += '"' + str(val) + '"'
 			else:
 				ret += str(val)
 

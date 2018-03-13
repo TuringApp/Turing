@@ -38,7 +38,8 @@ tests = [
     ("[42,{x,y,z}(x*abs({x, y}(x - y)(y, z))),38][1](4,3,5)", 8, "[42, {x, y, z}(x * abs({x, y}(x - y)(y, z))), 38][1](4, 3, 5)"),
 
     ("(2+2)==4", True, "(2 + 2) == 4"),
-    ("vrai xor true", False, "VRAI XOR VRAI")
+    ("vrai xor true", False, "VRAI XOR VRAI"),
+    ("\"abc\"+\"def\"", "abcdef", "\"abc\" + \"def\"")
 ]
 
 def run_tests():

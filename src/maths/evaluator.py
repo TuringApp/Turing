@@ -215,7 +215,7 @@ class Evaluator:
 			elif ltype == ValueType.NUMBER:
 				allowed = Operators.math + Operators.comp
 			elif ltype == ValueType.STRING:
-				allowed = Operators.eq
+				allowed = Operators.eq + ["+"]
 			else:
 				errpos = []
 				if ltype == None:
