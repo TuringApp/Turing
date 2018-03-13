@@ -26,3 +26,7 @@ The available operators are:
 | `&` / `ET` | Boolean/bitwise AND | Number, Boolean |
 | <code>&#124;</code> / `OU` | Boolean/bitwise OR | Number, Boolean |
 | `XOR` | Boolean/bitwise XOR | Number, Boolean |
+
+The numbers and booleans are treated the same way as in **plain Python**. In other words, booleans can be treated as numbers (`False` becomes 0 and `True` becomes 1), and numbers can be treated as booleans (0 becomes `False` and everything else becomes `True).
+
+If **strict mode** is enabled, operators can only be used with operands of **identical type**, and **implicit number-boolean casts** are disabled. The `bool` and `int` functions can then be used for that purpose.
