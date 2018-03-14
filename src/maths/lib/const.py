@@ -22,6 +22,7 @@ c_planck_time = 5.3911413e-44
 c_planck_temp = 1.41680833e32
 c_planck_mass = 2.17647051e-8
 c_planck_length = 1.61622938e-35
+c_planck_charge = 1.8755459e-18
 
 c_gravity = 6.6740831e-11
 

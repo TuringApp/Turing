@@ -16,7 +16,10 @@ def abs(x):
 def sqrt(x):
 	return math.sqrt(x)
 
-racine = sqrt
+rac = sqrt
+
+def root(x, n):
+	return math.pow(x, 1 / n)
 
 def pow(x):
 	return math.pow(x)
@@ -47,3 +50,8 @@ def sign(x):
 	if x > 0:
 		return 1
 	return 0
+
+def gcd(a, b):
+	return math.gcd
+
+pgcd = gcd
