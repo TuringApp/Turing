@@ -21,7 +21,7 @@ class Evaluator:
 			return round(num, int(prec))
 		return round(num)
 
-	def __init__(self, strict = False):
+	def __init__(self, strict=False):
 		self.variables = {
 			"pi": math.pi,
 			"e": math.e,
@@ -57,8 +57,8 @@ class Evaluator:
 			"abs": math.fabs,
 			"floor": math.floor,
 			"ceil": math.ceil,
-			"round": mlib.round,
-            "arrondi": mlib.round,
+			"round": mlib.basic.round,
+            "arrondi": mlib.basic.round,
 			
 			"random": random.random,
 			"randint": random.randint,
@@ -74,13 +74,18 @@ class Evaluator:
 
 			"fact": math.factorial,
 			"gamma": math.gamma,
-			"binomial": mlib.binomial,
+			"binomial": mlib.stat.binomial,
 
-			"sum": mlib.sum,
-			"average": mlib.average,
-            "moyenne": mlib.average,
+			"sum": mlib.stat.sum,
+			"average": mlib.stat.average,
+            "moyenne": mlib.stat.average,
 			"max": max,
-			"min": min
+			"min": min,
+
+			"c_bool": mlib.cast.c_bool,
+			"c_num": mlib.cast.c_num,
+			"c_list": mlib.cast.c_list,
+			"c_str": mlib.cast.c_str
 		}
 		self.arguments = []
 		self.log = Logger("Eval")

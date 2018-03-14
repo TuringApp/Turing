@@ -130,4 +130,4 @@ Returns an ordered list of all items that are present either in A or B but not b
 
 The numbers and booleans are treated the same way as in **plain Python**. In other words, booleans can be treated as numbers (`False` becomes 0 and `True` becomes 1), and numbers can be treated as booleans (0 becomes `False` and everything else becomes `True).
 
-If **strict mode** is enabled, operators can only be used with operands of **identical type**, and **implicit number-boolean casts** are disabled. The `bool` and `num` functions can then be used for that purpose.
+If **strict mode** is enabled, operators can only be used with operands of **identical type**, and **implicit number-boolean casts** are disabled. The `c_bool` and `c_num` functions can then be used for that purpose.
