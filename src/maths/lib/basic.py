@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
+__desc__ = "Basic"
+
 import builtins
 import math
-from .docs import doc
-
-__desc__ = "Basic"
+from .docs import *
 
 doc("round", 
 	[

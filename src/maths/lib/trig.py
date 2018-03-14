@@ -1,26 +1,51 @@
 # -*- coding: utf-8 -*-
 
-import math
+__desc__ = "Trigonometry"
 
+import math
+from .docs import *
+
+doc_c("pi", "π", "Perimeter of a circle of diameter 1")
+c_pi = 3.14159265358979323846264338327950288419716939937511
+
+doc_c("tau", "τ", "Double of π")
+c_tau = 6.28318530717958647692528676655900576839433879875021
+
+doc("degrees",
+	[
+		("x", "Number")
+	],
+	"Converts angle {{x}} from radians to degrees.",
+	["deg"])
 def degrees(x):
 	return math.degrees(x)
 
 deg = degrees
 
+doc("radians",
+	[
+		("x", "Number")
+	],
+	"Converts angle {{x}} from degrees to radians.",
+	["rad"])
 def radians(x):
 	return math.radians(x)
 
 rad = radians
 
+doc("asin", [("x", "Number")], "Returns the arc sine of {{x}}.")
 def asin(x):
 	return math.asin(x)
 
+doc("acos", [("x", "Number")], "Returns the arc cosine of {{x}}.")
 def acos(x):
 	return math.acos(x)
 
+doc("atan", [("x", "Number")], "Returns the arc tangent of {{x}}.")
 def atan(x):
 	return math.atan(x)
 
+doc("atan2", [("x", "Number"), ("y", "Number")], "Returns the arc tangent of {{y}} / {{x}}.")
 def atan2(x, y):
 	return math.atan2(x, y)
 
@@ -122,3 +147,6 @@ def hacoversin(x):
 
 def hacovercos(x):
 	return covercos(x) / 2
+
+def hypot(x, y):
+	return math.hypot(x, y)

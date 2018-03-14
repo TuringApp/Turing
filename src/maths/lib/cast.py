@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from .docs import doc
-
 __desc__ = "Type conversion"
+
+from .docs import *
 
 doc("c_bool",
 	[
