@@ -156,6 +156,21 @@ The engine provides many functions that can be used with almost all value types.
 |&nbsp;|**Basic**|&nbsp;|
 |`round` / `arrondi`|<ul><li>`num` (Number)</li><li>`prec` (Integer)</li></ul>|Rounds `num` to the nearest integer / (if specified) to `prec` decimals.|
 |`abs`|<ul><li>`num` (Number)</li></ul>|Returns the absolute value of `num`.|
+|`abs` / `rac`|<ul><li>`num` (Number) >= 0</li></ul>|Returns the square root of `num`.|
+|`root`|<ul><li>`num` (Number)</li><li>`n` (Number) != 0</li></ul>|Returns the `n`-th root of `num`.|
+|`pow` / `puiss`|<ul><li>`num` (Number)</li><li>`p` (Number)</li></ul>|Returns `num` to the `p`-th power.|
+|`exp`|<ul><li>`num` (Number)</li></ul>|Returns *e* to the power of `num`.|
+|`ln`|<ul><li>`num` (Number)</li></ul>|Returns the natural (base-*e*) logarithm of `num`.|
+|`log`|<ul><li>`num` (Number)</li><li>`b` (Number) != 0, default = 10</li></ul>|Returns the base-`b` logarithm of `num`.|
+|`log10`|<ul><li>`num` (Number)</li></ul>|Returns the base-10 logarithm of `num`.|
+|`floor`|<ul><li>`num` (Number)</li></ul>|Returns the largest integer less than or equal to `num`.|
+|`ceil`|<ul><li>`num` (Number)</li></ul>|Returns the smallest integer greater than or equal to `num`.|
+|`sign`|<ul><li>`num` (Number)</li></ul>|Returns the sign of `num` (-1 if negative, 1 if positive, 0 otherwise).|
+|`gcd`|<ul><li>`a` (Integer)</li><li>`b` (Integer)</li></ul>|Returns the greatest common divisor of `a` and `b`.|
+|&nbsp;|**Type conversion**|&nbsp;|
+|&nbsp;|**Basic**|&nbsp;|
+|`round` / `arrondi`|<ul><li>`num` (Number)</li><li>`prec` (Integer)</li></ul>|Rounds `num` to the nearest integer / (if specified) to `prec` decimals.|
+|`abs`|<ul><li>`num` (Number)</li></ul>|Returns the absolute value of `num`.|
 |`sqrt` / `rac`|<ul><li>`num` (Number) >= 0</li></ul>|Returns the square root of `num`.|
 |`root`|<ul><li>`num` (Number)</li><li>`n` (Number) != 0</li></ul>|Returns the `n`-th root of `num`.|
 |`pow` / `puiss`|<ul><li>`num` (Number)</li><li>`p` (Number)</li></ul>|Returns `num` to the `p`-th power.|
