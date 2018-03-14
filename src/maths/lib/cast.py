@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from .docs import doc
+
+__desc__ = "Type conversion"
+
+doc("c_bool", [], "b")
 def c_bool(obj):
 	return bool(obj)
 
