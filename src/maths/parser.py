@@ -37,14 +37,12 @@ class TokenType:
 	OPERATOR, STRING, NUMBER, BOOLEAN, IDENTIFIER, COMMA, PAREN, BRACK, BRACE = range(9)
 
 	Term = [NUMBER, BOOLEAN, IDENTIFIER, STRING]
-	InBetween = [OPERATOR, COMMA]
-	SpaceAfter = [COMMA, PAREN, BRACK, BRACE]
-	SpaceBefore = Term + InBetween
 	UnaryVal = ["+", "-"]
 	Opening = ["(", "[", "{"]
 	Closing = [")", "]", "}"]
 	TrueVal = ["TRUE", "VRAI"]
 	FalseVal = ["FALSE", "FAUX"]
+	Block = [PAREN, BRACK, BRACE]
 
 	def getName(type):
 		for n, v in TokenType.__dict__.items():
@@ -386,7 +384,7 @@ class Parser:
 
 		for typ, val in self.tokens:
 			# remove space between operator and term only if operator is unary
-			if typ in TokenType.Term and (prev1 and (prev1[1] in TokenType.UnaryVal) and ((not prev2) or (prev2[1] in TokenType.Opening))):
+			if (typ in TokenType.Term or val in TokenType.Opening) and (prev1 and (prev1[1] in TokenType.UnaryVal) and ((not prev2) or (prev2[1] in TokenType.Opening))):
 				ret = ret[:-1]
 
 			# add space before operator only if after term or closing

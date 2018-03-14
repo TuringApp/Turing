@@ -3,7 +3,7 @@
 from maths.parser import *
 import math
 import random
-from util.math import isclose, isnum, isbool, ispropnum
+from util.math import *
 import maths.lib as mlib
 import maths.nodes as nodes
 from util.log import Logger
@@ -137,7 +137,10 @@ class Evaluator:
 		return ret
 
 	def evalNodeReal(self, node):
-		if type(node) in [nodes.NumberNode, nodes.StringNode, nodes.ListNode]:
+		if type(node) == nodes.ListNode:
+			return [self.evalNode(x) for x in node.value]
+
+		if type(node) in [nodes.NumberNode, nodes.StringNode]:
 			return node.value
 
 		if type(node) == nodes.IdentifierNode:
@@ -169,7 +172,7 @@ class Evaluator:
 			val = self.evalNode(node.array)
 			idx = int(self.evalNode(node.index))
 			if idx < len(val):
-				return self.evalNode(val[idx])
+				return val[idx]
 			else:
 				self.log.error("Index '%s' too big for array" % idx)
 
@@ -206,7 +209,7 @@ class Evaluator:
 			self.log.error("Trying to use None")
 			return None
 
-		if rtype == ValueType.LIST and ltype != ValueType.LIST:
+		if node.opType in ["*"] and rtype == ValueType.LIST and ltype != ValueType.LIST:
 			(left, ltype, right, rtype) = (right, rtype, left, ltype)
 
 		ret = None
@@ -245,7 +248,14 @@ class Evaluator:
 				ret = [x for x in left if x not in right]
 			else:
 				ret = left - right
-		elif node.opType == "*": ret = left * right
+		elif node.opType == "*": 
+			if ltype == ValueType.LIST:
+				if not isint(right):
+					self.log.error("Trying to multiply List by non-integer (%f)" % right)
+				else:
+					ret = left * int(right)
+			else:
+				ret = left * right
 		elif node.opType == "/": ret = float("inf") if isclose(right, 0) else left / right
 		elif node.opType == "%": ret = math.fmod(left, right)
 		elif node.opType == "^": ret = left ** right
