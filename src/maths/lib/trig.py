@@ -49,30 +49,39 @@ doc("atan2", [("x", "Number"), ("y", "Number")], "Returns the arc tangent of {{y
 def atan2(x, y):
 	return math.atan2(x, y)
 
+doc("asinh", [("x", "Number")], "Returns the inverse hyperbolic sine of {{x}}.")
 def asinh(x):
 	return math.asinh(x)
 
+doc("acosh", [("x", "Number")], "Returns the inverse hyperbolic cosine of {{x}}.")
 def acosh(x):
 	return math.acosh(x)
 
+doc("atanh", [("x", "Number")], "Returns the inverse hyperbolic tangent of {{x}}.")
 def atanh(x):
 	return math.atanh(x)
 
+doc("sin", [("x", "Number")], "Returns the sine of {{x}}.")
 def sin(x):
 	return math.sin(x)
 
+doc("cos", [("x", "Number")], "Returns the cosine of {{x}}.")
 def cos(x):
 	return math.cos(x)
 
+doc("tan", [("x", "Number")], "Returns the tangent of {{x}}.")
 def tan(x):
 	return math.tan(x)
 
+doc("sinh", [("x", "Number")], "Returns the hyperbolic sine of {{x}}.")
 def sinh(x):
 	return math.sinh(x)
 
+doc("cosh", [("x", "Number")], "Returns the hyperbolic cosine of {{x}}.")
 def cosh(x):
 	return math.cosh(x)
 
+doc("tanh", [("x", "Number")], "Returns the hyperbolic tangent of {{x}}.")
 def tanh(x):
 	return math.tanh(x)
 
