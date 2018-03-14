@@ -71,8 +71,8 @@ def refresh_buttons_status():
         "ConvertToPseudocode"
     ]:
         getact(c).setEnabled(active_code)
-        
-    if currentFile != -1:
+
+    if current_file != -1:
         getact("Undo").setEnabled(undo_objs[currentFile].can_undo())
         getact("Redo").setEnabled(undo_objs[currentFile].can_redo())
 
