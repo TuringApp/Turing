@@ -4,6 +4,7 @@ import maths.nodes as nodes
 from util.log import Logger
 from util.math import properstr, isnum
 import types
+import re
 
 class ValueType:
 	"""Types of values"""
@@ -141,7 +142,6 @@ class Parser:
 
 	def tokenize(self):
 		"""Converts the expression string into a linear list of tokens."""
-		import re
 		regex = re.compile(r'(\+|-|\*|/|%|\^|==|!=|<=|<|>|>=|\(|\)|\[|\]|\{|\}|\bET\b|\bOU\b|\bXOR\b|\bNON\b|\bVRAI\b|\bFAUX\b|\bTRUE\b|\bFALSE\b|&|\||,| )', re.IGNORECASE)
 		tok = [x.strip() for x in regex.split(self.expression) if x.strip()]
 
@@ -384,7 +384,7 @@ class Parser:
 
 		for typ, val in self.tokens:
 			# remove space between operator and term only if operator is unary
-			if (typ in TokenType.Term or val in TokenType.Opening) and (prev1 and (prev1[1] in TokenType.UnaryVal) and ((not prev2) or (prev2[1] in TokenType.Opening))):
+			if (typ in TokenType.Term or val in TokenType.Opening) and (prev1 and (prev1[1] in TokenType.UnaryVal) and ((not prev2) or (prev2[1] in TokenType.Opening) or (prev2[0] == TokenType.COMMA))):
 				ret = ret[:-1]
 
 			# add space before operator only if after term or closing
@@ -399,7 +399,7 @@ class Parser:
 			else:
 				ret += str(val)
 
-			# comma is always followed by
+			# comma is always followed by space
 			if typ == TokenType.COMMA:
 				ret += " "
 
@@ -409,4 +409,4 @@ class Parser:
 			prev2 = prev1
 			prev1 = (typ, val)
 
-		return ret.strip()
+		return re.sub("\s\s+", " ", ret).strip()

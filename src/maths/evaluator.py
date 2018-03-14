@@ -8,6 +8,7 @@ import maths.lib as mlib
 import maths.nodes as nodes
 from util.log import Logger
 import sys
+import types
 
 class Evaluator:
 	variables = None
@@ -22,71 +23,17 @@ class Evaluator:
 		return round(num)
 
 	def __init__(self, strict=False):
-		self.variables = {
-			"pi": math.pi,
-			"e": math.e,
+		self.variables = {}
 
-			"sqrt": math.sqrt,
-            "racine": math.sqrt,
-			"pow": math.pow,
-            "puiss": math.pow,
+		for n, mod in mlib.__dict__.items():
+			if type(mod) == types.ModuleType:
+				for fn, func in mod.__dict__.items():
+					if callable(func):
+						self.variables[fn] = func
+					else:
+						if fn.startswith("c_"):
+							self.variables[fn[2:]] = func
 
-			"cos": math.cos,
-			"sin": math.sin,
-			"tan": math.tan,
-			"acos": math.acos,
-			"asin": math.asin,
-			"atan": math.atan,
-			"atan2": math.atan2,
-
-			"cosh": math.cosh,
-			"sinh": math.sinh,
-			"tanh": math.tanh,
-			"acosh": math.acosh,
-			"asinh": math.asinh,
-			"atanh": math.atanh,
-
-			"deg": math.degrees,
-			"rad": math.radians,
-
-			"exp": math.exp,
-			"ln": math.log,
-			"log": math.log,
-			"log10": math.log10,
-
-			"abs": math.fabs,
-			"floor": math.floor,
-			"ceil": math.ceil,
-			"round": mlib.basic.round,
-            "arrondi": mlib.basic.round,
-			
-			"random": random.random,
-			"randint": random.randint,
-			"uniform": random.uniform,
-			"distrib_beta": random.betavariate,
-			"distrib_expo": random.expovariate,
-			"distrib_gamma": random.gammavariate,
-			"distrib_gauss": random.gauss,
-			"distrib_lognorm": random.lognormvariate,
-			"distrib_normal": random.normalvariate,
-			"distrib_pareto": random.paretovariate,
-			"distrib_weibull": random.weibullvariate,
-
-			"fact": math.factorial,
-			"gamma": math.gamma,
-			"binomial": mlib.stat.binomial,
-
-			"sum": mlib.stat.sum,
-			"average": mlib.stat.average,
-            "moyenne": mlib.stat.average,
-			"max": max,
-			"min": min,
-
-			"c_bool": mlib.cast.c_bool,
-			"c_num": mlib.cast.c_num,
-			"c_list": mlib.cast.c_list,
-			"c_str": mlib.cast.c_str
-		}
 		self.arguments = []
 		self.log = Logger("Eval")
 		self.strictType = strict
@@ -165,13 +112,10 @@ class Evaluator:
 
 		if type(node) == nodes.CallNode:
 			fn = self.evalNode(node.func)
+			if fn == None:
+				return None
 			args = [self.evalNode(x) for x in node.args]
 			return fn.__call__(*args)
-			if node.func in self.functions:
-				args = [self.evalNode(x) for x in node.args]
-				return self.functions[node.func](*args)
-			else:
-				self.log.error("Unknown function '%s'" % node.func)
 
 		if type(node) == nodes.ArrayAccessNode:
 			val = self.evalNode(node.array)
@@ -266,8 +210,8 @@ class Evaluator:
 		elif node.opType == "^": ret = left ** right
 
 		elif node.opType == "<=": ret = left <= right or isclose(left, right)
-		elif node.opType == "< ": ret = left <  right
-		elif node.opType == "> ": ret = left >  right
+		elif node.opType == "<":  ret = left <  right
+		elif node.opType == ">":  ret = left >  right
 		elif node.opType == ">=": ret = left >= right or isclose(left, right)
 
 		elif node.opType == "==": ret = isclose(left, right)
@@ -289,7 +233,7 @@ class Evaluator:
 				ret = int(left) ^ int(right)
 
 		if ret == None:
-			self.log.error("Invalid binary operator '%s'" % node.opType)
+			self.log.error("Invalid binary operator '%s' for '%s' and '%s'" % (node.opType, left ,right))
 		else:
 			if isbool(left) and isbool(right):
 				ret = bool(ret)
