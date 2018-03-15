@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>348</width>
-    <height>407</height>
+    <width>671</width>
+    <height>601</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,40 +34,40 @@
        <widget class="QLineEdit" name="txtExpr"/>
       </item>
       <item>
+       <widget class="QPushButton" name="btnClear">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>media/delete.png</normaloff>media/delete.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="btnCalc">
         <property name="text">
-         <string>=</string>
+         <string>CALCULEUH</string>
         </property>
        </widget>
       </item>
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QComboBox" name="cbxFuncs"/>
-        </item>
-        <item>
-         <widget class="QTextEdit" name="textEdit"/>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnInsFunc">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Insérer</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <widget class="QComboBox" name="cbxFuncs"/>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QListWidget" name="listWidget"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnInsFunc">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>Insérer</string>
         </property>
        </widget>
       </item>
