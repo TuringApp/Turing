@@ -21,3 +21,12 @@ def doc_c(*kwargs):
 	if mod_name not in consts:
 		consts[mod_name] = []
 	consts[mod_name].append(kwargs)
+
+def get_func_def(f):
+	args = []
+	for a in f[1]:
+		if len(a) >= 4:
+			args.append("%s=%s" % (a[0], a[3]))
+		else:
+			args.append(a[0])
+	return "%s(%s)" % (f[0], ", ".join(args))
