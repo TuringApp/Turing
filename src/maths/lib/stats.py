@@ -4,6 +4,7 @@ __desc__ = "Statistics"
 
 import builtins
 import math
+import statistics
 from .docs import *
 
 doc_c("catalan", "G", "Catalan's constant")
@@ -12,19 +13,34 @@ c_catalan = 0.91596559417721901505460351493238411077414937428167
 doc_c("glaisher", "A", "Glaisher-Kinkelin constant")
 c_glaisher = 1.28242712910062263687534256886979172776768892732500
 
-doc("average",
+doc("arithm_mean",
 	[
 		("args", "List(Number) / Number*")
 	],
 	"Returns the arithmetic mean of {{args}}.",
-	["moyenne"])
-def average(*args):
+	["moyenne", "average"])
+def arithm_mean(*args):
 	if type(args[0]) == list:
 		args = args[0]
 	
-	return builtins.sum(args) / len(args)
+	return statistics.mean(args)
 
-moyenne = average
+average = arithm_mean
+moyenne = arithm_mean
+
+doc("harmonic_mean",
+	[
+		("args", "List(Number) / Number*")
+	],
+	"Returns the harmonicc mean of {{args}}.",
+	["moyenne_harmo"])
+def harmonic_mean(*args):
+	if type(args[0]) == list:
+		args = args[0]
+	
+	return statistics.harmonic_mean(args)
+
+moyenne_harmo = harmonic_mean
 
 doc("sum",
 	[
@@ -124,3 +140,61 @@ def filter(func, lst):
 	return list(builtins.filter(func, lst))
 
 filtre = filter
+
+doc("slice",
+	[
+		("lst", "List"),
+		("start", "Integer", "0 <= start <= end <= len(lst)"),
+		("end", "Integer", "start <= end <= len(lst)", None)
+	],
+	"Returns a slice of the specified list, from index {{start}} (inclusive) to either index {{end}} (exclusive) or the end of the list.",
+	["tranche"])
+def slice(lst, start, end=None):
+	start = int(start)
+	if end != None:
+		end = int(end)
+		return lst[start:end]
+	return lst[start:]
+
+tranche = slice
+
+doc("stand_dev",
+	[
+		("lst", "List(Number)"),
+	],
+	"Returns the population standard deviation of {{lst}}.",
+	["ecart_type"])
+def stand_dev(lst):
+	return statistics.pstdev(lst)
+
+ecart_type = stand_dev
+
+doc("variance",
+	[
+		("lst", "List(Number)"),
+	],
+	"Returns the population variance of {{lst}}.")
+def variance(lst):
+	return statistics.pvariance(lst)
+
+doc("stand_dev_sample",
+	[
+		("lst", "List(Number)"),
+	],
+	"Returns the sample standard deviation of {{lst}}.",
+	["ecart_type_echant"])
+def stand_dev_sample(lst):
+	return statistics.stdev(lst)
+
+ecart_type_echant = stand_dev_sample
+
+doc("variance_sample",
+	[
+		("lst", "List(Number)"),
+	],
+	"Returns the sample variance of {{lst}}.",
+	["variance_echant"])
+def variance_sample(lst):
+	return statistics.variance(lst)
+
+variance_echant = variance_sample
