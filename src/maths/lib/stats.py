@@ -37,7 +37,8 @@ doc("harmonic_mean",
 def harmonic_mean(*args):
 	if type(args[0]) == list:
 		args = args[0]
-	
+	if "harmonic_mean" not in dir(statistics):
+		return len(args) / sum([1 / x for x in args])
 	return statistics.harmonic_mean(args)
 
 moyenne_harmo = harmonic_mean

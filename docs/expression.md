@@ -195,39 +195,69 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`vol_pyramid`|<ul><li>`sides` (Integer)</li><li>`length` (Number)</li><li>`height` (Number)</li></ul>|Returns the volume of the regular pyramid with the specified number of `sides`, side `length` and `height`.|
 |`vol_sphere`|<ul><li>`radius` (Number)</li></ul>|Returns the volume of the sphere with the specified `radius`.|
 |&nbsp;|**Statistics**|&nbsp;|
-|`average` / `moyenne`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the arithmetic mean of `args`.|
+|`arithm_mean` / `moyenne` / `average`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the arithmetic mean of `args`.|
 |`binomial`|<ul><li>`n` (Number)</li><li>`k` (Number)</li></ul>|Returns the binomial coefficient for a subset of size `k` and a set of size `n`.|
 |`erf`|<ul><li>`x` (Number)</li></ul>|Returns the error function at `x`.|
 |`erfc`|<ul><li>`x` (Number)</li></ul>|Returns the complementary error function at `x`.|
 |`fact`|<ul><li>`x` (Integer)</li></ul>|Returns the factorial of `x`.|
 |`filter` / `filtre`|<ul><li>`func` (Function(1 arg))</li><li>`lst` (List)</li></ul>|Returns a list containing all elements of `lst` for which `func` returns a truthy value.|
 |`gamma`|<ul><li>`x` (Number)</li></ul>|Returns the Gamma function at `x`.|
+|`harmonic_mean` / `moyenne_harmo`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the harmonicc mean of `args`.|
 |`map` / `appl`|<ul><li>`func` (Function(1 arg))</li><li>`lst` (List)</li></ul>|Applies `func` to each element of `lst` and returns the resulting list.|
 |`max`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the maximum value of `args`.|
 |`min`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the minimum value of `args`.|
+|`slice` / `tranche`|<ul><li>`lst` (List)</li><li>`start` (Integer) 0 <= start <= end <= len(lst)</li><li>`end` (Integer) start <= end <= len(lst)</li></ul>|Returns a slice of the specified list, from index `start` (inclusive) to either index `end` (exclusive) or the end of the list.|
+|`stand_dev` / `ecart_type`|<ul><li>`lst` (List(Number))</li></ul>|Returns the population standard deviation of `lst`.|
+|`stand_dev_sample` / `ecart_type_echant`|<ul><li>`lst` (List(Number))</li></ul>|Returns the sample standard deviation of `lst`.|
 |`sum`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the sum of all the terms of `args`.|
+|`variance`|<ul><li>`lst` (List(Number))</li></ul>|Returns the population variance of `lst`.|
+|`variance_sample` / `variance_echant`|<ul><li>`lst` (List(Number))</li></ul>|Returns the sample variance of `lst`.|
 |&nbsp;|**Trigonometry**|&nbsp;|
 |`acos`|<ul><li>`x` (Number)</li></ul>|Returns the arc cosine of `x`.|
 |`acosh`|<ul><li>`x` (Number)</li></ul>|Returns the inverse hyperbolic cosine of `x`.|
+|`acot`|<ul><li>`x` (Number)</li></ul>|Returns the inverse cotangent of `x`.|
+|`acoth`|<ul><li>`x` (Number)</li></ul>|Returns the inverse hyperbolic cotangent of `x`.|
+|`acsc`|<ul><li>`x` (Number)</li></ul>|Returns the inverse cosecant of `x`.|
+|`acsch`|<ul><li>`x` (Number)</li></ul>|Returns the inverse hyperbolic cosecant of `x`.|
+|`asec`|<ul><li>`x` (Number)</li></ul>|Returns the inverse secant of `x`.|
+|`asech`|<ul><li>`x` (Number)</li></ul>|Returns the inverse hyperbolic secant of `x`.|
 |`asin`|<ul><li>`x` (Number)</li></ul>|Returns the arc sine of `x`.|
 |`asinh`|<ul><li>`x` (Number)</li></ul>|Returns the inverse hyperbolic sine of `x`.|
 |`atan`|<ul><li>`x` (Number)</li></ul>|Returns the arc tangent of `x`.|
 |`atan2`|<ul><li>`x` (Number)</li><li>`y` (Number)</li></ul>|Returns the arc tangent of `y` / `x`.|
 |`atanh`|<ul><li>`x` (Number)</li></ul>|Returns the inverse hyperbolic tangent of `x`.|
+|`chord` / `crd`|<ul><li>`x` (Number)</li></ul>|Returns the chord of `x`.|
 |`cos`|<ul><li>`x` (Number)</li></ul>|Returns the cosine of `x`.|
 |`cosh`|<ul><li>`x` (Number)</li></ul>|Returns the hyperbolic cosine of `x`.|
+|`cot`|<ul><li>`x` (Number)</li></ul>|Returns the cotangent of `x`.|
+|`coth`|<ul><li>`x` (Number)</li></ul>|Returns the hyperbolic cotangent of `x`.|
+|`covercos`|<ul><li>`x` (Number)</li></ul>|Returns the coversed cosine of `x`.|
+|`covercos`|<ul><li>`x` (Number)</li></ul>|Returns the haversed cosine of `x`.|
+|`coversin`|<ul><li>`x` (Number)</li></ul>|Returns the coversed sine of `x`.|
+|`coversin`|<ul><li>`x` (Number)</li></ul>|Returns the haversed sine of `x`.|
+|`csc`|<ul><li>`x` (Number)</li></ul>|Returns the cosecant of `x`.|
+|`csch`|<ul><li>`x` (Number)</li></ul>|Returns the hyperbolic cosecant of `x`.|
 |`degrees` / `deg`|<ul><li>`x` (Number)</li></ul>|Converts angle `x` from radians to degrees.|
+|`excsc`|<ul><li>`x` (Number)</li></ul>|Returns the excosecant of `x`.|
+|`exsec`|<ul><li>`x` (Number)</li></ul>|Returns the exsecant of `x`.|
+|`hacovercos`|<ul><li>`x` (Number)</li></ul>|Returns the hacoversed cosine of `x`.|
+|`hacoversin`|<ul><li>`x` (Number)</li></ul>|Returns the hacoversed sine of `x`.|
+|`hypot`|<ul><li>`x` (Number)</li><li>`y` (Number)</li></ul>|Returns the hypotenuse / Euclidean norm of the vector (`x`, `y`).|
 |`radians` / `rad`|<ul><li>`x` (Number)</li></ul>|Converts angle `x` from degrees to radians.|
+|`sec`|<ul><li>`x` (Number)</li></ul>|Returns the secant of `x`.|
+|`sech`|<ul><li>`x` (Number)</li></ul>|Returns the hyperbolic secant of `x`.|
 |`sin`|<ul><li>`x` (Number)</li></ul>|Returns the sine of `x`.|
+|`sinc`|<ul><li>`x` (Number)</li></ul>|Returns the cardinal sine of `x`.|
 |`sinh`|<ul><li>`x` (Number)</li></ul>|Returns the hyperbolic sine of `x`.|
 |`tan`|<ul><li>`x` (Number)</li></ul>|Returns the tangent of `x`.|
 |`tanh`|<ul><li>`x` (Number)</li></ul>|Returns the hyperbolic tangent of `x`.|
+|`vercos`|<ul><li>`x` (Number)</li></ul>|Returns the versed cosine of `x`.|
+|`versin`|<ul><li>`x` (Number)</li></ul>|Returns the versed sine of `x`.|
 |&nbsp;|**Type conversion**|&nbsp;|
 |`c_bool`|<ul><li>`obj` (Any)</li></ul>|Tries to convert `obj` to Boolean.|
 |`c_list`|<ul><li>`obj` (Any)</li></ul>|Tries to convert `obj` to List.|
 |`c_num`|<ul><li>`obj` (Any)</li></ul>|Tries to convert `obj` to Number.|
 |`c_str`|<ul><li>`obj` (Any)</li></ul>|Converts `obj` to String.|
-
 Useful (?) constants are also provided, with the maximum supported precision.
 
 | Name | Approximated value | Description |
