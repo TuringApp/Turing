@@ -126,8 +126,21 @@ doc("gcd",
 		("a", "Integer"),
 		("b", "Integer")
 	],
-	"Returns the greatest common divisor of {{a}} and {{b}}.")
+	"Returns the greatest common divisor of {{a}} and {{b}}.",
+	['pgcd'])
 def gcd(a, b):
-	return math.gcd
+	return math.gcd(int(a), int(b))
 
 pgcd = gcd
+
+doc("lcm",
+	[
+		("a", "Integer"),
+		("b", "Integer")
+	],
+	"Returns the least common multiple of {{a}} and {{b}}.",
+	['ppcm'])
+def lcm(a, b):
+	return a * b / gcd(a, b)
+
+ppcm = lcm
