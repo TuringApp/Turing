@@ -28,7 +28,7 @@ doc("abs",
 def abs(x):
 	return math.fabs(x)
 
-doc("abs",
+doc("sqrt",
 	[
 		("num", "Number", ">= 0")
 	],
@@ -64,7 +64,7 @@ doc("exp",
 	[
 		("num", "Number")
 	],
-	"Returns *e* to the power of {{num}}.")
+	"Returns //e// to the power of {{num}}.")
 def exp(x):
 	return math.exp(x)
 
@@ -72,7 +72,7 @@ doc("ln",
 	[
 		("num", "Number")
 	],
-	"Returns the natural (base-*e*) logarithm of {{num}}.")
+	"Returns the natural (base-//e//) logarithm of {{num}}.")
 def ln(x):
 	return math.log(x)
 
