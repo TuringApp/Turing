@@ -38,6 +38,7 @@ for k in sorted(fns.keys()):
 
 		# replace {{x}} by `x` for markdown
 		desc = re.sub(r"\{\{(\w+)\}\}", "`\g<1>`", f[2])
+		desc = re.sub(r"//(\w+)//", "*\g<1>*", f[2])
 
 		print("|%s|%s|%s|" % (name, args, desc))
 

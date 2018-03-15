@@ -32,4 +32,6 @@ for k in sorted(cts.keys()):
 			# add unit
 			unit = " (%s)" % c[3].replace("*", "&middot;")
 
+		desc = re.sub(r"//(\w+)//", "*\g<1>*", f[2])
+
 		print("|`%s`|%s|*%s* - %s%s|" % (name, val, symbol, desc, unit))
