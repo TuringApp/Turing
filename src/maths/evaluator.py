@@ -201,11 +201,16 @@ class Evaluator:
 			if ltype == ValueType.LIST:
 				if not isint(right):
 					self.log.error("Trying to multiply List by non-integer (%f)" % right)
+					return None
 				else:
 					ret = left * int(right)
 			else:
 				ret = left * right
-		elif node.opType == "/": ret = float("inf") if isclose(right, 0) else left / right
+		elif node.opType == "/": 
+			if isclose(right, 0):
+				self.log.error("Trying to divide by zero")
+				return None
+			ret = left / right
 		elif node.opType == "%": ret = math.fmod(left, right)
 		elif node.opType == "^": ret = left ** right
 
