@@ -171,7 +171,7 @@ doc("coversin", [("x", "Number")], "Returns the haversed sine of {{x}}.")
 def haversin(x):
 	return versin(x) / 2
 
-doc("covercos", [("x", "Number")], "Returns the haversed cosine of {{x}}.")
+doc("havercos", [("x", "Number")], "Returns the haversed cosine of {{x}}.")
 def havercos(x):
 	return vercos(x) / 2
 
