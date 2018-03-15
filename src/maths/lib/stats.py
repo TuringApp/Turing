@@ -6,6 +6,7 @@ import builtins
 import math
 import statistics
 from .docs import *
+import random as rnd
 
 doc_c("catalan", "G", "Catalan's constant")
 c_catalan = 0.91596559417721901505460351493238411077414937428167
@@ -199,3 +200,12 @@ def variance_sample(lst):
 	return statistics.variance(lst)
 
 variance_echant = variance_sample
+
+doc("random",
+	[],
+	"Returns a random number between 0 (inclusive) and 1 (exclusive).",
+	["alea"])
+def random():
+	return rnd.random()
+
+alea = random
