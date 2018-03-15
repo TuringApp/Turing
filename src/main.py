@@ -79,6 +79,10 @@ def refresh_buttons_status():
 def handler_Calculator():
     import calculator
     calculator.run()
+	
+def handler_HelpContents():
+	import help
+	help.run()
 
 def handler_AboutTuring():
     about = QDialog()
