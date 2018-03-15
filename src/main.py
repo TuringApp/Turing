@@ -89,8 +89,8 @@ def handler_AboutTuring():
     about_ui = Ui_AboutWindow()
     about_ui.setupUi(about)
     about.setFixedSize(about.size())
-    txt = about_ui.textEdit_about.toHtml().replace("{version}", __version__).replace("{channel}", __channel__)
-    about_ui.textEdit_about.setHtml(txt)
+    txt = about_ui.textBrowser_about.toHtml().replace("{version}", __version__).replace("{channel}", __channel__)
+    about_ui.textBrowser_about.setHtml(txt)
     center_widget(about, window)
     about.exec_()
 
@@ -129,6 +129,8 @@ if __name__ == "__main__":
     if os.name == "nt":
         font = QFont("Segoe UI", 9)
         app.setFont(font)
+    import qdarkstyle
+    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     initUi()
 
     exitCode = app.exec_()
