@@ -31,7 +31,7 @@ class Ui_CalcWindow(object):
         self.btnClear = QtWidgets.QPushButton(self.centralwidget)
         self.btnClear.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("media/delete.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("media/clear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnClear.setIcon(icon1)
         self.btnClear.setObjectName("btnClear")
         self.horizontalLayout.addWidget(self.btnClear)

@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_AboutWindow(object):
     def setupUi(self, AboutWindow):
         AboutWindow.setObjectName("AboutWindow")
-        AboutWindow.resize(608, 371)
+        AboutWindow.resize(671, 402)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("media/icon_32.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutWindow.setWindowIcon(icon)

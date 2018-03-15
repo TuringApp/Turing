@@ -36,15 +36,12 @@
          </item>
          <item>
           <widget class="QPushButton" name="btnClear">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
            <property name="text">
             <string/>
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>media/delete.png</normaloff>media/delete.png</iconset>
+             <normaloff>media/clear.png</normaloff>media/clear.png</iconset>
            </property>
           </widget>
          </item>

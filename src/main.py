@@ -129,8 +129,10 @@ if __name__ == "__main__":
     if os.name == "nt":
         font = QFont("Segoe UI", 9)
         app.setFont(font)
-    import qdarkstyle
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+    if False:
+        import qdarkstyle
+        app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+        
     initUi()
 
     exitCode = app.exec_()

@@ -57,9 +57,9 @@ def dclick(item):
         ui.txtExpr.setText(item.text()) 
 
 def on_sel(id):
-    ui.listWidget.clear()
-    for i in items[id]:
-        ui.listWidget.addItem(i)
+    for i in range(len(items)):
+    	for it in items[i]:
+    		it.setHidden(i != id)
 
 def load_funcs():
     global fns
@@ -76,6 +76,7 @@ def load_funcs():
             i.setWhatsThis(f[0])
 
             items[-1].append(i)
+            ui.listWidget.addItem(i)
 
             d = QListWidgetItem()
             desc = re.sub(r"\{\{(\w+)\}\}", "\g<1>", f[2])
@@ -85,6 +86,7 @@ def load_funcs():
             d.setWhatsThis(f[0])
 
             items[-1].append(d)
+            ui.listWidget.addItem(d)
 
 def ins_func(item):
     ui.txtExpr.setText(ui.txtExpr.text() + item.whatsThis() + "()")

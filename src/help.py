@@ -8,6 +8,7 @@ import maths.lib
 import util.html
 import maths.lib.docs
 import re
+from html import escape
 
 fns = None
 catItems = []
@@ -53,7 +54,7 @@ def on_sel(current):
                 html += "<i><b>%s</b></i> (%s)" % arg[:2]
 
                 if len(arg) > 2:
-                        constr = arg[2]
+                        constr = escape(arg[2])
 
                         if len(arg) > 3:
                             deft = "default = %s" % arg[3] if arg[3] != None else None
@@ -78,7 +79,7 @@ def on_sel(current):
 
             html += "</ul>"
         
-        html += "<p>%s</p>" % desc
+        html += "<p>%s</p>" % escape(desc)
     else:
         html = util.html.centered("<h1>%s</h1>" % text)
 
