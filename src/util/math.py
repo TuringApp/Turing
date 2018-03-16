@@ -72,6 +72,12 @@ def iszero(a):
     if a == 0:
         return True
 
+    if type(a) == complex:
+        return iszero(a.real) and iszero(a.imag)
+
+    if type(a) != float:
+        return False
+
     if "e" in str(a):
         sig, exp = str(a).split("e")
         if isint(float(sig)):

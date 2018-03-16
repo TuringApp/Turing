@@ -87,7 +87,10 @@ tests = [
     ("(2+3i)*(4+5i)", -7 + 22j, "(2 + 3i) * (4 + 5i)"),
     ("(2+3i)^2", -5 + 12j, "(2 + 3i) ^ 2"),
     ("arg(2+3i) == atan(3/2)", True, "arg(2 + 3i) == atan(3 / 2)"),
-    ("asin(2) == pi/2 + i*ln(2+sqrt(3))", True, "asin(2) == pi / 2 + i * ln(2 + sqrt(3))")
+    ("asin(2) == pi/2 + i*ln(2+sqrt(3))", True, "asin(2) == pi / 2 + i * ln(2 + sqrt(3))"),
+    ("rect(sqrt(2),rad(45)) == 1+i", True, "rect(sqrt(2), rad(45)) == 1 + i"),
+
+    ("gcd(*-[4584, 248])", 8, "gcd(*-[4584, 248])")
 ]
 
 

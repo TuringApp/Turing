@@ -201,3 +201,28 @@ def arg(x):
 
 
 phase = arg
+
+doc("polar",
+    [
+        ("x", "Number")
+    ],
+    "Returns a list containing the polar coordinates of x, respectively the modulus (radius) and argument (angle).",
+    ["polaire"])
+
+
+def polar(x):
+    return [abs(x), arg(x)]
+
+
+polaire = polar
+
+doc("rect",
+    [
+        ("r", "Number"),
+        ("phi", "Number")
+    ],
+    "Converts the specified polar coordinates to a complex number.")
+
+
+def rect(r, phi):
+    return r * exp(phi * 1j)
