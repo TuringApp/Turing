@@ -39,6 +39,8 @@ CMakeLists.txt.user*
 
 __pycache__
 
-src/ui_about\.pyc
+*.pyc
 
-src/ui_mainwindow\.pyc
+.idea
+
+.vs

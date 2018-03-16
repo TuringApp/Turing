@@ -18,4 +18,7 @@ doc_c("khinchin", "K<sub>0</sub>", "Khinchin's constant")
 c_khinchin = 2.68545200106530644530971483548179569382038229399446
 
 doc_c("inf", "∞", "Positive infinity")
-c_inf = float("inf")
+c_inf = complex("inf")
+
+doc_c("i", "i", "Imaginary unit")
+c_i = complex(0, 1)
