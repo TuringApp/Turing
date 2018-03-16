@@ -80,6 +80,10 @@ def handler_Calculator():
     import calculator
     calculator.run()
 	
+def handler_Settings():
+    import settings
+    settings.run()
+
 def handler_HelpContents():
 	import help
 	help.run()
