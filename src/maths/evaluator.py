@@ -9,6 +9,9 @@ import maths.nodes as nodes
 from util.log import Logger
 import sys
 import types
+import util
+
+translate = util.translate
 
 
 class Evaluator:
@@ -43,7 +46,7 @@ class Evaluator:
             try:
                 node_tree = parser.parse()
             except:
-                self.log.error("Parser: " + str(sys.exc_info()[1]))
+                self.log.error(translate("Evaluator", "Parser: ") + str(sys.exc_info()[1]))
 
         for msg in parser.log.getMessages():
             self.log.messages.append(msg)
@@ -89,7 +92,8 @@ class Evaluator:
         args = list(args)
 
         if len(args) != len(node.args):
-            self.log.error("Argument count mismatch (expected %d, got %d)" % (len(node.args), len(args)))
+            self.log.error(
+                translate("Evaluator", "Argument count mismatch (expected %d, got %d)") % (len(node.args), len(args)))
             return None
 
         # push arguments to the stack
@@ -120,7 +124,7 @@ class Evaluator:
             if node.value in self.variables:
                 return self.variables[node.value]
             else:
-                self.log.error("Cannot find variable or function " + node.value)
+                self.log.error(translate("Evaluator", "Cannot find variable or function ") + node.value)
 
         if type(node) == nodes.UnaryOpNode:
             return self.evalUnary(node)
@@ -132,7 +136,7 @@ class Evaluator:
             function = self.evalNode(node.func)
 
             if function is None:
-                self.log.error("Callee is None")
+                self.log.error(translate("Evaluator", "Callee is None"))
                 return None
 
             if (len(node.args) == 1
@@ -142,7 +146,7 @@ class Evaluator:
                 arg_list = self.evalNode(node.args[0].value)
 
                 if type(arg_list) != list:
-                    self.log.error("Only lists can be expanded")
+                    self.log.error(translate("Evaluator", "Only lists can be expanded"))
                     return None
 
                 args = arg_list
@@ -158,7 +162,7 @@ class Evaluator:
             if index < len(array):
                 return array[index]
             else:
-                self.log.error("Index '%s' too big for array" % index)
+                self.log.error(translate("Evaluator", "Index '%s' too big for array") % index)
 
         if type(node) == nodes.LambdaNode:
             return lambda *args: self.callLambda(node, *list(args))
@@ -168,7 +172,7 @@ class Evaluator:
         if not isinstance(node, nodes.AstNode):
             return node
 
-        self.log.error("Unknown node type: %s" % type(node))
+        self.log.error(translate("Evaluator", "Unknown node type: %s") % type(node))
         return None
 
     def evalUnary(self, node):
@@ -184,10 +188,10 @@ class Evaluator:
         if node.opType == "-" and value_type == ValueType.LIST:
             return value[::-1]
 
-        if node.opType == "NON" and (is_bool(value) or (not self.strictType and is_num(value))):
+        if node.opType in ["NON", "NOT"] and (is_bool(value) or (not self.strictType and is_num(value))):
             return not value
 
-        self.log.error("Invalid unary operator '%s'" % node.opType)
+        self.log.error(translate("Evaluator", "Invalid unary operator '%s'") % node.opType)
         return None
 
     def evalBinary(self, node):
@@ -198,7 +202,7 @@ class Evaluator:
         right_type = ValueType.getType(right)
 
         if left is None or right is None:
-            self.log.error("Trying to use None")
+            self.log.error(translate("Evaluator", "Trying to use None"))
             return None
 
         if node.opType in ["*"] and right_type == ValueType.LIST and left_type != ValueType.LIST:
@@ -210,7 +214,7 @@ class Evaluator:
 
         if self.strictType:
             if left_type != right_type:
-                self.log.error("Type mismatch: operands have different types (%s and %s)" % (
+                self.log.error(translate("Evaluator", "Type mismatch: operands have different types (%s and %s)") % (
                     ValueType.getName(left_type), ValueType.getName(right_type)))
                 return None
 
@@ -226,17 +230,19 @@ class Evaluator:
                 error_pos = []
 
                 if left_type is None:
-                    error_pos.append("left")
+                    error_pos.append(translate("Evaluator", "left"))
 
                 if right_type is None:
-                    error_pos.append("right")
+                    error_pos.append(translate("Evaluator", "right"))
 
-                self.log.error("Invalid value type for %s and operator '%s'" % (" and ".join(error_pos), node.opType))
+                self.log.error(translate("Evaluator", "Invalid value type for %s and operator '%s'") % (
+                translate("Evaluator", " and ").join(error_pos), node.opType))
                 return None
 
             if node.opType not in allowed:
                 self.log.error(
-                    "Operator '%s' not allowed for value type %s" % (node.opType, ValueType.getName(left_type)))
+                    translate("Evaluator", "Operator '%s' not allowed for value type %s") % (
+                    node.opType, ValueType.getName(left_type)))
                 return None
 
         # arithmetic
@@ -250,7 +256,7 @@ class Evaluator:
         elif node.opType == "*":
             if left_type == ValueType.LIST:
                 if not is_int(right):
-                    self.log.error("Trying to multiply List by non-integer (%f)" % right)
+                    self.log.error(translate("Evaluator", "Trying to multiply List by non-integer (%s)") % right)
                     return None
                 else:
                     result = left * int(right)
@@ -258,7 +264,7 @@ class Evaluator:
                 result = left * right
         elif node.opType == "/":
             if right == 0:
-                self.log.error("Trying to divide by zero")
+                self.log.error(translate("Evaluator", "Trying to divide by zero"))
                 return None
             result = left / right
         elif node.opType == "%":
@@ -300,7 +306,8 @@ class Evaluator:
                 result = int(left) ^ int(right)
 
         if result is None:
-            self.log.error("Invalid binary operator '%s' for '%s' and '%s'" % (node.opType, left, right))
+            self.log.error(
+                translate("Evaluator", "Invalid binary operator '%s' for '%s' and '%s'") % (node.opType, left, right))
         else:
             if is_bool(left) and is_bool(right):
                 # if both operands are bool, then cast the whole thing to bool so it looks like we're professional

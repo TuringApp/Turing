@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 
-__desc__ = "Type conversion"
-
 from .docs import *
+import util
+
+translate = util.translate
+
+__desc__ = translate("Docs", "Type conversion")
 
 doc("c_bool",
     [
         ("obj", "Any")
     ],
-    "Tries to convert {{obj}} to Boolean.")
+    translate("Docs", "Tries to convert {{obj}} to Boolean."))
 
 
 def c_bool(obj):
@@ -19,7 +22,7 @@ doc("c_num",
     [
         ("obj", "Any")
     ],
-    "Tries to convert {{obj}} to Number.")
+    translate("Docs", "Tries to convert {{obj}} to Number."))
 
 
 def c_num(obj):
@@ -30,7 +33,7 @@ doc("c_list",
     [
         ("obj", "Any")
     ],
-    "Tries to convert {{obj}} to List.")
+    translate("Docs", "Tries to convert {{obj}} to List."))
 
 
 def c_list(obj):
@@ -41,7 +44,7 @@ doc("c_str",
     [
         ("obj", "Any")
     ],
-    "Converts {{obj}} to String.")
+    translate("Docs", "Converts {{obj}} to String."))
 
 
 def c_str(obj):

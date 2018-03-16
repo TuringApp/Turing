@@ -744,10 +744,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/lang/english.png</normaloff>media/lang/english.png</iconset>
    </property>
    <property name="text">
-    <string>English</string>
+    <string notr="true">English</string>
    </property>
    <property name="statusTip">
-    <string>en_US</string>
+    <string notr="true">en_US</string>
    </property>
   </action>
   <action name="actionFrench">
@@ -759,10 +759,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/lang/french.png</normaloff>media/lang/french.png</iconset>
    </property>
    <property name="text">
-    <string>Français</string>
+    <string notr="true">Français</string>
    </property>
    <property name="statusTip">
-    <string>fr_FR</string>
+    <string notr="true">fr_FR</string>
    </property>
   </action>
  </widget>

@@ -5,6 +5,9 @@ from util.log import Logger
 from util.math import proper_str, is_num
 import types
 import re
+import util
+
+translate = util.translate
 
 
 class ValueType:
@@ -55,11 +58,11 @@ class TokenType:
 
 class Operators:
     """Available operators"""
-    math = ["+", "-", "*", "/", "%", "^", "&", "|", "ET", "OU", "XOR"]  # Mathematical (numeric) operators
+    math = ["+", "-", "*", "/", "%", "^", "&", "|", "ET", "AND", "OU", "OR", "XOR"]  # Mathematical (numeric) operators
     eq = ["==", "!="]  # Basic comparison operators
     rel = ["<=", "<", ">", ">="]  # Relational operators
     comp = eq + rel  # Comparison operators
-    boolean = ["ET", "OU", "NON", "==", "!=", "&", "|", "XOR"]  # Boolean operators
+    boolean = ["ET", "AND", "OU", "OR", "NON", "NOT", "==", "!=", "&", "|", "XOR"]  # Boolean operators
     ops = list(set(math + comp + boolean))  # All operators
 
 
@@ -146,7 +149,7 @@ class Parser:
     def expectToken(self, opType, value=None):
         """Asserts the next token is of the specified type and (optional) value. Explodes otherwise."""
         if not self.matchToken(opType, value):
-            self.log.error("Expected token (%s) '%s'" % (TokenType.getName(opType), value))
+            self.log.error(translate("Parser", "Expected token (%s) '%s'") % (TokenType.getName(opType), value))
             return None
 
         return self.nextToken()
@@ -158,7 +161,7 @@ class Parser:
     def tokenize(self):
         """Converts the expression string into a linear list of tokens."""
         regex = re.compile(
-            r"(\+|-|\*|/|%|\^|==|!=|<=|<|>|>=|\(|\)|\[|\]|{|\}|\bET\b|\bOU\b|\bXOR\b|\bNON\b|\bVRAI\b|\bFAUX\b|\bTRUE\b|\bFALSE\b|&|\||,| )",
+            r"(\+|-|\*|/|%|\^|==|!=|<=|<|>|>=|\(|\)|\[|\]|{|\}|\bET\b|\bAND\b|\bOU\b|\bOR\b|\bXOR\b|\bNON\b|\bNOT\b|\bVRAI\b|\bFAUX\b|\bTRUE\b|\bFALSE\b|&|\||,| )",
             re.IGNORECASE)
 
         tok = [x.strip() for x in regex.split(self.expression) if x.strip()]
@@ -229,7 +232,7 @@ class Parser:
         expr = self.parseXor()
 
         while self.matchToken(TokenType.OPERATOR):
-            op = self.matchOperator(["OU", "|"])
+            op = self.matchOperator(["OR", "OU", "|"])
             if op:
                 expr = nodes.BinOpNode(expr, self.parseXor(), "|")
                 continue
@@ -255,7 +258,7 @@ class Parser:
         expr = self.parseEquality()
 
         while self.matchToken(TokenType.OPERATOR):
-            op = self.matchOperator(["ET", "&"])
+            op = self.matchOperator(["AND", "ET", "&"])
             if op:
                 expr = nodes.BinOpNode(expr, self.parseEquality(), "&")
                 continue
@@ -304,7 +307,7 @@ class Parser:
 
     def parseUnary(self):
         """Parses an unary operation."""
-        op = self.matchOperator(["+", "-", "NON", "*"])
+        op = self.matchOperator(["+", "-", "NON", "NOT", "*"])
         if op:
             return nodes.UnaryOpNode(self.parseUnary(), op)
 
@@ -407,10 +410,11 @@ class Parser:
 
         else:
             if not self.canRead():
-                self.log.error("Unexpected EOL")
+                self.log.error(translate("Parser", "Unexpected EOL"))
             else:
                 self.log.error(
-                    "Unexpected token (%s) '%s'" % (TokenType.getName(self.peekToken()[0]), self.peekToken()[1]))
+                    translate("Parser", "Unexpected token (%s) '%s'") % (
+                    TokenType.getName(self.peekToken()[0]), self.peekToken()[1]))
 
             return None
 

@@ -44,7 +44,7 @@ def on_item_select(current):
         category, function = find_function(text[:text.index("(")])
 
         name, args, desc = function[:3]
-        desc = re.sub(r"{{(\w+)\}\}", "<i><b>\g<1></b></i>", desc)
+        desc = re.sub(r"{{(\w+)\}\}", "<i><b>\g<1></b></i>", escape(desc))
         desc = re.sub(r"//(\w+)//", "<i>\g<1></i>", desc)
 
         html = util.html.centered("<h1>%s</h1>" % func_signature_html(function))
@@ -85,7 +85,7 @@ def on_item_select(current):
 
             html += "</ul>"
 
-        html += "<p>%s</p>" % escape(desc)
+        html += "<p>%s</p>" % desc
     else:
         html = util.html.centered("<h1>%s</h1>" % text)
 

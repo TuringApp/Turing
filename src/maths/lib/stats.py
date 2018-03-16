@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 
-__desc__ = "Statistics"
-
 import builtins
 import math
 import statistics
 from .docs import *
 import random as rnd
+import util
+
+translate = util.translate
+
+__desc__ = translate("Docs", "Statistics")
 
 doc_c("catalan", "G", "Catalan's constant")
 c_catalan = 0.91596559417721901505460351493238411077414937428167
@@ -18,7 +21,7 @@ doc("arithm_mean",
     [
         ("args", "List(Number) / Number*")
     ],
-    "Returns the arithmetic mean of {{args}}.",
+    translate("Docs", "Returns the arithmetic mean of {{args}}."),
     ["moyenne", "average"])
 
 
@@ -36,7 +39,7 @@ doc("harmonic_mean",
     [
         ("args", "List(Number) / Number*")
     ],
-    "Returns the harmonicc mean of {{args}}.",
+    translate("Docs", "Returns the harmonic mean of {{args}}."),
     ["moyenne_harmo"])
 
 
@@ -54,7 +57,7 @@ doc("sum",
     [
         ("args", "List(Number) / Number*")
     ],
-    "Returns the sum of all the terms of {{args}}.")
+    translate("Docs", "Returns the sum of all the terms of {{args}}."))
 
 
 def sum(*args):
@@ -69,7 +72,7 @@ doc("binomial",
         ("n", "Number"),
         ("k", "Number")
     ],
-    "Returns the binomial coefficient for a subset of size {{k}} and a set of size {{n}}.")
+    translate("Docs", "Returns the binomial coefficient for a subset of size {{k}} and a set of size {{n}}."))
 
 
 def binomial(n, k):
@@ -81,7 +84,7 @@ doc("max",
     [
         ("args", "List(Number) / Number*")
     ],
-    "Returns the maximum value of {{args}}.")
+    translate("Docs", "Returns the maximum value of {{args}}."))
 
 
 def max(*args):
@@ -95,7 +98,7 @@ doc("min",
     [
         ("args", "List(Number) / Number*")
     ],
-    "Returns the minimum value of {{args}}.")
+    translate("Docs", "Returns the minimum value of {{args}}."))
 
 
 def min(*args):
@@ -109,7 +112,7 @@ doc("gamma",
     [
         ("x", "Number")
     ],
-    "Returns the Gamma function at {{x}}.")
+    translate("Docs", "Returns the Gamma function at {{x}}."))
 
 
 def gamma(x):
@@ -120,7 +123,7 @@ doc("fact",
     [
         ("x", "Integer")
     ],
-    "Returns the factorial of {{x}}.")
+    translate("Docs", "Returns the factorial of {{x}}."))
 
 
 def fact(x):
@@ -131,7 +134,7 @@ doc("erf",
     [
         ("x", "Number")
     ],
-    "Returns the error function at {{x}}.")
+    translate("Docs", "Returns the error function at {{x}}."))
 
 
 def erf(x):
@@ -142,7 +145,7 @@ doc("erfc",
     [
         ("x", "Number")
     ],
-    "Returns the complementary error function at {{x}}.")
+    translate("Docs", "Returns the complementary error function at {{x}}."))
 
 
 def erfc(x):
@@ -154,7 +157,7 @@ doc("map",
         ("func", "Function(1 arg)"),
         ("lst", "List")
     ],
-    "Applies {{func}} to each element of {{lst}} and returns the resulting list.",
+    translate("Docs", "Applies {{func}} to each element of {{lst}} and returns the resulting list."),
     ["appl"])
 
 
@@ -169,7 +172,7 @@ doc("filter",
         ("func", "Function(1 arg)"),
         ("lst", "List")
     ],
-    "Returns a list containing all elements of {{lst}} for which {{func}} returns a truthy value.",
+    translate("Docs", "Returns a list containing all elements of {{lst}} for which {{func}} returns a truthy value."),
     ["filtre"])
 
 
@@ -185,8 +188,8 @@ doc("slice",
         ("start", "Integer", "0 <= start <= end <= len(lst)"),
         ("end", "Integer", "start <= end <= len(lst)", None)
     ],
-    "Returns a slice of the specified list, from index {{start}} (inclusive) to either index {{end}} (exclusive) or "
-    "the end of the list.",
+    translate("Docs",
+              "Returns a slice of the specified list, from index {{start}} (inclusive) to either index {{end}} (exclusive) or the end of the list."),
     ["tranche"])
 
 
@@ -204,7 +207,7 @@ doc("stand_dev",
     [
         ("lst", "List(Number)"),
     ],
-    "Returns the population standard deviation of {{lst}}.",
+    translate("Docs", "Returns the population standard deviation of {{lst}}."),
     ["ecart_type"])
 
 
@@ -218,7 +221,7 @@ doc("variance",
     [
         ("lst", "List(Number)"),
     ],
-    "Returns the population variance of {{lst}}.")
+    translate("Docs", "Returns the population variance of {{lst}}."))
 
 
 def variance(lst):
@@ -229,7 +232,7 @@ doc("stand_dev_sample",
     [
         ("lst", "List(Number)"),
     ],
-    "Returns the sample standard deviation of {{lst}}.",
+    translate("Docs", "Returns the sample standard deviation of {{lst}}."),
     ["ecart_type_echant"])
 
 
@@ -243,7 +246,7 @@ doc("variance_sample",
     [
         ("lst", "List(Number)"),
     ],
-    "Returns the sample variance of {{lst}}.",
+    translate("Docs", "Returns the sample variance of {{lst}}."),
     ["variance_echant"])
 
 
@@ -255,7 +258,7 @@ variance_echant = variance_sample
 
 doc("random",
     [],
-    "Returns a random number between 0 (inclusive) and 1 (exclusive).",
+    translate("Docs", "Returns a random number between 0 (inclusive) and 1 (exclusive)."),
     ["alea"])
 
 

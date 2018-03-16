@@ -3,6 +3,8 @@
 import numbers
 import util
 
+translate = util.translate
+
 
 def is_close(a, b, rel_tol=1e-5, abs_tol=1e-8):
     """Checks if the specified numbers are close enough to be considered equal.
@@ -144,7 +146,7 @@ def close_round(a, prec=None):
 def proper_str(a):
     """Converts the specified float to string, removing comma if the number is integral."""
     if is_bool(a):
-        return util.translate("Utilities", "TRUE") if a else util.translate("Utilities", "FALSE")
+        return translate("Utilities", "TRUE") if a else translate("Utilities", "FALSE")
 
     if type(a) == complex:
         real = None if is_zero(a.real) else proper_str(a.real)

@@ -10,6 +10,8 @@ from util.math import proper_str
 import maths.lib.docs
 import re
 import translator
+import importlib
+import types
 
 translate = QCoreApplication.translate
 

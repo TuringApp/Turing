@@ -2,6 +2,9 @@
 
 from PyQt5.QtCore import *
 import os
+import importlib
+import maths.lib
+import types
 
 uis = []
 current = None
@@ -19,6 +22,11 @@ def remove(ui):
 def update():
     for ui, window in uis:
         ui.retranslateUi(window)
+
+    importlib.reload(maths.lib.docs)
+    for name, item in maths.lib.__dict__.items():
+        if type(item) == types.ModuleType and not name.startswith("__") and name != "docs":
+            importlib.reload(item)
 
 
 def translate(context, string):

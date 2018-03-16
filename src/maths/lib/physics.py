@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 
-__desc__ = "Physics"
-
 from .docs import *
+import util
+
+translate = util.translate
+
+__desc__ = translate("Docs", "Physics")
 
 doc_c("celerity", "c", "Speed of light in vacuum", "m*s<sup>-1</sup>")
 c_celerity = 299792458

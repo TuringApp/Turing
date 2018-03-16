@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
-__desc__ = "Other constants"
-
 import math
 from .docs import *
+import util
+
+translate = util.translate
+
+__desc__ = translate("Docs", "Other constants")
 
 doc_c("e", "e", "Euler number")
 c_e = 2.71828182845904523536028747135266249775724709369996
