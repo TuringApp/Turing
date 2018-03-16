@@ -2,6 +2,6 @@
 
 for f in *.ui;
 do
-	pyuic5 $f -o ${f%.*}.py;
+    pyuic5 $f -o ${f%.*}.py;
 done
 
