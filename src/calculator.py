@@ -9,6 +9,9 @@ from maths.evaluator import Evaluator
 from util.math import properstr
 import maths.lib.docs
 import re
+import translator
+
+translate = QCoreApplication.translate
 
 fns = None
 items = []
@@ -53,7 +56,7 @@ def calc():
     if ret is not None:
         addResult(None if msgs else ev.beautified, ret)
     else:
-        addResult(None if msgs else ev.beautified, "Result is None", True)
+        addResult(None if msgs else ev.beautified, translate("CalcWindow", "Result is None"), True)
 
 
 def dclick(item):
@@ -111,6 +114,7 @@ def initUi():
     global window, ui
     window = QMainWindow()
     ui = Ui_CalcWindow()
+    translator.add(ui, window)
     ui.setupUi(window)
     ui.btnCalc.clicked.connect(calc)
     ui.lstHistory.itemDoubleClicked.connect(dclick)

@@ -1,0 +1,3 @@
+SOURCES += ui_about.py ui_calculator.py ui_help.py ui_mainwindow.py ui_settings.py
+SOURCES += calculator.py help.py main.py settings.py
+TRANSLATIONS += lang/fr_FR.ts

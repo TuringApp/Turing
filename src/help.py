@@ -7,7 +7,11 @@ import maths.lib
 import maths.lib.docs
 import util.html
 from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
 from ui_help import Ui_HelpWindow
+import translator
+
+translate = QCoreApplication.translate
 
 fns = None
 catItems = []
@@ -45,11 +49,11 @@ def on_sel(current):
 
         html = util.html.centered("<h1>%s</h1>" % func_def_html(f))
 
-        html += "<h2>Arguments:</h2>"
+        html += translate("HelpWindow", "<h2>Arguments:</h2>")
         html += "<ul>"
 
         if not args:
-            html += "<li>None</li>"
+            html += translate("HelpWindow", "<li>None</li>")
         else:
             for arg in args:
                 html += "<li>"
@@ -59,7 +63,7 @@ def on_sel(current):
                     constr = escape(arg[2])
 
                     if len(arg) > 3:
-                        deft = "default = %s" % arg[3] if arg[3] is not None else None
+                        deft = translate("HelpWindow", "default = %s") % arg[3] if arg[3] is not None else None
                     else:
                         deft = None
 
@@ -73,7 +77,7 @@ def on_sel(current):
         html += "</ul>"
 
         if len(f) > 3 and f[3]:
-            html += "<h2>Aliases:</h2>"
+            html += translate("HelpWindow", "<h2>Aliases:</h2>")
             html += "<ul>"
 
             for al in f[3]:
@@ -85,7 +89,7 @@ def on_sel(current):
     else:
         html = util.html.centered("<h1>%s</h1>" % text)
 
-        html += "<h2>Functions:</h2>"
+        html += translate("HelpWindow", "<h2>Functions:</h2>")
         html += "<ul>"
 
         for fun in fns[text]:
@@ -138,6 +142,7 @@ def initUi():
     global window, ui
     window = QDialog()
     ui = Ui_HelpWindow()
+    translator.add(ui, window)
     ui.setupUi(window)
     ui.textSearch.textChanged.connect(search_changed)
     ui.btnClear.setVisible(False)

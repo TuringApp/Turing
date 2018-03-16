@@ -93,9 +93,9 @@ p, li { white-space: pre-wrap; }
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <widget class="QMenu" name="menuRecents">
+    <widget class="QMenu" name="menuRecent">
      <property name="title">
-      <string>Récents</string>
+      <string>Recent files</string>
      </property>
      <property name="icon">
       <iconset>
@@ -114,7 +114,7 @@ p, li { white-space: pre-wrap; }
     <addaction name="separator"/>
     <addaction name="actionPrint"/>
     <addaction name="separator"/>
-    <addaction name="menuRecents"/>
+    <addaction name="menuRecent"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -175,6 +175,13 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="actionCalculator"/>
    </widget>
+   <widget class="QMenu" name="menuLanguage">
+    <property name="title">
+     <string>&amp;Language</string>
+    </property>
+    <addaction name="actionEnglish"/>
+    <addaction name="actionFrench"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuView"/>
@@ -182,11 +189,12 @@ p, li { white-space: pre-wrap; }
    <addaction name="menuSettings"/>
    <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
+   <addaction name="menuLanguage"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
-    <string>toolBar</string>
+    <string>Toolbar</string>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextUnderIcon</enum>
@@ -725,6 +733,36 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="toolTip">
     <string>Convert to pseudocode</string>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>media/lang/english.png</normaloff>media/lang/english.png</iconset>
+   </property>
+   <property name="text">
+    <string>English</string>
+   </property>
+   <property name="statusTip">
+    <string>en_US</string>
+   </property>
+  </action>
+  <action name="actionFrench">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>media/lang/french.png</normaloff>media/lang/french.png</iconset>
+   </property>
+   <property name="text">
+    <string>Français</string>
+   </property>
+   <property name="statusTip">
+    <string>fr_FR</string>
    </property>
   </action>
  </widget>

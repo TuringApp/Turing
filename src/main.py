@@ -7,6 +7,7 @@ from ui_mainwindow import Ui_MainWindow
 from ui_about import Ui_AboutWindow
 import sys
 import os
+import translator
 
 __version__ = "β-0.2"
 __channel__ = "beta"
@@ -14,7 +15,7 @@ __channel__ = "beta"
 undo_objs = []
 
 current_file = -1
-
+translate = translator.translate
 
 def getThemedBox():
     msg = QMessageBox()
@@ -34,7 +35,7 @@ class myMainWindow(QMainWindow):
         msg.setIcon(QMessageBox.Question)
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msg.setDefaultButton(QMessageBox.No)
-        msg.setText("Voulez-vous vraiment quitter ?\nToutes les modifications non sauvegardées seront perdues.")
+        msg.setText(translator.translate("MainWindow", "Do you really want to exit?\nAll unsaved changes will be lost."))
         center_widget(msg, self)
         event.ignore()
         if msg.exec_() == QMessageBox.Yes:
@@ -59,6 +60,9 @@ def getact(name):
 def refresh():
     refresh_buttons_status()
 
+
+def handler_Undo():
+    translator.load("fr_FR")
 
 def refresh_buttons_status():
     active_code = False
@@ -101,6 +105,7 @@ def handler_AboutTuring():
     about = QDialog()
     about_ui = Ui_AboutWindow()
     about_ui.setupUi(about)
+    about_ui.retranslateUi(about)
     about.setFixedSize(about.size())
     txt = about_ui.textBrowser_about.toHtml().replace("{version}", __version__).replace("{channel}", __channel__)
     about_ui.textBrowser_about.setHtml(txt)
@@ -130,19 +135,39 @@ def initActions():
                 getattr(ui, c).triggered.connect(globals()[name])
 
 
+def hnd_language(lng):
+    translator.load(lng)
+    for a in ui.menuLanguage.actions():
+        a.setChecked(a.statusTip() == lng)
+
+
 def initUi():
     global window, ui
     window = myMainWindow()
     ui = Ui_MainWindow()
+    translator.add(ui, window)
     ui.setupUi(window)
     ui.tabWidget.tabBar().tabButton(0, QTabBar.RightSide).resize(0, 0)
     initActions()
     refresh()
+
+    rightCorner = QMenuBar()
+    ui.menubar.removeAction(ui.menuLanguage.menuAction())
+    rightCorner.addAction(ui.menuLanguage.menuAction())
+    ui.menubar.setCornerWidget(rightCorner)
+
+    gen = lambda a: (lambda: hnd_language(a))
+    for a in ui.menuLanguage.actions():
+        a.triggered.connect(gen(a.statusTip()))
+
     window.show()
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+
+    QCoreApplication.translate2 = QCoreApplication.translate
+    QCoreApplication.translate = translator.translate
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
     if os.name == "nt":
         font = QFont("Segoe UI", 9)
@@ -153,6 +178,6 @@ if __name__ == "__main__":
         app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
 
     initUi()
-
+    hnd_language("en_US")
     exitCode = app.exec_()
     sys.exit(exitCode)
