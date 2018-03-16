@@ -8,6 +8,9 @@ from ui_about import Ui_AboutWindow
 import sys
 import os
 import translator
+import util
+
+translate = translator.translate
 
 __version__ = "β-0.2"
 __channel__ = "beta"
@@ -15,7 +18,7 @@ __channel__ = "beta"
 undo_objs = []
 
 current_file = -1
-translate = translator.translate
+
 
 def getThemedBox():
     msg = QMessageBox()
@@ -29,17 +32,20 @@ def getThemedBox():
 class myMainWindow(QMainWindow):
     def closeEvent(self, event):
         if False:
-            event.accept()
+            event.acceptToken()
             return
         msg = getThemedBox()
         msg.setIcon(QMessageBox.Question)
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msg.setDefaultButton(QMessageBox.No)
-        msg.setText(translator.translate("MainWindow", "Do you really want to exit?\nAll unsaved changes will be lost."))
+        msg.setText(translate("MainWindow", "Do you really want to exit?\nAll unsaved changes will be lost."))
         center_widget(msg, self)
         event.ignore()
         if msg.exec_() == QMessageBox.Yes:
-            event.accept()
+            try:
+                event.acceptToken()
+            except:
+                pass
             exit()
 
 
@@ -53,16 +59,13 @@ def center_widget(wgt, host):
         wgt.move(app.desktop().screenGeometry().center() - wgt.rect().center())
 
 
-def getact(name):
+def get_action(name):
     return getattr(ui, "action" + name)
 
 
 def refresh():
     refresh_buttons_status()
 
-
-def handler_Undo():
-    translator.load("fr_FR")
 
 def refresh_buttons_status():
     active_code = False
@@ -79,11 +82,11 @@ def refresh_buttons_status():
         "ConvertToPython",
         "ConvertToPseudocode"
     ]:
-        getact(c).setEnabled(active_code)
+        get_action(c).setEnabled(active_code)
 
     if current_file != -1:
-        getact("Undo").setEnabled(undo_objs[current_file].can_undo())
-        getact("Redo").setEnabled(undo_objs[current_file].can_redo())
+        get_action("Undo").setEnabled(undo_objs[current_file].can_undo())
+        get_action("Redo").setEnabled(undo_objs[current_file].can_redo())
 
 
 def handler_Calculator():
@@ -105,10 +108,12 @@ def handler_AboutTuring():
     about = QDialog()
     about_ui = Ui_AboutWindow()
     about_ui.setupUi(about)
-    about_ui.retranslateUi(about)
+
     about.setFixedSize(about.size())
+
     txt = about_ui.textBrowser_about.toHtml().replace("{version}", __version__).replace("{channel}", __channel__)
     about_ui.textBrowser_about.setHtml(txt)
+
     center_widget(about, window)
     about.exec_()
 
@@ -127,28 +132,29 @@ def handler_ShowToolbarText():
         ui.toolBar.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
 
-def initActions():
-    for c in dir(ui):
-        if c.startswith("action"):
-            name = "handler_" + c[6:]
+def init_action_handlers():
+    for item in dir(ui):
+        if item.startswith("action"):
+            name = "handler_" + item[6:]
+
             if name in globals():
-                getattr(ui, c).triggered.connect(globals()[name])
+                getattr(ui, item).triggered.connect(globals()[name])
 
 
-def hnd_language(lng):
-    translator.load(lng)
+def change_language(language):
+    translator.load(language)
     for a in ui.menuLanguage.actions():
-        a.setChecked(a.statusTip() == lng)
+        a.setChecked(a.statusTip() == language)
 
 
-def initUi():
+def init_ui():
     global window, ui
     window = myMainWindow()
     ui = Ui_MainWindow()
     translator.add(ui, window)
     ui.setupUi(window)
     ui.tabWidget.tabBar().tabButton(0, QTabBar.RightSide).resize(0, 0)
-    initActions()
+    init_action_handlers()
     refresh()
 
     rightCorner = QMenuBar()
@@ -156,28 +162,34 @@ def initUi():
     rightCorner.addAction(ui.menuLanguage.menuAction())
     ui.menubar.setCornerWidget(rightCorner)
 
-    gen = lambda a: (lambda: hnd_language(a))
-    for a in ui.menuLanguage.actions():
-        a.triggered.connect(gen(a.statusTip()))
+    gen = lambda a: (lambda: change_language(a))
+    for action in ui.menuLanguage.actions():
+        action.triggered.connect(gen(action.statusTip()))
 
     window.show()
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+
     # ugly hack otherwise it doesn't work
     QCoreApplication.translate2 = QCoreApplication.translate
-    QCoreApplication.translate = translator.translate
+    QCoreApplication.translate = util.translate = translator.translate
+
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
+
     if os.name == "nt":
+        # fix for ugly font on 7+
         font = QFont("Segoe UI", 9)
         app.setFont(font)
+
     if False:
         import qdarkstyle
 
         app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
 
-    initUi()
-    hnd_language("en_US")
+    init_ui()
+    change_language("en_US")
+
     exitCode = app.exec_()
     sys.exit(exitCode)

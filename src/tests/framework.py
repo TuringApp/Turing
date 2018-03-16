@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from util.math import isnum, isclose
+from util.math import is_num, is_close
 
 
 def init_test():
@@ -29,10 +29,11 @@ def end_test(name):
     test_stack.pop()
 
     test_results.append((name, list(current_results)))
-    n_total = len(current_results)
-    n_passed = sum(1 for x in current_results if x[0])
-    n_failed = n_total - n_passed
-    print("[STAT] Ending tests for '%s' - [%d passed, %d failed] / %d total" % (name, n_passed, n_failed, n_total))
+    num_total = len(current_results)
+    num_passed = sum(1 for x in current_results if x[0])
+    num_failed = num_total - num_passed
+    print(
+        "[STAT] Ending tests for '%s' - [%d passed, %d failed] / %d total" % (name, num_passed, num_failed, num_total))
     current_results.clear()
 
 
@@ -42,12 +43,12 @@ def expect(x, expec, info=""):
     x     -- Given value
     expec -- Value that is to be expected
     info  -- [Optional] additional information about the unit test"""
-    if isnum(x) and isnum(expec):
-        val = isclose(x, expec)
+    if is_num(x) and is_num(expec):
+        value = is_close(x, expec)
     else:
-        val = (x == expec)
+        value = (x == expec)
 
-    if val:
+    if value:
         stat = "PASSED"
         msg = "(value : '%s')" % str(expec)
     else:
@@ -56,14 +57,21 @@ def expect(x, expec, info=""):
 
     print("[TEST] #%02d : %s %s%s" % (len(current_results) + 1, stat, msg, " | " + info if info else ""))
 
-    current_results.append((val, x, expec, info))
+    current_results.append((value, x, expec, info))
 
 
 def show_summary():
     """Shows the summary of all tests, shows stats for each test group."""
-    for grp, res in test_results:
-        n_total = len(res)
-        n_passed = sum(1 for x in res if x[0])
-        n_failed = n_total - n_passed
-        print("[STAT] Results for '%s' : %d%% [%d passed, %d failed] / %d total" % (
-            grp, n_passed / n_total * 100, n_passed, n_failed, n_total))
+    for group_name, results in test_results:
+        num_total = len(results)
+        num_passed = sum(1 for x in results if x[0])
+        num_failed = num_total - num_passed
+        print("[STAT] Results for '%s' : %d%% [%d passed, %d failed] / %d total" %
+              (
+                  group_name,
+                  num_passed / num_total * 100,
+                  num_passed,
+                  num_failed,
+                  num_total
+              )
+              )

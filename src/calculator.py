@@ -6,100 +6,117 @@ from PyQt5.QtGui import *
 from ui_calculator import Ui_CalcWindow
 from maths.parser import Parser
 from maths.evaluator import Evaluator
-from util.math import properstr
+from util.math import proper_str
 import maths.lib.docs
 import re
 import translator
 
 translate = QCoreApplication.translate
 
-fns = None
-items = []
+functions = None
+doc_items = None
 
 
 def find_func(name):
-    for k in fns:
-        for f in fns[k]:
+    for k in functions:
+        for f in functions[k]:
             if f[0] == name:
                 return (k, f)
+
     return None
 
 
-def addResult(expr, result, error=False):
+def add_result(expr, result, error=False):
     if expr:
-        i1 = QListWidgetItem()
-        txt = str(expr)
-        i1.setText(txt)
-        i1.setToolTip(txt)
-        ui.lstHistory.addItem(i1)
+        item1 = QListWidgetItem()
 
-    i2 = QListWidgetItem()
-    txt = properstr(result)
-    i2.setText(txt)
-    i2.setTextAlignment(Qt.AlignRight)
+        txt = str(expr)
+        item1.setText(txt)
+        item1.setStatusTip(txt)
+
+        ui.lstHistory.addItem(item1)
+
+    item2 = QListWidgetItem()
+
+    txt = proper_str(result)
+    item2.setText(txt)
+
+    item2.setTextAlignment(Qt.AlignRight)
+
     if error:
-        i2.setForeground(QBrush(QColor("red")))
+        item2.setForeground(QBrush(QColor("red")))
     else:
-        i2.setToolTip(txt)
-    ui.lstHistory.addItem(i2)
+        item2.setStatusTip(txt)
+
+    ui.lstHistory.addItem(item2)
+
     ui.lstHistory.scrollToBottom()
 
 
-def calc():
+def calculate():
     ev = Evaluator()
-    expr = ui.txtExpr.text()
-    ret = ev.evaluate(expr)
+    expression = ui.txtExpr.text()
+
+    result = ev.evaluate(expression)
     msgs = ev.log.getMessages()
+
     if msgs:
         err = "\n".join([x[1] for x in msgs])
-        addResult(ev.beautified, err, True)
-    if ret is not None:
-        addResult(None if msgs else ev.beautified, ret)
+        add_result(ev.beautified, err, True)
+
+    if result is not None:
+        add_result(None if msgs else ev.beautified, result)
     else:
-        addResult(None if msgs else ev.beautified, translate("CalcWindow", "Result is None"), True)
+        add_result(None if msgs else ev.beautified, translate("CalcWindow", "Result is None"), True)
 
 
-def dclick(item):
-    if item.toolTip():
+def history_double_click(item):
+    if item.statusTip():
         ui.txtExpr.setText(item.text())
 
 
 def on_sel(id):
-    for i in range(len(items)):
-        for it in items[i]:
+    for i in range(len(doc_items)):
+        for it in doc_items[i]:
             it.setHidden(i != id)
 
 
 def load_funcs():
-    global fns
-    fns = maths.lib.get_funcs()
-    for k in sorted(fns.keys()):
+    global functions, doc_items
+    functions = maths.lib.get_funcs()
+    doc_items = []
+    for k in sorted(functions.keys()):
         ui.cbxFuncs.addItem(k)
-        items.append([])
-        for f in sorted(fns[k], key=lambda x: x[0]):
-            i = QListWidgetItem()
-            fnt = i.font()
+        doc_items.append([])
+
+        for f in sorted(functions[k], key=lambda x: x[0]):
+            item_func = QListWidgetItem()
+
+            fnt = item_func.font()
             fnt.setBold(True)
-            i.setFont(fnt)
-            i.setText(maths.lib.docs.get_func_def(f))
-            i.setWhatsThis(f[0])
+            item_func.setFont(fnt)
 
-            items[-1].append(i)
-            ui.listWidget.addItem(i)
+            item_func.setText(maths.lib.docs.get_func_def(f))
+            item_func.setStatusTip(f[0])
 
-            d = QListWidgetItem()
+            doc_items[-1].append(item_func)
+            ui.listWidget.addItem(item_func)
+
+            item_desc = QListWidgetItem()
+
             desc = re.sub(r"{{(\w+)\}\}", "\g<1>", f[2])
             desc = re.sub(r"//(\w+)//", "\g<1>", desc)
-            d.setText(desc)
-            d.setTextAlignment(Qt.AlignRight)
-            d.setWhatsThis(f[0])
+            item_desc.setText(desc)
 
-            items[-1].append(d)
-            ui.listWidget.addItem(d)
+            item_desc.setTextAlignment(Qt.AlignRight)
+            item_desc.setStatusTip(f[0])
+
+            doc_items[-1].append(item_desc)
+            ui.listWidget.addItem(item_desc)
 
 
 def ins_func(item):
-    ui.txtExpr.setText(ui.txtExpr.text() + item.whatsThis() + "()")
+    ui.txtExpr.setText(ui.txtExpr.text() + item.statusTip() + "()")
 
 
 def clear():
@@ -110,23 +127,29 @@ def txt_changed(txt):
     ui.btnClear.setVisible(bool(txt))
 
 
-def initUi():
+def init_ui():
     global window, ui
     window = QMainWindow()
     ui = Ui_CalcWindow()
+
     translator.add(ui, window)
     ui.setupUi(window)
-    ui.btnCalc.clicked.connect(calc)
-    ui.lstHistory.itemDoubleClicked.connect(dclick)
+
+    ui.btnCalc.clicked.connect(calculate)
+    ui.lstHistory.itemDoubleClicked.connect(history_double_click)
     ui.listWidget.itemDoubleClicked.connect(ins_func)
+
     load_funcs()
+
     ui.cbxFuncs.currentIndexChanged.connect(on_sel)
     ui.txtExpr.textChanged.connect(txt_changed)
     ui.btnClear.clicked.connect(clear)
     ui.btnClear.setVisible(False)
+
     on_sel(0)
+
     window.show()
 
 
 def run():
-    initUi()
+    init_ui()

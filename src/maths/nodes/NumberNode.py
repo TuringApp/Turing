@@ -18,6 +18,3 @@ class NumberNode(AstNode):
 
     def __repr__(self):
         return "NumberNode(%r)" % (self.value)
-
-    def code(self):
-        return

@@ -7,7 +7,8 @@ from ui_settings import Ui_SettingsWindow
 
 translate = QCoreApplication.translate
 
-def initUi():
+
+def init_ui():
     global window, ui
     window = QDialog()
     ui = Ui_SettingsWindow()
@@ -16,4 +17,4 @@ def initUi():
 
 
 def run():
-    initUi()
+    init_ui()

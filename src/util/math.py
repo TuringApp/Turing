@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import numbers
+import util
 
 
-def isclose(a, b, rel_tol=1e-5, abs_tol=1e-8):
+def is_close(a, b, rel_tol=1e-5, abs_tol=1e-8):
     """Checks if the specified numbers are close enough to be considered equal.
 
     Due to the usage of IEEE754 floating points number in Python, formulae like 0.1+0.2
@@ -24,7 +25,7 @@ def isclose(a, b, rel_tol=1e-5, abs_tol=1e-8):
         b = complex(b)
 
     if type(a) == complex and type(b) == complex:
-        return isclose(a.real, b.real) and isclose(a.imag, b.imag)
+        return is_close(a.real, b.real) and is_close(a.imag, b.imag)
 
     if a == float("inf") and b != float("inf") or a != float("inf") and b == float("inf"):
         return False
@@ -36,61 +37,64 @@ def isclose(a, b, rel_tol=1e-5, abs_tol=1e-8):
     return abs(a - b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
 
 
-def isnum(a):
+def is_num(a):
     """Checks if the specified Python object is a number (int, float, long, etc)."""
     return isinstance(a, numbers.Number)
 
 
-def isbool(a):
+def is_bool(a):
     """Checks if the specified Python object is a boolean."""
     return type(a) == bool
 
 
-def isreal(a):
+def is_real(a):
     """Checks if the specified complex number is real (imaginary part is zero)."""
-    if not isnum(a):
+    if not is_num(a):
         return False
 
     if type(a) != complex:
         return True
 
-    return iszero(a.imag)
+    return is_zero(a.imag)
 
 
-def isint(a):
+def is_int(a):
     """Checks if the specified float is integral."""
     if type(a) == complex:
-        return isreal(a) and isint(a.real)
+        return is_real(a) and is_int(a.real)
 
-    if not isnum(a) or abs(a) == float("inf"):
+    if not is_num(a) or abs(a) == float("inf"):
         return False
 
-    return a == 0 or (1 <= a <= 1e15 and isclose(a, round(a)))
+    return a == 0 or (1 <= a <= 1e15 and is_close(a, round(a)))
 
 
-def iszero(a):
+def is_zero(a):
+    """Checks if the specified number is close enough to zero to be considered equal to zero."""
     if a == 0:
         return True
 
     if type(a) == complex:
-        return iszero(a.real) and iszero(a.imag)
+        return is_zero(a.real) and is_zero(a.imag)
 
     if type(a) != float:
         return False
 
     if "e" in str(a):
         sig, exp = str(a).split("e")
-        if isint(float(sig)):
+        if is_int(float(sig)):
             return False
 
-    return isclose(a, 0)
+    return is_close(a, 0)
 
 
-def ispropnum(a):
-    return isnum(a) and not isbool(a)
+def is_proper_num(a):
+    """Checks if the specified number is a real number (excluding booleans)."""
+    return is_num(a) and not is_bool(a)
 
 
-def propround(a, prec=None):
+def expon_round(a, prec=None):
+    """Rounds the left part of a two-part float."""
     if type(a) != float:
         return a
 
@@ -102,12 +106,15 @@ def propround(a, prec=None):
     return float("%se%s" % (round(float(sig), prec), exp))
 
 
-def closeround(a, prec=None):
+def close_round(a, prec=None):
+    """If the number is close enough to its rounded version, returns the rounded version, otherwise returns the
+    original number """
     if a is None:
         return 0
 
     if type(a) == complex:
-        return complex(closeround(a.real, prec), closeround(a.imag, prec))
+        # rounding a complex number -> round both parts
+        return complex(close_round(a.real, prec), close_round(a.imag, prec))
 
     if type(a) == int:
         return a
@@ -121,36 +128,39 @@ def closeround(a, prec=None):
 
         rnd = round(sig, prec)
 
-        if isclose(rnd, sig):
+        if is_close(rnd, sig):
             sig = rnd
 
         return float(str(sig) + "e" + exp)
     else:
         rnd = round(a, prec)
 
-        if isclose(rnd, a):
+        if is_close(rnd, a):
             return rnd
 
     return a
 
 
-def properstr(a):
+def proper_str(a):
     """Converts the specified float to string, removing comma if the number is integral."""
-    if isbool(a):
-        return "VRAI" if a else "FALSE"
+    if is_bool(a):
+        return util.translate("Utilities", "TRUE") if a else util.translate("Utilities", "FALSE")
+
     if type(a) == complex:
-        rpart = None if iszero(a.real) else properstr(a.real)
+        real = None if is_zero(a.real) else proper_str(a.real)
         if a.imag == 1:
-            cpart = "i"
+            imag = "i"
         elif a.imag != 0:
-            cpart = properstr(a.imag) + "i"
+            imag = proper_str(a.imag) + "i"
         else:
-            cpart = None
-        return " + ".join(x for x in [rpart, cpart] if x)
+            imag = None
+        return " + ".join(x for x in [real, imag] if x)
+
     if abs(a) > 1e15:
         a = float(a)
-    elif isint(a):
+    elif is_int(a):
         return str(round(a))
+
     if "e" in str(a):
         sig, exp = str(a).split("e")
         if int(exp) > 15:

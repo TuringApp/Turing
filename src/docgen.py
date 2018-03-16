@@ -4,102 +4,111 @@ import maths.lib
 import itertools
 import re
 import os
-from util.math import isint, properstr
+from util.math import is_int, proper_str
 
 
 def doc_funcs():
-    ret = ""
-    fns = maths.lib.get_funcs()
+    result = ""
+    functions = maths.lib.get_funcs()
 
-    for k in sorted(fns.keys()):
-        ret += "|&nbsp;|**%s**|&nbsp;|\n" % k
+    for category in sorted(functions.keys()):
+        result += "|&nbsp;|**%s**|&nbsp;|\n" % category
 
-        for f in sorted(fns[k], key=lambda x: x[0]):
-            names = [f[0]]
+        for function in sorted(functions[category], key=lambda x: x[0]):
+            names = [function[0]]
 
-            if len(f) > 3:
+            if len(function) > 3:
                 # add alias
-                names = names + f[3]
+                names = names + function[3]
 
             name = " / ".join("`%s`" % x for x in names)
 
             # check if any parameters
-            if f[1]:
-                args = "<ul>"
-                for arg in f[1]:
+            args = "<ul>"
+            if function[1]:
+                for arg in function[1]:
                     args += "<li>"
+
                     args += "`%s` (%s)" % (arg[0], arg[1])
                     if len(arg) > 2:
-                        constr = arg[2]
+                        constraint = arg[2]
+
                         if len(arg) > 3:
-                            deft = "default = %s" % arg[3] if arg[3] is not None else None
+                            default = "default = %s" % arg[3] if arg[3] is not None else None
                         else:
-                            deft = None
-                        infos = ", ".join(x for x in [constr, deft] if x)
-                        if infos:
-                            args += " " + infos
+                            default = None
+
+                        arg_infos = ", ".join(x for x in [constraint, default] if x)
+
+                        if arg_infos:
+                            args += " " + arg_infos
+
                     args += "</li>"
-                args += "</ul>"
+            else:
+                args += "<li>None</li>"
+
+            args += "</ul>"
 
             # replace {{x}} by `x` for markdown
-            desc = re.sub(r"{{(\w+)\}\}", "`\g<1>`", f[2])
+            desc = re.sub(r"{{(\w+)\}\}", "`\g<1>`", function[2])
             desc = re.sub(r"//(\w+)//", "*\g<1>*", desc)
 
-            ret += "|%s|%s|%s|\n" % (name, args, desc)
+            result += "|%s|%s|%s|\n" % (name, args, desc)
 
-    return ret
+    return result
 
 
 def doc_consts():
-    ret = ""
-    cts = maths.lib.get_consts()
+    result = ""
+    constants = maths.lib.get_consts()
 
-    for k in sorted(cts.keys()):
-        ret += "|&nbsp;|**%s**|&nbsp;|\n" % k
+    for category in sorted(constants.keys()):
+        result += "|&nbsp;|**%s**|&nbsp;|\n" % category
 
-        for c in sorted(cts[k], key=lambda x: x[0]):
-            name, symbol, desc = c[:3]
+        for constant in sorted(constants[category], key=lambda x: x[0]):
+            name, symbol, desc = constant[:3]
 
-            actual = getattr(maths.lib.get_modules()[k], "c_" + name)
+            actual = getattr(maths.lib.get_modules()[category], "c_" + name)
 
-            if isint(actual):
+            if is_int(actual):
                 # if integer, only value is needed
-                val = str(actual)
+                value = str(actual)
             else:
                 if "e" in str(actual):
                     # if exponent, add pretty html
                     sig, exp = str(actual).split("e")
-                    val = str(round(float(sig), 15)) + "&middot;10<sup>%d</sup>" % int(exp)
+                    value = str(round(float(sig), 15)) + "&middot;10<sup>%d</sup>" % int(exp)
                 else:
                     # otherwise, only rounded value
                     if type(actual) == complex:
-                        val = properstr(actual)
+                        value = proper_str(actual)
                     else:
-                        val = "%.15f" % actual
+                        value = "%.15f" % actual
 
             unit = ""
-            if len(c) > 3:
+
+            if len(constant) > 3:
                 # add unit
-                unit = " (%s)" % c[3].replace("*", "&middot;")
+                unit = " (%s)" % constant[3].replace("*", "&middot;")
 
             desc = re.sub(r"//(\w+)//", "*\g<1>*", desc)
 
-            ret += "|`%s`|%s|*%s* - %s%s|\n" % (name, val, symbol, desc, unit)
+            result += "|`%s`|%s|*%s* - %s%s|\n" % (name, value, symbol, desc, unit)
 
-    return ret
+    return result
 
 
 if __name__ == "__main__":
     path_docs = os.path.join(os.path.dirname(__file__), os.pardir, "docs")
 
-    templ = os.path.join(path_docs, "expression_templ.md")
-    outp = os.path.join(path_docs, "expression.md")
+    template = os.path.join(path_docs, "expression_templ.md")
+    output = os.path.join(path_docs, "expression.md")
 
-    with open(templ, "r", encoding="utf8") as f:
-        templ_md = f.read()
+    with open(template, "r", encoding="utf8") as file:
+        markdown = file.read()
 
-    templ_md = templ_md.replace("{{{funcdoc}}}", doc_funcs())
-    templ_md = templ_md.replace("{{{constdoc}}}", doc_consts())
+    markdown = markdown.replace("{{{funcdoc}}}", doc_funcs())
+    markdown = markdown.replace("{{{constdoc}}}", doc_consts())
 
-    with open(outp, "w", encoding="utf8") as f:
-        f.write(templ_md)
+    with open(output, "w", encoding="utf8") as file:
+        file.write(markdown)

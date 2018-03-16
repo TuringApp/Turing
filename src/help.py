@@ -13,19 +13,19 @@ import translator
 
 translate = QCoreApplication.translate
 
-fns = None
+functions = None
 catItems = []
 
 
-def find_func(name):
-    for k in fns:
-        for f in fns[k]:
+def find_function(name):
+    for k in functions:
+        for f in functions[k]:
             if f[0] == name:
                 return (k, f)
     return None
 
 
-def func_def_html(f):
+def func_signature_html(f):
     hargs = []
 
     for a in f[1]:
@@ -37,17 +37,17 @@ def func_def_html(f):
     return "<b>%s</b>(%s)" % (f[0], ", ".join(hargs))
 
 
-def on_sel(current):
+def on_item_select(current):
     text = current.text(0).strip()
 
     if current.parent() is not None:
-        cat, f = find_func(text[:text.index("(")])
+        category, function = find_function(text[:text.index("(")])
 
-        name, args, desc = f[:3]
+        name, args, desc = function[:3]
         desc = re.sub(r"{{(\w+)\}\}", "<i><b>\g<1></b></i>", desc)
         desc = re.sub(r"//(\w+)//", "<i>\g<1></i>", desc)
 
-        html = util.html.centered("<h1>%s</h1>" % func_def_html(f))
+        html = util.html.centered("<h1>%s</h1>" % func_signature_html(function))
 
         html += translate("HelpWindow", "<h2>Arguments:</h2>")
         html += "<ul>"
@@ -60,28 +60,28 @@ def on_sel(current):
                 html += "<i><b>%s</b></i> (%s)" % arg[:2]
 
                 if len(arg) > 2:
-                    constr = escape(arg[2])
+                    constraint = escape(arg[2])
 
                     if len(arg) > 3:
-                        deft = translate("HelpWindow", "default = %s") % arg[3] if arg[3] is not None else None
+                        default = translate("HelpWindow", "default = %s") % arg[3] if arg[3] is not None else None
                     else:
-                        deft = None
+                        default = None
 
-                    infos = ", ".join(x for x in [constr, deft] if x)
+                    arg_infos = ", ".join(x for x in [constraint, default] if x)
 
-                    if infos:
-                        html += " " + infos
+                    if arg_infos:
+                        html += " " + arg_infos
 
                 html += "</li>"
 
         html += "</ul>"
 
-        if len(f) > 3 and f[3]:
+        if len(function) > 3 and function[3]:
             html += translate("HelpWindow", "<h2>Aliases:</h2>")
             html += "<ul>"
 
-            for al in f[3]:
-                html += "<li>%s</li>" % al
+            for alias in function[3]:
+                html += "<li>%s</li>" % alias
 
             html += "</ul>"
 
@@ -92,8 +92,8 @@ def on_sel(current):
         html += translate("HelpWindow", "<h2>Functions:</h2>")
         html += "<ul>"
 
-        for fun in fns[text]:
-            html += "<li>%s</li>" % func_def_html(fun)
+        for function in functions[text]:
+            html += "<li>%s</li>" % func_signature_html(function)
 
         html += "</ul>"
 
@@ -101,26 +101,29 @@ def on_sel(current):
 
 
 def load_funcs():
-    global fns
-    fns = maths.lib.get_funcs()
-    for k in sorted(fns.keys()):
-        citem = QTreeWidgetItem()
-        citem.setText(0, "%s" % k)
-        fnt = citem.font(0)
-        fnt.setBold(True)
-        citem.setFont(0, fnt)
+    global functions
+    functions = maths.lib.get_funcs()
+    for k in sorted(functions.keys()):
+        item_category = QTreeWidgetItem()
+        item_category.setText(0, "%s" % k)
+
+        font = item_category.font(0)
+        font.setBold(True)
+        item_category.setFont(0, font)
+
         items = []
-        for f in sorted(fns[k], key=lambda x: x[0]):
+
+        for f in sorted(functions[k], key=lambda x: x[0]):
             item = QTreeWidgetItem()
             item.setText(0, "%s" % maths.lib.docs.get_func_def(f))
-            citem.addChild(item)
+            item_category.addChild(item)
             items.append(item)
 
-        ui.listFuncs.addTopLevelItem(citem)
-        catItems.append((citem, items))
+        ui.listFuncs.addTopLevelItem(item_category)
+        catItems.append((item_category, items))
 
 
-def clr_search():
+def clear_search_field():
     ui.textSearch.setText("")
 
 
@@ -129,30 +132,40 @@ def search_changed(txt):
 
     for ci, items in catItems:
         hid = 0
+
         for i in items:
             if txt.upper() in i.text(0).upper():
                 i.setHidden(False)
             else:
                 i.setHidden(True)
                 hid += 1
+
+            # if all sub-items are hidden, hide the whole category
             ci.setHidden(hid == len(items))
 
 
-def initUi():
+def init_ui():
     global window, ui
     window = QDialog()
     ui = Ui_HelpWindow()
+
     translator.add(ui, window)
     ui.setupUi(window)
+
     ui.textSearch.textChanged.connect(search_changed)
+
     ui.btnClear.setVisible(False)
-    ui.btnClear.clicked.connect(clr_search)
+    ui.btnClear.clicked.connect(clear_search_field)
+
+    # by default, 25-75 ratio
     ui.splitter.setStretchFactor(0, 1)
     ui.splitter.setStretchFactor(1, 3)
-    ui.listFuncs.itemClicked.connect(on_sel)
+
+    ui.listFuncs.itemClicked.connect(on_item_select)
+
     load_funcs()
     window.show()
 
 
 def run():
-    initUi()
+    init_ui()

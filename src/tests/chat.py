@@ -15,13 +15,13 @@ import sys
 init_test()
 
 # path of the main src/ folder
-srcpath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+src_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-for folder in os.listdir(srcpath):
-    if os.path.isdir(os.path.join(srcpath, folder)):
+for folder in os.listdir(src_path):
+    if os.path.isdir(os.path.join(src_path, folder)):
         # path of the __tests__.py file
-        tfile = os.path.join(srcpath, folder, "__tests__.py")
-        if os.path.isfile(tfile):
+        tests_file = os.path.join(src_path, folder, "__tests__.py")
+        if os.path.isfile(tests_file):
             # run the unit tests
             begin_test(folder)
             importlib.import_module(folder + ".__tests__").run_tests()

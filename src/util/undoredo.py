@@ -44,8 +44,8 @@ class UndoRedo:
             print("error: trying to undo")
             return
 
-        fn = self.undo_gen(self.undo_act())
-        fn()
+        func = self.undo_gen(self.undo_act())
+        func()
         self.position -= 1
 
     def redo(self):
@@ -55,11 +55,11 @@ class UndoRedo:
             print("error: trying to redo")
             return
 
-        fn = self.redo_gen(self.redo_act())
-        fn()
+        func = self.redo_gen(self.redo_act())
+        func()
         self.position += 1
 
-    def push(self, act):
+    def push(self, action):
         """Pushes an action to the stack.
 
         If the position is not at the end, erases the remaining actions.
@@ -67,4 +67,4 @@ class UndoRedo:
         act -- action to push"""
 
         self.history = self.history[0:self.position]
-        self.history.append(act)
+        self.history.append(action)

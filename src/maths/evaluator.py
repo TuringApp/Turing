@@ -18,84 +18,91 @@ class Evaluator:
     beautified = None
     strictType = False
 
-    def round_ex(num, prec=None):
-        if prec:
-            return round(num, int(prec))
-        return round(num)
-
     def __init__(self, strict=False):
         self.variables = {}
 
-        for n, mod in mlib.__dict__.items():
-            if isinstance(mod, types.ModuleType):
-                for fn, func in mod.__dict__.items():
-                    if callable(func):
-                        self.variables[fn] = func
-                    else:
-                        if fn.startswith("c_"):
-                            self.variables[fn[2:]] = func
+        for name, item in mlib.__dict__.items():
+            if isinstance(item, types.ModuleType):
+                for member_name, member in item.__dict__.items():
+                    if callable(member):  # if function
+                        self.variables[member_name] = member
+                    elif member_name.startswith("c_"):  # if constant
+                        self.variables[member_name[2:]] = member
 
         self.arguments = []
         self.log = Logger("Eval")
         self.strictType = strict
 
     def evaluate(self, expr):
-        par = Parser(expr)
-        exp = None
+        parser = Parser(expr)
+        node_tree = None
 
         if False:
-            exp = par.parse()
+            node_tree = parser.parse()
         else:
             try:
-                exp = par.parse()
+                node_tree = parser.parse()
             except:
                 self.log.error("Parser: " + str(sys.exc_info()[1]))
 
-        for msg in par.log.getMessages():
+        for msg in parser.log.getMessages():
             self.log.messages.append(msg)
 
-        self.beautified = par.beautify()
+        self.beautified = parser.beautify()
 
-        if not exp:
+        if not node_tree:
             return None
 
-        ret = None
+        result = None
 
         try:
-            ret = self.evalNode(exp)
+            result = self.evalNode(node_tree)
         except:
             self.log.error(str(sys.exc_info()[1]))
 
-        return ret
+        return result
 
     def evalNode(self, node):
-        val = self.evalNodeReal(node)
+        """Wrapper for evalNodeReal that handles all the IEEE754 floating point rounding fuckery"""
+        value = self.evalNodeReal(node)
 
-        if val is not None and isnum(val) and not isinstance(val, bool):
-            if type(val) == complex:
-                if isreal(val):
-                    val = val.real
+        if value is not None and is_num(value) and not isinstance(value, bool):
+            if type(value) == complex:
+                # if real, convert to float directly
+                if is_real(value):
+                    value = value.real
 
-            if isint(val) and 1 <= abs(val) <= 1e15:
-                val = int(round(val))
+            # only convert to int if it fits well
+            if is_int(value) and 1 <= abs(value) <= 1e15:
+                value = int(round(value))
 
-            if iszero(val):
-                val = 0
+            # if zero, use zero directly
+            if is_zero(value):
+                value = 0
             else:
-                val = closeround(val, 9)
+                value = close_round(value, 9)
 
-        return val
+        return value
 
     def callLambda(self, node, *args):
+        """Lambda function call wrapper"""
         args = list(args)
+
         if len(args) != len(node.args):
             self.log.error("Argument count mismatch (expected %d, got %d)" % (len(node.args), len(args)))
+            return None
+
+        # push arguments to the stack
         for i in range(len(args)):
             self.arguments.append((node.args[i], args[i]))
-        ret = self.evalNode(node.expr)
+
+        result = self.evalNode(node.expr)
+
+        # pop arguments after use
         for i in range(len(args)):
             self.arguments.pop()
-        return ret
+
+        return result
 
     def evalNodeReal(self, node):
         if type(node) == nodes.ListNode:
@@ -105,13 +112,15 @@ class Evaluator:
             return node.value
 
         if type(node) == nodes.IdentifierNode:
-            for a in self.arguments[::-1]:
-                if a[0] == node.value:
-                    return a[1]
+            # iterate arguments in backwards (to simulate a stack)
+            for arg in self.arguments[::-1]:
+                if arg[0] == node.value:
+                    return arg[1]
+
             if node.value in self.variables:
                 return self.variables[node.value]
             else:
-                self.log.error("Can't find variable or function " + node.value)
+                self.log.error("Cannot find variable or function " + node.value)
 
         if type(node) == nodes.UnaryOpNode:
             return self.evalUnary(node)
@@ -120,157 +129,181 @@ class Evaluator:
             return self.evalBinary(node)
 
         if type(node) == nodes.CallNode:
-            fn = self.evalNode(node.func)
-            if fn is None:
+            function = self.evalNode(node.func)
+
+            if function is None:
+                self.log.error("Callee is None")
                 return None
+
             if (len(node.args) == 1
                     and isinstance(node.args[0], nodes.UnaryOpNode)
                     and node.args[0].opType == "*"):
-                lst = self.evalNode(node.args[0].value)
-                if type(lst) != list:
+                # expand list of arguments
+                arg_list = self.evalNode(node.args[0].value)
+
+                if type(arg_list) != list:
                     self.log.error("Only lists can be expanded")
                     return None
-                args = lst
+
+                args = arg_list
             else:
                 args = [self.evalNode(x) for x in node.args]
-            return fn.__call__(*args)
+
+            return function.__call__(*args)
 
         if type(node) == nodes.ArrayAccessNode:
-            val = self.evalNode(node.array)
-            idx = int(self.evalNode(node.index))
-            if idx < len(val):
-                return val[idx]
+            array = self.evalNode(node.array)
+            index = int(self.evalNode(node.index))
+
+            if index < len(array):
+                return array[index]
             else:
-                self.log.error("Index '%s' too big for array" % idx)
+                self.log.error("Index '%s' too big for array" % index)
 
         if type(node) == nodes.LambdaNode:
             return lambda *args: self.callLambda(node, *list(args))
 
+        # if the object is not a node, it must be a remnant of an already-parsed value
+        # return it directly
         if not isinstance(node, nodes.AstNode):
             return node
 
+        self.log.error("Unknown node type: %s" % type(node))
         return None
 
     def evalUnary(self, node):
-        val = self.evalNode(node.value)
-        vtype = ValueType.getType(val)
+        value = self.evalNode(node.value)
+        value_type = ValueType.getType(value)
 
         if node.opType == "+":
-            return val
+            return value
 
-        if node.opType == "-" and (isnum(val) and (not self.strictType or not isbool(val))):
-            return -val
+        if node.opType == "-" and (is_num(value) and (not self.strictType or not is_bool(value))):
+            return -value
 
-        if node.opType == "-" and vtype == ValueType.LIST:
-            return val[::-1]
+        if node.opType == "-" and value_type == ValueType.LIST:
+            return value[::-1]
 
-        if node.opType == "NON" and (isbool(val) or (not self.strictType and isnum(val))):
-            return not val
+        if node.opType == "NON" and (is_bool(value) or (not self.strictType and is_num(value))):
+            return not value
 
         self.log.error("Invalid unary operator '%s'" % node.opType)
+        return None
 
     def evalBinary(self, node):
         left = self.evalNode(node.left)
-        ltype = ValueType.getType(left)
+        left_type = ValueType.getType(left)
+
         right = self.evalNode(node.right)
-        rtype = ValueType.getType(right)
+        right_type = ValueType.getType(right)
 
         if left is None or right is None:
             self.log.error("Trying to use None")
             return None
 
-        if node.opType in ["*"] and rtype == ValueType.LIST and ltype != ValueType.LIST:
-            (left, ltype, right, rtype) = (right, rtype, left, ltype)
+        if node.opType in ["*"] and right_type == ValueType.LIST and left_type != ValueType.LIST:
+            # if one operand is list and not the other, then put the list at left
+            # so we don't have to handle both cases afterwards
+            (left, left_type, right, right_type) = (right, right_type, left, left_type)
 
-        ret = None
+        result = None
 
         if self.strictType:
-            if ltype != rtype:
-                self.log.error("Type mismatch: operands have different type (%s and %s)" % (
-                    ValueType.getName(ltype), ValueType.getName(rtype)))
+            if left_type != right_type:
+                self.log.error("Type mismatch: operands have different types (%s and %s)" % (
+                    ValueType.getName(left_type), ValueType.getName(right_type)))
                 return None
 
-            if ltype == ValueType.BOOLEAN:
+            if left_type == ValueType.BOOLEAN:
                 allowed = Operators.boolean
-            elif ltype == ValueType.NUMBER:
+            elif left_type == ValueType.NUMBER:
                 allowed = Operators.math + Operators.comp
-            elif ltype == ValueType.STRING:
+            elif left_type == ValueType.STRING:
                 allowed = Operators.eq + ["+"]
-            elif ltype == ValueType.LIST:
+            elif left_type == ValueType.LIST:
                 allowed = Operators.eq + ["+", "-", "&", "|"]
             else:
-                errpos = []
-                if ltype is None:
-                    errpos.append("left")
-                if rtype is None:
-                    errpos.append("right")
+                error_pos = []
 
-                self.log.error("Invalid value type for %s and operator '%s'" % (" and ".join(errpos), node.opType))
+                if left_type is None:
+                    error_pos.append("left")
+
+                if right_type is None:
+                    error_pos.append("right")
+
+                self.log.error("Invalid value type for %s and operator '%s'" % (" and ".join(error_pos), node.opType))
                 return None
 
             if node.opType not in allowed:
-                self.log.error("Operator '%s' not allowed for value type %s" % (node.opType, ValueType.getName(ltype)))
+                self.log.error(
+                    "Operator '%s' not allowed for value type %s" % (node.opType, ValueType.getName(left_type)))
                 return None
 
+        # arithmetic
         if node.opType == "+":
-            ret = left + right
+            result = left + right
         elif node.opType == "-":
-            if ltype == rtype == ValueType.LIST:
-                ret = [x for x in left if x not in right]
+            if left_type == right_type == ValueType.LIST:
+                result = [x for x in left if x not in right]
             else:
-                ret = left - right
+                result = left - right
         elif node.opType == "*":
-            if ltype == ValueType.LIST:
-                if not isint(right):
+            if left_type == ValueType.LIST:
+                if not is_int(right):
                     self.log.error("Trying to multiply List by non-integer (%f)" % right)
                     return None
                 else:
-                    ret = left * int(right)
+                    result = left * int(right)
             else:
-                ret = left * right
+                result = left * right
         elif node.opType == "/":
             if right == 0:
                 self.log.error("Trying to divide by zero")
                 return None
-            ret = left / right
+            result = left / right
         elif node.opType == "%":
-            ret = math.fmod(left, right)
+            result = math.fmod(left, right)
         elif node.opType == "^":
-            ret = left ** right
+            result = left ** right
 
+        # comparison
         elif node.opType == "<=":
-            ret = left <= right or isclose(left, right)
+            result = left <= right or is_close(left, right)
         elif node.opType == "<":
-            ret = left < right
+            result = left < right
         elif node.opType == ">":
-            ret = left > right
+            result = left > right
         elif node.opType == ">=":
-            ret = left >= right or isclose(left, right)
+            result = left >= right or is_close(left, right)
 
+        # equality
         elif node.opType == "==":
-            ret = isclose(left, right)
+            result = is_close(left, right)
         elif node.opType == "!=":
-            ret = not isclose(left, right)
-        elif node.opType == "&":
-            if ltype == rtype == ValueType.LIST:
-                ret = [x for x in left if x in right]
-            else:
-                ret = int(left) & int(right)
-        elif node.opType == "|":
-            if ltype == rtype == ValueType.LIST:
-                ret = list(set(left + right))
-            else:
-                ret = int(left) | int(right)
-        elif node.opType == "XOR":
-            if ltype == rtype == ValueType.LIST:
-                ret = list(set(x for x in left + right if x not in left or x not in right))
-            else:
-                ret = int(left) ^ int(right)
+            result = not is_close(left, right)
 
-        if ret is None:
+        # logic / bitwise
+        elif node.opType == "&":
+            if left_type == right_type == ValueType.LIST:
+                result = [x for x in left if x in right]
+            else:
+                result = int(left) & int(right)
+        elif node.opType == "|":
+            if left_type == right_type == ValueType.LIST:
+                result = list(set(left + right))
+            else:
+                result = int(left) | int(right)
+        elif node.opType == "XOR":
+            if left_type == right_type == ValueType.LIST:
+                result = list(set(x for x in left + right if x not in left or x not in right))
+            else:
+                result = int(left) ^ int(right)
+
+        if result is None:
             self.log.error("Invalid binary operator '%s' for '%s' and '%s'" % (node.opType, left, right))
         else:
-            if isbool(left) and isbool(right):
-                ret = bool(ret)
+            if is_bool(left) and is_bool(right):
+                # if both operands are bool, then cast the whole thing to bool so it looks like we're professional
+                result = bool(result)
 
-        return ret
+        return result

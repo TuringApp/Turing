@@ -4,25 +4,30 @@ from PyQt5.QtCore import *
 import os
 
 uis = []
-current = "en"
+current = None
 
-def add(u, w):
-    uis.append((u, w))
 
-def remove(u):
+def add(ui, window):
+    uis.append((ui, window))
+
+
+def remove(ui):
     global uis
-    uis = [x for x in uis if x[0] != u]
+    uis = [x for x in uis if x[0] != ui]
+
 
 def update():
-    for u, w in uis:
-        u.retranslateUi(w)
+    for ui, window in uis:
+        ui.retranslateUi(window)
 
-def translate(c, t):
+
+def translate(context, string):
     if current != "en":
-        a = QTranslator()
-        a.load(current, "lang")
-        QCoreApplication.installTranslator(a)
-    return QCoreApplication.translate2(c, t)
+        tr_object = QTranslator()
+        tr_object.load(current, "lang")
+        QCoreApplication.installTranslator(tr_object)
+
+    return QCoreApplication.translate2(context, string)
 
 
 def load(lang):

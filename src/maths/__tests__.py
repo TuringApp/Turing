@@ -48,7 +48,7 @@ tests = [
      "[42, {x, y, z}(x * abs({x, y}(x - y)(y, z))), 38][1](4, 3, 5)"),
 
     ("(2+2)==4", True, "(2 + 2) == 4"),
-    ("vrai xor true", False, "VRAI XOR VRAI"),
+    ("vrai xor true", False, "TRUE XOR TRUE"),
     ("\"abc\"+\"def\"", "abcdef", "\"abc\" + \"def\""),
 
     # list operators
@@ -97,7 +97,7 @@ tests = [
 def run_tests():
     ev = Evaluator()
 
-    for e, res, beaut in tests:
-        ret = ev.evaluate(e)
-        expect(ret, res)
-        expect(ev.beautified, beaut)
+    for expr, exp_result, exp_beautified in tests:
+        result = ev.evaluate(expr)
+        expect(result, exp_result)
+        expect(ev.beautified, exp_beautified)

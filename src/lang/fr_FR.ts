@@ -55,7 +55,7 @@ p, li { white-space: pre-wrap; }
         <translation>Calculatrice</translation>
     </message>
     <message>
-        <location filename="../calculator.py" line="59"/>
+        <location filename="../calculator.py" line="70"/>
         <source>Result is None</source>
         <translation>Résultat nul</translation>
     </message>
@@ -425,7 +425,7 @@ p, li { white-space: pre-wrap; }
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="38"/>
+        <location filename="../main.py" line="41"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
@@ -451,11 +451,6 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
-    <message encoding="UTF-8">
-        <location filename="../ui_mainwindow.py" line="475"/>
-        <source>Français</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../ui_mainwindow.py" line="474"/>
         <source>en_US</source>
@@ -464,6 +459,11 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../ui_mainwindow.py" line="476"/>
         <source>fr_FR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../ui_mainwindow.py" line="475"/>
+        <source>Français</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -478,6 +478,19 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <location filename="../ui_settings.py" line="67"/>
         <source>Langue</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Utilities</name>
+    <message>
+        <location filename="../util/math.py" line="147"/>
+        <source>TRUE</source>
+        <translation>VRAI</translation>
+    </message>
+    <message>
+        <location filename="../util/math.py" line="147"/>
+        <source>FALSE</source>
+        <translation>FAUX</translation>
     </message>
 </context>
 </TS>
