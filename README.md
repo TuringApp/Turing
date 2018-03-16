@@ -22,9 +22,9 @@ In both modes, the code can be debugged and executed step-by-step to facilitate 
 
 Turing is cross-platform, but has only been tested on Windows and Linux-based operating systems. macOS should be supported, but no guarantee is made of that.
 
-First, install the latest version of Python 3 [available here](https://www.python.org/downloads/), and install PyQt5 using pip:
+First, installe the required modules using pip:
 
-    pip install PyQt5
+    pip install -r requirements.txt
 
 Note: if you have Python 2.x installed on your computer, the old `pip` may be present in `PATH` and interfere with the above command line. If that happens, try using `pip3` instead of `pip`.
 
