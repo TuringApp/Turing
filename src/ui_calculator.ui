@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Calculatrice</string>
+   <string>Calculator</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -47,7 +47,11 @@
       <item>
        <widget class="QPushButton" name="btnCalc">
         <property name="text">
-         <string>CALCULEUH</string>
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>media/calculator.png</normaloff>media/calculator.png</iconset>
         </property>
        </widget>
       </item>
@@ -60,16 +64,6 @@
       </item>
       <item>
        <widget class="QListWidget" name="listWidget"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnInsFunc">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string>Insérer</string>
-        </property>
-       </widget>
       </item>
      </layout>
     </item>

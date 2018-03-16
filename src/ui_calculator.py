@@ -36,6 +36,8 @@ class Ui_CalcWindow(object):
         self.btnClear.setObjectName("btnClear")
         self.horizontalLayout.addWidget(self.btnClear)
         self.btnCalc = QtWidgets.QPushButton(self.centralwidget)
+        self.btnCalc.setText("")
+        self.btnCalc.setIcon(icon)
         self.btnCalc.setObjectName("btnCalc")
         self.horizontalLayout.addWidget(self.btnCalc)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -47,10 +49,6 @@ class Ui_CalcWindow(object):
         self.listWidget = QtWidgets.QListWidget(self.centralwidget)
         self.listWidget.setObjectName("listWidget")
         self.verticalLayout_2.addWidget(self.listWidget)
-        self.btnInsFunc = QtWidgets.QPushButton(self.centralwidget)
-        self.btnInsFunc.setEnabled(False)
-        self.btnInsFunc.setObjectName("btnInsFunc")
-        self.verticalLayout_2.addWidget(self.btnInsFunc)
         self.verticalLayout.addLayout(self.verticalLayout_2)
         CalcWindow.setCentralWidget(self.centralwidget)
 
@@ -59,7 +57,5 @@ class Ui_CalcWindow(object):
 
     def retranslateUi(self, CalcWindow):
         _translate = QtCore.QCoreApplication.translate
-        CalcWindow.setWindowTitle(_translate("CalcWindow", "Calculatrice"))
-        self.btnCalc.setText(_translate("CalcWindow", "CALCULEUH"))
-        self.btnInsFunc.setText(_translate("CalcWindow", "Insérer"))
+        CalcWindow.setWindowTitle(_translate("CalcWindow", "Calculator"))
 

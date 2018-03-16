@@ -24,6 +24,7 @@ def getThemedBox():
     center_widget(msg, window)
     return msg
 
+
 class myMainWindow(QMainWindow):
     def closeEvent(self, event):
         if False:
@@ -40,6 +41,7 @@ class myMainWindow(QMainWindow):
             event.accept()
             exit()
 
+
 def center_widget(wgt, host):
     if not host:
         host = wgt.parent()
@@ -49,11 +51,14 @@ def center_widget(wgt, host):
     else:
         wgt.move(app.desktop().screenGeometry().center() - wgt.rect().center())
 
+
 def getact(name):
     return getattr(ui, "action" + name)
 
+
 def refresh():
     refresh_buttons_status()
+
 
 def refresh_buttons_status():
     active_code = False
@@ -73,20 +78,24 @@ def refresh_buttons_status():
         getact(c).setEnabled(active_code)
 
     if current_file != -1:
-        getact("Undo").setEnabled(undo_objs[currentFile].can_undo())
-        getact("Redo").setEnabled(undo_objs[currentFile].can_redo())
+        getact("Undo").setEnabled(undo_objs[current_file].can_undo())
+        getact("Redo").setEnabled(undo_objs[current_file].can_redo())
+
 
 def handler_Calculator():
     import calculator
     calculator.run()
-	
+
+
 def handler_Settings():
     import settings
     settings.run()
 
+
 def handler_HelpContents():
-	import help
-	help.run()
+    import help
+    help.run()
+
 
 def handler_AboutTuring():
     about = QDialog()
@@ -98,11 +107,13 @@ def handler_AboutTuring():
     center_widget(about, window)
     about.exec_()
 
+
 def handler_ShowToolbar():
     if ui.toolBar.isVisible():
         ui.toolBar.hide()
     else:
         ui.toolBar.show()
+
 
 def handler_ShowToolbarText():
     if ui.toolBar.toolButtonStyle() == Qt.ToolButtonTextUnderIcon:
@@ -110,12 +121,14 @@ def handler_ShowToolbarText():
     else:
         ui.toolBar.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
+
 def initActions():
     for c in dir(ui):
         if c.startswith("action"):
             name = "handler_" + c[6:]
             if name in globals():
                 getattr(ui, c).triggered.connect(globals()[name])
+
 
 def initUi():
     global window, ui
@@ -127,6 +140,7 @@ def initUi():
     refresh()
     window.show()
 
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
@@ -135,8 +149,9 @@ if __name__ == "__main__":
         app.setFont(font)
     if False:
         import qdarkstyle
+
         app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-        
+
     initUi()
 
     exitCode = app.exec_()

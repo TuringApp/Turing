@@ -62,5 +62,5 @@ class Ui_HelpWindow(object):
 
     def retranslateUi(self, HelpWindow):
         _translate = QtCore.QCoreApplication.translate
-        HelpWindow.setWindowTitle(_translate("HelpWindow", "Pages d\'aide"))
+        HelpWindow.setWindowTitle(_translate("HelpWindow", "Help Contents"))
 

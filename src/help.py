@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from ui_help import Ui_HelpWindow
-import maths.lib
-import util.html
-import maths.lib.docs
 import re
 from html import escape
 
+import maths.lib
+import maths.lib.docs
+import util.html
+from PyQt5.QtWidgets import *
+from ui_help import Ui_HelpWindow
+
 fns = None
 catItems = []
+
 
 def find_func(name):
     for k in fns:
@@ -19,6 +19,7 @@ def find_func(name):
             if f[0] == name:
                 return (k, f)
     return None
+
 
 def func_def_html(f):
     hargs = []
@@ -31,14 +32,15 @@ def func_def_html(f):
 
     return "<b>%s</b>(%s)" % (f[0], ", ".join(hargs))
 
+
 def on_sel(current):
     text = current.text(0).strip()
 
-    if current.parent() != None:
+    if current.parent() is not None:
         cat, f = find_func(text[:text.index("(")])
 
         name, args, desc = f[:3]
-        desc = re.sub(r"\{\{(\w+)\}\}", "<i><b>\g<1></b></i>", desc)
+        desc = re.sub(r"{{(\w+)\}\}", "<i><b>\g<1></b></i>", desc)
         desc = re.sub(r"//(\w+)//", "<i>\g<1></i>", desc)
 
         html = util.html.centered("<h1>%s</h1>" % func_def_html(f))
@@ -54,17 +56,17 @@ def on_sel(current):
                 html += "<i><b>%s</b></i> (%s)" % arg[:2]
 
                 if len(arg) > 2:
-                        constr = escape(arg[2])
+                    constr = escape(arg[2])
 
-                        if len(arg) > 3:
-                            deft = "default = %s" % arg[3] if arg[3] != None else None
-                        else:
-                            deft = None
+                    if len(arg) > 3:
+                        deft = "default = %s" % arg[3] if arg[3] is not None else None
+                    else:
+                        deft = None
 
-                        infos = ", ".join(x for x in [constr, deft] if x)
+                    infos = ", ".join(x for x in [constr, deft] if x)
 
-                        if infos:
-                            html += " " + infos
+                    if infos:
+                        html += " " + infos
 
                 html += "</li>"
 
@@ -78,7 +80,7 @@ def on_sel(current):
                 html += "<li>%s</li>" % al
 
             html += "</ul>"
-        
+
         html += "<p>%s</p>" % escape(desc)
     else:
         html = util.html.centered("<h1>%s</h1>" % text)
@@ -93,18 +95,18 @@ def on_sel(current):
 
     ui.textBrowser.setHtml(html)
 
+
 def load_funcs():
     global fns
     fns = maths.lib.get_funcs()
     for k in sorted(fns.keys()):
         citem = QTreeWidgetItem()
-        citem.setText(0, "%s" % k)      
+        citem.setText(0, "%s" % k)
         fnt = citem.font(0)
         fnt.setBold(True)
         citem.setFont(0, fnt)
         items = []
-        for f in sorted(fns[k], key=lambda x:x[0]):
-            name, args, desc = f[:3]
+        for f in sorted(fns[k], key=lambda x: x[0]):
             item = QTreeWidgetItem()
             item.setText(0, "%s" % maths.lib.docs.get_func_def(f))
             citem.addChild(item)
@@ -113,8 +115,10 @@ def load_funcs():
         ui.listFuncs.addTopLevelItem(citem)
         catItems.append((citem, items))
 
+
 def clr_search():
     ui.textSearch.setText("")
+
 
 def search_changed(txt):
     ui.btnClear.setVisible(bool(txt))
@@ -129,6 +133,7 @@ def search_changed(txt):
                 hid += 1
             ci.setHidden(hid == len(items))
 
+
 def initUi():
     global window, ui
     window = QDialog()
@@ -142,6 +147,7 @@ def initUi():
     ui.listFuncs.itemClicked.connect(on_sel)
     load_funcs()
     window.show()
+
 
 def run():
     initUi()
