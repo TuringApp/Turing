@@ -64,7 +64,6 @@ class Evaluator:
         try:
             ret = self.evalNode(exp)
         except:
-            raise
             self.log.error(str(sys.exc_info()[1]))
 
         return ret
