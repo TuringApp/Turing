@@ -78,8 +78,8 @@ def refresh_buttons_status():
         getact(c).setEnabled(active_code)
 
     if current_file != -1:
-        getact("Undo").setEnabled(undo_objs[currentFile].can_undo())
-        getact("Redo").setEnabled(undo_objs[currentFile].can_redo())
+        getact("Undo").setEnabled(undo_objs[current_file].can_undo())
+        getact("Redo").setEnabled(undo_objs[current_file].can_redo())
 
 
 def handler_Calculator():

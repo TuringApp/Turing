@@ -401,26 +401,31 @@ class Parser:
 
         for typ, val in self.tokens:
             # remove space between operator and term only if operator is unary
-            if (ret # only if string contains contents
-                    and ret[-1] == " " # only if there is a space to remove
-                    and (typ in TokenType.Term or val in TokenType.Opening) # only if this is a term or block
-                    and ((prev1[1] in TokenType.UnaryVal) # only for unary op
+            if (ret  # only if string contains contents
+                    and ret[-1] == " "  # only if there is a space to remove
+                    and (typ in TokenType.Term or val in TokenType.Opening)  # only if this is a term or block
+                    and ((prev1[1] in TokenType.UnaryVal)  # only for unary op
                          and ((not prev2)
-                              or (prev2[1] in TokenType.Opening) # no space between opening and unary op
-                              or (prev2[0] == TokenType.COMMA) # no space before comma
+                              or (prev2[1] in TokenType.Opening)  # no space between opening and unary op
+                              or (prev2[0] == TokenType.COMMA)  # no space before comma
                          )
                     )):
                 ret = ret[:-1]
 
             # add space before operator only if after term or closing
-            if (typ == TokenType.OPERATOR # only if operator
-                    and prev1 # and something before
-                    and (prev1[1] not in TokenType.Opening) # no space after opening
+            if (typ == TokenType.OPERATOR  # only if operator
+                    and prev1  # and something before
+                    and (prev1[1] not in TokenType.Opening)  # no space after opening
                     and ((prev1[0] != TokenType.OPERATOR)
                          or prev2)):
                 ret += " "
 
-            # token
+            # remove space for i
+            if typ == TokenType.IDENTIFIER and val == "i":
+                if prev1 and prev1 == (TokenType.OPERATOR, "*"):
+                    ret = ret[:-3]
+
+                        # token
             if typ in [TokenType.NUMBER, TokenType.BOOLEAN]:
                 ret += properstr(val)
             elif typ == TokenType.STRING:

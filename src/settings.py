@@ -5,6 +5,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from ui_settings import Ui_SettingsWindow
 
+
 def initUi():
     global window, ui
     window = QDialog()
@@ -12,6 +13,6 @@ def initUi():
     ui.setupUi(window)
     window.show()
 
+
 def run():
     initUi()
-
