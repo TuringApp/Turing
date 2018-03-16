@@ -187,3 +187,17 @@ def lcm(a, b):
 
 
 ppcm = lcm
+
+doc("arg",
+    [
+        ("x", "Number")
+    ],
+    "Returns the argument (or phase) of {{x}}.",
+    ["phase"])
+
+
+def arg(x):
+    return cmath.phase(x)
+
+
+phase = arg

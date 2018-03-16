@@ -40,7 +40,7 @@
          <normaloff>media/home.png</normaloff>media/home.png</iconset>
        </attribute>
        <attribute name="title">
-        <string>Accueil</string>
+        <string>Home</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3"/>
       </widget>
@@ -89,11 +89,11 @@ p, li { white-space: pre-wrap; }
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFichier">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>Fichier</string>
+     <string>&amp;File</string>
     </property>
-    <widget class="QMenu" name="menuR_cents">
+    <widget class="QMenu" name="menuRecents">
      <property name="title">
       <string>Récents</string>
      </property>
@@ -114,13 +114,13 @@ p, li { white-space: pre-wrap; }
     <addaction name="separator"/>
     <addaction name="actionPrint"/>
     <addaction name="separator"/>
-    <addaction name="menuR_cents"/>
+    <addaction name="menuRecents"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuEdition">
+   <widget class="QMenu" name="menuEdit">
     <property name="title">
-     <string>Edition</string>
+     <string>&amp;Edit</string>
     </property>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
@@ -130,15 +130,15 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionPaste"/>
     <addaction name="separator"/>
    </widget>
-   <widget class="QMenu" name="menuOptions">
+   <widget class="QMenu" name="menuSettings">
     <property name="title">
-     <string>Options</string>
+     <string>&amp;Settings</string>
     </property>
     <addaction name="actionSettings"/>
    </widget>
-   <widget class="QMenu" name="menuAide">
+   <widget class="QMenu" name="menuHelp">
     <property name="title">
-     <string>Aide</string>
+     <string>&amp;Help</string>
     </property>
     <addaction name="actionQuickStart"/>
     <addaction name="actionHelpContents"/>
@@ -147,16 +147,16 @@ p, li { white-space: pre-wrap; }
     <addaction name="separator"/>
     <addaction name="actionAboutTuring"/>
    </widget>
-   <widget class="QMenu" name="menuAffichage">
+   <widget class="QMenu" name="menuView">
     <property name="title">
-     <string>Affichage</string>
+     <string>&amp;View</string>
     </property>
     <addaction name="actionShowToolbar"/>
     <addaction name="actionShowToolbarText"/>
    </widget>
-   <widget class="QMenu" name="menuCode">
+   <widget class="QMenu" name="menuProgram">
     <property name="title">
-     <string>Programme</string>
+     <string>&amp;Program</string>
     </property>
     <addaction name="actionFind"/>
     <addaction name="actionReplace"/>
@@ -169,19 +169,19 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionConvertToPython"/>
     <addaction name="actionConvertToPseudocode"/>
    </widget>
-   <widget class="QMenu" name="menuOutils">
+   <widget class="QMenu" name="menuTools">
     <property name="title">
-     <string>Outils</string>
+     <string>&amp;Tools</string>
     </property>
     <addaction name="actionCalculator"/>
    </widget>
-   <addaction name="menuFichier"/>
-   <addaction name="menuEdition"/>
-   <addaction name="menuAffichage"/>
-   <addaction name="menuCode"/>
-   <addaction name="menuOptions"/>
-   <addaction name="menuOutils"/>
-   <addaction name="menuAide"/>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuProgram"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -218,7 +218,7 @@ p, li { white-space: pre-wrap; }
     <bool>false</bool>
    </property>
    <property name="windowTitle">
-    <string>Options</string>
+    <string>Settings</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>2</number>
@@ -228,7 +228,7 @@ p, li { white-space: pre-wrap; }
      <item>
       <widget class="QTabWidget" name="tabWidget_2">
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <property name="documentMode">
         <bool>true</bool>
@@ -301,7 +301,7 @@ p, li { white-space: pre-wrap; }
   </widget>
   <widget class="QDockWidget" name="dock_output">
    <property name="windowTitle">
-    <string>Sortie</string>
+    <string>Output</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>8</number>
@@ -338,7 +338,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/new.png</normaloff>media/new.png</iconset>
    </property>
    <property name="text">
-    <string>Nouveau</string>
+    <string>New</string>
+   </property>
+   <property name="toolTip">
+    <string>New</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
@@ -350,7 +353,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/open.png</normaloff>media/open.png</iconset>
    </property>
    <property name="text">
-    <string>Ouvrir</string>
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Open</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -362,7 +368,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/save.png</normaloff>media/save.png</iconset>
    </property>
    <property name="text">
-    <string>Enregistrer</string>
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
@@ -374,12 +383,18 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/save_as.png</normaloff>media/save_as.png</iconset>
    </property>
    <property name="text">
-    <string>Enregistrer sous</string>
+    <string>Save As</string>
+   </property>
+   <property name="toolTip">
+    <string>Save As</string>
    </property>
   </action>
   <action name="actionClose">
    <property name="text">
-    <string>Fermer</string>
+    <string>Close</string>
+   </property>
+   <property name="toolTip">
+    <string>Close</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+W</string>
@@ -391,7 +406,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/exit.png</normaloff>media/exit.png</iconset>
    </property>
    <property name="text">
-    <string>Quitter</string>
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
@@ -399,7 +417,10 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionSaveAll">
    <property name="text">
-    <string>Enregistrer tout</string>
+    <string>Save All</string>
+   </property>
+   <property name="toolTip">
+    <string>Save All</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
@@ -411,7 +432,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/undo.png</normaloff>media/undo.png</iconset>
    </property>
    <property name="text">
-    <string>Annuler</string>
+    <string>Undo</string>
+   </property>
+   <property name="toolTip">
+    <string>Undo</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Z</string>
@@ -423,7 +447,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/redo.png</normaloff>media/redo.png</iconset>
    </property>
    <property name="text">
-    <string>Rétablir</string>
+    <string>Redo</string>
+   </property>
+   <property name="toolTip">
+    <string>Redo</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Y</string>
@@ -435,7 +462,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/cut.png</normaloff>media/cut.png</iconset>
    </property>
    <property name="text">
-    <string>Couper</string>
+    <string>Cut</string>
+   </property>
+   <property name="toolTip">
+    <string>Cut</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+X</string>
@@ -447,7 +477,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/copy.png</normaloff>media/copy.png</iconset>
    </property>
    <property name="text">
-    <string>Copier</string>
+    <string>Copy</string>
+   </property>
+   <property name="toolTip">
+    <string>Copy</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+C</string>
@@ -459,7 +492,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/paste.png</normaloff>media/paste.png</iconset>
    </property>
    <property name="text">
-    <string>Coller</string>
+    <string>Paste</string>
+   </property>
+   <property name="toolTip">
+    <string>Paste</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+V</string>
@@ -471,7 +507,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/settings.png</normaloff>media/settings.png</iconset>
    </property>
    <property name="text">
-    <string>Préférences</string>
+    <string>Settings</string>
+   </property>
+   <property name="toolTip">
+    <string>Settings</string>
    </property>
   </action>
   <action name="actionQuickStart">
@@ -480,7 +519,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/quick_start.png</normaloff>media/quick_start.png</iconset>
    </property>
    <property name="text">
-    <string>Tutoriel rapide</string>
+    <string>Quick Start</string>
+   </property>
+   <property name="toolTip">
+    <string>Quick Start</string>
    </property>
   </action>
   <action name="actionHelpContents">
@@ -489,7 +531,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/help.png</normaloff>media/help.png</iconset>
    </property>
    <property name="text">
-    <string>Pages d'aide</string>
+    <string>Help Contents</string>
+   </property>
+   <property name="toolTip">
+    <string>Help Contents</string>
    </property>
    <property name="shortcut">
     <string>F1</string>
@@ -501,7 +546,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/icon_16.png</normaloff>media/icon_16.png</iconset>
    </property>
    <property name="text">
-    <string>À propos de Turing</string>
+    <string>About Turing</string>
+   </property>
+   <property name="toolTip">
+    <string>About Turing</string>
    </property>
   </action>
   <action name="actionShowToolbar">
@@ -516,7 +564,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/toolbar.png</normaloff>media/toolbar.png</iconset>
    </property>
    <property name="text">
-    <string>Barre d'outils</string>
+    <string>Show toolbar</string>
+   </property>
+   <property name="toolTip">
+    <string>Show toolbar</string>
    </property>
   </action>
   <action name="actionExamples">
@@ -525,7 +576,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/examples.png</normaloff>media/examples.png</iconset>
    </property>
    <property name="text">
-    <string>Exemples</string>
+    <string>Examples</string>
    </property>
   </action>
   <action name="actionPrint">
@@ -534,7 +585,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/print.png</normaloff>media/print.png</iconset>
    </property>
    <property name="text">
-    <string>Imprimer</string>
+    <string>Print</string>
+   </property>
+   <property name="toolTip">
+    <string>Print</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+P</string>
@@ -546,7 +600,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/find.png</normaloff>media/find.png</iconset>
    </property>
    <property name="text">
-    <string>Rechercher</string>
+    <string>Find</string>
+   </property>
+   <property name="toolTip">
+    <string>Find</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+F</string>
@@ -558,7 +615,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/replace.png</normaloff>media/replace.png</iconset>
    </property>
    <property name="text">
-    <string>Remplacer</string>
+    <string>Replace</string>
+   </property>
+   <property name="toolTip">
+    <string>Replace</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+H</string>
@@ -570,7 +630,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/calculator.png</normaloff>media/calculator.png</iconset>
    </property>
    <property name="text">
-    <string>Calculatrice</string>
+    <string>Calculator</string>
+   </property>
+   <property name="toolTip">
+    <string>Calculator</string>
    </property>
   </action>
   <action name="actionClearRecent">
@@ -579,7 +642,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/recent_clear.png</normaloff>media/recent_clear.png</iconset>
    </property>
    <property name="text">
-    <string>Effacer</string>
+    <string>Clear</string>
+   </property>
+   <property name="toolTip">
+    <string>Clear</string>
    </property>
   </action>
   <action name="actionSelectAll">
@@ -588,7 +654,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/select_all.png</normaloff>media/select_all.png</iconset>
    </property>
    <property name="text">
-    <string>Sélectionner tout</string>
+    <string>Select All</string>
+   </property>
+   <property name="toolTip">
+    <string>Select All</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+A</string>
@@ -600,7 +669,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/run.png</normaloff>media/run.png</iconset>
    </property>
    <property name="text">
-    <string>Exécuter</string>
+    <string>Run</string>
+   </property>
+   <property name="toolTip">
+    <string>Run</string>
    </property>
    <property name="shortcut">
     <string>F5</string>
@@ -612,7 +684,10 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/step.png</normaloff>media/step.png</iconset>
    </property>
    <property name="text">
-    <string>Pas-à-pas</string>
+    <string>Step-by-step</string>
+   </property>
+   <property name="toolTip">
+    <string>Step-by-step</string>
    </property>
    <property name="shortcut">
     <string>F10</string>
@@ -630,17 +705,26 @@ p, li { white-space: pre-wrap; }
      <normaloff>media/toolbar_text.png</normaloff>media/toolbar_text.png</iconset>
    </property>
    <property name="text">
-    <string>Texte des icônes</string>
+    <string>Show toolbar text</string>
+   </property>
+   <property name="toolTip">
+    <string>Show toolbar text</string>
    </property>
   </action>
   <action name="actionConvertToPython">
    <property name="text">
-    <string>Convertir en Python</string>
+    <string>Convert to Python</string>
+   </property>
+   <property name="toolTip">
+    <string>Convert to Python</string>
    </property>
   </action>
   <action name="actionConvertToPseudocode">
    <property name="text">
-    <string>Convertir en pseudocode</string>
+    <string>Convert to pseudocode</string>
+   </property>
+   <property name="toolTip">
+    <string>Convert to pseudocode</string>
    </property>
   </action>
  </widget>
