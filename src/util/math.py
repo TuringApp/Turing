@@ -133,11 +133,11 @@ def properstr(a):
     if isbool(a):
         return "VRAI" if a else "FALSE"
     if type(a) == complex:
-        rpart = None if iszero(a.real) else str(a.real)
+        rpart = None if iszero(a.real) else properstr(a.real)
         if a.imag == 1:
             cpart = "i"
         elif a.imag != 0:
-            cpart = str(a.imag) + "i"
+            cpart = properstr(a.imag) + "i"
         else:
             cpart = None
         return " + ".join(x for x in [rpart, cpart] if x)

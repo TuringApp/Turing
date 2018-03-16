@@ -28,4 +28,5 @@ def translate(c, t):
 def load(lang):
     global current
     current = lang
+    QLocale.setDefault(QLocale(lang))
     update()

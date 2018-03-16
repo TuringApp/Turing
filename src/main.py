@@ -165,7 +165,7 @@ def initUi():
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-
+    # ugly hack otherwise it doesn't work
     QCoreApplication.translate2 = QCoreApplication.translate
     QCoreApplication.translate = translator.translate
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
