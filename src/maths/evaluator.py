@@ -123,7 +123,16 @@ class Evaluator:
             fn = self.evalNode(node.func)
             if fn is None:
                 return None
-            args = [self.evalNode(x) for x in node.args]
+            if (len(node.args) == 1
+                    and isinstance(node.args[0], nodes.UnaryOpNode)
+                    and node.args[0].opType == "*"):
+                lst = self.evalNode(node.args[0].value)
+                if type(lst) != list:
+                    self.log.error("Only lists can be expanded")
+                    return None
+                args = lst
+            else:
+                args = [self.evalNode(x) for x in node.args]
             return fn.__call__(*args)
 
         if type(node) == nodes.ArrayAccessNode:
@@ -145,6 +154,9 @@ class Evaluator:
     def evalUnary(self, node):
         val = self.evalNode(node.value)
         vtype = ValueType.getType(val)
+
+        if node.opType == "+":
+            return val
 
         if node.opType == "-" and (isnum(val) and (not self.strictType or not isbool(val))):
             return -val

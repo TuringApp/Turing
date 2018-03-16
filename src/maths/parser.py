@@ -40,7 +40,7 @@ class TokenType:
     OPERATOR, STRING, NUMBER, BOOLEAN, IDENTIFIER, COMMA, PAREN, BRACK, BRACE = range(9)
 
     Term = [NUMBER, BOOLEAN, IDENTIFIER, STRING]
-    UnaryVal = ["+", "-"]
+    UnaryVal = ["+", "-", "*"]
     Opening = ["(", "[", "{"]
     Closing = [")", "]", "}"]
     TrueVal = ["TRUE", "VRAI"]
@@ -293,7 +293,7 @@ class Parser:
 
     def parseUnary(self):
         """Parses an unary operation."""
-        op = self.peekOp(["-", "NON"])
+        op = self.peekOp(["+", "-", "NON", "*"])
         if op:
             return nodes.UnaryOpNode(self.parseUnary(), op)
 
@@ -406,18 +406,24 @@ class Parser:
                     and (typ in TokenType.Term or val in TokenType.Opening)  # only if this is a term or block
                     and ((prev1[1] in TokenType.UnaryVal)  # only for unary op
                          and ((not prev2)
-                              or (prev2[1] in TokenType.Opening)  # no space between opening and unary op
+                              or (prev2[1] in TokenType.Opening + TokenType.UnaryVal)  # no space between opening and unary op
                               or (prev2[0] == TokenType.COMMA)  # no space before comma
                          )
-                    )):
+                    )
+            ):
+                print("removing '%s'" % ret)
                 ret = ret[:-1]
 
             # add space before operator only if after term or closing
             if (typ == TokenType.OPERATOR  # only if operator
                     and prev1  # and something before
                     and (prev1[1] not in TokenType.Opening)  # no space after opening
-                    and ((prev1[0] != TokenType.OPERATOR)
-                         or prev2)):
+                    and (prev1[0] != TokenType.OPERATOR
+                         or (prev2
+                             and prev2[1] not in TokenType.Opening
+                         )
+                    )
+            ):
                 ret += " "
 
             # remove space for i
@@ -425,7 +431,7 @@ class Parser:
                 if prev1 and prev1 == (TokenType.OPERATOR, "*"):
                     ret = ret[:-3]
 
-                        # token
+            # token
             if typ in [TokenType.NUMBER, TokenType.BOOLEAN]:
                 ret += properstr(val)
             elif typ == TokenType.STRING:
@@ -437,7 +443,10 @@ class Parser:
             if typ == TokenType.COMMA:
                 ret += " "
 
-            if typ == TokenType.OPERATOR and prev1 and prev1[0] != TokenType.OPERATOR:
+            if (typ == TokenType.OPERATOR
+                    and prev1
+                    and prev1[0] != TokenType.OPERATOR
+                    and prev1[1] not in TokenType.Opening):
                 ret += " "
 
             prev2 = prev1

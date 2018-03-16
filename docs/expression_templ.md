@@ -103,6 +103,16 @@ Returns an ordered list of all items that are present either in A or B but not b
 
 Standard Python function.
 
+#### Calling
+
+A function call consists of the function followed by an argument list enclosed in parentheses. The function can be an identifier or any expression returning a function.
+
+    someFunc(arg1, arg2, arg3)
+
+The argument list can be passed as a list object, for example for dynamic calls, using the `*` expanding operator in front of the list object.
+
+    gcd(*[248, 4584]) == gcd(248, 4584)
+
 #### Lambda/inline function syntax
 
 Comma-separated list of parameters enclosed in braces, followed by expression enclosed in parentheses. The function can be called immediately. There is no limit to the amount of parameters. A parameter is made of an identifier, no less, no more.

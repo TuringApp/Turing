@@ -103,6 +103,16 @@ Returns an ordered list of all items that are present either in A or B but not b
 
 Standard Python function.
 
+#### Calling
+
+A function call consists of the function followed by an argument list enclosed in parentheses. The function can be an identifier or any expression returning a function.
+
+    someFunc(arg1, arg2, arg3)
+
+The argument list can be passed as a list object, for example for dynamic calls, using the `*` expanding operator in front of the list object.
+
+    gcd(*[248, 4584]) == gcd(248, 4584)
+
 #### Lambda/inline function syntax
 
 Comma-separated list of parameters enclosed in braces, followed by expression enclosed in parentheses. The function can be called immediately. There is no limit to the amount of parameters. A parameter is made of an identifier, no less, no more.
@@ -161,6 +171,7 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |------|------------|-------------|
 |&nbsp;|**Basic**|&nbsp;|
 |`abs`|<ul><li>`num` (Number)</li></ul>|Returns the absolute value of `num`.|
+|`arg` / `phase`|<ul><li>`x` (Number)</li></ul>|Returns the argument (or phase) of `x`.|
 |`ceil`|<ul><li>`num` (Number)</li></ul>|Returns the smallest integer greater than or equal to `num`.|
 |`exp`|<ul><li>`num` (Number)</li></ul>|Returns *e* to the power of `num`.|
 |`floor`|<ul><li>`num` (Real)</li></ul>|Returns the largest integer less than or equal to `num`.|
@@ -169,7 +180,9 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`ln`|<ul><li>`num` (Number)</li></ul>|Returns the natural (base-*e*) logarithm of `num`.|
 |`log`|<ul><li>`num` (Number)</li><li>`b` (Number) != 0, default = 10</li></ul>|Returns the base-`b` logarithm of `num`.|
 |`log10`|<ul><li>`num` (Number)</li></ul>|Returns the base-10 logarithm of `num`.|
+|`polar` / `polaire`|<ul><li>`x` (Number)</li></ul>|Returns a list containing the polar coordinates of x, respectively the modulus (radius) and argument (angle).|
 |`pow` / `puiss`|<ul><li>`num` (Number)</li><li>`p` (Number)</li></ul>|Returns `num` to the `p`-th power.|
+|`rect`|<ul><li>`r` (Number)</li><li>`phi` (Number)</li></ul>|Converts the specified polar coordinates to a complex number.|
 |`root`|<ul><li>`num` (Number)</li><li>`n` (Number) != 0</li></ul>|Returns the `n`-th root of `num`.|
 |`round` / `arrondi`|<ul><li>`num` (Real)</li><li>`prec` (Integer)</li></ul>|Rounds `num` to the nearest integer / (if specified) to `prec` decimals.|
 |`sign`|<ul><li>`num` (Real)</li></ul>|Returns the sign of `num` (-1 if negative, 1 if positive, 0 otherwise).|
