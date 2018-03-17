@@ -23,6 +23,9 @@ def is_close(a, b, rel_tol=1e-8, abs_tol=1e-8):
     versions."""
 
     # if only one of the two is Infinity, then they are not identical
+    if type(a) == type(b) == list:
+        return all(is_close(x, y) for x, y in zip(a, b))
+
     if type(a) == complex or type(b) == complex:
         a = complex(a)
         b = complex(b)
@@ -146,6 +149,9 @@ def close_round(a, prec=None):
 
 def proper_str(a):
     """Converts the specified float to string, removing comma if the number is integral."""
+    if type(a) == list:
+        return "[%s]" % ", ".join(proper_str(x) for x in a)
+
     if not is_num(a):
         return str(a)
 
