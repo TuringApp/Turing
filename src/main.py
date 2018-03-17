@@ -153,7 +153,7 @@ def init_ui():
     ui = Ui_MainWindow()
     translator.add(ui, window)
     ui.setupUi(window)
-    ui.tabWidget.tabBar().tabButton(0, QTabBar.RightSide).resize(0, 0)
+    ui.tabWidget.tabBar().tabButton(0, QTabBar.RightSide).resize(0, 0) # hide close button for home
     init_action_handlers()
     refresh()
 
