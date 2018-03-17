@@ -202,7 +202,10 @@ class Parser:
                     self.tokens.append((TokenType.STRING, token[1:-1]))
                 else:
                     try:
-                        num = float(token)
+                        if re.search('^[0-9]+$', token):
+                            num = int(token)
+                        else:
+                            num = float(token)
                         self.tokens.append((TokenType.NUMBER, num))
                     except:
                         if re.search('^[a-zA-Z_0-9]+$', token):
@@ -293,11 +296,24 @@ class Parser:
         return expr
 
     def parseMultiplicative(self):
-        """Parses a product, division, exponentiation or modulus."""
+        """Parses a product, division, or modulus."""
+        expr = self.parseExponent()
+
+        while self.matchToken(TokenType.OPERATOR):
+            op = self.matchOperator(["*", "/", "%"])
+            if op:
+                expr = nodes.BinOpNode(expr, self.parseExponent(), op)
+                continue
+            break
+
+        return expr
+
+    def parseExponent(self):
+        """Parses an exponentiation."""
         expr = self.parseUnary()
 
         while self.matchToken(TokenType.OPERATOR):
-            op = self.matchOperator(["^", "*", "/", "%"])
+            op = self.matchOperator(["^"])
             if op:
                 expr = nodes.BinOpNode(expr, self.parseUnary(), op)
                 continue
