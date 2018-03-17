@@ -11,6 +11,8 @@ import translator
 from maths.evaluator import Evaluator
 from ui_calculator import Ui_CalcWindow
 from util.math import proper_str
+from widgets import *
+import html
 
 translate = QCoreApplication.translate
 
@@ -91,29 +93,32 @@ def load_funcs():
         doc_items.append([])
 
         for f in sorted(functions[k], key=lambda x: x[0]):
-            item_func = QListWidgetItem()
+            item_func = QListWidgetItem(ui.listWidget)
+            w = QWidget()
+            lay = QVBoxLayout()
 
-            fnt = item_func.font()
-            fnt.setBold(True)
-            item_func.setFont(fnt)
+            label_func = QLabel()
+            label_func.setText(maths.lib.docs.get_func_def_html(f))
 
-            item_func.setText(maths.lib.docs.get_func_def(f))
-            item_func.setStatusTip(f[0])
+            lay.addWidget(label_func)
 
+            label_desc = QLabel()
+            desc = re.sub(r"{{(\w+)\}\}", "<i><b>\g<1></b></i>", html.escape(f[2]))
+            desc = re.sub(r"//(\w+)//", "<i>\g<1></i>", desc)
+
+            label_desc.setText(desc)
+
+            label_desc.setAlignment(Qt.AlignRight)
+
+            lay.addWidget(label_desc)
+            lay.setSizeConstraint(QLayout.SetFixedSize)
+            lay.setSpacing(2)
+            lay.setContentsMargins(6, 6, 6, 6)
+            w.setLayout(lay)
+            item_func.setSizeHint(w.sizeHint())
+            ui.listWidget.setItemWidget(item_func, w)
             doc_items[-1].append(item_func)
-            ui.listWidget.addItem(item_func)
-
-            item_desc = QListWidgetItem()
-
-            desc = re.sub(r"{{(\w+)\}\}", "\g<1>", f[2])
-            desc = re.sub(r"//(\w+)//", "\g<1>", desc)
-            item_desc.setText(desc)
-
-            item_desc.setTextAlignment(Qt.AlignRight)
-            item_desc.setStatusTip(f[0])
-
-            doc_items[-1].append(item_desc)
-            ui.listWidget.addItem(item_desc)
+            item_func.setStatusTip(f[0])
 
 
 def ins_func(item):

@@ -12,6 +12,8 @@ import translator
 import util.html
 from ui_help import Ui_HelpWindow
 from util.math import proper_str
+import sys
+from widgets import *
 
 translate = QCoreApplication.translate
 
@@ -27,29 +29,17 @@ def find_function(name):
     return None
 
 
-def func_signature_html(f):
-    hargs = []
-
-    for a in f[1]:
-        cur = "<i><b>%s</b></i>" % a[0]
-        if len(a) >= 4:
-            cur += "=%s" % proper_str(a[3])
-        hargs.append(cur)
-
-    return "<b>%s</b>(%s)" % (f[0], ", ".join(hargs))
-
-
-def on_item_select(current):
-    text = current.text(0).strip()
+def on_item_select():
+    current = ui.listFuncs.currentItem()
 
     if current.parent() is not None:
-        category, function = find_function(text[:text.index("(")])
+        category, function = find_function(current.statusTip(0))
 
         name, args, desc = function[:3]
         desc = re.sub(r"{{(\w+)\}\}", "<i><b>\g<1></b></i>", escape(desc))
         desc = re.sub(r"//(\w+)//", "<i>\g<1></i>", desc)
 
-        html = util.html.centered("<h1>%s</h1>" % func_signature_html(function))
+        html = util.html.centered("<h1>%s</h1>" % maths.lib.docs.get_func_def_html(function))
 
         html += translate("HelpWindow", "<h2>Arguments:</h2>")
         html += "<ul>"
@@ -90,13 +80,14 @@ def on_item_select(current):
 
         html += "<p>%s</p>" % desc
     else:
+        text = current.text(0).strip()
         html = util.html.centered("<h1>%s</h1>" % text)
 
         html += translate("HelpWindow", "<h2>Functions:</h2>")
         html += "<ul>"
 
         for function in functions[text]:
-            html += "<li>%s</li>" % func_signature_html(function)
+            html += "<li>%s</li>" % maths.lib.docs.get_func_def_html(function)
 
         html += "</ul>"
 
@@ -116,10 +107,16 @@ def load_funcs():
 
         items = []
 
+        def gen_func(item):
+            return lambda: ui.listFuncs.setCurrentItem(item)
+
         for f in sorted(functions[k], key=lambda x: x[0]):
-            item = QTreeWidgetItem()
-            item.setText(0, "%s" % maths.lib.docs.get_func_def(f))
-            item_category.addChild(item)
+            item = QTreeWidgetItem(item_category)
+            item.setStatusTip(0, f[0])
+            txt = QClickableLabel()
+            txt.setText("&nbsp;" + maths.lib.docs.get_func_def_html(f, False))
+            txt.clicked.connect(gen_func(item))
+            ui.listFuncs.setItemWidget(item, 0, txt)
             items.append(item)
 
         ui.listFuncs.addTopLevelItem(item_category)
@@ -164,7 +161,8 @@ def init_ui():
     ui.splitter.setStretchFactor(0, 1)
     ui.splitter.setStretchFactor(1, 3)
 
-    ui.listFuncs.itemClicked.connect(on_item_select)
+    #ui.listFuncs.itemClicked.connect(on_item_select)
+    ui.listFuncs.itemSelectionChanged.connect(on_item_select)
 
     load_funcs()
     window.show()
