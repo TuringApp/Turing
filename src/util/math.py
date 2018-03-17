@@ -72,7 +72,7 @@ def is_int(a):
     if not is_num(a) or abs(a) == float("inf"):
         return False
 
-    return a == 0 or (1 <= a <= 1e15 and is_close(a, round(a)))
+    return a == 0 or (1 <= abs(a) <= 1e15 and is_close(a, round(a)))
 
 
 def is_zero(a):
@@ -166,6 +166,8 @@ def proper_str(a):
             imag = proper_str(a.imag) + "i"
         else:
             imag = None
+        if real == imag == None:
+            return "0"
         return " + ".join(x for x in [real, imag] if x)
 
     if abs(a) == float("inf"):

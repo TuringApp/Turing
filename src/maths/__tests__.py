@@ -110,7 +110,9 @@ tests = [
     ("round(integ({x}(root(x,3)),-19,71),1)", 239.5 + 32.9j, "round(integ({x}(root(x, 3)), -19, 71), 1)"),
     ("fib(400)", 176023680645013966468226945392411250770384383304492191886725992896575345044216019675, "fib(400)"),
     ("map(derivative(ln),[1,2,4,8])==map({x}(1/x),[1,2,4,8])", True,
-     "map(derivative(ln), [1, 2, 4, 8]) == map({x}(1 / x), [1, 2, 4, 8])")
+     "map(derivative(ln), [1, 2, 4, 8]) == map({x}(1 / x), [1, 2, 4, 8])"),
+    ("map(derivative(sin),[0,pi/2,pi])==map(cos,[0,pi/2,pi])", True,
+     "map(derivative(sin), [0, pi / 2, pi]) == map(cos, [0, pi / 2, pi])")
 ]
 
 
