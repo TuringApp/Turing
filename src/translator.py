@@ -23,6 +23,7 @@ def update():
     for ui, window in uis:
         ui.retranslateUi(window)
 
+    # reload the docs
     importlib.reload(maths.lib.docs)
     for name, item in maths.lib.__dict__.items():
         if type(item) == types.ModuleType and not name.startswith("__") and name != "docs":
@@ -30,7 +31,7 @@ def update():
 
 
 def translate(context, string):
-    if current != "en":
+    if current != "en_US":
         tr_object = QTranslator()
         tr_object.load(current, "lang")
         QCoreApplication.installTranslator(tr_object)
