@@ -83,7 +83,8 @@ class Evaluator:
             if is_zero(value):
                 value = 0
             else:
-                value = close_round(value, 9)
+                if not(type(value) == int and value != int(float(value))):
+                    value = close_round(value, 12)
 
         return value
 
@@ -125,6 +126,7 @@ class Evaluator:
                 return self.variables[node.value]
             else:
                 self.log.error(translate("Evaluator", "Cannot find variable or function ") + node.value)
+                return None
 
         if type(node) == nodes.UnaryOpNode:
             return self.evalUnary(node)
@@ -163,6 +165,7 @@ class Evaluator:
                 return array[index]
             else:
                 self.log.error(translate("Evaluator", "Index '%s' too big for array") % index)
+                return None
 
         if type(node) == nodes.LambdaNode:
             return lambda *args: self.callLambda(node, *list(args))
