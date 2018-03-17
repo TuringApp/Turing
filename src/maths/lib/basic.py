@@ -5,6 +5,7 @@ import math as rmath
 from .docs import *
 import cmath
 import util
+import sys
 
 translate = util.translate
 
@@ -264,3 +265,60 @@ doc("conj",
 def conj(x):
     return complex(x).conjugate()
 
+
+doc("gradient",
+    [
+        ("func", "Function(Number)"),
+        ("x", "Number"),
+        ("h", "Number", None, 1e-7)
+    ],
+    translate("Docs", "Returns the gradient of {{func}} at {{x}} (optional precision {{h}})."))
+
+
+def gradient(func, x, h=1e-7):
+    return (func(x + h) - func(x - h)) / (2 * h)
+
+
+doc("derivative",
+    [
+        ("func", "Function(Number)"),
+        ("h", "Number", None, 1e-7)
+    ],
+    translate("Docs", "Returns the derivative of {{func}} (optional precision {{h}})."),
+    ["deriv"])
+
+
+def derivative(func, h=1e-7):
+    return lambda x: gradient(func, x, h)
+
+
+deriv = derivative
+
+doc("integrate",
+    [
+        ("func", "Function(Number)"),
+        ("a", "Number"),
+        ("b", "Number"),
+        ("steps", "Integer", None, 100000)
+    ],
+    translate("Docs", "Returns the integral of {{func}} from {{a}} to {{b}} (optional number of steps: {{steps}})."),
+    ["integ"])
+
+
+def integrate(func, a, b, steps=1000):
+    step = (b - a) / steps
+
+    sum = func(a)
+
+    for i in range(1, steps, 2):
+        sum += 4 * func(a + step * i)
+
+    for i in range(2, steps - 1, 2):
+        sum += 2 * func(a + step * i)
+
+    sum += func(b)
+
+    return sum * step / 3
+
+
+integ = integrate
