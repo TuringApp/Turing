@@ -62,7 +62,8 @@ class TokenType:
 
 class Operators:
     """Available operators"""
-    math = ["+", "-", "*", "/", "%", "^", "**", "&", "|", "ET", "AND", "OU", "OR", "XOR"]  # Mathematical (numeric) operators
+    math = ["+", "-", "*", "/", "%", "^", "**", "&", "|", "ET", "AND", "OU", "OR",
+            "XOR"]  # Mathematical (numeric) operators
     eq = ["==", "!="]  # Basic comparison operators
     rel = ["<=", "<", ">", ">="]  # Relational operators
     comp = eq + rel  # Comparison operators

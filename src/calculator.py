@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import html
 import re
 
-from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
 
 import maths.lib.docs
 import translator
@@ -12,7 +11,6 @@ from maths.evaluator import Evaluator
 from ui_calculator import Ui_CalcWindow
 from util.math import proper_str
 from widgets import *
-import html
 
 translate = QCoreApplication.translate
 
@@ -79,9 +77,9 @@ def history_double_click(item):
 
 
 def on_sel(id):
-    for i in range(len(doc_items)):
-        for it in doc_items[i]:
-            it.setHidden(i != id)
+    for idx, items in enumerate(doc_items):
+        for it in items:
+            it.setHidden(idx != id)
 
 
 def load_funcs():

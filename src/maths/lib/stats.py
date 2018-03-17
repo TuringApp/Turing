@@ -161,7 +161,7 @@ doc("map",
 
 
 def map(func, lst):
-    return list(builtins.map(func, lst))
+    return [func(x) for x in lst]
 
 
 appl = map
@@ -176,7 +176,7 @@ doc("filter",
 
 
 def filter(func, lst):
-    return list(builtins.filter(func, lst))
+    return [x for x in lst if func(x)]
 
 
 filtre = filter

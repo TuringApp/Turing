@@ -11,6 +11,7 @@ uis = []
 current = None
 tr_object = None
 
+
 def add(ui, window):
     uis.append((ui, window))
 

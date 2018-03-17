@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from maths.evaluator import Evaluator
-from tests.framework import expect
 from maths.lib import basic, trig
+from tests.framework import expect
 
 tests = [
     # basic parsing

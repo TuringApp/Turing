@@ -36,6 +36,7 @@ def get_func_def(f):
             args.append(a[0])
     return "%s(%s)" % (f[0], ", ".join(args))
 
+
 def get_func_def_html(f, name_bold=True):
     hargs = []
     name = f[0]

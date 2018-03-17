@@ -3,16 +3,12 @@
 import re
 from html import escape
 
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-
 import maths.lib
 import maths.lib.docs
 import translator
 import util.html
 from ui_help import Ui_HelpWindow
 from util.math import proper_str
-import sys
 from widgets import *
 
 translate = QCoreApplication.translate
@@ -161,7 +157,6 @@ def init_ui():
     ui.splitter.setStretchFactor(0, 1)
     ui.splitter.setStretchFactor(1, 3)
 
-    #ui.listFuncs.itemClicked.connect(on_item_select)
     ui.listFuncs.itemSelectionChanged.connect(on_item_select)
 
     load_funcs()

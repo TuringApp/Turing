@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
 import datetime
+
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
+
 
 class QClickableLabel(QLabel):
     clicked = pyqtSignal()

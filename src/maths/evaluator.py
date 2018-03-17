@@ -95,13 +95,13 @@ class Evaluator:
             return None
 
         # push arguments to the stack
-        for i in range(len(args)):
-            self.arguments.append((node.args[i], args[i]))
+        for idx, arg in enumerate(args):
+            self.arguments.append((node.args[idx], arg))
 
         result = self.eval_node(node.expr)
 
         # pop arguments after use
-        for i in range(len(args)):
+        for _ in args:
             self.arguments.pop()
 
         return result
