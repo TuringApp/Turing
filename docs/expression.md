@@ -173,18 +173,24 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`abs`|<ul><li>`num` (Number)</li></ul>|Returns the absolute value of `num`.|
 |`arg` / `phase`|<ul><li>`x` (Number)</li></ul>|Returns the argument (or phase) of `x`.|
 |`ceil`|<ul><li>`num` (Number)</li></ul>|Returns the smallest integer greater than or equal to `num`.|
+|`conj`|<ul><li>`x` (Number)</li></ul>|Returns the complex conjugate of `x`.|
+|`derivative` / `deriv`|<ul><li>`func` (Function(Number))</li><li>`h` (Number) default = 1e-07</li></ul>|Returns the derivative of `func` (optional precision `h`).|
 |`exp`|<ul><li>`num` (Number)</li></ul>|Returns *e* to the power of `num`.|
-|`floor`|<ul><li>`num` (Real)</li></ul>|Returns the largest integer less than or equal to `num`.|
+|`floor`|<ul><li>`num` (Number)</li></ul>|Returns the largest integer less than or equal to `num`.|
 |`gcd` / `pgcd`|<ul><li>`a` (Integer)</li><li>`b` (Integer)</li></ul>|Returns the greatest common divisor of `a` and `b`.|
+|`gradient`|<ul><li>`func` (Function(Number))</li><li>`x` (Number)</li><li>`h` (Number) default = 1e-07</li></ul>|Returns the gradient of `func` at `x` (optional precision `h`).|
+|`im`|<ul><li>`x` (Number)</li></ul>|Returns the imaginary part of `x`.|
+|`integrate` / `integ`|<ul><li>`func` (Function(Number))</li><li>`a` (Number)</li><li>`b` (Number)</li><li>`steps` (Integer) default = 100000</li></ul>|Returns the integral of `func` from `a` to `b` (optional number of steps: `steps`).|
 |`lcm` / `ppcm`|<ul><li>`a` (Integer)</li><li>`b` (Integer)</li></ul>|Returns the least common multiple of `a` and `b`.|
 |`ln`|<ul><li>`num` (Number)</li></ul>|Returns the natural (base-*e*) logarithm of `num`.|
 |`log`|<ul><li>`num` (Number)</li><li>`b` (Number) != 0, default = 10</li></ul>|Returns the base-`b` logarithm of `num`.|
 |`log10`|<ul><li>`num` (Number)</li></ul>|Returns the base-10 logarithm of `num`.|
-|`polar` / `polaire`|<ul><li>`x` (Number)</li></ul>|Returns a list containing the polar coordinates of x, respectively the modulus (radius) and argument (angle).|
+|`polar` / `polaire`|<ul><li>`x` (Number)</li></ul>|Returns a list containing the polar coordinates of `x`, respectively the modulus (radius) and argument (angle).|
 |`pow` / `puiss`|<ul><li>`num` (Number)</li><li>`p` (Number)</li></ul>|Returns `num` to the `p`-th power.|
+|`re`|<ul><li>`x` (Number)</li></ul>|Returns the real part of `x`.|
 |`rect`|<ul><li>`r` (Number)</li><li>`phi` (Number)</li></ul>|Converts the specified polar coordinates to a complex number.|
 |`root`|<ul><li>`num` (Number)</li><li>`n` (Number) != 0</li></ul>|Returns the `n`-th root of `num`.|
-|`round` / `arrondi`|<ul><li>`num` (Real)</li><li>`prec` (Integer)</li></ul>|Rounds `num` to the nearest integer / (if specified) to `prec` decimals.|
+|`round` / `arrondi`|<ul><li>`num` (Number)</li><li>`prec` (Integer)</li></ul>|Rounds `num` to the nearest integer / (if specified) to `prec` decimals.|
 |`sign`|<ul><li>`num` (Real)</li></ul>|Returns the sign of `num` (-1 if negative, 1 if positive, 0 otherwise).|
 |`sqrt` / `rac`|<ul><li>`num` (Number)</li></ul>|Returns the square root of `num`. If `num` < 0, the result will be Complex.|
 |&nbsp;|**Geometry**|&nbsp;|
@@ -209,22 +215,26 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`vol_pyramid`|<ul><li>`sides` (Integer)</li><li>`length` (Real)</li><li>`height` (Real)</li></ul>|Returns the volume of the regular pyramid with the specified number of `sides`, side `length` and `height`.|
 |`vol_sphere`|<ul><li>`radius` (Real)</li></ul>|Returns the volume of the sphere with the specified `radius`.|
 |&nbsp;|**Statistics**|&nbsp;|
-|`arithm_mean` / `moyenne` / `average`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the arithmetic mean of `args`.|
+|`arithm_mean` / `moyenne` / `average`|<ul><li>`args` (List(Number))</li></ul>|Returns the arithmetic mean of `args`.|
+|`beta`|<ul><li>`a` (Number)</li><li>`b` (Number)</li></ul>|Returns the Beta function at `a` and `b`.|
 |`binomial`|<ul><li>`n` (Number)</li><li>`k` (Number)</li></ul>|Returns the binomial coefficient for a subset of size `k` and a set of size `n`.|
 |`erf`|<ul><li>`x` (Number)</li></ul>|Returns the error function at `x`.|
 |`erfc`|<ul><li>`x` (Number)</li></ul>|Returns the complementary error function at `x`.|
+|`euler`|<ul><li>`n` (Integer)</li></ul>|Returns the `n`-th Euler number.|
 |`fact`|<ul><li>`x` (Integer)</li></ul>|Returns the factorial of `x`.|
+|`fib`|<ul><li>`n` (Integer)</li></ul>|Returns the `n`-th Fibonacci number.|
 |`filter` / `filtre`|<ul><li>`func` (Function(1 arg))</li><li>`lst` (List)</li></ul>|Returns a list containing all elements of `lst` for which `func` returns a truthy value.|
 |`gamma`|<ul><li>`x` (Number)</li></ul>|Returns the Gamma function at `x`.|
-|`harmonic_mean` / `moyenne_harmo`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the harmonicc mean of `args`.|
+|`harmonic_mean` / `moyenne_harmo`|<ul><li>`args` (List(Number))</li></ul>|Returns the harmonic mean of `args`.|
+|`log_gamma`|<ul><li>`x` (Number)</li></ul>|Returns the natural logarithm of the absolute value of the Gamma function at `x`.|
 |`map` / `appl`|<ul><li>`func` (Function(1 arg))</li><li>`lst` (List)</li></ul>|Applies `func` to each element of `lst` and returns the resulting list.|
-|`max`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the maximum value of `args`.|
-|`min`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the minimum value of `args`.|
-|`random` / `alea`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns a random number between 0 (inclusive) and 1 (exclusive).|
+|`max`|<ul><li>`args` (List(Number))</li></ul>|Returns the maximum value of `args`.|
+|`min`|<ul><li>`args` (List(Number))</li></ul>|Returns the minimum value of `args`.|
+|`random` / `alea`|<ul><li>None</li></ul>|Returns a random number between 0 (inclusive) and 1 (exclusive).|
 |`slice` / `tranche`|<ul><li>`lst` (List)</li><li>`start` (Integer) 0 <= start <= end <= len(lst)</li><li>`end` (Integer) start <= end <= len(lst)</li></ul>|Returns a slice of the specified list, from index `start` (inclusive) to either index `end` (exclusive) or the end of the list.|
 |`stand_dev` / `ecart_type`|<ul><li>`lst` (List(Number))</li></ul>|Returns the population standard deviation of `lst`.|
 |`stand_dev_sample` / `ecart_type_echant`|<ul><li>`lst` (List(Number))</li></ul>|Returns the sample standard deviation of `lst`.|
-|`sum`|<ul><li>`args` (List(Number) / Number*)</li></ul>|Returns the sum of all the terms of `args`.|
+|`sum`|<ul><li>`args` (List(Number))</li></ul>|Returns the sum of all the terms of `args`.|
 |`variance`|<ul><li>`lst` (List(Number))</li></ul>|Returns the population variance of `lst`.|
 |`variance_sample` / `variance_echant`|<ul><li>`lst` (List(Number))</li></ul>|Returns the sample variance of `lst`.|
 |&nbsp;|**Trigonometry**|&nbsp;|

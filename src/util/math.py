@@ -162,6 +162,9 @@ def proper_str(a):
             imag = None
         return " + ".join(x for x in [real, imag] if x)
 
+    if abs(a) == float("inf"):
+        return str(a)
+
     if abs(a) > 1e15 and int(float(a)) == a:
         a = float(a)
     elif is_int(a):
