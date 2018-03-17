@@ -161,7 +161,12 @@ class Parser:
     def tokenize(self):
         """Converts the expression string into a linear list of tokens."""
         regex = re.compile(
-            r"(\+|-|\*|/|%|\^|==|!=|<=|<|>|>=|\(|\)|\[|\]|{|\}|\bET\b|\bAND\b|\bOU\b|\bOR\b|\bXOR\b|\bNON\b|\bNOT\b|\bVRAI\b|\bFAUX\b|\bTRUE\b|\bFALSE\b|&|\||,| )",
+            r"(\+|-|\*|/|%|\^|"
+            r"==|!=|<=|<|>|>=|"
+            r"\(|\)|\[|\]|{|\}|"
+            r"\bET\b|\bAND\b|\bOU\b|\bOR\b|\bXOR\b|\bNON\b|\bNOT\b|"
+            r"\bVRAI\b|\bFAUX\b|\bTRUE\b|\bFALSE\b|"
+            r"&|\||,| )",
             re.IGNORECASE)
 
         tok = [x.strip() for x in regex.split(self.expression) if x.strip()]

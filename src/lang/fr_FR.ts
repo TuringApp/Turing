@@ -1141,12 +1141,12 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Jeton attendu (%s) &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="429"/>
+        <location filename="../maths/parser.py" line="434"/>
         <source>Unexpected EOL</source>
         <translation>Fin de ligne inattendue</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="431"/>
+        <location filename="../maths/parser.py" line="436"/>
         <source>Unexpected token (%s) &apos;%s&apos;</source>
         <translation>Jeton (%s) &apos;%s&apos; inattendu</translation>
     </message>
