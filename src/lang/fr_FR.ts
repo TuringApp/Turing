@@ -55,7 +55,7 @@ p, li { white-space: pre-wrap; }
         <translation>Calculatrice</translation>
     </message>
     <message>
-        <location filename="../calculator.py" line="72"/>
+        <location filename="../calculator.py" line="71"/>
         <source>Result is None</source>
         <translation>Résultat nul</translation>
     </message>
@@ -143,7 +143,7 @@ p, li { white-space: pre-wrap; }
         <translation>Renvoie une liste contenant les coordonnées polaires de {{x}}, respectivement le module (rayon) et l&apos;argument (angle).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="224"/>
+        <location filename="../maths/lib/basic.py" line="225"/>
         <source>Converts the specified polar coordinates to a complex number.</source>
         <translation>Convertit les coordonnées polaires spéficiées en nombre complexe.</translation>
     </message>
@@ -168,107 +168,107 @@ p, li { white-space: pre-wrap; }
         <translation>Convertit {{obj}} en String.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="12"/>
+        <location filename="../maths/lib/geom.py" line="13"/>
         <source>Returns the perimeter of the circle with the specified {{radius}}.</source>
         <translation>Calcule le périmètre du cercle de rayon {{radius}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="23"/>
+        <location filename="../maths/lib/geom.py" line="24"/>
         <source>Returns the area of the triangle with the specified side lengths.</source>
         <translation>Calcule l&apos;aire du triangle ayant les longueurs de côtés spécifiées.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="37"/>
+        <location filename="../maths/lib/geom.py" line="38"/>
         <source>Returns the area of the triangle with the specified base and height.</source>
         <translation>Calcule l&apos;aire du triangle ayant une base de longueur {{base}} et une hauteur de longueur {{height}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="49"/>
+        <location filename="../maths/lib/geom.py" line="50"/>
         <source>Returns the area of the square with the specified {{side}} length.</source>
         <translation>Calcule l&apos;aire du carré de côté {{side}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="60"/>
+        <location filename="../maths/lib/geom.py" line="61"/>
         <source>Returns the area of the rectangle with side lengths {{s1}} and {{s2}}.</source>
         <translation>Calcule l&apos;aire du rectangle de côtés {{s1}} et {{s2}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="72"/>
+        <location filename="../maths/lib/geom.py" line="73"/>
         <source>Returns the area of the trapezoid with sides {{a}} and {{b}} and height {{height}}.</source>
         <translation>Calcule l&apos;aire du trapèze de côtés {{a}} et {{b}} et de longueur {{height}}. </translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="85"/>
+        <location filename="../maths/lib/geom.py" line="86"/>
         <source>Returns the area of the circle with the specified {{radius}}.</source>
         <translation>Calcule l&apos;aire du disque de rayon {{radius}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="96"/>
+        <location filename="../maths/lib/geom.py" line="97"/>
         <source>Returns the area of the ellipse with radii {{r1}} and {{r2}}.</source>
         <translation>Calcule l&apos;aire de l&apos;ellipse ayant pour rayons {{r1}} et {{r2}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="108"/>
+        <location filename="../maths/lib/geom.py" line="109"/>
         <source>Returns the area of the parallelogram with the specified {{base}} and {{height}}.</source>
         <translation>Calcule l&apos;aire du parallélogramme ayant une base de longueur {{base}} et une hauteur de longueur {{height}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="120"/>
+        <location filename="../maths/lib/geom.py" line="121"/>
         <source>Returns the area of the circle sector with the specified {{radius}} and {{angle}}.</source>
         <translation>Calcule l&apos;aire du secteur de disque de rayon {{radius}} et d&apos;angle {{angle}}. </translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="132"/>
+        <location filename="../maths/lib/geom.py" line="133"/>
         <source>Returns the area of the regular polygon with the specified number of {{sides}} and side {{length}}.</source>
         <translation>Calcule l&apos;aire du polygone régulier à {{sides}} côtés de longueur individuelle {{length}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="145"/>
+        <location filename="../maths/lib/geom.py" line="146"/>
         <source>Returns the surface area of the sphere with the specified {{radius}}.</source>
         <translation>Calcule la surface de la sphère de rayon {{radius}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="156"/>
+        <location filename="../maths/lib/geom.py" line="157"/>
         <source>Returns the surface area of the cube with the specified {{side}} length.</source>
         <translation>Calcule la surface du cube de côté {{side}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="167"/>
+        <location filename="../maths/lib/geom.py" line="168"/>
         <source>Returns the surface area of the parallelogram with side lengths {{a}}, {{b}} and {{c}}.</source>
         <translation>Calcule la surface du parallélogramme de côtés {{a}}, {{b}} et {{c}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="180"/>
+        <location filename="../maths/lib/geom.py" line="181"/>
         <source>Returns the surface area of the cylinder with the specified {{radius}} and {{height}}.</source>
         <translation>Calcule la surface du cylindre de rayon {{radius}} et de hauteur {{height}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="192"/>
+        <location filename="../maths/lib/geom.py" line="193"/>
         <source>Returns the volume of the regular pyramid with the specified number of {{sides}}, side {{length}} and {{height}}.</source>
         <translation>Calcule le volume de la pyramide régulière à {{sides}} côtés de longueur individuelle {{length}} et de hauteur {{height}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="206"/>
+        <location filename="../maths/lib/geom.py" line="208"/>
         <source>Returns the volume of the cube with the specified {{side}} length.</source>
         <translation>Calcule le volume du cube de côté {{side}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="217"/>
+        <location filename="../maths/lib/geom.py" line="219"/>
         <source>Returns the volume of the sphere with the specified {{radius}}.</source>
         <translation>Calcule le volume de la sphère de rayon {{radius}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="228"/>
+        <location filename="../maths/lib/geom.py" line="230"/>
         <source>Returns the volume of the parallelogram with side lengths {{a}}, {{b}} and {{c}}.</source>
         <translation>Calcule le volume du parallélogramme de côtés {{a}}, {{b}} et {{c}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="241"/>
+        <location filename="../maths/lib/geom.py" line="243"/>
         <source>Returns the volume of the cylinder with the specified {{radius}} and {{height}}.</source>
         <translation>Calcule le volume du cylindre de rayon {{radius}} et de hauteur {{height}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="23"/>
+        <location filename="../maths/lib/stats.py" line="22"/>
         <source>Returns the arithmetic mean of {{args}}.</source>
         <translation>Calcule la moyenne arithmétique de {{args}}.</translation>
     </message>
@@ -278,27 +278,27 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Calcule la moyenne harmonique de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="54"/>
+        <location filename="../maths/lib/stats.py" line="53"/>
         <source>Returns the sum of all the terms of {{args}}.</source>
         <translation>Calcule la somme de tous les éléments de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="65"/>
+        <location filename="../maths/lib/stats.py" line="64"/>
         <source>Returns the binomial coefficient for a subset of size {{k}} and a set of size {{n}}.</source>
         <translation>Calcule le coefficient binomial de {{k}} parmi {{n}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="78"/>
+        <location filename="../maths/lib/stats.py" line="77"/>
         <source>Returns the maximum value of {{args}}.</source>
         <translation>Détermine la valeur maximale de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="89"/>
+        <location filename="../maths/lib/stats.py" line="88"/>
         <source>Returns the minimum value of {{args}}.</source>
         <translation>Détermine la valeur minimale de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="100"/>
+        <location filename="../maths/lib/stats.py" line="99"/>
         <source>Returns the Gamma function at {{x}}.</source>
         <translation>Calcule la fonction Gamma à {{x}}.</translation>
     </message>
@@ -333,227 +333,227 @@ p, li { white-space: pre-wrap; }
         <translation>Renvoie une tranche de {{lst}} de l&apos;indice {{start}} (inclus), à l&apos;indice {{end}} (exclus) si spécifié ou à la fin de la liste.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="205"/>
+        <location filename="../maths/lib/stats.py" line="206"/>
         <source>Returns the population standard deviation of {{lst}}.</source>
         <translation>Calcule l&apos;écart-type de {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="219"/>
+        <location filename="../maths/lib/stats.py" line="220"/>
         <source>Returns the population variance of {{lst}}.</source>
         <translation>Calcule la variance de {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="230"/>
+        <location filename="../maths/lib/stats.py" line="231"/>
         <source>Returns the sample standard deviation of {{lst}}.</source>
         <translation>Calcule l&apos;écart-type de l&apos;échantillon {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="244"/>
+        <location filename="../maths/lib/stats.py" line="245"/>
         <source>Returns the sample variance of {{lst}}.</source>
         <translation>Calcule la variance de l&apos;échantillon {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="258"/>
+        <location filename="../maths/lib/stats.py" line="259"/>
         <source>Returns a random number between 0 (inclusive) and 1 (exclusive).</source>
         <translation>Renvoie un nombre aléatoire compris entre 0 (inclus) et 1 (exclus).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="21"/>
+        <location filename="../maths/lib/trig.py" line="22"/>
         <source>Converts angle {{x}} from radians to degrees.</source>
         <translation>Convertit l&apos;angle {{x}} des radians vers les degrés.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="35"/>
+        <location filename="../maths/lib/trig.py" line="36"/>
         <source>Converts angle {{x}} from degrees to radians.</source>
         <translation>Convertit l&apos;angle {{x}} des degrés vers les radians.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="49"/>
+        <location filename="../maths/lib/trig.py" line="50"/>
         <source>Returns the arc sine of {{x}}.</source>
         <translation>Calcule l&apos;arc sinus de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="56"/>
+        <location filename="../maths/lib/trig.py" line="57"/>
         <source>Returns the arc cosine of {{x}}.</source>
         <translation>Calcule l&apos;arc cosinus de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="63"/>
+        <location filename="../maths/lib/trig.py" line="64"/>
         <source>Returns the arc tangent of {{x}}.</source>
         <translation>Calcule &apos;arc tangente de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="70"/>
+        <location filename="../maths/lib/trig.py" line="71"/>
         <source>Returns the arc tangent of {{y}} / {{x}}.</source>
         <translation>Calcule l&apos;arc tangente de {{y}} / {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="77"/>
+        <location filename="../maths/lib/trig.py" line="78"/>
         <source>Returns the inverse hyperbolic sine of {{x}}.</source>
         <translation>Calcule l&apos;arc sinus hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="84"/>
+        <location filename="../maths/lib/trig.py" line="85"/>
         <source>Returns the inverse hyperbolic cosine of {{x}}.</source>
         <translation>Calcule l&apos;arc cosinus hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="91"/>
+        <location filename="../maths/lib/trig.py" line="92"/>
         <source>Returns the inverse hyperbolic tangent of {{x}}.</source>
         <translation>Calcule l&apos;arc tangente hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="98"/>
+        <location filename="../maths/lib/trig.py" line="99"/>
         <source>Returns the sine of {{x}}.</source>
         <translation>Calcule le sinus de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="105"/>
+        <location filename="../maths/lib/trig.py" line="106"/>
         <source>Returns the cosine of {{x}}.</source>
         <translation>Calcule le cosinus de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="112"/>
+        <location filename="../maths/lib/trig.py" line="113"/>
         <source>Returns the tangent of {{x}}.</source>
         <translation>Calcule la tangente de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="119"/>
+        <location filename="../maths/lib/trig.py" line="120"/>
         <source>Returns the hyperbolic sine of {{x}}.</source>
         <translation>Calcule le sinus hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="126"/>
+        <location filename="../maths/lib/trig.py" line="127"/>
         <source>Returns the hyperbolic cosine of {{x}}.</source>
         <translation>Calcule le cosinus hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="133"/>
+        <location filename="../maths/lib/trig.py" line="134"/>
         <source>Returns the hyperbolic tangent of {{x}}.</source>
         <translation>Calcule la tangente hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="140"/>
+        <location filename="../maths/lib/trig.py" line="141"/>
         <source>Returns the secant of {{x}}.</source>
         <translation>Calcule la sécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="147"/>
+        <location filename="../maths/lib/trig.py" line="148"/>
         <source>Returns the cosecant of {{x}}.</source>
         <translation>Calcule la cosécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="154"/>
+        <location filename="../maths/lib/trig.py" line="155"/>
         <source>Returns the cotangent of {{x}}.</source>
         <translation>Calcule la cotangente de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="161"/>
+        <location filename="../maths/lib/trig.py" line="162"/>
         <source>Returns the exsecant of {{x}}.</source>
         <translation>Calcule l&apos;exsécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="168"/>
+        <location filename="../maths/lib/trig.py" line="169"/>
         <source>Returns the excosecant of {{x}}.</source>
         <translation>Calcule l&apos;excosécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="175"/>
+        <location filename="../maths/lib/trig.py" line="176"/>
         <source>Returns the chord of {{x}}.</source>
         <translation>Calcule la corde de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="184"/>
+        <location filename="../maths/lib/trig.py" line="185"/>
         <source>Returns the hyperbolic secant of {{x}}.</source>
         <translation>Calcule la sécante hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="191"/>
+        <location filename="../maths/lib/trig.py" line="192"/>
         <source>Returns the hyperbolic cosecant of {{x}}.</source>
         <translation>Calcule la cosécante hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="198"/>
+        <location filename="../maths/lib/trig.py" line="199"/>
         <source>Returns the hyperbolic cotangent of {{x}}.</source>
         <translation>Calcule la cotangente hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="205"/>
+        <location filename="../maths/lib/trig.py" line="206"/>
         <source>Returns the inverse secant of {{x}}.</source>
         <translation>Calcule l&apos;arc sécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="212"/>
+        <location filename="../maths/lib/trig.py" line="213"/>
         <source>Returns the inverse cosecant of {{x}}.</source>
         <translation>Calcule l&apos;arc cosécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="219"/>
+        <location filename="../maths/lib/trig.py" line="220"/>
         <source>Returns the inverse cotangent of {{x}}.</source>
         <translation>Calcule l&apos;arc tangente de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="226"/>
+        <location filename="../maths/lib/trig.py" line="227"/>
         <source>Returns the inverse hyperbolic secant of {{x}}.</source>
         <translation>Calcule l&apos;arc sécante hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="233"/>
+        <location filename="../maths/lib/trig.py" line="234"/>
         <source>Returns the inverse hyperbolic cosecant of {{x}}.</source>
         <translation>Calcule l&apos;arc cosécante hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="240"/>
+        <location filename="../maths/lib/trig.py" line="241"/>
         <source>Returns the inverse hyperbolic cotangent of {{x}}.</source>
         <translation>Calcule l&apos;arc cotangente hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="247"/>
+        <location filename="../maths/lib/trig.py" line="248"/>
         <source>Returns the cardinal sine of {{x}}.</source>
         <translation>Calcule le sinus cardinal de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="254"/>
+        <location filename="../maths/lib/trig.py" line="255"/>
         <source>Returns the versed sine of {{x}}.</source>
         <translation>Calcule le sinus verse de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="261"/>
+        <location filename="../maths/lib/trig.py" line="262"/>
         <source>Returns the versed cosine of {{x}}.</source>
         <translation>Calcule le cosinus verse de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="268"/>
+        <location filename="../maths/lib/trig.py" line="269"/>
         <source>Returns the coversed sine of {{x}}.</source>
         <translation>Calcule le sinus coverse de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="275"/>
+        <location filename="../maths/lib/trig.py" line="276"/>
         <source>Returns the coversed cosine of {{x}}.</source>
         <translation>Calcule le cosinus coverse de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="282"/>
+        <location filename="../maths/lib/trig.py" line="283"/>
         <source>Returns the haversed sine of {{x}}.</source>
         <translation>Calcule l&apos;haversine de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="289"/>
+        <location filename="../maths/lib/trig.py" line="290"/>
         <source>Returns the haversed cosine of {{x}}.</source>
         <translation>Calcule l&apos;havercosine de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="296"/>
+        <location filename="../maths/lib/trig.py" line="297"/>
         <source>Returns the hacoversed sine of {{x}}.</source>
         <translation>Calcule l&apos;hacoversine de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="303"/>
+        <location filename="../maths/lib/trig.py" line="304"/>
         <source>Returns the hacoversed cosine of {{x}}.</source>
         <translation>Calcule l&apos;hacovercosine de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="310"/>
+        <location filename="../maths/lib/trig.py" line="311"/>
         <source>Returns the hypotenuse / Euclidean norm of the vector ({{x}}, {{y}}).</source>
         <translation>Calcule l&apos;hypoténuse / la norme euclidienne du vecteur ({{x}}, {{y}}).</translation>
     </message>
@@ -568,12 +568,12 @@ p, li { white-space: pre-wrap; }
         <translation>Conversion de type</translation>
     </message>
     <message>
-        <location filename="../maths/lib/const.py" line="9"/>
+        <location filename="../maths/lib/const.py" line="8"/>
         <source>Other constants</source>
         <translation>Autres constantes</translation>
     </message>
     <message>
-        <location filename="../maths/lib/geom.py" line="10"/>
+        <location filename="../maths/lib/geom.py" line="11"/>
         <source>Geometry</source>
         <translation>Géométrie</translation>
     </message>
@@ -583,52 +583,52 @@ p, li { white-space: pre-wrap; }
         <translation>Physique</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="15"/>
+        <location filename="../maths/lib/stats.py" line="14"/>
         <source>Statistics</source>
         <translation>Statistiques</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="10"/>
+        <location filename="../maths/lib/trig.py" line="11"/>
         <source>Trigonometry</source>
         <translation>Trigonométrie</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="38"/>
+        <location filename="../maths/lib/stats.py" line="37"/>
         <source>Returns the harmonic mean of {{args}}.</source>
         <translation>Calcule la moyenne harmonique de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="236"/>
+        <location filename="../maths/lib/basic.py" line="237"/>
         <source>Returns the real part of {{x}}.</source>
         <translation>Renvoie la partie réelle de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="247"/>
+        <location filename="../maths/lib/basic.py" line="248"/>
         <source>Returns the imaginary part of {{x}}.</source>
         <translation>Renvoie la partie imaginaire de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="258"/>
+        <location filename="../maths/lib/basic.py" line="259"/>
         <source>Returns the complex conjugate of {{x}}.</source>
         <translation>Calcule le conjugué de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="270"/>
+        <location filename="../maths/lib/stats.py" line="271"/>
         <source>Returns the {{n}}-th Fibonacci number.</source>
         <translation>Calcule le {{n}}-ième terme de la suite de Fibonacci.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="269"/>
+        <location filename="../maths/lib/basic.py" line="270"/>
         <source>Returns the gradient of {{func}} at {{x}} (optional precision {{h}}).</source>
         <translation>Calcule le nombre dérivé de {{func}} à {{x}} (facultatif : précision {{h}}).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="282"/>
+        <location filename="../maths/lib/basic.py" line="283"/>
         <source>Returns the derivative of {{func}} (optional precision {{h}}).</source>
         <translation>Détermine la dérivée de {{func}} (facultatif : précision {{h}}).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="297"/>
+        <location filename="../maths/lib/basic.py" line="298"/>
         <source>Returns the integral of {{func}} from {{a}} to {{b}} (optional number of steps: {{steps}}).</source>
         <translation>Calcule l&apos;intégrale de {{a}} à {{b}} de {{func}} (facultatif : nombre d&apos;étapes {{steps}}).</translation>
     </message>
@@ -638,12 +638,12 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule le logarithme naturel de la valeur absolue de la fonction Gamma à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="284"/>
+        <location filename="../maths/lib/stats.py" line="285"/>
         <source>Returns the {{n}}-th Euler number.</source>
         <translation>Calcule le {{n}}-ième nombre d&apos;Euler.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="304"/>
+        <location filename="../maths/lib/stats.py" line="309"/>
         <source>Returns the Beta function at {{a}} and {{b}}.</source>
         <translation>Calcule la fonction Beta à {{a}} et {{b}}.</translation>
     </message>
@@ -651,67 +651,67 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Evaluator</name>
     <message>
-        <location filename="../maths/evaluator.py" line="49"/>
+        <location filename="../maths/evaluator.py" line="46"/>
         <source>Parser: </source>
         <translation>Analyseur : </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="96"/>
+        <location filename="../maths/evaluator.py" line="93"/>
         <source>Argument count mismatch (expected %d, got %d)</source>
         <translation>Nombre d&apos;arguments invalides (attendu : %d, reçu : %d)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="128"/>
+        <location filename="../maths/evaluator.py" line="125"/>
         <source>Cannot find variable or function </source>
         <translation>Impossible de trouver la variable ou fonction </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="141"/>
+        <location filename="../maths/evaluator.py" line="138"/>
         <source>Callee is None</source>
         <translation>La fonction appelée est None</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="151"/>
+        <location filename="../maths/evaluator.py" line="148"/>
         <source>Only lists can be expanded</source>
         <translation>Seules les listes peuvent être étendues</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="167"/>
+        <location filename="../maths/evaluator.py" line="164"/>
         <source>Index &apos;%s&apos; too big for array</source>
         <translation>Indice &apos;%s&apos; trop grand pour la liste</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="178"/>
+        <location filename="../maths/evaluator.py" line="175"/>
         <source>Unknown node type: %s</source>
         <translation>Type de nœud inconnu : %s</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="197"/>
+        <location filename="../maths/evaluator.py" line="194"/>
         <source>Invalid unary operator &apos;%s&apos;</source>
         <translation>Opérateur unaire invalide &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="208"/>
+        <location filename="../maths/evaluator.py" line="205"/>
         <source>Trying to use None</source>
         <translation>Opération sur None impossible</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="220"/>
+        <location filename="../maths/evaluator.py" line="217"/>
         <source>Type mismatch: operands have different types (%s and %s)</source>
         <translation>Types incompatibles : les opérandes ont des types différents (%s et %s)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="241"/>
+        <location filename="../maths/evaluator.py" line="238"/>
         <source>Invalid value type for %s and operator &apos;%s&apos;</source>
         <translation>Type de valeur invalide pour %s et l&apos;opérateur &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="241"/>
+        <location filename="../maths/evaluator.py" line="238"/>
         <source> and </source>
         <translation> et </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="246"/>
+        <location filename="../maths/evaluator.py" line="243"/>
         <source>Operator &apos;%s&apos; not allowed for value type %s</source>
         <translation>Opérateur &apos;%s&apos; non autorisé pour le type de valeur %s</translation>
     </message>
@@ -721,27 +721,27 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Tentative de multiplication d&apos;une List par un non-entier (%f)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="270"/>
+        <location filename="../maths/evaluator.py" line="267"/>
         <source>Trying to divide by zero</source>
         <translation>Tentative de division par zéro</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="312"/>
+        <location filename="../maths/evaluator.py" line="309"/>
         <source>Invalid binary operator &apos;%s&apos; for &apos;%s&apos; and &apos;%s&apos;</source>
         <translation>Opérateur binaire &apos;%s&apos; invalide opur &apos;%s&apos; et &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="236"/>
+        <location filename="../maths/evaluator.py" line="233"/>
         <source>left</source>
         <translation>gauche</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="239"/>
+        <location filename="../maths/evaluator.py" line="236"/>
         <source>right</source>
         <translation>droite</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="262"/>
+        <location filename="../maths/evaluator.py" line="259"/>
         <source>Trying to multiply List by non-integer (%s)</source>
         <translation>Tentative de multiplication d&apos;une List par un non-entier (%s)</translation>
     </message>
@@ -754,27 +754,27 @@ p, li { white-space: pre-wrap; }
         <translation>Pages d&apos;aide</translation>
     </message>
     <message>
-        <location filename="../help.py" line="53"/>
+        <location filename="../help.py" line="54"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Arguments :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../help.py" line="57"/>
+        <location filename="../help.py" line="58"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
         <translation>&lt;li&gt;Aucun&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../help.py" line="67"/>
+        <location filename="../help.py" line="68"/>
         <source>default = %s</source>
         <translation>par défaut = %s</translation>
     </message>
     <message>
-        <location filename="../help.py" line="81"/>
+        <location filename="../help.py" line="83"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Alias :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../help.py" line="93"/>
+        <location filename="../help.py" line="95"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Fonctions :&lt;/h2&gt;</translation>
     </message>
@@ -1111,7 +1111,7 @@ p, li { white-space: pre-wrap; }
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="41"/>
+        <location filename="../main.py" line="43"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
@@ -1136,17 +1136,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
 <context>
     <name>Parser</name>
     <message>
-        <location filename="../maths/parser.py" line="152"/>
+        <location filename="../maths/parser.py" line="156"/>
         <source>Expected token (%s) &apos;%s&apos;</source>
         <translation>Jeton attendu (%s) &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="434"/>
+        <location filename="../maths/parser.py" line="438"/>
         <source>Unexpected EOL</source>
         <translation>Fin de ligne inattendue</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="436"/>
+        <location filename="../maths/parser.py" line="440"/>
         <source>Unexpected token (%s) &apos;%s&apos;</source>
         <translation>Jeton (%s) &apos;%s&apos; inattendu</translation>
     </message>
@@ -1167,12 +1167,12 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
 <context>
     <name>Utilities</name>
     <message>
-        <location filename="../util/math.py" line="152"/>
+        <location filename="../util/math.py" line="153"/>
         <source>TRUE</source>
         <translation>VRAI</translation>
     </message>
     <message>
-        <location filename="../util/math.py" line="152"/>
+        <location filename="../util/math.py" line="153"/>
         <source>FALSE</source>
         <translation>FAUX</translation>
     </message>

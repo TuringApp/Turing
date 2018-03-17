@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 import builtins
-import math as rmath
-from .docs import *
 import cmath
+import math as rmath
+
 import util
-import sys
+from .docs import *
 
 translate = util.translate
 
@@ -13,7 +13,7 @@ __desc__ = translate("Docs", "Basic")
 
 doc("round",
     [
-        ("num", "Real"),
+        ("num", "Number"),
         ("prec", "Integer", None, None)
     ],
     translate("Docs", "Rounds {{num}} to the nearest integer / (if specified) to {{prec}} decimals."),
@@ -21,6 +21,8 @@ doc("round",
 
 
 def round(num, prec=None):
+    if type(num) == complex:
+        return complex(round(num.real, prec), round(num.imag, prec))
     if prec:
         return builtins.round(num, int(prec))
     return builtins.round(num)
@@ -127,12 +129,14 @@ def log10(x):
 
 doc("floor",
     [
-        ("num", "Real")
+        ("num", "Number")
     ],
     translate("Docs", "Returns the largest integer less than or equal to {{num}}."))
 
 
 def floor(x):
+    if type(x) == complex:
+        return complex(rmath.floor(x.real), rmath.floor(x.imag))
     return rmath.floor(x)
 
 
@@ -144,6 +148,8 @@ doc("ceil",
 
 
 def ceil(x):
+    if type(x) == complex:
+        return complex(rmath.ceil(x.real), rmath.ceil(x.imag))
     return rmath.ceil(x)
 
 
@@ -211,7 +217,8 @@ doc("polar",
         ("x", "Number")
     ],
     translate("Docs",
-              "Returns a list containing the polar coordinates of {{x}}, respectively the modulus (radius) and argument (angle)."),
+              "Returns a list containing the polar coordinates of {{x}}, respectively the modulus (radius) "
+              "and argument (angle)."),
     ["polaire"])
 
 

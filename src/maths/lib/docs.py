@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import inspect
+
 from util.math import proper_str
 
 funcs = {}

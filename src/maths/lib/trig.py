@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import cmath
-from .docs import *
-from maths.lib import basic
+
 import util
+from maths.lib import basic
+from .docs import *
 
 translate = util.translate
 

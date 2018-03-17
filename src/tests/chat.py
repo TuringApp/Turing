@@ -6,10 +6,10 @@ CHAT : Clearly Horrible Automated Tester
 Iterates all subfolders in src/ and runs unit tests.
 """
 
-import os
-from tests.framework import *
 import importlib
-import sys
+import os
+
+from tests.framework import *
 
 # init the test environment
 init_test()

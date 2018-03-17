@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import math
-from .docs import *
-from maths.lib import trig
+
 import util
+from maths.lib import trig
+from .docs import *
 
 translate = util.translate
 
@@ -196,7 +197,8 @@ doc("vol_pyramid",
         ("height", "Real")
     ],
     translate("Docs",
-              "Returns the volume of the regular pyramid with the specified number of {{sides}}, side {{length}} and {{height}}."))
+              "Returns the volume of the regular pyramid with the specified number of {{sides}}, "
+              "side {{length}} and {{height}}."))
 
 
 def vol_pyramid(sides, length, height):
@@ -234,7 +236,7 @@ doc("vol_parallelepiped",
     translate("Docs", "Returns the volume of the parallelogram with side lengths {{a}}, {{b}} and {{c}}."))
 
 
-def vol_parallellepiped(a, b, c):
+def vol_parallelepiped(a, b, c):
     return a * b * c
 
 

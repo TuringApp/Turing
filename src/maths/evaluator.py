@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from maths.parser import *
 import math
-import random
-from util.math import *
-import maths.lib as mlib
-import maths.nodes as nodes
-from util.log import Logger
 import sys
-import types
-import util
+
+import maths.lib as mlib
+from maths.parser import *
+from util.log import Logger
+from util.math import *
 
 translate = util.translate
 
@@ -19,7 +16,7 @@ class Evaluator:
     arguments = None
     log = None
     beautified = None
-    strictType = False
+    strict_typing = False
 
     def __init__(self, strict=False):
         self.variables = {}
@@ -34,7 +31,7 @@ class Evaluator:
 
         self.arguments = []
         self.log = Logger("Eval")
-        self.strictType = strict
+        self.strict_typing = strict
 
     def evaluate(self, expr):
         parser = Parser(expr)
@@ -48,7 +45,7 @@ class Evaluator:
             except:
                 self.log.error(translate("Evaluator", "Parser: ") + str(sys.exc_info()[1]))
 
-        for msg in parser.log.getMessages():
+        for msg in parser.log.get_messages():
             self.log.messages.append(msg)
 
         self.beautified = parser.beautify()
@@ -59,15 +56,15 @@ class Evaluator:
         result = None
 
         try:
-            result = self.evalNode(node_tree)
+            result = self.eval_node(node_tree)
         except:
             self.log.error(str(sys.exc_info()[1]))
 
         return result
 
-    def evalNode(self, node):
+    def eval_node(self, node):
         """Wrapper for evalNodeReal that handles all the IEEE754 floating point rounding fuckery"""
-        value = self.evalNodeReal(node)
+        value = self.eval_node_real(node)
 
         if value is not None and is_num(value) and not isinstance(value, bool):
             if type(value) == complex:
@@ -83,12 +80,12 @@ class Evaluator:
             if is_zero(value):
                 value = 0
             else:
-                if not(type(value) == int and value != int(float(value))):
+                if not (type(value) == int and value != int(float(value))):
                     value = close_round(value, 12)
 
         return value
 
-    def callLambda(self, node, *args):
+    def call_lambda(self, node, *args):
         """Lambda function call wrapper"""
         args = list(args)
 
@@ -101,7 +98,7 @@ class Evaluator:
         for i in range(len(args)):
             self.arguments.append((node.args[i], args[i]))
 
-        result = self.evalNode(node.expr)
+        result = self.eval_node(node.expr)
 
         # pop arguments after use
         for i in range(len(args)):
@@ -109,9 +106,9 @@ class Evaluator:
 
         return result
 
-    def evalNodeReal(self, node):
+    def eval_node_real(self, node):
         if type(node) == nodes.ListNode:
-            return [self.evalNode(x) for x in node.value]
+            return [self.eval_node(x) for x in node.value]
 
         if type(node) in [nodes.NumberNode, nodes.StringNode]:
             return node.value
@@ -129,13 +126,13 @@ class Evaluator:
                 return None
 
         if type(node) == nodes.UnaryOpNode:
-            return self.evalUnary(node)
+            return self.eval_unary(node)
 
         if type(node) == nodes.BinOpNode:
-            return self.evalBinary(node)
+            return self.eval_binary(node)
 
         if type(node) == nodes.CallNode:
-            function = self.evalNode(node.func)
+            function = self.eval_node(node.func)
 
             if function is None:
                 self.log.error(translate("Evaluator", "Callee is None"))
@@ -143,9 +140,9 @@ class Evaluator:
 
             if (len(node.args) == 1
                     and isinstance(node.args[0], nodes.UnaryOpNode)
-                    and node.args[0].opType == "*"):
+                    and node.args[0].operator == "*"):
                 # expand list of arguments
-                arg_list = self.evalNode(node.args[0].value)
+                arg_list = self.eval_node(node.args[0].value)
 
                 if type(arg_list) != list:
                     self.log.error(translate("Evaluator", "Only lists can be expanded"))
@@ -153,13 +150,13 @@ class Evaluator:
 
                 args = arg_list
             else:
-                args = [self.evalNode(x) for x in node.args]
+                args = [self.eval_node(x) for x in node.args]
 
             return function.__call__(*args)
 
         if type(node) == nodes.ArrayAccessNode:
-            array = self.evalNode(node.array)
-            index = int(self.evalNode(node.index))
+            array = self.eval_node(node.array)
+            index = int(self.eval_node(node.index))
 
             if index < len(array):
                 return array[index]
@@ -168,7 +165,7 @@ class Evaluator:
                 return None
 
         if type(node) == nodes.LambdaNode:
-            return lambda *args: self.callLambda(node, *list(args))
+            return lambda *args: self.call_lambda(node, *list(args))
 
         # if the object is not a node, it must be a remnant of an already-parsed value
         # return it directly
@@ -178,47 +175,47 @@ class Evaluator:
         self.log.error(translate("Evaluator", "Unknown node type: %s") % type(node))
         return None
 
-    def evalUnary(self, node):
-        value = self.evalNode(node.value)
-        value_type = ValueType.getType(value)
+    def eval_unary(self, node):
+        value = self.eval_node(node.value)
+        value_type = ValueType.get_type(value)
 
-        if node.opType == "+":
+        if node.operator == "+":
             return value
 
-        if node.opType == "-" and (is_num(value) and (not self.strictType or not is_bool(value))):
+        if node.operator == "-" and (is_num(value) and (not self.strict_typing or not is_bool(value))):
             return -value
 
-        if node.opType == "-" and value_type == ValueType.LIST:
+        if node.operator == "-" and value_type == ValueType.LIST:
             return value[::-1]
 
-        if node.opType in ["NON", "NOT"] and (is_bool(value) or (not self.strictType and is_num(value))):
+        if node.operator in ["NON", "NOT"] and (is_bool(value) or (not self.strict_typing and is_num(value))):
             return not value
 
-        self.log.error(translate("Evaluator", "Invalid unary operator '%s'") % node.opType)
+        self.log.error(translate("Evaluator", "Invalid unary operator '%s'") % node.operator)
         return None
 
-    def evalBinary(self, node):
-        left = self.evalNode(node.left)
-        left_type = ValueType.getType(left)
+    def eval_binary(self, node):
+        left = self.eval_node(node.left)
+        left_type = ValueType.get_type(left)
 
-        right = self.evalNode(node.right)
-        right_type = ValueType.getType(right)
+        right = self.eval_node(node.right)
+        right_type = ValueType.get_type(right)
 
         if left is None or right is None:
             self.log.error(translate("Evaluator", "Trying to use None"))
             return None
 
-        if node.opType in ["*"] and right_type == ValueType.LIST and left_type != ValueType.LIST:
+        if node.operator in ["*"] and right_type == ValueType.LIST and left_type != ValueType.LIST:
             # if one operand is list and not the other, then put the list at left
             # so we don't have to handle both cases afterwards
             (left, left_type, right, right_type) = (right, right_type, left, left_type)
 
         result = None
 
-        if self.strictType:
+        if self.strict_typing:
             if left_type != right_type:
                 self.log.error(translate("Evaluator", "Type mismatch: operands have different types (%s and %s)") % (
-                    ValueType.getName(left_type), ValueType.getName(right_type)))
+                    ValueType.get_name(left_type), ValueType.get_name(right_type)))
                 return None
 
             if left_type == ValueType.BOOLEAN:
@@ -239,24 +236,24 @@ class Evaluator:
                     error_pos.append(translate("Evaluator", "right"))
 
                 self.log.error(translate("Evaluator", "Invalid value type for %s and operator '%s'") % (
-                translate("Evaluator", " and ").join(error_pos), node.opType))
+                    translate("Evaluator", " and ").join(error_pos), node.operator))
                 return None
 
-            if node.opType not in allowed:
+            if node.operator not in allowed:
                 self.log.error(
                     translate("Evaluator", "Operator '%s' not allowed for value type %s") % (
-                    node.opType, ValueType.getName(left_type)))
+                        node.operator, ValueType.get_name(left_type)))
                 return None
 
         # arithmetic
-        if node.opType == "+":
+        if node.operator == "+":
             result = left + right
-        elif node.opType == "-":
+        elif node.operator == "-":
             if left_type == right_type == ValueType.LIST:
                 result = [x for x in left if x not in right]
             else:
                 result = left - right
-        elif node.opType == "*":
+        elif node.operator == "*":
             if left_type == ValueType.LIST:
                 if not is_int(right):
                     self.log.error(translate("Evaluator", "Trying to multiply List by non-integer (%s)") % right)
@@ -265,44 +262,44 @@ class Evaluator:
                     result = left * int(right)
             else:
                 result = left * right
-        elif node.opType == "/":
+        elif node.operator == "/":
             if right == 0:
                 self.log.error(translate("Evaluator", "Trying to divide by zero"))
                 return None
             result = left / right
-        elif node.opType == "%":
+        elif node.operator == "%":
             result = math.fmod(left, right)
-        elif node.opType == "^":
+        elif node.operator == "^":
             result = left ** right
 
         # comparison
-        elif node.opType == "<=":
+        elif node.operator == "<=":
             result = left <= right or is_close(left, right)
-        elif node.opType == "<":
+        elif node.operator == "<":
             result = left < right
-        elif node.opType == ">":
+        elif node.operator == ">":
             result = left > right
-        elif node.opType == ">=":
+        elif node.operator == ">=":
             result = left >= right or is_close(left, right)
 
         # equality
-        elif node.opType == "==":
+        elif node.operator == "==":
             result = is_close(left, right)
-        elif node.opType == "!=":
+        elif node.operator == "!=":
             result = not is_close(left, right)
 
         # logic / bitwise
-        elif node.opType == "&":
+        elif node.operator == "&":
             if left_type == right_type == ValueType.LIST:
                 result = [x for x in left if x in right]
             else:
                 result = int(left) & int(right)
-        elif node.opType == "|":
+        elif node.operator == "|":
             if left_type == right_type == ValueType.LIST:
                 result = list(set(left + right))
             else:
                 result = int(left) | int(right)
-        elif node.opType == "XOR":
+        elif node.operator == "XOR":
             if left_type == right_type == ValueType.LIST:
                 result = list(set(x for x in left + right if x not in left or x not in right))
             else:
@@ -310,7 +307,7 @@ class Evaluator:
 
         if result is None:
             self.log.error(
-                translate("Evaluator", "Invalid binary operator '%s' for '%s' and '%s'") % (node.opType, left, right))
+                translate("Evaluator", "Invalid binary operator '%s' for '%s' and '%s'") % (node.operator, left, right))
         else:
             if is_bool(left) and is_bool(right):
                 # if both operands are bool, then cast the whole thing to bool so it looks like we're professional

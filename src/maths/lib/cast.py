@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from .docs import *
 import util
+from .docs import *
 
 translate = util.translate
 

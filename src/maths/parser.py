@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
+import re
+import types
+
 import maths.nodes as nodes
+import util
 from util.log import Logger
 from util.math import proper_str, is_num
-import types
-import re
-import util
 
 translate = util.translate
 
@@ -14,25 +15,27 @@ class ValueType:
     """Types of values"""
     STRING, NUMBER, BOOLEAN, LIST, FUNCTION = range(5)
 
-    def getType(self):
-        if type(self) == list:
+    @staticmethod
+    def get_type(obj):
+        if type(obj) == list:
             return ValueType.LIST
 
-        if type(self) == types.FunctionType:
+        if type(obj) == types.FunctionType:
             return ValueType.FUNCTION
 
-        if type(self) == str:
+        if type(obj) == str:
             return ValueType.STRING
 
-        if type(self) == bool:
+        if type(obj) == bool:
             return ValueType.BOOLEAN
 
-        if is_num(self):
+        if is_num(obj):
             return ValueType.NUMBER
 
         return None
 
-    def getName(type):
+    @staticmethod
+    def get_name(type):
         for name, value in ValueType.__dict__.items():
             if value == type:
                 return name
@@ -50,9 +53,10 @@ class TokenType:
     FalseVal = ["FALSE", "FAUX"]
     Block = [PAREN, BRACK, BRACE]
 
-    def getName(self):
+    @staticmethod
+    def get_name(type):
         for name, value in TokenType.__dict__.items():
-            if value == self:
+            if value == type:
                 return name
 
 
@@ -113,48 +117,48 @@ class Parser:
 
         self.tokens = result
 
-    def nextToken(self):
+    def next_token(self):
         """Reads the next token and advances the position."""
         self.index += 1
         return self.tokens[self.index - 1]
 
-    def peekToken(self):
+    def peek_token(self):
         """Reads the next token without affecting position."""
-        if not self.canRead():
+        if not self.can_read():
             return None
 
         return self.tokens[self.index]
 
-    def matchToken(self, tokType, value=None):
+    def match_token(self, token_type, value=None):
         """Checks if the next token matches the specified token type and (optional) value."""
-        return self.canRead() \
-               and self.peekToken()[0] == tokType \
+        return self.can_read() \
+               and self.peek_token()[0] == token_type \
                and ((not value)
-                    or self.peekToken()[1] in (value
-                                               if type(value) == list
-                                               else [value]))
+                    or self.peek_token()[1] in (value
+                                                if type(value) == list
+                                                else [value]))
 
-    def acceptToken(self, tokType, value=None):
+    def accept_token(self, token_type, value=None):
         """If the next token matches, advance and return True, otherwise return False without advancing."""
-        if self.matchToken(tokType, value):
+        if self.match_token(token_type, value):
             self.index += 1
             return True
 
         return False
 
-    def acceptOperator(self, opType):
-        """Wrapper for accept(OPERATOR, opType)."""
-        return self.acceptToken(TokenType.OPERATOR, opType)
+    def accept_operator(self, operator):
+        """Wrapper for accept(OPERATOR, operator)."""
+        return self.accept_token(TokenType.OPERATOR, operator)
 
-    def expectToken(self, opType, value=None):
+    def expect_token(self, operator, value=None):
         """Asserts the next token is of the specified type and (optional) value. Explodes otherwise."""
-        if not self.matchToken(opType, value):
-            self.log.error(translate("Parser", "Expected token (%s) '%s'") % (TokenType.getName(opType), value))
+        if not self.match_token(operator, value):
+            self.log.error(translate("Parser", "Expected token (%s) '%s'") % (TokenType.get_name(operator), value))
             return None
 
-        return self.nextToken()
+        return self.next_token()
 
-    def canRead(self):
+    def can_read(self):
         """Checks if there is still anything to read."""
         return self.index < len(self.tokens)
 
@@ -169,22 +173,22 @@ class Parser:
             r"&|\||,| )",
             re.IGNORECASE)
 
-        tok = [x.strip() for x in regex.split(self.expression) if x.strip()]
+        tokenized = [x.strip() for x in regex.split(self.expression) if x.strip()]
 
         # fix exponents
         new_tokens = []
         idx = 0
 
-        while idx < len(tok):
-            cur = tok[idx]
+        while idx < len(tokenized):
+            current = tokenized[idx]
 
-            if idx < len(tok) - 2 and cur[-1].upper() == "E" and tok[idx + 1] in ["+", "-"]:
+            if idx < len(tokenized) - 2 and current[-1].upper() == "E" and tokenized[idx + 1] in ["+", "-"]:
                 # if there is an E followed by a number, this is an exponent notation
-                cur += tok[idx + 1]
-                cur += tok[idx + 2]
+                current += tokenized[idx + 1]
+                current += tokenized[idx + 2]
                 idx += 2
 
-            new_tokens.append(cur)
+            new_tokens.append(current)
             idx += 1
 
         for token in new_tokens:
@@ -220,125 +224,125 @@ class Parser:
 
         self.fix_mul_tok()
 
-    def matchOperator(self, expected):
+    def match_operator(self, expected):
         """Checks if any of the specified operators are to be found."""
         for x in expected:
-            if self.acceptOperator(x):
+            if self.accept_operator(x):
                 return x
 
     def parse(self):
         """Main parsing routine."""
         self.tokenize()
-        return self.parseExpr()
+        return self.parse_expression()
 
-    def parseExpr(self):
+    def parse_expression(self):
         """Parses an expression."""
-        return self.parseOr()
+        return self.parse_or()
 
-    def parseOr(self):
+    def parse_or(self):
         """Parses an OR operation."""
-        expr = self.parseXor()
+        expr = self.parse_xor()
 
-        while self.matchToken(TokenType.OPERATOR):
-            op = self.matchOperator(["OR", "OU", "|"])
+        while self.match_token(TokenType.OPERATOR):
+            op = self.match_operator(["OR", "OU", "|"])
             if op:
-                expr = nodes.BinOpNode(expr, self.parseXor(), "|")
+                expr = nodes.BinOpNode(expr, self.parse_xor(), "|")
                 continue
             break
 
         return expr
 
-    def parseXor(self):
+    def parse_xor(self):
         """Parses a XOR operation."""
-        expr = self.parseAnd()
+        expr = self.parse_and()
 
-        while self.matchToken(TokenType.OPERATOR):
-            op = self.matchOperator(["XOR"])
+        while self.match_token(TokenType.OPERATOR):
+            op = self.match_operator(["XOR"])
             if op:
-                expr = nodes.BinOpNode(expr, self.parseAnd(), "XOR")
+                expr = nodes.BinOpNode(expr, self.parse_and(), "XOR")
                 continue
             break
 
         return expr
 
-    def parseAnd(self):
+    def parse_and(self):
         """Parses an AND operation."""
-        expr = self.parseEquality()
+        expr = self.parse_equality()
 
-        while self.matchToken(TokenType.OPERATOR):
-            op = self.matchOperator(["AND", "ET", "&"])
+        while self.match_token(TokenType.OPERATOR):
+            op = self.match_operator(["AND", "ET", "&"])
             if op:
-                expr = nodes.BinOpNode(expr, self.parseEquality(), "&")
+                expr = nodes.BinOpNode(expr, self.parse_equality(), "&")
                 continue
             break
 
         return expr
 
-    def parseEquality(self):
+    def parse_equality(self):
         """Parses a comparison/equality."""
-        expr = self.parseAdditive()
+        expr = self.parse_additive()
 
-        while self.matchToken(TokenType.OPERATOR):
-            op = self.matchOperator(Operators.comp)
+        while self.match_token(TokenType.OPERATOR):
+            op = self.match_operator(Operators.comp)
             if op:
-                expr = nodes.BinOpNode(expr, self.parseAdditive(), op)
+                expr = nodes.BinOpNode(expr, self.parse_additive(), op)
                 continue
             break
 
         return expr
 
-    def parseAdditive(self):
+    def parse_additive(self):
         """Parses an addition or subtraction."""
-        expr = self.parseMultiplicative()
+        expr = self.parse_multiplicative()
 
-        while self.matchToken(TokenType.OPERATOR):
-            op = self.matchOperator(["+", "-"])
+        while self.match_token(TokenType.OPERATOR):
+            op = self.match_operator(["+", "-"])
             if op:
-                expr = nodes.BinOpNode(expr, self.parseMultiplicative(), op)
+                expr = nodes.BinOpNode(expr, self.parse_multiplicative(), op)
                 continue
             break
 
         return expr
 
-    def parseMultiplicative(self):
+    def parse_multiplicative(self):
         """Parses a product, division, or modulus."""
-        expr = self.parseExponent()
+        expr = self.parse_exponent()
 
-        while self.matchToken(TokenType.OPERATOR):
-            op = self.matchOperator(["*", "/", "%"])
+        while self.match_token(TokenType.OPERATOR):
+            op = self.match_operator(["*", "/", "%"])
             if op:
-                expr = nodes.BinOpNode(expr, self.parseExponent(), op)
+                expr = nodes.BinOpNode(expr, self.parse_exponent(), op)
                 continue
             break
 
         return expr
 
-    def parseExponent(self):
+    def parse_exponent(self):
         """Parses an exponentiation."""
-        expr = self.parseUnary()
+        expr = self.parse_unary()
 
-        while self.matchToken(TokenType.OPERATOR):
-            op = self.matchOperator(["^"])
+        while self.match_token(TokenType.OPERATOR):
+            op = self.match_operator(["^"])
             if op:
-                expr = nodes.BinOpNode(expr, self.parseUnary(), op)
+                expr = nodes.BinOpNode(expr, self.parse_unary(), op)
                 continue
             break
 
         return expr
 
-    def parseUnary(self):
+    def parse_unary(self):
         """Parses an unary operation."""
-        op = self.matchOperator(["+", "-", "NON", "NOT", "*"])
+        op = self.match_operator(["+", "-", "NON", "NOT", "*"])
         if op:
-            return nodes.UnaryOpNode(self.parseUnary(), op)
+            return nodes.UnaryOpNode(self.parse_unary(), op)
 
-        return self.parseCallPre()
+        return self.parse_call_pre()
 
-    def parseCallPre(self):
+    def parse_call_pre(self):
         """Parses a function call (1)."""
-        return self.parseCall(self.parseTerm())
+        return self.parse_call(self.parse_term())
 
-    def parseArgList(self, array=False):
+    def parse_arg_list(self, array=False):
         """Parses an argument list."""
         result = []
 
@@ -351,91 +355,91 @@ class Parser:
             sym_open = "("
             sym_end = ")"
 
-        self.expectToken(tok_type, sym_open)
+        self.expect_token(tok_type, sym_open)
 
-        while not self.matchToken(tok_type, sym_end):
-            result.append(self.parseExpr())
+        while not self.match_token(tok_type, sym_end):
+            result.append(self.parse_expression())
 
-            if not self.acceptToken(TokenType.COMMA):
+            if not self.accept_token(TokenType.COMMA):
                 break
 
-        self.expectToken(tok_type, sym_end)
+        self.expect_token(tok_type, sym_end)
 
         return result
 
-    def parseParamList(self):
+    def parse_param_list(self):
         """Parses a lambda function parameter list."""
         result = []
 
-        self.expectToken(TokenType.BRACE, "{")
+        self.expect_token(TokenType.BRACE, "{")
 
-        while not self.matchToken(TokenType.BRACE, "}"):
-            result.append(self.expectToken(TokenType.IDENTIFIER)[1])
+        while not self.match_token(TokenType.BRACE, "}"):
+            result.append(self.expect_token(TokenType.IDENTIFIER)[1])
 
-            if not self.acceptToken(TokenType.COMMA):
+            if not self.accept_token(TokenType.COMMA):
                 break
 
-        self.expectToken(TokenType.BRACE, "}")
+        self.expect_token(TokenType.BRACE, "}")
 
         return result
 
-    def parseIndexer(self):
+    def parse_indexer(self):
         """Parses an indexer expression."""
-        self.expectToken(TokenType.BRACK, "[")
+        self.expect_token(TokenType.BRACK, "[")
 
-        expr = self.parseExpr()
+        expr = self.parse_expression()
 
-        self.expectToken(TokenType.BRACK, "]")
+        self.expect_token(TokenType.BRACK, "]")
 
         return expr
 
-    def parseCall(self, left):
+    def parse_call(self, left):
         """Parses a function call (2)."""
-        if self.matchToken(TokenType.PAREN, "("):
-            return self.parseCall(nodes.CallNode(left, self.parseArgList()))
-        elif self.matchToken(TokenType.BRACK, "["):
-            return self.parseCall(nodes.ArrayAccessNode(left, self.parseIndexer()))
+        if self.match_token(TokenType.PAREN, "("):
+            return self.parse_call(nodes.CallNode(left, self.parse_arg_list()))
+        elif self.match_token(TokenType.BRACK, "["):
+            return self.parse_call(nodes.ArrayAccessNode(left, self.parse_indexer()))
         else:
             return left
 
-    def parseTerm(self):
+    def parse_term(self):
         """Parses an atomic term."""
-        if self.matchToken(TokenType.NUMBER):
-            return nodes.NumberNode(self.nextToken()[1])
-        elif self.matchToken(TokenType.BOOLEAN):
-            return nodes.NumberNode(bool(self.nextToken()[1]))
-        elif self.matchToken(TokenType.STRING):
-            return nodes.StringNode(self.nextToken()[1])
-        elif self.matchToken(TokenType.IDENTIFIER):
-            return nodes.IdentifierNode(self.nextToken()[1])
+        if self.match_token(TokenType.NUMBER):
+            return nodes.NumberNode(self.next_token()[1])
+        elif self.match_token(TokenType.BOOLEAN):
+            return nodes.NumberNode(bool(self.next_token()[1]))
+        elif self.match_token(TokenType.STRING):
+            return nodes.StringNode(self.next_token()[1])
+        elif self.match_token(TokenType.IDENTIFIER):
+            return nodes.IdentifierNode(self.next_token()[1])
 
-        elif self.acceptToken(TokenType.PAREN, "("):
-            stmt = self.parseExpr()
-            self.expectToken(TokenType.PAREN, ")")
-
-            return stmt
-
-        elif self.matchToken(TokenType.BRACK, "["):
-            stmt = nodes.ListNode(self.parseArgList(True))
+        elif self.accept_token(TokenType.PAREN, "("):
+            stmt = self.parse_expression()
+            self.expect_token(TokenType.PAREN, ")")
 
             return stmt
 
-        elif self.matchToken(TokenType.BRACE, "{"):
-            args = self.parseParamList()
+        elif self.match_token(TokenType.BRACK, "["):
+            stmt = nodes.ListNode(self.parse_arg_list(True))
 
-            self.expectToken(TokenType.PAREN, "(")
-            expr = self.parseExpr()
-            self.expectToken(TokenType.PAREN, ")")
+            return stmt
+
+        elif self.match_token(TokenType.BRACE, "{"):
+            args = self.parse_param_list()
+
+            self.expect_token(TokenType.PAREN, "(")
+            expr = self.parse_expression()
+            self.expect_token(TokenType.PAREN, ")")
 
             return nodes.LambdaNode(args, expr)
 
         else:
-            if not self.canRead():
+            if not self.can_read():
                 self.log.error(translate("Parser", "Unexpected EOL"))
             else:
                 self.log.error(
                     translate("Parser", "Unexpected token (%s) '%s'") % (
-                    TokenType.getName(self.peekToken()[0]), self.peekToken()[1]))
+                        TokenType.get_name(self.peek_token()[0]), self.peek_token()[1]))
 
             return None
 

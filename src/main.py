@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5.QtWidgets import *
+import os
+import sys
+
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from ui_mainwindow import Ui_MainWindow
-from ui_about import Ui_AboutWindow
-import sys
-import os
+from PyQt5.QtWidgets import *
+
 import translator
 import util
+from ui_about import Ui_AboutWindow
+from ui_mainwindow import Ui_MainWindow
 
 translate = translator.translate
 
@@ -20,7 +22,7 @@ undo_objs = []
 current_file = -1
 
 
-def getThemedBox():
+def get_themed_box():
     msg = QMessageBox()
     msg.setWindowTitle("Turing")
     msg.setStyle(DEFAULT_STYLE)
@@ -29,12 +31,12 @@ def getThemedBox():
     return msg
 
 
-class myMainWindow(QMainWindow):
+class MainWindowWrapper(QMainWindow):
     def closeEvent(self, event):
         if False:
-            event.acceptToken()
+            event.accept_token()
             return
-        msg = getThemedBox()
+        msg = get_themed_box()
         msg.setIcon(QMessageBox.Question)
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msg.setDefaultButton(QMessageBox.No)
@@ -43,7 +45,7 @@ class myMainWindow(QMainWindow):
         event.ignore()
         if msg.exec_() == QMessageBox.Yes:
             try:
-                event.acceptToken()
+                event.accept_token()
             except:
                 pass
             exit()
@@ -149,20 +151,22 @@ def change_language(language):
 
 def init_ui():
     global window, ui
-    window = myMainWindow()
+    window = MainWindowWrapper()
     ui = Ui_MainWindow()
     translator.add(ui, window)
     ui.setupUi(window)
-    ui.tabWidget.tabBar().tabButton(0, QTabBar.RightSide).resize(0, 0) # hide close button for home
+    ui.tabWidget.tabBar().tabButton(0, QTabBar.RightSide).resize(0, 0)  # hide close button for home
     init_action_handlers()
     refresh()
 
-    rightCorner = QMenuBar()
+    right_corner = QMenuBar()
     ui.menubar.removeAction(ui.menuLanguage.menuAction())
-    rightCorner.addAction(ui.menuLanguage.menuAction())
-    ui.menubar.setCornerWidget(rightCorner)
+    right_corner.addAction(ui.menuLanguage.menuAction())
+    ui.menubar.setCornerWidget(right_corner)
 
-    gen = lambda a: (lambda: change_language(a))
+    def gen(act):
+        return lambda: change_language(act)
+
     for action in ui.menuLanguage.actions():
         action.triggered.connect(gen(action.statusTip()))
 

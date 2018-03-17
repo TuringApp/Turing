@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5.QtCore import *
-import os
 import importlib
-import maths.lib
 import types
+
+from PyQt5.QtCore import *
+
+import maths.lib
 
 uis = []
 current = None
@@ -26,7 +27,7 @@ def update():
     # reload the docs
     importlib.reload(maths.lib.docs)
     for name, item in maths.lib.__dict__.items():
-        if type(item) == types.ModuleType and not name.startswith("__") and name != "docs":
+        if isinstance(item, types.ModuleType) and not name.startswith("__") and name != "docs":
             importlib.reload(item)
 
 

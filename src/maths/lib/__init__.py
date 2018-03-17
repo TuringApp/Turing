@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import types
-
-import maths.lib.docs
-
 import maths.lib.basic
 import maths.lib.cast
+import maths.lib.const
+import maths.lib.docs
 import maths.lib.geom
+import maths.lib.physics
 import maths.lib.stats
 import maths.lib.trig
-import maths.lib.const
-import maths.lib.physics
 
 
 def get_funcs():

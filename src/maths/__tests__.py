@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from tests.framework import expect
-
-from maths.parser import Parser
 from maths.evaluator import Evaluator
+from tests.framework import expect
 
 tests = [
     # basic parsing
@@ -104,8 +102,9 @@ tests = [
     ("gradient({x}(2x^2+3x+4),8)", 35, "gradient({x}(2 * x ^ 2 + 3 * x + 4), 8)"),
     ("{x}(2x^2+3x+4)(8+1e-5)", 156.0003500002, "{x}(2 * x ^ 2 + 3 * x + 4)(8 + 1e-5)"),
     ("round(deriv(gamma)(5),4)", 36.1468, "round(deriv(gamma)(5), 4)"),
-    ("integ({x}(4x^3-2x^2+3x-4),-7,4)", -2509.8 - 1/30, "integ({x}(4 * x ^ 3 - 2 * x ^ 2 + 3 * x - 4), -7, 4)"),
-    ("integ(sin,0,pi)", 2, "integ(sin, 0, pi)")
+    ("integ({x}(4x^3-2x^2+3x-4),-7,4)", -2509.8 - 1 / 30, "integ({x}(4 * x ^ 3 - 2 * x ^ 2 + 3 * x - 4), -7, 4)"),
+    ("integ(sin,0,pi)", 2, "integ(sin, 0, pi)"),
+    ("round(integ({x}(root(x,3)),-19,71),1)", 239.5 + 32.9j, "round(integ({x}(root(x, 3)), -19, 71), 1)")
 ]
 
 

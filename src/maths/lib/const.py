@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import math
-from .docs import *
 import util
+from .docs import *
 
 translate = util.translate
 

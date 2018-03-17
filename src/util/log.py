@@ -29,10 +29,10 @@ class Logger:
         self.print("[ WARN] %s" % msg)
         self.messages.append((Logger.WARNING, msg))
 
-    def setCallback(self, cb):
+    def set_callback(self, cb):
         """Replaces the default printing callback function."""
         self.callback = cb
 
-    def getMessages(self):
+    def get_messages(self):
         """Fetches the log messages."""
         return self.messages

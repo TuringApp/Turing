@@ -14,7 +14,7 @@ class NumberNode(AstNode):
         self.value = value
 
     def __str__(self):
-        return "[Number %s]" % (self.value)
+        return "[Number %s]" % self.value
 
     def __repr__(self):
-        return "NumberNode(%r)" % (self.value)
+        return "NumberNode(%r)" % self.value

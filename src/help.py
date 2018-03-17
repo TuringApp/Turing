@@ -3,13 +3,14 @@
 import re
 from html import escape
 
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
+
 import maths.lib
 import maths.lib.docs
-import util.html
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from ui_help import Ui_HelpWindow
 import translator
+import util.html
+from ui_help import Ui_HelpWindow
 from util.math import proper_str
 
 translate = QCoreApplication.translate
@@ -22,7 +23,7 @@ def find_function(name):
     for k in functions:
         for f in functions[k]:
             if f[0] == name:
-                return (k, f)
+                return k, f
     return None
 
 
@@ -64,7 +65,8 @@ def on_item_select(current):
                     constraint = escape(arg[2]) if arg[2] else None
 
                     if len(arg) > 3:
-                        default = translate("HelpWindow", "default = %s") % proper_str(arg[3]) if arg[3] is not None else None
+                        default = translate("HelpWindow", "default = %s") % proper_str(arg[3]) \
+                            if arg[3] is not None else None
                     else:
                         default = None
 

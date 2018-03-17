@@ -14,7 +14,7 @@ class ListNode(AstNode):
         self.value = value
 
     def __str__(self):
-        return "[List %s]" % (self.value)
+        return "[List %s]" % self.value
 
     def __repr__(self):
-        return "ListNode(%r)" % (self.value)
+        return "ListNode(%r)" % self.value

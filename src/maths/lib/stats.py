@@ -2,13 +2,12 @@
 
 import builtins
 import math
-import statistics
-from .docs import *
 import random as rnd
+import statistics
+
 import util
 from maths.lib import basic
-import functools
-import types
+from .docs import *
 
 translate = util.translate
 
@@ -107,6 +106,7 @@ doc("gamma",
 def gamma(x):
     return math.gamma(x)
 
+
 doc("log_gamma",
     [
         ("x", "Number")
@@ -188,7 +188,8 @@ doc("slice",
         ("end", "Integer", "start <= end <= len(lst)", None)
     ],
     translate("Docs",
-              "Returns a slice of the specified list, from index {{start}} (inclusive) to either index {{end}} (exclusive) or the end of the list."),
+              "Returns a slice of the specified list, from index {{start}} (inclusive) to either index "
+              "{{end}} (exclusive) or the end of the list."),
     ["tranche"])
 
 
@@ -289,17 +290,21 @@ doc("euler",
 
 
 def euler(n):
-    if int(n) % 2 != 0: return 0
+    # odd indices are zero
+    if int(n) % 2 != 0:
+        return 0
+
     n = int(n / 2)
     return basic.pow(-1, n) \
            * complex(0, 1) \
            * sum(sum(binomial(k, j)
                      * ((basic.pow(-1, j) * basic.pow(k - 2 * j, 2 * n + 1)) / (
-                basic.pow(2, k) * basic.pow(complex(0, 1), k) * k))
+            basic.pow(2, k) * basic.pow(complex(0, 1), k) * k))
                      for j in range(0, k + 1)
                      )
                  for k in range(1, 2 * n + 2)
                  )
+
 
 doc("beta",
     [

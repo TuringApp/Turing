@@ -14,7 +14,7 @@ class StringNode(AstNode):
         self.value = value
 
     def __str__(self):
-        return "[String '%s']" % (self.value)
+        return "[String '%s']" % self.value
 
     def __repr__(self):
-        return "StringNode(%r)" % (self.value)
+        return "StringNode(%r)" % self.value

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import maths.lib
-import itertools
-import re
 import os
+import re
+
+import maths.lib
 from util.math import is_int, proper_str
 
 

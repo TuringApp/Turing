@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5.QtWidgets import *
+import re
+
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from ui_calculator import Ui_CalcWindow
-from maths.parser import Parser
-from maths.evaluator import Evaluator
-from util.math import proper_str
+from PyQt5.QtWidgets import *
+
 import maths.lib.docs
-import re
 import translator
-import importlib
-import types
+from maths.evaluator import Evaluator
+from ui_calculator import Ui_CalcWindow
+from util.math import proper_str
 
 translate = QCoreApplication.translate
 
@@ -23,7 +22,7 @@ def find_func(name):
     for k in functions:
         for f in functions[k]:
             if f[0] == name:
-                return (k, f)
+                return k, f
 
     return None
 
@@ -60,7 +59,7 @@ def calculate():
     expression = ui.txtExpr.text()
 
     result = ev.evaluate(expression)
-    msgs = ev.log.getMessages()
+    msgs = ev.log.get_messages()
 
     if msgs:
         err = "\n".join([x[1] for x in msgs])
