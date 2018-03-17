@@ -230,3 +230,37 @@ doc("rect",
 
 def rect(r, phi):
     return r * exp(phi * 1j)
+
+
+doc("re",
+    [
+        ("x", "Number")
+    ],
+    translate("Docs", "Returns the real part of {{x}}."))
+
+
+def re(x):
+    return complex(x).real
+
+
+doc("im",
+    [
+        ("x", "Number")
+    ],
+    translate("Docs", "Returns the imaginary part of {{x}}."))
+
+
+def im(x):
+    return complex(x).imag
+
+
+doc("conj",
+    [
+        ("x", "Number")
+    ],
+    translate("Docs", "Returns the complex conjugate of {{x}}."))
+
+
+def conj(x):
+    return complex(x).conjugate()
+
