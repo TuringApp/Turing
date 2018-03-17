@@ -2,6 +2,7 @@
 
 from maths.evaluator import Evaluator
 from tests.framework import expect
+from maths.lib import basic, trig
 
 tests = [
     # basic parsing
@@ -34,6 +35,7 @@ tests = [
     ("sin(pi)", 0, "sin(pi)"),
     ("deg(2pi)", 360, "deg(2 * pi)"),
     ("round(asin(acos(atan(tan(cos(sin(0.5)))))),5)", 0.5, "round(asin(acos(atan(tan(cos(sin(0.5)))))), 5)"),
+    ("sign(-5)", -1, "sign(-5)"),
 
     ("binomial(3,2)", 3, "binomial(3, 2)"),
     ("binomial(3 , 0)", 1, "binomial(3, 0)"),
@@ -87,6 +89,7 @@ tests = [
     ("arg(2+3i) == atan(3/2)", True, "arg(2 + 3i) == atan(3 / 2)"),
     ("asin(2) == pi/2 + i*ln(2+sqrt(3))", True, "asin(2) == pi / 2 + i * ln(2 + sqrt(3))"),
     ("rect(sqrt(2),rad(45)) == 1+i", True, "rect(sqrt(2), rad(45)) == 1 + i"),
+    ("polar(1+i)", [basic.sqrt(2), trig.c_pi / 4], "polar(1 + i)"),
 
     ("gcd(*-[4584, 248])", 8, "gcd(*-[4584, 248])"),
 
@@ -104,7 +107,8 @@ tests = [
     ("round(deriv(gamma)(5),4)", 36.1468, "round(deriv(gamma)(5), 4)"),
     ("integ({x}(4x^3-2x^2+3x-4),-7,4)", -2509.8 - 1 / 30, "integ({x}(4 * x ^ 3 - 2 * x ^ 2 + 3 * x - 4), -7, 4)"),
     ("integ(sin,0,pi)", 2, "integ(sin, 0, pi)"),
-    ("round(integ({x}(root(x,3)),-19,71),1)", 239.5 + 32.9j, "round(integ({x}(root(x, 3)), -19, 71), 1)")
+    ("round(integ({x}(root(x,3)),-19,71),1)", 239.5 + 32.9j, "round(integ({x}(root(x, 3)), -19, 71), 1)"),
+    ("fib(400)", 176023680645013966468226945392411250770384383304492191886725992896575345044216019675, "fib(400)")
 ]
 
 
