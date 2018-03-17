@@ -9,7 +9,7 @@ import maths.lib
 
 uis = []
 current = None
-
+tr_object = None
 
 def add(ui, window):
     uis.append((ui, window))
@@ -31,17 +31,17 @@ def update():
             importlib.reload(item)
 
 
-def translate(context, string):
-    if current != "en_US":
-        tr_object = QTranslator()
-        tr_object.load(current, "lang")
-        QCoreApplication.installTranslator(tr_object)
-
-    return QCoreApplication.translate2(context, string)
-
-
 def load(lang):
-    global current
+    global current, tr_object
     current = lang
+
+    if tr_object:
+        QCoreApplication.removeTranslator(tr_object)
+
+    tr_object = QTranslator()
+    tr_object.load(current, "lang")
+
+    QCoreApplication.installTranslator(tr_object)
+
     QLocale.setDefault(QLocale(lang))
     update()

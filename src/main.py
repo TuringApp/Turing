@@ -12,7 +12,7 @@ import util
 from ui_about import Ui_AboutWindow
 from ui_mainwindow import Ui_MainWindow
 
-translate = translator.translate
+translate = QCoreApplication.translate
 
 __version__ = "β-0.2"
 __channel__ = "beta"
@@ -175,11 +175,7 @@ def init_ui():
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-
-    # ugly hack otherwise it doesn't work
-    QCoreApplication.translate2 = QCoreApplication.translate
-    QCoreApplication.translate = util.translate = translator.translate
-
+    util.translate = translate
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
 
     if os.name == "nt":
@@ -195,5 +191,10 @@ if __name__ == "__main__":
     init_ui()
     change_language("en_US")
 
-    exitCode = app.exec_()
+    exitCode = -1
+    try:
+        exitCode = app.exec_()
+    except:
+        print("Error: " + str(sys.exc_info()[1]))
+
     sys.exit(exitCode)
