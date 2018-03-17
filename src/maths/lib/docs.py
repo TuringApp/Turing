@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import inspect
+from util.math import proper_str
 
 funcs = {}
 consts = {}
@@ -29,7 +30,7 @@ def get_func_def(f):
     args = []
     for a in f[1]:
         if len(a) >= 4:
-            args.append("%s=%s" % (a[0], a[3]))
+            args.append("%s=%s" % (a[0], proper_str(a[3])))
         else:
             args.append(a[0])
     return "%s(%s)" % (f[0], ", ".join(args))

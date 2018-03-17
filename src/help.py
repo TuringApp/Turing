@@ -10,6 +10,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from ui_help import Ui_HelpWindow
 import translator
+from util.math import proper_str
 
 translate = QCoreApplication.translate
 
@@ -31,7 +32,7 @@ def func_signature_html(f):
     for a in f[1]:
         cur = "<i><b>%s</b></i>" % a[0]
         if len(a) >= 4:
-            cur += "=%s" % a[3]
+            cur += "=%s" % proper_str(a[3])
         hargs.append(cur)
 
     return "<b>%s</b>(%s)" % (f[0], ", ".join(hargs))
@@ -60,10 +61,10 @@ def on_item_select(current):
                 html += "<i><b>%s</b></i> (%s)" % arg[:2]
 
                 if len(arg) > 2:
-                    constraint = escape(arg[2])
+                    constraint = escape(arg[2]) if arg[2] else None
 
                     if len(arg) > 3:
-                        default = translate("HelpWindow", "default = %s") % arg[3] if arg[3] is not None else None
+                        default = translate("HelpWindow", "default = %s") % proper_str(arg[3]) if arg[3] is not None else None
                     else:
                         default = None
 
