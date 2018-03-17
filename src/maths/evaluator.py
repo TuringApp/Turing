@@ -269,7 +269,7 @@ class Evaluator:
             result = left / right
         elif node.operator == "%":
             result = math.fmod(left, right)
-        elif node.operator == "^":
+        elif node.operator in ["^", "**"]:
             result = left ** right
 
         # comparison

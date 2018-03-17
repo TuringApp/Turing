@@ -62,7 +62,7 @@ class TokenType:
 
 class Operators:
     """Available operators"""
-    math = ["+", "-", "*", "/", "%", "^", "&", "|", "ET", "AND", "OU", "OR", "XOR"]  # Mathematical (numeric) operators
+    math = ["+", "-", "*", "/", "%", "^", "**", "&", "|", "ET", "AND", "OU", "OR", "XOR"]  # Mathematical (numeric) operators
     eq = ["==", "!="]  # Basic comparison operators
     rel = ["<=", "<", ">", ">="]  # Relational operators
     comp = eq + rel  # Comparison operators
@@ -165,7 +165,7 @@ class Parser:
     def tokenize(self):
         """Converts the expression string into a linear list of tokens."""
         regex = re.compile(
-            r"(\+|-|\*|/|%|\^|"
+            r"(\+|-|/|%|\^|\*\*|\*|"
             r"==|!=|<=|<|>|>=|"
             r"\(|\)|\[|\]|{|\}|"
             r"\bET\b|\bAND\b|\bOU\b|\bOR\b|\bXOR\b|\bNON\b|\bNOT\b|"
@@ -322,7 +322,7 @@ class Parser:
         expr = self.parse_unary()
 
         while self.match_token(TokenType.OPERATOR):
-            op = self.match_operator(["^"])
+            op = self.match_operator(["^", "**"])
             if op:
                 expr = nodes.BinOpNode(expr, self.parse_unary(), op)
                 continue
