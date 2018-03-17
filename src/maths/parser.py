@@ -396,7 +396,7 @@ class Parser:
     def parseTerm(self):
         """Parses an atomic term."""
         if self.matchToken(TokenType.NUMBER):
-            return nodes.NumberNode(float(self.nextToken()[1]))
+            return nodes.NumberNode(self.nextToken()[1])
         elif self.matchToken(TokenType.BOOLEAN):
             return nodes.NumberNode(bool(self.nextToken()[1]))
         elif self.matchToken(TokenType.STRING):
