@@ -6,6 +6,9 @@ import statistics
 from .docs import *
 import random as rnd
 import util
+from maths.lib import basic
+import functools
+import types
 
 translate = util.translate
 
@@ -19,16 +22,13 @@ c_glaisher = 1.28242712910062263687534256886979172776768892732500
 
 doc("arithm_mean",
     [
-        ("args", "List(Number) / Number*")
+        ("args", "List(Number)")
     ],
     translate("Docs", "Returns the arithmetic mean of {{args}}."),
     ["moyenne", "average"])
 
 
-def arithm_mean(*args):
-    if type(args[0]) == list:
-        args = args[0]
-
+def arithm_mean(args):
     return statistics.mean(args)
 
 
@@ -37,15 +37,13 @@ moyenne = arithm_mean
 
 doc("harmonic_mean",
     [
-        ("args", "List(Number) / Number*")
+        ("args", "List(Number)")
     ],
     translate("Docs", "Returns the harmonic mean of {{args}}."),
     ["moyenne_harmo"])
 
 
 def harmonic_mean(*args):
-    if type(args[0]) == list:
-        args = args[0]
     if "harmonic_mean" not in dir(statistics):
         return len(args) / sum([1 / x for x in args])
     return statistics.harmonic_mean(args)
@@ -55,15 +53,12 @@ moyenne_harmo = harmonic_mean
 
 doc("sum",
     [
-        ("args", "List(Number) / Number*")
+        ("args", "List(Number)")
     ],
     translate("Docs", "Returns the sum of all the terms of {{args}}."))
 
 
-def sum(*args):
-    if type(args[0]) == list:
-        args = args[0]
-
+def sum(args):
     return builtins.sum(args)
 
 
@@ -82,29 +77,23 @@ def binomial(n, k):
 
 doc("max",
     [
-        ("args", "List(Number) / Number*")
+        ("args", "List(Number)")
     ],
     translate("Docs", "Returns the maximum value of {{args}}."))
 
 
 def max(*args):
-    if type(args[0]) == list:
-        args = args[0]
-
     return builtins.max(args)
 
 
 doc("min",
     [
-        ("args", "List(Number) / Number*")
+        ("args", "List(Number)")
     ],
     translate("Docs", "Returns the minimum value of {{args}}."))
 
 
-def min(*args):
-    if type(args[0]) == list:
-        args = args[0]
-
+def min(args):
     return builtins.min(args)
 
 
@@ -118,6 +107,16 @@ doc("gamma",
 def gamma(x):
     return math.gamma(x)
 
+doc("log_gamma",
+    [
+        ("x", "Number")
+    ],
+    translate("Docs", "Returns the natural logarithm of the absolute value of the Gamma function at {{x}}."))
+
+
+def log_gamma(x):
+    return math.lgamma(x)
+
 
 doc("fact",
     [
@@ -127,7 +126,7 @@ doc("fact",
 
 
 def fact(x):
-    return math.fact(x)
+    return math.factorial(x)
 
 
 doc("erf",
@@ -267,3 +266,48 @@ def random():
 
 
 alea = random
+
+doc("fib",
+    [
+        ("n", "Integer")
+    ],
+    translate("Docs", "Returns the {{n}}-th Fibonacci number."))
+
+
+def fib(n):
+    a, b = 1, 1
+    for i in range(int(n) - 1):
+        a, b = b, a + b
+    return a
+
+
+doc("euler",
+    [
+        ("n", "Integer")
+    ],
+    translate("Docs", "Returns the {{n}}-th Euler number."))
+
+
+def euler(n):
+    if int(n) % 2 != 0: return 0
+    n = int(n / 2)
+    return basic.pow(-1, n) \
+           * complex(0, 1) \
+           * sum(sum(binomial(k, j)
+                     * ((basic.pow(-1, j) * basic.pow(k - 2 * j, 2 * n + 1)) / (
+                basic.pow(2, k) * basic.pow(complex(0, 1), k) * k))
+                     for j in range(0, k + 1)
+                     )
+                 for k in range(1, 2 * n + 2)
+                 )
+
+doc("beta",
+    [
+        ("a", "Number"),
+        ("b", "Number")
+    ],
+    translate("Docs", "Returns the Beta function at {{a}} and {{b}}."))
+
+
+def beta(a, b):
+    return (gamma(a) * gamma(b)) / gamma(a + b)
