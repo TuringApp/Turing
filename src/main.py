@@ -191,10 +191,10 @@ if __name__ == "__main__":
     init_ui()
     change_language("en_US")
 
-    exitCode = -1
     try:
         exitCode = app.exec_()
     except:
         print("Error: " + str(sys.exc_info()[1]))
+        exitCode = 1
 
     sys.exit(exitCode)
