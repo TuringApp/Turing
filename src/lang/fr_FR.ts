@@ -63,87 +63,87 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Docs</name>
     <message>
-        <location filename="../maths/lib/basic.py" line="13"/>
+        <location filename="../maths/lib/basic.py" line="14"/>
         <source>Rounds {{num}} to the nearest integer / (if specified) to {{prec}} decimals.</source>
         <translation>Arrondit {{num}} à l&apos;entier le plus proche / (si spécifié) à {{prec}} décimales.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="30"/>
+        <location filename="../maths/lib/basic.py" line="31"/>
         <source>Returns the absolute value of {{num}}.</source>
         <translation>Calcule la valeur absolue de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="41"/>
+        <location filename="../maths/lib/basic.py" line="42"/>
         <source>Returns the square root of {{num}}. If {{num}} &lt; 0, the result will be Complex.</source>
         <translation>Calcule la racine carrée de {{num}}. Si {{num}} &lt; 0, le résultat sera de type Complex.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="55"/>
+        <location filename="../maths/lib/basic.py" line="56"/>
         <source>Returns the {{n}}-th root of {{num}}.</source>
         <translation>Calcule la racine {{n}}-ème de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="67"/>
+        <location filename="../maths/lib/basic.py" line="68"/>
         <source>Returns {{num}} to the {{p}}-th power.</source>
         <translation>Calcule {{num}} élevé à la puissance {{p}}..</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="82"/>
+        <location filename="../maths/lib/basic.py" line="83"/>
         <source>Returns //e// to the power of {{num}}.</source>
         <translation>Calcule //e// élevé à la puissance {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="93"/>
+        <location filename="../maths/lib/basic.py" line="94"/>
         <source>Returns the natural (base-//e//) logarithm of {{num}}.</source>
         <translation>Calcule le logarithme naturel/népérien (de base //e//) de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="104"/>
+        <location filename="../maths/lib/basic.py" line="105"/>
         <source>Returns the base-{{b}} logarithm of {{num}}.</source>
         <translation>Calcule le logarithme de base {{b}} de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="116"/>
+        <location filename="../maths/lib/basic.py" line="117"/>
         <source>Returns the base-10 logarithm of {{num}}.</source>
         <translation>Calcule le logarithme de base 10 de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="127"/>
+        <location filename="../maths/lib/basic.py" line="128"/>
         <source>Returns the largest integer less than or equal to {{num}}.</source>
         <translation>Détermine le plus grand entier inférieur ou égal à {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="138"/>
+        <location filename="../maths/lib/basic.py" line="139"/>
         <source>Returns the smallest integer greater than or equal to {{num}}.</source>
         <translation>Détermine le plus petit entier supérieur ou égal à {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="149"/>
+        <location filename="../maths/lib/basic.py" line="150"/>
         <source>Returns the sign of {{num}} (-1 if negative, 1 if positive, 0 otherwise).</source>
         <translation>Détermine le signe de {{num}} (-1 si négatif, 1 si positif, 0 sinon).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="164"/>
+        <location filename="../maths/lib/basic.py" line="165"/>
         <source>Returns the greatest common divisor of {{a}} and {{b}}.</source>
         <translation>Calcule le PGCD (plus grand diviseur commun) de {{a}} et {{b}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="179"/>
+        <location filename="../maths/lib/basic.py" line="180"/>
         <source>Returns the least common multiple of {{a}} and {{b}}.</source>
         <translation>Calcule le PPCM (plus petit commun multiple) de {{a}} et {{b}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="194"/>
+        <location filename="../maths/lib/basic.py" line="195"/>
         <source>Returns the argument (or phase) of {{x}}.</source>
         <translation>Calcule l&apos;argument (ou phase) de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="208"/>
+        <location filename="../maths/lib/basic.py" line="209"/>
         <source>Returns a list containing the polar coordinates of {{x}}, respectively the modulus (radius) and argument (angle).</source>
         <translation>Renvoie une liste contenant les coordonnées polaires de {{x}}, respectivement le module (rayon) et l&apos;argument (angle).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="223"/>
+        <location filename="../maths/lib/basic.py" line="224"/>
         <source>Converts the specified polar coordinates to a complex number.</source>
         <translation>Convertit les coordonnées polaires spéficiées en nombre complexe.</translation>
     </message>
@@ -268,7 +268,7 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule le volume du cylindre de rayon {{radius}} et de hauteur {{height}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="20"/>
+        <location filename="../maths/lib/stats.py" line="23"/>
         <source>Returns the arithmetic mean of {{args}}.</source>
         <translation>Calcule la moyenne arithmétique de {{args}}.</translation>
     </message>
@@ -278,82 +278,82 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Calcule la moyenne harmonique de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="56"/>
+        <location filename="../maths/lib/stats.py" line="54"/>
         <source>Returns the sum of all the terms of {{args}}.</source>
         <translation>Calcule la somme de tous les éléments de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="70"/>
+        <location filename="../maths/lib/stats.py" line="65"/>
         <source>Returns the binomial coefficient for a subset of size {{k}} and a set of size {{n}}.</source>
         <translation>Calcule le coefficient binomial de {{k}} parmi {{n}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="83"/>
+        <location filename="../maths/lib/stats.py" line="78"/>
         <source>Returns the maximum value of {{args}}.</source>
         <translation>Détermine la valeur maximale de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="97"/>
+        <location filename="../maths/lib/stats.py" line="89"/>
         <source>Returns the minimum value of {{args}}.</source>
         <translation>Détermine la valeur minimale de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="111"/>
+        <location filename="../maths/lib/stats.py" line="100"/>
         <source>Returns the Gamma function at {{x}}.</source>
         <translation>Calcule la fonction Gamma à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="122"/>
+        <location filename="../maths/lib/stats.py" line="121"/>
         <source>Returns the factorial of {{x}}.</source>
         <translation>Calcule la factorielle de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="133"/>
+        <location filename="../maths/lib/stats.py" line="132"/>
         <source>Returns the error function at {{x}}.</source>
         <translation>Calcule la fonction d&apos;erreur à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="144"/>
+        <location filename="../maths/lib/stats.py" line="143"/>
         <source>Returns the complementary error function at {{x}}.</source>
         <translation>Calcule la fonction d&apos;erreur complémentaire à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="155"/>
+        <location filename="../maths/lib/stats.py" line="154"/>
         <source>Applies {{func}} to each element of {{lst}} and returns the resulting list.</source>
         <translation>Applique {{func}} à chaque élément de {{lst}} et renvoie la liste résultante.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="170"/>
+        <location filename="../maths/lib/stats.py" line="169"/>
         <source>Returns a list containing all elements of {{lst}} for which {{func}} returns a truthy value.</source>
         <translation>Renvoie une liste contenant tous les éléments de {{lst}} pour lesquels {{func}} est vraie.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="185"/>
+        <location filename="../maths/lib/stats.py" line="184"/>
         <source>Returns a slice of the specified list, from index {{start}} (inclusive) to either index {{end}} (exclusive) or the end of the list.</source>
         <translation>Renvoie une tranche de {{lst}} de l&apos;indice {{start}} (inclus), à l&apos;indice {{end}} (exclus) si spécifié ou à la fin de la liste.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="206"/>
+        <location filename="../maths/lib/stats.py" line="205"/>
         <source>Returns the population standard deviation of {{lst}}.</source>
         <translation>Calcule l&apos;écart-type de {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="220"/>
+        <location filename="../maths/lib/stats.py" line="219"/>
         <source>Returns the population variance of {{lst}}.</source>
         <translation>Calcule la variance de {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="231"/>
+        <location filename="../maths/lib/stats.py" line="230"/>
         <source>Returns the sample standard deviation of {{lst}}.</source>
         <translation>Calcule l&apos;écart-type de l&apos;échantillon {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="245"/>
+        <location filename="../maths/lib/stats.py" line="244"/>
         <source>Returns the sample variance of {{lst}}.</source>
         <translation>Calcule la variance de l&apos;échantillon {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="259"/>
+        <location filename="../maths/lib/stats.py" line="258"/>
         <source>Returns a random number between 0 (inclusive) and 1 (exclusive).</source>
         <translation>Renvoie un nombre aléatoire compris entre 0 (inclus) et 1 (exclus).</translation>
     </message>
@@ -558,7 +558,7 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule l&apos;hypoténuse / la norme euclidienne du vecteur ({{x}}, {{y}}).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="11"/>
+        <location filename="../maths/lib/basic.py" line="12"/>
         <source>Basic</source>
         <translation>Basique</translation>
     </message>
@@ -583,7 +583,7 @@ p, li { white-space: pre-wrap; }
         <translation>Physique</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="12"/>
+        <location filename="../maths/lib/stats.py" line="15"/>
         <source>Statistics</source>
         <translation>Statistiques</translation>
     </message>
@@ -597,6 +597,56 @@ p, li { white-space: pre-wrap; }
         <source>Returns the harmonic mean of {{args}}.</source>
         <translation>Calcule la moyenne harmonique de {{args}}.</translation>
     </message>
+    <message>
+        <location filename="../maths/lib/basic.py" line="236"/>
+        <source>Returns the real part of {{x}}.</source>
+        <translation>Renvoie la partie réelle de {{x}}.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/basic.py" line="247"/>
+        <source>Returns the imaginary part of {{x}}.</source>
+        <translation>Renvoie la partie imaginaire de {{x}}.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/basic.py" line="258"/>
+        <source>Returns the complex conjugate of {{x}}.</source>
+        <translation>Calcule le conjugué de {{x}}.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="270"/>
+        <source>Returns the {{n}}-th Fibonacci number.</source>
+        <translation>Calcule le {{n}}-ième terme de la suite de Fibonacci.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/basic.py" line="269"/>
+        <source>Returns the gradient of {{func}} at {{x}} (optional precision {{h}}).</source>
+        <translation>Calcule le nombre dérivé de {{func}} à {{x}} (facultatif : précision {{h}}).</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/basic.py" line="282"/>
+        <source>Returns the derivative of {{func}} (optional precision {{h}}).</source>
+        <translation>Détermine la dérivée de {{func}} (facultatif : précision {{h}}).</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/basic.py" line="297"/>
+        <source>Returns the integral of {{func}} from {{a}} to {{b}} (optional number of steps: {{steps}}).</source>
+        <translation>Calcule l&apos;intégrale de {{a}} à {{b}} de {{func}} (facultatif : nombre d&apos;étapes {{steps}}).</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="110"/>
+        <source>Returns the natural logarithm of the absolute value of the Gamma function at {{x}}.</source>
+        <translation>Calcule le logarithme naturel de la valeur absolue de la fonction Gamma à {{x}}.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="284"/>
+        <source>Returns the {{n}}-th Euler number.</source>
+        <translation>Calcule le {{n}}-ième nombre d&apos;Euler.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="304"/>
+        <source>Returns the Beta function at {{a}} and {{b}}.</source>
+        <translation>Calcule la fonction Beta à {{a}} et {{b}}.</translation>
+    </message>
 </context>
 <context>
     <name>Evaluator</name>
@@ -606,62 +656,62 @@ p, li { white-space: pre-wrap; }
         <translation>Analyseur : </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="95"/>
+        <location filename="../maths/evaluator.py" line="96"/>
         <source>Argument count mismatch (expected %d, got %d)</source>
         <translation>Nombre d&apos;arguments invalides (attendu : %d, reçu : %d)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="127"/>
+        <location filename="../maths/evaluator.py" line="128"/>
         <source>Cannot find variable or function </source>
         <translation>Impossible de trouver la variable ou fonction </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="139"/>
+        <location filename="../maths/evaluator.py" line="141"/>
         <source>Callee is None</source>
         <translation>La fonction appelée est None</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="149"/>
+        <location filename="../maths/evaluator.py" line="151"/>
         <source>Only lists can be expanded</source>
         <translation>Seules les listes peuvent être étendues</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="165"/>
+        <location filename="../maths/evaluator.py" line="167"/>
         <source>Index &apos;%s&apos; too big for array</source>
         <translation>Indice &apos;%s&apos; trop grand pour la liste</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="175"/>
+        <location filename="../maths/evaluator.py" line="178"/>
         <source>Unknown node type: %s</source>
         <translation>Type de nœud inconnu : %s</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="194"/>
+        <location filename="../maths/evaluator.py" line="197"/>
         <source>Invalid unary operator &apos;%s&apos;</source>
         <translation>Opérateur unaire invalide &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="205"/>
+        <location filename="../maths/evaluator.py" line="208"/>
         <source>Trying to use None</source>
         <translation>Opération sur None impossible</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="217"/>
+        <location filename="../maths/evaluator.py" line="220"/>
         <source>Type mismatch: operands have different types (%s and %s)</source>
         <translation>Types incompatibles : les opérandes ont des types différents (%s et %s)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="238"/>
+        <location filename="../maths/evaluator.py" line="241"/>
         <source>Invalid value type for %s and operator &apos;%s&apos;</source>
         <translation>Type de valeur invalide pour %s et l&apos;opérateur &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="238"/>
+        <location filename="../maths/evaluator.py" line="241"/>
         <source> and </source>
         <translation> et </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="243"/>
+        <location filename="../maths/evaluator.py" line="246"/>
         <source>Operator &apos;%s&apos; not allowed for value type %s</source>
         <translation>Opérateur &apos;%s&apos; non autorisé pour le type de valeur %s</translation>
     </message>
@@ -671,27 +721,27 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Tentative de multiplication d&apos;une List par un non-entier (%f)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="267"/>
+        <location filename="../maths/evaluator.py" line="270"/>
         <source>Trying to divide by zero</source>
         <translation>Tentative de division par zéro</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="309"/>
+        <location filename="../maths/evaluator.py" line="312"/>
         <source>Invalid binary operator &apos;%s&apos; for &apos;%s&apos; and &apos;%s&apos;</source>
         <translation>Opérateur binaire &apos;%s&apos; invalide opur &apos;%s&apos; et &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="233"/>
+        <location filename="../maths/evaluator.py" line="236"/>
         <source>left</source>
         <translation>gauche</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="236"/>
+        <location filename="../maths/evaluator.py" line="239"/>
         <source>right</source>
         <translation>droite</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="259"/>
+        <location filename="../maths/evaluator.py" line="262"/>
         <source>Trying to multiply List by non-integer (%s)</source>
         <translation>Tentative de multiplication d&apos;une List par un non-entier (%s)</translation>
     </message>
@@ -704,27 +754,27 @@ p, li { white-space: pre-wrap; }
         <translation>Pages d&apos;aide</translation>
     </message>
     <message>
-        <location filename="../help.py" line="52"/>
+        <location filename="../help.py" line="53"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Arguments :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../help.py" line="56"/>
+        <location filename="../help.py" line="57"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
         <translation>&lt;li&gt;Aucun&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../help.py" line="66"/>
+        <location filename="../help.py" line="67"/>
         <source>default = %s</source>
         <translation>par défaut = %s</translation>
     </message>
     <message>
-        <location filename="../help.py" line="80"/>
+        <location filename="../help.py" line="81"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Alias :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../help.py" line="92"/>
+        <location filename="../help.py" line="93"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Fonctions :&lt;/h2&gt;</translation>
     </message>
@@ -1091,12 +1141,12 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Jeton attendu (%s) &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="413"/>
+        <location filename="../maths/parser.py" line="429"/>
         <source>Unexpected EOL</source>
         <translation>Fin de ligne inattendue</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="415"/>
+        <location filename="../maths/parser.py" line="431"/>
         <source>Unexpected token (%s) &apos;%s&apos;</source>
         <translation>Jeton (%s) &apos;%s&apos; inattendu</translation>
     </message>
@@ -1117,12 +1167,12 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
 <context>
     <name>Utilities</name>
     <message>
-        <location filename="../util/math.py" line="149"/>
+        <location filename="../util/math.py" line="152"/>
         <source>TRUE</source>
         <translation>VRAI</translation>
     </message>
     <message>
-        <location filename="../util/math.py" line="149"/>
+        <location filename="../util/math.py" line="152"/>
         <source>FALSE</source>
         <translation>FAUX</translation>
     </message>
