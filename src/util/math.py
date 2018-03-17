@@ -6,7 +6,7 @@ import util
 translate = util.translate
 
 
-def is_close(a, b, rel_tol=1e-5, abs_tol=1e-8):
+def is_close(a, b, rel_tol=1e-8, abs_tol=1e-8):
     """Checks if the specified numbers are close enough to be considered equal.
 
     Due to the usage of IEEE754 floating points number in Python, formulae like 0.1+0.2
@@ -145,6 +145,9 @@ def close_round(a, prec=None):
 
 def proper_str(a):
     """Converts the specified float to string, removing comma if the number is integral."""
+    if not is_num(a):
+        return str(a)
+
     if is_bool(a):
         return translate("Utilities", "TRUE") if a else translate("Utilities", "FALSE")
 
@@ -158,14 +161,15 @@ def proper_str(a):
             imag = None
         return " + ".join(x for x in [real, imag] if x)
 
-    if abs(a) > 1e15:
+    if abs(a) > 1e15 and int(float(a)) == a:
         a = float(a)
     elif is_int(a):
         return str(round(a))
 
     if "e" in str(a):
         sig, exp = str(a).split("e")
-        if int(exp) > 15:
+
+        if int(exp) > 15 or int(exp) < -4:
             return str(sig) + "e" + str(int(exp))
 
     return str(a)
