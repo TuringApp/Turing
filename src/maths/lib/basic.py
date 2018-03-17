@@ -283,7 +283,10 @@ doc("gradient",
 
 
 def gradient(func, x, h=1e-7):
-    return (func(x + h) - func(x - h)) / (2 * h)
+    result = (func(x + h) - func(x - h)) / (2 * h)
+    if h < 1:
+        result = round(result, -int(round(log10(h).real)))
+    return result
 
 
 doc("derivative",
