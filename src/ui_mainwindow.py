@@ -41,6 +41,11 @@ class Ui_MainWindow(object):
         self.treeWidget.header().setVisible(False)
         self.horizontalLayout.addWidget(self.treeWidget)
         self.tabWidget.addTab(self.tab_pseudocode, "")
+        self.tab_code = QtWidgets.QWidget()
+        self.tab_code.setObjectName("tab_code")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.tab_code)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.tabWidget.addTab(self.tab_code, "")
         self.verticalLayout_2.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -353,7 +358,7 @@ class Ui_MainWindow(object):
         self.toolBar.addAction(self.actionSettings)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(2)
         self.tabWidget_2.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -362,6 +367,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Turing"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_home), _translate("MainWindow", "Home"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_pseudocode), _translate("MainWindow", "Pseudocode"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_code), _translate("MainWindow", "Code"))
         self.menuFile.setTitle(_translate("MainWindow", "&File"))
         self.menuRecent.setTitle(_translate("MainWindow", "Recent files"))
         self.menuEdit.setTitle(_translate("MainWindow", "&Edit"))

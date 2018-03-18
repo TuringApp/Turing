@@ -12,6 +12,13 @@ import util
 from ui_about import Ui_AboutWindow
 from ui_mainwindow import Ui_MainWindow
 
+from pyqode.core import api
+from pyqode.core import modes
+from pyqode.core import panels
+from pyqode.core import backend
+import pyqode.python.backend
+import editor_backend
+
 translate = QCoreApplication.translate
 
 __version__ = "β-0.2"
@@ -149,12 +156,40 @@ def change_language(language):
         a.setChecked(a.statusTip() == language)
 
 
+def load_code_editor():
+    global code_editor
+    code_editor = api.CodeEdit()
+    code_editor.backend.start(editor_backend.__file__)
+
+    code_editor.modes.append(modes.CodeCompletionMode())
+    code_editor.modes.append(modes.CaretLineHighlighterMode())
+    code_editor.modes.append(modes.AutoCompleteMode())
+    code_editor.modes.append(modes.IndenterMode())
+    code_editor.modes.append(modes.AutoIndentMode())
+    code_editor.modes.append(modes.OccurrencesHighlighterMode())
+    code_editor.modes.append(modes.SmartBackSpaceMode())
+    code_editor.modes.append(modes.SymbolMatcherMode())
+    code_editor.modes.append(modes.ZoomMode())
+    code_editor.modes.append(modes.ExtendedSelectionMode())
+
+    sh = code_editor.modes.append(modes.PygmentsSyntaxHighlighter(code_editor.document()))
+    sh.fold_detector = api.IndentFoldDetector()
+
+    code_editor.panels.append(panels.FoldingPanel())
+    code_editor.panels.append(panels.LineNumberPanel())
+    code_editor.panels.append(panels.EncodingPanel())
+    code_editor.modes.append(modes.CheckerMode(pyqode.python.backend.run_pep8))
+    code_editor.panels.append(panels.GlobalCheckerPanel(), panels.GlobalCheckerPanel.Position.LEFT)
+
+    ui.verticalLayout_8.addWidget(code_editor)
+
 def init_ui():
     global window, ui
     window = MainWindowWrapper()
     ui = Ui_MainWindow()
     translator.add(ui, window)
     ui.setupUi(window)
+    load_code_editor()
     ui.tabWidget.tabBar().tabButton(0, QTabBar.RightSide).resize(0, 0)  # hide close button for home
     init_action_handlers()
     refresh()
