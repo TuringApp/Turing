@@ -163,7 +163,11 @@ def proper_str(a):
         if a.imag == 1:
             imag = "i"
         elif a.imag != 0:
-            imag = proper_str(a.imag) + "i"
+            s = proper_str(a.imag)
+            if s != "0":
+                imag = proper_str(a.imag) + "i"
+            else:
+                imag = None
         else:
             imag = None
         if real == imag == None:
