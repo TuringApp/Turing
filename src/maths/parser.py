@@ -70,6 +70,28 @@ class Operators:
     boolean = ["ET", "AND", "OU", "OR", "NON", "NOT", "==", "!=", "&", "|", "XOR"]  # Boolean operators
     ops = list(set(math + comp + boolean))  # All operators
 
+    precedence = [
+        ["OR", "OU", "|"],
+        ["XOR"],
+        ["AND", "ET", "&"],
+        comp,
+        ["+", "-"],
+        ["*", "/", "%"],
+        ["^", "**"]
+    ]
+
+    @staticmethod
+    def get_precedence(op):
+        return next(i for i, ops in enumerate(Operators.precedence) if op.upper() in ops)
+
+    @staticmethod
+    def pretty_print(op):
+        return {
+            "|": translate("Parser", "OR"),
+            "&": translate("Parser", "AND"),
+            "NOT": translate("Parser", "NOT")
+        }.get(op.upper(), op)
+
 
 class Parser:
     """Main parser class. Transforms a string into an AST tree."""

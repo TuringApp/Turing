@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from util.math import proper_str
 from .AstNode import *
 
 
@@ -10,7 +11,7 @@ class NumberNode(AstNode):
     value = None
 
     def __init__(self, value):
-        super().__init__()
+        super().__init__(type(value) != complex or proper_str(value)[-1] != "i")
         self.value = value
 
     def __str__(self):
@@ -18,3 +19,6 @@ class NumberNode(AstNode):
 
     def __repr__(self):
         return "NumberNode(%r)" % self.value
+
+    def code(self):
+        return proper_str(self.value)

@@ -10,7 +10,7 @@ class StringNode(AstNode):
     value = None
 
     def __init__(self, value):
-        super().__init__()
+        super().__init__(True)
         self.value = value
 
     def __str__(self):
@@ -18,3 +18,6 @@ class StringNode(AstNode):
 
     def __repr__(self):
         return "StringNode(%r)" % self.value
+
+    def code(self):
+        return '"%s"' % repr(self.value)[1:-1]
