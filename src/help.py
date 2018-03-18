@@ -130,7 +130,7 @@ def search_changed(txt):
         hid = 0
 
         for i in items:
-            if txt.upper() in i.text(0).upper():
+            if txt.upper() in i.statusTip(0).upper():
                 i.setHidden(False)
             else:
                 i.setHidden(True)
