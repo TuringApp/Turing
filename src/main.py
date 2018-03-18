@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import *
 
 import translator
 import util
+import util.code
 from ui_about import Ui_AboutWindow
 from ui_mainwindow import Ui_MainWindow
 
@@ -18,16 +19,18 @@ from pyqode.core import panels
 from pyqode.core import backend
 import pyqode.python.backend
 import editor_backend
+from util.undoredo import *
+import tempfile
+import runpy
 
 translate = QCoreApplication.translate
 
 __version__ = "β-0.2"
 __channel__ = "beta"
 
-undo_objs = []
-
-current_file = -1
-
+undo = None
+mode_python = True
+code_editor = None
 
 def get_themed_box():
     msg = QMessageBox()
@@ -77,7 +80,7 @@ def refresh():
 
 
 def refresh_buttons_status():
-    active_code = False
+    active_code = True
     for c in [
         "Save",
         "SaveAs",
@@ -93,9 +96,9 @@ def refresh_buttons_status():
     ]:
         get_action(c).setEnabled(active_code)
 
-    if current_file != -1:
-        get_action("Undo").setEnabled(undo_objs[current_file].can_undo())
-        get_action("Redo").setEnabled(undo_objs[current_file].can_redo())
+    #if current_file != -1:
+    #    get_action("Undo").setEnabled(undo_objs[current_file].can_undo())
+    #    get_action("Redo").setEnabled(undo_objs[current_file].can_redo())
 
 
 def handler_Calculator():
@@ -111,6 +114,19 @@ def handler_Settings():
 def handler_HelpContents():
     import help
     help.run()
+
+def handler_Run():
+    print("groovy baby")
+    file = tempfile.NamedTemporaryFile(mode="w+b", suffix=".py", delete=False)
+    try:
+        code = util.code.python_wrapper(code_editor.toPlainText()).encode("utf8")
+        file.write(code)
+        file.close()
+        runpy.run_path(file.name)
+    except:
+        print("Error: " + str(sys.exc_info()[1]))
+    finally:
+        os.unlink(file.name)
 
 
 def handler_AboutTuring():
@@ -184,11 +200,13 @@ def load_code_editor():
     ui.verticalLayout_8.addWidget(code_editor)
 
 def init_ui():
-    global window, ui
+    global window, ui, fixed_font
     window = MainWindowWrapper()
     ui = Ui_MainWindow()
+
     translator.add(ui, window)
     ui.setupUi(window)
+
     load_code_editor()
     ui.tabWidget.tabBar().tabButton(0, QTabBar.RightSide).resize(0, 0)  # hide close button for home
     init_action_handlers()

@@ -131,12 +131,12 @@ class Ui_MainWindow(object):
         self.dockWidgetContents_4.setObjectName("dockWidgetContents_4")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.dockWidgetContents_4)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.textEdit = QtWidgets.QTextEdit(self.dockWidgetContents_4)
-        self.textEdit.setAcceptDrops(False)
-        self.textEdit.setReadOnly(True)
-        self.textEdit.setAcceptRichText(True)
-        self.textEdit.setObjectName("textEdit")
-        self.verticalLayout.addWidget(self.textEdit)
+        self.txtOutput = QtWidgets.QTextEdit(self.dockWidgetContents_4)
+        self.txtOutput.setAcceptDrops(False)
+        self.txtOutput.setReadOnly(True)
+        self.txtOutput.setAcceptRichText(True)
+        self.txtOutput.setObjectName("txtOutput")
+        self.verticalLayout.addWidget(self.txtOutput)
         self.dock_output.setWidget(self.dockWidgetContents_4)
         MainWindow.addDockWidget(QtCore.Qt.DockWidgetArea(8), self.dock_output)
         self.actionNew = QtWidgets.QAction(MainWindow)
@@ -388,12 +388,11 @@ class Ui_MainWindow(object):
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab), _translate("MainWindow", "Tab 1"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
         self.dock_output.setWindowTitle(_translate("MainWindow", "Output"))
-        self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.txtOutput.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Voici la carte kiwiii</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+"<pre style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Courier New\';\">Voici ta mère la pute Léo</span></pre></body></html>"))
         self.actionNew.setText(_translate("MainWindow", "New"))
         self.actionNew.setToolTip(_translate("MainWindow", "New"))
         self.actionNew.setShortcut(_translate("MainWindow", "Ctrl+N"))
