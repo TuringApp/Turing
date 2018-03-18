@@ -1,27 +1,24 @@
 # -*- coding: utf-8 -*-
 
 import os
+import runpy
 import sys
+import tempfile
 
+import pyqode.python.backend
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from pyqode.core import api
+from pyqode.core import modes
+from pyqode.core import panels
 
+import editor_backend
 import translator
 import util
 import util.code
 from ui_about import Ui_AboutWindow
 from ui_mainwindow import Ui_MainWindow
-
-from pyqode.core import api
-from pyqode.core import modes
-from pyqode.core import panels
-from pyqode.core import backend
-import pyqode.python.backend
-import editor_backend
-from util.undoredo import *
-import tempfile
-import runpy
 
 translate = QCoreApplication.translate
 
@@ -31,6 +28,7 @@ __channel__ = "beta"
 undo = None
 mode_python = True
 code_editor = None
+
 
 def get_themed_box():
     msg = QMessageBox()
@@ -96,7 +94,7 @@ def refresh_buttons_status():
     ]:
         get_action(c).setEnabled(active_code)
 
-    #if current_file != -1:
+    # if current_file != -1:
     #    get_action("Undo").setEnabled(undo_objs[current_file].can_undo())
     #    get_action("Redo").setEnabled(undo_objs[current_file].can_redo())
 
@@ -114,6 +112,7 @@ def handler_Settings():
 def handler_HelpContents():
     import help
     help.run()
+
 
 def handler_Run():
     print("groovy baby")
@@ -199,6 +198,7 @@ def load_code_editor():
 
     ui.verticalLayout_8.addWidget(code_editor)
 
+
 def init_ui():
     global window, ui, fixed_font
     window = MainWindowWrapper()
@@ -228,7 +228,7 @@ def init_ui():
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    util.translate = translate
+    util.translate_backend = translate
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
 
     if os.name == "nt":
