@@ -238,7 +238,7 @@ def python_input(prompt=""):
     ui.btnSendInput.setEnabled(True)
     ui.txtInput.setEnabled(True)
 
-    for n in range(5):
+    for n in range(3):
         ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
         sleep(50)
         ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
