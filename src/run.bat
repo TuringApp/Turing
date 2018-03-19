@@ -1,2 +1,2 @@
 @echo off
-compile-gui && python main.py
+tools\compile-gui && python main.py

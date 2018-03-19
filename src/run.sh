@@ -1,5 +1,6 @@
 #!/bin/bash
 
-./compile-gui.sh
+chmod +x compile-gui.sh
+tools/compile-gui.sh
 python3 main.py
 
