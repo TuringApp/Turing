@@ -17,7 +17,7 @@ class BinOpNode(AstNode):
     is_imag_part = False
     is_complex = False
 
-    def __init__(self, left, right, operator):
+    def __init__(self, left: AstNode, right: AstNode, operator: str):
         super().__init__()
 
         # check for imaginary part
@@ -43,13 +43,13 @@ class BinOpNode(AstNode):
     def __repr__(self):
         return "BinOpNode(%r, %r, %r)" % (self.left, self.right, self.operator)
 
-    def operand_code(self, operand):
+    def operand_code(self, operand: AstNode) -> str:
         return operand.code_fix() \
             if (type(operand) == BinOpNode and operand.is_complex and operand.operator == self.operator) \
                or (not self.is_complex and type(operand) == BinOpNode and operand.precedence < self.precedence) \
             else operand.code()
 
-    def code(self):
+    def code(self) -> str:
         # handle complex numbers
         if self.is_imag_part:
             return "%si" % self.left.code()

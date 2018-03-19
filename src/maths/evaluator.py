@@ -35,7 +35,7 @@ class Evaluator:
         self.log = Logger("Eval")
         self.strict_typing = strict
 
-    def evaluate(self, expr):
+    def evaluate(self, expr: str) -> object:
         parser = Parser(expr)
         self.node_tree = None
 
@@ -67,7 +67,7 @@ class Evaluator:
 
         return result
 
-    def eval_node(self, node):
+    def eval_node(self, node: nodes.AstNode):
         """Wrapper for evalNodeReal that handles all the IEEE754 floating point rounding fuckery"""
         value = self.eval_node_real(node)
 
@@ -90,7 +90,7 @@ class Evaluator:
 
         return value
 
-    def call_lambda(self, node, *args):
+    def call_lambda(self, node: nodes.LambdaNode, *args) -> object:
         """Lambda function call wrapper"""
         args = list(args)
 
@@ -111,7 +111,7 @@ class Evaluator:
 
         return result
 
-    def eval_node_real(self, node):
+    def eval_node_real(self, node: nodes.AstNode) -> object:
         if type(node) == nodes.ListNode:
             return [self.eval_node(x) for x in node.value]
 
@@ -180,7 +180,7 @@ class Evaluator:
         self.log.error(translate("Evaluator", "Unknown node type: %s") % type(node))
         return None
 
-    def eval_unary(self, node):
+    def eval_unary(self, node: nodes.UnaryOpNode) -> object:
         value = self.eval_node(node.value)
         value_type = ValueType.get_type(value)
 
@@ -199,7 +199,7 @@ class Evaluator:
         self.log.error(translate("Evaluator", "Invalid unary operator '%s'") % node.operator)
         return None
 
-    def eval_binary(self, node):
+    def eval_binary(self, node: nodes.BinOpNode) -> object:
         left = self.eval_node(node.left)
         left_type = ValueType.get_type(left)
 

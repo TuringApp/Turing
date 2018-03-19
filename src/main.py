@@ -341,7 +341,6 @@ def print_output():
 
 
 def load_editor_actions():
-    print("\n".join(dir(code_editor)))
     for ours, theirs in editor_action_table:
         copy_action(getattr(ui, "action" + ours), getattr(code_editor, "action_" + theirs))
 

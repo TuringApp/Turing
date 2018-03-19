@@ -11,7 +11,7 @@ class UnaryOpNode(AstNode):
     value = None
     operator = None
 
-    def __init__(self, value, operator):
+    def __init__(self, value: AstNode, operator: str):
         super().__init__(True)
         if operator.upper() == "NON":
             operator = "NOT"
@@ -24,5 +24,5 @@ class UnaryOpNode(AstNode):
     def __repr__(self):
         return "UnaryOpNode(%r, %r)" % (self.value, self.operator)
 
-    def code(self):
+    def code(self) -> str:
         return self.operator + self.value.code_fix()

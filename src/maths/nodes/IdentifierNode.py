@@ -9,7 +9,7 @@ class IdentifierNode(AstNode):
     value -- value (str)"""
     value = None
 
-    def __init__(self, value):
+    def __init__(self, value: str):
         super().__init__(True)
         self.value = value
 
@@ -22,5 +22,5 @@ class IdentifierNode(AstNode):
     def __eq__(self, other):
         return type(other) == IdentifierNode and other.value == self.value
 
-    def code(self):
+    def code(self) -> str:
         return self.value

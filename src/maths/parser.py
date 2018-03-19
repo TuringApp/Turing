@@ -2,6 +2,7 @@
 
 import re
 import types
+from typing import List, Tuple, Any
 
 import maths.nodes as nodes
 import util
@@ -16,7 +17,7 @@ class ValueType:
     STRING, NUMBER, BOOLEAN, LIST, FUNCTION = range(5)
 
     @staticmethod
-    def get_type(obj):
+    def get_type(obj) -> 'ValueType':
         if type(obj) == list:
             return ValueType.LIST
 
@@ -35,7 +36,7 @@ class ValueType:
         return None
 
     @staticmethod
-    def get_name(type):
+    def get_name(type: 'ValueType') -> str:
         for name, value in ValueType.__dict__.items():
             if value == type:
                 return name
@@ -54,7 +55,7 @@ class TokenType:
     Block = [PAREN, BRACK, BRACE]
 
     @staticmethod
-    def get_name(type):
+    def get_name(type: 'TokenType') -> str:
         for name, value in TokenType.__dict__.items():
             if value == type:
                 return name
@@ -81,27 +82,28 @@ class Operators:
     ]
 
     @staticmethod
-    def get_precedence(op):
+    def get_precedence(op: str) -> int:
         return next(i for i, ops in enumerate(Operators.precedence) if op.upper() in ops)
 
     @staticmethod
-    def pretty_print(op):
+    def pretty_print(op: str) -> str:
         return {
             "|": translate("Parser", "OR"),
             "&": translate("Parser", "AND"),
             "NOT": translate("Parser", "NOT")
         }.get(op.upper(), op)
 
+Token = Tuple[TokenType, Any]
 
 class Parser:
     """Main parser class. Transforms a string into an AST tree."""
 
-    expression = None
-    tokens = None
-    index = None
+    expression: str = None
+    tokens: List[Token] = None
+    index: int = None
     log = None
 
-    def __init__(self, expr):
+    def __init__(self, expr: str):
         """Initializes the Parser instance.
 
         expr -- the expression to be parsed"""
@@ -140,19 +142,19 @@ class Parser:
 
         self.tokens = result
 
-    def next_token(self):
+    def next_token(self) -> Token:
         """Reads the next token and advances the position."""
         self.index += 1
         return self.tokens[self.index - 1]
 
-    def peek_token(self):
+    def peek_token(self) -> Token:
         """Reads the next token without affecting position."""
         if not self.can_read():
             return None
 
         return self.tokens[self.index]
 
-    def match_token(self, token_type, value=None):
+    def match_token(self, token_type: TokenType, value=None) -> bool:
         """Checks if the next token matches the specified token type and (optional) value."""
         return self.can_read() \
                and self.peek_token()[0] == token_type \
@@ -161,7 +163,7 @@ class Parser:
                                                 if type(value) == list
                                                 else [value]))
 
-    def accept_token(self, token_type, value=None):
+    def accept_token(self, token_type: TokenType, value=None) -> bool:
         """If the next token matches, advance and return True, otherwise return False without advancing."""
         if self.match_token(token_type, value):
             self.index += 1
@@ -169,19 +171,19 @@ class Parser:
 
         return False
 
-    def accept_operator(self, operator):
+    def accept_operator(self, operator: str) -> bool:
         """Wrapper for accept(OPERATOR, operator)."""
         return self.accept_token(TokenType.OPERATOR, operator)
 
-    def expect_token(self, operator, value=None):
+    def expect_token(self, token_type: TokenType, value=None):
         """Asserts the next token is of the specified type and (optional) value. Explodes otherwise."""
-        if not self.match_token(operator, value):
-            self.log.error(translate("Parser", "Expected token (%s) '%s'") % (TokenType.get_name(operator), value))
+        if not self.match_token(token_type, value):
+            self.log.error(translate("Parser", "Expected token (%s) '%s'") % (TokenType.get_name(token_type), value))
             return None
 
         return self.next_token()
 
-    def can_read(self):
+    def can_read(self) -> bool:
         """Checks if there is still anything to read."""
         return self.index < len(self.tokens)
 
@@ -247,22 +249,22 @@ class Parser:
 
         self.fix_mul_tok()
 
-    def match_operator(self, expected):
+    def match_operator(self, expected: List[str]) -> str:
         """Checks if any of the specified operators are to be found."""
         for x in expected:
             if self.accept_operator(x):
                 return x
 
-    def parse(self):
+    def parse(self) -> nodes.AstNode:
         """Main parsing routine."""
         self.tokenize()
         return self.parse_expression()
 
-    def parse_expression(self):
+    def parse_expression(self) -> nodes.AstNode:
         """Parses an expression."""
         return self.parse_or()
 
-    def parse_or(self):
+    def parse_or(self) -> nodes.AstNode:
         """Parses an OR operation."""
         expr = self.parse_xor()
 
@@ -275,7 +277,7 @@ class Parser:
 
         return expr
 
-    def parse_xor(self):
+    def parse_xor(self) -> nodes.AstNode:
         """Parses a XOR operation."""
         expr = self.parse_and()
 
@@ -288,7 +290,7 @@ class Parser:
 
         return expr
 
-    def parse_and(self):
+    def parse_and(self) -> nodes.AstNode:
         """Parses an AND operation."""
         expr = self.parse_equality()
 
@@ -301,7 +303,7 @@ class Parser:
 
         return expr
 
-    def parse_equality(self):
+    def parse_equality(self) -> nodes.AstNode:
         """Parses a comparison/equality."""
         expr = self.parse_additive()
 
@@ -314,7 +316,7 @@ class Parser:
 
         return expr
 
-    def parse_additive(self):
+    def parse_additive(self) -> nodes.AstNode:
         """Parses an addition or subtraction."""
         expr = self.parse_multiplicative()
 
@@ -327,7 +329,7 @@ class Parser:
 
         return expr
 
-    def parse_multiplicative(self):
+    def parse_multiplicative(self) -> nodes.AstNode:
         """Parses a product, division, or modulus."""
         expr = self.parse_exponent()
 
@@ -340,7 +342,7 @@ class Parser:
 
         return expr
 
-    def parse_exponent(self):
+    def parse_exponent(self) -> nodes.AstNode:
         """Parses an exponentiation."""
         expr = self.parse_unary()
 
@@ -353,7 +355,7 @@ class Parser:
 
         return expr
 
-    def parse_unary(self):
+    def parse_unary(self) -> nodes.AstNode:
         """Parses an unary operation."""
         op = self.match_operator(["+", "-", "NON", "NOT", "*"])
         if op:
@@ -361,11 +363,11 @@ class Parser:
 
         return self.parse_call_pre()
 
-    def parse_call_pre(self):
+    def parse_call_pre(self) -> nodes.AstNode:
         """Parses a function call (1)."""
         return self.parse_call(self.parse_term())
 
-    def parse_arg_list(self, array=False):
+    def parse_arg_list(self, array=False) -> List[nodes.AstNode]:
         """Parses an argument list."""
         result = []
 
@@ -390,7 +392,7 @@ class Parser:
 
         return result
 
-    def parse_param_list(self):
+    def parse_param_list(self) -> List[str]:
         """Parses a lambda function parameter list."""
         result = []
 
@@ -406,7 +408,7 @@ class Parser:
 
         return result
 
-    def parse_indexer(self):
+    def parse_indexer(self) -> nodes.AstNode:
         """Parses an indexer expression."""
         self.expect_token(TokenType.BRACK, "[")
 
@@ -416,7 +418,7 @@ class Parser:
 
         return expr
 
-    def parse_call(self, left):
+    def parse_call(self, left: nodes.AstNode) -> nodes.AstNode:
         """Parses a function call (2)."""
         if self.match_token(TokenType.PAREN, "("):
             return self.parse_call(nodes.CallNode(left, self.parse_arg_list()))
@@ -425,7 +427,7 @@ class Parser:
         else:
             return left
 
-    def parse_term(self):
+    def parse_term(self) -> nodes.AstNode:
         """Parses an atomic term."""
         if self.match_token(TokenType.NUMBER):
             return nodes.NumberNode(self.next_token()[1])
