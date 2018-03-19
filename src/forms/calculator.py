@@ -11,7 +11,7 @@ from lang import translator
 from maths.evaluator import Evaluator
 from forms.ui_calculator import Ui_CalcWindow
 from util.math import proper_str
-from widgets import *
+from util.widgets import *
 
 translate = QCoreApplication.translate
 

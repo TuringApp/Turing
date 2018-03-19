@@ -14,8 +14,8 @@
    <string>Help Contents</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>media/icon_16.png</normaloff>media/icon_16.png</iconset>
+   <iconset resource="../turing.qrc">
+    <normaloff>:/action/media/help.png</normaloff>:/action/media/help.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -40,8 +40,8 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>media/clear.png</normaloff>media/clear.png</iconset>
+            <iconset resource="../turing.qrc">
+             <normaloff>:/action/media/clear.png</normaloff>:/action/media/clear.png</iconset>
            </property>
           </widget>
          </item>
@@ -82,7 +82,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../turing.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

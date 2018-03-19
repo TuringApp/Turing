@@ -19,3 +19,5 @@ do
 done
 
 cd ..
+
+pyrcc5 turing.qrc -o turing_rc.py

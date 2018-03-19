@@ -14,8 +14,8 @@
    <string>About Turing</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>media/icon_32.png</normaloff>media/icon_32.png</iconset>
+   <iconset resource="../turing.qrc">
+    <normaloff>:/icon/media/icon.ico</normaloff>:/icon/media/icon.ico</iconset>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -26,7 +26,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string notr="true">&lt;img src=&quot;media/icon_96.png&quot;/&gt;</string>
+        <string notr="true">&lt;img src=&quot;:/icon/media/icon_96.png&quot;/&gt;</string>
        </property>
        <property name="textFormat">
         <enum>Qt::RichText</enum>
@@ -110,7 +110,9 @@ p, li { white-space: pre-wrap; }
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../turing.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

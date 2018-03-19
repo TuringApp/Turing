@@ -14,8 +14,8 @@
    <string>Calculator</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>media/calculator.png</normaloff>media/calculator.png</iconset>
+   <iconset resource="../turing.qrc">
+    <normaloff>:/action/media/calculator.png</normaloff>:/action/media/calculator.png</iconset>
   </property>
   <property name="iconSize">
    <size>
@@ -39,8 +39,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>media/clear.png</normaloff>media/clear.png</iconset>
+         <iconset resource="../turing.qrc">
+          <normaloff>:/action/media/clear.png</normaloff>:/action/media/clear.png</iconset>
         </property>
        </widget>
       </item>
@@ -50,8 +50,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>media/calculator.png</normaloff>media/calculator.png</iconset>
+         <iconset resource="../turing.qrc">
+          <normaloff>:/action/media/calculator.png</normaloff>:/action/media/calculator.png</iconset>
         </property>
        </widget>
       </item>

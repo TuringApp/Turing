@@ -13,7 +13,7 @@ class Ui_AboutWindow(object):
         AboutWindow.setObjectName("AboutWindow")
         AboutWindow.resize(671, 402)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("media/icon_32.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icon/media/icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AboutWindow.setWindowIcon(icon)
         AboutWindow.setModal(True)
         self.verticalLayout = QtWidgets.QVBoxLayout(AboutWindow)
@@ -21,7 +21,7 @@ class Ui_AboutWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.label = QtWidgets.QLabel(AboutWindow)
-        self.label.setText("<img src=\"media/icon_96.png\"/>")
+        self.label.setText("<img src=\":/icon/media/icon_96.png\"/>")
         self.label.setTextFormat(QtCore.Qt.RichText)
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
@@ -87,3 +87,4 @@ class Ui_AboutWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("AboutWindow", "Program"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("AboutWindow", "License"))
 
+import turing_rc

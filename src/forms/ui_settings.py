@@ -12,6 +12,9 @@ class Ui_SettingsWindow(object):
     def setupUi(self, SettingsWindow):
         SettingsWindow.setObjectName("SettingsWindow")
         SettingsWindow.resize(425, 428)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/action/media/settings.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        SettingsWindow.setWindowIcon(icon)
         SettingsWindow.setProperty("SettingsWindow", "")
         self.verticalLayout = QtWidgets.QVBoxLayout(SettingsWindow)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -52,3 +55,4 @@ class Ui_SettingsWindow(object):
         self.label.setText(_translate("SettingsWindow", "Language :"))
         self.label_2.setText(_translate("SettingsWindow", "Theme :"))
 
+import turing_rc

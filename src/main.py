@@ -19,10 +19,11 @@ from lang import translator
 import util
 import util.code
 import util.html
-from forms.ui_about import Ui_AboutWindow
 from forms.ui_mainwindow import Ui_MainWindow
 
 import datetime
+
+from util.widgets import center_widget
 
 translate = QCoreApplication.translate
 
@@ -66,7 +67,7 @@ def get_themed_box():
     msg = QMessageBox()
     msg.setWindowTitle("Turing")
     msg.setStyle(DEFAULT_STYLE)
-    msg.setWindowIcon(QIcon("media/icon_16.png"))
+    msg.setWindowIcon(QIcon(":/icon/media/icon.ico"))
     center_widget(msg, window)
     return msg
 
@@ -96,16 +97,6 @@ class MainWindowWrapper(QMainWindow):
             except:
                 pass
             exit()
-
-
-def center_widget(wgt: QWidget, host: QWidget):
-    if not host:
-        host = wgt.parent()
-
-    if host:
-        wgt.move(host.geometry().center() - wgt.rect().center())
-    else:
-        wgt.move(app.desktop().screenGeometry().center() - wgt.rect().center())
 
 
 def get_action(name: str) -> QAction:
@@ -301,17 +292,8 @@ def handler_Run():
 
 
 def handler_AboutTuring():
-    about = QDialog()
-    about_ui = Ui_AboutWindow()
-    about_ui.setupUi(about)
-
-    about.setFixedSize(about.size())
-
-    txt = about_ui.textBrowser_about.toHtml().replace("{version}", __version__).replace("{channel}", __channel__)
-    about_ui.textBrowser_about.setHtml(txt)
-
-    center_widget(about, window)
-    about.exec_()
+    from forms import about
+    about.run(window, __version__, __channel__)
 
 
 def handler_ShowToolbar():
@@ -442,6 +424,9 @@ def init_ui():
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    app.setApplicationName("Turing")
+    app.setApplicationVersion(__version__)
+
     util.translate_backend = translate
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
 

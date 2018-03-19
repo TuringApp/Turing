@@ -1077,7 +1077,7 @@ p, li { white-space: pre-wrap; }
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="92"/>
+        <location filename="../main.py" line="93"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
@@ -1109,22 +1109,22 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="468"/>
+        <location filename="../main.py" line="453"/>
         <source>Error: </source>
         <translation>Erreur : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="299"/>
+        <location filename="../main.py" line="290"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="235"/>
+        <location filename="../main.py" line="226"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="290"/>
+        <location filename="../main.py" line="281"/>
         <source>Syntax error (%s) at line %d, offset %d: </source>
         <translation>Erreur de syntaxe (%s) à la ligne %d, caractère %d : </translation>
     </message>
@@ -1225,17 +1225,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
 <context>
     <name>SettingsWindow</name>
     <message>
-        <location filename="../forms/ui_settings.py" line="51"/>
+        <location filename="../forms/ui_settings.py" line="54"/>
         <source>Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_settings.py" line="52"/>
+        <location filename="../forms/ui_settings.py" line="55"/>
         <source>Language :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_settings.py" line="53"/>
+        <location filename="../forms/ui_settings.py" line="56"/>
         <source>Theme :</source>
         <translation type="unfinished"></translation>
     </message>

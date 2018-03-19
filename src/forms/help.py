@@ -9,7 +9,7 @@ from lang import translator
 import util.html
 from forms.ui_help import Ui_HelpWindow
 from util.math import proper_str
-from widgets import *
+from util.widgets import *
 
 translate = QCoreApplication.translate
 

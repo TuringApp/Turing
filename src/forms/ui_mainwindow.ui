@@ -15,8 +15,8 @@
    <string>Turing</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>media/icon_64.png</normaloff>media/icon_64.png</iconset>
+   <iconset resource="../turing.qrc">
+    <normaloff>:/icon/media/icon.ico</normaloff>:/icon/media/icon.ico</iconset>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>true</bool>
@@ -33,8 +33,8 @@
       </property>
       <widget class="QWidget" name="tab_home">
        <attribute name="icon">
-        <iconset>
-         <normaloff>media/home.png</normaloff>media/home.png</iconset>
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/home.png</normaloff>:/action/media/home.png</iconset>
        </attribute>
        <attribute name="title">
         <string>Home</string>
@@ -88,8 +88,8 @@
       <string>Recent files</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>media/recent.png</normaloff>media/recent.png</iconset>
+      <iconset resource="../turing.qrc">
+       <normaloff>:/action/media/recent.png</normaloff>:/action/media/recent.png</iconset>
      </property>
      <addaction name="separator"/>
      <addaction name="actionClearRecent"/>
@@ -345,8 +345,8 @@ p, li { white-space: pre-wrap; }
             <string/>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>media/log_clear.png</normaloff>media/log_clear.png</iconset>
+            <iconset resource="../turing.qrc">
+             <normaloff>:/action/media/log_clear.png</normaloff>:/action/media/log_clear.png</iconset>
            </property>
           </widget>
          </item>
@@ -356,8 +356,8 @@ p, li { white-space: pre-wrap; }
             <string/>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>media/log_save.png</normaloff>media/log_save.png</iconset>
+            <iconset resource="../turing.qrc">
+             <normaloff>:/action/media/log_save.png</normaloff>:/action/media/log_save.png</iconset>
            </property>
           </widget>
          </item>
@@ -367,8 +367,8 @@ p, li { white-space: pre-wrap; }
             <string/>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>media/print.png</normaloff>media/print.png</iconset>
+            <iconset resource="../turing.qrc">
+             <normaloff>:/action/media/print.png</normaloff>:/action/media/print.png</iconset>
            </property>
           </widget>
          </item>
@@ -397,8 +397,8 @@ p, li { white-space: pre-wrap; }
           <string/>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>media/accept.png</normaloff>media/accept.png</iconset>
+          <iconset resource="../turing.qrc">
+           <normaloff>:/action/media/accept.png</normaloff>:/action/media/accept.png</iconset>
          </property>
         </widget>
        </item>
@@ -409,8 +409,8 @@ p, li { white-space: pre-wrap; }
   </widget>
   <action name="actionNew">
    <property name="icon">
-    <iconset>
-     <normaloff>media/new.png</normaloff>media/new.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/new.png</normaloff>:/action/media/new.png</iconset>
    </property>
    <property name="text">
     <string>New</string>
@@ -424,8 +424,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset>
-     <normaloff>media/open.png</normaloff>media/open.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/open.png</normaloff>:/action/media/open.png</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -439,8 +439,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset>
-     <normaloff>media/save.png</normaloff>media/save.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/save.png</normaloff>:/action/media/save.png</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -454,8 +454,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionSaveAs">
    <property name="icon">
-    <iconset>
-     <normaloff>media/save_as.png</normaloff>media/save_as.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/save_as.png</normaloff>:/action/media/save_as.png</iconset>
    </property>
    <property name="text">
     <string>Save As</string>
@@ -477,8 +477,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionExit">
    <property name="icon">
-    <iconset>
-     <normaloff>media/exit.png</normaloff>media/exit.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/exit.png</normaloff>:/action/media/exit.png</iconset>
    </property>
    <property name="text">
     <string>Exit</string>
@@ -503,8 +503,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset>
-     <normaloff>media/undo.png</normaloff>media/undo.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/undo.png</normaloff>:/action/media/undo.png</iconset>
    </property>
    <property name="text">
     <string>Undo</string>
@@ -518,8 +518,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset>
-     <normaloff>media/redo.png</normaloff>media/redo.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/redo.png</normaloff>:/action/media/redo.png</iconset>
    </property>
    <property name="text">
     <string>Redo</string>
@@ -533,8 +533,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionCut">
    <property name="icon">
-    <iconset>
-     <normaloff>media/cut.png</normaloff>media/cut.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/cut.png</normaloff>:/action/media/cut.png</iconset>
    </property>
    <property name="text">
     <string>Cut</string>
@@ -548,8 +548,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionCopy">
    <property name="icon">
-    <iconset>
-     <normaloff>media/copy.png</normaloff>media/copy.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/copy.png</normaloff>:/action/media/copy.png</iconset>
    </property>
    <property name="text">
     <string>Copy</string>
@@ -563,8 +563,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionPaste">
    <property name="icon">
-    <iconset>
-     <normaloff>media/paste.png</normaloff>media/paste.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/paste.png</normaloff>:/action/media/paste.png</iconset>
    </property>
    <property name="text">
     <string>Paste</string>
@@ -578,8 +578,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionSettings">
    <property name="icon">
-    <iconset>
-     <normaloff>media/settings.png</normaloff>media/settings.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/settings.png</normaloff>:/action/media/settings.png</iconset>
    </property>
    <property name="text">
     <string>Settings</string>
@@ -590,8 +590,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionQuickStart">
    <property name="icon">
-    <iconset>
-     <normaloff>media/quick_start.png</normaloff>media/quick_start.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/quick_start.png</normaloff>:/action/media/quick_start.png</iconset>
    </property>
    <property name="text">
     <string>Quick Start</string>
@@ -602,8 +602,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionHelpContents">
    <property name="icon">
-    <iconset>
-     <normaloff>media/help.png</normaloff>media/help.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/help.png</normaloff>:/action/media/help.png</iconset>
    </property>
    <property name="text">
     <string>Help Contents</string>
@@ -618,7 +618,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionAboutTuring">
    <property name="icon">
     <iconset>
-     <normaloff>media/icon_16.png</normaloff>media/icon_16.png</iconset>
+     <normaloff>:/action/media/icon_16.png</normaloff>:/action/media/icon_16.png</iconset>
    </property>
    <property name="text">
     <string>About Turing</string>
@@ -635,8 +635,8 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>media/toolbar.png</normaloff>media/toolbar.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/toolbar.png</normaloff>:/action/media/toolbar.png</iconset>
    </property>
    <property name="text">
     <string>Show toolbar</string>
@@ -647,8 +647,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionExamples">
    <property name="icon">
-    <iconset>
-     <normaloff>media/examples.png</normaloff>media/examples.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/examples.png</normaloff>:/action/media/examples.png</iconset>
    </property>
    <property name="text">
     <string>Examples</string>
@@ -656,8 +656,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionPrint">
    <property name="icon">
-    <iconset>
-     <normaloff>media/print.png</normaloff>media/print.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/print.png</normaloff>:/action/media/print.png</iconset>
    </property>
    <property name="text">
     <string>Print</string>
@@ -671,8 +671,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionFind">
    <property name="icon">
-    <iconset>
-     <normaloff>media/find.png</normaloff>media/find.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/find.png</normaloff>:/action/media/find.png</iconset>
    </property>
    <property name="text">
     <string>Find</string>
@@ -683,8 +683,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionReplace">
    <property name="icon">
-    <iconset>
-     <normaloff>media/replace.png</normaloff>media/replace.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/replace.png</normaloff>:/action/media/replace.png</iconset>
    </property>
    <property name="text">
     <string>Replace</string>
@@ -695,8 +695,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionCalculator">
    <property name="icon">
-    <iconset>
-     <normaloff>media/calculator.png</normaloff>media/calculator.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/calculator.png</normaloff>:/action/media/calculator.png</iconset>
    </property>
    <property name="text">
     <string>Calculator</string>
@@ -707,8 +707,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionClearRecent">
    <property name="icon">
-    <iconset>
-     <normaloff>media/recent_clear.png</normaloff>media/recent_clear.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/recent_clear.png</normaloff>:/action/media/recent_clear.png</iconset>
    </property>
    <property name="text">
     <string>Clear</string>
@@ -719,8 +719,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionSelectAll">
    <property name="icon">
-    <iconset>
-     <normaloff>media/select_all.png</normaloff>media/select_all.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/select_all.png</normaloff>:/action/media/select_all.png</iconset>
    </property>
    <property name="text">
     <string>Select All</string>
@@ -734,8 +734,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionRun">
    <property name="icon">
-    <iconset>
-     <normaloff>media/run.png</normaloff>media/run.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/run.png</normaloff>:/action/media/run.png</iconset>
    </property>
    <property name="text">
     <string>Run</string>
@@ -749,8 +749,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionStep">
    <property name="icon">
-    <iconset>
-     <normaloff>media/step.png</normaloff>media/step.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/step.png</normaloff>:/action/media/step.png</iconset>
    </property>
    <property name="text">
     <string>Step-by-step</string>
@@ -770,8 +770,8 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>media/toolbar_text.png</normaloff>media/toolbar_text.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/toolbar_text.png</normaloff>:/action/media/toolbar_text.png</iconset>
    </property>
    <property name="text">
     <string>Show toolbar text</string>
@@ -801,8 +801,8 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>media/lang/english.png</normaloff>media/lang/english.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/lang/media/lang/english.png</normaloff>:/lang/media/lang/english.png</iconset>
    </property>
    <property name="text">
     <string notr="true">English</string>
@@ -816,8 +816,8 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>media/lang/french.png</normaloff>media/lang/french.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/lang/media/lang/french.png</normaloff>:/lang/media/lang/french.png</iconset>
    </property>
    <property name="text">
     <string notr="true">Français</string>
@@ -828,8 +828,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionDuplicateLine">
    <property name="icon">
-    <iconset>
-     <normaloff>media/duplicate_line.png</normaloff>media/duplicate_line.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/duplicate_line.png</normaloff>:/action/media/duplicate_line.png</iconset>
    </property>
    <property name="text">
     <string>Duplicate Line</string>
@@ -840,8 +840,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionIndent">
    <property name="icon">
-    <iconset>
-     <normaloff>media/indent.png</normaloff>media/indent.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/indent.png</normaloff>:/action/media/indent.png</iconset>
    </property>
    <property name="text">
     <string>Indent</string>
@@ -852,8 +852,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionUnindent">
    <property name="icon">
-    <iconset>
-     <normaloff>media/unindent.png</normaloff>media/unindent.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/unindent.png</normaloff>:/action/media/unindent.png</iconset>
    </property>
    <property name="text">
     <string>Unindent</string>
@@ -864,8 +864,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionGoToLine">
    <property name="icon">
-    <iconset>
-     <normaloff>media/go_to_line.png</normaloff>media/go_to_line.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/go_to_line.png</normaloff>:/action/media/go_to_line.png</iconset>
    </property>
    <property name="text">
     <string>Go To Line</string>
@@ -876,8 +876,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionFindPrevious">
    <property name="icon">
-    <iconset>
-     <normaloff>media/find_previous.png</normaloff>media/find_previous.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/find_previous.png</normaloff>:/action/media/find_previous.png</iconset>
    </property>
    <property name="text">
     <string>Find Previous</string>
@@ -888,8 +888,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionFindNext">
    <property name="icon">
-    <iconset>
-     <normaloff>media/find_next.png</normaloff>media/find_next.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/find_next.png</normaloff>:/action/media/find_next.png</iconset>
    </property>
    <property name="text">
     <string>Find Next</string>
@@ -899,6 +899,8 @@ p, li { white-space: pre-wrap; }
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../turing.qrc"/>
+ </resources>
  <connections/>
 </ui>

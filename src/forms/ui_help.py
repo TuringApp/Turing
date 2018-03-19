@@ -13,7 +13,7 @@ class Ui_HelpWindow(object):
         HelpWindow.setObjectName("HelpWindow")
         HelpWindow.resize(947, 552)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("media/icon_16.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/action/media/help.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         HelpWindow.setWindowIcon(icon)
         self.verticalLayout = QtWidgets.QVBoxLayout(HelpWindow)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -34,7 +34,7 @@ class Ui_HelpWindow(object):
         self.btnClear = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.btnClear.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("media/clear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/action/media/clear.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnClear.setIcon(icon1)
         self.btnClear.setObjectName("btnClear")
         self.horizontalLayout.addWidget(self.btnClear)
@@ -64,3 +64,4 @@ class Ui_HelpWindow(object):
         _translate = QtCore.QCoreApplication.translate
         HelpWindow.setWindowTitle(_translate("HelpWindow", "Help Contents"))
 
+import turing_rc

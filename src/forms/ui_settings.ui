@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../turing.qrc">
+    <normaloff>:/action/media/settings.png</normaloff>:/action/media/settings.png</iconset>
+  </property>
   <property name="SettingsWindow" stdset="0">
    <string/>
   </property>
@@ -77,7 +81,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../turing.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

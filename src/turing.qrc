@@ -1,0 +1,55 @@
+<RCC>
+    <qresource prefix="/action">
+        <file>media/accept.png</file>
+        <file>media/calculator.png</file>
+        <file>media/clear.png</file>
+        <file>media/copy.png</file>
+        <file>media/cross.png</file>
+        <file>media/cut.png</file>
+        <file>media/delete.png</file>
+        <file>media/duplicate_line.png</file>
+        <file>media/examples.png</file>
+        <file>media/exit.png</file>
+        <file>media/find.png</file>
+        <file>media/find_next.png</file>
+        <file>media/find_previous.png</file>
+        <file>media/go_to_line.png</file>
+        <file>media/help.png</file>
+        <file>media/home.png</file>
+        <file>media/indent.png</file>
+        <file>media/log_clear.png</file>
+        <file>media/log_save.png</file>
+        <file>media/new.png</file>
+        <file>media/open.png</file>
+        <file>media/paste.png</file>
+        <file>media/print.png</file>
+        <file>media/quick_start.png</file>
+        <file>media/recent.png</file>
+        <file>media/recent_clear.png</file>
+        <file>media/redo.png</file>
+        <file>media/replace.png</file>
+        <file>media/run.png</file>
+        <file>media/save.png</file>
+        <file>media/save_as.png</file>
+        <file>media/select_all.png</file>
+        <file>media/settings.png</file>
+        <file>media/step.png</file>
+        <file>media/toolbar.png</file>
+        <file>media/toolbar_text.png</file>
+        <file>media/undo.png</file>
+        <file>media/unindent.png</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file>media/icon_16.png</file>
+        <file>media/icon_24.png</file>
+        <file>media/icon_32.png</file>
+        <file>media/icon_64.png</file>
+        <file>media/icon_96.png</file>
+        <file>media/icon_128.png</file>
+        <file>media/icon.ico</file>
+    </qresource>
+    <qresource prefix="/lang">
+        <file>media/lang/english.png</file>
+        <file>media/lang/french.png</file>
+    </qresource>
+</RCC>
