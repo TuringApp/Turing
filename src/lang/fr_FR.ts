@@ -55,7 +55,7 @@ p, li { white-space: pre-wrap; }
         <translation>Calculatrice</translation>
     </message>
     <message>
-        <location filename="../calculator.py" line="71"/>
+        <location filename="../calculator.py" line="65"/>
         <source>Result is None</source>
         <translation>Résultat nul</translation>
     </message>
@@ -754,27 +754,27 @@ p, li { white-space: pre-wrap; }
         <translation>Pages d&apos;aide</translation>
     </message>
     <message>
-        <location filename="../help.py" line="40"/>
+        <location filename="../help.py" line="42"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Arguments :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../help.py" line="44"/>
+        <location filename="../help.py" line="46"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
         <translation>&lt;li&gt;Aucun&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../help.py" line="54"/>
+        <location filename="../help.py" line="56"/>
         <source>default = %s</source>
         <translation>par défaut = %s</translation>
     </message>
     <message>
-        <location filename="../help.py" line="69"/>
+        <location filename="../help.py" line="71"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Alias :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../help.py" line="82"/>
+        <location filename="../help.py" line="84"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Fonctions :&lt;/h2&gt;</translation>
     </message>
@@ -1202,32 +1202,32 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
 <context>
     <name>Parser</name>
     <message>
-        <location filename="../maths/parser.py" line="179"/>
+        <location filename="../maths/parser.py" line="181"/>
         <source>Expected token (%s) &apos;%s&apos;</source>
         <translation>Jeton attendu (%s) &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="461"/>
+        <location filename="../maths/parser.py" line="463"/>
         <source>Unexpected EOL</source>
         <translation>Fin de ligne inattendue</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="463"/>
+        <location filename="../maths/parser.py" line="465"/>
         <source>Unexpected token (%s) &apos;%s&apos;</source>
         <translation>Jeton (%s) &apos;%s&apos; inattendu</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="90"/>
+        <location filename="../maths/parser.py" line="91"/>
         <source>OR</source>
         <translation>OU</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="91"/>
+        <location filename="../maths/parser.py" line="92"/>
         <source>AND</source>
         <translation>ET</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="92"/>
+        <location filename="../maths/parser.py" line="93"/>
         <source>NOT</source>
         <translation>NON</translation>
     </message>
@@ -1253,12 +1253,12 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
 <context>
     <name>Utilities</name>
     <message>
-        <location filename="../util/math.py" line="159"/>
+        <location filename="../util/math.py" line="163"/>
         <source>TRUE</source>
         <translation>VRAI</translation>
     </message>
     <message>
-        <location filename="../util/math.py" line="159"/>
+        <location filename="../util/math.py" line="163"/>
         <source>FALSE</source>
         <translation>FAUX</translation>
     </message>

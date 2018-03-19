@@ -2,7 +2,7 @@
 
 import re
 from html import escape
-
+from typing import Dict, List, Tuple, Optional
 import maths.lib
 import maths.lib.docs
 import translator
@@ -13,15 +13,17 @@ from widgets import *
 
 translate = QCoreApplication.translate
 
-functions = None
+function = Tuple
+functions: Dict[str, List[function]] = None
 catItems = []
 
 
-def find_function(name):
+def find_function(name: str) -> Optional[Tuple[str, function]]:
     for k in functions:
         for f in functions[k]:
             if f[0] == name:
                 return k, f
+
     return None
 
 
@@ -123,7 +125,7 @@ def clear_search_field():
     ui.textSearch.setText("")
 
 
-def search_changed(txt):
+def search_changed(txt: str):
     ui.btnClear.setVisible(bool(txt))
 
     for ci, items in catItems:

@@ -472,8 +472,8 @@ class Parser:
         """Beautifies the expression (adds spaces between operators)."""
         result = ""
 
-        prev2 = None
-        prev1 = None
+        prev2: Token = None
+        prev1: Token = None
 
         for typ, val in self.tokens:
             # remove space between operator and term only if operator is unary

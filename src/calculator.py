@@ -2,6 +2,7 @@
 
 import html
 import re
+from typing import Dict, List, Tuple, Optional
 
 from PyQt5.QtGui import *
 
@@ -14,17 +15,10 @@ from widgets import *
 
 translate = QCoreApplication.translate
 
-functions = None
+function = Tuple
+functions: Dict[str, List[function]] = None
 doc_items = None
 
-
-def find_func(name):
-    for k in functions:
-        for f in functions[k]:
-            if f[0] == name:
-                return k, f
-
-    return None
 
 
 def add_result(expr, result, error=False):
@@ -76,7 +70,7 @@ def history_double_click(item):
         ui.txtExpr.setText(item.text())
 
 
-def on_sel(id):
+def on_sel(id: int):
     for idx, items in enumerate(doc_items):
         for it in items:
             it.setHidden(idx != id)
@@ -119,7 +113,7 @@ def load_funcs():
             item_func.setStatusTip(f[0])
 
 
-def ins_func(item):
+def ins_func(item: QListWidgetItem):
     ui.txtExpr.setText(ui.txtExpr.text() + item.statusTip() + "()")
 
 
@@ -127,7 +121,7 @@ def clear():
     ui.txtExpr.setText("")
 
 
-def txt_changed(txt):
+def txt_changed(txt: str):
     ui.btnClear.setVisible(bool(txt))
 
 

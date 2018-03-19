@@ -89,7 +89,7 @@ class MainWindowWrapper(QMainWindow):
             exit()
 
 
-def center_widget(wgt, host):
+def center_widget(wgt: QWidget, host: QWidget):
     if not host:
         host = wgt.parent()
 
@@ -99,7 +99,7 @@ def center_widget(wgt, host):
         wgt.move(app.desktop().screenGeometry().center() - wgt.rect().center())
 
 
-def get_action(name):
+def get_action(name: str) -> QAction:
     return getattr(ui, "action" + name)
 
 
@@ -311,13 +311,13 @@ def init_action_handlers():
                 getattr(ui, item).triggered.connect(globals()[name])
 
 
-def copy_action(source, target):
+def copy_action(source: QAction, target: QAction):
     target.setText(source.text())
     target.setShortcut(source.shortcut())
     target.setIcon(source.icon())
 
 
-def change_language(language):
+def change_language(language: str):
     translator.load(language)
     load_editor_actions()
     for a in ui.menuLanguage.actions():

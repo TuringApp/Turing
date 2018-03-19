@@ -2,21 +2,23 @@
 
 import importlib
 import types
+from typing import List, Tuple
 
 from PyQt5.QtCore import *
+from PyQt5.QtWidgets import QWidget
 
 import maths.lib
 
-uis = []
+uis: List[Tuple[object, QWidget]] = []
 current = None
-tr_object = None
+tr_object: QTranslator = None
 
 
-def add(ui, window):
+def add(ui: object, window: QWidget):
     uis.append((ui, window))
 
 
-def remove(ui):
+def remove(ui: object):
     global uis
     uis = [x for x in uis if x[0] != ui]
 
@@ -32,7 +34,7 @@ def update():
             importlib.reload(item)
 
 
-def load(lang):
+def load(lang: str):
     global current, tr_object
     current = lang
 

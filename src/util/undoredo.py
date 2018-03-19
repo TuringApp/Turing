@@ -17,12 +17,12 @@ class UndoRedo:
         self.undo_gen = undo_gen
         self.redo_gen = redo_gen
 
-    def can_undo(self):
+    def can_undo(self) -> bool:
         """Checks if the user can undo an operation."""
 
         return self.position > 0
 
-    def can_redo(self):
+    def can_redo(self) -> bool:
         """Checks if the user can redo an operation."""
 
         return self.position < len(self.history) - 1

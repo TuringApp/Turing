@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import numbers
+from typing import Union, Any
 
 import util
 
 translate = util.translate
 
 
-def is_close(a, b, rel_tol=1e-8, abs_tol=1e-8):
+def is_close(a: Union[util.number, list], b: Union[util.number, list], rel_tol=1e-8, abs_tol=1e-8) -> bool:
     """Checks if the specified numbers are close enough to be considered equal.
 
     Due to the usage of IEEE754 floating points number in Python, formulae like 0.1+0.2
@@ -43,17 +44,17 @@ def is_close(a, b, rel_tol=1e-8, abs_tol=1e-8):
     return abs(a - b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
 
 
-def is_num(a):
+def is_num(a: Any) -> bool:
     """Checks if the specified Python object is a number (int, float, long, etc)."""
     return isinstance(a, numbers.Number)
 
 
-def is_bool(a):
+def is_bool(a: Any) -> bool:
     """Checks if the specified Python object is a boolean."""
     return type(a) == bool
 
 
-def is_real(a):
+def is_real(a: util.number) -> bool:
     """Checks if the specified complex number is real (imaginary part is zero)."""
     if not is_num(a):
         return False
@@ -64,8 +65,11 @@ def is_real(a):
     return is_zero(a.imag)
 
 
-def is_int(a):
+def is_int(a: util.number) -> bool:
     """Checks if the specified float is integral."""
+    if type(a) == int:
+        return True
+
     if type(a) == complex:
         return is_real(a) and is_int(a.real)
 
@@ -75,7 +79,7 @@ def is_int(a):
     return a == 0 or (1 <= abs(a) <= 1e15 and is_close(a, round(a)))
 
 
-def is_zero(a):
+def is_zero(a: util.number) -> bool:
     """Checks if the specified number is close enough to zero to be considered equal to zero."""
     if a == 0:
         return True
@@ -94,12 +98,12 @@ def is_zero(a):
     return is_close(a, 0)
 
 
-def is_proper_num(a):
+def is_proper_num(a: util.number) -> bool:
     """Checks if the specified number is a real number (excluding booleans)."""
     return is_num(a) and not is_bool(a)
 
 
-def expon_round(a, prec=None):
+def expon_round(a: float, prec: int = None) -> float:
     """Rounds the left part of a two-part float."""
     if type(a) != float:
         return a
@@ -112,7 +116,7 @@ def expon_round(a, prec=None):
     return float("%se%s" % (round(float(sig), prec), exp))
 
 
-def close_round(a, prec=None):
+def close_round(a: util.number, prec: int = None) -> util.number:
     """If the number is close enough to its rounded version, returns the rounded version, otherwise returns the
     original number """
     if a is None:
@@ -147,7 +151,7 @@ def close_round(a, prec=None):
     return a
 
 
-def proper_str(a):
+def proper_str(a: Any) -> str:
     """Converts the specified float to string, removing comma if the number is integral."""
     if type(a) == list:
         return "[%s]" % ", ".join(proper_str(x) for x in a)

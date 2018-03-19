@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-def python_wrapper(input):
+def python_wrapper(input: str) -> str:
     return """# -*- coding: utf-8 -*-
 import maths.lib
 import types

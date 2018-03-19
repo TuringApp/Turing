@@ -90,7 +90,7 @@ class Evaluator:
 
         return value
 
-    def call_lambda(self, node: nodes.LambdaNode, *args) -> object:
+    def call_lambda(self, node: nodes.LambdaNode, *args):
         """Lambda function call wrapper"""
         args = list(args)
 
@@ -111,7 +111,7 @@ class Evaluator:
 
         return result
 
-    def eval_node_real(self, node: nodes.AstNode) -> object:
+    def eval_node_real(self, node: nodes.AstNode):
         if type(node) == nodes.ListNode:
             return [self.eval_node(x) for x in node.value]
 
@@ -180,7 +180,7 @@ class Evaluator:
         self.log.error(translate("Evaluator", "Unknown node type: %s") % type(node))
         return None
 
-    def eval_unary(self, node: nodes.UnaryOpNode) -> object:
+    def eval_unary(self, node: nodes.UnaryOpNode):
         value = self.eval_node(node.value)
         value_type = ValueType.get_type(value)
 
@@ -199,7 +199,7 @@ class Evaluator:
         self.log.error(translate("Evaluator", "Invalid unary operator '%s'") % node.operator)
         return None
 
-    def eval_binary(self, node: nodes.BinOpNode) -> object:
+    def eval_binary(self, node: nodes.BinOpNode):
         left = self.eval_node(node.left)
         left_type = ValueType.get_type(left)
 
