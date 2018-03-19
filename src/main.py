@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import html
 import os
 import runpy
 import sys
@@ -20,9 +21,6 @@ import util.code
 import util.html
 from ui_about import Ui_AboutWindow
 from ui_mainwindow import Ui_MainWindow
-import tempfile
-import runpy
-import html
 
 translate = QCoreApplication.translate
 
@@ -32,10 +30,35 @@ __channel__ = "beta"
 undo = None
 mode_python = True
 code_editor = None
+panel_search = None
 current_output = ""
 after_output = ""
 user_input = None
-
+editor_action_table = [
+    ("Copy", "copy"),
+    ("Cut", "cut"),
+    ("Paste", "paste"),
+    ("Undo", "undo"),
+    ("Redo", "redo"),
+    ("SelectAll", "select_all"),
+    ("DuplicateLine", "duplicate_line"),
+    ("Indent", "indent"),
+    ("Unindent", "un_indent"),
+    ("GoToLine", "goto_line"),
+    ("Find", "Search"),
+    ("Replace", "ActionSearchAndReplace"),
+    ("FindPrevious", "FindPrevious"),
+    ("FindNext", "FindNext")
+]
+python_only = [
+    "SelectAll",
+    "Find",
+    "FindPrevious",
+    "FindNext",
+    "Replace",
+    "Indent",
+    "Unindent"
+]
 
 def get_themed_box():
     msg = QMessageBox()
@@ -85,6 +108,10 @@ def refresh():
 
 
 def refresh_buttons_status():
+    if mode_python:
+        for ours, theirs in editor_action_table:
+            get_action(ours).setEnabled(getattr(code_editor, "action_" + theirs).isEnabled())
+
     active_code = True
     for c in [
         "Save",
@@ -93,7 +120,6 @@ def refresh_buttons_status():
         "Print",
         "Find",
         "Replace",
-        "SelectAll",
         "Run",
         "Step",
         "ConvertToPython",
@@ -101,10 +127,63 @@ def refresh_buttons_status():
     ]:
         get_action(c).setEnabled(active_code)
 
+    for c in python_only:
+        get_action(c).setVisible(mode_python)
+
     # if current_file != -1:
     #    get_action("Undo").setEnabled(undo_objs[current_file].can_undo())
     #    get_action("Redo").setEnabled(undo_objs[current_file].can_redo())
 
+
+def handler_Undo():
+    if mode_python:
+        code_editor.undo()
+
+
+def handler_Redo():
+    if mode_python:
+        code_editor.redo()
+
+
+def handler_SelectAll():
+    code_editor.selectAll()
+
+
+def handler_Cut():
+    if mode_python:
+        code_editor.cut()
+
+
+def handler_Copy():
+    if mode_python:
+        code_editor.copy()
+
+
+def handler_Paste():
+    if mode_python:
+        code_editor.paste()
+
+def handler_DuplicateLine():
+    if mode_python:
+        code_editor.duplicate_line()
+
+def handler_Indent():
+    code_editor.indent()
+
+def handler_Unindent():
+    code_editor.un_indent()
+
+def handler_GoToLine():
+    code_editor.goto_line()
+
+def handler_Find():
+    pass
+
+def handler_FindPrevious():
+    panel_search.select_previous()
+
+def handler_FindNext():
+    panel_search.select_next()
 
 def handler_Calculator():
     import calculator
@@ -133,12 +212,15 @@ def update_output():
     ui.txtOutput.moveCursor(QTextCursor.End)
     ui.txtOutput.ensureCursorVisible()
 
+
 def python_input(prompt=""):
     python_print(prompt, end="")
 
     global after_output
     after_output = "<hr>"
-    after_output += util.html.centered("<h3>%s</h3>" % util.html.color_span("<i>%s</i>" % translate("MainWindow", "Input: ") + html.escape(prompt), "red"))
+    after_output += util.html.centered(
+        "<h3>%s</h3>" % util.html.color_span("<i>%s</i>" % translate("MainWindow", "Input: ") + html.escape(prompt),
+                                             "red"))
     update_output()
 
     ui.btnSendInput.setEnabled(True)
@@ -159,6 +241,7 @@ def python_input(prompt=""):
 
     return user_input
 
+
 def python_print_error(msg):
     global current_output
     current_output += util.html.color_span(msg, "red")
@@ -169,13 +252,14 @@ def handler_Run():
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
     file = tempfile.NamedTemporaryFile(mode="w+b", suffix=".py", delete=False)
-    try: 
+    try:
         code = util.code.python_wrapper(code_editor.toPlainText()).encode("utf8")
         file.write(code)
         file.close()
         runpy.run_path(file.name, init_globals={"print": python_print, "input": python_input})
     except SyntaxError as err:
-        msg = translate("MainWindow", "Syntax error (%s) at line %d, offset %d: ") % (type(err).__name__, err.lineno - 10, err.offset)
+        msg = translate("MainWindow", "Syntax error (%s) at line %d, offset %d: ") % (
+            type(err).__name__, err.lineno - 10, err.offset)
         python_print_error(msg + err.text)
         python_print_error(" " * (len(msg) + err.offset - 1) + "↑")
     except:
@@ -227,19 +311,46 @@ def init_action_handlers():
                 getattr(ui, item).triggered.connect(globals()[name])
 
 
+def copy_action(source, target):
+    target.setText(source.text())
+    target.setShortcut(source.shortcut())
+    target.setIcon(source.icon())
+
+
 def change_language(language):
     translator.load(language)
+    load_editor_actions()
     for a in ui.menuLanguage.actions():
         a.setChecked(a.statusTip() == language)
+
 
 def send_user_input():
     global user_input
     user_input = ui.txtInput.text()
 
+
 def clear_output():
     global current_output
     current_output = ""
     update_output()
+
+
+def print_output():
+    print("\n".join(dir(code_editor)))
+    pass
+
+
+def load_editor_actions():
+    print("\n".join(dir(code_editor)))
+    for ours, theirs in editor_action_table:
+        copy_action(getattr(ui, "action" + ours), getattr(code_editor, "action_" + theirs))
+
+def copy_actions_to_editor(panel):
+    for name, obj in panel.__dict__.items():
+        if name.startswith("action_"):
+            setattr(code_editor, name, obj)
+        elif name.startswith("action"): # workaround for shitty naming by the devs
+            setattr(code_editor, "action_" + name[6:], obj)
 
 def load_code_editor():
     global code_editor
@@ -264,6 +375,13 @@ def load_code_editor():
     code_editor.panels.append(panels.LineNumberPanel())
     code_editor.modes.append(modes.CheckerMode(pyqode.python.backend.run_pep8))
     code_editor.panels.append(panels.GlobalCheckerPanel(), panels.GlobalCheckerPanel.Position.LEFT)
+    global panel_search
+    panel_search = code_editor.panels.append(panels.SearchAndReplacePanel(), api.Panel.Position.BOTTOM)
+    copy_actions_to_editor(panel_search)
+
+    code_editor.textChanged.connect(refresh)
+
+    load_editor_actions()
 
     ui.verticalLayout_8.addWidget(code_editor)
 
@@ -287,6 +405,7 @@ def init_ui():
 
     ui.btnSendInput.clicked.connect(send_user_input)
     ui.btnClearOutput.clicked.connect(clear_output)
+    ui.btnPrintOutput.clicked.connect(print_output)
 
     def gen(act):
         return lambda: change_language(act)

@@ -119,6 +119,17 @@
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
     <addaction name="separator"/>
+    <addaction name="actionSelectAll"/>
+    <addaction name="separator"/>
+    <addaction name="actionFind"/>
+    <addaction name="actionFindPrevious"/>
+    <addaction name="actionFindNext"/>
+    <addaction name="actionReplace"/>
+    <addaction name="actionGoToLine"/>
+    <addaction name="separator"/>
+    <addaction name="actionDuplicateLine"/>
+    <addaction name="actionIndent"/>
+    <addaction name="actionUnindent"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
@@ -148,11 +159,6 @@
     <property name="title">
      <string>&amp;Program</string>
     </property>
-    <addaction name="actionFind"/>
-    <addaction name="actionReplace"/>
-    <addaction name="separator"/>
-    <addaction name="actionSelectAll"/>
-    <addaction name="separator"/>
     <addaction name="actionRun"/>
     <addaction name="actionStep"/>
     <addaction name="separator"/>
@@ -340,7 +346,29 @@ p, li { white-space: pre-wrap; }
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>media/clear_log.png</normaloff>media/clear_log.png</iconset>
+             <normaloff>media/log_clear.png</normaloff>media/log_clear.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnSaveOutput">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>media/log_save.png</normaloff>media/log_save.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnPrintOutput">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>media/print.png</normaloff>media/print.png</iconset>
            </property>
           </widget>
          </item>
@@ -802,6 +830,78 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="statusTip">
     <string notr="true">fr_FR</string>
+   </property>
+  </action>
+  <action name="actionDuplicateLine">
+   <property name="icon">
+    <iconset>
+     <normaloff>media/duplicate_line.png</normaloff>media/duplicate_line.png</iconset>
+   </property>
+   <property name="text">
+    <string>Duplicate Line</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionIndent">
+   <property name="icon">
+    <iconset>
+     <normaloff>media/indent.png</normaloff>media/indent.png</iconset>
+   </property>
+   <property name="text">
+    <string>Indent</string>
+   </property>
+   <property name="shortcut">
+    <string>Tab</string>
+   </property>
+  </action>
+  <action name="actionUnindent">
+   <property name="icon">
+    <iconset>
+     <normaloff>media/unindent.png</normaloff>media/unindent.png</iconset>
+   </property>
+   <property name="text">
+    <string>Unindent</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Tab</string>
+   </property>
+  </action>
+  <action name="actionGoToLine">
+   <property name="icon">
+    <iconset>
+     <normaloff>media/go_to_line.png</normaloff>media/go_to_line.png</iconset>
+   </property>
+   <property name="text">
+    <string>Go To Line</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionFindPrevious">
+   <property name="icon">
+    <iconset>
+     <normaloff>media/find_previous.png</normaloff>media/find_previous.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find Previous</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F3</string>
+   </property>
+  </action>
+  <action name="actionFindNext">
+   <property name="icon">
+    <iconset>
+     <normaloff>media/find_next.png</normaloff>media/find_next.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find Next</string>
+   </property>
+   <property name="shortcut">
+    <string>F3</string>
    </property>
   </action>
  </widget>

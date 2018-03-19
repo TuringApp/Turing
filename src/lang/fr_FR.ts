@@ -782,361 +782,421 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../ui_mainwindow.py" line="401"/>
+        <location filename="../ui_mainwindow.py" line="449"/>
         <source>Turing</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="402"/>
+        <location filename="../ui_mainwindow.py" line="450"/>
         <source>Home</source>
         <translation>Accueil</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="405"/>
+        <location filename="../ui_mainwindow.py" line="453"/>
         <source>&amp;File</source>
         <translation>&amp;Fichier</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="407"/>
+        <location filename="../ui_mainwindow.py" line="455"/>
         <source>&amp;Edit</source>
         <translation>&amp;Édition</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="408"/>
+        <location filename="../ui_mainwindow.py" line="456"/>
         <source>&amp;Settings</source>
         <translation>&amp;Options</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="409"/>
+        <location filename="../ui_mainwindow.py" line="457"/>
         <source>&amp;Help</source>
         <translation>&amp;Aide</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="410"/>
+        <location filename="../ui_mainwindow.py" line="458"/>
         <source>&amp;View</source>
         <translation>&amp;Affichage</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="411"/>
+        <location filename="../ui_mainwindow.py" line="459"/>
         <source>&amp;Program</source>
         <translation>&amp;Programme</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="412"/>
+        <location filename="../ui_mainwindow.py" line="460"/>
         <source>&amp;Tools</source>
         <translation>&amp;Outils</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="461"/>
+        <location filename="../ui_mainwindow.py" line="509"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="419"/>
+        <location filename="../ui_mainwindow.py" line="467"/>
         <source>GroupBox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="421"/>
+        <location filename="../ui_mainwindow.py" line="469"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="422"/>
+        <location filename="../ui_mainwindow.py" line="470"/>
         <source>Tab 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="423"/>
+        <location filename="../ui_mainwindow.py" line="471"/>
         <source>Tab 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="424"/>
+        <location filename="../ui_mainwindow.py" line="472"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="426"/>
+        <location filename="../ui_mainwindow.py" line="474"/>
         <source>New</source>
         <translation>Nouveau</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="427"/>
+        <location filename="../ui_mainwindow.py" line="475"/>
         <source>Ctrl+N</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="429"/>
+        <location filename="../ui_mainwindow.py" line="477"/>
         <source>Open</source>
         <translation>Ouvrir</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="430"/>
+        <location filename="../ui_mainwindow.py" line="478"/>
         <source>Ctrl+O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="432"/>
+        <location filename="../ui_mainwindow.py" line="480"/>
         <source>Save</source>
         <translation>Enregistrer</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="433"/>
+        <location filename="../ui_mainwindow.py" line="481"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="435"/>
+        <location filename="../ui_mainwindow.py" line="483"/>
         <source>Save As</source>
         <translation>Enregistrer sous</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="437"/>
+        <location filename="../ui_mainwindow.py" line="485"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="438"/>
+        <location filename="../ui_mainwindow.py" line="486"/>
         <source>Ctrl+W</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="440"/>
+        <location filename="../ui_mainwindow.py" line="488"/>
         <source>Exit</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="441"/>
+        <location filename="../ui_mainwindow.py" line="489"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="443"/>
+        <location filename="../ui_mainwindow.py" line="491"/>
         <source>Save All</source>
         <translation>Enregistrer tout</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="444"/>
+        <location filename="../ui_mainwindow.py" line="492"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Maj+S</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="446"/>
+        <location filename="../ui_mainwindow.py" line="494"/>
         <source>Undo</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="447"/>
+        <location filename="../ui_mainwindow.py" line="495"/>
         <source>Ctrl+Z</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="449"/>
+        <location filename="../ui_mainwindow.py" line="497"/>
         <source>Redo</source>
         <translation>Rétablir</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="450"/>
+        <location filename="../ui_mainwindow.py" line="498"/>
         <source>Ctrl+Y</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="452"/>
+        <location filename="../ui_mainwindow.py" line="500"/>
         <source>Cut</source>
         <translation>Couper</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="453"/>
+        <location filename="../ui_mainwindow.py" line="501"/>
         <source>Ctrl+X</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="455"/>
+        <location filename="../ui_mainwindow.py" line="503"/>
         <source>Copy</source>
         <translation>Copier</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="456"/>
+        <location filename="../ui_mainwindow.py" line="504"/>
         <source>Ctrl+C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="458"/>
+        <location filename="../ui_mainwindow.py" line="506"/>
         <source>Paste</source>
         <translation>Coller</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="459"/>
+        <location filename="../ui_mainwindow.py" line="507"/>
         <source>Ctrl+V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="463"/>
+        <location filename="../ui_mainwindow.py" line="511"/>
         <source>Quick Start</source>
         <translation>Tutoriel rapide</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="465"/>
+        <location filename="../ui_mainwindow.py" line="513"/>
         <source>Help Contents</source>
         <translation>Pages d&apos;aide</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="466"/>
+        <location filename="../ui_mainwindow.py" line="514"/>
         <source>F1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="468"/>
+        <location filename="../ui_mainwindow.py" line="516"/>
         <source>About Turing</source>
         <translation>À propos de Turing</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="470"/>
+        <location filename="../ui_mainwindow.py" line="518"/>
         <source>Show toolbar</source>
         <translation>Barre d&apos;outils</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="471"/>
+        <location filename="../ui_mainwindow.py" line="519"/>
         <source>Examples</source>
         <translation>Exemples</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="473"/>
+        <location filename="../ui_mainwindow.py" line="521"/>
         <source>Print</source>
         <translation>Imprimer</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="474"/>
+        <location filename="../ui_mainwindow.py" line="522"/>
         <source>Ctrl+P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="476"/>
+        <location filename="../ui_mainwindow.py" line="524"/>
         <source>Find</source>
         <translation>Rechercher</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="477"/>
+        <location filename="../ui_mainwindow.py" line="525"/>
         <source>Ctrl+F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="479"/>
+        <location filename="../ui_mainwindow.py" line="527"/>
         <source>Replace</source>
         <translation>Remplacer</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="480"/>
+        <location filename="../ui_mainwindow.py" line="528"/>
         <source>Ctrl+H</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="482"/>
+        <location filename="../ui_mainwindow.py" line="530"/>
         <source>Calculator</source>
         <translation>Calculatrice</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="484"/>
+        <location filename="../ui_mainwindow.py" line="532"/>
         <source>Clear</source>
         <translation>Effacer</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="486"/>
+        <location filename="../ui_mainwindow.py" line="534"/>
         <source>Select All</source>
         <translation>Sélectionner tout</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="487"/>
+        <location filename="../ui_mainwindow.py" line="535"/>
         <source>Ctrl+A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="489"/>
+        <location filename="../ui_mainwindow.py" line="537"/>
         <source>Run</source>
         <translation>Exécuter</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="490"/>
+        <location filename="../ui_mainwindow.py" line="538"/>
         <source>F5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="492"/>
+        <location filename="../ui_mainwindow.py" line="540"/>
         <source>Step-by-step</source>
         <translation>Pas-à-pas</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="493"/>
+        <location filename="../ui_mainwindow.py" line="541"/>
         <source>F10</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="495"/>
+        <location filename="../ui_mainwindow.py" line="543"/>
         <source>Show toolbar text</source>
         <translation>Texte des boutons</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="497"/>
+        <location filename="../ui_mainwindow.py" line="545"/>
         <source>Convert to Python</source>
         <translation>Convertir en Python</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="499"/>
+        <location filename="../ui_mainwindow.py" line="547"/>
         <source>Convert to pseudocode</source>
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="60"/>
+        <location filename="../main.py" line="83"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
 Toutes les modifications non sauvegardées seront perdues.</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="406"/>
+        <location filename="../ui_mainwindow.py" line="454"/>
         <source>Recent files</source>
         <translation>Récents</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="414"/>
+        <location filename="../ui_mainwindow.py" line="462"/>
         <source>Toolbar</source>
         <translation>Barre d&apos;outils</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="413"/>
+        <location filename="../ui_mainwindow.py" line="461"/>
         <source>&amp;Language</source>
         <translation>&amp;Langue</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="403"/>
+        <location filename="../ui_mainwindow.py" line="451"/>
         <source>Pseudocode</source>
         <translation>Algorithme</translation>
     </message>
     <message>
-        <location filename="../ui_mainwindow.py" line="404"/>
+        <location filename="../ui_mainwindow.py" line="452"/>
         <source>Code</source>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="325"/>
+        <location filename="../main.py" line="444"/>
         <source>Error: </source>
         <translation>Erreur : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="189"/>
+        <location filename="../main.py" line="273"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="143"/>
+        <location filename="../main.py" line="223"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="181"/>
+        <location filename="../main.py" line="264"/>
         <source>Syntax error (%s) at line %d, offset %d: </source>
         <translation>Erreur de syntaxe (%s) à la ligne %d, caractère %d : </translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="549"/>
+        <source>Ctrl+D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="550"/>
+        <source>Indent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="552"/>
+        <source>Unindent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="548"/>
+        <source>Duplicate Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="554"/>
+        <source>Go To Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="555"/>
+        <source>Ctrl+G</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="556"/>
+        <source>Find Previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="557"/>
+        <source>Shift+F3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="558"/>
+        <source>Find Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="559"/>
+        <source>F3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="551"/>
+        <source>Tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui_mainwindow.py" line="553"/>
+        <source>Shift+Tab</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
