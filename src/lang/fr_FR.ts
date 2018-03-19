@@ -103,47 +103,47 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule le logarithme de base {{b}} de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="119"/>
+        <location filename="../maths/lib/basic.py" line="121"/>
         <source>Returns the base-10 logarithm of {{num}}.</source>
         <translation>Calcule le logarithme de base 10 de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="130"/>
+        <location filename="../maths/lib/basic.py" line="132"/>
         <source>Returns the largest integer less than or equal to {{num}}.</source>
         <translation>Détermine le plus grand entier inférieur ou égal à {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="143"/>
+        <location filename="../maths/lib/basic.py" line="145"/>
         <source>Returns the smallest integer greater than or equal to {{num}}.</source>
         <translation>Détermine le plus petit entier supérieur ou égal à {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="156"/>
+        <location filename="../maths/lib/basic.py" line="158"/>
         <source>Returns the sign of {{num}} (-1 if negative, 1 if positive, 0 otherwise).</source>
         <translation>Détermine le signe de {{num}} (-1 si négatif, 1 si positif, 0 sinon).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="171"/>
+        <location filename="../maths/lib/basic.py" line="173"/>
         <source>Returns the greatest common divisor of {{a}} and {{b}}.</source>
         <translation>Calcule le PGCD (plus grand diviseur commun) de {{a}} et {{b}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="186"/>
+        <location filename="../maths/lib/basic.py" line="188"/>
         <source>Returns the least common multiple of {{a}} and {{b}}.</source>
         <translation>Calcule le PPCM (plus petit commun multiple) de {{a}} et {{b}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="201"/>
+        <location filename="../maths/lib/basic.py" line="203"/>
         <source>Returns the argument (or phase) of {{x}}.</source>
         <translation>Calcule l&apos;argument (ou phase) de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="215"/>
+        <location filename="../maths/lib/basic.py" line="217"/>
         <source>Returns a list containing the polar coordinates of {{x}}, respectively the modulus (radius) and argument (angle).</source>
         <translation>Renvoie une liste contenant les coordonnées polaires de {{x}}, respectivement le module (rayon) et l&apos;argument (angle).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="231"/>
+        <location filename="../maths/lib/basic.py" line="233"/>
         <source>Converts the specified polar coordinates to a complex number.</source>
         <translation>Convertit les coordonnées polaires spéficiées en nombre complexe.</translation>
     </message>
@@ -598,17 +598,17 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule la moyenne harmonique de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="243"/>
+        <location filename="../maths/lib/basic.py" line="245"/>
         <source>Returns the real part of {{x}}.</source>
         <translation>Renvoie la partie réelle de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="254"/>
+        <location filename="../maths/lib/basic.py" line="256"/>
         <source>Returns the imaginary part of {{x}}.</source>
         <translation>Renvoie la partie imaginaire de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="265"/>
+        <location filename="../maths/lib/basic.py" line="267"/>
         <source>Returns the complex conjugate of {{x}}.</source>
         <translation>Calcule le conjugué de {{x}}.</translation>
     </message>
@@ -618,17 +618,17 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule le {{n}}-ième terme de la suite de Fibonacci.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="276"/>
+        <location filename="../maths/lib/basic.py" line="278"/>
         <source>Returns the gradient of {{func}} at {{x}} (optional precision {{h}}).</source>
         <translation>Calcule le nombre dérivé de {{func}} à {{x}} (facultatif : précision {{h}}).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="292"/>
+        <location filename="../maths/lib/basic.py" line="294"/>
         <source>Returns the derivative of {{func}} (optional precision {{h}}).</source>
         <translation>Détermine la dérivée de {{func}} (facultatif : précision {{h}}).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="307"/>
+        <location filename="../maths/lib/basic.py" line="309"/>
         <source>Returns the integral of {{func}} from {{a}} to {{b}} (optional number of steps: {{steps}}).</source>
         <translation>Calcule l&apos;intégrale de {{a}} à {{b}} de {{func}} (facultatif : nombre d&apos;étapes {{steps}}).</translation>
     </message>
