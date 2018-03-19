@@ -8,7 +8,7 @@ It provides a lighter alternative to the well-known Algobox, which is the curren
 
 ## Quid, quis, quomodo?
 
-Turing is written in Python 3 and uses the PyQt5 framework for its GUI. It provides two work modes:
+Turing is written in Python 3.6 and uses the PyQt5 framework for its GUI. It provides two work modes:
 
 - Algorithm mode
   - Uses a "natural" pseudocode language similar to the one used in Algobox and school books.
@@ -22,11 +22,20 @@ In both modes, the code can be debugged and executed step-by-step to facilitate 
 
 Turing is cross-platform, but has only been tested on Windows and Linux-based operating systems. macOS should be supported, but no guarantee is made of that.
 
-First, installe the required modules using pip:
+#### Python 3.6 required!
+
+It uses the following libraries:
+
+- [PyQt 5](https://riverbankcomputing.com/software/pyqt/) - UI framework
+- [pyQode](https://github.com/pyQode/pyQode) - PyQt code editor with syntax highlighting
+- [Pygments](http://pygments.org/) - Syntax highlighter for printing code files
+- [pep8](https://pypi.python.org/pypi/pep8) - Code quality checker
+
+First, install everything using pip:
 
     pip install -r requirements.txt
 
 Note: if you have Python 2.x installed on your computer, the old `pip` may be present in `PATH` and interfere with the above command line. If that happens, try using `pip3` instead of `pip`.
 
-Next, open the src/ folder and either double-click on `main.py` or call `python main.py` from a command line.
+Next, open the src/ folder and use `run` or `./run.sh` depending on your operating system. You may need to do `chmod +x run.sh` to be able to execute it directly.
 
