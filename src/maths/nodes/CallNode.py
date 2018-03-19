@@ -12,7 +12,7 @@ class CallNode(AstNode):
     args = None
 
     def __init__(self, func, args):
-        super().__init__()
+        super().__init__(True)
         self.func = func
         self.args = args
 
@@ -21,3 +21,6 @@ class CallNode(AstNode):
 
     def __repr__(self):
         return "CallNode(%r, %r)" % (self.func, self.args)
+
+    def code(self):
+        return "%s(%s)" % (self.func.code_fix(), ", ".join(arg.code() for arg in self.args))

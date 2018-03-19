@@ -651,67 +651,67 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Evaluator</name>
     <message>
-        <location filename="../maths/evaluator.py" line="46"/>
+        <location filename="../maths/evaluator.py" line="47"/>
         <source>Parser: </source>
         <translation>Analyseur : </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="93"/>
+        <location filename="../maths/evaluator.py" line="98"/>
         <source>Argument count mismatch (expected %d, got %d)</source>
         <translation>Nombre d&apos;arguments invalides (attendu : %d, reçu : %d)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="125"/>
+        <location filename="../maths/evaluator.py" line="130"/>
         <source>Cannot find variable or function </source>
         <translation>Impossible de trouver la variable ou fonction </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="138"/>
+        <location filename="../maths/evaluator.py" line="143"/>
         <source>Callee is None</source>
         <translation>La fonction appelée est None</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="148"/>
+        <location filename="../maths/evaluator.py" line="153"/>
         <source>Only lists can be expanded</source>
         <translation>Seules les listes peuvent être étendues</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="164"/>
+        <location filename="../maths/evaluator.py" line="169"/>
         <source>Index &apos;%s&apos; too big for array</source>
         <translation>Indice &apos;%s&apos; trop grand pour la liste</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="175"/>
+        <location filename="../maths/evaluator.py" line="180"/>
         <source>Unknown node type: %s</source>
         <translation>Type de nœud inconnu : %s</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="194"/>
+        <location filename="../maths/evaluator.py" line="199"/>
         <source>Invalid unary operator &apos;%s&apos;</source>
         <translation>Opérateur unaire invalide &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="205"/>
+        <location filename="../maths/evaluator.py" line="210"/>
         <source>Trying to use None</source>
         <translation>Opération sur None impossible</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="217"/>
+        <location filename="../maths/evaluator.py" line="222"/>
         <source>Type mismatch: operands have different types (%s and %s)</source>
         <translation>Types incompatibles : les opérandes ont des types différents (%s et %s)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="238"/>
+        <location filename="../maths/evaluator.py" line="243"/>
         <source>Invalid value type for %s and operator &apos;%s&apos;</source>
         <translation>Type de valeur invalide pour %s et l&apos;opérateur &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="238"/>
+        <location filename="../maths/evaluator.py" line="243"/>
         <source> and </source>
         <translation> et </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="243"/>
+        <location filename="../maths/evaluator.py" line="248"/>
         <source>Operator &apos;%s&apos; not allowed for value type %s</source>
         <translation>Opérateur &apos;%s&apos; non autorisé pour le type de valeur %s</translation>
     </message>
@@ -721,27 +721,27 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Tentative de multiplication d&apos;une List par un non-entier (%f)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="267"/>
+        <location filename="../maths/evaluator.py" line="272"/>
         <source>Trying to divide by zero</source>
         <translation>Tentative de division par zéro</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="309"/>
+        <location filename="../maths/evaluator.py" line="314"/>
         <source>Invalid binary operator &apos;%s&apos; for &apos;%s&apos; and &apos;%s&apos;</source>
         <translation>Opérateur binaire &apos;%s&apos; invalide opur &apos;%s&apos; et &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="233"/>
+        <location filename="../maths/evaluator.py" line="238"/>
         <source>left</source>
         <translation>gauche</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="236"/>
+        <location filename="../maths/evaluator.py" line="241"/>
         <source>right</source>
         <translation>droite</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="259"/>
+        <location filename="../maths/evaluator.py" line="264"/>
         <source>Trying to multiply List by non-integer (%s)</source>
         <translation>Tentative de multiplication d&apos;une List par un non-entier (%s)</translation>
     </message>
@@ -1119,22 +1119,22 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="322"/>
+        <location filename="../main.py" line="325"/>
         <source>Error: </source>
         <translation>Erreur : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="187"/>
+        <location filename="../main.py" line="189"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="142"/>
+        <location filename="../main.py" line="143"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="179"/>
+        <location filename="../main.py" line="181"/>
         <source>Syntax error (%s) at line %d, offset %d: </source>
         <translation>Erreur de syntaxe (%s) à la ligne %d, caractère %d : </translation>
     </message>
@@ -1142,19 +1142,34 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
 <context>
     <name>Parser</name>
     <message>
-        <location filename="../maths/parser.py" line="157"/>
+        <location filename="../maths/parser.py" line="179"/>
         <source>Expected token (%s) &apos;%s&apos;</source>
         <translation>Jeton attendu (%s) &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="439"/>
+        <location filename="../maths/parser.py" line="461"/>
         <source>Unexpected EOL</source>
         <translation>Fin de ligne inattendue</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="441"/>
+        <location filename="../maths/parser.py" line="463"/>
         <source>Unexpected token (%s) &apos;%s&apos;</source>
         <translation>Jeton (%s) &apos;%s&apos; inattendu</translation>
+    </message>
+    <message>
+        <location filename="../maths/parser.py" line="90"/>
+        <source>OR</source>
+        <translation>OU</translation>
+    </message>
+    <message>
+        <location filename="../maths/parser.py" line="91"/>
+        <source>AND</source>
+        <translation>ET</translation>
+    </message>
+    <message>
+        <location filename="../maths/parser.py" line="92"/>
+        <source>NOT</source>
+        <translation>NON</translation>
     </message>
 </context>
 <context>

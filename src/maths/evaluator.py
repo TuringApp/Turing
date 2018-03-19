@@ -9,6 +9,7 @@ from util.log import Logger
 from util.math import *
 
 translate = util.translate
+DEBUG = True
 
 
 class Evaluator:
@@ -17,6 +18,7 @@ class Evaluator:
     log = None
     beautified = None
     strict_typing = False
+    node_tree = None
 
     def __init__(self, strict=False):
         self.variables = {}
@@ -35,29 +37,32 @@ class Evaluator:
 
     def evaluate(self, expr):
         parser = Parser(expr)
-        node_tree = None
+        self.node_tree = None
 
-        if False:
-            node_tree = parser.parse()
-        else:
-            try:
-                node_tree = parser.parse()
-            except:
-                self.log.error(translate("Evaluator", "Parser: ") + str(sys.exc_info()[1]))
+        try:
+            self.node_tree = parser.parse()
+        except:
+            if DEBUG:
+                raise
+            self.log.error(translate("Evaluator", "Parser: ") + str(sys.exc_info()[1]))
 
         for msg in parser.log.get_messages():
             self.log.messages.append(msg)
 
         self.beautified = parser.beautify()
 
-        if not node_tree:
+        if not self.node_tree:
             return None
+
+        self.beautified = self.node_tree.code()
 
         result = None
 
         try:
-            result = self.eval_node(node_tree)
+            result = self.eval_node(self.node_tree)
         except:
+            if DEBUG:
+                raise
             self.log.error(str(sys.exc_info()[1]))
 
         return result
@@ -188,7 +193,7 @@ class Evaluator:
         if node.operator == "-" and value_type == ValueType.LIST:
             return value[::-1]
 
-        if node.operator in ["NON", "NOT"] and (is_bool(value) or (not self.strict_typing and is_num(value))):
+        if node.operator == "NOT" and (is_bool(value) or (not self.strict_typing and is_num(value))):
             return not value
 
         self.log.error(translate("Evaluator", "Invalid unary operator '%s'") % node.operator)

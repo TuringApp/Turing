@@ -12,7 +12,7 @@ class ArrayAccessNode(AstNode):
     index = None
 
     def __init__(self, array, index):
-        super().__init__()
+        super().__init__(True)
         self.array = array
         self.index = index
 
@@ -21,3 +21,6 @@ class ArrayAccessNode(AstNode):
 
     def __repr__(self):
         return "ArrayAccessNode(%r, %r)" % (self.array, self.index)
+
+    def code(self):
+        return "%s[%s]" % (self.array.code_fix(), self.index.code())
