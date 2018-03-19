@@ -680,9 +680,6 @@ p, li { white-space: pre-wrap; }
    <property name="toolTip">
     <string>Find</string>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+F</string>
-   </property>
   </action>
   <action name="actionReplace">
    <property name="icon">
@@ -694,9 +691,6 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="toolTip">
     <string>Replace</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+H</string>
    </property>
   </action>
   <action name="actionCalculator">

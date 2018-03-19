@@ -177,13 +177,16 @@ def handler_GoToLine():
     code_editor.goto_line()
 
 def handler_Find():
-    pass
+    panel_search.on_search()
 
 def handler_FindPrevious():
     panel_search.select_previous()
 
 def handler_FindNext():
     panel_search.select_next()
+
+def handler_Replace():
+    panel_search.on_search_and_replace()
 
 def handler_Calculator():
     import calculator
@@ -313,7 +316,6 @@ def init_action_handlers():
 
 def copy_action(source: QAction, target: QAction):
     target.setText(source.text())
-    target.setShortcut(source.shortcut())
     target.setIcon(source.icon())
 
 
