@@ -22,6 +22,8 @@ import util.html
 from ui_about import Ui_AboutWindow
 from ui_mainwindow import Ui_MainWindow
 
+import datetime
+
 translate = QCoreApplication.translate
 
 __version__ = "β-0.2"
@@ -67,6 +69,13 @@ def get_themed_box():
     msg.setWindowIcon(QIcon("media/icon_16.png"))
     center_widget(msg, window)
     return msg
+
+
+def sleep(duration: int):
+    duration *= 1000
+    begin = datetime.datetime.now()
+    while (datetime.datetime.now() - begin).microseconds < duration:
+        QCoreApplication.processEvents()
 
 
 class MainWindowWrapper(QMainWindow):
@@ -225,6 +234,20 @@ def python_input(prompt=""):
 
     ui.btnSendInput.setEnabled(True)
     ui.txtInput.setEnabled(True)
+
+    for n in range(5):
+        ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
+        sleep(50)
+        ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
+        sleep(50)
+        ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff5252; }")
+        sleep(50)
+        ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
+        sleep(50)
+        ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
+        sleep(50)
+        ui.txtInput.setStyleSheet("")
+        sleep(200)
 
     global user_input
     user_input = None
