@@ -183,7 +183,7 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`integrate` / `integ`|<ul><li>`func` (Function(Number))</li><li>`a` (Number)</li><li>`b` (Number)</li><li>`steps` (Integer) default = 100000</li></ul>|Returns the integral of `func` from `a` to `b` (optional number of steps: `steps`).|
 |`lcm` / `ppcm`|<ul><li>`a` (Integer)</li><li>`b` (Integer)</li></ul>|Returns the least common multiple of `a` and `b`.|
 |`ln`|<ul><li>`num` (Number)</li></ul>|Returns the natural (base-*e*) logarithm of `num`.|
-|`log`|<ul><li>`num` (Number)</li><li>`b` (Number) != 0, default = 10</li></ul>|Returns the base-`b` logarithm of `num`.|
+|`log`|<ul><li>`num` (Number)</li><li>`b` (Number) != 0, default = e</li></ul>|Returns the base-`b` logarithm of `num`.|
 |`log10`|<ul><li>`num` (Number)</li></ul>|Returns the base-10 logarithm of `num`.|
 |`polar` / `polaire`|<ul><li>`x` (Number)</li></ul>|Returns a list containing the polar coordinates of `x`, respectively the modulus (radius) and argument (angle).|
 |`pow` / `puiss`|<ul><li>`num` (Number)</li><li>`p` (Number)</li></ul>|Returns `num` to the `p`-th power.|

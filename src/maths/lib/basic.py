@@ -107,12 +107,14 @@ def ln(x):
 doc("log",
     [
         ("num", "Number"),
-        ("b", "Number", "!= 0", 10)
+        ("b", "Number", "!= 0", "e")
     ],
     translate("Docs", "Returns the base-{{b}} logarithm of {{num}}."))
 
 
-def log(x, b=10):
+def log(x, b=None):
+    if b == None:
+        return cmath.log(x)
     return cmath.log(x, b)
 
 
