@@ -1177,7 +1177,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../ui_mainwindow.py" line="557"/>
         <source>Shift+F3</source>
-        <translation>Shift+F3</translation>
+        <translation>Maj+F3</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="558"/>
@@ -1197,7 +1197,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../ui_mainwindow.py" line="553"/>
         <source>Shift+Tab</source>
-        <translation>Shift+Tab</translation>
+        <translation>Maj+Tab</translation>
     </message>
 </context>
 <context>
