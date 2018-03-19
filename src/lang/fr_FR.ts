@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="fr_FR" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.1" language="fr_FR" sourcelanguage="en">
 <context>
     <name>AboutWindow</name>
     <message>
@@ -1141,62 +1142,62 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../ui_mainwindow.py" line="549"/>
         <source>Ctrl+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="550"/>
         <source>Indent</source>
-        <translation type="unfinished"></translation>
+        <translation>Indenter</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="552"/>
         <source>Unindent</source>
-        <translation type="unfinished"></translation>
+        <translation>Dé-indenter</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="548"/>
         <source>Duplicate Line</source>
-        <translation type="unfinished"></translation>
+        <translation>Dupliquer la ligne</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="554"/>
         <source>Go To Line</source>
-        <translation type="unfinished"></translation>
+        <translation>Aller à la ligne</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="555"/>
         <source>Ctrl+G</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="556"/>
         <source>Find Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechercher précédent</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="557"/>
         <source>Shift+F3</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="558"/>
         <source>Find Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechercher suivant</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="559"/>
         <source>F3</source>
-        <translation type="unfinished"></translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="551"/>
         <source>Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Tab</translation>
     </message>
     <message>
         <location filename="../ui_mainwindow.py" line="553"/>
         <source>Shift+Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift+Tab</translation>
     </message>
 </context>
 <context>
