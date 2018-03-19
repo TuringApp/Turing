@@ -15,12 +15,12 @@ from pyqode.core import modes
 from pyqode.core import panels
 
 import editor_backend
-import translator
+from lang import translator
 import util
 import util.code
 import util.html
-from ui_about import Ui_AboutWindow
-from ui_mainwindow import Ui_MainWindow
+from forms.ui_about import Ui_AboutWindow
+from forms.ui_mainwindow import Ui_MainWindow
 
 import datetime
 
@@ -198,17 +198,17 @@ def handler_Replace():
     panel_search.on_search_and_replace()
 
 def handler_Calculator():
-    import calculator
+    from forms import calculator
     calculator.run()
 
 
 def handler_Settings():
-    import settings
+    from forms import settings
     settings.run()
 
 
 def handler_HelpContents():
-    import help
+    from forms import help
     help.run()
 
 

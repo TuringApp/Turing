@@ -3,7 +3,7 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
-from ui_settings import Ui_SettingsWindow
+from forms.ui_settings import Ui_SettingsWindow
 
 translate = QCoreApplication.translate
 

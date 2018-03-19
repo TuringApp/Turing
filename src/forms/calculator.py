@@ -2,14 +2,14 @@
 
 import html
 import re
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple
 
 from PyQt5.QtGui import *
 
 import maths.lib.docs
-import translator
+from lang import translator
 from maths.evaluator import Evaluator
-from ui_calculator import Ui_CalcWindow
+from forms.ui_calculator import Ui_CalcWindow
 from util.math import proper_str
 from widgets import *
 

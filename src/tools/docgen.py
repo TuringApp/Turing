@@ -99,7 +99,7 @@ def doc_consts():
 
 
 if __name__ == "__main__":
-    path_docs = os.path.join(os.path.dirname(__file__), os.pardir, "docs")
+    path_docs = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, "docs")
 
     template = os.path.join(path_docs, "expression_templ.md")
     output = os.path.join(path_docs, "expression.md")
