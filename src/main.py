@@ -10,6 +10,7 @@ from PyQt5.QtWidgets import *
 import translator
 import util
 import util.code
+import util.html
 from ui_about import Ui_AboutWindow
 from ui_mainwindow import Ui_MainWindow
 
@@ -22,6 +23,7 @@ import editor_backend
 from util.undoredo import *
 import tempfile
 import runpy
+import html
 
 translate = QCoreApplication.translate
 
@@ -31,6 +33,9 @@ __channel__ = "beta"
 undo = None
 mode_python = True
 code_editor = None
+current_output = ""
+after_output = ""
+user_input = None
 
 def get_themed_box():
     msg = QMessageBox()
@@ -115,18 +120,72 @@ def handler_HelpContents():
     import help
     help.run()
 
+def python_print(*args, end="\n"):
+    global current_output
+    current_output += html.escape(" ".join(str(arg) for arg in args))
+    current_output += end
+    update_output()
+
+
+def update_output():
+    ui.txtOutput.setHtml("<pre>%s</pre>" % (current_output + after_output))
+    ui.txtOutput.moveCursor(QTextCursor.End)
+    ui.txtOutput.ensureCursorVisible()
+
+def python_input(prompt=""):
+    python_print(prompt, end="")
+
+    global after_output
+    after_output = "<hr>"
+    after_output += util.html.centered("<h3>%s</h3>" % util.html.color_span("<i>%s</i>" % translate("MainWindow", "Input: ") + html.escape(prompt), "red"))
+    update_output()
+
+    ui.btnSendInput.setEnabled(True)
+    ui.txtInput.setEnabled(True)
+
+    global user_input
+    user_input = None
+
+    while user_input == None:
+        QCoreApplication.processEvents()
+
+    ui.btnSendInput.setEnabled(False)
+    ui.txtInput.setEnabled(False)
+    ui.txtInput.setText("")
+
+    after_output = ""
+    python_print(user_input)
+
+    return user_input
+
+def python_print_error(msg):
+    global current_output
+    current_output += util.html.color_span(msg, "red")
+    update_output()
+
 def handler_Run():
-    print("groovy baby")
+    ui.actionRun.setDisabled(True)
+    ui.actionStep.setDisabled(True)
     file = tempfile.NamedTemporaryFile(mode="w+b", suffix=".py", delete=False)
-    try:
+    try: 
         code = util.code.python_wrapper(code_editor.toPlainText()).encode("utf8")
         file.write(code)
         file.close()
-        runpy.run_path(file.name)
+        runpy.run_path(file.name, init_globals={"print": python_print, "input": python_input})
+    except SyntaxError as err:
+        msg = translate("MainWindow", "Syntax error (%s) at line %d, offset %d: ") % (type(err).__name__, err.lineno - 10, err.offset)
+        python_print_error(msg + err.text)
+        python_print_error(" " * (len(msg) + err.offset - 1) + "↑")
     except:
-        print("Error: " + str(sys.exc_info()[1]))
+        python_print_error(str(sys.exc_info()[1]))
     finally:
         os.unlink(file.name)
+        global current_output
+        current_output += util.html.centered(util.html.color_span(translate("MainWindow", "end of output"), "red"))
+        current_output += "<hr>"
+        update_output()
+        ui.actionRun.setDisabled(False)
+        ui.actionStep.setDisabled(False)
 
 
 def handler_AboutTuring():
@@ -171,6 +230,14 @@ def change_language(language):
     for a in ui.menuLanguage.actions():
         a.setChecked(a.statusTip() == language)
 
+def send_user_input():
+    global user_input
+    user_input = ui.txtInput.text()
+
+def clear_output():
+    global current_output
+    current_output = ""
+    update_output()
 
 def load_code_editor():
     global code_editor
@@ -193,7 +260,6 @@ def load_code_editor():
 
     code_editor.panels.append(panels.FoldingPanel())
     code_editor.panels.append(panels.LineNumberPanel())
-    code_editor.panels.append(panels.EncodingPanel())
     code_editor.modes.append(modes.CheckerMode(pyqode.python.backend.run_pep8))
     code_editor.panels.append(panels.GlobalCheckerPanel(), panels.GlobalCheckerPanel.Position.LEFT)
 
@@ -208,7 +274,6 @@ def init_ui():
     ui.setupUi(window)
 
     load_code_editor()
-    ui.tabWidget.tabBar().tabButton(0, QTabBar.RightSide).resize(0, 0)  # hide close button for home
     init_action_handlers()
     refresh()
 
@@ -216,6 +281,9 @@ def init_ui():
     ui.menubar.removeAction(ui.menuLanguage.menuAction())
     right_corner.addAction(ui.menuLanguage.menuAction())
     ui.menubar.setCornerWidget(right_corner)
+
+    ui.btnSendInput.clicked.connect(send_user_input)
+    ui.btnClearOutput.clicked.connect(clear_output)
 
     def gen(act):
         return lambda: change_language(act)
@@ -247,7 +315,7 @@ if __name__ == "__main__":
     try:
         exitCode = app.exec_()
     except:
-        print("Error: " + str(sys.exc_info()[1]))
+        print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]))
         exitCode = 1
 
     sys.exit(exitCode)
