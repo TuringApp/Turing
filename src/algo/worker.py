@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from typing import Optional
+import typing
+from typing import Optional, Union
+from collections import Iterable
 
 from algo.stmts import *
 from algo.stmts.BlockStmt import BlockStmt
@@ -96,6 +98,9 @@ class Worker():
                         self.stack[-1] = (stmt, -1)
                         continue
 
+                elif isinstance(stmt, FuncStmt):
+                    self.calls.append(None)
+
                 self.exit_block()
                 continue
 
@@ -167,6 +172,30 @@ class Worker():
         index = len(stmt.children)
         self.stack[-1] = stmt, index
 
+    def exec_function(self, stmt: FuncStmt):
+        self.evaluator.set_variable(stmt.name, lambda *args: self.call_function(stmt, *list(args)))
+
+    def exec_return(self, stmt: ReturnStmt):
+        if not self.find_parent(FuncStmt):
+            self.log.error(translate("Algo", "RETURN can only be used inside a function"))
+            self.finished = True
+            return
+
+        self.calls.append(self.evaluator.eval_node(stmt.value) if stmt.value else None)
+
+        while True:
+            if isinstance(self.exit_block()[0], FuncStmt):
+                break
+
+    def call_function(self, stmt: FuncStmt, *args):
+        self.enter_block(stmt, {stmt.parameters[idx]: arg for idx, arg in enumerate(args)})
+        length = len(self.stack)
+
+        while len(self.stack) >= length and not self.finished:
+            self.step()
+
+        return self.calls.pop()
+
     def step(self):
         stmt = self.next_stmt()
 
@@ -181,7 +210,9 @@ class Worker():
             ForStmt: self.exec_for,
             WhileStmt: self.exec_while,
             BreakStmt: self.exec_break,
-            ContinueStmt: self.exec_continue
+            ContinueStmt: self.exec_continue,
+            FuncStmt: self.exec_function,
+            ReturnStmt: self.exec_return
         }
 
         if type(stmt) not in map:
@@ -193,8 +224,11 @@ class Worker():
 
     def run(self):
         self.stack = [(self.code, -1)]
+        self.calls = []
+
         self.evaluator.enter_frame()
+
         while not self.finished:
             self.step()
+
         self.evaluator.exit_frame()
-        print("finished")
