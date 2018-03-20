@@ -102,9 +102,9 @@ class Worker():
 
         return stmt.children[index]
 
-    def enter_block(self, stmt: BlockStmt):
+    def enter_block(self, stmt: BlockStmt, value=None):
         self.stack.append((stmt, -1))
-        self.evaluator.enter_frame()
+        self.evaluator.enter_frame(value)
 
     def exit_block(self):
         self.evaluator.exit_frame()
