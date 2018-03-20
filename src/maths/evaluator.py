@@ -7,7 +7,6 @@ import maths.lib as mlib
 from maths.parser import *
 from util.log import Logger
 from util.math import *
-from util import translate
 
 DEBUG = False
 
@@ -36,7 +35,11 @@ class Evaluator:
         self.log = Logger("Eval")
         self.strict_typing = strict
 
+    def enter_frame(self):
+        self.frames.append({})
 
+    def exit_frame(self):
+        return self.frames.pop()
 
     def set_variable(self, variable: str, value: object):
         for frame in reversed(self.frames):
