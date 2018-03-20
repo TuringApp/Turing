@@ -17,7 +17,7 @@ class ArrayAccessNode(AstNode):
         self.index = index
 
     def __str__(self):
-        return "[ArrayAccess (%s) @ (%s)]" % (self.array, self.index)
+        return "[ArrayAccess %s @ %s]" % (self.array, self.index)
 
     def __repr__(self):
         return "ArrayAccessNode(%r, %r)" % (self.array, self.index)
