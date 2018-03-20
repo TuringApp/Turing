@@ -20,3 +20,6 @@ class ForStmt(BlockStmt):
         if step == None:
             step = NumberNode(1)
         self.step = step
+
+    def __str__(self):
+        return "[For %s = %s -> %s [%s] %s]" % (self.variable, self.begin, self.end, self.step, super().__str__())

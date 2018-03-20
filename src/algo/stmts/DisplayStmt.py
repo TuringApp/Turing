@@ -10,3 +10,6 @@ class DisplayStmt(BaseStmt):
     def __init__(self, content: AstNode):
         super().__init__()
         self.content = content
+
+    def __str__(self):
+        return "[Display %s]" % self.content

@@ -11,3 +11,6 @@ class WhileStmt(BlockStmt):
     def __init__(self, predicate: AstNode, children: CodeBlock):
         super().__init__(children)
         self.predicate = predicate
+
+    def __str__(self):
+        return "[While %s %s]" % (self.predicate, super().__str__())

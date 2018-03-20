@@ -12,3 +12,6 @@ class InputStmt(BaseStmt):
         super().__init__()
         self.variable = variable
         self.prompt = prompt
+
+    def __str__(self):
+        return "[Input '%s' -> %s]" % (self.prompt, self.variable)

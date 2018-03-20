@@ -12,3 +12,6 @@ class AssignStmt(BaseStmt):
         super().__init__()
         self.variable = variable
         self.value = value
+
+    def __str__(self):
+        return "[Assign %s = %s]" % (self.variable, self.value)
