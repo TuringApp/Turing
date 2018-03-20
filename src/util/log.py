@@ -6,7 +6,9 @@ from typing import Tuple, List, Callable
 class LogType:
     ERROR, WARNING = range(2)
 
+
 LogMessage = Tuple[LogType, str]
+
 
 class Logger:
     """Logger class."""

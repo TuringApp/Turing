@@ -93,7 +93,9 @@ class Operators:
             "NOT": translate("Parser", "NOT")
         }.get(op.upper(), op)
 
+
 Token = Tuple[TokenType, Any]
+
 
 class Parser:
     """Main parser class. Transforms a string into an AST tree."""

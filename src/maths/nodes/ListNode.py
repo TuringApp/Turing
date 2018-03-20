@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from typing import List
+
 from util.math import proper_str
 from .AstNode import *
-from typing import List
+
 
 class ListNode(AstNode):
     """Identifier node

@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from .AstNode import *
 from typing import List
+
+from .AstNode import *
+
 
 class CallNode(AstNode):
     """Function call node

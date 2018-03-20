@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import util
 from util.math import proper_str
 from .AstNode import *
-import util
+
 
 class NumberNode(AstNode):
     """Number node

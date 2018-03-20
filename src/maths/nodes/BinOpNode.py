@@ -54,4 +54,5 @@ class BinOpNode(AstNode):
         if self.is_imag_part:
             return "%si" % self.left.code()
         return "%s %s %s" % (
-        self.operand_code(self.left), maths.parser.Operators.pretty_print(self.operator), self.operand_code(self.right))
+            self.operand_code(self.left), maths.parser.Operators.pretty_print(self.operator),
+            self.operand_code(self.right))

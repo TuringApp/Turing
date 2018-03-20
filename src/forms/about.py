@@ -21,6 +21,5 @@ def init_ui(parent, version, channel):
     window.exec_()
 
 
-
 def run(parent, version, channel):
     init_ui(parent, version, channel)

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import datetime
 import html
 import os
 import runpy
@@ -15,14 +16,11 @@ from pyqode.core import modes
 from pyqode.core import panels
 
 import editor_backend
-from lang import translator
 import util
 import util.code
 import util.html
 from forms.ui_mainwindow import Ui_MainWindow
-
-import datetime
-
+from lang import translator
 from util.widgets import center_widget
 
 translate = QCoreApplication.translate
@@ -62,6 +60,7 @@ python_only = [
     "Indent",
     "Unindent"
 ]
+
 
 def get_themed_box():
     msg = QMessageBox()
@@ -163,30 +162,39 @@ def handler_Paste():
     if mode_python:
         code_editor.paste()
 
+
 def handler_DuplicateLine():
     if mode_python:
         code_editor.duplicate_line()
 
+
 def handler_Indent():
     code_editor.indent()
+
 
 def handler_Unindent():
     code_editor.un_indent()
 
+
 def handler_GoToLine():
     code_editor.goto_line()
+
 
 def handler_Find():
     panel_search.on_search()
 
+
 def handler_FindPrevious():
     panel_search.select_previous()
+
 
 def handler_FindNext():
     panel_search.select_next()
 
+
 def handler_Replace():
     panel_search.on_search_and_replace()
+
 
 def handler_Calculator():
     from forms import calculator
@@ -351,12 +359,14 @@ def load_editor_actions():
     for ours, theirs in editor_action_table:
         copy_action(getattr(ui, "action" + ours), getattr(code_editor, "action_" + theirs))
 
+
 def copy_actions_to_editor(panel):
     for name, obj in panel.__dict__.items():
         if name.startswith("action_"):
             setattr(code_editor, name, obj)
-        elif name.startswith("action"): # workaround for shitty naming by the devs
+        elif name.startswith("action"):  # workaround for shitty naming by the devs
             setattr(code_editor, "action_" + name[6:], obj)
+
 
 def load_code_editor():
     global code_editor

@@ -7,9 +7,9 @@ from typing import Dict, List, Tuple
 from PyQt5.QtGui import *
 
 import maths.lib.docs
+from forms.ui_calculator import Ui_CalcWindow
 from lang import translator
 from maths.evaluator import Evaluator
-from forms.ui_calculator import Ui_CalcWindow
 from util.math import proper_str
 from util.widgets import *
 
@@ -18,7 +18,6 @@ translate = QCoreApplication.translate
 function = Tuple
 functions: Dict[str, List[function]] = None
 doc_items = None
-
 
 
 def add_result(expr, result, error=False):

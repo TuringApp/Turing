@@ -3,11 +3,12 @@
 import re
 from html import escape
 from typing import Dict, List, Tuple, Optional
+
 import maths.lib
 import maths.lib.docs
-from lang import translator
 import util.html
 from forms.ui_help import Ui_HelpWindow
+from lang import translator
 from util.math import proper_str
 from util.widgets import *
 
