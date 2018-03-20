@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
+from typing import Optional
 
 from algo.stmts import *
+from algo.stmts.BlockStmt import BlockStmt
+from algo.stmts.BreakStmt import BreakStmt
+from algo.stmts.ContinueStmt import ContinueStmt
 from maths.evaluator import Evaluator
 from maths.parser import Parser
 from util import translate
