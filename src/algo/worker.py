@@ -13,7 +13,7 @@ from util.log import Logger
 
 class Worker():
     code = None
-    current = None
+    stack = None
     evaluator = None
     log = None
     finished = None
@@ -22,7 +22,7 @@ class Worker():
 
     def __init__(self, code: CodeBlock):
         self.code = BlockStmt(code)
-        self.current = []
+        self.stack = []
         self.log = Logger("Algo")
         self.finished = False
         self.reset_eval()
@@ -65,22 +65,22 @@ class Worker():
 
     def next_stmt(self) -> Optional[BaseStmt]:
         while True:
-            stmt, index = self.current[-1]
+            stmt, index = self.stack[-1]
             index += 1
 
             if index >= len(stmt.children):
-                if len(self.current) == 1:
+                if len(self.stack) == 1:
                     self.finished = True
                     return None
 
                 if isinstance(stmt, ForStmt):
                     if self.iterate_for(stmt):
-                        self.current[-1] = (stmt, -1)
+                        self.stack[-1] = (stmt, -1)
                         continue
 
                 elif isinstance(stmt, WhileStmt):
                     if bool(self.evaluator.eval_node(stmt.predicate)):
-                        self.current[-1] = (stmt, -1)
+                        self.stack[-1] = (stmt, -1)
                         continue
 
                 self.exit_block()
@@ -88,17 +88,17 @@ class Worker():
 
             break
 
-        self.current[-1] = (stmt, index)
+        self.stack[-1] = (stmt, index)
 
         return stmt.children[index]
 
     def enter_block(self, stmt: BlockStmt):
-        self.current.append((stmt, -1))
+        self.stack.append((stmt, -1))
         self.evaluator.enter_frame()
 
     def exit_block(self):
         self.evaluator.exit_frame()
-        return self.current.pop()
+        return self.stack.pop()
 
     def step(self):
         stmt = self.next_stmt()
@@ -152,7 +152,7 @@ class Worker():
             self.current[-1] = stmt, index
 
     def run(self):
-        self.current = [(self.code, -1)]
+        self.stack = [(self.code, -1)]
         self.evaluator.enter_frame()
         while not self.finished:
             self.step()
