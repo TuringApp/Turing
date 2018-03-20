@@ -129,6 +129,13 @@ class Worker():
                 if isinstance(self.exit_block()[0], (ForStmt, WhileStmt)):
                     break
 
+        elif isinstance(stmt, ContinueStmt):
+            while not isinstance(self.current[-1][0], (ForStmt, WhileStmt)):
+                self.exit_block()
+            stmt, index = self.current[-1]
+            index = len(stmt.children)
+            self.current[-1] = stmt, index
+
     def run(self):
         self.current = [(self.code, -1)]
         self.evaluator.enter_frame()
