@@ -6,16 +6,17 @@ from algo.stmts.BreakStmt import BreakStmt
 from algo.stmts.ContinueStmt import ContinueStmt
 from algo.worker import Worker
 from tests.framework import expect
+from maths.parser import quick_parse as parse
 
 tests = [
     (
         [
-            AssignStmt("sum", nodes.NumberNode(0)),
+            AssignStmt("sum", parse("0")),
             InputStmt("N"),
-            ForStmt("i", nodes.NumberNode(1), nodes.IdentifierNode("N"), [
-                AssignStmt("sum", nodes.BinOpNode(nodes.IdentifierNode("sum"), nodes.IdentifierNode("i"), "+"))
+            ForStmt("i", parse("1"), parse("N"), [
+                AssignStmt("sum", parse("sum + i"))
             ]),
-            DisplayStmt(nodes.BinOpNode(nodes.StringNode("Result="), nodes.IdentifierNode("sum"), "+"))
+            DisplayStmt(parse("\"Result=\" + sum"))
         ],
         "5",
         [
@@ -25,9 +26,9 @@ tests = [
     ),
     (
         [
-            ForStmt("i", nodes.NumberNode(1), nodes.NumberNode(3), [
-                ForStmt("i", nodes.NumberNode(1), nodes.NumberNode(3), [
-                    DisplayStmt(nodes.IdentifierNode("i"))
+            ForStmt("i", parse("1"), parse("3"), [
+                ForStmt("i", parse("1"), parse("3"), [
+                    DisplayStmt(parse("i"))
                 ])
             ])
         ],
@@ -46,27 +47,33 @@ tests = [
     ),
     (
         [
-            AssignStmt("i", nodes.NumberNode(42)),
-            ForStmt("i", nodes.NumberNode(1), nodes.NumberNode(10), [
-                IfStmt(nodes.NumberNode(1), [
-                    IfStmt(nodes.BinOpNode(nodes.IdentifierNode("i"), nodes.NumberNode(2), "%"), [
+            AssignStmt("i", parse("42")),
+            ForStmt("i", parse("1"), parse("10"), [
+                IfStmt(parse("1"), [
+                    IfStmt(parse("i % 2"), [
                         ContinueStmt()
                     ]),
-                    IfStmt(nodes.BinOpNode(nodes.IdentifierNode("i"), nodes.NumberNode(5), ">"), [
-                        DisplayStmt(nodes.StringNode("break")),
-                        DisplayStmt(nodes.IdentifierNode("i")),
+                    IfStmt(parse("i > 5"), [
+                        FuncStmt("fibo", ["n"], [
+                            IfStmt(parse("n <= 1"), [
+                                ReturnStmt(parse("n"))
+                            ]),
+                            ReturnStmt(parse("fibo(n-1)+fibo(n-2)"))
+                        ]),
+                        DisplayStmt(parse("map(fibo, [5, 7, 9])")),
+                        DisplayStmt(parse("i")),
                         BreakStmt()
                     ]),
-                    DisplayStmt(nodes.IdentifierNode("i")),
+                    DisplayStmt(parse("i")),
                 ])
             ]),
-            DisplayStmt(nodes.IdentifierNode("i"))
+            DisplayStmt(parse("i"))
         ],
         "",
         [
             "2",
             "4",
-            "break",
+            "[5, 13, 34]",
             "6",
             "42"
         ]
