@@ -662,8 +662,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="130"/>
-        <source>Cannot find variable or function </source>
-        <translation>Impossible de trouver la variable ou fonction </translation>
+        <source>Cannot find variable or function %s</source>
+        <translation>Impossible de trouver la variable ou fonction %s</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="143"/>
