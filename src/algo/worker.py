@@ -4,7 +4,6 @@ from algo.stmts import *
 from maths.evaluator import Evaluator
 from maths.parser import Parser
 from util.log import Logger
-import algo.stmts as stmts
 
 class Worker():
     code = None
@@ -25,7 +24,7 @@ class Worker():
     def reset_eval(self):
         self.evaluator = Evaluator()
 
-    def stmt_input(self, prompt = None):
+    def stmt_input(self, prompt: str = None):
         if self.callback_input is not None:
             res = self.callback_input(prompt)
         else:
@@ -41,41 +40,45 @@ class Worker():
 
         print(*args, end=end)
 
-    def next_stmt(self):
+    def iterate_for(self, stmt: ForStmt):
+        current = self.evaluator.get_variable(stmt.variable)
+        step = self.evaluator.eval_node(stmt.step)
+
+        current = self.evaluator.binary_operation(current, step, "+")
+        self.evaluator.set_variable(stmt.variable, current)
+
+        return self.check_for_condition(stmt, current, step)
+
+    def check_for_condition(self, stmt: ForStmt, current=None, step=None):
+        begin = self.evaluator.eval_node(stmt.begin)
+        end = self.evaluator.eval_node(stmt.end)
+
+        condition_1 = bool(self.evaluator.binary_operation(current, begin, "><"[step < 0] + "="))
+        condition_2 = bool(self.evaluator.binary_operation(current, end, "<>"[step < 0] + "="))
+        return condition_1 and condition_2
+
+    def next_stmt(self) -> BaseStmt:
         while True:
-            node, index = self.current[-1]
+            stmt, index = self.current[-1]
             index += 1
 
-            if index >= len(node.children):
+            if index >= len(stmt.children):
                 if len(self.current) == 1:
                     self.finished = True
                     return None
 
-                if type(node) == ForStmt:
-                    # update counter
-                    current = self.evaluator.get_variable(node.variable)
-                    step = self.evaluator.eval_node(node.step)
-                    current = self.evaluator.binary_operation(current, step, "+")
-                    self.evaluator.set_variable(node.variable, current)
-
-                    # check condition
-                    begin = self.evaluator.eval_node(node.begin)
-                    end = self.evaluator.eval_node(node.end)
-
-                    condition_1 = bool(self.evaluator.binary_operation(current, begin, "><"[step < 0] + "="))
-                    condition_2 = bool(self.evaluator.binary_operation(current, end, "<>"[step < 0] + "="))
-                    condition = condition_1 and condition_2
-
-                    if condition:
+                if type(stmt) == ForStmt:
+                    if self.iterate_for(stmt):
                         index = 0
                     else:
                         self.current.pop()
+                        self.evaluator.exit_frame()
                         continue
 
             break
 
-        self.current[-1] = (node, index)
-        return node.children[index]
+        self.current[-1] = (stmt, index)
+        return stmt.children[index]
 
     def step(self):
         stmt = self.next_stmt()
@@ -95,24 +98,36 @@ class Worker():
 
         elif isinstance(stmt, BlockStmt):
             if isinstance(stmt, IfStmt):
+                self.evaluator.enter_frame()
                 condition = bool(self.evaluator.eval_node(stmt.condition))
                 if condition:
                     self.current.append((stmt, -1))
+                else:
+                    self.evaluator.exit_frame()
 
             if isinstance(stmt, WhileStmt):
+                self.evaluator.enter_frame()
                 predicate = bool(self.evaluator.eval_node(stmt.predicate))
                 if predicate:
                     self.current.append((stmt, -1))
+                else:
+                    self.evaluator.exit_frame()
 
             if isinstance(stmt, ForStmt):
-                self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.begin))
-                self.current.append((stmt, -1))
+                self.evaluator.enter_frame()
+                self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.begin), local=True)
+
+                if self.check_for_condition(stmt, self.evaluator.get_variable(stmt.variable), self.evaluator.eval_node(stmt.step)):
+                    self.current.append((stmt, -1))
+                else:
+                    self.evaluator.exit_frame()
 
 
 
     def run(self):
         self.current = [(self.code, -1)]
-        self.evaluator.variables = {}
+        self.evaluator.enter_frame()
         while not self.finished:
             self.step()
+        self.evaluator.exit_frame()
         print("finished")
