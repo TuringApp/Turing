@@ -51,7 +51,7 @@ class Worker():
 
     def iterate_for(self, stmt: ForStmt):
         current = self.evaluator.get_variable(stmt.variable)
-        step = self.evaluator.eval_node(stmt.step)
+        step = self.evaluator.eval_node(stmt.step or NumberNode(1))
 
         current = self.evaluator.binary_operation(current, step, "+")
         self.evaluator.set_variable(stmt.variable, current)
@@ -142,7 +142,7 @@ class Worker():
         self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.begin), local=True)
 
         if not self.check_for_condition(stmt, self.evaluator.get_variable(stmt.variable),
-                                        self.evaluator.eval_node(stmt.step)):
+                                        self.evaluator.eval_node(stmt.step or NumberNode(1))):
             self.exit_block()
 
     def exec_break(self, stmt: BreakStmt):
