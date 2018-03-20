@@ -100,56 +100,73 @@ class Worker():
         self.evaluator.exit_frame()
         return self.stack.pop()
 
+    def exec_display(self, stmt: DisplayStmt):
+        self.stmt_print(str(self.evaluator.eval_node(stmt.content)))
+
+    def exec_input(self, stmt: InputStmt):
+        prompt = (translate("Algorithm", "Variable %s = ") % stmt.variable) if stmt.prompt is None else stmt.prompt
+        self.evaluator.set_variable(stmt.variable, self.stmt_input(prompt))
+
+    def exec_assign(self, stmt: AssignStmt):
+        self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.value))
+
+    def exec_if(self, stmt: IfStmt):
+        self.enter_block(stmt)
+
+        condition = bool(self.evaluator.eval_node(stmt.condition))
+        if not condition:
+            self.exit_block()
+
+    def exec_while(self, stmt: WhileStmt):
+        self.enter_block(stmt)
+
+        predicate = bool(self.evaluator.eval_node(stmt.predicate))
+        if not predicate:
+            self.exit_block()
+
+    def exec_for(self, stmt: ForStmt):
+        self.enter_block(stmt)
+        self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.begin), local=True)
+
+        if not self.check_for_condition(stmt, self.evaluator.get_variable(stmt.variable),
+                                        self.evaluator.eval_node(stmt.step)):
+            self.exit_block()
+
+    def exec_break(self, stmt: BreakStmt):
+        while True:
+            if isinstance(self.exit_block()[0], (ForStmt, WhileStmt)):
+                break
+
+    def exec_continue(self, stmt: ContinueStmt):
+        while not isinstance(self.stack[-1][0], (ForStmt, WhileStmt)):
+            self.exit_block()
+        stmt, index = self.stack[-1]
+        index = len(stmt.children)
+        self.stack[-1] = stmt, index
+
     def step(self):
         stmt = self.next_stmt()
 
         if stmt is None:
             return
 
-        if type(stmt) == DisplayStmt:
-            self.stmt_print(str(self.evaluator.eval_node(stmt.content)))
+        map = {
+            DisplayStmt: self.exec_display,
+            InputStmt: self.exec_input,
+            AssignStmt: self.exec_assign,
+            IfStmt: self.exec_if,
+            ForStmt: self.exec_for,
+            WhileStmt: self.exec_while,
+            BreakStmt: self.exec_break,
+            ContinueStmt: self.exec_continue
+        }
 
-        elif type(stmt) == InputStmt:
-            prompt = (translate("Algorithm", "Variable %s = ") % stmt.variable) if stmt.prompt is None else stmt.prompt
-            self.evaluator.set_variable(stmt.variable, self.stmt_input(prompt))
+        if type(stmt) not in map:
+            self.log.error(translate("Algo", "Unknown statement type: %s") % type(stmt))
+            self.finished = True
+            return
 
-        elif type(stmt) == AssignStmt:
-            self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.value))
-
-        elif isinstance(stmt, BlockStmt):
-            if isinstance(stmt, IfStmt):
-                self.enter_block(stmt)
-
-                condition = bool(self.evaluator.eval_node(stmt.condition))
-                if not condition:
-                    self.exit_block()
-
-            if isinstance(stmt, WhileStmt):
-                self.enter_block(stmt)
-
-                predicate = bool(self.evaluator.eval_node(stmt.predicate))
-                if not predicate:
-                    self.exit_block()
-
-            if isinstance(stmt, ForStmt):
-                self.enter_block(stmt)
-                self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.begin), local=True)
-
-                if not self.check_for_condition(stmt, self.evaluator.get_variable(stmt.variable),
-                                            self.evaluator.eval_node(stmt.step)):
-                    self.exit_block()
-
-        elif isinstance(stmt, BreakStmt):
-            while True:
-                if isinstance(self.exit_block()[0], (ForStmt, WhileStmt)):
-                    break
-
-        elif isinstance(stmt, ContinueStmt):
-            while not isinstance(self.current[-1][0], (ForStmt, WhileStmt)):
-                self.exit_block()
-            stmt, index = self.current[-1]
-            index = len(stmt.children)
-            self.current[-1] = stmt, index
+        map[type(stmt)](stmt)
 
     def run(self):
         self.stack = [(self.code, -1)]
