@@ -134,23 +134,23 @@ class Evaluator:
         return result
 
     def eval_node_real(self, node: nodes.AstNode):
-        if type(node) == nodes.ListNode:
+        if isinstance(node, nodes.ListNode):
             return [self.eval_node(x) for x in node.value]
 
-        if type(node) in [nodes.NumberNode, nodes.StringNode]:
+        if isinstance(node, (nodes.NumberNode, nodes.StringNode)):
             return node.value
 
-        if type(node) == nodes.IdentifierNode:
+        if isinstance(node, nodes.IdentifierNode):
             return self.get_variable(node.value)
 
-        if type(node) == nodes.UnaryOpNode:
+        if isinstance(node, nodes.UnaryOpNode):
             return self.eval_unary(node)
 
-        if type(node) == nodes.BinOpNode:
+        if isinstance(node, nodes.BinOpNode):
             return self.eval_binary(node)
 
-        if type(node) == nodes.CallNode:
             function = self.eval_node(node.func)
+        if isinstance(node, nodes.CallNode):
 
             if function is None:
                 self.log.error(translate("Evaluator", "Callee is None"))
@@ -171,8 +171,8 @@ class Evaluator:
                 args = [self.eval_node(x) for x in node.args]
 
             return function.__call__(*args)
+        if isinstance(node, nodes.ArrayAccessNode):
 
-        if type(node) == nodes.ArrayAccessNode:
             array = self.eval_node(node.array)
             index = int(self.eval_node(node.index))
 
@@ -182,8 +182,8 @@ class Evaluator:
                 self.log.error(translate("Evaluator", "Index '%s' too big for array") % index)
                 return None
 
-        if type(node) == nodes.LambdaNode:
             return lambda *args: self.call_lambda(node, *list(args))
+        if isinstance(node, nodes.LambdaNode):
 
         # if the object is not a node, it must be a remnant of an already-parsed value
         # return it directly
