@@ -63,6 +63,16 @@ class Worker():
         condition_2 = bool(self.evaluator.binary_operation(current, end, "<>"[step < 0] + "="))
         return condition_1 and condition_2
 
+    def find_parent(self, types: Union[type, typing.Iterable[type]]):
+        if not isinstance(types, Iterable):
+            types = [types]
+
+        for idx, frame in enumerate(reversed(self.stack)):
+            if type(frame[0]) in types:
+                return (idx, frame)
+
+        return None
+
     def next_stmt(self) -> Optional[BaseStmt]:
         while True:
             stmt, index = self.stack[-1]
@@ -133,12 +143,20 @@ class Worker():
             self.exit_block()
 
     def exec_break(self, stmt: BreakStmt):
+        if not self.find_parent(Loops):
+            self.log.error(translate("Algo", "BREAK can only be used inside a loop"))
+            self.finished = True
+            return
         while True:
             if isinstance(self.exit_block()[0], (ForStmt, WhileStmt)):
                 break
 
     def exec_continue(self, stmt: ContinueStmt):
         while not isinstance(self.stack[-1][0], (ForStmt, WhileStmt)):
+        if not self.find_parent(Loops):
+            self.log.error(translate("Algo", "CONTINUE can only be used inside a loop"))
+            self.finished = True
+            return
             self.exit_block()
         stmt, index = self.stack[-1]
         index = len(stmt.children)
