@@ -15,9 +15,10 @@ tests = [
          DisplayStmt(nodes.BinOpNode(nodes.StringNode("Result="), nodes.IdentifierNode("sum"), "+"))
      ],
      "5",
-     """Variable N = 5
- Result=15
- """)
+     [
+         "Variable N = 5",
+         "Result=15"
+     ])
 ]
 
 
@@ -45,4 +46,4 @@ def run_tests():
         worker.evaluator.strict_typing = True
         worker.run()
 
-        expect(output, exp_output)
+        expect(output, "\n".join(exp_output) + "\n")
