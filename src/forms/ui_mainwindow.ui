@@ -42,6 +42,10 @@
        <layout class="QVBoxLayout" name="verticalLayout_3"/>
       </widget>
       <widget class="QWidget" name="tab_pseudocode">
+       <attribute name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/code.png</normaloff>:/action/media/code.png</iconset>
+       </attribute>
        <attribute name="title">
         <string>Pseudocode</string>
        </attribute>
@@ -61,6 +65,10 @@
        </layout>
       </widget>
       <widget class="QWidget" name="tab_code">
+       <attribute name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/python.ico</normaloff>:/action/media/python.ico</iconset>
+       </attribute>
        <attribute name="title">
         <string>Code</string>
        </attribute>
@@ -781,6 +789,10 @@ p, li { white-space: pre-wrap; }
    </property>
   </action>
   <action name="actionConvertToPython">
+   <property name="icon">
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/python.ico</normaloff>:/action/media/python.ico</iconset>
+   </property>
    <property name="text">
     <string>Convert to Python</string>
    </property>
@@ -789,6 +801,10 @@ p, li { white-space: pre-wrap; }
    </property>
   </action>
   <action name="actionConvertToPseudocode">
+   <property name="icon">
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/code.png</normaloff>:/action/media/code.png</iconset>
+   </property>
    <property name="text">
     <string>Convert to pseudocode</string>
    </property>

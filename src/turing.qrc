@@ -38,6 +38,8 @@
         <file>media/toolbar_text.png</file>
         <file>media/undo.png</file>
         <file>media/unindent.png</file>
+        <file>media/code.png</file>
+        <file>media/python.ico</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>
