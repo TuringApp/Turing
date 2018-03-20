@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from typing import Tuple
 
 from algo.stmts import BlockStmt
-from .BaseStmt import *
 from maths.nodes import AstNode
+from .BaseStmt import *
+
 
 class IfStmt(BlockStmt):
     condition = AstNode

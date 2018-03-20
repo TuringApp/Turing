@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 # -*- coding: utf-8 -*-
-from typing import List
 
 from algo.stmts.BlockStmt import BlockStmt
-from .BaseStmt import *
 from maths.nodes import AstNode, NumberNode
+from .BaseStmt import *
 
 
 class ForStmt(BlockStmt):

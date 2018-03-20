@@ -3,6 +3,7 @@
 
 from algo.stmts import BaseStmt, CodeBlock
 
+
 class BlockStmt(BaseStmt):
     children = None
 

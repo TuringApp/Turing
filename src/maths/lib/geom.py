@@ -2,11 +2,9 @@
 
 import math
 
-import util
 from maths.lib import trig
-from .docs import *
-
 from util import translate
+from .docs import *
 
 __desc__ = translate("Docs", "Geometry")
 

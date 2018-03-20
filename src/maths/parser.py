@@ -3,12 +3,11 @@
 import re
 import types
 from typing import List, Tuple, Any
-from . import nodes
-import util
-from util.log import Logger
-from util.math import proper_str, is_num
 
 from util import translate
+from util.log import Logger
+from util.math import proper_str, is_num
+from . import nodes
 
 
 class ValueType:

@@ -2,6 +2,7 @@
 
 from typing import List
 
+
 class BaseStmt():
     parent = None
 

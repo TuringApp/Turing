@@ -5,11 +5,9 @@ import math
 import random as rnd
 import statistics
 
-import util
 from maths.lib import basic
-from .docs import *
-
 from util import translate
+from .docs import *
 
 __desc__ = translate("Docs", "Statistics")
 

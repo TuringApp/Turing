@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from .BaseStmt import *
 from maths.nodes import AstNode
+from .BaseStmt import *
+
 
 class AssignStmt(BaseStmt):
     variable = None

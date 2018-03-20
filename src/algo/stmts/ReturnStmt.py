@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-from typing import List
 
-from .BaseStmt import *
 from maths.nodes import AstNode
+from .BaseStmt import *
 
 
 class ReturnStmt(BaseStmt):

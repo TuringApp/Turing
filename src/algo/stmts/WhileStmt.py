@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from typing import List
 
 from algo.stmts import BlockStmt
-from .BaseStmt import *
 from maths.nodes import AstNode
+from .BaseStmt import *
 
 
 class WhileStmt(BlockStmt):

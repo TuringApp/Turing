@@ -4,10 +4,8 @@ import builtins
 import cmath
 import math as rmath
 
-import util
-from .docs import *
-
 from util import translate
+from .docs import *
 
 __desc__ = translate("Docs", "Basic")
 

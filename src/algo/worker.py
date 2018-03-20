@@ -3,7 +3,9 @@
 from algo.stmts import *
 from maths.evaluator import Evaluator
 from maths.parser import Parser
+from util import translate
 from util.log import Logger
+
 
 class Worker():
     code = None
@@ -117,12 +119,11 @@ class Worker():
                 self.evaluator.enter_frame()
                 self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.begin), local=True)
 
-                if self.check_for_condition(stmt, self.evaluator.get_variable(stmt.variable), self.evaluator.eval_node(stmt.step)):
+                if self.check_for_condition(stmt, self.evaluator.get_variable(stmt.variable),
+                                            self.evaluator.eval_node(stmt.step)):
                     self.current.append((stmt, -1))
                 else:
                     self.evaluator.exit_frame()
-
-
 
     def run(self):
         self.current = [(self.code, -1)]

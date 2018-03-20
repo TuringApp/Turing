@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import util
-from .docs import *
-
 from util import translate
+from .docs import *
 
 __desc__ = translate("Docs", "Type conversion")
 
