@@ -13,7 +13,6 @@ DEBUG = False
 
 class Evaluator:
     frames = None
-    defaults = None
     arguments = None
     log = None
     beautified = None
@@ -21,16 +20,15 @@ class Evaluator:
     node_tree = None
 
     def __init__(self, strict=False):
-        self.frames = []
-        self.defaults = {}
+        self.frames = [{}]
 
         for name, item in mlib.__dict__.items():
             if isinstance(item, types.ModuleType):
                 for member_name, member in item.__dict__.items():
                     if callable(member):  # if function
-                        self.defaults[member_name] = member
+                        self.frames[0][member_name] = member
                     elif member_name.startswith("c_"):  # if constant
-                        self.defaults[member_name[2:]] = member
+                        self.frames[0][member_name[2:]] = member
 
         self.log = Logger("Eval")
         self.strict_typing = strict
@@ -47,15 +45,12 @@ class Evaluator:
                 frame[variable] = value
                 return
 
-        self.defaults[variable] = value
+        self.frames[-1][variable] = value
 
     def get_variable(self, variable: str) -> object:
         for frame in reversed(self.frames):
             if variable in frame:
                 return frame[variable]
-
-        if variable in self.defaults:
-            return self.defaults[variable]
 
         self.log.error(translate("Evaluator", "Cannot find variable or function %s") % variable)
         return None
