@@ -46,4 +46,4 @@ def run_tests():
         worker.evaluator.strict_typing = True
         worker.run()
 
-        expect(output, "\n".join(exp_output) + "\n")
+        expect(output, "".join(x + "\n" for x in exp_output))
