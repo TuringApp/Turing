@@ -6,19 +6,42 @@ from algo.worker import Worker
 from tests.framework import expect
 
 tests = [
-    ([
-         AssignStmt("sum", nodes.NumberNode(0)),
-         InputStmt("N"),
-         ForStmt("i", nodes.NumberNode(1), nodes.IdentifierNode("N"), [
-             AssignStmt("sum", nodes.BinOpNode(nodes.IdentifierNode("sum"), nodes.IdentifierNode("i"), "+"))
-         ]),
-         DisplayStmt(nodes.BinOpNode(nodes.StringNode("Result="), nodes.IdentifierNode("sum"), "+"))
-     ],
-     "5",
-     [
-         "Variable N = 5",
-         "Result=15"
-     ])
+    (
+        [
+            AssignStmt("sum", nodes.NumberNode(0)),
+            InputStmt("N"),
+            ForStmt("i", nodes.NumberNode(1), nodes.IdentifierNode("N"), [
+                AssignStmt("sum", nodes.BinOpNode(nodes.IdentifierNode("sum"), nodes.IdentifierNode("i"), "+"))
+            ]),
+            DisplayStmt(nodes.BinOpNode(nodes.StringNode("Result="), nodes.IdentifierNode("sum"), "+"))
+        ],
+        "5",
+        [
+            "Variable N = 5",
+            "Result=15"
+        ]
+    ),
+    (
+        [
+            ForStmt("i", nodes.NumberNode(1), nodes.NumberNode(3), [
+                ForStmt("i", nodes.NumberNode(1), nodes.NumberNode(3), [
+                    DisplayStmt(nodes.IdentifierNode("i"))
+                ])
+            ])
+        ],
+        "",
+        [
+            "1",
+            "2",
+            "3",
+            "1",
+            "2",
+            "3",
+            "1",
+            "2",
+            "3",
+        ]
+    )
 ]
 
 
