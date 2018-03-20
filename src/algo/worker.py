@@ -82,6 +82,14 @@ class Worker():
         self.current[-1] = (stmt, index)
         return stmt.children[index]
 
+    def enter_block(self, stmt: BlockStmt):
+        self.current.append((stmt, -1))
+        self.evaluator.enter_frame()
+
+    def exit_block(self):
+        self.evaluator.exit_frame()
+        return self.current.pop()
+
     def step(self):
         stmt = self.next_stmt()
 
@@ -100,30 +108,27 @@ class Worker():
 
         elif isinstance(stmt, BlockStmt):
             if isinstance(stmt, IfStmt):
-                self.evaluator.enter_frame()
+                self.enter_block(stmt)
+
                 condition = bool(self.evaluator.eval_node(stmt.condition))
-                if condition:
-                    self.current.append((stmt, -1))
-                else:
-                    self.evaluator.exit_frame()
+                if not condition:
+                    self.exit_block()
 
             if isinstance(stmt, WhileStmt):
-                self.evaluator.enter_frame()
+                self.enter_block(stmt)
+
                 predicate = bool(self.evaluator.eval_node(stmt.predicate))
-                if predicate:
-                    self.current.append((stmt, -1))
-                else:
-                    self.evaluator.exit_frame()
+                if not predicate:
+                    self.exit_block()
 
             if isinstance(stmt, ForStmt):
-                self.evaluator.enter_frame()
+                self.enter_block(stmt)
                 self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.begin), local=True)
 
-                if self.check_for_condition(stmt, self.evaluator.get_variable(stmt.variable),
+                if not self.check_for_condition(stmt, self.evaluator.get_variable(stmt.variable),
                                             self.evaluator.eval_node(stmt.step)):
-                    self.current.append((stmt, -1))
-                else:
-                    self.evaluator.exit_frame()
+                    self.exit_block()
+
         elif isinstance(stmt, BreakStmt):
             while True:
                 if isinstance(self.exit_block()[0], (ForStmt, WhileStmt)):
