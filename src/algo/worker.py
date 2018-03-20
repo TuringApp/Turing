@@ -124,6 +124,10 @@ class Worker():
                     self.current.append((stmt, -1))
                 else:
                     self.evaluator.exit_frame()
+        elif isinstance(stmt, BreakStmt):
+            while True:
+                if isinstance(self.exit_block()[0], (ForStmt, WhileStmt)):
+                    break
 
     def run(self):
         self.current = [(self.code, -1)]
