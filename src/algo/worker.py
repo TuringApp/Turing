@@ -75,15 +75,21 @@ class Worker():
 
                 if isinstance(stmt, ForStmt):
                     if self.iterate_for(stmt):
-                        index = 0
-                    else:
-                        self.current.pop()
-                        self.evaluator.exit_frame()
+                        self.current[-1] = (stmt, -1)
                         continue
+
+                elif isinstance(stmt, WhileStmt):
+                    if bool(self.evaluator.eval_node(stmt.predicate)):
+                        self.current[-1] = (stmt, -1)
+                        continue
+
+                self.exit_block()
+                continue
 
             break
 
         self.current[-1] = (stmt, index)
+
         return stmt.children[index]
 
     def enter_block(self, stmt: BlockStmt):
