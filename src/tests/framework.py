@@ -36,6 +36,8 @@ def end_test(name):
         "[STAT] Ending tests for '%s' - [%d passed, %d failed] / %d total" % (name, num_passed, num_failed, num_total))
     current_results.clear()
 
+def good_str(x):
+    return repr(str(x))[1:-1]
 
 def expect(x, expec, info=""):
     """Standard unit testing function. Asserts that two values are equal.
@@ -50,10 +52,10 @@ def expect(x, expec, info=""):
 
     if value:
         stat = "PASSED"
-        msg = "(value : '%s')" % str(expec)
+        msg = "(value : '%s')" % good_str(expec)
     else:
         stat = "FAILED"
-        msg = "(expected: '%s', got: '%s')" % (str(expec), str(x))
+        msg = "(expected: '%s', got: '%s')" % (good_str(expec), good_str(x))
 
     print("[TEST] #%02d : %s %s%s" % (len(current_results) + 1, stat, msg, " | " + info if info else ""))
 
