@@ -2,6 +2,8 @@
 
 import maths.nodes as nodes
 from algo.stmts import *
+from algo.stmts.BreakStmt import BreakStmt
+from algo.stmts.ContinueStmt import ContinueStmt
 from algo.worker import Worker
 from tests.framework import expect
 
@@ -40,6 +42,33 @@ tests = [
             "1",
             "2",
             "3",
+        ]
+    ),
+    (
+        [
+            AssignStmt("i", nodes.NumberNode(42)),
+            ForStmt("i", nodes.NumberNode(1), nodes.NumberNode(10), [
+                IfStmt(nodes.NumberNode(1), [
+                    IfStmt(nodes.BinOpNode(nodes.IdentifierNode("i"), nodes.NumberNode(2), "%"), [
+                        ContinueStmt()
+                    ]),
+                    IfStmt(nodes.BinOpNode(nodes.IdentifierNode("i"), nodes.NumberNode(5), ">"), [
+                        DisplayStmt(nodes.StringNode("break")),
+                        DisplayStmt(nodes.IdentifierNode("i")),
+                        BreakStmt()
+                    ]),
+                    DisplayStmt(nodes.IdentifierNode("i")),
+                ])
+            ]),
+            DisplayStmt(nodes.IdentifierNode("i"))
+        ],
+        "",
+        [
+            "2",
+            "4",
+            "break",
+            "6",
+            "42"
         ]
     )
 ]
