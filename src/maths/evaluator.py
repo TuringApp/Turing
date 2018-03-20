@@ -149,49 +149,60 @@ class Evaluator:
         if isinstance(node, nodes.BinOpNode):
             return self.eval_binary(node)
 
-            function = self.eval_node(node.func)
         if isinstance(node, nodes.CallNode):
+            return self.eval_call(node)
 
-            if function is None:
-                self.log.error(translate("Evaluator", "Callee is None"))
-                return None
-
-            if (len(node.args) == 1
-                    and isinstance(node.args[0], nodes.UnaryOpNode)
-                    and node.args[0].operator == "*"):
-                # expand list of arguments
-                arg_list = self.eval_node(node.args[0].value)
-
-                if type(arg_list) != list:
-                    self.log.error(translate("Evaluator", "Only lists can be expanded"))
-                    return None
-
-                args = arg_list
-            else:
-                args = [self.eval_node(x) for x in node.args]
-
-            return function.__call__(*args)
         if isinstance(node, nodes.ArrayAccessNode):
+            return self.eval_array_access(node)
 
-            array = self.eval_node(node.array)
-            index = int(self.eval_node(node.index))
-
-            if index < len(array):
-                return array[index]
-            else:
-                self.log.error(translate("Evaluator", "Index '%s' too big for array") % index)
-                return None
-
-            return lambda *args: self.call_lambda(node, *list(args))
         if isinstance(node, nodes.LambdaNode):
+            return self.eval_lambda(node)
 
         # if the object is not a node, it must be a remnant of an already-parsed value
         # return it directly
         if not isinstance(node, nodes.AstNode):
             return node
 
+        # if it's an unknown descendant of AstNode
+        # this should never happen, but we put a message just in case
         self.log.error(translate("Evaluator", "Unknown node type: %s") % type(node))
         return None
+
+    def eval_lambda(self, node: nodes.LambdaNode):
+        return lambda *args: self.call_lambda(node, *list(args))
+
+    def eval_array_access(self, node: nodes.ArrayAccessNode):
+        array = self.eval_node(node.array)
+        index = int(self.eval_node(node.index))
+
+        if index < len(array):
+            return array[index]
+        else:
+            self.log.error(translate("Evaluator", "Index '%s' too big for array") % index)
+            return None
+
+    def eval_call(self, node: nodes.CallNode):
+        function = self.eval_node(node.func)
+
+        if function is None:
+            self.log.error(translate("Evaluator", "Callee is None"))
+            return None
+
+        if (len(node.args) == 1
+                and isinstance(node.args[0], nodes.UnaryOpNode)
+                and node.args[0].operator == "*"):
+            # expand list of arguments
+            arg_list = self.eval_node(node.args[0].value)
+
+            if type(arg_list) != list:
+                self.log.error(translate("Evaluator", "Only lists can be expanded"))
+                return None
+
+            args = arg_list
+        else:
+            args = [self.eval_node(x) for x in node.args]
+
+        return function.__call__(*args)
 
     def eval_unary(self, node: nodes.UnaryOpNode):
         value = self.eval_node(node.value)
