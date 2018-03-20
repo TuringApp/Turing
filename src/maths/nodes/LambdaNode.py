@@ -19,7 +19,7 @@ class LambdaNode(AstNode):
         self.expr = expr
 
     def __str__(self):
-        return "[Lambda %s -> (%s)]" % (self.args, self.expr)
+        return "[Lambda %s -> %s]" % (self.args, self.expr)
 
     def __repr__(self):
         return "LambdaNode(%r, %r)" % (self.args, self.expr)

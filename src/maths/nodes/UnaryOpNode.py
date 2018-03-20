@@ -19,7 +19,7 @@ class UnaryOpNode(AstNode):
         self.operator = operator
 
     def __str__(self):
-        return "[UnaryOp %s (%s)]" % (self.operator, self.value)
+        return "[UnaryOp %s %s]" % (self.operator, self.value)
 
     def __repr__(self):
         return "UnaryOpNode(%r, %r)" % (self.value, self.operator)

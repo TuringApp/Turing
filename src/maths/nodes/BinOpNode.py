@@ -38,7 +38,7 @@ class BinOpNode(AstNode):
         self.precedence = maths.parser.Operators.get_precedence(operator)
 
     def __str__(self):
-        return "[BinOp (%s) %s (%s)]" % (self.left, self.operator, self.right)
+        return "[BinOp %s %s %s]" % (self.left, self.operator, self.right)
 
     def __repr__(self):
         return "BinOpNode(%r, %r, %r)" % (self.left, self.right, self.operator)

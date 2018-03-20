@@ -19,7 +19,7 @@ class CallNode(AstNode):
         self.args = args
 
     def __str__(self):
-        return "[Call (%s) with %s]" % (self.func, self.args)
+        return "[Call %s with %s]" % (self.func, self.args)
 
     def __repr__(self):
         return "CallNode(%r, %r)" % (self.func, self.args)
