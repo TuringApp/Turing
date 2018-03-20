@@ -55,7 +55,7 @@ p, li { white-space: pre-wrap; }
         <translation>Calculatrice</translation>
     </message>
     <message>
-        <location filename="../forms/calculator.py" line="65"/>
+        <location filename="../forms/calculator.py" line="64"/>
         <source>Result is None</source>
         <translation>Résultat nul</translation>
     </message>
@@ -754,27 +754,27 @@ p, li { white-space: pre-wrap; }
         <translation>Pages d&apos;aide</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="42"/>
+        <location filename="../forms/help.py" line="43"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Arguments :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="46"/>
+        <location filename="../forms/help.py" line="47"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
         <translation>&lt;li&gt;Aucun&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="56"/>
+        <location filename="../forms/help.py" line="57"/>
         <source>default = %s</source>
         <translation>par défaut = %s</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="71"/>
+        <location filename="../forms/help.py" line="72"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Alias :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="84"/>
+        <location filename="../forms/help.py" line="85"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Fonctions :&lt;/h2&gt;</translation>
     </message>
@@ -1077,7 +1077,7 @@ p, li { white-space: pre-wrap; }
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="93"/>
+        <location filename="../main.py" line="92"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
@@ -1109,22 +1109,22 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="453"/>
+        <location filename="../main.py" line="463"/>
         <source>Error: </source>
         <translation>Erreur : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="290"/>
+        <location filename="../main.py" line="298"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="226"/>
+        <location filename="../main.py" line="234"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="281"/>
+        <location filename="../main.py" line="289"/>
         <source>Syntax error (%s) at line %d, offset %d: </source>
         <translation>Erreur de syntaxe (%s) à la ligne %d, caractère %d : </translation>
     </message>
@@ -1192,17 +1192,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
 <context>
     <name>Parser</name>
     <message>
-        <location filename="../maths/parser.py" line="181"/>
+        <location filename="../maths/parser.py" line="183"/>
         <source>Expected token (%s) &apos;%s&apos;</source>
         <translation>Jeton attendu (%s) &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="463"/>
+        <location filename="../maths/parser.py" line="465"/>
         <source>Unexpected EOL</source>
         <translation>Fin de ligne inattendue</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="465"/>
+        <location filename="../maths/parser.py" line="467"/>
         <source>Unexpected token (%s) &apos;%s&apos;</source>
         <translation>Jeton (%s) &apos;%s&apos; inattendu</translation>
     </message>
