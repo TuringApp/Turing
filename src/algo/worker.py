@@ -11,6 +11,9 @@ from util import translate
 from util.log import Logger
 
 
+Loops = (ForStmt, WhileStmt)
+
+
 class Worker():
     code = None
     stack = None
@@ -147,16 +150,18 @@ class Worker():
             self.log.error(translate("Algo", "BREAK can only be used inside a loop"))
             self.finished = True
             return
+
         while True:
-            if isinstance(self.exit_block()[0], (ForStmt, WhileStmt)):
+            if isinstance(self.exit_block()[0], Loops):
                 break
 
     def exec_continue(self, stmt: ContinueStmt):
-        while not isinstance(self.stack[-1][0], (ForStmt, WhileStmt)):
         if not self.find_parent(Loops):
             self.log.error(translate("Algo", "CONTINUE can only be used inside a loop"))
             self.finished = True
             return
+
+        while not isinstance(self.stack[-1][0], Loops):
             self.exit_block()
         stmt, index = self.stack[-1]
         index = len(stmt.children)
