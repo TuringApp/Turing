@@ -39,11 +39,12 @@ class Evaluator:
     def exit_frame(self):
         return self.frames.pop()
 
-    def set_variable(self, variable: str, value: object):
-        for frame in reversed(self.frames):
-            if variable in frame:
-                frame[variable] = value
-                return
+    def set_variable(self, variable: str, value: object, local=False):
+        if not local:
+            for frame in reversed(self.frames):
+                if variable in frame:
+                    frame[variable] = value
+                    return
 
         self.frames[-1][variable] = value
 
