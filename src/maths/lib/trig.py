@@ -6,7 +6,7 @@ import util
 from maths.lib import basic
 from .docs import *
 
-translate = util.translate
+from util import translate
 
 __desc__ = translate("Docs", "Trigonometry")
 

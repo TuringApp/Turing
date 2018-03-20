@@ -6,7 +6,7 @@ import util
 from maths.lib import trig
 from .docs import *
 
-translate = util.translate
+from util import translate
 
 __desc__ = translate("Docs", "Geometry")
 

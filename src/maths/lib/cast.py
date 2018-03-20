@@ -3,7 +3,7 @@
 import util
 from .docs import *
 
-translate = util.translate
+from util import translate
 
 __desc__ = translate("Docs", "Type conversion")
 

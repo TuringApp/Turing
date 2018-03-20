@@ -5,7 +5,7 @@ from typing import Union, Any
 
 import util
 
-translate = util.translate
+from util import translate
 
 
 def is_close(a: Union[util.number, list], b: Union[util.number, list], rel_tol=1e-8, abs_tol=1e-8) -> bool:

@@ -3,13 +3,12 @@
 import re
 import types
 from typing import List, Tuple, Any
-
 import maths.nodes as nodes
 import util
 from util.log import Logger
 from util.math import proper_str, is_num
 
-translate = util.translate
+from util import translate
 
 
 class ValueType:

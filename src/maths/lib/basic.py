@@ -7,7 +7,7 @@ import math as rmath
 import util
 from .docs import *
 
-translate = util.translate
+from util import translate
 
 __desc__ = translate("Docs", "Basic")
 

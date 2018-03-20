@@ -7,6 +7,7 @@ import maths.lib as mlib
 from maths.parser import *
 from util.log import Logger
 from util.math import *
+from util import translate
 
 translate = util.translate
 DEBUG = True
