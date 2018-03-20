@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from typing import Optional
+import typing
+from typing import Optional, Union
+from collections import Iterable
 
 from algo.stmts import *
 from algo.stmts.BlockStmt import BlockStmt
@@ -9,6 +11,9 @@ from maths.evaluator import Evaluator
 from maths.parser import Parser
 from util import translate
 from util.log import Logger
+
+
+Loops = (ForStmt, WhileStmt)
 
 
 class Worker():
@@ -48,7 +53,7 @@ class Worker():
 
     def iterate_for(self, stmt: ForStmt):
         current = self.evaluator.get_variable(stmt.variable)
-        step = self.evaluator.eval_node(stmt.step)
+        step = self.evaluator.eval_node(stmt.step or NumberNode(1))
 
         current = self.evaluator.binary_operation(current, step, "+")
         self.evaluator.set_variable(stmt.variable, current)
@@ -62,6 +67,16 @@ class Worker():
         condition_1 = bool(self.evaluator.binary_operation(current, begin, "><"[step < 0] + "="))
         condition_2 = bool(self.evaluator.binary_operation(current, end, "<>"[step < 0] + "="))
         return condition_1 and condition_2
+
+    def find_parent(self, types: Union[type, typing.Iterable[type]]):
+        if not isinstance(types, Iterable):
+            types = [types]
+
+        for idx, frame in enumerate(reversed(self.stack)):
+            if type(frame[0]) in types:
+                return (idx, frame)
+
+        return None
 
     def next_stmt(self) -> Optional[BaseStmt]:
         while True:
@@ -83,6 +98,9 @@ class Worker():
                         self.stack[-1] = (stmt, -1)
                         continue
 
+                elif isinstance(stmt, FuncStmt):
+                    self.calls.append(None)
+
                 self.exit_block()
                 continue
 
@@ -92,9 +110,9 @@ class Worker():
 
         return stmt.children[index]
 
-    def enter_block(self, stmt: BlockStmt):
+    def enter_block(self, stmt: BlockStmt, value=None):
         self.stack.append((stmt, -1))
-        self.evaluator.enter_frame()
+        self.evaluator.enter_frame(value)
 
     def exit_block(self):
         self.evaluator.exit_frame()
@@ -129,20 +147,54 @@ class Worker():
         self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.begin), local=True)
 
         if not self.check_for_condition(stmt, self.evaluator.get_variable(stmt.variable),
-                                        self.evaluator.eval_node(stmt.step)):
+                                        self.evaluator.eval_node(stmt.step or NumberNode(1))):
             self.exit_block()
 
     def exec_break(self, stmt: BreakStmt):
+        if not self.find_parent(Loops):
+            self.log.error(translate("Algo", "BREAK can only be used inside a loop"))
+            self.finished = True
+            return
+
         while True:
-            if isinstance(self.exit_block()[0], (ForStmt, WhileStmt)):
+            if isinstance(self.exit_block()[0], Loops):
                 break
 
     def exec_continue(self, stmt: ContinueStmt):
-        while not isinstance(self.stack[-1][0], (ForStmt, WhileStmt)):
+        if not self.find_parent(Loops):
+            self.log.error(translate("Algo", "CONTINUE can only be used inside a loop"))
+            self.finished = True
+            return
+
+        while not isinstance(self.stack[-1][0], Loops):
             self.exit_block()
         stmt, index = self.stack[-1]
         index = len(stmt.children)
         self.stack[-1] = stmt, index
+
+    def exec_function(self, stmt: FuncStmt):
+        self.evaluator.set_variable(stmt.name, lambda *args: self.call_function(stmt, *list(args)))
+
+    def exec_return(self, stmt: ReturnStmt):
+        if not self.find_parent(FuncStmt):
+            self.log.error(translate("Algo", "RETURN can only be used inside a function"))
+            self.finished = True
+            return
+
+        self.calls.append(self.evaluator.eval_node(stmt.value) if stmt.value else None)
+
+        while True:
+            if isinstance(self.exit_block()[0], FuncStmt):
+                break
+
+    def call_function(self, stmt: FuncStmt, *args):
+        self.enter_block(stmt, {stmt.parameters[idx]: arg for idx, arg in enumerate(args)})
+        length = len(self.stack)
+
+        while len(self.stack) >= length and not self.finished:
+            self.step()
+
+        return self.calls.pop()
 
     def step(self):
         stmt = self.next_stmt()
@@ -158,7 +210,9 @@ class Worker():
             ForStmt: self.exec_for,
             WhileStmt: self.exec_while,
             BreakStmt: self.exec_break,
-            ContinueStmt: self.exec_continue
+            ContinueStmt: self.exec_continue,
+            FuncStmt: self.exec_function,
+            ReturnStmt: self.exec_return
         }
 
         if type(stmt) not in map:
@@ -170,8 +224,11 @@ class Worker():
 
     def run(self):
         self.stack = [(self.code, -1)]
+        self.calls = []
+
         self.evaluator.enter_frame()
+
         while not self.finished:
             self.step()
+
         self.evaluator.exit_frame()
-        print("finished")

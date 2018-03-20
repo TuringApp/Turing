@@ -17,8 +17,6 @@ class ForStmt(BlockStmt):
         self.variable = variable
         self.begin = begin
         self.end = end
-        if step == None:
-            step = NumberNode(1)
         self.step = step
 
     def __str__(self):
