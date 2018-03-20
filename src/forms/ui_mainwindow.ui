@@ -162,6 +162,8 @@
     </property>
     <addaction name="actionShowToolbar"/>
     <addaction name="actionShowToolbarText"/>
+    <addaction name="separator"/>
+    <addaction name="actionChange_theme"/>
    </widget>
    <widget class="QMenu" name="menuProgram">
     <property name="title">
@@ -240,7 +242,7 @@
      <item>
       <widget class="QTabWidget" name="tabWidget_2">
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <property name="documentMode">
         <bool>true</bool>
@@ -355,6 +357,34 @@ p, li { white-space: pre-wrap; }
            <property name="icon">
             <iconset resource="../turing.qrc">
              <normaloff>:/action/media/log_clear.png</normaloff>:/action/media/log_clear.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnNext">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../turing.qrc">
+             <normaloff>:/action/media/redo.png</normaloff>:/action/media/redo.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="bntPrev">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../turing.qrc">
+             <normaloff>:/action/media/undo.png</normaloff>:/action/media/undo.png</iconset>
            </property>
           </widget>
          </item>
@@ -912,6 +942,15 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>F3</string>
+   </property>
+  </action>
+  <action name="actionChange_theme">
+   <property name="icon">
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/examples.png</normaloff>:/action/media/examples.png</iconset>
+   </property>
+   <property name="text">
+    <string>Change theme</string>
    </property>
   </action>
  </widget>
