@@ -59,7 +59,7 @@ class Worker():
         condition_2 = bool(self.evaluator.binary_operation(current, end, "<>"[step < 0] + "="))
         return condition_1 and condition_2
 
-    def next_stmt(self) -> BaseStmt:
+    def next_stmt(self) -> Optional[BaseStmt]:
         while True:
             stmt, index = self.current[-1]
             index += 1
@@ -69,7 +69,7 @@ class Worker():
                     self.finished = True
                     return None
 
-                if type(stmt) == ForStmt:
+                if isinstance(stmt, ForStmt):
                     if self.iterate_for(stmt):
                         index = 0
                     else:
