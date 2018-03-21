@@ -241,7 +241,7 @@
    <addaction name="actionRun"/>
    <addaction name="actionStep"/>
    <addaction name="separator"/>
-   <addaction name="actionSettings"/>
+   <addaction name="actionHelpContents"/>
   </widget>
   <widget class="QDockWidget" name="dock_settings">
    <property name="accessibleName">
@@ -392,6 +392,9 @@ p, li { white-space: pre-wrap; }
          </item>
          <item>
           <widget class="QPushButton" name="btnPrintOutput">
+           <property name="toolTip">
+            <string/>
+           </property>
            <property name="text">
             <string/>
            </property>
