@@ -14,7 +14,7 @@ from PyQt5.QtWidgets import *
 from pyqode.core import api
 from pyqode.core import modes
 from pyqode.core import panels
-
+import pygments.styles
 import editor_backend
 import util
 import util.code
@@ -29,12 +29,13 @@ __version__ = "β-0.2"
 __channel__ = "beta"
 
 undo = None
-mode_python = True
+mode_python = False
 code_editor = None
 panel_search = None
 current_output = ""
 after_output = ""
 user_input = None
+syntax_highlighter = None
 editor_action_table = [
     ("Copy", "copy"),
     ("Cut", "cut"),
@@ -368,6 +369,13 @@ def copy_actions_to_editor(panel):
             setattr(code_editor, "action_" + name[6:], obj)
 
 
+def setStyle(style):
+    syntax_highlighter.pygments_style = style
+
+    for act in ui.menuChangeStyle.actions():
+        act.setChecked(act.text() == style)
+
+
 def load_code_editor():
     global code_editor
     code_editor = api.CodeEdit()
@@ -384,8 +392,9 @@ def load_code_editor():
     code_editor.modes.append(modes.ZoomMode())
     code_editor.modes.append(modes.ExtendedSelectionMode())
 
-    sh = code_editor.modes.append(modes.PygmentsSyntaxHighlighter(code_editor.document()))
-    sh.fold_detector = api.IndentFoldDetector()
+    global syntax_highlighter
+    syntax_highlighter = code_editor.modes.append(modes.PygmentsSyntaxHighlighter(code_editor.document()))
+    syntax_highlighter.fold_detector = api.IndentFoldDetector()
 
     code_editor.panels.append(panels.FoldingPanel())
     code_editor.panels.append(panels.LineNumberPanel())
@@ -398,6 +407,16 @@ def load_code_editor():
     code_editor.textChanged.connect(refresh)
 
     load_editor_actions()
+
+    def gen(s):
+        return lambda: setStyle(s)
+
+    for style in pygments.styles.get_all_styles():
+        action = QAction(window)
+        action.setText(style)
+        action.setCheckable(True)
+        action.triggered.connect(gen(style))
+        ui.menuChangeStyle.addAction(action)
 
     ui.verticalLayout_8.addWidget(code_editor)
 

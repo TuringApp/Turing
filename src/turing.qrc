@@ -40,6 +40,8 @@
         <file>media/unindent.png</file>
         <file>media/code.png</file>
         <file>media/python.ico</file>
+        <file>media/style.png</file>
+        <file>media/theme.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>

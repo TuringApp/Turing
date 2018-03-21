@@ -160,10 +160,29 @@
     <property name="title">
      <string>&amp;View</string>
     </property>
+    <widget class="QMenu" name="menuChangeTheme">
+     <property name="title">
+      <string>Change theme</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../turing.qrc">
+       <normaloff>:/action/media/theme.png</normaloff>:/action/media/theme.png</iconset>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menuChangeStyle">
+     <property name="title">
+      <string>Change style</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../turing.qrc">
+       <normaloff>:/action/media/style.png</normaloff>:/action/media/style.png</iconset>
+     </property>
+    </widget>
     <addaction name="actionShowToolbar"/>
     <addaction name="actionShowToolbarText"/>
     <addaction name="separator"/>
-    <addaction name="actionChange_theme"/>
+    <addaction name="menuChangeTheme"/>
+    <addaction name="menuChangeStyle"/>
    </widget>
    <widget class="QMenu" name="menuProgram">
     <property name="title">
@@ -357,34 +376,6 @@ p, li { white-space: pre-wrap; }
            <property name="icon">
             <iconset resource="../turing.qrc">
              <normaloff>:/action/media/log_clear.png</normaloff>:/action/media/log_clear.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnNext">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="../turing.qrc">
-             <normaloff>:/action/media/redo.png</normaloff>:/action/media/redo.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="bntPrev">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="../turing.qrc">
-             <normaloff>:/action/media/undo.png</normaloff>:/action/media/undo.png</iconset>
            </property>
           </widget>
          </item>
@@ -944,13 +935,9 @@ p, li { white-space: pre-wrap; }
     <string>F3</string>
    </property>
   </action>
-  <action name="actionChange_theme">
-   <property name="icon">
-    <iconset resource="../turing.qrc">
-     <normaloff>:/action/media/examples.png</normaloff>:/action/media/examples.png</iconset>
-   </property>
+  <action name="actiondefault">
    <property name="text">
-    <string>Change theme</string>
+    <string>default</string>
    </property>
   </action>
  </widget>
