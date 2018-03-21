@@ -539,6 +539,14 @@ def str_stmt(stmt):
 
 def store_line(item: QTreeWidgetItem, stmt: BaseStmt):
     item_map[id(stmt)] = item, stmt
+
+
+def load_algo():
+    global root_item
+    root_item = get_item_html(get_block("PROGRAM"))
+    store_line(root_item, algo)
+
+
 def init_ui():
     global window, ui
     window = MainWindowWrapper()
