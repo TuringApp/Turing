@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from maths.nodes import AstNode
+from maths.nodes import AstNode, CallNode
 from .BaseStmt import *
 
 
@@ -15,3 +15,6 @@ class CallStmt(BaseStmt):
 
     def __str__(self):
         return "[Call %s (%s)]" % (self.function, ", ".join(str(x) for x in self.arguments))
+
+    def to_node(self):
+        return CallNode(self.function, self.arguments)

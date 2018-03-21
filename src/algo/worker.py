@@ -221,7 +221,7 @@ class Worker:
         return self.calls.pop()
 
     def exec_call(self, stmt: CallStmt):
-        self.evaluator.eval_node(CallNode(stmt.function, stmt.arguments))
+        self.evaluator.eval_node(stmt.to_node())
 
     def exec_else(self, stmt: ElseStmt):
         if self.if_status is None:
