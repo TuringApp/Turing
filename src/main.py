@@ -66,6 +66,9 @@ python_only = [
     "Unindent"
 ]
 
+block_html = '<span style="color:darkred;font-weight:bold">'
+keyword_html = '<span style="color:blue;font-weight:bold">'
+
 
 def get_themed_box():
     msg = QMessageBox()
