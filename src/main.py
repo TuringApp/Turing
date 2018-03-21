@@ -442,6 +442,23 @@ def str_stmt(stmt):
     elif isinstance(stmt, IfStmt):
         ret = translate("Algo", "[b]IF[/b] [c]{cond}[/c]").format(cond=stmt.condition.code())
 
+    elif isinstance(stmt, InputStmt):
+        ret = translate("Algo", "[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]").format(
+            prompt="" if stmt.prompt is None else stmt.prompt.code(), var=stmt.variable)
+
+    elif isinstance(stmt, AssignStmt):
+        if stmt.value is None:
+            ret = translate("Algo", "[k]DECLARE[/k] [c]{var}[/c]").format(var=stmt.variable)
+        else:
+            ret = translate("Algo", "[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]").format(var=stmt.variable,
+                                                                                          value=stmt.value.code())
+
+    elif isinstance(stmt, CallStmt):
+        ret = translate("Algo", "[k]CALL[/k] [c]{code}[/c]").format(code=stmt.to_node().code())
+
+    elif isinstance(stmt, ForStmt):
+        ret = "unimpl for"
+
     else:
         ret = "unimpl %s" % stmt
 
