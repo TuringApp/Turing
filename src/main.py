@@ -566,6 +566,8 @@ def init_ui():
     ui.setupUi(window)
 
     load_code_editor()
+    load_algo()
+
     init_action_handlers()
     refresh()
 
