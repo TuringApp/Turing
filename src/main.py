@@ -459,6 +459,14 @@ def str_stmt(stmt):
     elif isinstance(stmt, ForStmt):
         ret = "unimpl for"
 
+    elif isinstance(stmt, FuncStmt):
+        ret = translate("Algo", "[b]FUNCTION[/b] [c]{func}({args})[/c]").format(func=stmt.name,
+                                                                                args=", ".join(stmt.parameters))
+
+    elif isinstance(stmt, ReturnStmt):
+        ret = translate("Algo", "[k]RETURN[/k] [c]{val}[/c]").format(
+            val="" if stmt.value is None else stmt.value.code())
+
     else:
         ret = "unimpl %s" % stmt
 
