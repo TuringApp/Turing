@@ -519,6 +519,10 @@ def str_stmt(stmt):
     ret = ret.replace("  ", " ")
 
     return ret
+
+
+def store_line(item: QTreeWidgetItem, stmt: BaseStmt):
+    item_map[id(stmt)] = item, stmt
 def init_ui():
     global window, ui
     window = MainWindowWrapper()
