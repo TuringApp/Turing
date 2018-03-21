@@ -50,29 +50,34 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algo</name>
     <message>
-        <location filename="../algo/worker.py" line="128"/>
+        <location filename="../algo/worker.py" line="137"/>
         <source>Variable {var} = </source>
         <translation>Variable {var} = </translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="158"/>
+        <location filename="../algo/worker.py" line="169"/>
         <source>BREAK can only be used inside a loop</source>
         <translation>SORTIR ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="168"/>
+        <location filename="../algo/worker.py" line="179"/>
         <source>CONTINUE can only be used inside a loop</source>
         <translation>CONTINUER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="197"/>
+        <location filename="../algo/worker.py" line="208"/>
         <source>RETURN can only be used inside a function</source>
         <translation>RENVOYER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une fonction</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="244"/>
+        <location filename="../algo/worker.py" line="270"/>
         <source>Unknown statement type: {type}</source>
         <translation>Type d&apos;instruction inconnu : {type}</translation>
+    </message>
+    <message>
+        <location filename="../algo/worker.py" line="236"/>
+        <source>ELSE can only be used after an IF block</source>
+        <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
 </context>
 <context>

@@ -15,6 +15,7 @@ SOURCES += \
     algo\stmts\CallStmt.py \
     algo\stmts\ContinueStmt.py \
     algo\stmts\DisplayStmt.py \
+    algo\stmts\ElseStmt.py \
     algo\stmts\ForStmt.py \
     algo\stmts\FuncStmt.py \
     algo\stmts\IfStmt.py \
