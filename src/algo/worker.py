@@ -18,18 +18,13 @@ class Worker:
     stack = None
     evaluator = None
     log = None
-    finished = None
     callback_input = None
     callback_print = None
     calls = None
-    if_status = None
 
     def __init__(self, code: CodeBlock):
         self.code = BlockStmt(code)
-        self.stack = []
         self.log = Logger("Algo")
-        self.finished = False
-        self.reset_eval()
 
     def reset_eval(self):
         self.evaluator = Evaluator()
@@ -271,8 +266,11 @@ class Worker:
         map[type(stmt)](stmt)
 
     def run(self):
+        self.reset_eval()
         self.stack = [(self.code, -1)]
         self.calls = []
+        self.if_status = None
+        self.finished = False
 
         self.evaluator.enter_frame()
 
