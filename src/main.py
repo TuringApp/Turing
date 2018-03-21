@@ -434,6 +434,18 @@ def load_code_editor():
     ui.verticalLayout_8.addWidget(code_editor)
 
 
+def get_item_label(item):
+    def gen_func(item):
+        return lambda: ui.treeWidget.setCurrentItem(item)
+
+    txt = QClickableLabel()
+    txt.setStyleSheet(ui.treeWidget.styleSheet())
+    txt.clicked.connect(gen_func(item))
+    ui.treeWidget.setItemWidget(item, 0, txt)
+
+    return txt
+
+
 def str_stmt(stmt):
     if isinstance(stmt, DisplayStmt):
         ret = translate("Algo", "[k]DISPLAY[/k] [c]{val}[/c]").format(val=stmt.content.code())
