@@ -554,6 +554,9 @@ def load_algo():
     add_line([1], AssignStmt("say2", parse("sayHello2(\"Bob\")")))
     add_line([2], CallStmt(parse("say2"), []))
 
+    ui.treeWidget.expandAll()
+
+
 def init_ui():
     global window, ui
     window = MainWindowWrapper()
