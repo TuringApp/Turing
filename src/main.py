@@ -293,9 +293,17 @@ def init_worker():
     worker.callback_input = python_input
 
 
+def end_output():
+    global current_output
+    current_output += util.html.centered(util.html.color_span(translate("MainWindow", "end of output"), "red"))
+    current_output += "<hr>"
+    update_output()
+
 def handler_Run():
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
+    global running
+    running = True
 
     try:
         if mode_python:
@@ -315,19 +323,13 @@ def handler_Run():
             finally:
                 os.unlink(file.name)
         else:
-            global worker
-            print(algo)
-            worker = Worker(algo.children)
-            worker.callback_print = python_print
-            worker.callback_input = python_input
+            init_worker()
             worker.run()
     finally:
-        global current_output
-        current_output += util.html.centered(util.html.color_span(translate("MainWindow", "end of output"), "red"))
-        current_output += "<hr>"
-        update_output()
+        end_output()
         ui.actionRun.setDisabled(False)
         ui.actionStep.setDisabled(False)
+        running = False
 
 
 def handler_AboutTuring():
