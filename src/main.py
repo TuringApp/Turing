@@ -66,6 +66,10 @@ python_only = [
     "Unindent"
 ]
 
+algo = BlockStmt([])
+item_map = {}
+root_item = None
+
 block_html = '<span style="color:darkred;font-weight:bold">'
 keyword_html = '<span style="color:blue;font-weight:bold">'
 
