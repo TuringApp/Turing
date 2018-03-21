@@ -2,8 +2,6 @@
 
 import maths.nodes as nodes
 from algo.stmts import *
-from algo.stmts.BreakStmt import BreakStmt
-from algo.stmts.ContinueStmt import ContinueStmt
 from algo.worker import Worker
 from tests.framework import expect
 from maths.parser import quick_parse as parse
@@ -91,6 +89,23 @@ tests = [
         "",
         [
             "12"
+        ]
+    ),
+    (
+        [
+            FuncStmt("sayHello2", ["name"], [
+                AssignStmt("text", parse("\"Hello \" + name")),
+                FuncStmt("say", [], [
+                    DisplayStmt(parse("text"))
+                ]),
+                ReturnStmt(parse("say"))
+            ]),
+            AssignStmt("say2", parse("sayHello2(\"Bob\")")),
+            CallStmt(parse("say2"))
+        ],
+        "",
+        [
+            "Hello Bob"
         ]
     )
 ]
