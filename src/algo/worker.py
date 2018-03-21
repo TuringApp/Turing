@@ -21,13 +21,16 @@ class Worker:
     callback_input = None
     callback_print = None
     calls = None
+    strict_typing = None
 
     def __init__(self, code: CodeBlock):
         self.code = BlockStmt(code)
         self.log = Logger("Algo")
+        self.strict_typing = False
 
     def reset_eval(self):
         self.evaluator = Evaluator()
+        self.evaluator.strict_typing = self.strict_typing
 
     def stmt_input(self, prompt: str = None):
         if self.callback_input is not None:

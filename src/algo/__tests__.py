@@ -172,7 +172,7 @@ def run_tests():
 
         worker.callback_input = buffer_input
 
-        worker.evaluator.strict_typing = True
+        worker.strict_typing = True
         worker.run()
 
         expect(output, "".join(x + "\n" for x in exp_output))
