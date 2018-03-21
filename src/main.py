@@ -299,11 +299,13 @@ def init_worker():
     worker.callback_input = python_input
     worker.init()
 
+
 def end_output():
     global current_output
     current_output += util.html.centered(util.html.color_span(translate("MainWindow", "end of output"), "red"))
     current_output += "<hr>"
     update_output()
+
 
 def set_current_line(current: Optional[BaseStmt]):
     for item, stmt in item_map.values():
@@ -311,6 +313,7 @@ def set_current_line(current: Optional[BaseStmt]):
             item.setBackground(0, QBrush(QColor("red")))
         else:
             item.setBackground(0, root_item.background(0))
+
 
 def handler_Step():
     ui.actionRun.setDisabled(True)
@@ -339,6 +342,7 @@ def handler_Step():
             running = False
         ui.actionRun.setDisabled(False)
         ui.actionStep.setDisabled(False)
+
 
 def handler_Run():
     ui.actionRun.setDisabled(True)
@@ -653,25 +657,25 @@ def load_block(stmt: BlockStmt):
 
 def load_algo():
     load_block(BlockStmt([
-            ForStmt("i", parse("1"), parse("16"), [
-                IfStmt(parse("i % 15 == 0"), [
-                    DisplayStmt(parse("\"FizzBuzz\""))
+        ForStmt("i", parse("1"), parse("16"), [
+            IfStmt(parse("i % 15 == 0"), [
+                DisplayStmt(parse("\"FizzBuzz\""))
+            ]),
+            ElseStmt([
+                IfStmt(parse("i % 3 == 0"), [
+                    DisplayStmt(parse("\"Fizz\""))
                 ]),
                 ElseStmt([
-                    IfStmt(parse("i % 3 == 0"), [
-                        DisplayStmt(parse("\"Fizz\""))
+                    IfStmt(parse("i % 5 == 0"), [
+                        DisplayStmt(parse("\"Buzz\""))
                     ]),
                     ElseStmt([
-                        IfStmt(parse("i % 5 == 0"), [
-                            DisplayStmt(parse("\"Buzz\""))
-                        ]),
-                        ElseStmt([
-                            DisplayStmt(parse("i"))
-                        ])
+                        DisplayStmt(parse("i"))
                     ])
-                ]),
-            ])
-        ]))
+                ])
+            ]),
+        ])
+    ]))
 
 
 def init_ui():
