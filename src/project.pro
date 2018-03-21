@@ -47,7 +47,6 @@ SOURCES += \
     maths\lib\stats.py \
     maths\lib\trig.py \
     maths\lib\__init__.py \
-    maths\lib\__pycache__\rand.py \
     maths\nodes\ArrayAccessNode.py \
     maths\nodes\AstNode.py \
     maths\nodes\BinOpNode.py \

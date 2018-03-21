@@ -205,6 +205,9 @@
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextUnderIcon</enum>
    </property>
+   <property name="floatable">
+    <bool>true</bool>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -259,6 +262,9 @@
           <widget class="QGroupBox" name="groupBox">
            <property name="title">
             <string>GroupBox</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_6">
             <item>
@@ -351,6 +357,9 @@ p, li { white-space: pre-wrap; }
         <layout class="QVBoxLayout" name="verticalLayout_9">
          <item>
           <widget class="QPushButton" name="btnClearOutput">
+           <property name="toolTip">
+            <string>Fresh Output !</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -390,6 +399,9 @@ p, li { white-space: pre-wrap; }
          </item>
          <item>
           <widget class="QPushButton" name="btnSaveOutput">
+           <property name="toolTip">
+            <string>Save Output...</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -401,6 +413,9 @@ p, li { white-space: pre-wrap; }
          </item>
          <item>
           <widget class="QPushButton" name="btnPrintOutput">
+           <property name="toolTip">
+            <string/>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -615,6 +630,12 @@ p, li { white-space: pre-wrap; }
    </property>
   </action>
   <action name="actionSettings">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../turing.qrc">
      <normaloff>:/action/media/settings.png</normaloff>:/action/media/settings.png</iconset>
