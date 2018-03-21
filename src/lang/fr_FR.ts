@@ -48,6 +48,34 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>Algo</name>
+    <message>
+        <location filename="../algo/worker.py" line="125"/>
+        <source>Variable %s = </source>
+        <translation>Variable %s = </translation>
+    </message>
+    <message>
+        <location filename="../algo/worker.py" line="155"/>
+        <source>BREAK can only be used inside a loop</source>
+        <translation>SORTIR ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
+    </message>
+    <message>
+        <location filename="../algo/worker.py" line="165"/>
+        <source>CONTINUE can only be used inside a loop</source>
+        <translation>CONTINUER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
+    </message>
+    <message>
+        <location filename="../algo/worker.py" line="180"/>
+        <source>RETURN can only be used inside a function</source>
+        <translation>RENVOYER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une fonction</translation>
+    </message>
+    <message>
+        <location filename="../algo/worker.py" line="219"/>
+        <source>Unknown statement type: %s</source>
+        <translation>Type d&apos;instruction inconnu : %s</translation>
+    </message>
+</context>
+<context>
     <name>CalcWindow</name>
     <message>
         <location filename="../forms/ui_calculator.py" line="60"/>
@@ -1191,7 +1219,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="581"/>
         <source>Change theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Changer de thème</translation>
     </message>
 </context>
 <context>
