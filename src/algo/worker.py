@@ -176,7 +176,21 @@ class Worker():
         self.stack[-1] = stmt, index
 
     def exec_function(self, stmt: FuncStmt):
-        self.evaluator.set_variable(stmt.name, lambda *args: self.call_function(stmt, *list(args)))
+        parent_func = self.find_parent(FuncStmt)
+        frames = [x.copy() for x in self.evaluator.frames[1:]]
+
+        def wrapper(*args):
+            for frame in frames:
+                self.evaluator.enter_frame(frame)
+
+            result = self.call_function(stmt, *list(args))
+
+            for frame in frames:
+                self.evaluator.exit_frame()
+                
+            return result
+
+        self.evaluator.set_variable(stmt.name, wrapper)
 
     def exec_return(self, stmt: ReturnStmt):
         if not self.find_parent(FuncStmt):
