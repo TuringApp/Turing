@@ -106,6 +106,47 @@ tests = [
         [
             "Hello Bob"
         ]
+    ),
+    (
+        [
+            ForStmt("i", parse("1"), parse("16"), [
+                IfStmt(parse("i % 15 == 0"), [
+                    DisplayStmt(parse("\"FizzBuzz\""))
+                ]),
+                ElseStmt([
+                    IfStmt(parse("i % 3 == 0"), [
+                        DisplayStmt(parse("\"Fizz\""))
+                    ]),
+                    ElseStmt([
+                        IfStmt(parse("i % 5 == 0"), [
+                            DisplayStmt(parse("\"Buzz\""))
+                        ]),
+                        ElseStmt([
+                            DisplayStmt(parse("i"))
+                        ])
+                    ])
+                ]),
+            ])
+        ],
+        "",
+        [
+            "1",
+            "2",
+            "Fizz",
+            "4",
+            "Buzz",
+            "Fizz",
+            "7",
+            "8",
+            "Fizz",
+            "Buzz",
+            "11",
+            "Fizz",
+            "13",
+            "14",
+            "FizzBuzz",
+            "16"
+        ]
     )
 ]
 

@@ -25,6 +25,7 @@ class Worker:
     callback_input = None
     callback_print = None
     calls = None
+    if_status = None
 
     def __init__(self, code: CodeBlock):
         self.code = BlockStmt(code)
@@ -113,6 +114,14 @@ class Worker:
 
         return stmt.children[index]
 
+    def peek_following(self):
+        stmt, index = self.stack[-1]
+
+        if index + 1 < len(stmt.children):
+            return stmt.children[index + 1]
+
+        return None
+
     def enter_block(self, stmt: BlockStmt, value=None):
         self.stack.append((stmt, -1))
         self.evaluator.enter_frame(value)
@@ -135,6 +144,8 @@ class Worker:
         self.enter_block(stmt)
 
         condition = bool(self.evaluator.eval_node(stmt.condition))
+        self.if_status = (len(self.stack) - 1, condition)
+
         if not condition:
             self.exit_block()
 
@@ -220,6 +231,17 @@ class Worker:
     def exec_call(self, stmt: CallStmt):
         self.evaluator.eval_node(CallNode(stmt.function, stmt.arguments))
 
+    def exec_else(self, stmt: ElseStmt):
+        if self.if_status is None:
+            self.log.error(translate("Algo", "ELSE can only be used after an IF block"))
+            self.finished = True
+            return
+
+        if not self.if_status[1]:
+            self.enter_block(stmt)
+
+        self.if_status = None
+
     def step(self):
         stmt = self.next_stmt()
 
@@ -237,8 +259,12 @@ class Worker:
             ContinueStmt: self.exec_continue,
             FuncStmt: self.exec_function,
             ReturnStmt: self.exec_return,
-            CallStmt: self.exec_call
+            CallStmt: self.exec_call,
+            ElseStmt: self.exec_else
         }
+
+        if self.if_status is not None and type(stmt) != ElseStmt and len(self.stack) <= self.if_status[0]:
+            self.if_status = None
 
         if type(stmt) not in map:
             self.log.error(translate("Algo", "Unknown statement type: {type}").format(type=type(stmt)))
