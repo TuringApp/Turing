@@ -115,6 +115,10 @@ class Worker:
         if index + 1 < len(stmt.children):
             return stmt.children[index + 1]
 
+        if len(self.stack) == 1:
+            self.finished = True
+            return None
+
         return None
 
     def enter_block(self, stmt: BlockStmt, value=None):
@@ -268,12 +272,15 @@ class Worker:
 
         map[type(stmt)](stmt)
 
-    def run(self):
+    def init(self):
         self.reset_eval()
         self.stack = [(self.code, -1)]
         self.calls = []
         self.if_status = None
         self.finished = False
+
+    def run(self):
+        self.init()
 
         self.evaluator.enter_frame()
 
