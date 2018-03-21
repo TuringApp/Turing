@@ -247,6 +247,9 @@ class Worker:
         if stmt is None:
             return
 
+        self.exec_stmt(stmt)
+
+    def exec_stmt(self, stmt):
         map = {
             DisplayStmt: self.exec_display,
             InputStmt: self.exec_input,
