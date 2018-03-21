@@ -436,6 +436,12 @@ def str_stmt(stmt):
     elif isinstance(stmt, ElseStmt):
         ret = translate("Algo", "[b]ELSE[/b]")
 
+    elif isinstance(stmt, WhileStmt):
+        ret = translate("Algo", "[b]WHILE[/b] [c]{cond}[/c]").format(cond=stmt.condition.code())
+
+    elif isinstance(stmt, IfStmt):
+        ret = translate("Algo", "[b]IF[/b] [c]{cond}[/c]").format(cond=stmt.condition.code())
+
     else:
         ret = "unimpl %s" % stmt
 
