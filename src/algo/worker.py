@@ -100,6 +100,8 @@ class Worker():
 
                 elif isinstance(stmt, FuncStmt):
                     self.calls.append(None)
+                    self.exit_block()
+                    return None
 
                 self.exit_block()
                 continue
@@ -193,6 +195,10 @@ class Worker():
 
         while len(self.stack) >= length and not self.finished:
             self.step()
+
+        if len(self.stack) != length - 1:
+            self.log.error(translate("Algo", "Stack corruption after calling function %s" % stmt.name))
+            return None
 
         return self.calls.pop()
 
