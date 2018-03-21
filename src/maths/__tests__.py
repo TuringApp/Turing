@@ -113,7 +113,9 @@ tests = [
      "map(derivative(ln), [1, 2, 4, 8]) == map({x}(1 / x), [1, 2, 4, 8])"),
     ("map(derivative(sin),[0,pi/2,pi])==map(cos,[0,pi/2,pi])", True,
      "map(derivative(sin), [0, pi / 2, pi]) == map(cos, [0, pi / 2, pi])"),
-    ("2+2==4 and 3+3==6", True, "2 + 2 == 4 AND 3 + 3 == 6")
+    ("2+2==4 and 3+3==6", True, "2 + 2 == 4 AND 3 + 3 == 6"),
+
+    ("{n}({m}({n}(m*n))(n))(3)(4)", 12, "{n}({m}({n}(m * n))(n))(3)(4)")
 ]
 
 

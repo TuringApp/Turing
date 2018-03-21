@@ -77,6 +77,21 @@ tests = [
             "6",
             "42"
         ]
+    ),
+    (
+        [
+            FuncStmt("f1", ["n"], [
+                FuncStmt("f2", ["n"], [
+                    ReturnStmt(parse("{m}({n}(m*n))(n)"))
+                ]),
+                ReturnStmt(parse("f2(n)"))
+            ]),
+            DisplayStmt(parse("f1(3)(4)"))
+        ],
+        "",
+        [
+            "12"
+        ]
     )
 ]
 
