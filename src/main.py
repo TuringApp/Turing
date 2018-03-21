@@ -423,6 +423,28 @@ def load_code_editor():
     ui.verticalLayout_8.addWidget(code_editor)
 
 
+def str_stmt(stmt):
+    if isinstance(stmt, DisplayStmt):
+        ret = translate("Algo", "[k]DISPLAY[/k] [c]{val}[/c]").format(val=stmt.content.code())
+
+    elif isinstance(stmt, BreakStmt):
+        ret = translate("Algo", "[k]BREAK[/k]")
+
+    elif isinstance(stmt, ContinueStmt):
+        ret = translate("Algo", "[k]CONTINUE[/k]")
+
+    elif isinstance(stmt, ElseStmt):
+        ret = translate("Algo", "[b]ELSE[/b]")
+
+    else:
+        ret = "unimpl %s" % stmt
+
+    ret = ret.replace("[b]", block_html).replace("[/b]", "</span>")
+    ret = ret.replace("[k]", keyword_html).replace("[/k]", "</span>")
+    ret = ret.replace("[c]", '<code>').replace("[/c]", "</code>")
+    ret = ret.replace("  ", " ")
+
+    return ret
 def init_ui():
     global window, ui
     window = MainWindowWrapper()
