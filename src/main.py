@@ -447,6 +447,16 @@ def get_item_label(item):
     return txt
 
 
+def get_item_html(html, data="", parent=None):
+    item = QTreeWidgetItem(parent or ui.treeWidget)
+    item.setStatusTip(0, data)
+
+    lbl = get_item_label(item)
+    lbl.setText('&nbsp;<span>%s</span>' % html)
+
+    return item
+
+
 def refresh_algo_text():
     for item, stmt in item_map.values():
         lbl = get_item_label(item)
