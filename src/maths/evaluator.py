@@ -124,9 +124,17 @@ class Evaluator:
                 translate("Evaluator", "Argument count mismatch (expected %d, got %d)") % (len(node.args), len(args)))
             return None
 
-        self.enter_frame({node.args[idx]: arg for idx, arg in enumerate(args)})
+        frame = {node.args[idx]: arg for idx, arg in enumerate(args)}
+
+        self.enter_frame(frame)
 
         result = self.eval_node(node.expr)
+
+        if callable(result):
+            if not hasattr(result, "frames"):
+                result.frames = []
+
+            result.frames.append(frame.copy())
 
         # pop arguments after use
         self.exit_frame()
@@ -202,7 +210,17 @@ class Evaluator:
         else:
             args = [self.eval_node(x) for x in node.args]
 
-        return function.__call__(*args)
+        if hasattr(function, "frames"):
+            for f in function.frames:
+                self.enter_frame(f)
+
+        result = function.__call__(*args)
+
+        if hasattr(function, "frames"):
+            for f in function.frames:
+                self.exit_frame()
+
+        return result
 
     def eval_unary(self, node: nodes.UnaryOpNode):
         value = self.eval_node(node.value)
