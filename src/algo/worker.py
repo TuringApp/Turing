@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 import typing
-from typing import Optional, Union
 from collections import Iterable
+from typing import Optional, Union
 
 from algo.stmts import *
 from algo.stmts.BlockStmt import BlockStmt
 from algo.stmts.BreakStmt import BreakStmt
 from algo.stmts.ContinueStmt import ContinueStmt
 from maths.evaluator import Evaluator
+from maths.nodes import CallNode
 from maths.parser import Parser
 from util import translate
 from util.log import Logger
-from maths.nodes import CallNode
-
 
 Loops = (ForStmt, WhileStmt)
 
@@ -187,7 +186,7 @@ class Worker():
 
             for frame in frames:
                 self.evaluator.exit_frame()
-                
+
             return result
 
         self.evaluator.set_variable(stmt.name, wrapper)

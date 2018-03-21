@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import maths.nodes as nodes
 from algo.stmts import *
 from algo.worker import Worker
-from tests.framework import expect
 from maths.parser import quick_parse as parse
+from tests.framework import expect
 
 tests = [
     (

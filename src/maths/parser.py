@@ -531,6 +531,7 @@ class Parser:
         # remove double whitespaces
         return re.sub("\s\s+", " ", result)
 
+
 def quick_parse(expr: str):
     p = Parser(expr)
     return p.parse()

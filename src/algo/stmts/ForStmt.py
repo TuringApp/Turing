@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from algo.stmts.BlockStmt import BlockStmt
-from maths.nodes import AstNode, NumberNode
+from maths.nodes import AstNode
 from .BaseStmt import *
 
 
