@@ -286,6 +286,13 @@ def python_print_error(msg):
     update_output()
 
 
+def init_worker():
+    global worker
+    worker = Worker(algo.children)
+    worker.callback_print = python_print
+    worker.callback_input = python_input
+
+
 def handler_Run():
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
