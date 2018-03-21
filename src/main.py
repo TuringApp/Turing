@@ -334,7 +334,7 @@ def handler_Step():
 
             set_current_line(current)
     except:
-        print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]))
+        show_error()
     finally:
         if worker.finished:
             end_output()
@@ -378,7 +378,7 @@ def handler_Run():
             while not worker.finished:
                 worker.step()
     except:
-        print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]))
+        show_error()
     finally:
         end_output()
         ui.actionRun.setDisabled(False)
@@ -710,6 +710,9 @@ def init_ui():
     window.show()
 
 
+def show_error():
+    print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]))
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setApplicationName("Turing")
@@ -734,7 +737,7 @@ if __name__ == "__main__":
     try:
         exitCode = app.exec_()
     except:
-        print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]))
+        show_error()
         exitCode = 1
 
     sys.exit(exitCode)
