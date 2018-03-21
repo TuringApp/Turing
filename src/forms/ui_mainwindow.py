@@ -552,7 +552,7 @@ class Ui_MainWindow(object):
         self.btnAlgo_Up.setText(_translate("MainWindow", "Move up"))
         self.btnAlgo_Variable.setText(_translate("MainWindow", "Define variable"))
         self.btnAlgo_Input.setText(_translate("MainWindow", "Read user input"))
-        self.btnAlgo_For.setText(_translate("MainWindow", "FOR-TO loop"))
+        self.btnAlgo_For.setText(_translate("MainWindow", "FOR loop"))
         self.btnAlgo_While.setText(_translate("MainWindow", "WHILE loop"))
         self.btnAlgo_Display.setText(_translate("MainWindow", "Display value"))
         self.btnAlgo_If.setText(_translate("MainWindow", "IF block"))
