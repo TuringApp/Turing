@@ -195,7 +195,7 @@ class Parser:
             r"\(|\)|\[|\]|{|\}|"
             r"\bET\b|\bAND\b|\bOU\b|\bOR\b|\bXOR\b|\bNON\b|\bNOT\b|"
             r"\bVRAI\b|\bFAUX\b|\bTRUE\b|\bFALSE\b|"
-            r"&|\||,| )",
+            r"&|\||,| |\"(?:[^\"]*)\")",
             re.IGNORECASE)
 
         tokenized = [x.strip() for x in regex.split(self.expression) if x.strip()]
