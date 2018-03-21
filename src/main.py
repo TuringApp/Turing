@@ -7,6 +7,7 @@ import runpy
 import sys
 import tempfile
 
+import pygments.styles
 import pyqode.python.backend
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -14,14 +15,17 @@ from PyQt5.QtWidgets import *
 from pyqode.core import api
 from pyqode.core import modes
 from pyqode.core import panels
-import pygments.styles
+
 import editor_backend
 import util
 import util.code
 import util.html
+from algo.stmts import *
+from algo.worker import Worker
 from forms.ui_mainwindow import Ui_MainWindow
 from lang import translator
-from util.widgets import center_widget
+from maths.parser import quick_parse as parse
+from util.widgets import center_widget, QClickableLabel
 
 translate = QCoreApplication.translate
 
