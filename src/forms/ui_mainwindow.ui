@@ -370,6 +370,9 @@ p, li { white-space: pre-wrap; }
         <layout class="QVBoxLayout" name="verticalLayout_9">
          <item>
           <widget class="QPushButton" name="btnClearOutput">
+           <property name="toolTip">
+            <string>Clear Output</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -381,6 +384,9 @@ p, li { white-space: pre-wrap; }
          </item>
          <item>
           <widget class="QPushButton" name="btnSaveOutput">
+           <property name="toolTip">
+            <string>Save Output</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -393,7 +399,7 @@ p, li { white-space: pre-wrap; }
          <item>
           <widget class="QPushButton" name="btnPrintOutput">
            <property name="toolTip">
-            <string/>
+            <string>Print Output</string>
            </property>
            <property name="text">
             <string/>
@@ -649,8 +655,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionAboutTuring">
    <property name="icon">
-    <iconset>
-     <normaloff>:/action/media/icon_16.png</normaloff>:/action/media/icon_16.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/icon/media/icon_16.png</normaloff>:/icon/media/icon_16.png</iconset>
    </property>
    <property name="text">
     <string>About Turing</string>
