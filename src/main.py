@@ -418,6 +418,8 @@ def load_code_editor():
         action.triggered.connect(gen(style))
         ui.menuChangeStyle.addAction(action)
 
+    setStyle("default")
+
     ui.verticalLayout_8.addWidget(code_editor)
 
 
