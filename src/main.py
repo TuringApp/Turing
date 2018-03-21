@@ -546,6 +546,13 @@ def load_algo():
     root_item = get_item_html(get_block("PROGRAM"))
     store_line(root_item, algo)
 
+    add_line([0], FuncStmt("sayHello2", ["name"], []))
+    add_line([0, 0], AssignStmt("text", parse("\"Hello \" + name")))
+    add_line([0, 1], FuncStmt("say", [], []))
+    add_line([0, 1, 0], DisplayStmt(parse("text")))
+    add_line([0, 2], ReturnStmt(parse("say")))
+    add_line([1], AssignStmt("say2", parse("sayHello2(\"Bob\")")))
+    add_line([2], CallStmt(parse("say2"), []))
 
 def init_ui():
     global window, ui
