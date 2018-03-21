@@ -349,6 +349,7 @@ def change_language(language: str):
     load_editor_actions()
     for a in ui.menuLanguage.actions():
         a.setChecked(a.statusTip() == language)
+    refresh_algo_text()
 
 
 def send_user_input():
@@ -444,6 +445,12 @@ def get_item_label(item):
     ui.treeWidget.setItemWidget(item, 0, txt)
 
     return txt
+
+
+def refresh_algo_text():
+    for item, stmt in item_map.values():
+        lbl = get_item_label(item)
+        lbl.setText('&nbsp;<span>%s</span>' % str_stmt(stmt))
 
 
 def str_stmt(stmt):
