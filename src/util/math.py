@@ -192,3 +192,30 @@ def proper_str(a: Any) -> str:
             return str(sig) + "e" + str(int(exp))
 
     return str(a)
+
+
+def check_type(obj: Any, typ: str) -> bool:
+    if typ == "Number":
+        return is_num(obj)
+
+    if typ == "Integer":
+        return is_int(obj)
+
+    if typ == "Real":
+        return is_real(obj)
+
+    if typ == "String":
+        return type(obj) == str
+
+    if typ == "Any":
+        return True
+
+    if typ.startswith("Function"):
+        return callable(obj)
+
+    if typ.startswith("List"):
+        return type(obj) == list
+
+    raise ValueError("unknown type %s" % typ)
+
+

@@ -55,13 +55,14 @@ def calculate():
     msgs = ev.log.get_messages()
 
     if msgs:
-        err = "\n".join([x[1] for x in msgs])
+        #err = "\n".join([x[1] for x in msgs])
+        err = msgs[0][1]
         add_result(ev.beautified, err, True)
-
-    if result is not None:
-        add_result(None if msgs else ev.beautified, result)
     else:
-        add_result(None if msgs else ev.beautified, translate("CalcWindow", "Result is None"), True)
+        if result is not None:
+            add_result(None if msgs else ev.beautified, result)
+        else:
+            add_result(None if msgs else ev.beautified, translate("CalcWindow", "Result is None"), True)
 
 
 def history_double_click(item):

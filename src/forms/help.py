@@ -19,20 +19,11 @@ functions: Dict[str, List[function]] = None
 catItems = []
 
 
-def find_function(name: str) -> Optional[Tuple[str, function]]:
-    for k in functions:
-        for f in functions[k]:
-            if f[0] == name:
-                return k, f
-
-    return None
-
-
 def on_item_select():
     current = ui.listFuncs.currentItem()
 
     if current.parent() is not None:
-        category, function = find_function(current.statusTip(0))
+        category, function = maths.lib.find_function(current.statusTip(0))
 
         name, args, desc = function[:3]
         desc = re.sub(r"{{(\w+)\}\}", "<i><b>\g<1></b></i>", escape(desc))

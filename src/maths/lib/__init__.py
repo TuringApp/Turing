@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from typing import Optional, Tuple
 
 import maths.lib.basic
 import maths.lib.cast
@@ -20,3 +21,13 @@ def get_consts():
 
 def get_modules():
     return docs.modules
+
+
+def find_function(name: str) -> Optional[Tuple[str, Tuple]]:
+    functions = get_funcs()
+    for k in functions:
+        for f in functions[k]:
+            if f[0] == name:
+                return k, f
+
+    return None

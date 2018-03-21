@@ -44,3 +44,6 @@ class Logger:
     def get_messages(self) -> List[LogMessage]:
         """Fetches the log messages."""
         return self.messages
+
+    def has_errors(self) -> bool:
+        return any(msg for msg in self.messages if msg[0] == LogType.ERROR)

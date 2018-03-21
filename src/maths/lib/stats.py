@@ -40,7 +40,7 @@ doc("harmonic_mean",
     ["moyenne_harmo"])
 
 
-def harmonic_mean(*args):
+def harmonic_mean(args):
     if "harmonic_mean" not in dir(statistics):
         return len(args) / sum([1 / x for x in args])
     return statistics.harmonic_mean(args)

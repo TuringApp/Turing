@@ -26,6 +26,11 @@ class Evaluator:
             if isinstance(item, types.ModuleType):
                 for member_name, member in item.__dict__.items():
                     if callable(member):  # if function
+                        doc_func = mlib.find_function(member_name)
+
+                        if doc_func:
+                            member.doc_spec = doc_func
+
                         self.frames[0][member_name] = member
                     elif member_name.startswith("c_"):  # if constant
                         self.frames[0][member_name[2:]] = member
@@ -210,6 +215,22 @@ class Evaluator:
             args = arg_list
         else:
             args = [self.eval_node(x) for x in node.args]
+
+        if hasattr(function, "doc_spec"):
+            arg_spec = function.doc_spec[1][1]
+            num_opt = sum(1 for arg in arg_spec if len(arg) >= 4)
+
+            if not (len(arg_spec) - num_opt <= len(args) <= len(arg_spec)):
+                self.log.error(translate("Evaluator", "Argument count mismatch (expected {exp}, got {act})").format(
+                    exp=len(arg_spec) - num_opt, act=len(args)))
+                return None
+
+            for idx, (arg, spec) in enumerate(zip(args, arg_spec)):
+                if not check_type(arg, spec[1]):
+                    self.log.error(
+                        translate("Evaluator", "Type mismatch for argument #{idx} '{arg}' (expected {exp})").format(
+                            idx=idx+1, arg=spec[0], exp=spec[1]))
+                    return None
 
         if hasattr(function, "frames"):
             for f in function.frames:
