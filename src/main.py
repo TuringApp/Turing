@@ -467,6 +467,9 @@ def str_stmt(stmt):
         ret = translate("Algo", "[k]RETURN[/k] [c]{val}[/c]").format(
             val="" if stmt.value is None else stmt.value.code())
 
+    elif isinstance(stmt, BlockStmt):
+        ret = translate("Algo", "[b]PROGRAM[/b]")
+
     else:
         ret = "unimpl %s" % stmt
 
