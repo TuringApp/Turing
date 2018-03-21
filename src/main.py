@@ -463,6 +463,22 @@ def refresh_algo_text():
         lbl.setText('&nbsp;<span>%s</span>' % str_stmt(stmt))
 
 
+def add_line(pos, stmt):
+    parent = root_item
+    parent_stmt = algo
+
+    for p in pos[:-1]:
+        parent = parent.child(p)
+        parent_stmt = parent_stmt.children[p]
+
+    item = get_item_html(str_stmt(stmt), parent=parent)
+
+    parent.insertChild(pos[-1], item)
+    parent_stmt.children.insert(pos[-1], stmt)
+
+    store_line(item, stmt)
+
+
 def str_stmt(stmt):
     if isinstance(stmt, DisplayStmt):
         ret = translate("Algo", "[k]DISPLAY[/k] [c]{val}[/c]").format(val=stmt.content.code())
