@@ -585,7 +585,10 @@ def str_stmt(stmt):
         ret = translate("Algo", "[k]CALL[/k] [c]{code}[/c]").format(code=stmt.to_node().code())
 
     elif isinstance(stmt, ForStmt):
-        ret = "unimpl for"
+        ret = translate("Algo", "[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}").format(
+            var=stmt.variable, begin=stmt.begin.code(), end=stmt.end.code(),
+            step="" if stmt.step is None else translate("Algo", "([b]STEP[/b] [c]{step}[/c])").format(
+                step=stmt.step.code()))
 
     elif isinstance(stmt, FuncStmt):
         ret = translate("Algo", "[b]FUNCTION[/b] [c]{func}({args})[/c]").format(func=stmt.name,
@@ -606,7 +609,7 @@ def str_stmt(stmt):
     ret = ret.replace("[c]", '<code>').replace("[/c]", "</code>")
     ret = ret.replace("  ", " ")
 
-    return ret
+    return ret.strip()
 
 
 def store_line(item: QTreeWidgetItem, stmt: BaseStmt):
