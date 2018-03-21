@@ -66,6 +66,7 @@ python_only = [
     "Unindent"
 ]
 
+worker = None
 algo = BlockStmt([])
 item_map = {}
 root_item = None
@@ -288,21 +289,32 @@ def python_print_error(msg):
 def handler_Run():
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
-    file = tempfile.NamedTemporaryFile(mode="w+b", suffix=".py", delete=False)
+
     try:
-        code = util.code.python_wrapper(code_editor.toPlainText()).encode("utf8")
-        file.write(code)
-        file.close()
-        runpy.run_path(file.name, init_globals={"print": python_print, "input": python_input})
-    except SyntaxError as err:
-        msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
-            type=type(err).__name__, line=err.lineno - 10, off=err.offset)
-        python_print_error(msg + err.text)
-        python_print_error(" " * (len(msg) + err.offset - 1) + "↑")
-    except:
-        python_print_error(str(sys.exc_info()[1]))
+        if mode_python:
+            file = tempfile.NamedTemporaryFile(mode="w+b", suffix=".py", delete=False)
+            try:
+                code = util.code.python_wrapper(code_editor.toPlainText()).encode("utf8")
+                file.write(code)
+                file.close()
+                runpy.run_path(file.name, init_globals={"print": python_print, "input": python_input})
+            except SyntaxError as err:
+                msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
+                    type=type(err).__name__, line=err.lineno - 10, off=err.offset)
+                python_print_error(msg + err.text)
+                python_print_error(" " * (len(msg) + err.offset - 1) + "↑")
+            except:
+                python_print_error(str(sys.exc_info()[1]))
+            finally:
+                os.unlink(file.name)
+        else:
+            global worker
+            print(algo)
+            worker = Worker(algo.children)
+            worker.callback_print = python_print
+            worker.callback_input = python_input
+            worker.run()
     finally:
-        os.unlink(file.name)
         global current_output
         current_output += util.html.centered(util.html.color_span(translate("MainWindow", "end of output"), "red"))
         current_output += "<hr>"
