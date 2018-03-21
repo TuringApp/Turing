@@ -74,6 +74,8 @@ root_item = None
 block_html = '<span style="color:darkred;font-weight:bold">'
 keyword_html = '<span style="color:blue;font-weight:bold">'
 
+running = False
+
 
 def get_themed_box():
     msg = QMessageBox()
@@ -484,7 +486,7 @@ def refresh_algo_text():
         lbl.setText('&nbsp;<span>%s</span>' % str_stmt(stmt))
 
 
-def add_line(pos, stmt):
+def add_line(pos, stmt, add=True):
     parent = root_item
     parent_stmt = algo
 
@@ -495,7 +497,8 @@ def add_line(pos, stmt):
     item = get_item_html(str_stmt(stmt), parent=parent)
 
     parent.insertChild(pos[-1], item)
-    parent_stmt.children.insert(pos[-1], stmt)
+    if add:
+        parent_stmt.children.insert(pos[-1], stmt)
 
     store_line(item, stmt)
 
@@ -562,20 +565,62 @@ def store_line(item: QTreeWidgetItem, stmt: BaseStmt):
     item_map[id(stmt)] = item, stmt
 
 
-def load_algo():
-    global root_item
+def get_block(txt):
+    return block_html + txt + "</span>"
+
+
+def load_block(stmt: BlockStmt):
+    global item_map
+    item_map = {}
+    ui.treeWidget.clear()
+
+    global root_item, algo
+    algo = stmt
     root_item = get_item_html(get_block("PROGRAM"))
     store_line(root_item, algo)
 
-    add_line([0], FuncStmt("sayHello2", ["name"], []))
-    add_line([0, 0], AssignStmt("text", parse("\"Hello \" + name")))
-    add_line([0, 1], FuncStmt("say", [], []))
-    add_line([0, 1, 0], DisplayStmt(parse("text")))
-    add_line([0, 2], ReturnStmt(parse("say")))
-    add_line([1], AssignStmt("say2", parse("sayHello2(\"Bob\")")))
-    add_line([2], CallStmt(parse("say2"), []))
+    current = []
+
+    def add_block(block: BlockStmt):
+        nonlocal current
+        current.append(0)
+
+        for child in block.children:
+            add_line(current, child, add=False)
+
+            if isinstance(child, BlockStmt):
+                add_block(child)
+
+            current[-1] += 1
+
+        current.pop()
+
+    add_block(stmt)
 
     ui.treeWidget.expandAll()
+
+
+def load_algo():
+    load_block(BlockStmt([
+            ForStmt("i", parse("1"), parse("16"), [
+                IfStmt(parse("i % 15 == 0"), [
+                    DisplayStmt(parse("\"FizzBuzz\""))
+                ]),
+                ElseStmt([
+                    IfStmt(parse("i % 3 == 0"), [
+                        DisplayStmt(parse("\"Fizz\""))
+                    ]),
+                    ElseStmt([
+                        IfStmt(parse("i % 5 == 0"), [
+                            DisplayStmt(parse("\"Buzz\""))
+                        ]),
+                        ElseStmt([
+                            DisplayStmt(parse("i"))
+                        ])
+                    ])
+                ]),
+            ])
+        ]))
 
 
 def init_ui():
