@@ -9,6 +9,12 @@ done
 
 cd ..
 
+cd tools
+
+python3 progen.py
+
+cd ..
+
 pylupdate5 project.pro
 
 cd lang
