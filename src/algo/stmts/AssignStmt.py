@@ -8,7 +8,7 @@ class AssignStmt(BaseStmt):
     variable = None
     value = None
 
-    def __init__(self, variable: str, value: AstNode):
+    def __init__(self, variable: str, value: AstNode = None):
         super().__init__()
         self.variable = variable
         self.value = value

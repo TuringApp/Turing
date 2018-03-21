@@ -130,7 +130,7 @@ class Worker:
         self.evaluator.set_variable(stmt.variable, self.stmt_input(prompt))
 
     def exec_assign(self, stmt: AssignStmt):
-        self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.value))
+        self.evaluator.set_variable(stmt.variable, None if stmt.value is None else self.evaluator.eval_node(stmt.value))
 
     def exec_if(self, stmt: IfStmt):
         self.enter_block(stmt)
