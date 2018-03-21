@@ -50,97 +50,97 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algo</name>
     <message>
-        <location filename="../algo/worker.py" line="132"/>
+        <location filename="../algo/worker.py" line="136"/>
         <source>Variable {var} = </source>
         <translation>Variable {var} = </translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="164"/>
+        <location filename="../algo/worker.py" line="168"/>
         <source>BREAK can only be used inside a loop</source>
         <translation>SORTIR ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="174"/>
+        <location filename="../algo/worker.py" line="178"/>
         <source>CONTINUE can only be used inside a loop</source>
         <translation>CONTINUER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="203"/>
+        <location filename="../algo/worker.py" line="207"/>
         <source>RETURN can only be used inside a function</source>
         <translation>RENVOYER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une fonction</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="265"/>
+        <location filename="../algo/worker.py" line="272"/>
         <source>Unknown statement type: {type}</source>
         <translation>Type d&apos;instruction inconnu : {type}</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="231"/>
+        <location filename="../algo/worker.py" line="235"/>
         <source>ELSE can only be used after an IF block</source>
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="514"/>
+        <location filename="../main.py" line="566"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="517"/>
+        <location filename="../main.py" line="569"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="508"/>
+        <location filename="../main.py" line="560"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="520"/>
+        <location filename="../main.py" line="572"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="523"/>
+        <location filename="../main.py" line="575"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="526"/>
+        <location filename="../main.py" line="578"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="546"/>
+        <location filename="../main.py" line="599"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="531"/>
+        <location filename="../main.py" line="583"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="533"/>
+        <location filename="../main.py" line="585"/>
         <source>[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]</source>
         <translation>[k]ASSIGNER[/k] [c]{var}[/c] = [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="537"/>
+        <location filename="../main.py" line="589"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="543"/>
+        <location filename="../main.py" line="595"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="550"/>
+        <location filename="../main.py" line="603"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="511"/>
+        <location filename="../main.py" line="563"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
@@ -1170,7 +1170,7 @@ p, li { white-space: pre-wrap; }
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="105"/>
+        <location filename="../main.py" line="108"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
@@ -1202,22 +1202,22 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="639"/>
+        <location filename="../main.py" line="734"/>
         <source>Error: </source>
         <translation>Erreur : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="322"/>
+        <location filename="../main.py" line="307"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="247"/>
+        <location filename="../main.py" line="253"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="305"/>
+        <location filename="../main.py" line="361"/>
         <source>Syntax error ({type}) at line {line}, offset {off}: </source>
         <translation>Erreur de syntaxe ({type}) à la ligne {line}, caractère {off} : </translation>
     </message>

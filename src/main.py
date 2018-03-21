@@ -6,6 +6,7 @@ import os
 import runpy
 import sys
 import tempfile
+from typing import Optional
 
 import pygments.styles
 import pyqode.python.backend
@@ -234,9 +235,12 @@ def python_print(*args, end="\n"):
 
 
 def update_output():
+    global current_output
     ui.txtOutput.setHtml("<pre>%s</pre>" % (current_output + after_output))
     ui.txtOutput.moveCursor(QTextCursor.End)
     ui.txtOutput.ensureCursorVisible()
+    if current_output.endswith("\n\n"):
+        current_output = current_output[:-1]
 
 
 def python_input(prompt=""):
@@ -293,7 +297,7 @@ def init_worker():
     worker = Worker(algo.children)
     worker.callback_print = python_print
     worker.callback_input = python_input
-
+    worker.init()
 
 def end_output():
     global current_output
@@ -301,11 +305,45 @@ def end_output():
     current_output += "<hr>"
     update_output()
 
+def set_current_line(current: Optional[BaseStmt]):
+    for item, stmt in item_map.values():
+        if stmt == current:
+            item.setBackground(0, QBrush(QColor("red")))
+        else:
+            item.setBackground(0, root_item.background(0))
+
+def handler_Step():
+    ui.actionRun.setDisabled(True)
+    ui.actionStep.setDisabled(True)
+    global running, current
+
+    try:
+        if mode_python:
+            pass
+        else:
+            if running:
+                worker.exec_stmt(current)
+            else:
+                init_worker()
+                running = True
+
+            current = worker.next_stmt()
+
+            set_current_line(current)
+    except:
+        print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]))
+    finally:
+        if worker.finished:
+            end_output()
+
+            running = False
+        ui.actionRun.setDisabled(False)
+        ui.actionStep.setDisabled(False)
+
 def handler_Run():
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
     global running
-    running = True
 
     try:
         if mode_python:
@@ -314,6 +352,7 @@ def handler_Run():
                 code = util.code.python_wrapper(code_editor.toPlainText()).encode("utf8")
                 file.write(code)
                 file.close()
+                running = True
                 runpy.run_path(file.name, init_globals={"print": python_print, "input": python_input})
             except SyntaxError as err:
                 msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
@@ -325,8 +364,17 @@ def handler_Run():
             finally:
                 os.unlink(file.name)
         else:
-            init_worker()
-            worker.run()
+            if not running:
+                init_worker()
+                running = True
+            else:
+                worker.exec_stmt(current)
+                set_current_line(None)
+
+            while not worker.finished:
+                worker.step()
+    except:
+        print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]))
     finally:
         end_output()
         ui.actionRun.setDisabled(False)
