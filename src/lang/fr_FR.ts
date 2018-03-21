@@ -51,8 +51,8 @@ p, li { white-space: pre-wrap; }
     <name>Algo</name>
     <message>
         <location filename="../algo/worker.py" line="128"/>
-        <source>Variable %s = </source>
-        <translation>Variable %s = </translation>
+        <source>Variable {var} = </source>
+        <translation>Variable {var} = </translation>
     </message>
     <message>
         <location filename="../algo/worker.py" line="158"/>
@@ -71,8 +71,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../algo/worker.py" line="244"/>
-        <source>Unknown statement type: %s</source>
-        <translation>Type d&apos;instruction inconnu : %s</translation>
+        <source>Unknown statement type: {type}</source>
+        <translation>Type d&apos;instruction inconnu : {type}</translation>
     </message>
 </context>
 <context>
@@ -299,11 +299,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../maths/lib/stats.py" line="20"/>
         <source>Returns the arithmetic mean of {{args}}.</source>
         <translation>Calcule la moyenne arithmétique de {{args}}.</translation>
-    </message>
-    <message>
-        <location filename="../maths/lib/stats.py" line="38"/>
-        <source>Returns the harmonicc mean of {{args}}.</source>
-        <translation type="obsolete">Calcule la moyenne harmonique de {{args}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="51"/>
@@ -685,93 +680,88 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="123"/>
-        <source>Argument count mismatch (expected %d, got %d)</source>
-        <translation>Nombre d&apos;arguments invalides (attendu : %d, reçu : %d)</translation>
+        <source>Argument count mismatch (expected {exp}, got {act})</source>
+        <translation>Nombre d&apos;arguments invalides (attendu : {exp}, reçu : {act})</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="56"/>
-        <source>Cannot find variable or function %s</source>
-        <translation>Impossible de trouver la variable ou fonction %s</translation>
+        <source>Cannot find variable or function {name}</source>
+        <translation>Impossible de trouver la variable ou fonction {name}</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="196"/>
+        <location filename="../maths/evaluator.py" line="197"/>
         <source>Callee is None</source>
         <translation>La fonction appelée est None</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="206"/>
+        <location filename="../maths/evaluator.py" line="207"/>
         <source>Only lists can be expanded</source>
         <translation>Seules les listes peuvent être étendues</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="189"/>
-        <source>Index &apos;%s&apos; too big for array</source>
-        <translation>Indice &apos;%s&apos; trop grand pour la liste</translation>
+        <location filename="../maths/evaluator.py" line="190"/>
+        <source>Index &apos;{idx}&apos; too big for array</source>
+        <translation>Indice &apos;{idx}&apos; trop grand pour la liste</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="176"/>
-        <source>Unknown node type: %s</source>
-        <translation>Type de nœud inconnu : %s</translation>
+        <location filename="../maths/evaluator.py" line="177"/>
+        <source>Unknown node type: {type}</source>
+        <translation>Type de nœud inconnu : {type}</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="241"/>
-        <source>Invalid unary operator &apos;%s&apos;</source>
-        <translation>Opérateur unaire invalide &apos;%s&apos;</translation>
+        <location filename="../maths/evaluator.py" line="242"/>
+        <source>Invalid unary operator &apos;{op}&apos;</source>
+        <translation>Opérateur unaire invalide &apos;{op}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="252"/>
+        <location filename="../maths/evaluator.py" line="253"/>
         <source>Trying to use None</source>
         <translation>Opération sur None impossible</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="267"/>
-        <source>Type mismatch: operands have different types (%s and %s)</source>
-        <translation>Types incompatibles : les opérandes ont des types différents (%s et %s)</translation>
+        <location filename="../maths/evaluator.py" line="268"/>
+        <source>Type mismatch: operands have different types ({left} and {right})</source>
+        <translation>Types incompatibles : les opérandes ont des types différents ({left} et {right})</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="288"/>
-        <source>Invalid value type for %s and operator &apos;%s&apos;</source>
-        <translation>Type de valeur invalide pour %s et l&apos;opérateur &apos;%s&apos;</translation>
+        <location filename="../maths/evaluator.py" line="290"/>
+        <source>Invalid value type for {val} and operator &apos;{op}&apos;</source>
+        <translation>Type de valeur invalide pour {val} et l&apos;opérateur &apos;{op}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="288"/>
+        <location filename="../maths/evaluator.py" line="290"/>
         <source> and </source>
         <translation> et </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="293"/>
-        <source>Operator &apos;%s&apos; not allowed for value type %s</source>
-        <translation>Opérateur &apos;%s&apos; non autorisé pour le type de valeur %s</translation>
+        <location filename="../maths/evaluator.py" line="295"/>
+        <source>Operator &apos;{op}&apos; not allowed for value type {type}</source>
+        <translation>Opérateur &apos;{op}&apos; non autorisé pour le type de valeur {type}</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="256"/>
-        <source>Trying to multiply List by non-integer (%f)</source>
-        <translation type="obsolete">Tentative de multiplication d&apos;une List par un non-entier (%f)</translation>
-    </message>
-    <message>
-        <location filename="../maths/evaluator.py" line="317"/>
+        <location filename="../maths/evaluator.py" line="320"/>
         <source>Trying to divide by zero</source>
         <translation>Tentative de division par zéro</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="359"/>
-        <source>Invalid binary operator &apos;%s&apos; for &apos;%s&apos; and &apos;%s&apos;</source>
-        <translation>Opérateur binaire &apos;%s&apos; invalide opur &apos;%s&apos; et &apos;%s&apos;</translation>
+        <location filename="../maths/evaluator.py" line="362"/>
+        <source>Invalid binary operator &apos;{op}&apos; for &apos;{left}&apos; and &apos;{right}&apos;</source>
+        <translation>Opérateur binaire &apos;{op}&apos; invalide pour &apos;{left}&apos; et &apos;{right}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="283"/>
+        <location filename="../maths/evaluator.py" line="285"/>
         <source>left</source>
         <translation>gauche</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="286"/>
+        <location filename="../maths/evaluator.py" line="288"/>
         <source>right</source>
         <translation>droite</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="309"/>
-        <source>Trying to multiply List by non-integer (%s)</source>
-        <translation>Tentative de multiplication d&apos;une List par un non-entier (%s)</translation>
+        <location filename="../maths/evaluator.py" line="311"/>
+        <source>Trying to multiply List by non-integer ({val})</source>
+        <translation>Tentative de multiplication d&apos;une List par un non-entier ({val})</translation>
     </message>
 </context>
 <context>
@@ -793,16 +783,16 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../forms/help.py" line="57"/>
-        <source>default = %s</source>
-        <translation>par défaut = %s</translation>
+        <source>default = {deft}</source>
+        <translation>par défaut = {deft}</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="72"/>
+        <location filename="../forms/help.py" line="71"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Alias :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="85"/>
+        <location filename="../forms/help.py" line="84"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Fonctions :&lt;/h2&gt;</translation>
     </message>
@@ -1153,8 +1143,8 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     </message>
     <message>
         <location filename="../main.py" line="290"/>
-        <source>Syntax error (%s) at line %d, offset %d: </source>
-        <translation>Erreur de syntaxe (%s) à la ligne %d, caractère %d : </translation>
+        <source>Syntax error ({type}) at line {line}, offset {off}: </source>
+        <translation>Erreur de syntaxe ({type}) à la ligne {line}, caractère {off} : </translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="573"/>
@@ -1251,8 +1241,8 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <name>Parser</name>
     <message>
         <location filename="../maths/parser.py" line="181"/>
-        <source>Expected token (%s) &apos;%s&apos;</source>
-        <translation>Jeton attendu (%s) &apos;%s&apos;</translation>
+        <source>Expected token ({type}) &apos;{val}&apos;</source>
+        <translation>Jeton attendu ({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="463"/>
@@ -1261,8 +1251,8 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="465"/>
-        <source>Unexpected token (%s) &apos;%s&apos;</source>
-        <translation>Jeton (%s) &apos;%s&apos; inattendu</translation>
+        <source>Unexpected token ({type}) &apos;{val}&apos;</source>
+        <translation>Jeton ({type}) &apos;{val}&apos; inattendu</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="89"/>

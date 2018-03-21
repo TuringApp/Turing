@@ -284,8 +284,8 @@ def handler_Run():
         file.close()
         runpy.run_path(file.name, init_globals={"print": python_print, "input": python_input})
     except SyntaxError as err:
-        msg = translate("MainWindow", "Syntax error (%s) at line %d, offset %d: ") % (
-            type(err).__name__, err.lineno - 10, err.offset)
+        msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
+            type=type(err).__name__, line=err.lineno - 10, off=err.offset)
         python_print_error(msg + err.text)
         python_print_error(" " * (len(msg) + err.offset - 1) + "↑")
     except:

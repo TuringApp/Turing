@@ -54,8 +54,7 @@ def on_item_select():
                     constraint = escape(arg[2]) if arg[2] else None
 
                     if len(arg) > 3:
-                        default = translate("HelpWindow", "default = %s") % proper_str(arg[3]) \
-                            if arg[3] is not None else None
+                        default = translate("HelpWindow", "default = {deft}").format(deft=proper_str(arg[3]) if arg[3] is not None else None)
                     else:
                         default = None
 

@@ -178,7 +178,7 @@ class Parser:
     def expect_token(self, token_type: TokenType, value=None):
         """Asserts the next token is of the specified type and (optional) value. Explodes otherwise."""
         if not self.match_token(token_type, value):
-            self.log.error(translate("Parser", "Expected token (%s) '%s'") % (TokenType.get_name(token_type), value))
+            self.log.error(translate("Parser", "Expected token ({type}) '{val}'").format(type=TokenType.get_name(token_type), val=value))
             return None
 
         return self.next_token()
@@ -463,8 +463,8 @@ class Parser:
                 self.log.error(translate("Parser", "Unexpected EOL"))
             else:
                 self.log.error(
-                    translate("Parser", "Unexpected token (%s) '%s'") % (
-                        TokenType.get_name(self.peek_token()[0]), self.peek_token()[1]))
+                    translate("Parser", "Unexpected token ({type}) '{val}'").format(
+                       type=TokenType.get_name(self.peek_token()[0]), val=self.peek_token()[1]))
 
             return None
 

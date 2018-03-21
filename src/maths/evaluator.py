@@ -53,7 +53,7 @@ class Evaluator:
             if variable in frame:
                 return frame[variable]
 
-        self.log.error(translate("Evaluator", "Cannot find variable or function %s") % variable)
+        self.log.error(translate("Evaluator", "Cannot find variable or function {name}").format(name=variable))
         return None
 
     def evaluate(self, expr: str) -> object:
@@ -121,7 +121,8 @@ class Evaluator:
 
         if len(args) != len(node.args):
             self.log.error(
-                translate("Evaluator", "Argument count mismatch (expected %d, got %d)") % (len(node.args), len(args)))
+                translate("Evaluator", "Argument count mismatch (expected {exp}, got {act})").format(exp=len(node.args),
+                                                                                                     act=len(args)))
             return None
 
         frame = {node.args[idx]: arg for idx, arg in enumerate(args)}
@@ -173,7 +174,7 @@ class Evaluator:
 
         # if it's an unknown descendant of AstNode
         # this should never happen, but we put a message just in case
-        self.log.error(translate("Evaluator", "Unknown node type: %s") % type(node))
+        self.log.error(translate("Evaluator", "Unknown node type: {type}").format(type=type(node)))
         return None
 
     def eval_lambda(self, node: nodes.LambdaNode):
@@ -186,7 +187,7 @@ class Evaluator:
         if index < len(array):
             return array[index]
         else:
-            self.log.error(translate("Evaluator", "Index '%s' too big for array") % index)
+            self.log.error(translate("Evaluator", "Index '{idx}' too big for array").format(idx=index))
             return None
 
     def eval_call(self, node: nodes.CallNode):
@@ -238,7 +239,7 @@ class Evaluator:
         if node.operator == "NOT" and (is_bool(value) or (not self.strict_typing and is_num(value))):
             return not value
 
-        self.log.error(translate("Evaluator", "Invalid unary operator '%s'") % node.operator)
+        self.log.error(translate("Evaluator", "Invalid unary operator '{op}'").format(op=node.operator))
         return None
 
     def eval_binary(self, node: nodes.BinOpNode):
@@ -264,8 +265,9 @@ class Evaluator:
 
         if self.strict_typing:
             if left_type != right_type:
-                self.log.error(translate("Evaluator", "Type mismatch: operands have different types (%s and %s)") % (
-                    ValueType.get_name(left_type), ValueType.get_name(right_type)))
+                self.log.error(
+                    translate("Evaluator", "Type mismatch: operands have different types ({left} and {right})").format(
+                        left=ValueType.get_name(left_type), right=ValueType.get_name(right_type)))
                 return None
 
             if left_type == ValueType.BOOLEAN:
@@ -285,14 +287,14 @@ class Evaluator:
                 if right_type is None:
                     error_pos.append(translate("Evaluator", "right"))
 
-                self.log.error(translate("Evaluator", "Invalid value type for %s and operator '%s'") % (
-                    translate("Evaluator", " and ").join(error_pos), operator))
+                self.log.error(translate("Evaluator", "Invalid value type for {val} and operator '{op}'").format(
+                    val=translate("Evaluator", " and ").join(error_pos), op=operator))
                 return None
 
             if operator not in allowed:
                 self.log.error(
-                    translate("Evaluator", "Operator '%s' not allowed for value type %s") % (
-                        operator, ValueType.get_name(left_type)))
+                    translate("Evaluator", "Operator '{op}' not allowed for value type {type}").format(
+                        op=operator, type=ValueType.get_name(left_type)))
                 return None
 
         # arithmetic
@@ -306,7 +308,8 @@ class Evaluator:
         elif operator == "*":
             if left_type == ValueType.LIST:
                 if not is_int(right):
-                    self.log.error(translate("Evaluator", "Trying to multiply List by non-integer (%s)") % right)
+                    self.log.error(
+                        translate("Evaluator", "Trying to multiply List by non-integer ({val})").format(val=right))
                     return None
                 else:
                     result = left * int(right)
@@ -357,7 +360,9 @@ class Evaluator:
 
         if result is None:
             self.log.error(
-                translate("Evaluator", "Invalid binary operator '%s' for '%s' and '%s'") % (operator, left, right))
+                translate("Evaluator", "Invalid binary operator '{op}' for '{left}' and '{right}'").format(op=operator,
+                                                                                                           left=left,
+                                                                                                           right=right))
         else:
             if is_bool(left) and is_bool(right):
                 # if both operands are bool, then cast the whole thing to bool so it looks like we're professional
