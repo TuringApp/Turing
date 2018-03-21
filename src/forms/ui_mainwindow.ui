@@ -212,7 +212,7 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
    <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
@@ -225,7 +225,7 @@
    <addaction name="actionRun"/>
    <addaction name="actionStep"/>
    <addaction name="separator"/>
-   <addaction name="actionSettings"/>
+   <addaction name="actionHelpContents"/>
   </widget>
   <widget class="QDockWidget" name="dock_settings">
    <property name="accessibleName">
@@ -634,7 +634,7 @@ p, li { white-space: pre-wrap; }
     <bool>false</bool>
    </property>
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="icon">
     <iconset resource="../turing.qrc">
@@ -645,6 +645,9 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="toolTip">
     <string>Settings</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
    </property>
   </action>
   <action name="actionQuickStart">
@@ -676,8 +679,8 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionAboutTuring">
    <property name="icon">
-    <iconset>
-     <normaloff>:/action/media/icon_16.png</normaloff>:/action/media/icon_16.png</iconset>
+    <iconset resource="../turing.qrc">
+     <normaloff>:/icon/media/icon_32.png</normaloff>:/icon/media/icon_32.png</iconset>
    </property>
    <property name="text">
     <string>About Turing</string>

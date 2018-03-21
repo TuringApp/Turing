@@ -157,8 +157,8 @@ def init_ui():
     ui.btnClear.clicked.connect(clear_search_field)
 
     # by default, 25-75 ratio
-    ui.splitter.setStretchFactor(0, 1)
-    ui.splitter.setStretchFactor(1, 3)
+    #ui.splitter.setStretchFactor(0, 1)
+    #ui.splitter.setStretchFactor(1, 3)
 
     ui.listFuncs.itemSelectionChanged.connect(on_item_select)
 

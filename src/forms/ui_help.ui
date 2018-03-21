@@ -19,11 +19,8 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QSplitter" name="splitter">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QWidget" name="verticalLayoutWidget">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -63,9 +60,25 @@
         </widget>
        </item>
       </layout>
-     </widget>
-     <widget class="QTextBrowser" name="textBrowser"/>
-    </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QTextBrowser" name="textBrowser"/>
+       </item>
+       <item>
+        <widget class="QCommandLinkButton" name="commandLinkButton">
+         <property name="text">
+          <string>More Informations...</string>
+         </property>
+         <property name="default">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
