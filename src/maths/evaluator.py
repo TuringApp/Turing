@@ -97,7 +97,7 @@ class Evaluator:
         value = self.eval_node_real(node)
 
         if value is not None and is_num(value) and not isinstance(value, bool):
-            if type(value) == complex:
+            if isinstance(value, complex):
                 # if real, convert to float directly
                 if is_real(value):
                     value = value.real
@@ -217,7 +217,7 @@ class Evaluator:
         result = function.__call__(*args)
 
         if hasattr(function, "frames"):
-            for f in function.frames:
+            for _ in function.frames:
                 self.exit_frame()
 
         return result

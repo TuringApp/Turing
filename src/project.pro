@@ -12,6 +12,7 @@ SOURCES += \
     algo\stmts\BaseStmt.py \
     algo\stmts\BlockStmt.py \
     algo\stmts\BreakStmt.py \
+    algo\stmts\CallStmt.py \
     algo\stmts\ContinueStmt.py \
     algo\stmts\DisplayStmt.py \
     algo\stmts\ForStmt.py \

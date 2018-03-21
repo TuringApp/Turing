@@ -8,7 +8,8 @@ import maths.lib.docs
 
 
 class PythonCompletionProvider:
-    def complete(self, code, *args):
+    @staticmethod
+    def complete(code, *args):
         return [{"name": x} for x in keyword.kwlist]
 
 

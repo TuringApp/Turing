@@ -17,7 +17,7 @@ translate = QCoreApplication.translate
 
 function = Tuple
 functions: Dict[str, List[function]] = None
-doc_items = None
+doc_items: List[List[QListWidgetItem]] = None
 
 
 def add_result(expr, result, error=False):

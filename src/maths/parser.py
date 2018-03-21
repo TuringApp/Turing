@@ -2,7 +2,7 @@
 
 import re
 import types
-from typing import List, Tuple, Any
+from typing import List, Tuple, Any, Optional
 
 from util import translate
 from util.log import Logger
@@ -15,7 +15,7 @@ class ValueType:
     STRING, NUMBER, BOOLEAN, LIST, FUNCTION = range(5)
 
     @staticmethod
-    def get_type(obj) -> 'ValueType':
+    def get_type(obj) -> Optional['ValueType']:
         if type(obj) == list:
             return ValueType.LIST
 
@@ -42,7 +42,7 @@ class ValueType:
 
 class TokenType:
     """Token types used during the lexing process"""
-    OPERATOR, STRING, NUMBER, BOOLEAN, IDENTIFIER, COMMA, PAREN, BRACK, BRACE = range(9)
+    OPERATOR, STRING, NUMBER, BOOLEAN, IDENTIFIER, COMMA, PAREN, BRACK, BRACE, INVALID = range(10)
 
     Term = [NUMBER, BOOLEAN, IDENTIFIER, STRING]
     UnaryVal = ["+", "-", "*"]
@@ -147,7 +147,7 @@ class Parser:
         self.index += 1
         return self.tokens[self.index - 1]
 
-    def peek_token(self) -> Token:
+    def peek_token(self) -> Optional[Token]:
         """Reads the next token without affecting position."""
         if not self.can_read():
             return None
@@ -245,7 +245,7 @@ class Parser:
                         if re.search('^[a-zA-Z_0-9]+$', token):
                             self.tokens.append((TokenType.IDENTIFIER, token))
                         else:
-                            self.tokens.append((None, token))
+                            self.tokens.append((TokenType.INVALID, token))
 
         self.fix_mul_tok()
 
@@ -427,7 +427,7 @@ class Parser:
         else:
             return left
 
-    def parse_term(self) -> nodes.AstNode:
+    def parse_term(self) -> Optional[nodes.AstNode]:
         """Parses an atomic term."""
         if self.match_token(TokenType.NUMBER):
             return nodes.NumberNode(self.next_token()[1])

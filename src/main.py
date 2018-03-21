@@ -254,7 +254,7 @@ def python_input(prompt=""):
     global user_input
     user_input = None
 
-    while user_input == None:
+    while user_input is None:
         QCoreApplication.processEvents()
 
     ui.btnSendInput.setEnabled(False)
@@ -403,7 +403,7 @@ def load_code_editor():
 
 
 def init_ui():
-    global window, ui, fixed_font
+    global window, ui
     window = MainWindowWrapper()
     ui = Ui_MainWindow()
 

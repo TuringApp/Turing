@@ -8,7 +8,7 @@ from algo.stmts.BlockStmt import BlockStmt
 from algo.stmts.BreakStmt import BreakStmt
 from algo.stmts.ContinueStmt import ContinueStmt
 from maths.evaluator import Evaluator
-from maths.nodes import CallNode
+from maths.nodes import *
 from maths.parser import Parser
 from util import translate
 from util.log import Logger
@@ -16,7 +16,7 @@ from util.log import Logger
 Loops = (ForStmt, WhileStmt)
 
 
-class Worker():
+class Worker:
     code = None
     stack = None
     evaluator = None
@@ -24,6 +24,7 @@ class Worker():
     finished = None
     callback_input = None
     callback_print = None
+    calls = None
 
     def __init__(self, code: CodeBlock):
         self.code = BlockStmt(code)
@@ -74,7 +75,7 @@ class Worker():
 
         for idx, frame in enumerate(reversed(self.stack)):
             if type(frame[0]) in types:
-                return (idx, frame)
+                return idx, frame
 
         return None
 

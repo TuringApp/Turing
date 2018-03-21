@@ -111,7 +111,7 @@ doc("log",
 
 
 def log(x, b=None):
-    if b == None:
+    if b is None:
         return cmath.log(x)
     return cmath.log(x, b)
 

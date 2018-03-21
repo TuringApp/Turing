@@ -100,7 +100,7 @@ tests = [
                 ReturnStmt(parse("say"))
             ]),
             AssignStmt("say2", parse("sayHello2(\"Bob\")")),
-            CallStmt(parse("say2"))
+            CallStmt(parse("say2"), [])
         ],
         "",
         [

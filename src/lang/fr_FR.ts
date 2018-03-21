@@ -50,27 +50,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algo</name>
     <message>
-        <location filename="../algo/worker.py" line="125"/>
+        <location filename="../algo/worker.py" line="128"/>
         <source>Variable %s = </source>
         <translation>Variable %s = </translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="155"/>
+        <location filename="../algo/worker.py" line="158"/>
         <source>BREAK can only be used inside a loop</source>
         <translation>SORTIR ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="165"/>
+        <location filename="../algo/worker.py" line="168"/>
         <source>CONTINUE can only be used inside a loop</source>
         <translation>CONTINUER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="180"/>
+        <location filename="../algo/worker.py" line="197"/>
         <source>RETURN can only be used inside a function</source>
         <translation>RENVOYER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une fonction</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="219"/>
+        <location filename="../algo/worker.py" line="244"/>
         <source>Unknown statement type: %s</source>
         <translation>Type d&apos;instruction inconnu : %s</translation>
     </message>
@@ -694,52 +694,52 @@ p, li { white-space: pre-wrap; }
         <translation>Impossible de trouver la variable ou fonction %s</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="188"/>
+        <location filename="../maths/evaluator.py" line="196"/>
         <source>Callee is None</source>
         <translation>La fonction appelée est None</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="198"/>
+        <location filename="../maths/evaluator.py" line="206"/>
         <source>Only lists can be expanded</source>
         <translation>Seules les listes peuvent être étendues</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="181"/>
+        <location filename="../maths/evaluator.py" line="189"/>
         <source>Index &apos;%s&apos; too big for array</source>
         <translation>Indice &apos;%s&apos; trop grand pour la liste</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="168"/>
+        <location filename="../maths/evaluator.py" line="176"/>
         <source>Unknown node type: %s</source>
         <translation>Type de nœud inconnu : %s</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="223"/>
+        <location filename="../maths/evaluator.py" line="241"/>
         <source>Invalid unary operator &apos;%s&apos;</source>
         <translation>Opérateur unaire invalide &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="234"/>
+        <location filename="../maths/evaluator.py" line="252"/>
         <source>Trying to use None</source>
         <translation>Opération sur None impossible</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="249"/>
+        <location filename="../maths/evaluator.py" line="267"/>
         <source>Type mismatch: operands have different types (%s and %s)</source>
         <translation>Types incompatibles : les opérandes ont des types différents (%s et %s)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="270"/>
+        <location filename="../maths/evaluator.py" line="288"/>
         <source>Invalid value type for %s and operator &apos;%s&apos;</source>
         <translation>Type de valeur invalide pour %s et l&apos;opérateur &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="270"/>
+        <location filename="../maths/evaluator.py" line="288"/>
         <source> and </source>
         <translation> et </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="275"/>
+        <location filename="../maths/evaluator.py" line="293"/>
         <source>Operator &apos;%s&apos; not allowed for value type %s</source>
         <translation>Opérateur &apos;%s&apos; non autorisé pour le type de valeur %s</translation>
     </message>
@@ -749,27 +749,27 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Tentative de multiplication d&apos;une List par un non-entier (%f)</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="299"/>
+        <location filename="../maths/evaluator.py" line="317"/>
         <source>Trying to divide by zero</source>
         <translation>Tentative de division par zéro</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="341"/>
+        <location filename="../maths/evaluator.py" line="359"/>
         <source>Invalid binary operator &apos;%s&apos; for &apos;%s&apos; and &apos;%s&apos;</source>
         <translation>Opérateur binaire &apos;%s&apos; invalide opur &apos;%s&apos; et &apos;%s&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="265"/>
+        <location filename="../maths/evaluator.py" line="283"/>
         <source>left</source>
         <translation>gauche</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="268"/>
+        <location filename="../maths/evaluator.py" line="286"/>
         <source>right</source>
         <translation>droite</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="291"/>
+        <location filename="../maths/evaluator.py" line="309"/>
         <source>Trying to multiply List by non-integer (%s)</source>
         <translation>Tentative de multiplication d&apos;une List par un non-entier (%s)</translation>
     </message>

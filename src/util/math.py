@@ -173,7 +173,7 @@ def proper_str(a: Any) -> str:
                 imag = None
         else:
             imag = None
-        if real == imag == None:
+        if real == imag is None:
             return "0"
         return " + ".join(x for x in [real, imag] if x)
 

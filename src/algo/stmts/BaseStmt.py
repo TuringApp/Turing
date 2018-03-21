@@ -3,7 +3,7 @@
 from typing import List
 
 
-class BaseStmt():
+class BaseStmt:
     parent = None
 
     def __init__(self):

@@ -24,13 +24,13 @@ class BinOpNode(AstNode):
         if operator == "*":
             if left == IdentifierNode("i") and type(right) == NumberNode:
                 left, right = right, left
-            self.is_imag_part = type(left) == NumberNode and right == IdentifierNode("i")
+            self.is_imag_part = isinstance(left, NumberNode) and right == IdentifierNode("i")
 
         # check for complex
         if operator in ["+", "-"]:
-            if type(right) == NumberNode and type(left) == BinOpNode and left.is_imag_part:
+            if isinstance(right, NumberNode) and isinstance(left, BinOpNode) and left.is_imag_part:
                 left, right = right, left
-            self.is_complex = type(left) == NumberNode and type(right) == BinOpNode and right.is_imag_part
+            self.is_complex = isinstance(left, NumberNode) and isinstance(right, BinOpNode) and right.is_imag_part
 
         self.left = left
         self.right = right
@@ -45,8 +45,8 @@ class BinOpNode(AstNode):
 
     def operand_code(self, operand: AstNode) -> str:
         return operand.code_fix() \
-            if (type(operand) == BinOpNode and operand.is_complex and operand.operator == self.operator) \
-               or (not self.is_complex and type(operand) == BinOpNode and operand.precedence < self.precedence) \
+            if (isinstance(operand, BinOpNode) and operand.is_complex and operand.operator == self.operator) \
+               or (not self.is_complex and isinstance(operand, BinOpNode) and operand.precedence < self.precedence) \
             else operand.code()
 
     def code(self) -> str:
