@@ -6,11 +6,11 @@ from .BaseStmt import *
 
 
 class WhileStmt(BlockStmt):
-    predicate = None
+    condition = None
 
-    def __init__(self, predicate: AstNode, children: CodeBlock):
+    def __init__(self, condition: AstNode, children: CodeBlock):
         super().__init__(children)
-        self.predicate = predicate
+        self.condition = condition
 
     def __str__(self):
-        return "[While %s %s]" % (self.predicate, super().__str__())
+        return "[While %s %s]" % (self.condition, super().__str__())

@@ -88,7 +88,7 @@ class Worker:
                         continue
 
                 elif isinstance(stmt, WhileStmt):
-                    if bool(self.evaluator.eval_node(stmt.predicate)):
+                    if bool(self.evaluator.eval_node(stmt.condition)):
                         self.stack[-1] = (stmt, -1)
                         continue
 
@@ -144,7 +144,7 @@ class Worker:
     def exec_while(self, stmt: WhileStmt):
         self.enter_block(stmt)
 
-        predicate = bool(self.evaluator.eval_node(stmt.predicate))
+        predicate = bool(self.evaluator.eval_node(stmt.condition))
         if not predicate:
             self.exit_block()
 
