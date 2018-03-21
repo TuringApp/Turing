@@ -11,6 +11,7 @@ from maths.evaluator import Evaluator
 from maths.parser import Parser
 from util import translate
 from util.log import Logger
+from maths.nodes import CallNode
 
 
 Loops = (ForStmt, WhileStmt)
@@ -202,6 +203,9 @@ class Worker():
 
         return self.calls.pop()
 
+    def exec_call(self, stmt: CallStmt):
+        self.evaluator.eval_node(CallNode(stmt.function, stmt.arguments))
+
     def step(self):
         stmt = self.next_stmt()
 
@@ -218,7 +222,8 @@ class Worker():
             BreakStmt: self.exec_break,
             ContinueStmt: self.exec_continue,
             FuncStmt: self.exec_function,
-            ReturnStmt: self.exec_return
+            ReturnStmt: self.exec_return,
+            CallStmt: self.exec_call
         }
 
         if type(stmt) not in map:
