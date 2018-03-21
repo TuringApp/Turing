@@ -82,7 +82,7 @@ class Worker:
 
             if index >= len(stmt.children):
                 if len(self.stack) == 1:
-                    self.finished = True
+                    self.finish()
                     return None
 
                 if isinstance(stmt, ForStmt):
@@ -116,7 +116,7 @@ class Worker:
             return stmt.children[index + 1]
 
         if len(self.stack) == 1:
-            self.finished = True
+            self.finish()
             return None
 
         return None
@@ -166,7 +166,7 @@ class Worker:
     def exec_break(self, stmt: BreakStmt):
         if not self.find_parent(Loops):
             self.log.error(translate("Algo", "BREAK can only be used inside a loop"))
-            self.finished = True
+            self.finish()
             return
 
         while True:
@@ -176,7 +176,7 @@ class Worker:
     def exec_continue(self, stmt: ContinueStmt):
         if not self.find_parent(Loops):
             self.log.error(translate("Algo", "CONTINUE can only be used inside a loop"))
-            self.finished = True
+            self.finish()
             return
 
         while not isinstance(self.stack[-1][0], Loops):
@@ -205,7 +205,7 @@ class Worker:
     def exec_return(self, stmt: ReturnStmt):
         if not self.find_parent(FuncStmt):
             self.log.error(translate("Algo", "RETURN can only be used inside a function"))
-            self.finished = True
+            self.finish()
             return
 
         self.calls.append(self.evaluator.eval_node(stmt.value) if stmt.value else None)
@@ -233,7 +233,7 @@ class Worker:
     def exec_else(self, stmt: ElseStmt):
         if self.if_status is None:
             self.log.error(translate("Algo", "ELSE can only be used after an IF block"))
-            self.finished = True
+            self.finish()
             return
 
         if not self.if_status[1]:
@@ -262,7 +262,8 @@ class Worker:
             FuncStmt: self.exec_function,
             ReturnStmt: self.exec_return,
             CallStmt: self.exec_call,
-            ElseStmt: self.exec_else
+            ElseStmt: self.exec_else,
+            BaseStmt: lambda: (),
         }
 
         if self.if_status is not None and type(stmt) != ElseStmt and len(self.stack) <= self.if_status[0]:
@@ -270,10 +271,14 @@ class Worker:
 
         if type(stmt) not in map:
             self.log.error(translate("Algo", "Unknown statement type: {type}").format(type=type(stmt)))
-            self.finished = True
+            self.finish()
             return
 
         map[type(stmt)](stmt)
+
+    def finish(self):
+        self.finished = True
+        self.evaluator.exit_frame()
 
     def init(self):
         self.reset_eval()
@@ -281,13 +286,10 @@ class Worker:
         self.calls = []
         self.if_status = None
         self.finished = False
+        self.evaluator.enter_frame()
 
     def run(self):
         self.init()
 
-        self.evaluator.enter_frame()
-
         while not self.finished:
             self.step()
-
-        self.evaluator.exit_frame()
