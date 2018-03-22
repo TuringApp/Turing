@@ -711,7 +711,8 @@ def get_current_pos():
 
         current.pop()
 
-    find_block(algo)
+    if current_stmt is not None:
+        find_block(algo)
 
     return current
 
