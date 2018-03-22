@@ -6,6 +6,7 @@ import os
 import runpy
 import sys
 import tempfile
+import threading
 from typing import Optional
 
 import pygments.styles
@@ -76,6 +77,8 @@ block_html = '<span style="color:darkred;font-weight:bold">'
 keyword_html = '<span style="color:blue;font-weight:bold">'
 
 running = False
+
+item_labels = {}
 
 
 def get_themed_box():
@@ -517,19 +520,23 @@ def get_item_label(item):
     txt = QClickableLabel()
     txt.setStyleSheet(ui.treeWidget.styleSheet())
     txt.clicked.connect(gen_func(item))
+    item_labels[id(item)] = txt
+    item.lbl = txt
     ui.treeWidget.setItemWidget(item, 0, txt)
 
     return txt
 
 
-def get_item_html(html, data="", parent=None):
-    item = QTreeWidgetItem(parent or ui.treeWidget)
+def get_item_html(html, data=""):
+    item = QTreeWidgetItem()
     item.setStatusTip(0, data)
 
     lbl = get_item_label(item)
     lbl.setText('&nbsp;<span>%s</span>' % html)
 
-    return item
+    ui.treeWidget.setItemWidget(item, 0, lbl)
+
+    return (item, lbl)
 
 
 def refresh_algo_text():
@@ -586,9 +593,77 @@ def add_continue_stmt():
     append_line(ContinueStmt())
 
 
+def btn_add_line():
+    append_line(BaseStmt())
+
+
+def btn_delete_line():
+    current_pos = get_current_pos()
+    _, parent_stmt = get_parent(current_pos)
+
+    del parent_stmt.children[current_pos[-1]]
+
+    refresh_algo()
+
+
+def btn_edit_line():
+    pass
+
+
+def btn_move_up_block():
+    btn_move_up(True)
+
+
+def btn_move_up(block=False):
+    current_pos = get_current_pos()
+    _, parent_stmt = get_parent(current_pos)
+    current_pos[-1] -= 1
+
+    if current_pos[-1] < 0:
+        current_pos.pop()
+    else:
+        if not block:
+            existing = parent_stmt.children[current_pos[-1]]
+            if isinstance(existing, BlockStmt):
+                current_pos.append(len(existing.children))
+
+    move_line(get_current_pos(), current_pos)
+
+
+def btn_move_down_block():
+    btn_move_down(True)
+
+
+def btn_move_down(block=False):
+    current_pos = get_current_pos()
+    _, parent_stmt = get_parent(current_pos)
+    current_pos[-1] += 1
+
+    if current_pos[-1] >= len(parent_stmt.children):
+        current_pos.pop()
+        current_pos[-1] += 1
+    else:
+        if not block:
+            existing = parent_stmt.children[current_pos[-1]]
+            if isinstance(existing, BlockStmt):
+                current_pos.append(0)
+
+    move_line(get_current_pos(), current_pos)
+
+
 def append_line(stmt):
     current_pos = get_current_pos()
-    current_pos[-1] += 1
+    _, parent_stmt = get_parent(current_pos)
+    existing = parent_stmt.children[current_pos[-1]]
+    if type(existing) == BaseStmt:
+        parent_stmt.children[current_pos[-1]] = stmt
+        refresh_algo()
+        return
+
+    if isinstance(existing, BlockStmt):
+        current_pos.append(0)
+    else:
+        current_pos[-1] += 1
     add_line(current_pos, stmt)
 
 
@@ -633,7 +708,7 @@ def get_current_pos():
     return current
 
 
-def add_line(pos, stmt, add=True):
+def get_parent(pos):
     parent = root_item
     parent_stmt = algo
 
@@ -641,13 +716,49 @@ def add_line(pos, stmt, add=True):
         parent = parent.child(p)
         parent_stmt = parent_stmt.children[p]
 
-    item = get_item_html(str_stmt(stmt), parent=parent)
+    return parent, parent_stmt
+
+
+def refresh_algo():
+    current = None
+    line = ui.treeWidget.currentItem()
+    for item, stmt in item_map.values():
+        if item == line:
+            current = stmt
+            break
+
+    load_block(algo)
+
+    for item, stmt in item_map.values():
+        if stmt == current:
+            ui.treeWidget.setCurrentItem(item)
+            break
+
+def move_line(old_pos, new_pos):
+    _, old_parent_stmt = get_parent(old_pos)
+    _, new_parent_stmt = get_parent(new_pos)
+
+    line = old_parent_stmt.children[old_pos[-1]]
+    del old_parent_stmt.children[old_pos[-1]]
+    new_parent_stmt.children.insert(new_pos[-1], line)
+
+    refresh_algo()
+
+
+def add_line(pos, stmt, add=True):
+    print("add %s %s %s" % (pos, stmt, add))
+    parent, parent_stmt = get_parent(pos)
+
+    item, lbl = get_item_html(str_stmt(stmt))
 
     parent.insertChild(pos[-1], item)
     if add:
         parent_stmt.children.insert(pos[-1], stmt)
 
     store_line(item, stmt)
+
+    ui.treeWidget.setItemWidget(item, 0, lbl)
+
 
 
 def str_stmt(stmt):
@@ -723,12 +834,15 @@ def get_block(txt):
 def load_block(stmt: BlockStmt):
     global item_map
     item_map = {}
+    item_labels = {}
     ui.treeWidget.clear()
 
     global root_item, algo
     algo = stmt
-    root_item = get_item_html(get_block("PROGRAM"))
+    root_item, lbl = get_item_html(get_block("PROGRAM"))
+    ui.treeWidget.addTopLevelItem(root_item)
     store_line(root_item, algo)
+    ui.treeWidget.setItemWidget(root_item, 0, lbl)
 
     current = []
 
@@ -796,6 +910,14 @@ def init_ui():
     ui.btnClearOutput.clicked.connect(clear_output)
     ui.btnPrintOutput.clicked.connect(print_output)
 
+    ui.btnAlgo_Add.clicked.connect(btn_add_line)
+    ui.btnAlgo_Delete.clicked.connect(btn_delete_line)
+    ui.btnAlgo_Edit.clicked.connect(btn_edit_line)
+    ui.btnAlgo_UpBlock.clicked.connect(btn_move_up_block)
+    ui.btnAlgo_Up.clicked.connect(btn_move_up)
+    ui.btnAlgo_Down.clicked.connect(btn_move_down)
+    ui.btnAlgo_DownBlock.clicked.connect(btn_move_down_block)
+
     ui.btnAlgo_Variable.clicked.connect(add_def_variable)
     ui.btnAlgo_Display.clicked.connect(add_display)
     ui.btnAlgo_Input.clicked.connect(add_input)
@@ -824,11 +946,40 @@ def show_error():
 
 
 def except_hook(type, value, tback):
+    show_error()
+
     sys.__excepthook__(type, value, tback)
+
+
+def setup_thread_excepthook():
+    """
+    Workaround for `sys.excepthook` thread bug from:
+    http://bugs.python.org/issue1230540
+
+    Call once from the main thread before creating any threads.
+    """
+
+    init_original = threading.Thread.__init__
+
+    def init(self, *args, **kwargs):
+
+        init_original(self, *args, **kwargs)
+        run_original = self.run
+
+        def run_with_except_hook(*args2, **kwargs2):
+            try:
+                run_original(*args2, **kwargs2)
+            except Exception:
+                sys.excepthook(*sys.exc_info())
+
+        self.run = run_with_except_hook
+
+    threading.Thread.__init__ = init
 
 
 if __name__ == "__main__":
     sys.excepthook = except_hook
+    setup_thread_excepthook()
 
     app = QApplication(sys.argv)
     app.setApplicationName("Turing")

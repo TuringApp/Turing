@@ -46,6 +46,8 @@
         <file>media/edit_line.png</file>
         <file>media/down.png</file>
         <file>media/up.png</file>
+        <file>media/down_double.png</file>
+        <file>media/up_double.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>
