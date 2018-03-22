@@ -734,6 +734,7 @@ def refresh_algo():
             ui.treeWidget.setCurrentItem(item)
             break
 
+
 def move_line(old_pos, new_pos):
     _, old_parent_stmt = get_parent(old_pos)
     _, new_parent_stmt = get_parent(new_pos)
@@ -746,7 +747,6 @@ def move_line(old_pos, new_pos):
 
 
 def add_line(pos, stmt, add=True):
-    print("add %s %s %s" % (pos, stmt, add))
     parent, parent_stmt = get_parent(pos)
 
     item, lbl = get_item_html(str_stmt(stmt))
@@ -758,7 +758,6 @@ def add_line(pos, stmt, add=True):
     store_line(item, stmt)
 
     ui.treeWidget.setItemWidget(item, 0, lbl)
-
 
 
 def str_stmt(stmt):
