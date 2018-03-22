@@ -7,6 +7,7 @@ import runpy
 import sys
 import tempfile
 import threading
+import traceback
 from typing import Optional
 
 import pygments.styles
@@ -945,7 +946,8 @@ def init_ui():
 
 
 def show_error():
-    print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]))
+    traceback.print_exc()
+    # print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]) + "\n" + str(sys.exc_info()[2]))
 
 
 def except_hook(type, value, tback):
