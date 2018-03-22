@@ -22,11 +22,14 @@ class Worker:
     callback_print = None
     calls = None
     strict_typing = None
+    last = None
+    stop_callback = None
 
     def __init__(self, code: CodeBlock):
         self.code = BlockStmt(code)
         self.log = Logger("Algo")
         self.strict_typing = False
+        self.stop_callback = lambda: ()
 
     def reset_eval(self):
         self.evaluator = Evaluator()
@@ -82,7 +85,7 @@ class Worker:
 
             if index >= len(stmt.children):
                 if len(self.stack) == 1:
-                    self.finish()
+                    self.finish(True)
                     return None
 
                 if isinstance(stmt, ForStmt):
@@ -242,15 +245,21 @@ class Worker:
 
         self.if_status = None
 
+    def exec_stop(self, stmt: StopStmt):
+        self.stopped = True
+        self.stop_callback()
+
     def step(self):
         stmt = self.next_stmt()
-
+        self.last = stmt
         if stmt is None:
             return
 
         self.exec_stmt(stmt)
 
     def exec_stmt(self, stmt):
+        self.last = stmt
+
         map = {
             DisplayStmt: self.exec_display,
             InputStmt: self.exec_input,
@@ -265,6 +274,8 @@ class Worker:
             CallStmt: self.exec_call,
             ElseStmt: self.exec_else,
             BaseStmt: lambda _: (),
+            CommentStmt: lambda _: (),
+            StopStmt: self.exec_stop,
         }
 
         if self.if_status is not None and type(stmt) != ElseStmt and len(self.stack) <= self.if_status[0]:
@@ -277,8 +288,9 @@ class Worker:
 
         map[type(stmt)](stmt)
 
-    def finish(self):
+    def finish(self, normal=False):
         self.finished = True
+        self.error = not normal
         self.evaluator.exit_frame()
 
     def init(self):
@@ -287,7 +299,9 @@ class Worker:
         self.calls = []
         self.if_status = None
         self.finished = False
+        self.error = False
         self.evaluator.enter_frame()
+        self.stopped = False
 
     def run(self):
         self.init()
