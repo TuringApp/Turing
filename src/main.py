@@ -79,6 +79,7 @@ keyword_html = '<span style="color:blue;font-weight:bold">'
 comment_html = '<span style="color:darkgreen;font-style:italic">'
 
 running = False
+skip_step = False
 
 
 def get_themed_box():
@@ -340,28 +341,33 @@ def handler_Stop():
 def handler_Step():
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
-    global running, current
     ui.actionStop.setEnabled(True)
+    global running, current, skip_step
 
     try:
         if mode_python:
             pass
         else:
             if running:
-                worker.exec_stmt(current)
+                if skip_step:
+                    skip_step = False
+                else:
+                    worker.exec_stmt(current)
             else:
                 init_worker()
                 running = True
 
-            current = worker.next_stmt()
+            if not worker.error:
+                current = worker.next_stmt()
 
-            set_current_line(current)
+                set_current_line(current)
     except:
         show_error()
     finally:
         if worker.finished:
             end_output()
-
+            if not worker.error:
+                set_current_line(None)
             running = False
         ui.actionRun.setDisabled(False)
         ui.actionStep.setDisabled(False)
@@ -371,8 +377,10 @@ def handler_Step():
 def handler_Run():
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
-    global running
-
+    ui.actionStop.setEnabled(True)
+    global running, current, skip_step
+    skip_step = False
+    set_current_line(None)
     try:
         if mode_python:
             file = tempfile.NamedTemporaryFile(mode="w+b", suffix=".py", delete=False)
@@ -397,17 +405,28 @@ def handler_Run():
                 running = True
             else:
                 worker.exec_stmt(current)
-                set_current_line(None)
+                if not worker.error:
+                    set_current_line(None)
 
             while not worker.finished:
                 worker.step()
     except:
         show_error()
     finally:
-        end_output()
-        ui.actionRun.setDisabled(False)
-        ui.actionStep.setDisabled(False)
-        running = False
+        if worker.stopped:
+            ui.actionStep.setDisabled(False)
+            set_current_line(worker.last)
+            skip_step = True
+            #current = worker.next_stmt()
+
+            worker.finished = False
+            worker.stopped = False
+        else:
+            end_output()
+            ui.actionRun.setDisabled(False)
+            ui.actionStep.setDisabled(False)
+            ui.actionStop.setEnabled(False)
+            running = False
 
 
 def handler_AboutTuring():
