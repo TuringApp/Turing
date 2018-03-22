@@ -542,6 +542,50 @@ def add_display():
     append_line(DisplayStmt(parse("\"hello world\"")))
 
 
+def add_def_variable():
+    pass
+
+
+def add_input():
+    pass
+
+
+def add_call():
+    pass
+
+
+def add_def_func():
+    pass
+
+
+def add_return():
+    pass
+
+
+def add_if_block():
+    pass
+
+
+def add_else_block():
+    append_line(ElseStmt([]))
+
+
+def add_for_loop():
+    pass
+
+
+def add_while_loop():
+    pass
+
+
+def add_break_stmt():
+    append_line(BreakStmt())
+
+
+def add_continue_stmt():
+    append_line(ContinueStmt())
+
+
 def append_line(stmt):
     current_pos = get_current_pos()
     current_pos[-1] += 1
@@ -753,7 +797,19 @@ def init_ui():
     ui.btnClearOutput.clicked.connect(clear_output)
     ui.btnPrintOutput.clicked.connect(print_output)
 
+    ui.btnAlgo_Variable.clicked.connect(add_def_variable)
     ui.btnAlgo_Display.clicked.connect(add_display)
+    ui.btnAlgo_Input.clicked.connect(add_input)
+    ui.btnAlgo_Call.clicked.connect(add_call)
+    ui.btnAlgo_Func.clicked.connect(add_def_func)
+    ui.btnAlgo_Return.clicked.connect(add_return)
+
+    ui.btnAlgo_If.clicked.connect(add_if_block)
+    ui.btnAlgo_Else.clicked.connect(add_else_block)
+    ui.btnAlgo_For.clicked.connect(add_for_loop)
+    ui.btnAlgo_While.clicked.connect(add_while_loop)
+    ui.btnAlgo_Continue.clicked.connect(add_continue_stmt)
+    ui.btnAlgo_Break.clicked.connect(add_break_stmt)
 
     def gen(act):
         return lambda: change_language(act)

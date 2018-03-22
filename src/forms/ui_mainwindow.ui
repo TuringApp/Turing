@@ -82,6 +82,13 @@
              </property>
             </widget>
            </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="Line" name="line">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
            <item row="8" column="0">
             <widget class="QPushButton" name="btnAlgo_Func">
              <property name="text">
@@ -115,13 +122,6 @@
              <property name="icon">
               <iconset resource="../turing.qrc">
                <normaloff>:/action/media/add.png</normaloff>:/action/media/add.png</iconset>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="1">
-            <widget class="QPushButton" name="btnAlgo_Return">
-             <property name="text">
-              <string>Return</string>
              </property>
             </widget>
            </item>
@@ -196,10 +196,24 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="0" colspan="2">
-            <widget class="Line" name="line">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+           <item row="9" column="1">
+            <widget class="QPushButton" name="btnAlgo_Break">
+             <property name="text">
+              <string>BREAK</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QPushButton" name="btnAlgo_Return">
+             <property name="text">
+              <string>Return</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QPushButton" name="btnAlgo_Continue">
+             <property name="text">
+              <string>CONTINUE</string>
              </property>
             </widget>
            </item>
