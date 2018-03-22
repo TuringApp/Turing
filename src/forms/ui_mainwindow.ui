@@ -125,17 +125,49 @@
              </item>
             </layout>
            </item>
-           <item row="9" column="0">
-            <widget class="QPushButton" name="btnAlgo_Func">
+           <item row="0" column="0">
+            <widget class="QPushButton" name="btnAlgo_Add">
              <property name="text">
-              <string>Define function</string>
+              <string>Add line</string>
+             </property>
+             <property name="icon">
+              <iconset resource="../turing.qrc">
+               <normaloff>:/action/media/add.png</normaloff>:/action/media/add.png</iconset>
              </property>
             </widget>
            </item>
-           <item row="8" column="0">
-            <widget class="QPushButton" name="btnAlgo_Call">
+           <item row="10" column="1">
+            <widget class="QPushButton" name="btnAlgo_Break">
              <property name="text">
-              <string>Call function</string>
+              <string>BREAK</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QPushButton" name="btnAlgo_Continue">
+             <property name="text">
+              <string>CONTINUE</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QPushButton" name="btnAlgo_While">
+             <property name="text">
+              <string>WHILE loop</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QPushButton" name="btnAlgo_Else">
+             <property name="text">
+              <string>ELSE block</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QPushButton" name="btnAlgo_If">
+             <property name="text">
+              <string>IF block</string>
              </property>
             </widget>
            </item>
@@ -150,14 +182,24 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QPushButton" name="btnAlgo_Add">
+           <item row="7" column="1">
+            <widget class="QPushButton" name="btnAlgo_For">
              <property name="text">
-              <string>Add line</string>
+              <string>FOR loop</string>
              </property>
-             <property name="icon">
-              <iconset resource="../turing.qrc">
-               <normaloff>:/action/media/add.png</normaloff>:/action/media/add.png</iconset>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QPushButton" name="btnAlgo_Func">
+             <property name="text">
+              <string>Define function</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QPushButton" name="btnAlgo_Call">
+             <property name="text">
+              <string>Call function</string>
              </property>
             </widget>
            </item>
@@ -165,20 +207,6 @@
             <widget class="QPushButton" name="btnAlgo_Return">
              <property name="text">
               <string>Return</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="1">
-            <widget class="QPushButton" name="btnAlgo_Continue">
-             <property name="text">
-              <string>CONTINUE</string>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="1">
-            <widget class="QPushButton" name="btnAlgo_Break">
-             <property name="text">
-              <string>BREAK</string>
              </property>
             </widget>
            </item>
@@ -196,38 +224,10 @@
              </property>
             </widget>
            </item>
-           <item row="7" column="1">
-            <widget class="QPushButton" name="btnAlgo_For">
-             <property name="text">
-              <string>FOR loop</string>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="1">
-            <widget class="QPushButton" name="btnAlgo_While">
-             <property name="text">
-              <string>WHILE loop</string>
-             </property>
-            </widget>
-           </item>
            <item row="6" column="0">
             <widget class="QPushButton" name="btnAlgo_Display">
              <property name="text">
               <string>Display value</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QPushButton" name="btnAlgo_If">
-             <property name="text">
-              <string>IF block</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1">
-            <widget class="QPushButton" name="btnAlgo_Else">
-             <property name="text">
-              <string>ELSE block</string>
              </property>
             </widget>
            </item>
@@ -362,6 +362,7 @@
     </property>
     <addaction name="actionRun"/>
     <addaction name="actionStep"/>
+    <addaction name="actionStop"/>
     <addaction name="separator"/>
     <addaction name="actionConvertToPython"/>
     <addaction name="actionConvertToPseudocode"/>
@@ -412,6 +413,7 @@
    <addaction name="separator"/>
    <addaction name="actionRun"/>
    <addaction name="actionStep"/>
+   <addaction name="actionStop"/>
    <addaction name="separator"/>
    <addaction name="actionHelpContents"/>
   </widget>
@@ -1119,6 +1121,18 @@ p, li { white-space: pre-wrap; }
   <action name="actiondefault">
    <property name="text">
     <string>default</string>
+   </property>
+  </action>
+  <action name="actionStop">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/stop.png</normaloff>:/action/media/stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>Stop</string>
    </property>
   </action>
  </widget>
