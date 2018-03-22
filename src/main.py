@@ -438,6 +438,8 @@ def send_user_input():
 def clear_output():
     global current_output
     current_output = ""
+    if not mode_python:
+        set_current_line(None)
     update_output()
 
 
