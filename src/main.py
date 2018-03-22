@@ -820,7 +820,8 @@ def str_stmt(stmt):
 
     ret = ret.replace("[b]", block_html).replace("[/b]", "</span>")
     ret = ret.replace("[k]", keyword_html).replace("[/k]", "</span>")
-    ret = ret.replace("[c]", '<code>').replace("[/c]", "</code>")
+    ret = ret.replace("[c]", "<code>").replace("[/c]", "</code>")
+    ret = ret.replace("[i]", "<i>").replace("[/i]", "</i>")
     ret = ret.replace("  ", " ")
 
     return ret.strip()
