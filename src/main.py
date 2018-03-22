@@ -292,6 +292,8 @@ def python_input(prompt=""):
 def python_print_error(msg):
     global current_output
     current_output += util.html.color_span(msg, "red")
+    if not mode_python:
+        set_current_line(worker.last, True)
     update_output()
 
 
@@ -302,6 +304,7 @@ def init_worker():
     worker.callback_input = python_input
     worker.init()
     worker.callback_stop = callback_stop
+    set_current_line(None)
 
 
 def end_output():
