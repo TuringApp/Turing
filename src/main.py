@@ -812,6 +812,9 @@ def str_stmt(stmt):
     elif isinstance(stmt, BlockStmt):
         ret = translate("Algo", "[b]PROGRAM[/b]")
 
+    elif isinstance(stmt, BaseStmt):
+        ret = translate("Algo", "[i]empty[/i]")
+
     else:
         ret = "unimpl %s" % stmt
 

@@ -264,7 +264,7 @@ class Worker:
             ReturnStmt: self.exec_return,
             CallStmt: self.exec_call,
             ElseStmt: self.exec_else,
-            BaseStmt: lambda: (),
+            BaseStmt: lambda _: (),
         }
 
         if self.if_status is not None and type(stmt) != ElseStmt and len(self.stack) <= self.if_status[0]:
