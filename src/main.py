@@ -76,6 +76,7 @@ root_item = None
 
 block_html = '<span style="color:darkred;font-weight:bold">'
 keyword_html = '<span style="color:blue;font-weight:bold">'
+comment_html = '<span style="color:darkgreen;font-style:italic">'
 
 running = False
 
@@ -817,6 +818,12 @@ def str_stmt(stmt):
         ret = translate("Algo", "[k]RETURN[/k] [c]{val}[/c]").format(
             val="" if stmt.value is None else stmt.value.code())
 
+    elif isinstance(stmt, StopStmt):
+        ret = translate("Algo", "[k]STOP[/k]")
+
+    elif isinstance(stmt, CommentStmt):
+        ret = "[t]{com}[/t]".format(com=stmt.content)
+
     elif isinstance(stmt, BlockStmt):
         ret = translate("Algo", "[b]PROGRAM[/b]")
 
@@ -830,6 +837,7 @@ def str_stmt(stmt):
     ret = ret.replace("[k]", keyword_html).replace("[/k]", "</span>")
     ret = ret.replace("[c]", "<code>").replace("[/c]", "</code>")
     ret = ret.replace("[i]", "<i>").replace("[/i]", "</i>")
+    ret = ret.replace("[t]", comment_html).replace("[/t]", "</span>")
     ret = ret.replace("  ", " ")
 
     return ret.strip()
