@@ -80,8 +80,6 @@ comment_html = '<span style="color:darkgreen;font-style:italic">'
 
 running = False
 
-item_labels = {}
-
 
 def get_themed_box():
     msg = QMessageBox()
@@ -522,7 +520,6 @@ def get_item_label(item):
     txt = QClickableLabel()
     txt.setStyleSheet(ui.treeWidget.styleSheet())
     txt.clicked.connect(gen_func(item))
-    item_labels[id(item)] = txt
     item.lbl = txt
     ui.treeWidget.setItemWidget(item, 0, txt)
 
