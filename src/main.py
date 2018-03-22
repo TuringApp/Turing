@@ -419,7 +419,6 @@ def handler_Run():
             ui.actionStep.setDisabled(False)
             set_current_line(worker.last)
             skip_step = True
-            #current = worker.next_stmt()
 
             worker.finished = False
             worker.stopped = False
