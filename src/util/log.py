@@ -16,25 +16,36 @@ class Logger:
     context: str = None
     callback: Callable = None
     messages: List[LogMessage] = None
+    use_prefix: bool = None
 
     def __init__(self, context="Log"):
         """Initialises the Logger instance."""
         self.context = context
         self.callback = print
         self.messages = []
+        self.use_prefix = True
 
     def print(self, msg: str):
         """Logs the specified message."""
-        self.callback("[%s] %s" % (self.context, msg))
+        if self.use_prefix:
+            self.callback("[%s] %s" % (self.context, msg))
+        else:
+            self.callback(msg)
 
     def error(self, msg: str):
         """Logs the specified error."""
-        self.print("[ERROR] %s" % msg)
+        if self.use_prefix:
+            self.print("[ERROR] %s" % msg)
+        else:
+            self.print(msg)
         self.messages.append((LogType.ERROR, msg))
 
     def warn(self, msg: str):
         """Logs the specified warning."""
-        self.print("[ WARN] %s" % msg)
+        if self.use_prefix:
+            self.print("[ WARN] %s" % msg)
+        else:
+            self.print(msg)
         self.messages.append((LogType.WARNING, msg))
 
     def set_callback(self, cb: Callable):
