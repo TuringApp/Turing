@@ -133,7 +133,8 @@ class Worker:
         self.stmt_print(str(self.evaluator.eval_node(stmt.content)))
 
     def exec_input(self, stmt: InputStmt):
-        prompt = (translate("Algo", "Variable {var} = ").format(var=stmt.variable)) if stmt.prompt is None else stmt.prompt
+        prompt = (
+            translate("Algo", "Variable {var} = ").format(var=stmt.variable)) if stmt.prompt is None else stmt.prompt
         self.evaluator.set_variable(stmt.variable, self.stmt_input(prompt))
 
     def exec_assign(self, stmt: AssignStmt):

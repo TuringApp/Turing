@@ -229,7 +229,7 @@ class Evaluator:
                 if not check_type(arg, spec[1]):
                     self.log.error(
                         translate("Evaluator", "Type mismatch for argument #{idx} '{arg}' (expected {exp})").format(
-                            idx=idx+1, arg=spec[0], exp=spec[1]))
+                            idx=idx + 1, arg=spec[0], exp=spec[1]))
                     return None
 
         if hasattr(function, "frames"):

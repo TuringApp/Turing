@@ -556,6 +556,7 @@ def get_current_stmt():
 
     return None
 
+
 def get_current_pos():
     current = []
     found = False
@@ -639,7 +640,8 @@ def str_stmt(stmt):
         ret = translate("Algo", "[k]CALL[/k] [c]{code}[/c]").format(code=stmt.to_node().code())
 
     elif isinstance(stmt, ForStmt):
-        ret = translate("Algo", "[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}").format(
+        ret = translate("Algo",
+                        "[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}").format(
             var=stmt.variable, begin=stmt.begin.code(), end=stmt.end.code(),
             step="" if stmt.step is None else translate("Algo", "([b]STEP[/b] [c]{step}[/c])").format(
                 step=stmt.step.code()))
@@ -764,6 +766,7 @@ def init_ui():
 
 def show_error():
     print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]))
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

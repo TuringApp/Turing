@@ -55,7 +55,7 @@ def calculate():
     msgs = ev.log.get_messages()
 
     if msgs:
-        #err = "\n".join([x[1] for x in msgs])
+        # err = "\n".join([x[1] for x in msgs])
         err = msgs[0][1]
         add_result(ev.beautified, err, True)
     else:

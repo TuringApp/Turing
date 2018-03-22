@@ -217,5 +217,3 @@ def check_type(obj: Any, typ: str) -> bool:
         return type(obj) == list
 
     raise ValueError("unknown type %s" % typ)
-
-
