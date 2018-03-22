@@ -847,10 +847,6 @@ def store_line(item: QTreeWidgetItem, stmt: BaseStmt):
     item_map[id(stmt)] = item, stmt
 
 
-def get_block(txt):
-    return block_html + txt + "</span>"
-
-
 def load_block(stmt: BlockStmt):
     global item_map
     item_map = {}
@@ -859,7 +855,7 @@ def load_block(stmt: BlockStmt):
 
     global root_item, algo
     algo = stmt
-    root_item, lbl = get_item_html(get_block("PROGRAM"))
+    root_item, lbl = get_item_html(str_stmt(algo))
     ui.treeWidget.addTopLevelItem(root_item)
     store_line(root_item, algo)
     ui.treeWidget.setItemWidget(root_item, 0, lbl)
