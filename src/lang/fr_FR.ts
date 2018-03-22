@@ -80,78 +80,83 @@ p, li { white-space: pre-wrap; }
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="776"/>
+        <location filename="../main.py" line="784"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="779"/>
+        <location filename="../main.py" line="787"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="770"/>
+        <location filename="../main.py" line="778"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="782"/>
+        <location filename="../main.py" line="790"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="785"/>
+        <location filename="../main.py" line="793"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="788"/>
+        <location filename="../main.py" line="796"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="813"/>
+        <location filename="../main.py" line="821"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="793"/>
+        <location filename="../main.py" line="801"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="795"/>
+        <location filename="../main.py" line="803"/>
         <source>[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]</source>
         <translation>[k]ASSIGNER[/k] [c]{var}[/c] = [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="799"/>
+        <location filename="../main.py" line="807"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="809"/>
+        <location filename="../main.py" line="817"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="817"/>
+        <location filename="../main.py" line="825"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="773"/>
+        <location filename="../main.py" line="781"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="802"/>
+        <location filename="../main.py" line="810"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="803"/>
+        <location filename="../main.py" line="811"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="828"/>
+        <source>[i]empty[/i]</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1180,7 +1185,7 @@ p, li { white-space: pre-wrap; }
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="111"/>
+        <location filename="../main.py" line="112"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
@@ -1212,22 +1217,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="949"/>
-        <source>Error: </source>
-        <translation>Erreur : </translation>
-    </message>
-    <message>
-        <location filename="../main.py" line="311"/>
+        <location filename="../main.py" line="312"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="256"/>
+        <location filename="../main.py" line="257"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="368"/>
+        <location filename="../main.py" line="369"/>
         <source>Syntax error ({type}) at line {line}, offset {off}: </source>
         <translation>Erreur de syntaxe ({type}) à la ligne {line}, caractère {off} : </translation>
     </message>
@@ -1350,16 +1350,6 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <location filename="../forms/ui_mainwindow.py" line="571"/>
         <source>Return</source>
         <translation>Renvoyer</translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_mainwindow.py" line="556"/>
-        <source>Move down</source>
-        <translation type="obsolete">Descendre</translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_mainwindow.py" line="557"/>
-        <source>Move up</source>
-        <translation type="obsolete">Monter</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="574"/>
