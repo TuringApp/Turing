@@ -618,6 +618,7 @@ def btn_delete_line():
     del parent_stmt.children[current_pos[-1]]
 
     refresh_algo()
+    algo_sel_changed()
 
 
 def btn_edit_line():
@@ -912,6 +913,57 @@ def load_algo():
     ]))
 
 
+def algo_sel_changed():
+    current = get_current_pos()
+    is_item = ui.treeWidget.currentItem() != None
+    is_root = current == []
+    is_editable = is_item and not is_root
+
+    ui.btnAlgo_Add.setEnabled(is_item)
+    ui.btnAlgo_Delete.setEnabled(is_editable)
+    ui.btnAlgo_Edit.setEnabled(is_editable)
+
+    can_up = is_editable and current != [0]
+    ui.btnAlgo_UpBlock.setEnabled(can_up)
+    ui.btnAlgo_Up.setEnabled(can_up)
+
+    can_down = is_editable and current != [len(algo.children) - 1]
+    ui.btnAlgo_Down.setEnabled(can_down)
+    ui.btnAlgo_DownBlock.setEnabled(can_down)
+
+    ui.btnAlgo_Variable.setEnabled(is_item)
+    ui.btnAlgo_Display.setEnabled(is_item)
+    ui.btnAlgo_Input.setEnabled(is_item)
+    ui.btnAlgo_Call.setEnabled(is_item)
+    ui.btnAlgo_Func.setEnabled(is_item)
+    ui.btnAlgo_Return.setEnabled(is_editable)
+    ui.btnAlgo_Stop.setEnabled(is_item)
+
+    ui.btnAlgo_If.setEnabled(is_item)
+    ui.btnAlgo_Else.setEnabled(is_editable)
+    ui.btnAlgo_For.setEnabled(is_item)
+    ui.btnAlgo_While.setEnabled(is_item)
+    ui.btnAlgo_Continue.setEnabled(is_editable)
+    ui.btnAlgo_Break.setEnabled(is_editable)
+    ui.btnAlgo_Comment.setEnabled(is_item)
+
+    if is_editable:
+        parent, parent_stmt = get_parent(current)
+        current_stmt = parent_stmt.children[current[-1]]
+        ui.btnAlgo_Else.setEnabled(isinstance(current_stmt, IfStmt))
+
+        parent_stack = [algo]
+        for p in current:
+            parent_stack.append(parent_stack[-1].children[p])
+
+        in_loop = any(x for x in parent_stack if type(x) in [ForStmt, WhileStmt])
+        ui.btnAlgo_Continue.setEnabled(in_loop)
+        ui.btnAlgo_Break.setEnabled(in_loop)
+
+        in_func = any(x for x in parent_stack if type(x) == FuncStmt)
+        ui.btnAlgo_Return.setEnabled(in_func)
+
+
 def init_ui():
     global window, ui
     window = MainWindowWrapper()
@@ -957,6 +1009,10 @@ def init_ui():
     ui.btnAlgo_Continue.clicked.connect(add_continue_stmt)
     ui.btnAlgo_Break.clicked.connect(add_break_stmt)
     ui.btnAlgo_Comment.clicked.connect(add_comment_stmt)
+
+    ui.treeWidget.itemSelectionChanged.connect(algo_sel_changed)
+
+    algo_sel_changed()
 
     def gen(act):
         return lambda: change_language(act)
