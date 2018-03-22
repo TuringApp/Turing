@@ -13,6 +13,7 @@ SOURCES += \
     algo\stmts\BlockStmt.py \
     algo\stmts\BreakStmt.py \
     algo\stmts\CallStmt.py \
+    algo\stmts\CommentStmt.py \
     algo\stmts\ContinueStmt.py \
     algo\stmts\DisplayStmt.py \
     algo\stmts\ElseStmt.py \
@@ -21,6 +22,7 @@ SOURCES += \
     algo\stmts\IfStmt.py \
     algo\stmts\InputStmt.py \
     algo\stmts\ReturnStmt.py \
+    algo\stmts\StopStmt.py \
     algo\stmts\WhileStmt.py \
     algo\stmts\__init__.py \
     forms\about.py \

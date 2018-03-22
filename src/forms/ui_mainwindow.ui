@@ -231,6 +231,20 @@
              </property>
             </widget>
            </item>
+           <item row="11" column="0">
+            <widget class="QPushButton" name="btnAlgo_Stop">
+             <property name="text">
+              <string>Stop execution</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <widget class="QPushButton" name="btnAlgo_Comment">
+             <property name="text">
+              <string>Comment</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
