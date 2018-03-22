@@ -659,11 +659,14 @@ def btn_move_down(block=False):
 def append_line(stmt):
     current_pos = get_current_pos()
     _, parent_stmt = get_parent(current_pos)
-    existing = parent_stmt.children[current_pos[-1]]
-    if type(existing) == BaseStmt:
-        parent_stmt.children[current_pos[-1]] = stmt
-        refresh_algo()
-        return
+    if current_pos != []:
+        existing = parent_stmt.children[current_pos[-1]]
+        if type(existing) == BaseStmt:
+            parent_stmt.children[current_pos[-1]] = stmt
+            refresh_algo()
+            return
+    else:
+        existing = algo
 
     if isinstance(existing, BlockStmt):
         current_pos.append(0)
