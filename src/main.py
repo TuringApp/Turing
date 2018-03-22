@@ -602,6 +602,10 @@ def btn_delete_line():
     current_pos = get_current_pos()
     _, parent_stmt = get_parent(current_pos)
 
+    if isinstance(parent_stmt.children[current_pos[-1]], IfStmt) and current_pos[-1] < len(
+            parent_stmt.children) - 1 and isinstance(parent_stmt.children[current_pos[-1] + 1], ElseStmt):
+        del parent_stmt.children[current_pos[-1] + 1]
+
     del parent_stmt.children[current_pos[-1]]
 
     refresh_algo()
