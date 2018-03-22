@@ -301,6 +301,7 @@ def init_worker():
     worker.callback_print = python_print
     worker.callback_input = python_input
     worker.init()
+    worker.callback_stop = callback_stop
 
 
 def end_output():
@@ -318,10 +319,26 @@ def set_current_line(current: Optional[BaseStmt], error=False):
             item.setBackground(0, root_item.background(0))
 
 
+def callback_stop():
+    worker.finished = True
+
+
+def handler_Stop():
+    python_print_error(translate("MainWindow", "program interrupted"))
+    if mode_python:
+        pass
+    else:
+        running = False
+        worker.finished = True
+        worker.error = False
+        handler_Step()
+
+
 def handler_Step():
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
     global running, current
+    ui.actionStop.setEnabled(True)
 
     try:
         if mode_python:
@@ -345,6 +362,7 @@ def handler_Step():
             running = False
         ui.actionRun.setDisabled(False)
         ui.actionStep.setDisabled(False)
+        ui.actionStop.setEnabled(not worker.finished)
 
 
 def handler_Run():
