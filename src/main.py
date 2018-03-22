@@ -538,6 +538,56 @@ def refresh_algo_text():
         lbl.setText('&nbsp;<span>%s</span>' % str_stmt(stmt))
 
 
+def add_display():
+    append_line(DisplayStmt(parse("\"hello world\"")))
+
+
+def append_line(stmt):
+    current_pos = get_current_pos()
+    current_pos[-1] += 1
+    add_line(current_pos, stmt)
+
+
+def get_current_stmt():
+    current_item = ui.treeWidget.currentItem()
+    for item, stmt in item_map.values():
+        if item == current_item:
+            return stmt
+
+    return None
+
+def get_current_pos():
+    current = []
+    found = False
+    current_stmt = get_current_stmt()
+
+    def find_block(block: BlockStmt):
+        nonlocal found
+        if found:
+            return
+
+        nonlocal current
+        current.append(0)
+
+        for child in block.children:
+            if child == current_stmt:
+                found = True
+                return
+
+            if isinstance(child, BlockStmt):
+                find_block(child)
+                if found:
+                    return
+
+            current[-1] += 1
+
+        current.pop()
+
+    find_block(algo)
+
+    return current
+
+
 def add_line(pos, stmt, add=True):
     parent = root_item
     parent_stmt = algo
@@ -700,6 +750,8 @@ def init_ui():
     ui.btnSendInput.clicked.connect(send_user_input)
     ui.btnClearOutput.clicked.connect(clear_output)
     ui.btnPrintOutput.clicked.connect(print_output)
+
+    ui.btnAlgo_Display.clicked.connect(add_display)
 
     def gen(act):
         return lambda: change_language(act)
