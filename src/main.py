@@ -792,7 +792,6 @@ def init_ui():
     ui.menubar.removeAction(ui.menuLanguage.menuAction())
     right_corner.addAction(ui.menuLanguage.menuAction())
     ui.menubar.setCornerWidget(right_corner)
-
     ui.btnSendInput.clicked.connect(send_user_input)
     ui.btnClearOutput.clicked.connect(clear_output)
     ui.btnPrintOutput.clicked.connect(print_output)
@@ -824,7 +823,13 @@ def show_error():
     print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]))
 
 
+def except_hook(type, value, tback):
+    sys.__excepthook__(type, value, tback)
+
+
 if __name__ == "__main__":
+    sys.excepthook = except_hook
+
     app = QApplication(sys.argv)
     app.setApplicationName("Turing")
     app.setApplicationVersion(__version__)
