@@ -23,13 +23,13 @@ class Worker:
     calls = None
     strict_typing = None
     last = None
-    stop_callback = None
+    callback_stop = None
 
     def __init__(self, code: CodeBlock):
         self.code = BlockStmt(code)
         self.log = Logger("Algo")
         self.strict_typing = False
-        self.stop_callback = lambda: ()
+        self.callback_stop = lambda: ()
 
     def reset_eval(self):
         self.evaluator = Evaluator()
@@ -247,7 +247,7 @@ class Worker:
 
     def exec_stop(self, stmt: StopStmt):
         self.stopped = True
-        self.stop_callback()
+        self.callback_stop()
 
     def step(self):
         stmt = self.next_stmt()
