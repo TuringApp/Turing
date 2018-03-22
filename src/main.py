@@ -310,10 +310,10 @@ def end_output():
     update_output()
 
 
-def set_current_line(current: Optional[BaseStmt]):
+def set_current_line(current: Optional[BaseStmt], error=False):
     for item, stmt in item_map.values():
         if stmt == current:
-            item.setBackground(0, QBrush(QColor("red")))
+            item.setBackground(0, QBrush(QColor("#ef5350") if error else QColor("#fdd835")))
         else:
             item.setBackground(0, root_item.background(0))
 
