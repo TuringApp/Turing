@@ -303,6 +303,8 @@ def init_worker():
     worker = Worker(algo.children)
     worker.callback_print = python_print
     worker.callback_input = python_input
+    worker.log.set_callback(python_print_error)
+    worker.log.use_prefix = False
     worker.init()
     worker.callback_stop = callback_stop
     set_current_line(None)
