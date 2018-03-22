@@ -162,7 +162,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="876"/>
         <source>[k]STOP[/k]</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]STOP[/k]</translation>
     </message>
 </context>
 <context>
@@ -1404,22 +1404,22 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="710"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrêter</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="595"/>
         <source>Stop execution</source>
-        <translation type="unfinished"></translation>
+        <translation>Point d&apos;arrêt</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="596"/>
         <source>Comment</source>
-        <translation type="unfinished"></translation>
+        <translation>Commentaire</translation>
     </message>
     <message>
         <location filename="../main.py" line="336"/>
         <source>program interrupted</source>
-        <translation type="unfinished"></translation>
+        <translation>algorithme interrompu</translation>
     </message>
 </context>
 <context>
