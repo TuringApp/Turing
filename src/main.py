@@ -595,6 +595,14 @@ def add_continue_stmt():
     append_line(ContinueStmt())
 
 
+def add_stop_stmt():
+    append_line(StopStmt())
+
+
+def add_comment_stmt():
+    append_line(CommentStmt("sample comment"))
+
+
 def btn_add_line():
     append_line(BaseStmt())
 
@@ -940,6 +948,7 @@ def init_ui():
     ui.btnAlgo_Call.clicked.connect(add_call)
     ui.btnAlgo_Func.clicked.connect(add_def_func)
     ui.btnAlgo_Return.clicked.connect(add_return)
+    ui.btnAlgo_Stop.clicked.connect(add_stop_stmt)
 
     ui.btnAlgo_If.clicked.connect(add_if_block)
     ui.btnAlgo_Else.clicked.connect(add_else_block)
@@ -947,6 +956,7 @@ def init_ui():
     ui.btnAlgo_While.clicked.connect(add_while_loop)
     ui.btnAlgo_Continue.clicked.connect(add_continue_stmt)
     ui.btnAlgo_Break.clicked.connect(add_break_stmt)
+    ui.btnAlgo_Comment.clicked.connect(add_comment_stmt)
 
     def gen(act):
         return lambda: change_language(act)
