@@ -15,3 +15,6 @@ class InputStmt(BaseStmt):
 
     def __str__(self):
         return "[Input '%s' -> %s]" % (self.prompt, self.variable)
+
+    def __repr__(self):
+        return "InputStmt(%r, %r)" % (self.variable, self.prompt)

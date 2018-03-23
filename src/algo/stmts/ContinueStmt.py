@@ -9,3 +9,6 @@ class ContinueStmt(BaseStmt):
 
     def __str__(self):
         return "[Continue]"
+
+    def __repr__(self):
+        return "ContinueStmt()"

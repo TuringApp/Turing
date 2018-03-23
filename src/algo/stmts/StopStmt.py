@@ -9,3 +9,6 @@ class StopStmt(BaseStmt):
 
     def __str__(self):
         return "[Stop]"
+
+    def __repr__(self):
+        return "StopStmt()"

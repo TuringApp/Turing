@@ -9,3 +9,6 @@ class BreakStmt(BaseStmt):
 
     def __str__(self):
         return "[Break]"
+
+    def __repr__(self):
+        return "BreakStmt()"

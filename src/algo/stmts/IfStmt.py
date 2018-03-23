@@ -14,3 +14,6 @@ class IfStmt(BlockStmt):
 
     def __str__(self):
         return "[If %s %s]" % (self.condition, super().__str__())
+
+    def __repr__(self):
+        return "IfStmt(%r, %r)" % (self.condition, self.children)

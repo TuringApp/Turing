@@ -10,3 +10,6 @@ class ElseStmt(BlockStmt):
 
     def __str__(self):
         return "[Else %s]" % (super().__str__())
+
+    def __repr__(self):
+        return "ElseStmt(%r)" % self.children

@@ -13,3 +13,6 @@ class ReturnStmt(BaseStmt):
 
     def __str__(self):
         return "[Return %s]" % self.value
+
+    def __repr__(self):
+        return "ReturnStmt(%r)" % self.value

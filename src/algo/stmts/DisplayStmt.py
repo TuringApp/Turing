@@ -13,3 +13,6 @@ class DisplayStmt(BaseStmt):
 
     def __str__(self):
         return "[Display %s]" % self.content
+
+    def __repr__(self):
+        return "DisplayStmt(%r)" % self.content

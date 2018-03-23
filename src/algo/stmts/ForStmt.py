@@ -21,3 +21,6 @@ class ForStmt(BlockStmt):
 
     def __str__(self):
         return "[For %s = %s -> %s [%s] %s]" % (self.variable, self.begin, self.end, self.step, super().__str__())
+
+    def __repr__(self):
+        return "ForStmt(%r, %r, %r, %r, %r)" % (self.variable, self.begin, self.end, self.children, self.step)

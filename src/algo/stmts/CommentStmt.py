@@ -12,3 +12,6 @@ class CommentStmt(BaseStmt):
 
     def __str__(self):
         return "[Comment %s]" % self.content
+
+    def __repr__(self):
+        return "CommentStmt(%r)" % self.content

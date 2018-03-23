@@ -15,3 +15,6 @@ class FuncStmt(BlockStmt):
 
     def __str__(self):
         return "[Func %s (%s) %s]" % (self.name, ", ".join(self.parameters), super().__str__())
+
+    def __repr__(self):
+        return "FuncStmt(%r, %r, %r)" % (self.name, self.parameters, self.children)

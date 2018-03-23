@@ -16,5 +16,8 @@ class CallStmt(BaseStmt):
     def __str__(self):
         return "[Call %s (%s)]" % (self.function, ", ".join(str(x) for x in self.arguments))
 
+    def __repr__(self):
+        return "CallStmt(%r, %r)" % (self.function, self.arguments)
+
     def to_node(self):
         return CallNode(self.function, self.arguments)

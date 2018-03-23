@@ -14,3 +14,6 @@ class WhileStmt(BlockStmt):
 
     def __str__(self):
         return "[While %s %s]" % (self.condition, super().__str__())
+
+    def __repr__(self):
+        return "WhileStmt(%r, %r)" % (self.condition, self.children)

@@ -449,6 +449,10 @@ def handler_ShowToolbarText():
         ui.toolBar.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
 
+def handler_Save():
+    print(repr(algo))
+
+
 def init_action_handlers():
     for item in dir(ui):
         if item.startswith("action"):
