@@ -36,7 +36,7 @@ __version__ = "β-0.2"
 __channel__ = "beta"
 
 undo = None
-mode_python = False
+mode_python = True
 code_editor = None
 panel_search = None
 current_output = ""
@@ -415,7 +415,7 @@ def handler_Run():
     except:
         show_error()
     finally:
-        if worker.stopped:
+        if not mode_python and worker.stopped:
             ui.actionStep.setDisabled(False)
             set_current_line(worker.last)
             skip_step = True
@@ -450,8 +450,17 @@ def handler_ShowToolbarText():
 
 
 def handler_Save():
-    print(repr(algo))
-
+    list = os.listdir("../saves/")
+    number_files = len(list) + 1
+    filename = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"), translate("MainWindow", "../saves/Turing_scripts" + str(number_files)),"*.py")
+    if mode_python == False:
+        saveme = repr(algo)
+    else:
+        saveme = str(util.code.python_wrapper(code_editor.toPlainText()).encode("utf8"))
+        saveme = saveme.replace('\\n','\n')
+    savefile = open(str(filename).split("'")[1],"w+")
+    savefile.write(saveme)
+    savefile.close()
 
 def init_action_handlers():
     for item in dir(ui):
