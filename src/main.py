@@ -36,7 +36,7 @@ __version__ = "β-0.2"
 __channel__ = "beta"
 
 undo = None
-mode_python = True
+mode_python = False
 code_editor = None
 panel_search = None
 current_output = ""
@@ -130,7 +130,7 @@ def refresh_buttons_status():
     if mode_python:
         for ours, theirs in editor_action_table:
             get_action(ours).setEnabled(getattr(code_editor, "action_" + theirs).isEnabled())
-
+    
     active_code = True
     for c in [
         "Save",
@@ -230,6 +230,13 @@ def handler_HelpContents():
     from forms import help
     help.run()
 
+def change_tab():
+    global mode_python
+    if ui.tabWidget.currentIndex() == 1:
+        mode_python = False
+    elif int(ui.tabWidget.currentIndex()) == 2:
+        mode_python = True
+    refresh()
 
 def python_print(*args, end="\n"):
     global current_output
@@ -452,7 +459,7 @@ def handler_ShowToolbarText():
 def handler_Save():
     list = os.listdir("../saves/")
     number_files = len(list) + 1
-    filename = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"), translate("MainWindow", "../saves/Turing_scripts" + str(number_files)),"*.py")
+    filename = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"), "../saves/Turing_scripts_" + str(number_files) + ".py","*.py")
     if mode_python == False:
         saveme = repr(algo)
     else:
@@ -461,6 +468,9 @@ def handler_Save():
     savefile = open(str(filename).split("'")[1],"w+")
     savefile.write(saveme)
     savefile.close()
+
+def handler_Open():
+    print("opennnn")
 
 def init_action_handlers():
     for item in dir(ui):
@@ -1064,6 +1074,8 @@ def init_ui():
     ui.btnAlgo_Comment.clicked.connect(add_comment_stmt)
 
     ui.treeWidget.itemSelectionChanged.connect(algo_sel_changed)
+
+    ui.tabWidget.currentChanged.connect(change_tab)
 
     algo_sel_changed()
 
