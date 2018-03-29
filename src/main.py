@@ -35,6 +35,9 @@ translate = QCoreApplication.translate
 __version__ = "β-0.2"
 __channel__ = "beta"
 
+current_file = "New File"
+can_save = False
+
 undo = None
 mode_python = False
 code_editor = None
@@ -124,7 +127,11 @@ def get_action(name: str) -> QAction:
 
 def refresh():
     refresh_buttons_status()
+    print(current_file)
 
+
+def refresh_on_tap():
+    print("tap :p")
 
 def refresh_buttons_status():
     if mode_python:
@@ -230,13 +237,15 @@ def handler_HelpContents():
     from forms import help
     help.run()
 
+
 def change_tab():
     global mode_python
     if ui.tabWidget.currentIndex() == 1:
         mode_python = False
     elif int(ui.tabWidget.currentIndex()) == 2:
         mode_python = True
-    refresh()
+    refresh_buttons_status()
+
 
 def python_print(*args, end="\n"):
     global current_output
@@ -457,20 +466,49 @@ def handler_ShowToolbarText():
 
 
 def handler_Save():
-    list = os.listdir("../saves/")
-    number_files = len(list) + 1
-    filename = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"), "../saves/Turing_scripts_" + str(number_files) + ".py","*.py")
-    if mode_python == False:
-        saveme = repr(algo)
-    else:
-        saveme = str(util.code.python_wrapper(code_editor.toPlainText()).encode("utf8"))
-        saveme = saveme.replace('\\n','\n')
+    global current_file
+    global filename
+    if current_file == "New File":
+        list = os.listdir("../saves/")
+        number_files = len(list) + 1
+        filename = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"), "../saves/Turing_scripts_" + str(number_files) + "_.py","*.py")
+    python = str(code_editor.toPlainText())
+    saveme = "# -*- PseudoCode -*-\n\n" + repr(algo) + "\n\n# -*- End -*-\n#\n#\n# -*- PythonCode -*-\n\n" + python + "\n\n# -*- End -*-"
     savefile = open(str(filename).split("'")[1],"w+")
     savefile.write(saveme)
     savefile.close()
+    current_file = str(filename).split("'")[1]
+    refresh()
+
 
 def handler_Open():
-    print("opennnn")
+    global algo
+    global current_file
+    global filename
+    filename = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "../saves/","*.py")
+    openfile = open(str(filename).split("'")[1],"r")
+    newcode = openfile.read()
+    openfile.close()
+    newcode = newcode.splitlines()
+    #load_pseudocode(newcode[2])
+    #code_editor.toPlainText() = newcode[9:len(newcode)-2]
+    current_file = str(filename).split("'")[1]
+    refresh()
+    refresh_algo()
+    algo_sel_changed()
+
+
+def handler_New():
+    global current_file
+    global algo
+    global code_editor
+    current_file = "New File"
+    algo = BlockStmt([])
+    #code_editor.setText("")
+    refresh()
+    refresh_algo()
+    algo_sel_changed()
+
 
 def init_action_handlers():
     for item in dir(ui):
@@ -560,7 +598,7 @@ def load_code_editor():
     panel_search = code_editor.panels.append(panels.SearchAndReplacePanel(), api.Panel.Position.BOTTOM)
     copy_actions_to_editor(panel_search)
 
-    code_editor.textChanged.connect(refresh)
+    code_editor.textChanged.connect(refresh_on_tap)
 
     load_editor_actions()
 
@@ -953,6 +991,10 @@ def load_block(stmt: BlockStmt):
     ui.treeWidget.expandAll()
 
 
+def load_pseudocode(algo):
+    load_block(algo)
+
+
 def load_algo():
     load_block(BlockStmt([
         ForStmt("i", parse("1"), parse("16"), [
@@ -1039,7 +1081,6 @@ def init_ui():
     load_algo()
 
     init_action_handlers()
-    refresh()
 
     right_corner = QMenuBar()
     ui.menubar.removeAction(ui.menuLanguage.menuAction())

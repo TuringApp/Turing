@@ -11,5 +11,7 @@ for n, x in maths.lib.__dict__.items():
             if type(i) == types.FunctionType:
                 globals()[k] = getattr(module, k)
 del maths, types, n, x
+#PersonalSavedCode :
+
 %s
 """ % input
