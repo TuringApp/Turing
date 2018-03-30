@@ -29,13 +29,14 @@ from forms.ui_mainwindow import Ui_MainWindow
 from lang import translator
 from maths.parser import quick_parse as parse
 from util.widgets import center_widget, QClickableLabel
+from maths.nodes import *
 
 translate = QCoreApplication.translate
 
 __version__ = "β-0.2"
 __channel__ = "beta"
 
-current_file = "New File"
+current_file = None
 can_save = False
 
 undo = None
@@ -130,8 +131,8 @@ def refresh():
     print(current_file)
 
 
-def refresh_on_tap():
-    print("tap :p")
+#def refresh_on_tap():
+#    print("tap :p")
 
 def refresh_buttons_status():
     if mode_python:
@@ -242,7 +243,7 @@ def change_tab():
     global mode_python
     if ui.tabWidget.currentIndex() == 1:
         mode_python = False
-    elif int(ui.tabWidget.currentIndex()) == 2:
+    elif ui.tabWidget.currentIndex() == 2:
         mode_python = True
     refresh_buttons_status()
 
@@ -467,44 +468,54 @@ def handler_ShowToolbarText():
 
 def handler_Save():
     global current_file
-    global filename
-    if current_file == "New File":
+    if mode_python:
+        ext = "py"
+        saveme = str(code_editor.toPlainText())
+    else :
+        ext = "tr"
+        saveme = repr(algo)
+
+    if not current_file :
         list = os.listdir("../saves/")
         number_files = len(list) + 1
-        filename = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"), "../saves/Turing_scripts_" + str(number_files) + "_.py","*.py")
-    python = str(code_editor.toPlainText())
-    saveme = "# -*- PseudoCode -*-\n\n" + repr(algo) + "\n\n# -*- End -*-\n#\n#\n# -*- PythonCode -*-\n\n" + python + "\n\n# -*- End -*-"
-    savefile = open(str(filename).split("'")[1],"w+")
-    savefile.write(saveme)
-    savefile.close()
-    current_file = str(filename).split("'")[1]
+        current_file = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"), "../saves/Turing_scripts_" + str(number_files) + "_." + ext,"*." + ext)[0]
+        if not current_file:
+            return
+
+    with open(current_file,"w+") as savefile :
+        savefile.write(saveme)
     refresh()
 
 
 def handler_Open():
-    global algo
-    global current_file
-    global filename
-    filename = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "../saves/","*.py")
-    openfile = open(str(filename).split("'")[1],"r")
-    newcode = openfile.read()
-    openfile.close()
-    newcode = newcode.splitlines()
-    #load_pseudocode(newcode[2])
-    #code_editor.toPlainText() = newcode[9:len(newcode)-2]
-    current_file = str(filename).split("'")[1]
+    global algo, mode_python, current_file
+    sel_file, _ = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "../saves/","*.py;*.tr")
+    if not sel_file :
+        return
+    current_file = sel_file
+    _, ext = os.path.splitext(current_file)
+    with open(current_file,"r") as openfile :
+        newcode = openfile.read()
+    if ext == ".tr" :
+        mode_python = False
+        load_pseudocode(newcode)
+        refresh_algo()
+        algo_sel_changed()
+    elif ext == ".py" :
+        mode_python = True
+        code_editor.setPlainText(newcode, "", "")
     refresh()
-    refresh_algo()
-    algo_sel_changed()
+
+
 
 
 def handler_New():
     global current_file
     global algo
     global code_editor
-    current_file = "New File"
+    current_file = None
     algo = BlockStmt([])
-    #code_editor.setText("")
+    code_editor.setPlainText("", "", "")
     refresh()
     refresh_algo()
     algo_sel_changed()
@@ -598,7 +609,7 @@ def load_code_editor():
     panel_search = code_editor.panels.append(panels.SearchAndReplacePanel(), api.Panel.Position.BOTTOM)
     copy_actions_to_editor(panel_search)
 
-    code_editor.textChanged.connect(refresh_on_tap)
+    #code_editor.textChanged.connect(refresh_on_tap)
 
     load_editor_actions()
 
@@ -649,6 +660,8 @@ def refresh_algo_text():
 
 
 def add_display():
+    from forms import dialog
+    dialog.run(window, __version__, __channel__)
     append_line(DisplayStmt(parse("\"hello world\"")))
 
 
@@ -992,7 +1005,8 @@ def load_block(stmt: BlockStmt):
 
 
 def load_pseudocode(algo):
-    load_block(algo)
+    code = eval(algo)
+    load_block(code)
 
 
 def load_algo():
