@@ -27,9 +27,11 @@ SOURCES += \
     algo\stmts\__init__.py \
     forms\about.py \
     forms\calculator.py \
+    forms\dialog.py \
     forms\help.py \
     forms\settings.py \
     forms\ui_about.py \
+    forms\ui_addDisplay.py \
     forms\ui_calculator.py \
     forms\ui_help.py \
     forms\ui_mainwindow.py \
@@ -76,6 +78,7 @@ SOURCES += \
     
 FORMS += \
     forms\ui_about.ui \
+    forms\ui_addDisplay.ui \
     forms\ui_calculator.ui \
     forms\ui_help.ui \
     forms\ui_mainwindow.ui \
