@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddDisplayWindow</class>
- <widget class="QDialog" name="AddDisplayWindow">
+ <class>DisplayWindow</class>
+ <widget class="QDialog" name="DisplayWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -26,21 +26,21 @@
      <item>
       <widget class="QTextBrowser" name="textBrowser"/>
      </item>
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Display</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Display</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineInput">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -48,7 +48,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
      </property>
     </widget>
    </item>
@@ -59,7 +59,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>AddDisplayWindow</receiver>
+   <receiver>DisplayWindow</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -75,7 +75,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>AddDisplayWindow</receiver>
+   <receiver>DisplayWindow</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

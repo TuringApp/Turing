@@ -38,6 +38,7 @@ __channel__ = "beta"
 
 current_file = None
 can_save = False
+dialog_window = None
 
 undo = None
 mode_python = False
@@ -661,8 +662,8 @@ def refresh_algo_text():
 
 def add_display():
     from forms import dialog
-    dialog.run(window, __version__, __channel__)
-    append_line(DisplayStmt(parse("\"hello world\"")))
+    print(dialog.run(window, __version__, __channel__))
+    append_line(DisplayStmt(parse("\"" + dialog.run(window, __version__, __channel__) + "\"")))
 
 
 def add_def_variable():

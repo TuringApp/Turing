@@ -31,8 +31,8 @@ SOURCES += \
     forms\help.py \
     forms\settings.py \
     forms\ui_about.py \
-    forms\ui_addDisplay.py \
     forms\ui_calculator.py \
+    forms\ui_display_stmt.py \
     forms\ui_help.py \
     forms\ui_mainwindow.py \
     forms\ui_settings.py \
@@ -78,8 +78,8 @@ SOURCES += \
     
 FORMS += \
     forms\ui_about.ui \
-    forms\ui_addDisplay.ui \
     forms\ui_calculator.ui \
+    forms\ui_display_stmt.ui \
     forms\ui_help.ui \
     forms\ui_mainwindow.ui \
     forms\ui_settings.ui
