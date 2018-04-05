@@ -11,7 +11,7 @@ translate = QCoreApplication.translate
 
 class InlineCodeDialog(QDialog):
     def __init__(self, parent, origcode=""):
-        super().__init__()
+        super().__init__(parent)
         self.ui = Ui_InlineCodeDialog()
         self.ui.setupUi(self)
         self.setFixedSize(self.size())
@@ -22,5 +22,8 @@ class InlineCodeDialog(QDialog):
         self.editor.submitted.connect(self.accept)
 
     def run(self):
-        self.exec_()
+        return self.exec_() == QDialog.Accepted
+
+
+    def value(self):
         return self.editor.get_text()
