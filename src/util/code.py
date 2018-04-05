@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+import re
+from PyQt5.QtWidgets import QMessageBox
+
+from maths.parser import Parser
+from .widgets import get_themed_box, center_widget
+from . import translate
 
 def python_wrapper(input: str) -> str:
     return """# -*- coding: utf-8 -*-
@@ -15,3 +21,27 @@ del maths, types, n, x
 
 %s
 """ % input
+
+
+def try_parse(txt, parent=None):
+    p = Parser(txt)
+
+    ret = None
+
+    try:
+        ret = p.parse()
+    except:
+        ret = None
+
+    msgs = p.log.get_messages()
+
+    if msgs:
+        box = get_themed_box(parent)
+        box.setIcon(QMessageBox.Critical)
+        box.setStandardButtons(QMessageBox.Ok)
+        box.setText(translate("Algo", "The following errors occured while parsing the expression:\n\n") + "\n".join(
+            x[1] for x in msgs))
+
+        box.exec_()
+
+    return ret
