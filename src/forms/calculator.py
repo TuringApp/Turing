@@ -16,75 +16,68 @@ from forms.inline_code_editor import InlineCodeEditor
 
 translate = QCoreApplication.translate
 
+class CalculatorWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_CalcWindow()
 
-def add_result(expr, result, error=False):
-    if expr:
-        item1 = QListWidgetItem()
+        translator.add(self.ui, self)
+        self.ui.setupUi(self)
 
-        txt = str(expr)
-        item1.setText(txt)
-        item1.setStatusTip(txt)
+        self.editor = InlineCodeEditor(self.ui.centralwidget)
+        self.ui.verticalLayout.addWidget(self.editor)
+        self.editor.submitted.connect(self.calculate)
 
-        ui.lstHistory.addItem(item1)
+        self.ui.lstHistory.itemDoubleClicked.connect(self.history_double_click)
 
-    item2 = QListWidgetItem()
+        self.show()
 
-    txt = proper_str(result)
-    item2.setText(txt)
+    def add_result(self, expr, result, error=False):
+        if expr:
+            item1 = QListWidgetItem()
 
-    item2.setTextAlignment(Qt.AlignRight)
+            txt = str(expr)
+            item1.setText(txt)
+            item1.setStatusTip(txt)
 
-    if error:
-        item2.setForeground(QBrush(QColor("red")))
-    else:
-        item2.setStatusTip(txt)
+            self.ui.lstHistory.addItem(item1)
 
-    ui.lstHistory.addItem(item2)
+        item2 = QListWidgetItem()
 
-    ui.lstHistory.scrollToBottom()
+        txt = proper_str(result)
+        item2.setText(txt)
 
+        item2.setTextAlignment(Qt.AlignRight)
 
-def calculate():
-    ev = Evaluator()
-    expression = editor.get_text()
-
-    result = ev.evaluate(expression)
-    msgs = ev.log.get_messages()
-
-    if msgs:
-        # err = "\n".join([x[1] for x in msgs])
-        err = msgs[0][1]
-        add_result(ev.beautified, err, True)
-    else:
-        if result is not None:
-            add_result(None if msgs else ev.beautified, result)
+        if error:
+            item2.setForeground(QBrush(QColor("red")))
         else:
-            add_result(None if msgs else ev.beautified, translate("CalcWindow", "Result is None"), True)
+            item2.setStatusTip(txt)
+
+        self.ui.lstHistory.addItem(item2)
+
+        self.ui.lstHistory.scrollToBottom()
 
 
-def history_double_click(item):
-    if item.statusTip():
-        editor.set_text(item.text())
+    def calculate(self):
+        ev = Evaluator()
+        expression = self.editor.get_text()
+
+        result = ev.evaluate(expression)
+        msgs = ev.log.get_messages()
+
+        if msgs:
+            # err = "\n".join([x[1] for x in msgs])
+            err = msgs[0][1]
+            self.add_result(ev.beautified, err, True)
+        else:
+            if result is not None:
+                self.add_result(None if msgs else ev.beautified, result)
+            else:
+                self.add_result(None if msgs else ev.beautified, translate("CalcWindow", "Result is None"), True)
 
 
-def init_ui():
-    global window, ui, editor
-    window = QMainWindow()
-    ui = Ui_CalcWindow()
+    def history_double_click(self, item):
+        if item.statusTip():
+            self.editor.set_text(item.text())
 
-    translator.add(ui, window)
-    ui.setupUi(window)
-
-    editor = InlineCodeEditor(ui.centralwidget)
-    ui.verticalLayout.addWidget(editor)
-    editor.submitted.connect(calculate)
-
-
-    ui.lstHistory.itemDoubleClicked.connect(history_double_click)
-
-
-    window.show()
-
-
-def run():
-    init_ui()

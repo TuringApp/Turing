@@ -8,18 +8,15 @@ from util.widgets import center_widget
 
 translate = QCoreApplication.translate
 
+class AboutWindow(QDialog):
+    def __init__(self, parent, version, channel):
+        super().__init__(parent)
+        self.ui = Ui_AboutWindow()
+        self.ui.setupUi(self)
+        self.setFixedSize(self.size())
+        txt = self.ui.textBrowser_about.toHtml().replace("{version}", version).replace("{channel}", channel)
+        self.ui.textBrowser_about.setHtml(txt)
+        center_widget(self, parent)
 
-def init_ui(parent, version, channel):
-    global window, ui
-    window = QDialog()
-    ui = Ui_AboutWindow()
-    ui.setupUi(window)
-    window.setFixedSize(window.size())
-    txt = ui.textBrowser_about.toHtml().replace("{version}", version).replace("{channel}", channel)
-    ui.textBrowser_about.setHtml(txt)
-    center_widget(window, parent)
-    window.exec_()
-
-
-def run(parent, version, channel):
-    init_ui(parent, version, channel)
+    def run(self):
+        self.exec_()

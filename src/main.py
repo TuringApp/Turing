@@ -25,6 +25,7 @@ import util.code
 import util.html
 from algo.stmts import *
 from algo.worker import Worker
+import forms
 from forms.ui_mainwindow import Ui_MainWindow
 from lang import translator
 from maths.parser import quick_parse as parse
@@ -227,7 +228,7 @@ def handler_Replace():
 
 def handler_Calculator():
     from forms import calculator
-    calculator.run()
+    calculator.CalculatorWindow()
 
 
 def handler_Settings():
@@ -237,7 +238,7 @@ def handler_Settings():
 
 def handler_HelpContents():
     from forms import help
-    help.run()
+    help.HelpWindow(window)
 
 
 def change_tab():
@@ -449,8 +450,7 @@ def handler_Run():
 
 
 def handler_AboutTuring():
-    from forms import about
-    about.run(window, __version__, __channel__)
+    forms.about.AboutWindow(window, __version__, __channel__).run()
 
 
 def handler_ShowToolbar():

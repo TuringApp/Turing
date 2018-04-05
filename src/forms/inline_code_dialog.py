@@ -12,12 +12,11 @@ translate = QCoreApplication.translate
 class InlineCodeDialog(QDialog):
     def __init__(self, parent, origcode=""):
         super().__init__()
-        self.window = QDialog()
         self.ui = Ui_InlineCodeDialog()
-        self.ui.setupUi(self.window)
-        self.window.setFixedSize(self.window.size())
-        center_widget(self.window, parent)
-        self.editor = InlineCodeEditor(ui.centralwidget)
+        self.ui.setupUi(self)
+        self.setFixedSize(self.size())
+        center_widget(self, parent)
+        self.editor = InlineCodeEditor(self)
         self.editor.set_text(origcode)
         self.ui.verticalLayout.addWidget(self.editor)
         self.editor.submitted.connect(self.accept)
