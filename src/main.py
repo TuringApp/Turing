@@ -20,7 +20,6 @@ from pyqode.core import modes
 from pyqode.core import panels
 
 import editor_backend
-import util
 import util.code
 import util.html
 from algo.stmts import *
@@ -29,7 +28,7 @@ import forms
 from forms.ui_mainwindow import Ui_MainWindow
 from lang import translator
 from maths.parser import quick_parse as parse
-from util.widgets import center_widget, QClickableLabel
+from util.widgets import *
 from maths.nodes import *
 
 translate = QCoreApplication.translate
@@ -86,15 +85,6 @@ comment_html = '<span style="color:darkgreen;font-style:italic">'
 
 running = False
 skip_step = False
-
-
-def get_themed_box():
-    msg = QMessageBox()
-    msg.setWindowTitle("Turing")
-    msg.setStyle(DEFAULT_STYLE)
-    msg.setWindowIcon(QIcon(":/icon/media/icon.ico"))
-    center_widget(msg, window)
-    return msg
 
 
 def sleep(duration: int):
@@ -661,13 +651,17 @@ def refresh_algo_text():
 
 
 def add_display():
-    from forms import dialog
-    print(dialog.run(window, __version__, __channel__))
-    append_line(DisplayStmt(parse("\"" + dialog.run(window, __version__, __channel__) + "\"")))
+    from forms import alg_display
+    dlg = alg_display.AlgoDisplayStmt(window)
+    if dlg.run():
+        append_line(DisplayStmt(dlg.expr))
 
 
 def add_def_variable():
-    pass
+    from forms import alg_define
+    dlg = alg_define.AlgoDefineStmt(window)
+    if dlg.run():
+        append_line(AssignStmt(dlg.varname, dlg.expr))
 
 
 def add_input():
@@ -737,7 +731,25 @@ def btn_delete_line():
 
 
 def btn_edit_line():
-    pass
+    stmt = get_current_stmt()
+
+    if isinstance(stmt, DisplayStmt):
+        from forms import alg_display
+        dlg = alg_display.AlgoDisplayStmt(window, stmt.content.code())
+        if dlg.run():
+            stmt.content = dlg.expr
+
+
+    elif isinstance(stmt, AssignStmt):
+        from forms import alg_define
+        dlg = alg_define.AlgoDefineStmt(window, (stmt.variable, stmt.value.code()))
+        if dlg.run():
+            stmt.variable = dlg.varname
+            stmt.value = dlg.expr
+
+    refresh_algo()
+    algo_sel_changed()
+
 
 
 def btn_move_up_block():

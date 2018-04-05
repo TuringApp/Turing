@@ -26,16 +26,22 @@ SOURCES += \
     algo\stmts\WhileStmt.py \
     algo\stmts\__init__.py \
     forms\about.py \
+    forms\alg_define.py \
+    forms\alg_display.py \
     forms\calculator.py \
-    forms\dialog.py \
     forms\help.py \
+    forms\inline_code_dialog.py \
+    forms\inline_code_editor.py \
     forms\settings.py \
     forms\ui_about.py \
+    forms\ui_alg_define.py \
+    forms\ui_alg_display.py \
     forms\ui_calculator.py \
-    forms\ui_display_stmt.py \
     forms\ui_help.py \
+    forms\ui_inline_code.py \
     forms\ui_mainwindow.py \
     forms\ui_settings.py \
+    forms\w_inline_code.py \
     forms\__init__.py \
     lang\translator.py \
     lang\__init__.py \
@@ -52,6 +58,7 @@ SOURCES += \
     maths\lib\stats.py \
     maths\lib\trig.py \
     maths\lib\__init__.py \
+    maths\lib\__pycache__\rand.py \
     maths\nodes\ArrayAccessNode.py \
     maths\nodes\AstNode.py \
     maths\nodes\BinOpNode.py \
@@ -78,11 +85,14 @@ SOURCES += \
     
 FORMS += \
     forms\ui_about.ui \
+    forms\ui_alg_define.ui \
+    forms\ui_alg_display.ui \
     forms\ui_calculator.ui \
-    forms\ui_display_stmt.ui \
     forms\ui_help.ui \
+    forms\ui_inline_code.ui \
     forms\ui_mainwindow.ui \
-    forms\ui_settings.ui
+    forms\ui_settings.ui \
+    forms\w_inline_code.ui
     
 TRANSLATIONS += \
     lang\fr_FR.ts
