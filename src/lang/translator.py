@@ -4,6 +4,7 @@ import importlib
 import types
 from typing import List, Tuple
 
+import sip
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QWidget
 
@@ -24,6 +25,9 @@ def remove(ui: object):
 
 
 def update():
+    global uis
+    uis = [x for x in uis if not sip.isdeleted(x[1])]
+
     for ui, window in uis:
         ui.retranslateUi(window)
 
