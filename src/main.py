@@ -480,7 +480,7 @@ def handler_Save():
 
 def handler_Open():
     global algo, mode_python, current_file
-    sel_file, _ = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "../saves/","*.py;*.tr")
+    sel_file, _ = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "../saves/","PY,TR(*.py;*.tr)")
     if not sel_file :
         return
     current_file = sel_file
