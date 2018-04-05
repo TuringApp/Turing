@@ -12,12 +12,9 @@ from lang import translator
 from maths.evaluator import Evaluator
 from util.math import proper_str
 from util.widgets import *
+from forms.inline_code_editor import InlineCodeEditor
 
 translate = QCoreApplication.translate
-
-function = Tuple
-functions: Dict[str, List[function]] = None
-doc_items: List[List[QListWidgetItem]] = None
 
 
 def add_result(expr, result, error=False):
@@ -49,7 +46,7 @@ def add_result(expr, result, error=False):
 
 def calculate():
     ev = Evaluator()
-    expression = ui.txtExpr.text()
+    expression = editor.get_text()
 
     result = ev.evaluate(expression)
     msgs = ev.log.get_messages()
@@ -67,84 +64,24 @@ def calculate():
 
 def history_double_click(item):
     if item.statusTip():
-        ui.txtExpr.setText(item.text())
-
-
-def on_sel(id: int):
-    for idx, items in enumerate(doc_items):
-        for it in items:
-            it.setHidden(idx != id)
-
-
-def load_funcs():
-    global functions, doc_items
-    functions = maths.lib.get_funcs()
-    doc_items = []
-    for k in sorted(functions.keys()):
-        ui.cbxFuncs.addItem(k)
-        doc_items.append([])
-
-        for f in sorted(functions[k], key=lambda x: x[0]):
-            item_func = QListWidgetItem(ui.listWidget)
-            w = QWidget()
-            lay = QVBoxLayout()
-
-            label_func = QLabel()
-            label_func.setText(maths.lib.docs.get_func_def_html(f))
-
-            lay.addWidget(label_func)
-
-            label_desc = QLabel()
-            desc = re.sub(r"{{(\w+)\}\}", "<i><b>\g<1></b></i>", html.escape(f[2]))
-            desc = re.sub(r"//(\w+)//", "<i>\g<1></i>", desc)
-
-            label_desc.setText(desc)
-
-            label_desc.setAlignment(Qt.AlignRight)
-
-            lay.addWidget(label_desc)
-            lay.setSizeConstraint(QLayout.SetFixedSize)
-            lay.setSpacing(2)
-            lay.setContentsMargins(6, 6, 6, 6)
-            w.setLayout(lay)
-            item_func.setSizeHint(w.sizeHint())
-            ui.listWidget.setItemWidget(item_func, w)
-            doc_items[-1].append(item_func)
-            item_func.setStatusTip(f[0])
-
-
-def ins_func(item: QListWidgetItem):
-    ui.txtExpr.setText(ui.txtExpr.text() + item.statusTip() + "()")
-
-
-def clear():
-    ui.txtExpr.setText("")
-
-
-def txt_changed(txt: str):
-    ui.btnClear.setVisible(bool(txt))
+        editor.set_text(item.text())
 
 
 def init_ui():
-    global window, ui
+    global window, ui, editor
     window = QMainWindow()
     ui = Ui_CalcWindow()
 
     translator.add(ui, window)
     ui.setupUi(window)
 
-    ui.btnCalc.clicked.connect(calculate)
+    editor = InlineCodeEditor(ui.centralwidget)
+    ui.verticalLayout.addWidget(editor)
+    editor.submitted.connect(calculate)
+
+
     ui.lstHistory.itemDoubleClicked.connect(history_double_click)
-    ui.listWidget.itemDoubleClicked.connect(ins_func)
 
-    load_funcs()
-
-    ui.cbxFuncs.currentIndexChanged.connect(on_sel)
-    ui.txtExpr.textChanged.connect(txt_changed)
-    ui.btnClear.clicked.connect(clear)
-    ui.btnClear.setVisible(False)
-
-    on_sel(0)
 
     window.show()
 
