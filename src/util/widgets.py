@@ -3,8 +3,10 @@
 import datetime
 
 from PyQt5.QtCore import *
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import *
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QMessageBox
+
 
 
 class QClickableLabel(QLabel):
@@ -30,3 +32,15 @@ def center_widget(wgt: QWidget, host: QWidget):
         wgt.move(host.geometry().center() - wgt.rect().center())
     else:
         wgt.move(QCoreApplication.desktop().screenGeometry().center() - wgt.rect().center())
+
+
+def get_themed_box(parent=None):
+    msg = QMessageBox(parent)
+    msg.setWindowTitle("Turing")
+    #msg.setStyle(DEFAULT_STYLE)
+    msg.setWindowIcon(QIcon(":/icon/media/icon.ico"))
+
+    if parent:
+        center_widget(msg, parent)
+
+    return msg
