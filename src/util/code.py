@@ -45,3 +45,7 @@ def try_parse(txt, parent=None):
         box.exec_()
 
     return ret
+
+
+def is_id(txt):
+    return bool(re.search('^[a-zA-Z_0-9]+$', txt))
