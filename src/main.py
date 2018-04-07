@@ -846,10 +846,10 @@ def btn_edit_line():
 
     elif isinstance(stmt, FuncStmt):
         from forms import alg_func
-        dlg = alg_func.AlgoFuncStmt(window, (stmt.name, stmt.arguments))
+        dlg = alg_func.AlgoFuncStmt(window, (stmt.name, stmt.parameters))
         if dlg.run():
             stmt.name = dlg.func
-            stmt.arguments = dlg.args
+            stmt.parameters = dlg.args
 
     elif isinstance(stmt, CommentStmt):
         from forms import alg_comment
