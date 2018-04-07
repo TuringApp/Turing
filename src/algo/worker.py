@@ -257,6 +257,9 @@ class Worker:
 
         self.exec_stmt(stmt)
 
+        if self.break_on_error and self.log.messages:
+            self.finish()
+
     def exec_stmt(self, stmt):
         self.last = stmt
 
@@ -302,6 +305,7 @@ class Worker:
         self.error = False
         self.evaluator.enter_frame()
         self.stopped = False
+        self.break_on_error = False
 
     def run(self):
         self.init()

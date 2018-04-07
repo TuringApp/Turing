@@ -414,6 +414,7 @@ def handler_Run():
         else:
             if not running:
                 init_worker()
+                worker.break_on_error = True
                 running = True
             else:
                 worker.exec_stmt(current)
