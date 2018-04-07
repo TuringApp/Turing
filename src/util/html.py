@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import html
 
 
 def centered(content: str) -> str:
@@ -8,6 +9,10 @@ def centered(content: str) -> str:
 
 def color_span(text: str, color: str) -> str:
     return '<span style="color: %s">%s</span>' % (color, text)
+
+
+def sanitize(text: str) -> str:
+    return escape_brackets(html.escape(text, False))
 
 
 def escape_brackets(text: str) -> str:
