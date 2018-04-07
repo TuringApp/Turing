@@ -33,6 +33,7 @@ class Worker:
 
     def reset_eval(self):
         self.evaluator = Evaluator()
+        self.evaluator.log = self.log
         self.evaluator.strict_typing = self.strict_typing
 
     def stmt_input(self, prompt: str = None):

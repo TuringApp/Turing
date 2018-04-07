@@ -63,6 +63,7 @@ class Evaluator:
 
     def evaluate(self, expr: str) -> object:
         parser = Parser(expr)
+        parser.log = self.log
         node = None
 
         try:
