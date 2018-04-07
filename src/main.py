@@ -884,9 +884,11 @@ def append_line(stmt):
 
 def get_current_stmt():
     current_item = ui.treeWidget.currentItem()
-    for item, stmt in item_map.values():
-        if item == current_item:
-            return stmt
+
+    if current_item is not None:
+        for item, stmt in item_map.values():
+            if item == current_item:
+                return stmt
 
     return None
 
