@@ -172,7 +172,7 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
         elif code == 52: # EFFACE
             pass
 
-        elif code == 100: # DECLARATIONS VARIABLES
+        elif code == 100: # VARIABLES
             return children
 
         elif code == 101: # DEBUT_ALGO
@@ -183,6 +183,33 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
 
         elif code == 103: # autres
             pass
+
+        elif code == 200: # FONCTIONS_UTILISEES
+            return children
+
+        elif code == 201: # FONCTION
+            name, params = args
+
+            return FuncStmt(name, [x.strip() for x in params.split(",")], children)
+
+        elif code == 202: # VARIABLES_FONCTION
+            return children
+
+        elif code == 203: # DEBUT_FONCTION
+            return None
+
+        elif code == 204: # FIN_FONCTION:
+            return None
+
+        elif code == 205: # RENVOYER_FONCTION
+            value = args[0]
+
+            return ReturnStmt(parse_expr(value))
+
+        elif code == 206: # APPELER_FONCTION
+            expr = args[0]
+
+            return CallStmt.from_node(parse_expr(expr))
 
         else:
             print("unknown type %d" % code)
