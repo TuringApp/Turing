@@ -732,7 +732,10 @@ def add_stop_stmt():
 
 
 def add_comment_stmt():
-    append_line(CommentStmt("sample comment"))
+    from forms import alg_comment
+    dlg = alg_comment.AlgoCommentStmt(window)
+    if dlg.run():
+        append_line(CommentStmt(dlg.comment))
 
 
 def btn_add_line():
@@ -816,6 +819,12 @@ def btn_edit_line():
         if dlg.run():
             stmt.name = dlg.func
             stmt.arguments = dlg.args
+
+    elif isinstance(stmt, CommentStmt):
+        from forms import alg_comment
+        dlg = alg_comment.AlgoCommentStmt(window, stmt.content)
+        if dlg.run():
+            stmt.content = dlg.comment
 
     refresh_algo()
     algo_sel_changed()
