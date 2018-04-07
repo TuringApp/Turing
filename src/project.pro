@@ -5,6 +5,7 @@ SOURCES += \
     editor_backend.py \
     main.py \
     turing_rc.py \
+    algo\algobox.py \
     algo\worker.py \
     algo\__init__.py \
     algo\__tests__.py \
