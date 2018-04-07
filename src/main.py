@@ -302,7 +302,7 @@ def python_input(prompt=""):
 
 def python_print_error(msg):
     global current_output
-    current_output += util.html.color_span(msg, "red")
+    current_output += util.html.color_span(msg, "red") + "\n"
     if not mode_python:
         set_current_line(worker.last, True)
     update_output()
