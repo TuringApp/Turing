@@ -87,7 +87,7 @@ class Ui_AlgoForStmt(object):
 
     def retranslateUi(self, AlgoForStmt):
         _translate = QtCore.QCoreApplication.translate
-        AlgoForStmt.setWindowTitle(_translate("AlgoForStmt", "Define variable"))
+        AlgoForStmt.setWindowTitle(_translate("AlgoForStmt", "FOR loop"))
         self.label.setText(_translate("AlgoForStmt", "<html><head/><body><p>Executes the instructions for all values of the variable in the specified range.</p><p>At each iteration, the variable will be incremented by the step which is defaulted to 1. </p><p>The bounds are inclusive.</p></body></html>"))
         self.label_2.setText(_translate("AlgoForStmt", "From:"))
         self.label_5.setText(_translate("AlgoForStmt", "To:"))

@@ -52,7 +52,7 @@ class Ui_AlgoIfStmt(object):
 
     def retranslateUi(self, AlgoIfStmt):
         _translate = QtCore.QCoreApplication.translate
-        AlgoIfStmt.setWindowTitle(_translate("AlgoIfStmt", "Display value"))
+        AlgoIfStmt.setWindowTitle(_translate("AlgoIfStmt", "IF block"))
         self.label.setText(_translate("AlgoIfStmt", "<html><head/><body><p>Checks if the specified condition is true.</p><p>The block will only be executed if the condition is true, otherwise the program will continue with the instruction following the block.</p></body></html>"))
         self.label_2.setText(_translate("AlgoIfStmt", "Condition:"))
 

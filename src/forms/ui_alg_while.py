@@ -52,7 +52,7 @@ class Ui_AlgoWhileStmt(object):
 
     def retranslateUi(self, AlgoWhileStmt):
         _translate = QtCore.QCoreApplication.translate
-        AlgoWhileStmt.setWindowTitle(_translate("AlgoWhileStmt", "Display value"))
+        AlgoWhileStmt.setWindowTitle(_translate("AlgoWhileStmt", "WHILE loop"))
         self.label.setText(_translate("AlgoWhileStmt", "<html><head/><body><p>Executes the instructions while the condition is true.</p><p>As soon as the condition is false, the program continues with the instruction following the block.</p></body></html>"))
         self.label_2.setText(_translate("AlgoWhileStmt", "Condition:"))
 

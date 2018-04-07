@@ -57,7 +57,7 @@ class Ui_AlgoReturnStmt(object):
 
     def retranslateUi(self, AlgoReturnStmt):
         _translate = QtCore.QCoreApplication.translate
-        AlgoReturnStmt.setWindowTitle(_translate("AlgoReturnStmt", "Define variable"))
+        AlgoReturnStmt.setWindowTitle(_translate("AlgoReturnStmt", "Return"))
         self.label.setText(_translate("AlgoReturnStmt", "<html><head/><body><p>Exits the current function and optionally passes a value to the caller.</p></body></html>"))
         self.label_3.setText(_translate("AlgoReturnStmt", "Value:"))
         self.cbxHasValue.setText(_translate("AlgoReturnStmt", "Return a value"))

@@ -63,7 +63,7 @@ class Ui_AlgoInputStmt(object):
 
     def retranslateUi(self, AlgoInputStmt):
         _translate = QtCore.QCoreApplication.translate
-        AlgoInputStmt.setWindowTitle(_translate("AlgoInputStmt", "Define variable"))
+        AlgoInputStmt.setWindowTitle(_translate("AlgoInputStmt", "Read user input"))
         self.label.setText(_translate("AlgoInputStmt", "<html><head/><body><p>Asks the user for a value and assigns it to the specified variable.</p><p>Optionally, a message can be displayed. <span style=\" font-weight:600;\">Warning</span>: the message is an expression, thus if you want to display text you need to enclose everything inside quotes.</p></body></html>"))
         self.cbxHasValue.setText(_translate("AlgoInputStmt", "Display a message"))
         self.label_3.setText(_translate("AlgoInputStmt", "Message:"))

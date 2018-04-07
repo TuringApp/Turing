@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Display value</string>
+   <string>Define function</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../turing.qrc">

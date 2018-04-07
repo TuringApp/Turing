@@ -51,7 +51,7 @@ class Ui_AlgoFuncStmt(object):
 
     def retranslateUi(self, AlgoFuncStmt):
         _translate = QtCore.QCoreApplication.translate
-        AlgoFuncStmt.setWindowTitle(_translate("AlgoFuncStmt", "Display value"))
+        AlgoFuncStmt.setWindowTitle(_translate("AlgoFuncStmt", "Define function"))
         self.label.setText(_translate("AlgoFuncStmt", "<html><head/><body><p>Creates a custom function. The parameters must be a comma-separated list of identifiers.</p><p>A function may or may not return a value, it can very well only &quot;do&quot; things without ever giving a result. Such a function can be called using the CALL statement.</p></body></html>"))
         self.label_2.setText(_translate("AlgoFuncStmt", "Function:"))
         self.label_3.setText(_translate("AlgoFuncStmt", "Parameters:"))

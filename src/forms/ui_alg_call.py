@@ -63,7 +63,7 @@ class Ui_AlgoCallStmt(object):
 
     def retranslateUi(self, AlgoCallStmt):
         _translate = QtCore.QCoreApplication.translate
-        AlgoCallStmt.setWindowTitle(_translate("AlgoCallStmt", "Display value"))
+        AlgoCallStmt.setWindowTitle(_translate("AlgoCallStmt", "Call function"))
         self.label.setText(_translate("AlgoCallStmt", "<html><head/><body><p>Calls the function with the specified arguments.</p><p>The argument list must consist of a comma-separated list of arguments.</p></body></html>"))
         self.label_2.setText(_translate("AlgoCallStmt", "Function:"))
         self.label_3.setText(_translate("AlgoCallStmt", "Arguments:"))
