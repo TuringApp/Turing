@@ -66,6 +66,7 @@ SOURCES += \
     maths\parser.py \
     maths\__init__.py \
     maths\__tests__.py \
+    maths\lib\algobox.py \
     maths\lib\basic.py \
     maths\lib\cast.py \
     maths\lib\const.py \

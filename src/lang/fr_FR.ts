@@ -80,87 +80,87 @@ p, li { white-space: pre-wrap; }
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1024"/>
+        <location filename="../main.py" line="1025"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1027"/>
+        <location filename="../main.py" line="1028"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1018"/>
+        <location filename="../main.py" line="1019"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1030"/>
+        <location filename="../main.py" line="1031"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1033"/>
+        <location filename="../main.py" line="1034"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1036"/>
+        <location filename="../main.py" line="1037"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1061"/>
+        <location filename="../main.py" line="1062"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1041"/>
+        <location filename="../main.py" line="1042"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1043"/>
+        <location filename="../main.py" line="1044"/>
         <source>[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]</source>
         <translation>[k]ASSIGNER[/k] [c]{var}[/c] = [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1047"/>
+        <location filename="../main.py" line="1048"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1057"/>
+        <location filename="../main.py" line="1058"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1071"/>
+        <location filename="../main.py" line="1072"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1021"/>
+        <location filename="../main.py" line="1022"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1050"/>
+        <location filename="../main.py" line="1051"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation>[b]POUR[/b] [c]{var}[/c] [b]DE[/b] [c]{begin}[/c] [b]À[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1051"/>
+        <location filename="../main.py" line="1052"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation>([b]PAS[/b] [c]{step}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1074"/>
+        <location filename="../main.py" line="1075"/>
         <source>[i]empty[/i]</source>
         <translation>[i]vide[/i]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1065"/>
+        <location filename="../main.py" line="1066"/>
         <source>[k]STOP[/k]</source>
         <translation>[k]STOP[/k]</translation>
     </message>
@@ -482,7 +482,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algobox</name>
     <message>
-        <location filename="../algo/algobox.py" line="58"/>
+        <location filename="../algo/algobox.py" line="66"/>
         <source>Unknown variable type: {type}</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1048,7 +1048,7 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule le conjugué de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="269"/>
+        <location filename="../maths/lib/stats.py" line="287"/>
         <source>Returns the {{n}}-th Fibonacci number.</source>
         <translation>Calcule le {{n}}-ième terme de la suite de Fibonacci.</translation>
     </message>
@@ -1073,115 +1073,125 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule le logarithme naturel de la valeur absolue de la fonction Gamma à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="283"/>
+        <location filename="../maths/lib/stats.py" line="301"/>
         <source>Returns the {{n}}-th Euler number.</source>
         <translation>Calcule le {{n}}-ième nombre d&apos;Euler.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="307"/>
+        <location filename="../maths/lib/stats.py" line="325"/>
         <source>Returns the Beta function at {{a}} and {{b}}.</source>
         <translation>Calcule la fonction Beta à {{a}} et {{b}}.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/algobox.py" line="7"/>
+        <source>Algobox compatibility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="269"/>
+        <source>Returns a random integer between a and b (inclusive).</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Evaluator</name>
     <message>
-        <location filename="../maths/evaluator.py" line="74"/>
+        <location filename="../maths/evaluator.py" line="77"/>
         <source>Parser: </source>
         <translation>Analyseur : </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="229"/>
+        <location filename="../maths/evaluator.py" line="232"/>
         <source>Argument count mismatch (expected {exp}, got {act})</source>
         <translation>Nombre d&apos;arguments invalides (attendu : {exp}, reçu : {act})</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="61"/>
+        <location filename="../maths/evaluator.py" line="64"/>
         <source>Cannot find variable or function {name}</source>
         <translation>Impossible de trouver la variable ou fonction {name}</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="207"/>
+        <location filename="../maths/evaluator.py" line="210"/>
         <source>Callee is None</source>
         <translation>La fonction appelée est None</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="217"/>
+        <location filename="../maths/evaluator.py" line="220"/>
         <source>Only lists can be expanded</source>
         <translation>Seules les listes peuvent être étendues</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="200"/>
+        <location filename="../maths/evaluator.py" line="203"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
         <translation>Indice &apos;{idx}&apos; trop grand pour la liste</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="183"/>
+        <location filename="../maths/evaluator.py" line="186"/>
         <source>Unknown node type: {type}</source>
         <translation>Type de nœud inconnu : {type}</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="268"/>
+        <location filename="../maths/evaluator.py" line="271"/>
         <source>Invalid unary operator &apos;{op}&apos;</source>
         <translation>Opérateur unaire invalide &apos;{op}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="279"/>
+        <location filename="../maths/evaluator.py" line="282"/>
         <source>Trying to use None</source>
         <translation>Opération sur None impossible</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="294"/>
+        <location filename="../maths/evaluator.py" line="297"/>
         <source>Type mismatch: operands have different types ({left} and {right})</source>
         <translation>Types incompatibles : les opérandes ont des types différents ({left} et {right})</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="316"/>
+        <location filename="../maths/evaluator.py" line="319"/>
         <source>Invalid value type for {val} and operator &apos;{op}&apos;</source>
         <translation>Type de valeur invalide pour {val} et l&apos;opérateur &apos;{op}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="316"/>
+        <location filename="../maths/evaluator.py" line="319"/>
         <source> and </source>
         <translation> et </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="321"/>
+        <location filename="../maths/evaluator.py" line="324"/>
         <source>Operator &apos;{op}&apos; not allowed for value type {type}</source>
         <translation>Opérateur &apos;{op}&apos; non autorisé pour le type de valeur {type}</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="346"/>
+        <location filename="../maths/evaluator.py" line="349"/>
         <source>Trying to divide by zero</source>
         <translation>Tentative de division par zéro</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="388"/>
+        <location filename="../maths/evaluator.py" line="391"/>
         <source>Invalid binary operator &apos;{op}&apos; for &apos;{left}&apos; and &apos;{right}&apos;</source>
         <translation>Opérateur binaire &apos;{op}&apos; invalide pour &apos;{left}&apos; et &apos;{right}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="311"/>
+        <location filename="../maths/evaluator.py" line="314"/>
         <source>left</source>
         <translation>gauche</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="314"/>
+        <location filename="../maths/evaluator.py" line="317"/>
         <source>right</source>
         <translation>droite</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="337"/>
+        <location filename="../maths/evaluator.py" line="340"/>
         <source>Trying to multiply List by non-integer ({val})</source>
         <translation>Tentative de multiplication d&apos;une List par un non-entier ({val})</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="235"/>
+        <location filename="../maths/evaluator.py" line="238"/>
         <source>Type mismatch for argument #{idx} &apos;{arg}&apos; (expected {exp})</source>
         <translation>Type incorrect pour l&apos;argument #{idx} &apos;{arg}&apos; (attendu : {exp})</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="194"/>
+        <location filename="../maths/evaluator.py" line="197"/>
         <source>Array access target must be of array type</source>
         <translation type="unfinished"></translation>
     </message>
