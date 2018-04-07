@@ -1,0 +1,98 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'ui_alg_for.ui'
+#
+# Created by: PyQt5 UI code generator 5.10.1
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_AlgoForStmt(object):
+    def setupUi(self, AlgoForStmt):
+        AlgoForStmt.setObjectName("AlgoForStmt")
+        AlgoForStmt.setWindowModality(QtCore.Qt.WindowModal)
+        AlgoForStmt.resize(477, 251)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/action/media/settings.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        AlgoForStmt.setWindowIcon(icon)
+        AlgoForStmt.setModal(True)
+        self.verticalLayout = QtWidgets.QVBoxLayout(AlgoForStmt)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label = QtWidgets.QLabel(AlgoForStmt)
+        self.label.setWordWrap(True)
+        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.label)
+        self.gridLayout = QtWidgets.QGridLayout()
+        self.gridLayout.setObjectName("gridLayout")
+        self.txtFrom = QtWidgets.QLineEdit(AlgoForStmt)
+        self.txtFrom.setObjectName("txtFrom")
+        self.gridLayout.addWidget(self.txtFrom, 1, 1, 1, 1)
+        self.txtTo = QtWidgets.QLineEdit(AlgoForStmt)
+        self.txtTo.setObjectName("txtTo")
+        self.gridLayout.addWidget(self.txtTo, 2, 1, 1, 1)
+        self.label_2 = QtWidgets.QLabel(AlgoForStmt)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
+        self.label_5 = QtWidgets.QLabel(AlgoForStmt)
+        self.label_5.setObjectName("label_5")
+        self.gridLayout.addWidget(self.label_5, 2, 0, 1, 1)
+        self.btnCodeFrom = QtWidgets.QPushButton(AlgoForStmt)
+        self.btnCodeFrom.setEnabled(True)
+        self.btnCodeFrom.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/action/media/edit_line.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnCodeFrom.setIcon(icon1)
+        self.btnCodeFrom.setObjectName("btnCodeFrom")
+        self.gridLayout.addWidget(self.btnCodeFrom, 1, 2, 1, 1)
+        self.btnCodeStep = QtWidgets.QPushButton(AlgoForStmt)
+        self.btnCodeStep.setEnabled(False)
+        self.btnCodeStep.setText("")
+        self.btnCodeStep.setIcon(icon1)
+        self.btnCodeStep.setObjectName("btnCodeStep")
+        self.gridLayout.addWidget(self.btnCodeStep, 4, 2, 1, 1)
+        self.txtStep = QtWidgets.QLineEdit(AlgoForStmt)
+        self.txtStep.setEnabled(False)
+        self.txtStep.setObjectName("txtStep")
+        self.gridLayout.addWidget(self.txtStep, 4, 1, 1, 1)
+        self.label_3 = QtWidgets.QLabel(AlgoForStmt)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout.addWidget(self.label_3, 4, 0, 1, 1)
+        self.label_4 = QtWidgets.QLabel(AlgoForStmt)
+        self.label_4.setObjectName("label_4")
+        self.gridLayout.addWidget(self.label_4, 0, 0, 1, 1)
+        self.txtVariable = QtWidgets.QLineEdit(AlgoForStmt)
+        self.txtVariable.setObjectName("txtVariable")
+        self.gridLayout.addWidget(self.txtVariable, 0, 1, 1, 1)
+        self.cbxHasValue = QtWidgets.QCheckBox(AlgoForStmt)
+        self.cbxHasValue.setObjectName("cbxHasValue")
+        self.gridLayout.addWidget(self.cbxHasValue, 3, 1, 1, 1)
+        self.btnCodeTo = QtWidgets.QPushButton(AlgoForStmt)
+        self.btnCodeTo.setEnabled(True)
+        self.btnCodeTo.setText("")
+        self.btnCodeTo.setIcon(icon1)
+        self.btnCodeTo.setObjectName("btnCodeTo")
+        self.gridLayout.addWidget(self.btnCodeTo, 2, 2, 1, 1)
+        self.verticalLayout.addLayout(self.gridLayout)
+        self.buttonBox = QtWidgets.QDialogButtonBox(AlgoForStmt)
+        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setObjectName("buttonBox")
+        self.verticalLayout.addWidget(self.buttonBox)
+
+        self.retranslateUi(AlgoForStmt)
+        self.buttonBox.accepted.connect(AlgoForStmt.accept)
+        self.buttonBox.rejected.connect(AlgoForStmt.reject)
+        QtCore.QMetaObject.connectSlotsByName(AlgoForStmt)
+
+    def retranslateUi(self, AlgoForStmt):
+        _translate = QtCore.QCoreApplication.translate
+        AlgoForStmt.setWindowTitle(_translate("AlgoForStmt", "Define variable"))
+        self.label.setText(_translate("AlgoForStmt", "<html><head/><body><p>Executes the instructions for all values of the variable in the specified range.</p><p>At each iteration, the variable will be incremented by the step which is defaulted to 1. </p><p>The bounds are inclusive.</p></body></html>"))
+        self.label_2.setText(_translate("AlgoForStmt", "From:"))
+        self.label_5.setText(_translate("AlgoForStmt", "To:"))
+        self.label_3.setText(_translate("AlgoForStmt", "Step:"))
+        self.label_4.setText(_translate("AlgoForStmt", "Variable:"))
+        self.cbxHasValue.setText(_translate("AlgoForStmt", "Custom step"))
+
+import turing_rc
