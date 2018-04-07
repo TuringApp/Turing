@@ -31,6 +31,7 @@ SOURCES += \
     forms\alg_if.py \
     forms\alg_input.py \
     forms\alg_return.py \
+    forms\alg_while.py \
     forms\calculator.py \
     forms\help.py \
     forms\inline_code_dialog.py \
