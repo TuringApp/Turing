@@ -24,3 +24,6 @@ class StringNode(AstNode):
         if bb:
             return "[s]%s[/s]" % sanitize(self.code(False))
         return '"%s"' % repr(self.value)[1:-1]
+
+    def python(self) -> str:
+        return "(%r)" % self.value

@@ -24,3 +24,6 @@ class ListNode(AstNode):
 
     def code(self, bb=False) -> str:
         return proper_str([node.code(bb) for node in self.value])
+
+    def python(self) -> str:
+        return repr(x.python() for x in self.value)

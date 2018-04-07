@@ -56,3 +56,11 @@ class BinOpNode(AstNode):
         return "%s %s %s" % (
             self.operand_code(self.left, bb), maths.parser.Operators.pretty_print(self.operator),
             self.operand_code(self.right, bb))
+
+    def python(self) -> str:
+        op_table = {
+            "^": "**",
+            "XOR": "^"
+        }
+        op_fix = op_table.get(self.operator.upper(), self.operator.lower())
+        return "((%s) %s (%s))" % (self.left.python(), op_fix, self.right.python())

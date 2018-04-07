@@ -25,3 +25,6 @@ class NumberNode(AstNode):
         if bb:
             return "[n]%s[/n]" % self.code(False)
         return proper_str(self.value)
+
+    def python(self) -> str:
+        return "(%r)" % self.value

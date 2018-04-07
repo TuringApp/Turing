@@ -14,3 +14,6 @@ class AstNode:
         if self.atomic:
             return self.code(bb)
         return "(%s)" % self.code(bb)
+
+    def python(self) -> str:
+        return "<unimplemented>"

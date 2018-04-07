@@ -26,3 +26,6 @@ class IdentifierNode(AstNode):
         if bb:
             return "[i]%s[/i]" % self.code(False)
         return self.value
+
+    def python(self) -> str:
+        return self.value

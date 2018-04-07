@@ -26,3 +26,6 @@ class LambdaNode(AstNode):
 
     def code(self, bb=False) -> str:
         return "{%s}(%s)" % (", ".join(self.args), self.expr.code(bb))
+
+    def python(self) -> str:
+        return "(lambda %s: %s)" % (", ".join(self.args), self.expr.python())

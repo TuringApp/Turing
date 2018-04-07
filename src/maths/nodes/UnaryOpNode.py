@@ -26,3 +26,6 @@ class UnaryOpNode(AstNode):
 
     def code(self, bb=False) -> str:
         return self.operator + self.value.code_fix(bb)
+
+    def python(self) -> str:
+        return "(%s (%s))" % (self.operator, self.value.python())
