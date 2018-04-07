@@ -108,6 +108,9 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
         elif code == 6: # SI
             condition = args[0]
 
+            if isinstance(children[-1], ElseStmt):
+                return [IfStmt(parse_expr(condition), children[:-1]), children[-1]]
+
             return IfStmt(parse_expr(condition), children)
 
         elif code == 7: # DEBUT_SI
