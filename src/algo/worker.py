@@ -154,6 +154,9 @@ class Worker:
 
             index = self.evaluator.eval_node(target.index)
 
+            while index >= len(array):
+                array.append(0)
+
             if index < len(array):
                 array[index] = value
             else:
