@@ -27,6 +27,7 @@ SOURCES += \
     algo\stmts\__init__.py \
     forms\about.py \
     forms\alg_call.py \
+    forms\alg_comment.py \
     forms\alg_define.py \
     forms\alg_display.py \
     forms\alg_for.py \

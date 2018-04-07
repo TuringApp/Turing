@@ -80,87 +80,87 @@ p, li { white-space: pre-wrap; }
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="995"/>
+        <location filename="../main.py" line="1004"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="998"/>
+        <location filename="../main.py" line="1007"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="989"/>
+        <location filename="../main.py" line="998"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1001"/>
+        <location filename="../main.py" line="1010"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1004"/>
+        <location filename="../main.py" line="1013"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1007"/>
+        <location filename="../main.py" line="1016"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1032"/>
+        <location filename="../main.py" line="1041"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1012"/>
+        <location filename="../main.py" line="1021"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1014"/>
+        <location filename="../main.py" line="1023"/>
         <source>[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]</source>
         <translation>[k]ASSIGNER[/k] [c]{var}[/c] = [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1018"/>
+        <location filename="../main.py" line="1027"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1028"/>
+        <location filename="../main.py" line="1037"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1042"/>
+        <location filename="../main.py" line="1051"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="992"/>
+        <location filename="../main.py" line="1001"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1021"/>
+        <location filename="../main.py" line="1030"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation>[b]POUR[/b] [c]{var}[/c] [b]DE[/b] [c]{begin}[/c] [b]À[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1022"/>
+        <location filename="../main.py" line="1031"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation>([b]PAS[/b] [c]{step}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1045"/>
+        <location filename="../main.py" line="1054"/>
         <source>[i]empty[/i]</source>
         <translation>[i]vide[/i]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1036"/>
+        <location filename="../main.py" line="1045"/>
         <source>[k]STOP[/k]</source>
         <translation>[k]STOP[/k]</translation>
     </message>
@@ -1727,12 +1727,12 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Jeton attendu ({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="465"/>
+        <location filename="../maths/parser.py" line="471"/>
         <source>Unexpected EOL</source>
         <translation>Fin de ligne inattendue</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="467"/>
+        <location filename="../maths/parser.py" line="473"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
         <translation>Jeton ({type}) &apos;{val}&apos; inattendu</translation>
     </message>
@@ -1750,6 +1750,11 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <location filename="../maths/parser.py" line="91"/>
         <source>NOT</source>
         <translation>NON</translation>
+    </message>
+    <message>
+        <location filename="../maths/parser.py" line="265"/>
+        <source>Unexpected token ({type}) &apos;{val}&apos; after end of expression</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
