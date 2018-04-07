@@ -21,5 +21,7 @@ class NumberNode(AstNode):
     def __repr__(self):
         return "NumberNode(%r)" % self.value
 
-    def code(self) -> str:
+    def code(self, bb=False) -> str:
+        if bb:
+            return "[n]%s[/n]" % self.code(False)
         return proper_str(self.value)
