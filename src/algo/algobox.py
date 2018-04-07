@@ -82,7 +82,7 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
             if index == "pasliste":
                 return InputStmt(IdentifierNode(varname))
 
-            return InputStmt(ArrayAccessNode(IdentifierNode(varname), NumberNode(int(index))))
+            return InputStmt(ArrayAccessNode(IdentifierNode(varname), parse(index)))
 
         elif code == 3: # AFFICHER
             varname, newline, index = args
@@ -90,7 +90,7 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
             if index == "pasliste":
                 return DisplayStmt(IdentifierNode(varname), bool(int(newline)))
 
-            return DisplayStmt(ArrayAccessNode(IdentifierNode(varname), NumberNode(int(index))), bool(int(newline)))
+            return DisplayStmt(ArrayAccessNode(IdentifierNode(varname), parse(index)), bool(int(newline)))
 
         elif code == 4: # MESSAGE
             message, newline = args
