@@ -40,6 +40,7 @@ class AlgoDefineStmt(QDialog):
 
             self.varname = name
             self.expr = p
+            self.ok = True
 
         super(AlgoDefineStmt, self).done(res)
 
@@ -51,4 +52,4 @@ class AlgoDefineStmt(QDialog):
 
 
     def run(self):
-        return self.exec_() == QDialog.Accepted and self.expr is not None
+        return self.exec_() == QDialog.Accepted and self.ok

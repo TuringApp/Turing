@@ -29,6 +29,7 @@ class AlgoDisplayStmt(QDialog):
                 return
 
             self.expr = p
+            self.ok = True
 
         super(AlgoDisplayStmt, self).done(res)
 
@@ -39,4 +40,4 @@ class AlgoDisplayStmt(QDialog):
 
 
     def run(self):
-        return self.exec_() == QDialog.Accepted and self.expr is not None
+        return self.exec_() == QDialog.Accepted and self.ok
