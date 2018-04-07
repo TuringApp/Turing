@@ -82,6 +82,7 @@ root_item = None
 block_html = '<span style="color:darkred;font-weight:bold">'
 keyword_html = '<span style="color:blue;font-weight:bold">'
 comment_html = '<span style="color:darkgreen;font-style:italic">'
+red_html = '<span style="color:#cb4b16">'
 
 running = False
 skip_step = False
@@ -943,8 +944,10 @@ def add_line(pos, stmt, add=True):
 
 
 def str_stmt(stmt):
+    code = lambda stmt: stmt.code(True)
+
     if isinstance(stmt, DisplayStmt):
-        ret = translate("Algo", "[k]DISPLAY[/k] [c]{val}[/c]").format(val=stmt.content.code())
+        ret = translate("Algo", "[k]DISPLAY[/k] [c]{val}[/c]").format(val=code(stmt.content))
 
     elif isinstance(stmt, BreakStmt):
         ret = translate("Algo", "[k]BREAK[/k]")
@@ -956,31 +959,31 @@ def str_stmt(stmt):
         ret = translate("Algo", "[b]ELSE[/b]")
 
     elif isinstance(stmt, WhileStmt):
-        ret = translate("Algo", "[b]WHILE[/b] [c]{cond}[/c]").format(cond=stmt.condition.code())
+        ret = translate("Algo", "[b]WHILE[/b] [c]{cond}[/c]").format(cond=code(stmt.condition))
 
     elif isinstance(stmt, IfStmt):
-        ret = translate("Algo", "[b]IF[/b] [c]{cond}[/c]").format(cond=stmt.condition.code())
+        ret = translate("Algo", "[b]IF[/b] [c]{cond}[/c]").format(cond=code(stmt.condition))
 
     elif isinstance(stmt, InputStmt):
         ret = translate("Algo", "[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]").format(
-            prompt="" if stmt.prompt is None else stmt.prompt.code(), var=stmt.variable)
+            prompt="" if stmt.prompt is None else stmt.prompt.code(True), var=stmt.variable)
 
     elif isinstance(stmt, AssignStmt):
         if stmt.value is None:
             ret = translate("Algo", "[k]DECLARE[/k] [c]{var}[/c]").format(var=stmt.variable)
         else:
             ret = translate("Algo", "[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]").format(var=stmt.variable,
-                                                                                          value=stmt.value.code())
+                                                                                          value=code(stmt.value))
 
     elif isinstance(stmt, CallStmt):
-        ret = translate("Algo", "[k]CALL[/k] [c]{code}[/c]").format(code=stmt.to_node().code())
+        ret = translate("Algo", "[k]CALL[/k] [c]{code}[/c]").format(code=code(stmt.to_node()))
 
     elif isinstance(stmt, ForStmt):
         ret = translate("Algo",
                         "[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}").format(
-            var=stmt.variable, begin=stmt.begin.code(), end=stmt.end.code(),
+            var=stmt.variable, begin=code(stmt.begin), end=code(stmt.end),
             step="" if stmt.step is None else translate("Algo", "([b]STEP[/b] [c]{step}[/c])").format(
-                step=stmt.step.code()))
+                step=code(stmt.step)))
 
     elif isinstance(stmt, FuncStmt):
         ret = translate("Algo", "[b]FUNCTION[/b] [c]{func}({args})[/c]").format(func=stmt.name,
@@ -988,7 +991,7 @@ def str_stmt(stmt):
 
     elif isinstance(stmt, ReturnStmt):
         ret = translate("Algo", "[k]RETURN[/k] [c]{val}[/c]").format(
-            val="" if stmt.value is None else stmt.value.code())
+            val="" if stmt.value is None else code(stmt.value))
 
     elif isinstance(stmt, StopStmt):
         ret = translate("Algo", "[k]STOP[/k]")
@@ -1010,6 +1013,12 @@ def str_stmt(stmt):
     ret = ret.replace("[c]", "<code>").replace("[/c]", "</code>")
     ret = ret.replace("[i]", "<i>").replace("[/i]", "</i>")
     ret = ret.replace("[t]", comment_html).replace("[/t]", "</span>")
+
+    ret = ret.replace("[g]", "<b>").replace("[/g]", "</b>")
+    ret = ret.replace("[n]", "<i>" + red_html).replace("[/n]", "</i></span>")
+    ret = ret.replace("[s]", red_html).replace("[/s]", "</span>")
+
+    ret = util.html.unescape_brackets(ret)
     ret = ret.replace("  ", " ")
 
     return ret.strip()
