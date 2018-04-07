@@ -3,7 +3,7 @@
 import xml.etree.ElementTree as etree
 
 import builtins
-from typing import Union
+from typing import Union, Optional
 
 from algo.stmts import *
 from maths.nodes import *
@@ -24,10 +24,11 @@ def parse_algobox(xml):
 
 
 def parse_expr(expr):
-    return parse(expr)
+    print(expr)
+    return parse(expr.replace("Math.PI", "pi"))
 
 
-def to_stmt(elem) -> Union[BaseStmt, CodeBlock]:
+def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
     if elem.tag == "description":
         return CommentStmt(elem.attrib["texte"])
 
@@ -44,6 +45,9 @@ def to_stmt(elem) -> Union[BaseStmt, CodeBlock]:
         if len(list(elem)) != 0:
             for e in elem:
                 s = to_stmt(e)
+
+                if s is None:
+                    continue
 
                 if builtins.type(s) == list:
                     children.extend(s)
@@ -73,10 +77,15 @@ def to_stmt(elem) -> Union[BaseStmt, CodeBlock]:
             if index == "pasliste":
                 return InputStmt(IdentifierNode(varname))
 
-            return [InputStmt(ArrayAccessNode(IdentifierNode(varname), NumberNode(int(index))))]
+            return InputStmt(ArrayAccessNode(IdentifierNode(varname), NumberNode(int(index))))
 
         elif code == 3: # AFFICHER
             varname, newline, index = args
+
+            if index == "pasliste":
+                return DisplayStmt(IdentifierNode(varname), bool(int(newline)))
+
+            return DisplayStmt(ArrayAccessNode(IdentifierNode(varname), NumberNode(int(index))), bool(int(newline)))
 
         elif code == 4: # MESSAGE
             message, newline = args
@@ -86,25 +95,30 @@ def to_stmt(elem) -> Union[BaseStmt, CodeBlock]:
         elif code == 5: # AFFECTATION
             varname, value, index = args
 
+            if index == "pasliste":
+                return AssignStmt(IdentifierNode(varname), parse_expr(value))
+
+            return AssignStmt(ArrayAccessNode(IdentifierNode(varname)), parse_expr(value))
+
         elif code == 6: # SI
             condition = args[0]
 
             return IfStmt(parse_expr(condition), children)
 
         elif code == 7: # DEBUT_SI
-            pass
+            return None
 
         elif code == 8: # FIN_SI
-            pass
+            return None
 
         elif code == 9: # SINON
             return ElseStmt(children)
 
         elif code == 10: # DEBUT_SINON
-            pass
+            return None
 
         elif code == 11: # FIN_SINON
-            pass
+            return None
 
         elif code == 12: # POUR
             varname, begin, end = args
@@ -112,10 +126,10 @@ def to_stmt(elem) -> Union[BaseStmt, CodeBlock]:
             return ForStmt(varname, parse_expr(begin), parse_expr(end), children)
 
         elif code == 13: # DEBUT_POUR
-            pass
+            return None
 
         elif code == 14: # FIN_POUR
-            pass
+            return None
 
         elif code == 15: # TANT_QUE
             condition = args[0]
@@ -123,10 +137,10 @@ def to_stmt(elem) -> Union[BaseStmt, CodeBlock]:
             return WhileStmt(parse_expr(condition), children)
 
         elif code == 16: # DEBUT_TANT_QUE
-            pass
+            return None
 
         elif code == 17: # FIN_TANT_QUE
-            pass
+            return None
 
         elif code == 18: # PAUSE
             return BreakStmt()
@@ -154,10 +168,16 @@ def to_stmt(elem) -> Union[BaseStmt, CodeBlock]:
             return children
 
         elif code == 101: # DEBUT_ALGO
-            pass
+            return None
 
         elif code == 102: # FIN_ALGO
-            pass
+            return None
 
         elif code == 103: # autres
             pass
+
+        else:
+            print("unknown type %d" % code)
+            return None
+
+        print("unimpl type %d" % code)

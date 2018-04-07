@@ -64,7 +64,7 @@ class Operators:
     math = ["+", "-", "*", "/", "%", "^", "**", "&", "|", "ET", "AND", "OU", "OR",
             "XOR"]  # Mathematical (numeric) operators
     eq = ["==", "!="]  # Basic comparison operators
-    rel = ["<=", "<", ">", ">="]  # Relational operators
+    rel = ["<=", ">=", "<", ">"]  # Relational operators
     comp = eq + rel  # Comparison operators
     boolean = ["ET", "AND", "OU", "OR", "NON", "NOT", "==", "!=", "&", "|", "XOR"]  # Boolean operators
     ops = list(set(math + comp + boolean))  # All operators
@@ -193,7 +193,7 @@ class Parser:
         """Converts the expression string into a linear list of tokens."""
         regex = re.compile(
             r"(\+|-|/|%|\^|\*\*|\*|"
-            r"==|!=|<=|<|>|>=|"
+            r"==|!=|<=|>=|<|>|"
             r"\(|\)|\[|\]|{|\}|"
             r"\bET\b|\bAND\b|\bOU\b|\bOR\b|\bXOR\b|\bNON\b|\bNOT\b|"
             r"\bVRAI\b|\bFAUX\b|\bTRUE\b|\bFALSE\b|"
