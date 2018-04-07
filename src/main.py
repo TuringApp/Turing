@@ -674,7 +674,10 @@ def add_input():
 
 
 def add_call():
-    pass
+    from forms import alg_call
+    dlg = alg_call.AlgoCallStmt(window)
+    if dlg.run():
+        append_line(CallStmt(dlg.func, dlg.args))
 
 
 def add_def_func():
@@ -755,6 +758,13 @@ def btn_edit_line():
         dlg = alg_display.AlgoDisplayStmt(window, stmt.content.code())
         if dlg.run():
             stmt.content = dlg.expr
+
+    elif isinstance(stmt, CallStmt):
+        from forms import alg_call
+        dlg = alg_call.AlgoCallStmt(window, (stmt.function.code(), [x.code() for x in stmt.arguments]))
+        if dlg.run():
+            stmt.function = dlg.func
+            stmt.arguments = dlg.args
 
     elif isinstance(stmt, AssignStmt):
         from forms import alg_define
