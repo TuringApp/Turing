@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .AstNode import *
+from util.html import sanitize
 
 
 class StringNode(AstNode):
@@ -19,5 +20,7 @@ class StringNode(AstNode):
     def __repr__(self):
         return "StringNode(%r)" % self.value
 
-    def code(self) -> str:
+    def code(self, bb=False) -> str:
+        if bb:
+            return "[s]%s[/s]" % sanitize(self.code(False))
         return '"%s"' % repr(self.value)[1:-1]
