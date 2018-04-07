@@ -190,6 +190,10 @@ class Evaluator:
         array = self.eval_node(node.array)
         index = int(self.eval_node(node.index))
 
+        if type(array) != list:
+            self.log.error(translate("Evaluator", "Array access target must be of array type"))
+            return None
+
         if index < len(array):
             return array[index]
         else:

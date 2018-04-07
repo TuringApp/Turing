@@ -1,8 +1,8 @@
-BlockStmt( [
-            AssignStmt("sum", parse("0")),
-            InputStmt("N"),
+BlockStmt([
+            AssignStmt(parse("sum"), parse("0")),
+            InputStmt(parse("N")),
             ForStmt("i", parse("1"), parse("N"), [
-                AssignStmt("sum", parse("sum + i"))
+                AssignStmt(parse("sum"), parse("sum + i"))
             ]),
             DisplayStmt(parse("\"Result=\" + sum"))
         ])

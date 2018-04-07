@@ -139,10 +139,34 @@ class Worker:
     def exec_input(self, stmt: InputStmt):
         prompt = (
             translate("Algo", "Variable {var} = ").format(var=stmt.variable)) if stmt.prompt is None else self.evaluator.eval_node(stmt.prompt)
-        self.evaluator.set_variable(stmt.variable, self.stmt_input(prompt))
+        self.assign(stmt.variable, self.stmt_input(prompt))
+
+    def assign(self, target: AstNode, value):
+        if isinstance(target, IdentifierNode):
+            self.evaluator.set_variable(target.value, value)
+        elif isinstance(target, ArrayAccessNode):
+            array = self.evaluator.eval_node(target.array)
+
+            if not type(array) == list:
+                self.log.error(translate("Algo", "Array access target must be of array type"))
+                self.finish()
+                return
+
+            index = self.evaluator.eval_node(target.index)
+
+            if index < len(array):
+                array[index] = value
+            else:
+                self.log.error(translate("Algo", "Index '{idx}' too big for array").format(idx=index))
+                return None
+        else:
+            self.log.error(translate("Algo", "Assignment target must be either variable or array item"))
+            self.finish()
+            return
 
     def exec_assign(self, stmt: AssignStmt):
-        self.evaluator.set_variable(stmt.variable, None if stmt.value is None else self.evaluator.eval_node(stmt.value))
+        value = None if stmt.value is None else self.evaluator.eval_node(stmt.value)
+        self.assign(stmt.variable, value)
 
     def exec_if(self, stmt: IfStmt):
         self.enter_block(stmt)

@@ -8,10 +8,10 @@ from tests.framework import expect
 tests = [
     (
         [
-            AssignStmt("sum", parse("0")),
-            InputStmt("N"),
+            AssignStmt(parse("sum"), parse("0")),
+            InputStmt(parse("N")),
             ForStmt("i", parse("1"), parse("N"), [
-                AssignStmt("sum", parse("sum + i"))
+                AssignStmt(parse("sum"), parse("sum + i"))
             ]),
             DisplayStmt(parse("\"Result=\" + sum"))
         ],
@@ -44,7 +44,7 @@ tests = [
     ),
     (
         [
-            AssignStmt("i", parse("42")),
+            AssignStmt(parse("i"), parse("42")),
             ForStmt("i", parse("1"), parse("10"), [
                 IfStmt(parse("1"), [
                     IfStmt(parse("i % 2"), [
@@ -93,13 +93,13 @@ tests = [
     (
         [
             FuncStmt("sayHello2", ["name"], [
-                AssignStmt("text", parse("\"Hello \" + name")),
+                AssignStmt(parse("text"), parse("\"Hello \" + name")),
                 FuncStmt("say", [], [
                     DisplayStmt(parse("text"))
                 ]),
                 ReturnStmt(parse("say"))
             ]),
-            AssignStmt("say2", parse("sayHello2(\"Bob\")")),
+            AssignStmt(parse("say2"), parse("sayHello2(\"Bob\")")),
             CallStmt(parse("say2"), [])
         ],
         "",
@@ -152,6 +152,18 @@ tests = [
 
 
 def run_tests():
+    f = r"C:\Program Files (x86)\Algobox\ressources\eleve_calcul_recurrent.alg"
+
+    with open(f, "rb") as fp:
+        t = fp.read()
+
+    from .algobox import parse_algobox
+
+    st = parse_algobox(t)
+
+    print(repr(st))
+    exit()
+
     for algo, input, exp_output in tests:
         #print("\n".join(BlockStmt(algo).python()))
 

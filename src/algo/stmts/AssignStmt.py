@@ -8,7 +8,7 @@ class AssignStmt(BaseStmt):
     variable = None
     value = None
 
-    def __init__(self, variable: str, value: AstNode = None):
+    def __init__(self, variable: AstNode, value: AstNode = None):
         super().__init__()
         self.variable = variable
         self.value = value
@@ -20,4 +20,4 @@ class AssignStmt(BaseStmt):
         return "AssignStmt(%r, %r)" % (self.variable, self.value)
 
     def python(self) -> List[str]:
-        return ["%s = %s" % (self.variable, self.value.python())]
+        return ["%s = %s" % (self.variable.python(), self.value.python())]

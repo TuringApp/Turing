@@ -793,7 +793,7 @@ def btn_edit_line():
 
     elif isinstance(stmt, AssignStmt):
         from forms import alg_define
-        dlg = alg_define.AlgoDefineStmt(window, (stmt.variable, stmt.value.code()))
+        dlg = alg_define.AlgoDefineStmt(window, (stmt.variable.code(), stmt.value.code()))
         if dlg.run():
             stmt.variable = dlg.varname
             stmt.value = dlg.expr
@@ -806,7 +806,7 @@ def btn_edit_line():
 
     elif isinstance(stmt, InputStmt):
         from forms import alg_input
-        dlg = alg_input.AlgoInputStmt(window, (stmt.variable, stmt.prompt.code() if stmt.prompt is not None else None))
+        dlg = alg_input.AlgoInputStmt(window, (stmt.variable.code(), stmt.prompt.code() if stmt.prompt is not None else None))
         if dlg.run():
             stmt.variable = dlg.varname
             stmt.prompt = dlg.expr
@@ -1029,13 +1029,13 @@ def str_stmt(stmt):
 
     elif isinstance(stmt, InputStmt):
         ret = translate("Algo", "[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]").format(
-            prompt="" if stmt.prompt is None else stmt.prompt.code(True), var=stmt.variable)
+            prompt="" if stmt.prompt is None else stmt.prompt.code(True), var=code(stmt.variable))
 
     elif isinstance(stmt, AssignStmt):
         if stmt.value is None:
             ret = translate("Algo", "[k]DECLARE[/k] [c]{var}[/c]").format(var=stmt.variable)
         else:
-            ret = translate("Algo", "[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]").format(var=stmt.variable,
+            ret = translate("Algo", "[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]").format(var=code(stmt.variable),
                                                                                           value=code(stmt.value))
 
     elif isinstance(stmt, CallStmt):

@@ -8,7 +8,7 @@ class InputStmt(BaseStmt):
     variable = None
     prompt = None
 
-    def __init__(self, variable: str, prompt: AstNode = None):
+    def __init__(self, variable: AstNode, prompt: AstNode = None):
         super().__init__()
         self.variable = variable
         self.prompt = prompt
@@ -20,4 +20,4 @@ class InputStmt(BaseStmt):
         return "InputStmt(%r, %r)" % (self.variable, self.prompt)
 
     def python(self) -> List[str]:
-        return ["%s = input(%s)" % (self.variable, '""' if self.prompt is None else self.prompt.python())]
+        return ["%s = input(%s)" % (self.variable.python(), '""' if self.prompt is None else self.prompt.python())]
