@@ -8,3 +8,11 @@ def centered(content: str) -> str:
 
 def color_span(text: str, color: str) -> str:
     return '<span style="color: %s">%s</span>' % (color, text)
+
+
+def escape_brackets(text: str) -> str:
+    return text.replace("[", "&lbrack;").replace("]", "&rbrack;")
+
+
+def unescape_brackets(text: str) -> str:
+    return text.replace("&lbrack;", "[").replace("&rbrack;", "]")
