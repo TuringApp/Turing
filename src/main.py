@@ -700,7 +700,10 @@ def add_else_block():
 
 
 def add_for_loop():
-    pass
+    from forms import alg_for
+    dlg = alg_for.AlgoForStmt(window)
+    if dlg.run():
+        append_line(ForStmt(dlg.varname, dlg.f_from, dlg.f_to, [], dlg.f_step))
 
 
 def add_while_loop():
@@ -784,6 +787,15 @@ def btn_edit_line():
         dlg = alg_while.AlgoWhileStmt(window, stmt.condition.code())
         if dlg.run():
             stmt.condition = dlg.expr
+
+    elif isinstance(stmt, ForStmt):
+        from forms import alg_for
+        dlg = alg_for.AlgoForStmt(window, (stmt.variable, stmt.begin.code(), stmt.end.code(), stmt.step.code() if stmt.step is not None else None))
+        if dlg.run():
+            stmt.variable = dlg.varname
+            stmt.begin = dlg.f_from
+            stmt.end = dlg.f_to
+            stmt.step = dlg.f_step
 
     refresh_algo()
     algo_sel_changed()

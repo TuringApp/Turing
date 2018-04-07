@@ -28,6 +28,7 @@ SOURCES += \
     forms\about.py \
     forms\alg_define.py \
     forms\alg_display.py \
+    forms\alg_for.py \
     forms\alg_if.py \
     forms\alg_input.py \
     forms\alg_return.py \
@@ -40,6 +41,7 @@ SOURCES += \
     forms\ui_about.py \
     forms\ui_alg_define.py \
     forms\ui_alg_display.py \
+    forms\ui_alg_for.py \
     forms\ui_alg_if.py \
     forms\ui_alg_input.py \
     forms\ui_alg_return.py \
@@ -95,6 +97,7 @@ FORMS += \
     forms\ui_about.ui \
     forms\ui_alg_define.ui \
     forms\ui_alg_display.ui \
+    forms\ui_alg_for.ui \
     forms\ui_alg_if.ui \
     forms\ui_alg_input.ui \
     forms\ui_alg_return.ui \
