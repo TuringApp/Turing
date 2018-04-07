@@ -24,5 +24,5 @@ class UnaryOpNode(AstNode):
     def __repr__(self):
         return "UnaryOpNode(%r, %r)" % (self.value, self.operator)
 
-    def code(self) -> str:
-        return self.operator + self.value.code_fix()
+    def code(self, bb=False) -> str:
+        return self.operator + self.value.code_fix(bb)

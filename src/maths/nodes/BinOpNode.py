@@ -43,16 +43,16 @@ class BinOpNode(AstNode):
     def __repr__(self):
         return "BinOpNode(%r, %r, %r)" % (self.left, self.right, self.operator)
 
-    def operand_code(self, operand: AstNode) -> str:
-        return operand.code_fix() \
+    def operand_code(self, operand: AstNode, bb=False) -> str:
+        return operand.code_fix(bb) \
             if (isinstance(operand, BinOpNode) and operand.is_complex and operand.operator == self.operator) \
                or (not self.is_complex and isinstance(operand, BinOpNode) and operand.precedence < self.precedence) \
-            else operand.code()
+            else operand.code(bb)
 
-    def code(self) -> str:
+    def code(self, bb=False) -> str:
         # handle complex numbers
         if self.is_imag_part:
-            return "%si" % self.left.code()
+            return "%si" % self.left.code(bb)
         return "%s %s %s" % (
-            self.operand_code(self.left), maths.parser.Operators.pretty_print(self.operator),
-            self.operand_code(self.right))
+            self.operand_code(self.left, bb), maths.parser.Operators.pretty_print(self.operator),
+            self.operand_code(self.right, bb))

@@ -24,5 +24,5 @@ class LambdaNode(AstNode):
     def __repr__(self):
         return "LambdaNode(%r, %r)" % (self.args, self.expr)
 
-    def code(self) -> str:
-        return "{%s}(%s)" % (", ".join(self.args), self.expr.code())
+    def code(self, bb=False) -> str:
+        return "{%s}(%s)" % (", ".join(self.args), self.expr.code(bb))

@@ -22,5 +22,5 @@ class ListNode(AstNode):
     def __repr__(self):
         return "ListNode(%r)" % self.value
 
-    def code(self) -> str:
-        return proper_str([node.code() for node in self.value])
+    def code(self, bb=False) -> str:
+        return proper_str([node.code(bb) for node in self.value])

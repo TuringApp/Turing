@@ -24,5 +24,5 @@ class CallNode(AstNode):
     def __repr__(self):
         return "CallNode(%r, %r)" % (self.func, self.args)
 
-    def code(self) -> str:
-        return "%s(%s)" % (self.func.code_fix(), ", ".join(arg.code() for arg in self.args))
+    def code(self, bb=False) -> str:
+        return "%s(%s)" % (self.func.code_fix(bb), ", ".join(arg.code(bb) for arg in self.args))

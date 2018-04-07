@@ -22,5 +22,5 @@ class ArrayAccessNode(AstNode):
     def __repr__(self):
         return "ArrayAccessNode(%r, %r)" % (self.array, self.index)
 
-    def code(self) -> str:
-        return "%s[%s]" % (self.array.code_fix(), self.index.code())
+    def code(self, bb=False) -> str:
+        return "%s[%s]" % (self.array.code_fix(bb), self.index.code(bb))
