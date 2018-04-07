@@ -680,7 +680,10 @@ def add_def_func():
 
 
 def add_return():
-    pass
+    from forms import alg_return
+    dlg = alg_return.AlgoReturnStmt(window)
+    if dlg.run():
+        append_line(ReturnStmt(dlg.expr))
 
 
 def add_if_block():
@@ -754,6 +757,12 @@ def btn_edit_line():
         dlg = alg_define.AlgoDefineStmt(window, (stmt.variable, stmt.value.code()))
         if dlg.run():
             stmt.variable = dlg.varname
+            stmt.value = dlg.expr
+
+    elif isinstance(stmt, ReturnStmt):
+        from forms import alg_return
+        dlg = alg_return.AlgoReturnStmt(window, stmt.value.code() if stmt.value is not None else None)
+        if dlg.run():
             stmt.value = dlg.expr
 
     elif isinstance(stmt, InputStmt):
