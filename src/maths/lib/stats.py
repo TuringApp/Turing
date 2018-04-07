@@ -271,7 +271,7 @@ doc("randint",
         ("a", "Integer"),
         ("b", "Integer")
     ],
-    translate("Docs", "Returns a random integer between a and b (inclusive)."),
+    translate("Docs", "Returns a random integer between {{a}} and {{b}} (inclusive)."),
     ["alea_ent"])
 
 

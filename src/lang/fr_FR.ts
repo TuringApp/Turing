@@ -186,22 +186,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../algo/worker.py" line="151"/>
         <source>Array access target must be of array type</source>
-        <translation type="unfinished"></translation>
+        <translation>La cible d&apos;un accès de liste doit être une liste</translation>
     </message>
     <message>
         <location filename="../algo/worker.py" line="163"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
-        <translation type="unfinished">Indice &apos;{idx}&apos; trop grand pour la liste</translation>
+        <translation>Indice &apos;{idx}&apos; trop grand pour la liste</translation>
     </message>
     <message>
         <location filename="../algo/worker.py" line="166"/>
         <source>Assignment target must be either variable or array item</source>
-        <translation type="unfinished"></translation>
+        <translation>La cible d&apos;une affectation doit être une variable ou un élément de liste</translation>
     </message>
     <message>
         <location filename="../forms/alg_input.py" line="45"/>
         <source>Invalid assignment target (must be either variable or array item): {name}</source>
-        <translation type="unfinished"></translation>
+        <translation>Cible d&apos;affectation invalide (doit être une variable ou un élément de liste) : {name}</translation>
     </message>
 </context>
 <context>
@@ -293,7 +293,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_display.py" line="62"/>
         <source>Followed by a line break</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter un retour à la ligne</translation>
     </message>
 </context>
 <context>
@@ -484,7 +484,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../algo/algobox.py" line="75"/>
         <source>Unknown variable type: {type}</source>
-        <translation type="unfinished"></translation>
+        <translation>Type de variable inconnu : {type}</translation>
     </message>
 </context>
 <context>
@@ -1085,12 +1085,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/algobox.py" line="7"/>
         <source>Algobox compatibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Compatibilité Algobox</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="269"/>
-        <source>Returns a random integer between a and b (inclusive).</source>
-        <translation type="unfinished"></translation>
+        <source>Returns a random integer between {{a}} and {{b}} (inclusive).</source>
+        <translation>Renvoie un nombre entier aléatoire compris entre {{a}} et {{b}} (inclus).</translation>
     </message>
 </context>
 <context>
@@ -1193,7 +1193,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="197"/>
         <source>Array access target must be of array type</source>
-        <translation type="unfinished"></translation>
+        <translation>La cible d&apos;un accès de liste doit être une liste</translation>
     </message>
 </context>
 <context>
@@ -1769,32 +1769,32 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="715"/>
         <source>Run (optimized)</source>
-        <translation type="unfinished"></translation>
+        <translation>Exécuter (optimisé)</translation>
     </message>
     <message>
         <location filename="../main.py" line="329"/>
         <source>end of output [{time}]</source>
-        <translation type="unfinished"></translation>
+        <translation>fin de l&apos;exécution [{time}]</translation>
     </message>
     <message>
         <location filename="../main.py" line="513"/>
         <source>Python file (*.py)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier Python (*.py)</translation>
     </message>
     <message>
         <location filename="../main.py" line="513"/>
         <source>Turing program (*.tr)</source>
-        <translation type="unfinished"></translation>
+        <translation>Algorithme Turing (*.tr)</translation>
     </message>
     <message>
         <location filename="../main.py" line="513"/>
         <source>Program file (*.py; *.tr; *.alg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier de programme (*.py; *.tr; *.alg)</translation>
     </message>
     <message>
         <location filename="../main.py" line="513"/>
         <source>Algobox file (*.alg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Algorithme Algobox (*.alg)</translation>
     </message>
 </context>
 <context>
