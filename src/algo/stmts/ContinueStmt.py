@@ -12,3 +12,6 @@ class ContinueStmt(BaseStmt):
 
     def __repr__(self):
         return "ContinueStmt()"
+
+    def python(self) -> List[str]:
+        return ["continue"]

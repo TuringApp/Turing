@@ -18,3 +18,6 @@ class AssignStmt(BaseStmt):
 
     def __repr__(self):
         return "AssignStmt(%r, %r)" % (self.variable, self.value)
+
+    def python(self) -> List[str]:
+        return ["%s = %s" % (self.variable, self.value.python())]

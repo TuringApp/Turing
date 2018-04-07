@@ -16,3 +16,6 @@ class DisplayStmt(BaseStmt):
 
     def __repr__(self):
         return "DisplayStmt(%r)" % self.content
+
+    def python(self) -> List[str]:
+        return ["print(%s)" % self.content.code()]

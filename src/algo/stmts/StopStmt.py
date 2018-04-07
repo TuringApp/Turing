@@ -12,3 +12,6 @@ class StopStmt(BaseStmt):
 
     def __repr__(self):
         return "StopStmt()"
+
+    def python(self) -> List[str]:
+        return ["shit"]

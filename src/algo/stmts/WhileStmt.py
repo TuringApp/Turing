@@ -17,3 +17,6 @@ class WhileStmt(BlockStmt):
 
     def __repr__(self):
         return "WhileStmt(%r, %r)" % (self.condition, self.children)
+
+    def python_header(self) -> str:
+        return "while %s:" % self.condition.python()

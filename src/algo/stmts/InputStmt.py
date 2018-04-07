@@ -18,3 +18,6 @@ class InputStmt(BaseStmt):
 
     def __repr__(self):
         return "InputStmt(%r, %r)" % (self.variable, self.prompt)
+
+    def python(self) -> List[str]:
+        return ["%s = input(%s)" % (self.variable, '""' if self.prompt is None else self.prompt.python())]

@@ -12,3 +12,6 @@ class BreakStmt(BaseStmt):
 
     def __repr__(self):
         return "BreakStmt()"
+
+    def python(self) -> List[str]:
+        return ["break"]

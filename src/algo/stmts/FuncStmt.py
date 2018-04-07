@@ -18,3 +18,6 @@ class FuncStmt(BlockStmt):
 
     def __repr__(self):
         return "FuncStmt(%r, %r, %r)" % (self.name, self.parameters, self.children)
+
+    def python_header(self) -> str:
+        return "def %s(%s):" % (self.name, ", ".join(self.parameters))

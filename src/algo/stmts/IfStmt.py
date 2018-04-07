@@ -17,3 +17,6 @@ class IfStmt(BlockStmt):
 
     def __repr__(self):
         return "IfStmt(%r, %r)" % (self.condition, self.children)
+
+    def python_header(self) -> str:
+        return "if %s:" % self.condition.python()

@@ -13,3 +13,6 @@ class ElseStmt(BlockStmt):
 
     def __repr__(self):
         return "ElseStmt(%r)" % self.children
+
+    def python_header(self) -> str:
+        return "else:"

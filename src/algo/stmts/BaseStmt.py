@@ -12,5 +12,8 @@ class BaseStmt:
     def __repr__(self):
         return "BaseStmt()"
 
+    def python(self) -> List[str]:
+        return [""]
+
 
 CodeBlock = List[BaseStmt]

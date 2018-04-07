@@ -15,3 +15,6 @@ class CommentStmt(BaseStmt):
 
     def __repr__(self):
         return "CommentStmt(%r)" % self.content
+
+    def python(self) -> List[str]:
+        return ["# " + self.content]

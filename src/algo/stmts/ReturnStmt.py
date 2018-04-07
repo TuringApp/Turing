@@ -16,3 +16,6 @@ class ReturnStmt(BaseStmt):
 
     def __repr__(self):
         return "ReturnStmt(%r)" % self.value
+
+    def python(self) -> List[str]:
+        return ["return"]
