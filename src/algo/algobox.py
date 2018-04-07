@@ -32,6 +32,9 @@ def parse_expr(expr):
 
 def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
     if elem.tag == "description":
+        value = elem.attrib["texte"]
+        if not value:
+            return None
         return CommentStmt(elem.attrib["texte"])
 
     if elem.tag == "fonction":
