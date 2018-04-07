@@ -276,19 +276,24 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoDisplayStmt</name>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="55"/>
+        <location filename="../forms/ui_alg_display.py" line="59"/>
         <source>Display value</source>
         <translation>Afficher valeur</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="56"/>
+        <location filename="../forms/ui_alg_display.py" line="60"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Displays a value in the output window. &lt;/p&gt;&lt;p&gt;The value can be of any type, it will be automatically converted to a textual representation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Affiche une valeur dans ̊la fenêtre de sortie. &lt;/p&gt;&lt;p&gt;La valeur peut être de n&apos;importe quel type, elle sera de toute façon convertie en une représentation textuelle appropriée.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="57"/>
+        <location filename="../forms/ui_alg_display.py" line="61"/>
         <source>Value:</source>
         <translation>Valeur :</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_display.py" line="62"/>
+        <source>Followed by a line break</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

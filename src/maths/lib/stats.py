@@ -266,6 +266,24 @@ def random():
 
 alea = random
 
+doc("randint",
+    [
+        ("a", "Integer"),
+        ("b", "Integer")
+    ],
+    translate("Docs", "Returns a random integer between a and b (inclusive)."),
+    ["alea_ent"])
+
+
+def randint(a, b):
+    if b < a:
+        a, b = b, a
+
+    return math.floor((b - a + 1) * random() + a)
+
+
+alea_ent = randint
+
 doc("fib",
     [
         ("n", "Integer")
