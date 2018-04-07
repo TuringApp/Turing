@@ -751,7 +751,6 @@ def btn_edit_line():
         if dlg.run():
             stmt.content = dlg.expr
 
-
     elif isinstance(stmt, AssignStmt):
         from forms import alg_define
         dlg = alg_define.AlgoDefineStmt(window, (stmt.variable, stmt.value.code()))
