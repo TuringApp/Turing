@@ -3,11 +3,12 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
-from forms.ui_inline_code import Ui_InlineCodeDialog
 from forms.inline_code_editor import InlineCodeEditor
+from forms.ui_inline_code import Ui_InlineCodeDialog
 from util.widgets import center_widget
 
 translate = QCoreApplication.translate
+
 
 class InlineCodeDialog(QDialog):
     def __init__(self, parent, origcode=""):
@@ -23,7 +24,6 @@ class InlineCodeDialog(QDialog):
 
     def run(self):
         return self.exec_() == QDialog.Accepted
-
 
     def value(self):
         return self.editor.get_text()

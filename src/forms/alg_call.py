@@ -6,10 +6,11 @@ from PyQt5.QtWidgets import *
 from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_call import Ui_AlgoCallStmt
 from maths.nodes import ListNode
-from util.widgets import center_widget
 from util.code import try_parse
+from util.widgets import center_widget
 
 translate = QCoreApplication.translate
+
 
 class AlgoCallStmt(QDialog):
     def __init__(self, parent, origcode=("", ())):
@@ -22,7 +23,6 @@ class AlgoCallStmt(QDialog):
         self.ui.btnCodeFunc.clicked.connect(lambda: self.click(self.ui.txtFunction))
         self.ui.btnCodeArgs.clicked.connect(lambda: self.click(self.ui.txtArguments))
         center_widget(self, parent)
-
 
     def done(self, res):
         if res == QDialog.Accepted:
@@ -48,7 +48,6 @@ class AlgoCallStmt(QDialog):
         dlg = InlineCodeDialog(self, wgt.text())
         if dlg.run():
             wgt.setText(dlg.value())
-
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok

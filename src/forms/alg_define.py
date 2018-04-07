@@ -5,12 +5,13 @@ from PyQt5.QtWidgets import *
 
 from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_define import Ui_AlgoDefineStmt
-from util.widgets import center_widget, get_themed_box
-from util.code import try_parse, is_id
 from maths.nodes import *
 from maths.parser import quick_parse as parse
+from util.code import try_parse
+from util.widgets import center_widget, get_themed_box
 
 translate = QCoreApplication.translate
+
 
 class AlgoDefineStmt(QDialog):
     def __init__(self, parent, origcode=("", "")):
@@ -23,7 +24,6 @@ class AlgoDefineStmt(QDialog):
         self.ui.btnCode.clicked.connect(self.click)
         center_widget(self, parent)
 
-
     def done(self, res):
         if res == QDialog.Accepted:
             name = self.ui.txtVariable.text().strip()
@@ -33,7 +33,9 @@ class AlgoDefineStmt(QDialog):
                 box = get_themed_box(self)
                 box.setIcon(QMessageBox.Critical)
                 box.setStandardButtons(QMessageBox.Ok)
-                box.setText(translate("Algo", "Invalid assignment target (must be either variable or array item): {name}").format(name=name))
+                box.setText(translate("Algo",
+                                      "Invalid assignment target (must be either variable or array item): {name}").format(
+                    name=name))
                 box.exec_()
                 return
 
@@ -48,12 +50,10 @@ class AlgoDefineStmt(QDialog):
 
         super(AlgoDefineStmt, self).done(res)
 
-
     def click(self):
         dlg = InlineCodeDialog(self, self.ui.txtValue.text())
         if dlg.run():
             self.ui.txtValue.setText(dlg.value())
-
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok

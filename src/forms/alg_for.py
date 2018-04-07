@@ -5,10 +5,11 @@ from PyQt5.QtWidgets import *
 
 from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_for import Ui_AlgoForStmt
-from util.widgets import center_widget, get_themed_box
 from util.code import try_parse, is_id
+from util.widgets import center_widget, get_themed_box
 
 translate = QCoreApplication.translate
+
 
 class AlgoForStmt(QDialog):
     def __init__(self, parent, origcode=("", "", "", None)):
@@ -31,12 +32,10 @@ class AlgoForStmt(QDialog):
 
         center_widget(self, parent)
 
-
     def checked(self, state):
         enabled = state == Qt.Checked
         self.ui.txtStep.setEnabled(enabled)
         self.ui.btnCodeStep.setEnabled(enabled)
-
 
     def done(self, res):
         if res == QDialog.Accepted:
@@ -78,12 +77,10 @@ class AlgoForStmt(QDialog):
 
         super(AlgoForStmt, self).done(res)
 
-
     def click(self, wgt):
         dlg = InlineCodeDialog(self, wgt.text())
         if dlg.run():
             wgt.setText(dlg.value())
-
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok

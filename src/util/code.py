@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import re
+
 from PyQt5.QtWidgets import QMessageBox
 
 from maths.parser import Parser
-from .widgets import get_themed_box, center_widget
 from . import translate
+from .widgets import get_themed_box
+
 
 def python_wrapper(input: str) -> str:
     return """# -*- coding: utf-8 -*-

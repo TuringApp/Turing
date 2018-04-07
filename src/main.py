@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import datetime
 import html
 import os
 import runpy
@@ -12,24 +11,22 @@ from typing import Optional
 
 import pygments.styles
 import pyqode.python.backend
-from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
 from pyqode.core import api
 from pyqode.core import modes
 from pyqode.core import panels
 
 import editor_backend
+import forms
 import util.code
 import util.html
 from algo.stmts import *
 from algo.worker import Worker
-import forms
 from forms.ui_mainwindow import Ui_MainWindow
 from lang import translator
+from maths.nodes import *
 from maths.parser import quick_parse as parse
 from util.widgets import *
-from maths.nodes import *
 
 translate = QCoreApplication.translate
 
@@ -89,6 +86,7 @@ running = False
 skip_step = False
 stopped = False
 
+
 def sleep(duration: int):
     duration *= 1000
     begin = datetime.datetime.now()
@@ -125,14 +123,14 @@ def refresh():
     print(current_file)
 
 
-#def refresh_on_tap():
+# def refresh_on_tap():
 #    print("tap :p")
 
 def refresh_buttons_status():
     if mode_python:
         for ours, theirs in editor_action_table:
             get_action(ours).setEnabled(getattr(code_editor, "action_" + theirs).isEnabled())
-    
+
     active_code = True
     for c in [
         "Save",
@@ -323,8 +321,10 @@ def init_worker():
 
 def end_output():
     global current_output, run_started
-    current_output += util.html.centered(util.html.color_span(translate("MainWindow", "end of output") if run_started is None
-                                                              else translate("MainWindow", "end of output [{time}]").format(time=datetime.datetime.now() - run_started), "red"))
+    current_output += util.html.centered(
+        util.html.color_span(translate("MainWindow", "end of output") if run_started is None
+                             else translate("MainWindow", "end of output [{time}]").format(
+            time=datetime.datetime.now() - run_started), "red"))
     current_output += "<hr>"
     run_started = None
     update_output()
@@ -488,18 +488,20 @@ def handler_Save():
     if mode_python:
         ext = "py"
         saveme = str(code_editor.toPlainText())
-    else :
+    else:
         ext = "tr"
         saveme = repr(algo)
 
-    if not current_file :
+    if not current_file:
         list = os.listdir("../saves/")
         number_files = len(list) + 1
-        current_file = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"), "../saves/Turing_scripts_" + str(number_files) + "_." + ext,"*." + ext)[0]
+        current_file = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"),
+                                                   "../saves/Turing_scripts_" + str(number_files) + "_." + ext,
+                                                   "*." + ext)[0]
         if not current_file:
             return
 
-    with open(current_file, "w+", encoding="utf8") as savefile :
+    with open(current_file, "w+", encoding="utf8") as savefile:
         savefile.write(saveme)
     refresh()
 
@@ -511,12 +513,12 @@ def handler_Open():
         translate("MainWindow", "Python file (*.py)"),
         translate("MainWindow", "Turing program (*.tr)"),
         translate("MainWindow", "Algobox file (*.alg)")
-            ]))
-    if not sel_file :
+    ]))
+    if not sel_file:
         return
     current_file = sel_file
     _, ext = os.path.splitext(current_file)
-    with open(current_file, "r", encoding="utf8") as openfile :
+    with open(current_file, "r", encoding="utf8") as openfile:
         newcode = openfile.read()
     if ext == ".alg":
         from algo.algobox import parse_algobox
@@ -524,17 +526,15 @@ def handler_Open():
         load_block(parse_algobox(newcode))
         refresh_algo()
         algo_sel_changed()
-    elif ext == ".tr" :
+    elif ext == ".tr":
         mode_python = False
         load_pseudocode(newcode)
         refresh_algo()
         algo_sel_changed()
-    elif ext == ".py" :
+    elif ext == ".py":
         mode_python = True
         code_editor.setPlainText(newcode, "", "")
     refresh()
-
-
 
 
 def handler_New():
@@ -637,7 +637,7 @@ def load_code_editor():
     panel_search = code_editor.panels.append(panels.SearchAndReplacePanel(), api.Panel.Position.BOTTOM)
     copy_actions_to_editor(panel_search)
 
-    #code_editor.textChanged.connect(refresh_on_tap)
+    # code_editor.textChanged.connect(refresh_on_tap)
 
     load_editor_actions()
 
@@ -823,7 +823,8 @@ def btn_edit_line():
 
     elif isinstance(stmt, InputStmt):
         from forms import alg_input
-        dlg = alg_input.AlgoInputStmt(window, (stmt.variable.code(), stmt.prompt.code() if stmt.prompt is not None else None))
+        dlg = alg_input.AlgoInputStmt(window,
+                                      (stmt.variable.code(), stmt.prompt.code() if stmt.prompt is not None else None))
         if dlg.run():
             stmt.variable = dlg.varname
             stmt.prompt = dlg.expr
@@ -842,7 +843,8 @@ def btn_edit_line():
 
     elif isinstance(stmt, ForStmt):
         from forms import alg_for
-        dlg = alg_for.AlgoForStmt(window, (stmt.variable, stmt.begin.code(), stmt.end.code(), stmt.step.code() if stmt.step is not None else None))
+        dlg = alg_for.AlgoForStmt(window, (
+        stmt.variable, stmt.begin.code(), stmt.end.code(), stmt.step.code() if stmt.step is not None else None))
         if dlg.run():
             stmt.variable = dlg.varname
             stmt.begin = dlg.f_from
@@ -864,7 +866,6 @@ def btn_edit_line():
 
     refresh_algo()
     algo_sel_changed()
-
 
 
 def btn_move_up_block():
@@ -1177,7 +1178,9 @@ def algo_sel_changed():
     is_item = current_stmt is not None
     is_root = current == []
     is_changeable = is_item and not is_root
-    is_editable = is_changeable and not isinstance(current_stmt, (BreakStmt, ContinueStmt, ElseStmt, StopStmt)) and type(current_stmt) not in [BaseStmt, BlockStmt]
+    is_editable = is_changeable and not isinstance(current_stmt,
+                                                   (BreakStmt, ContinueStmt, ElseStmt, StopStmt)) and type(
+        current_stmt) not in [BaseStmt, BlockStmt]
 
     ui.btnAlgo_Add.setEnabled(is_item)
     ui.btnAlgo_Delete.setEnabled(is_changeable)

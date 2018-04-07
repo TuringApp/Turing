@@ -5,10 +5,11 @@ from PyQt5.QtWidgets import *
 
 from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_display import Ui_AlgoDisplayStmt
-from util.widgets import center_widget
 from util.code import try_parse
+from util.widgets import center_widget
 
 translate = QCoreApplication.translate
+
 
 class AlgoDisplayStmt(QDialog):
     def __init__(self, parent, origcode=("", True)):
@@ -20,7 +21,6 @@ class AlgoDisplayStmt(QDialog):
         self.ui.cbxNewline.setChecked(origcode[1])
         self.ui.btnCode.clicked.connect(self.click)
         center_widget(self, parent)
-
 
     def done(self, res):
         if res == QDialog.Accepted:
@@ -35,11 +35,9 @@ class AlgoDisplayStmt(QDialog):
 
         super(AlgoDisplayStmt, self).done(res)
 
-
     def click(self):
         dlg = InlineCodeDialog(self, self.ui.lineEdit.text())
         self.ui.lineEdit.setText(dlg.run())
-
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok

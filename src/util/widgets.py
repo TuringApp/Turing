@@ -8,7 +8,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QWidget, QMessageBox
 
 
-
 class QClickableLabel(QLabel):
     clicked = pyqtSignal()
     dclicked = pyqtSignal()
@@ -37,7 +36,7 @@ def center_widget(wgt: QWidget, host: QWidget):
 def get_themed_box(parent=None):
     msg = QMessageBox(parent)
     msg.setWindowTitle("Turing")
-    #msg.setStyle(DEFAULT_STYLE)
+    # msg.setStyle(DEFAULT_STYLE)
     msg.setWindowIcon(QIcon(":/icon/media/icon.ico"))
 
     if parent:

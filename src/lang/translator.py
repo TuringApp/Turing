@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import importlib
+import sip
 import types
 from typing import List, Tuple
 
-import sip
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QWidget
 

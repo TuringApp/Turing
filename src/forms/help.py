@@ -42,7 +42,6 @@ class HelpWindow(QDialog):
     functions: Dict[str, List[function]] = None
     catItems = []
 
-
     def on_item_select(self):
         current = self.ui.listFuncs.currentItem()
 
@@ -107,7 +106,6 @@ class HelpWindow(QDialog):
 
         self.ui.textBrowser.setHtml(html)
 
-
     def load_funcs(self):
         self.functions = maths.lib.get_funcs()
         for k in sorted(self.functions.keys()):
@@ -135,10 +133,8 @@ class HelpWindow(QDialog):
                 self.ui.listFuncs.addTopLevelItem(item_category)
             self.catItems.append((item_category, items))
 
-
     def clear_search_field(self):
         self.ui.textSearch.setText("")
-
 
     def search_changed(self, txt: str):
         self.ui.btnClear.setVisible(bool(txt))
@@ -155,4 +151,3 @@ class HelpWindow(QDialog):
 
                 # if all sub-items are hidden, hide the whole category
                 ci.setHidden(hid == len(items))
-

@@ -209,7 +209,8 @@ class Parser:
         while idx < len(tokenized):
             current = tokenized[idx]
 
-            if idx < len(tokenized) - 2 and current[0].isdigit() and current[-1].upper() == "E" and tokenized[idx + 1] in ["+", "-"]:
+            if idx < len(tokenized) - 2 and current[0].isdigit() and current[-1].upper() == "E" and tokenized[
+                idx + 1] in ["+", "-"]:
                 # if there is an E followed by a number, this is an exponent notation
                 current += tokenized[idx + 1]
                 current += tokenized[idx + 2]

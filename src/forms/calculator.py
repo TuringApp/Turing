@@ -1,20 +1,16 @@
 # -*- coding: utf-8 -*-
 
-import html
-import re
-from typing import Dict, List, Tuple
-
 from PyQt5.QtGui import *
 
-import maths.lib.docs
+from forms.inline_code_editor import InlineCodeEditor
 from forms.ui_calculator import Ui_CalcWindow
 from lang import translator
 from maths.evaluator import Evaluator
 from util.math import proper_str
 from util.widgets import *
-from forms.inline_code_editor import InlineCodeEditor
 
 translate = QCoreApplication.translate
+
 
 class CalculatorWindow(QMainWindow):
     def __init__(self):
@@ -58,7 +54,6 @@ class CalculatorWindow(QMainWindow):
 
         self.ui.lstHistory.scrollToBottom()
 
-
     def calculate(self):
         ev = Evaluator()
         expression = self.editor.get_text()
@@ -76,8 +71,6 @@ class CalculatorWindow(QMainWindow):
             else:
                 self.add_result(None if msgs else ev.beautified, translate("CalcWindow", "Result is None"), True)
 
-
     def history_double_click(self, item):
         if item.statusTip():
             self.editor.set_text(item.text())
-

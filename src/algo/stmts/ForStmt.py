@@ -26,4 +26,5 @@ class ForStmt(BlockStmt):
         return "ForStmt(%r, %r, %r, %r, %r)" % (self.variable, self.begin, self.end, self.children, self.step)
 
     def python_header(self) -> str:
-        return "for %s in range(%s, (%s) + 1, %s):" % (self.variable, self.begin.python(), self.end.python(), 1 if self.step is None else self.step.python())
+        return "for %s in range(%s, (%s) + 1, %s):" % (
+        self.variable, self.begin.python(), self.end.python(), 1 if self.step is None else self.step.python())

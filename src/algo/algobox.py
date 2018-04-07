@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-import xml.etree.ElementTree as etree
-
 import builtins
+import xml.etree.ElementTree as etree
 from typing import Union, Optional
 
 from algo.stmts import *
 from maths.nodes import *
-from util import translate
 from maths.parser import quick_parse as parse
+from util import translate
+
 
 def parse_algobox(xml):
     root = etree.fromstring(xml)
@@ -59,7 +59,7 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
                 else:
                     children.append(s)
 
-        if code == 1: # VARIABLE
+        if code == 1:  # VARIABLE
             type, varname = args
 
             value = None
@@ -76,7 +76,7 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
 
             return AssignStmt(IdentifierNode(varname), value)
 
-        elif code == 2: # LIRE
+        elif code == 2:  # LIRE
             varname, index = args
 
             if index == "pasliste":
@@ -84,7 +84,7 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
 
             return InputStmt(ArrayAccessNode(IdentifierNode(varname), parse(index)))
 
-        elif code == 3: # AFFICHER
+        elif code == 3:  # AFFICHER
             varname, newline, index = args
 
             if index == "pasliste":
@@ -92,12 +92,12 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
 
             return DisplayStmt(ArrayAccessNode(IdentifierNode(varname), parse(index)), bool(int(newline)))
 
-        elif code == 4: # MESSAGE
+        elif code == 4:  # MESSAGE
             message, newline = args
 
             return DisplayStmt(StringNode(message), bool(int(newline)))
 
-        elif code == 5: # AFFECTATION
+        elif code == 5:  # AFFECTATION
             varname, value, index = args
 
             if index == "pasliste":
@@ -105,7 +105,7 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
 
             return AssignStmt(ArrayAccessNode(IdentifierNode(varname), parse_expr(index)), parse_expr(value))
 
-        elif code == 6: # SI
+        elif code == 6:  # SI
             condition = args[0]
 
             if isinstance(children[-1], ElseStmt):
@@ -113,100 +113,100 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
 
             return IfStmt(parse_expr(condition), children)
 
-        elif code == 7: # DEBUT_SI
+        elif code == 7:  # DEBUT_SI
             return None
 
-        elif code == 8: # FIN_SI
+        elif code == 8:  # FIN_SI
             return None
 
-        elif code == 9: # SINON
+        elif code == 9:  # SINON
             return ElseStmt(children)
 
-        elif code == 10: # DEBUT_SINON
+        elif code == 10:  # DEBUT_SINON
             return None
 
-        elif code == 11: # FIN_SINON
+        elif code == 11:  # FIN_SINON
             return None
 
-        elif code == 12: # POUR
+        elif code == 12:  # POUR
             varname, begin, end = args
 
             return ForStmt(varname, parse_expr(begin), parse_expr(end), children)
 
-        elif code == 13: # DEBUT_POUR
+        elif code == 13:  # DEBUT_POUR
             return None
 
-        elif code == 14: # FIN_POUR
+        elif code == 14:  # FIN_POUR
             return None
 
-        elif code == 15: # TANT_QUE
+        elif code == 15:  # TANT_QUE
             condition = args[0]
 
             return WhileStmt(parse_expr(condition), children)
 
-        elif code == 16: # DEBUT_TANT_QUE
+        elif code == 16:  # DEBUT_TANT_QUE
             return None
 
-        elif code == 17: # FIN_TANT_QUE
+        elif code == 17:  # FIN_TANT_QUE
             return None
 
-        elif code == 18: # PAUSE
+        elif code == 18:  # PAUSE
             return BreakStmt()
 
-        elif code == 19: # COMMENTAIRE
+        elif code == 19:  # COMMENTAIRE
             value = args[0]
 
             return CommentStmt(value)
 
-        elif code == 20: # AFFICHERCALCUL
+        elif code == 20:  # AFFICHERCALCUL
             calcul, newline = args
 
             return DisplayStmt(parse_expr(calcul), bool(int(newline)))
 
-        elif code == 50: # POINT
+        elif code == 50:  # POINT
             x, y, color = args
 
-        elif code == 51: # SEGMENT
+        elif code == 51:  # SEGMENT
             start_x, start_y, end_x, end_y, color = args
 
-        elif code == 52: # EFFACE
+        elif code == 52:  # EFFACE
             pass
 
-        elif code == 100: # VARIABLES
+        elif code == 100:  # VARIABLES
             return children
 
-        elif code == 101: # DEBUT_ALGO
+        elif code == 101:  # DEBUT_ALGO
             return children
 
-        elif code == 102: # FIN_ALGO
+        elif code == 102:  # FIN_ALGO
             return None
 
-        elif code == 103: # autres
+        elif code == 103:  # autres
             pass
 
-        elif code == 200: # FONCTIONS_UTILISEES
+        elif code == 200:  # FONCTIONS_UTILISEES
             return children
 
-        elif code == 201: # FONCTION
+        elif code == 201:  # FONCTION
             name, params = args
 
             return FuncStmt(name, [x.strip() for x in params.split(",")], children)
 
-        elif code == 202: # VARIABLES_FONCTION
+        elif code == 202:  # VARIABLES_FONCTION
             return children
 
-        elif code == 203: # DEBUT_FONCTION
+        elif code == 203:  # DEBUT_FONCTION
             return None
 
-        elif code == 204: # FIN_FONCTION:
+        elif code == 204:  # FIN_FONCTION:
             return None
 
-        elif code == 205: # RENVOYER_FONCTION
+        elif code == 205:  # RENVOYER_FONCTION
             value = args[0]
 
             return ReturnStmt(parse_expr(value))
 
-        elif code == 206: # APPELER_FONCTION
+        elif code == 206:  # APPELER_FONCTION
             expr = args[0]
 
             return CallStmt.from_node(parse_expr(expr))

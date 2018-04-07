@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from .AstNode import *
 from util.html import sanitize
+from .AstNode import *
 
 
 class StringNode(AstNode):

@@ -138,7 +138,8 @@ class Worker:
 
     def exec_input(self, stmt: InputStmt):
         prompt = (
-            translate("Algo", "Variable {var} = ").format(var=stmt.variable.code())) if stmt.prompt is None else self.evaluator.eval_node(stmt.prompt)
+            translate("Algo", "Variable {var} = ").format(
+                var=stmt.variable.code())) if stmt.prompt is None else self.evaluator.eval_node(stmt.prompt)
         self.assign(stmt.variable, self.stmt_input(prompt))
 
     def assign(self, target: AstNode, value):

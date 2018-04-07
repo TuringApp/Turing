@@ -152,20 +152,8 @@ tests = [
 
 
 def run_tests():
-    f = r"C:\Program Files (x86)\Algobox\ressources\eleve_calcul_recurrent.alg"
-
-    with open(f, "rb") as fp:
-        t = fp.read()
-
-    from .algobox import parse_algobox
-
-    st = parse_algobox(t)
-
-    print(repr(st))
-    exit()
-
     for algo, input, exp_output in tests:
-        #print("\n".join(BlockStmt(algo).python()))
+        # print("\n".join(BlockStmt(algo).python()))
 
         worker = Worker(algo)
 

@@ -8,6 +8,7 @@ from util.widgets import center_widget
 
 translate = QCoreApplication.translate
 
+
 class AboutWindow(QDialog):
     def __init__(self, parent, version, channel):
         super().__init__(parent)

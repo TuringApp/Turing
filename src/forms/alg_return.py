@@ -5,10 +5,11 @@ from PyQt5.QtWidgets import *
 
 from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_return import Ui_AlgoReturnStmt
-from util.widgets import center_widget, get_themed_box
-from util.code import try_parse, is_id
+from util.code import try_parse
+from util.widgets import center_widget
 
 translate = QCoreApplication.translate
+
 
 class AlgoReturnStmt(QDialog):
     def __init__(self, parent, origcode=None):
@@ -23,12 +24,10 @@ class AlgoReturnStmt(QDialog):
         self.ui.btnCode.clicked.connect(self.click)
         center_widget(self, parent)
 
-
     def checked(self, state):
         enabled = state == Qt.Checked
         self.ui.txtValue.setEnabled(enabled)
         self.ui.btnCode.setEnabled(enabled)
-
 
     def done(self, res):
         if res == QDialog.Accepted:
@@ -46,12 +45,10 @@ class AlgoReturnStmt(QDialog):
 
         super(AlgoReturnStmt, self).done(res)
 
-
     def click(self):
         dlg = InlineCodeDialog(self, self.ui.txtValue.text())
         if dlg.run():
             self.ui.txtValue.setText(dlg.value())
-
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok

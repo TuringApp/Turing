@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_InlineCodeEditor(object):
     def setupUi(self, InlineCodeEditor):
         InlineCodeEditor.setObjectName("InlineCodeEditor")
@@ -52,4 +53,4 @@ class Ui_InlineCodeEditor(object):
     def retranslateUi(self, InlineCodeEditor):
         pass
 
-import turing_rc
+

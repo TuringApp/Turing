@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
+import html
+import re
 from typing import Tuple, Dict, List
 
-import re
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
-from lang import translator
-from forms.w_inline_code import Ui_InlineCodeEditor
 import maths.lib.docs
-import html
+from forms.w_inline_code import Ui_InlineCodeEditor
+from lang import translator
 
 translate = QCoreApplication.translate
 
@@ -17,7 +17,7 @@ class InlineCodeEditor(QWidget):
     function = Tuple
     functions: Dict[str, List[function]] = None
     doc_items: List[List[QListWidgetItem]] = None
-    
+
     submitted = pyqtSignal()
 
     def __init__(self, parent=None):

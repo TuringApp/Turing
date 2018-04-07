@@ -3,13 +3,12 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
-from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_func import Ui_AlgoFuncStmt
-from maths.nodes import ListNode
+from util.code import is_id
 from util.widgets import center_widget, get_themed_box
-from util.code import try_parse, is_id
 
 translate = QCoreApplication.translate
+
 
 class AlgoFuncStmt(QDialog):
     def __init__(self, parent, origcode=("", ())):
@@ -20,7 +19,6 @@ class AlgoFuncStmt(QDialog):
         self.ui.txtFunction.setText(origcode[0])
         self.ui.txtArguments.setText(", ".join(origcode[1]))
         center_widget(self, parent)
-
 
     def done(self, res):
         if res == QDialog.Accepted:
@@ -41,7 +39,6 @@ class AlgoFuncStmt(QDialog):
             self.ok = True
 
         super(AlgoFuncStmt, self).done(res)
-
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok
