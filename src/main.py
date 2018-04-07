@@ -439,6 +439,7 @@ def handler_Run():
     finally:
         if not mode_python and worker.stopped:
             ui.actionStep.setDisabled(False)
+            ui.actionRun.setDisabled(False)
             set_current_line(worker.last)
             skip_step = True
 
