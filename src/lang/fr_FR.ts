@@ -48,14 +48,6 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>AddDisplayWindow</name>
-    <message>
-        <location filename="../forms/ui_display_stmt.py" line="47"/>
-        <source>About Turing</source>
-        <translation type="obsolete">À propos de Turing</translation>
-    </message>
-</context>
-<context>
     <name>Algo</name>
     <message>
         <location filename="../algo/worker.py" line="139"/>
@@ -88,87 +80,87 @@ p, li { white-space: pre-wrap; }
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="921"/>
+        <location filename="../main.py" line="946"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="924"/>
+        <location filename="../main.py" line="949"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="915"/>
+        <location filename="../main.py" line="940"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="927"/>
+        <location filename="../main.py" line="952"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="930"/>
+        <location filename="../main.py" line="955"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="933"/>
+        <location filename="../main.py" line="958"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="958"/>
+        <location filename="../main.py" line="983"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="938"/>
+        <location filename="../main.py" line="963"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="940"/>
+        <location filename="../main.py" line="965"/>
         <source>[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]</source>
         <translation>[k]ASSIGNER[/k] [c]{var}[/c] = [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="944"/>
+        <location filename="../main.py" line="969"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="954"/>
+        <location filename="../main.py" line="979"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="968"/>
+        <location filename="../main.py" line="993"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="918"/>
+        <location filename="../main.py" line="943"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="947"/>
+        <location filename="../main.py" line="972"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation>[b]POUR[/b] [c]{var}[/c] [b]DE[/b] [c]{begin}[/c] [b]À[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="948"/>
+        <location filename="../main.py" line="973"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation>([b]PAS[/b] [c]{step}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="971"/>
+        <location filename="../main.py" line="996"/>
         <source>[i]empty[/i]</source>
         <translation>[i]vide[/i]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="962"/>
+        <location filename="../main.py" line="987"/>
         <source>[k]STOP[/k]</source>
         <translation>[k]STOP[/k]</translation>
     </message>
@@ -177,12 +169,14 @@ p, li { white-space: pre-wrap; }
         <source>The following errors occured while parsing the expression:
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Les erreurs suivantes sont survenues lors de l&apos;analyse de l&apos;expression :
+
+</translation>
     </message>
     <message>
-        <location filename="../forms/alg_define.py" line="32"/>
+        <location filename="../forms/alg_input.py" line="41"/>
         <source>Invalid variable name: {name}</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de variable invalide : {name}</translation>
     </message>
 </context>
 <context>
@@ -190,34 +184,131 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_define.py" line="62"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Assigns the specified value to the variable.&lt;/p&gt;&lt;p&gt;If the variable does not exist in the current scope or in any parent scope, it will be created in the current scope.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Assigne la valeur spécifiée à la variable.&lt;/p&gt;&lt;p&gt;Si la variable n&apos;existe pas dans le champ actuel ou dans un quelconque champ parent, elle sera créée dans le champ actuel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_define.py" line="63"/>
         <source>Value:</source>
-        <translation type="unfinished"></translation>
+        <translation>Valeur :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_define.py" line="64"/>
         <source>Variable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Variable :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_define.py" line="61"/>
         <source>Define variable</source>
-        <translation type="unfinished">Définir variable</translation>
+        <translation>Définir variable</translation>
     </message>
 </context>
 <context>
     <name>AlgoDisplayStmt</name>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="52"/>
+        <location filename="../forms/ui_alg_display.py" line="55"/>
+        <source>Display value</source>
+        <translation>Afficher valeur</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_display.py" line="56"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Displays a value in the output window. &lt;/p&gt;&lt;p&gt;The value can be of any type, it will be automatically converted to a textual representation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Affiche une valeur dans ̊la fenêtre de sortie. &lt;/p&gt;&lt;p&gt;La valeur peut être de n&apos;importe quel type, elle sera de toute façon convertie en une représentation textuelle appropriée.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_display.py" line="57"/>
+        <source>Value:</source>
+        <translation type="unfinished">Valeur :</translation>
+    </message>
+</context>
+<context>
+    <name>AlgoIfStmt</name>
+    <message>
+        <location filename="../forms/ui_alg_if.py" line="55"/>
         <source>Display value</source>
         <translation type="unfinished">Afficher valeur</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="53"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Display a value in the output window. &lt;/p&gt;&lt;p&gt;&lt;br/&gt;The value can be of any type, it will be automatically converted to a textual representation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location filename="../forms/ui_alg_if.py" line="57"/>
+        <source>Condition:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_if.py" line="56"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Checks if the specified condition is true.&lt;/p&gt;&lt;p&gt;The block will only be executed if the condition is true, otherwise the program will continue with the instruction following the block.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AlgoInputStmt</name>
+    <message>
+        <location filename="../forms/ui_alg_input.py" line="66"/>
+        <source>Define variable</source>
+        <translation type="unfinished">Définir variable</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_input.py" line="68"/>
+        <source>Display a message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_input.py" line="69"/>
+        <source>Message:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_input.py" line="70"/>
+        <source>Variable:</source>
+        <translation type="unfinished">Variable :</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_input.py" line="67"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Asks the user for a value and assigns it to the specified variable.&lt;/p&gt;&lt;p&gt;Optionally, a message can be displayed. &lt;span style=&quot; font-weight:600;&quot;&gt;Warning&lt;/span&gt;: the message is an expression, thus if you want to display text you need to enclose everything inside quotes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AlgoReturnStmt</name>
+    <message>
+        <location filename="../forms/ui_alg_return.py" line="60"/>
+        <source>Define variable</source>
+        <translation type="unfinished">Définir variable</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_return.py" line="61"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exits the current function and optionally passes a value to the caller.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_return.py" line="62"/>
+        <source>Value:</source>
+        <translation type="unfinished">Valeur :</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_return.py" line="63"/>
+        <source>Return a value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_input.py" line="70"/>
+        <source>Variable:</source>
+        <translation type="obsolete">Variable :</translation>
+    </message>
+</context>
+<context>
+    <name>AlgoWhileStmt</name>
+    <message>
+        <location filename="../forms/ui_alg_while.py" line="55"/>
+        <source>Display value</source>
+        <translation type="unfinished">Afficher valeur</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_while.py" line="56"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Executes the instructions while the condition is true.&lt;/p&gt;&lt;p&gt;As soon as the condition is false, the program continues with the instruction following the block.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_while.py" line="57"/>
+        <source>Condition:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -232,14 +323,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../forms/calculator.py" line="77"/>
         <source>Result is None</source>
         <translation>Résultat nul</translation>
-    </message>
-</context>
-<context>
-    <name>DisplayWindow</name>
-    <message>
-        <location filename="../forms/ui_display_stmt.py" line="47"/>
-        <source>About Turing</source>
-        <translation type="obsolete">À propos de Turing</translation>
     </message>
 </context>
 <context>
@@ -961,15 +1044,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_inline_code.py" line="28"/>
         <source>Expression editor</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>InlineCodeEditor</name>
-    <message>
-        <location filename="../forms/w_inline_code.py" line="53"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Éditeur d&apos;expression</translation>
     </message>
 </context>
 <context>
@@ -1270,7 +1345,7 @@ p, li { white-space: pre-wrap; }
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="108"/>
+        <location filename="../main.py" line="109"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
@@ -1302,17 +1377,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="327"/>
+        <location filename="../main.py" line="328"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="266"/>
+        <location filename="../main.py" line="267"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="408"/>
+        <location filename="../main.py" line="409"/>
         <source>Syntax error ({type}) at line {line}, offset {off}: </source>
         <translation>Erreur de syntaxe ({type}) à la ligne {line}, caractère {off} : </translation>
     </message>
@@ -1497,7 +1572,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Commentaire</translation>
     </message>
     <message>
-        <location filename="../main.py" line="345"/>
+        <location filename="../main.py" line="346"/>
         <source>program interrupted</source>
         <translation>algorithme interrompu</translation>
     </message>

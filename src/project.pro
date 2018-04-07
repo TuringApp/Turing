@@ -28,6 +28,9 @@ SOURCES += \
     forms\about.py \
     forms\alg_define.py \
     forms\alg_display.py \
+    forms\alg_if.py \
+    forms\alg_input.py \
+    forms\alg_return.py \
     forms\calculator.py \
     forms\help.py \
     forms\inline_code_dialog.py \
@@ -36,6 +39,10 @@ SOURCES += \
     forms\ui_about.py \
     forms\ui_alg_define.py \
     forms\ui_alg_display.py \
+    forms\ui_alg_if.py \
+    forms\ui_alg_input.py \
+    forms\ui_alg_return.py \
+    forms\ui_alg_while.py \
     forms\ui_calculator.py \
     forms\ui_help.py \
     forms\ui_inline_code.py \
@@ -87,6 +94,10 @@ FORMS += \
     forms\ui_about.ui \
     forms\ui_alg_define.ui \
     forms\ui_alg_display.ui \
+    forms\ui_alg_if.ui \
+    forms\ui_alg_input.ui \
+    forms\ui_alg_return.ui \
+    forms\ui_alg_while.ui \
     forms\ui_calculator.ui \
     forms\ui_help.ui \
     forms\ui_inline_code.ui \
