@@ -22,5 +22,7 @@ class IdentifierNode(AstNode):
     def __eq__(self, other):
         return type(other) == IdentifierNode and other.value == self.value
 
-    def code(self) -> str:
+    def code(self, bb=False) -> str:
+        if bb:
+            return "[i]%s[/i]" % self.code(False)
         return self.value
