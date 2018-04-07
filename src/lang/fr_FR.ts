@@ -80,87 +80,87 @@ p, li { white-space: pre-wrap; }
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="973"/>
+        <location filename="../main.py" line="995"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="976"/>
+        <location filename="../main.py" line="998"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="967"/>
+        <location filename="../main.py" line="989"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="979"/>
+        <location filename="../main.py" line="1001"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="982"/>
+        <location filename="../main.py" line="1004"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="985"/>
+        <location filename="../main.py" line="1007"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1010"/>
+        <location filename="../main.py" line="1032"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="990"/>
+        <location filename="../main.py" line="1012"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="992"/>
+        <location filename="../main.py" line="1014"/>
         <source>[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]</source>
         <translation>[k]ASSIGNER[/k] [c]{var}[/c] = [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="996"/>
+        <location filename="../main.py" line="1018"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1006"/>
+        <location filename="../main.py" line="1028"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1020"/>
+        <location filename="../main.py" line="1042"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="970"/>
+        <location filename="../main.py" line="992"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="999"/>
+        <location filename="../main.py" line="1021"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation>[b]POUR[/b] [c]{var}[/c] [b]DE[/b] [c]{begin}[/c] [b]À[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1000"/>
+        <location filename="../main.py" line="1022"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation>([b]PAS[/b] [c]{step}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1023"/>
+        <location filename="../main.py" line="1045"/>
         <source>[i]empty[/i]</source>
         <translation>[i]vide[/i]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1014"/>
+        <location filename="../main.py" line="1036"/>
         <source>[k]STOP[/k]</source>
         <translation>[k]STOP[/k]</translation>
     </message>
@@ -177,6 +177,57 @@ p, li { white-space: pre-wrap; }
         <location filename="../forms/alg_input.py" line="41"/>
         <source>Invalid variable name: {name}</source>
         <translation>Nom de variable invalide : {name}</translation>
+    </message>
+    <message>
+        <location filename="../forms/alg_func.py" line="34"/>
+        <source>Invalid name: {name}</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AlgoCallStmt</name>
+    <message>
+        <location filename="../forms/ui_alg_call.py" line="66"/>
+        <source>Display value</source>
+        <translation type="obsolete">Afficher valeur</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_call.py" line="67"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calls the function with the specified arguments.&lt;/p&gt;&lt;p&gt;The argument list must consist of a comma-separated list of arguments.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_call.py" line="68"/>
+        <source>Function:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_call.py" line="69"/>
+        <source>Arguments:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_call.py" line="66"/>
+        <source>Call function</source>
+        <translation type="unfinished">Appeler fonction</translation>
+    </message>
+</context>
+<context>
+    <name>AlgoCommentStmt</name>
+    <message>
+        <location filename="../forms/ui_alg_comment.py" line="48"/>
+        <source>Comment</source>
+        <translation type="unfinished">Commentaire</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_comment.py" line="49"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A comment has no effect whatsoever on the execution of the program.&lt;/p&gt;&lt;p&gt;It can contain anything.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_comment.py" line="50"/>
+        <source>Comment:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -225,7 +276,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="90"/>
         <source>Define variable</source>
-        <translation type="unfinished">Définir variable</translation>
+        <translation type="obsolete">Définir variable</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="91"/>
@@ -257,13 +308,46 @@ p, li { white-space: pre-wrap; }
         <source>Custom step</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../forms/ui_alg_for.py" line="90"/>
+        <source>FOR loop</source>
+        <translation type="unfinished">Boucle POUR</translation>
+    </message>
+</context>
+<context>
+    <name>AlgoFuncStmt</name>
+    <message>
+        <location filename="../forms/ui_alg_func.py" line="54"/>
+        <source>Display value</source>
+        <translation type="obsolete">Afficher valeur</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_func.py" line="55"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Creates a custom function. The parameters must be a comma-separated list of identifiers.&lt;/p&gt;&lt;p&gt;A function may or may not return a value, it can very well only &amp;quot;do&amp;quot; things without ever giving a result. Such a function can be called using the CALL statement.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_func.py" line="56"/>
+        <source>Function:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_func.py" line="57"/>
+        <source>Parameters:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_func.py" line="54"/>
+        <source>Define function</source>
+        <translation type="unfinished">Définir fonction</translation>
+    </message>
 </context>
 <context>
     <name>AlgoIfStmt</name>
     <message>
         <location filename="../forms/ui_alg_if.py" line="55"/>
         <source>Display value</source>
-        <translation type="unfinished">Afficher valeur</translation>
+        <translation type="obsolete">Afficher valeur</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_if.py" line="57"/>
@@ -275,13 +359,18 @@ p, li { white-space: pre-wrap; }
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Checks if the specified condition is true.&lt;/p&gt;&lt;p&gt;The block will only be executed if the condition is true, otherwise the program will continue with the instruction following the block.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../forms/ui_alg_if.py" line="55"/>
+        <source>IF block</source>
+        <translation type="unfinished">Bloc SI</translation>
+    </message>
 </context>
 <context>
     <name>AlgoInputStmt</name>
     <message>
         <location filename="../forms/ui_alg_input.py" line="66"/>
         <source>Define variable</source>
-        <translation type="unfinished">Définir variable</translation>
+        <translation type="obsolete">Définir variable</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_input.py" line="68"/>
@@ -303,13 +392,18 @@ p, li { white-space: pre-wrap; }
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Asks the user for a value and assigns it to the specified variable.&lt;/p&gt;&lt;p&gt;Optionally, a message can be displayed. &lt;span style=&quot; font-weight:600;&quot;&gt;Warning&lt;/span&gt;: the message is an expression, thus if you want to display text you need to enclose everything inside quotes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../forms/ui_alg_input.py" line="66"/>
+        <source>Read user input</source>
+        <translation type="unfinished">Lire entrée</translation>
+    </message>
 </context>
 <context>
     <name>AlgoReturnStmt</name>
     <message>
         <location filename="../forms/ui_alg_return.py" line="60"/>
         <source>Define variable</source>
-        <translation type="unfinished">Définir variable</translation>
+        <translation type="obsolete">Définir variable</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_return.py" line="61"/>
@@ -331,13 +425,18 @@ p, li { white-space: pre-wrap; }
         <source>Variable:</source>
         <translation type="obsolete">Variable :</translation>
     </message>
+    <message>
+        <location filename="../forms/ui_alg_return.py" line="60"/>
+        <source>Return</source>
+        <translation type="unfinished">Renvoyer</translation>
+    </message>
 </context>
 <context>
     <name>AlgoWhileStmt</name>
     <message>
         <location filename="../forms/ui_alg_while.py" line="55"/>
         <source>Display value</source>
-        <translation type="unfinished">Afficher valeur</translation>
+        <translation type="obsolete">Afficher valeur</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_while.py" line="56"/>
@@ -348,6 +447,11 @@ p, li { white-space: pre-wrap; }
         <location filename="../forms/ui_alg_while.py" line="57"/>
         <source>Condition:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_while.py" line="55"/>
+        <source>WHILE loop</source>
+        <translation type="unfinished">Boucle TANT QUE</translation>
     </message>
 </context>
 <context>

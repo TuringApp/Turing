@@ -26,9 +26,11 @@ SOURCES += \
     algo\stmts\WhileStmt.py \
     algo\stmts\__init__.py \
     forms\about.py \
+    forms\alg_call.py \
     forms\alg_define.py \
     forms\alg_display.py \
     forms\alg_for.py \
+    forms\alg_func.py \
     forms\alg_if.py \
     forms\alg_input.py \
     forms\alg_return.py \
@@ -39,9 +41,12 @@ SOURCES += \
     forms\inline_code_editor.py \
     forms\settings.py \
     forms\ui_about.py \
+    forms\ui_alg_call.py \
+    forms\ui_alg_comment.py \
     forms\ui_alg_define.py \
     forms\ui_alg_display.py \
     forms\ui_alg_for.py \
+    forms\ui_alg_func.py \
     forms\ui_alg_if.py \
     forms\ui_alg_input.py \
     forms\ui_alg_return.py \
@@ -95,9 +100,12 @@ SOURCES += \
     
 FORMS += \
     forms\ui_about.ui \
+    forms\ui_alg_call.ui \
+    forms\ui_alg_comment.ui \
     forms\ui_alg_define.ui \
     forms\ui_alg_display.ui \
     forms\ui_alg_for.ui \
+    forms\ui_alg_func.ui \
     forms\ui_alg_if.ui \
     forms\ui_alg_input.ui \
     forms\ui_alg_return.ui \
