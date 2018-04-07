@@ -103,7 +103,7 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
             if index == "pasliste":
                 return AssignStmt(IdentifierNode(varname), parse_expr(value))
 
-            return AssignStmt(ArrayAccessNode(IdentifierNode(varname)), parse_expr(value))
+            return AssignStmt(ArrayAccessNode(IdentifierNode(varname), parse_expr(index)), parse_expr(value))
 
         elif code == 6: # SI
             condition = args[0]
