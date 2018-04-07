@@ -18,13 +18,15 @@ def parse_algobox(xml):
         r = to_stmt(elem)
 
         if r is not None:
-            result.append(r)
+            if type(r) == list:
+                result.extend(r)
+            else:
+                result.append(r)
 
     return BlockStmt(result)
 
 
 def parse_expr(expr):
-    print(expr)
     return parse(expr.replace("Math.PI", "pi"))
 
 
@@ -168,7 +170,7 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
             return children
 
         elif code == 101: # DEBUT_ALGO
-            return None
+            return children
 
         elif code == 102: # FIN_ALGO
             return None

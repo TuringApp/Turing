@@ -152,7 +152,6 @@ tests = [
 
 
 def run_tests():
-    return
     f = r"C:\Program Files (x86)\Algobox\ressources\eleve_calcul_recurrent.alg"
 
     with open(f, "rb") as fp:
