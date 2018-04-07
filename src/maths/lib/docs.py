@@ -7,6 +7,7 @@ from util.math import proper_str
 funcs = {}
 consts = {}
 modules = {}
+ext_aliases = {}
 
 
 def doc(*kwargs):
@@ -25,6 +26,10 @@ def doc_c(*kwargs):
     if mod_name not in consts:
         consts[mod_name] = []
     consts[mod_name].append(kwargs)
+
+
+def add_alias(func, alias):
+    ext_aliases[alias] = func
 
 
 def get_func_def(f):

@@ -35,6 +35,9 @@ class Evaluator:
                     elif member_name.startswith("c_"):  # if constant
                         self.frames[0][member_name[2:]] = member
 
+        for alias, func in mlib.docs.ext_aliases:
+            self.frames[0][alias] = self.frames[0][func]
+
         self.log = Logger("Eval")
         self.strict_typing = strict
 
