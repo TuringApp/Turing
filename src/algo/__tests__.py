@@ -153,6 +153,8 @@ tests = [
 
 def run_tests():
     for algo, input, exp_output in tests:
+        #print("\n".join(BlockStmt(algo).python()))
+
         worker = Worker(algo)
 
         output = ""
