@@ -1,0 +1,7 @@
+BlockStmt([
+            ForStmt("i", parse("1"), parse("3"), [
+                ForStmt("i", parse("1"), parse("3"), [
+                    DisplayStmt(parse("i"))
+                ])
+            ])
+        ])

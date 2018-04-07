@@ -1,0 +1,20 @@
+BlockStmt([
+            ForStmt("i", parse("1"), parse("16"), [
+                IfStmt(parse("i % 15 == 0"), [
+                    DisplayStmt(parse("\"FizzBuzz\""))
+                ]),
+                ElseStmt([
+                    IfStmt(parse("i % 3 == 0"), [
+                        DisplayStmt(parse("\"Fizz\""))
+                    ]),
+                    ElseStmt([
+                        IfStmt(parse("i % 5 == 0"), [
+                            DisplayStmt(parse("\"Buzz\""))
+                        ]),
+                        ElseStmt([
+                            DisplayStmt(parse("i"))
+                        ])
+                    ])
+                ]),
+            ])
+        ])

@@ -1,0 +1,11 @@
+BlockStmt([
+            FuncStmt("sayHello2", ["name"], [
+                AssignStmt("text", parse("\"Hello \" + name")),
+                FuncStmt("say", [], [
+                    DisplayStmt(parse("text"))
+                ]),
+                ReturnStmt(parse("say"))
+            ]),
+            AssignStmt("say2", parse("sayHello2(\"Bob\")")),
+            CallStmt(parse("say2"), [])
+        ])

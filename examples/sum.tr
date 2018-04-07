@@ -1,0 +1,8 @@
+BlockStmt( [
+            AssignStmt("sum", parse("0")),
+            InputStmt("N"),
+            ForStmt("i", parse("1"), parse("N"), [
+                AssignStmt("sum", parse("sum + i"))
+            ]),
+            DisplayStmt(parse("\"Result=\" + sum"))
+        ])
