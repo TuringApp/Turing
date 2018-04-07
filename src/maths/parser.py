@@ -257,10 +257,16 @@ class Parser:
             if self.accept_operator(x):
                 return x
 
-    def parse(self) -> nodes.AstNode:
+    def parse(self) -> Optional[nodes.AstNode]:
         """Main parsing routine."""
         self.tokenize()
-        return self.parse_expression()
+        result = self.parse_expression()
+        if self.can_read():
+            self.log.error(
+                translate("Parser", "Unexpected token ({type}) '{val}' after end of expression").format(
+                    type=TokenType.get_name(self.peek_token()[0]), val=self.peek_token()[1]))
+            return None
+        return result
 
     def parse_expression(self) -> nodes.AstNode:
         """Parses an expression."""
