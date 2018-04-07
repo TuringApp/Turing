@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>690</height>
+    <height>699</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -84,6 +84,15 @@
            </item>
            <item row="4" column="0" colspan="2">
             <widget class="Line" name="line">
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="midLineWidth">
+              <number>0</number>
+             </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -136,14 +145,6 @@
              </property>
             </widget>
            </item>
-           <item row="9" column="0">
-            <widget class="QPushButton" name="btnAlgo_Variable">
-             <property name="text">
-              <string>DEFINE
-variable</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="1">
             <widget class="QPushButton" name="btnAlgo_Delete">
              <property name="text">
@@ -155,7 +156,15 @@ variable</string>
              </property>
             </widget>
            </item>
-           <item row="11" column="0">
+           <item row="10" column="0">
+            <widget class="QPushButton" name="btnAlgo_Variable">
+             <property name="text">
+              <string>DEFINE
+variable</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="0">
             <widget class="QPushButton" name="btnAlgo_Input">
              <property name="text">
               <string>READ
@@ -163,17 +172,17 @@ user input</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
-            <widget class="QPushButton" name="btnAlgo_Return">
-             <property name="text">
-              <string>Return</string>
-             </property>
-            </widget>
-           </item>
-           <item row="17" column="0">
+           <item row="18" column="0">
             <widget class="QPushButton" name="btnAlgo_Continue">
              <property name="text">
               <string>CONTINUE</string>
+             </property>
+            </widget>
+           </item>
+           <item row="18" column="1">
+            <widget class="QPushButton" name="btnAlgo_Comment">
+             <property name="text">
+              <string>Comment</string>
              </property>
             </widget>
            </item>
@@ -181,6 +190,14 @@ user input</string>
             <widget class="QPushButton" name="btnAlgo_For">
              <property name="text">
               <string>FOR
+loop</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QPushButton" name="btnAlgo_While">
+             <property name="text">
+              <string>WHILE
 loop</string>
              </property>
             </widget>
@@ -201,37 +218,15 @@ block</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="1">
-            <widget class="QPushButton" name="btnAlgo_While">
+           <item row="14" column="0">
+            <widget class="QPushButton" name="btnAlgo_Call">
              <property name="text">
-              <string>WHILE
-loop</string>
+              <string>CALL
+function</string>
              </property>
             </widget>
            </item>
-           <item row="17" column="1">
-            <widget class="QPushButton" name="btnAlgo_Comment">
-             <property name="text">
-              <string>Comment</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="1">
-            <widget class="QPushButton" name="btnAlgo_Display">
-             <property name="text">
-              <string>DISPLAY
-value</string>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="0">
-            <widget class="QPushButton" name="btnAlgo_Break">
-             <property name="text">
-              <string>BREAK</string>
-             </property>
-            </widget>
-           </item>
-           <item row="13" column="1">
+           <item row="14" column="1">
             <widget class="QPushButton" name="btnAlgo_Stop">
              <property name="text">
               <string>STOP
@@ -239,7 +234,7 @@ execution</string>
              </property>
             </widget>
            </item>
-           <item row="11" column="1">
+           <item row="12" column="1">
             <widget class="QPushButton" name="btnAlgo_Func">
              <property name="text">
               <string>Define NEW
@@ -247,11 +242,57 @@ function</string>
              </property>
             </widget>
            </item>
-           <item row="13" column="0">
-            <widget class="QPushButton" name="btnAlgo_Call">
+           <item row="10" column="1">
+            <widget class="QPushButton" name="btnAlgo_Display">
              <property name="text">
-              <string>CALL
-function</string>
+              <string>DISPLAY
+value</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="Line" name="line_2">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="sizeIncrement">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="baseSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="Line" name="line_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="15" column="0">
+            <widget class="QPushButton" name="btnAlgo_Break">
+             <property name="text">
+              <string>BREAK</string>
+             </property>
+            </widget>
+           </item>
+           <item row="15" column="1">
+            <widget class="QPushButton" name="btnAlgo_Return">
+             <property name="text">
+              <string>Return</string>
              </property>
             </widget>
            </item>
