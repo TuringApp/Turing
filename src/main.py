@@ -699,7 +699,10 @@ def add_for_loop():
 
 
 def add_while_loop():
-    pass
+    from forms import alg_while
+    dlg = alg_while.AlgoWhileStmt(window)
+    if dlg.run():
+        append_line(WhileStmt(dlg.expr, []))
 
 
 def add_break_stmt():
@@ -763,6 +766,12 @@ def btn_edit_line():
     elif isinstance(stmt, IfStmt):
         from forms import alg_if
         dlg = alg_if.AlgoIfStmt(window, stmt.condition.code())
+        if dlg.run():
+            stmt.condition = dlg.expr
+
+    elif isinstance(stmt, WhileStmt):
+        from forms import alg_while
+        dlg = alg_while.AlgoWhileStmt(window, stmt.condition.code())
         if dlg.run():
             stmt.condition = dlg.expr
 
