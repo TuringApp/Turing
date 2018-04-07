@@ -501,14 +501,25 @@ def handler_Save():
 
 def handler_Open():
     global algo, mode_python, current_file
-    sel_file, _ = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "../saves/","PY,TR(*.py;*.tr)")
+    sel_file, _ = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "../saves/", ";;".join([
+        translate("MainWindow", "Program file (*.py; *.tr; *.alg)"),
+        translate("MainWindow", "Python file (*.py)"),
+        translate("MainWindow", "Turing program (*.tr)"),
+        translate("MainWindow", "Algobox file (*.alg)")
+            ]))
     if not sel_file :
         return
     current_file = sel_file
     _, ext = os.path.splitext(current_file)
     with open(current_file, "r", encoding="utf8") as openfile :
         newcode = openfile.read()
-    if ext == ".tr" :
+    if ext == ".alg":
+        from algo.algobox import parse_algobox
+        mode_python = False
+        load_block(parse_algobox(newcode))
+        refresh_algo()
+        algo_sel_changed()
+    elif ext == ".tr" :
         mode_python = False
         load_pseudocode(newcode)
         refresh_algo()
