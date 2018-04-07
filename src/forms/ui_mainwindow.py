@@ -152,7 +152,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 19))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -253,8 +253,8 @@ class Ui_MainWindow(object):
         self.txtOutput.setHtml("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Sans Serif\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:8.25pt;\"><br /></p></body></html>")
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>")
         self.txtOutput.setAcceptRichText(True)
         self.txtOutput.setObjectName("txtOutput")
         self.horizontalLayout_3.addWidget(self.txtOutput)
@@ -492,6 +492,12 @@ class Ui_MainWindow(object):
         icon50.addPixmap(QtGui.QPixmap(":/action/media/stop.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionStop.setIcon(icon50)
         self.actionStop.setObjectName("actionStop")
+        self.actionRunOptimized = QtWidgets.QAction(MainWindow)
+        icon51 = QtGui.QIcon()
+        icon51.addPixmap(QtGui.QPixmap(":/action/media/run_fast.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionRunOptimized.setIcon(icon51)
+        self.actionRunOptimized.setVisible(False)
+        self.actionRunOptimized.setObjectName("actionRunOptimized")
         self.menuRecent.addSeparator()
         self.menuRecent.addAction(self.actionClearRecent)
         self.menuFile.addAction(self.actionNew)
@@ -538,6 +544,7 @@ class Ui_MainWindow(object):
         self.menuView.addAction(self.menuChangeTheme.menuAction())
         self.menuView.addAction(self.menuChangeStyle.menuAction())
         self.menuProgram.addAction(self.actionRun)
+        self.menuProgram.addAction(self.actionRunOptimized)
         self.menuProgram.addAction(self.actionStep)
         self.menuProgram.addAction(self.actionStop)
         self.menuProgram.addSeparator()
@@ -708,5 +715,6 @@ class Ui_MainWindow(object):
         self.actionFindNext.setShortcut(_translate("MainWindow", "F3"))
         self.actiondefault.setText(_translate("MainWindow", "default"))
         self.actionStop.setText(_translate("MainWindow", "Stop"))
+        self.actionRunOptimized.setText(_translate("MainWindow", "Run (optimized)"))
 
 import turing_rc
