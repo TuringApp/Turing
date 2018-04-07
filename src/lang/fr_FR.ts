@@ -55,112 +55,112 @@ p, li { white-space: pre-wrap; }
         <translation>Variable {var} = </translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="197"/>
+        <location filename="../algo/worker.py" line="200"/>
         <source>BREAK can only be used inside a loop</source>
         <translation>SORTIR ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="207"/>
+        <location filename="../algo/worker.py" line="210"/>
         <source>CONTINUE can only be used inside a loop</source>
         <translation>CONTINUER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="236"/>
+        <location filename="../algo/worker.py" line="239"/>
         <source>RETURN can only be used inside a function</source>
         <translation>RENVOYER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une fonction</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="313"/>
+        <location filename="../algo/worker.py" line="316"/>
         <source>Unknown statement type: {type}</source>
         <translation>Type d&apos;instruction inconnu : {type}</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="264"/>
+        <location filename="../algo/worker.py" line="267"/>
         <source>ELSE can only be used after an IF block</source>
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1025"/>
+        <location filename="../main.py" line="1041"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1028"/>
+        <location filename="../main.py" line="1044"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1019"/>
+        <location filename="../main.py" line="1035"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1031"/>
+        <location filename="../main.py" line="1047"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1034"/>
+        <location filename="../main.py" line="1050"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1037"/>
+        <location filename="../main.py" line="1053"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1062"/>
+        <location filename="../main.py" line="1078"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1042"/>
+        <location filename="../main.py" line="1058"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1044"/>
+        <location filename="../main.py" line="1060"/>
         <source>[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]</source>
         <translation>[k]ASSIGNER[/k] [c]{var}[/c] = [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1048"/>
+        <location filename="../main.py" line="1064"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1058"/>
+        <location filename="../main.py" line="1074"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1072"/>
+        <location filename="../main.py" line="1088"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1022"/>
+        <location filename="../main.py" line="1038"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1051"/>
+        <location filename="../main.py" line="1067"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation>[b]POUR[/b] [c]{var}[/c] [b]DE[/b] [c]{begin}[/c] [b]À[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1052"/>
+        <location filename="../main.py" line="1068"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation>([b]PAS[/b] [c]{step}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1075"/>
+        <location filename="../main.py" line="1091"/>
         <source>[i]empty[/i]</source>
         <translation>[i]vide[/i]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1066"/>
+        <location filename="../main.py" line="1082"/>
         <source>[k]STOP[/k]</source>
         <translation>[k]STOP[/k]</translation>
     </message>
@@ -189,12 +189,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="160"/>
+        <location filename="../algo/worker.py" line="163"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
         <translation type="unfinished">Indice &apos;{idx}&apos; trop grand pour la liste</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="163"/>
+        <location filename="../algo/worker.py" line="166"/>
         <source>Assignment target must be either variable or array item</source>
         <translation type="unfinished"></translation>
     </message>
@@ -482,7 +482,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algobox</name>
     <message>
-        <location filename="../algo/algobox.py" line="66"/>
+        <location filename="../algo/algobox.py" line="75"/>
         <source>Unknown variable type: {type}</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1774,6 +1774,26 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../main.py" line="329"/>
         <source>end of output [{time}]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="513"/>
+        <source>Python file (*.py)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="513"/>
+        <source>Turing program (*.tr)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="513"/>
+        <source>Program file (*.py; *.tr; *.alg)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="513"/>
+        <source>Algobox file (*.alg)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

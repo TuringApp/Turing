@@ -400,7 +400,7 @@ def handler_Run():
     ui.actionStep.setDisabled(True)
     ui.actionStop.setEnabled(True)
     global running, current, skip_step, stopped, run_started
-    skip_step = False
+
     set_current_line(None)
     try:
         if mode_python:
@@ -427,10 +427,14 @@ def handler_Run():
                 running = True
                 stopped = False
                 run_started = datetime.datetime.now()
+                skip_step = False
             else:
-                worker.exec_stmt(current)
-                if not worker.error:
-                    set_current_line(None)
+                if skip_step:
+                    skip_step = False
+                else:
+                    worker.exec_stmt(current)
+                    if not worker.error:
+                        set_current_line(None)
 
             while not worker.finished:
                 worker.step()
