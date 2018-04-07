@@ -1041,7 +1041,7 @@ def str_stmt(stmt):
         ret = translate("Algo", "[k]STOP[/k]")
 
     elif isinstance(stmt, CommentStmt):
-        ret = "[t]{com}[/t]".format(com=stmt.content)
+        ret = "[t]{com}[/t]".format(com=util.html.sanitize(stmt.content))
 
     elif isinstance(stmt, BlockStmt):
         ret = translate("Algo", "[b]PROGRAM[/b]")
