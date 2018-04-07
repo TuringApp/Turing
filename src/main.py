@@ -675,7 +675,7 @@ def add_display():
     from forms import alg_display
     dlg = alg_display.AlgoDisplayStmt(window)
     if dlg.run():
-        append_line(DisplayStmt(dlg.expr))
+        append_line(DisplayStmt(dlg.expr, dlg.newline))
 
 
 def add_def_variable():
@@ -780,9 +780,10 @@ def btn_edit_line():
 
     if isinstance(stmt, DisplayStmt):
         from forms import alg_display
-        dlg = alg_display.AlgoDisplayStmt(window, stmt.content.code())
+        dlg = alg_display.AlgoDisplayStmt(window, (stmt.content.code(), stmt.newline))
         if dlg.run():
             stmt.content = dlg.expr
+            stmt.newline = dlg.newline
 
     elif isinstance(stmt, CallStmt):
         from forms import alg_call

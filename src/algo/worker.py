@@ -134,7 +134,7 @@ class Worker:
         return self.stack.pop()
 
     def exec_display(self, stmt: DisplayStmt):
-        self.stmt_print(str(self.evaluator.eval_node(stmt.content)))
+        self.stmt_print(str(self.evaluator.eval_node(stmt.content)), end="\n" if stmt.newline else "")
 
     def exec_input(self, stmt: InputStmt):
         prompt = (

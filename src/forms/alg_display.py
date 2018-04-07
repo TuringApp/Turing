@@ -11,12 +11,13 @@ from util.code import try_parse
 translate = QCoreApplication.translate
 
 class AlgoDisplayStmt(QDialog):
-    def __init__(self, parent, origcode=""):
+    def __init__(self, parent, origcode=("", True)):
         super().__init__(parent)
         self.ui = Ui_AlgoDisplayStmt()
         self.ui.setupUi(self)
         self.setFixedSize(self.size())
-        self.ui.lineEdit.setText(origcode)
+        self.ui.lineEdit.setText(origcode[0])
+        self.ui.cbxNewline.setChecked(origcode[1])
         self.ui.btnCode.clicked.connect(self.click)
         center_widget(self, parent)
 
@@ -29,6 +30,7 @@ class AlgoDisplayStmt(QDialog):
                 return
 
             self.expr = p
+            self.newline = self.ui.cbxNewline.isChecked()
             self.ok = True
 
         super(AlgoDisplayStmt, self).done(res)
