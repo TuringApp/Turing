@@ -1127,19 +1127,22 @@ def load_algo():
 
 def algo_sel_changed():
     current = get_current_pos()
-    is_item = ui.treeWidget.currentItem() != None
+    current_stmt = get_current_stmt()
+
+    is_item = current_stmt is not None
     is_root = current == []
-    is_editable = is_item and not is_root
+    is_changeable = is_item and not is_root
+    is_editable = is_changeable and not isinstance(current_stmt, (BreakStmt, ContinueStmt, ElseStmt, StopStmt)) and type(current_stmt) not in [BaseStmt, BlockStmt]
 
     ui.btnAlgo_Add.setEnabled(is_item)
-    ui.btnAlgo_Delete.setEnabled(is_editable)
+    ui.btnAlgo_Delete.setEnabled(is_changeable)
     ui.btnAlgo_Edit.setEnabled(is_editable)
 
-    can_up = is_editable and current != [0]
+    can_up = is_changeable and current != [0]
     ui.btnAlgo_UpBlock.setEnabled(can_up)
     ui.btnAlgo_Up.setEnabled(can_up)
 
-    can_down = is_editable and current != [len(algo.children) - 1]
+    can_down = is_changeable and current != [len(algo.children) - 1]
     ui.btnAlgo_Down.setEnabled(can_down)
     ui.btnAlgo_DownBlock.setEnabled(can_down)
 
@@ -1148,20 +1151,18 @@ def algo_sel_changed():
     ui.btnAlgo_Input.setEnabled(is_item)
     ui.btnAlgo_Call.setEnabled(is_item)
     ui.btnAlgo_Func.setEnabled(is_item)
-    ui.btnAlgo_Return.setEnabled(is_editable)
+    ui.btnAlgo_Return.setEnabled(is_changeable)
     ui.btnAlgo_Stop.setEnabled(is_item)
 
     ui.btnAlgo_If.setEnabled(is_item)
-    ui.btnAlgo_Else.setEnabled(is_editable)
+    ui.btnAlgo_Else.setEnabled(is_changeable)
     ui.btnAlgo_For.setEnabled(is_item)
     ui.btnAlgo_While.setEnabled(is_item)
-    ui.btnAlgo_Continue.setEnabled(is_editable)
-    ui.btnAlgo_Break.setEnabled(is_editable)
+    ui.btnAlgo_Continue.setEnabled(is_changeable)
+    ui.btnAlgo_Break.setEnabled(is_changeable)
     ui.btnAlgo_Comment.setEnabled(is_item)
 
-    if is_editable:
-        parent, parent_stmt = get_parent(current)
-        current_stmt = parent_stmt.children[current[-1]]
+    if is_changeable:
         ui.btnAlgo_Else.setEnabled(isinstance(current_stmt, IfStmt))
 
         parent_stack = [algo]
