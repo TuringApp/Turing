@@ -43,6 +43,7 @@ def try_parse(txt, parent=None):
             x[1] for x in msgs))
 
         box.exec_()
+        ret = None
 
     return ret
 
