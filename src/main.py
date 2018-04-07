@@ -494,7 +494,7 @@ def handler_Save():
         if not current_file:
             return
 
-    with open(current_file,"w+") as savefile :
+    with open(current_file, "w+", encoding="utf8") as savefile :
         savefile.write(saveme)
     refresh()
 
@@ -506,7 +506,7 @@ def handler_Open():
         return
     current_file = sel_file
     _, ext = os.path.splitext(current_file)
-    with open(current_file,"r") as openfile :
+    with open(current_file, "r", encoding="utf8") as openfile :
         newcode = openfile.read()
     if ext == ".tr" :
         mode_python = False

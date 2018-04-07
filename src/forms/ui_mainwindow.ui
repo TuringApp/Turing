@@ -29,7 +29,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_home">
        <attribute name="icon">
@@ -1131,11 +1131,6 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>F3</string>
-   </property>
-  </action>
-  <action name="actiondefault">
-   <property name="text">
-    <string>default</string>
    </property>
   </action>
   <action name="actionStop">

@@ -484,8 +484,6 @@ class Ui_MainWindow(object):
         icon49.addPixmap(QtGui.QPixmap(":/action/media/find_next.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionFindNext.setIcon(icon49)
         self.actionFindNext.setObjectName("actionFindNext")
-        self.actiondefault = QtWidgets.QAction(MainWindow)
-        self.actiondefault.setObjectName("actiondefault")
         self.actionStop = QtWidgets.QAction(MainWindow)
         self.actionStop.setEnabled(False)
         icon50 = QtGui.QIcon()
@@ -576,7 +574,7 @@ class Ui_MainWindow(object):
         self.toolBar.addAction(self.actionHelpContents)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         self.tabWidget_2.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -713,7 +711,6 @@ class Ui_MainWindow(object):
         self.actionFindPrevious.setShortcut(_translate("MainWindow", "Shift+F3"))
         self.actionFindNext.setText(_translate("MainWindow", "Find Next"))
         self.actionFindNext.setShortcut(_translate("MainWindow", "F3"))
-        self.actiondefault.setText(_translate("MainWindow", "default"))
         self.actionStop.setText(_translate("MainWindow", "Stop"))
         self.actionRunOptimized.setText(_translate("MainWindow", "Run (optimized)"))
 
