@@ -49,7 +49,6 @@ class Ui_InlineCodeEditor(object):
         QtCore.QMetaObject.connectSlotsByName(InlineCodeEditor)
 
     def retranslateUi(self, InlineCodeEditor):
-        _translate = QtCore.QCoreApplication.translate
-        InlineCodeEditor.setWindowTitle(_translate("InlineCodeEditor", "Form"))
+        pass
 
 import turing_rc
