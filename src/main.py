@@ -33,7 +33,7 @@ from maths.nodes import *
 
 translate = QCoreApplication.translate
 
-__version__ = "β-0.2"
+__version__ = "β-0.3"
 __channel__ = "beta"
 
 current_file = None
