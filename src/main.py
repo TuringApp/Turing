@@ -71,7 +71,8 @@ python_only = [
     "FindNext",
     "Replace",
     "Indent",
-    "Unindent"
+    "Unindent",
+    "RunOptimized"
 ]
 
 worker = None
@@ -86,7 +87,7 @@ red_html = '<span style="color:#cb4b16">'
 
 running = False
 skip_step = False
-
+stopped = False
 
 def sleep(duration: int):
     duration *= 1000
@@ -321,9 +322,11 @@ def init_worker():
 
 
 def end_output():
-    global current_output
-    current_output += util.html.centered(util.html.color_span(translate("MainWindow", "end of output"), "red"))
+    global current_output, run_started
+    current_output += util.html.centered(util.html.color_span(translate("MainWindow", "end of output") if run_started is None
+                                                              else translate("MainWindow", "end of output [{time}]").format(time=datetime.datetime.now() - run_started), "red"))
     current_output += "<hr>"
+    run_started = None
     update_output()
 
 
@@ -344,9 +347,12 @@ def handler_Stop():
     if mode_python:
         pass
     else:
-        running = False
+        global running, after_output, stopped
+        after_output = ""
+        running = True
         worker.finished = True
         worker.error = False
+        stopped = True
         handler_Step()
 
 
@@ -354,25 +360,28 @@ def handler_Step():
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
     ui.actionStop.setEnabled(True)
-    global running, current, skip_step
+    global running, current, skip_step, stopped
 
     try:
         if mode_python:
             pass
         else:
-            if running:
-                if skip_step:
-                    skip_step = False
+            if not stopped:
+                if running:
+                    if skip_step:
+                        skip_step = False
+                    else:
+                        worker.exec_stmt(current)
                 else:
-                    worker.exec_stmt(current)
+                    init_worker()
+                    running = True
+
+                if not worker.error:
+                    current = worker.next_stmt()
+
+                    set_current_line(current)
             else:
-                init_worker()
-                running = True
-
-            if not worker.error:
-                current = worker.next_stmt()
-
-                set_current_line(current)
+                stopped = False
     except:
         show_error()
     finally:
@@ -390,7 +399,7 @@ def handler_Run():
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
     ui.actionStop.setEnabled(True)
-    global running, current, skip_step
+    global running, current, skip_step, stopped, run_started
     skip_step = False
     set_current_line(None)
     try:
@@ -416,6 +425,8 @@ def handler_Run():
                 init_worker()
                 worker.break_on_error = True
                 running = True
+                stopped = False
+                run_started = datetime.datetime.now()
             else:
                 worker.exec_stmt(current)
                 if not worker.error:
@@ -439,6 +450,14 @@ def handler_Run():
             ui.actionStep.setDisabled(False)
             ui.actionStop.setEnabled(False)
             running = False
+
+
+def handler_RunOptimized():
+    py_code = algo.python()
+    code_editor.setPlainText(py_code, "", "")
+    mode_python = True
+    handler_Run()
+    mode_python = False
 
 
 def handler_AboutTuring():
