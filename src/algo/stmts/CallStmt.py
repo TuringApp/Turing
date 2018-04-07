@@ -24,3 +24,7 @@ class CallStmt(BaseStmt):
 
     def to_node(self):
         return CallNode(self.function, self.arguments)
+
+    @staticmethod
+    def from_node(node: CallNode):
+        return CallStmt(node.func, node.args)
