@@ -681,7 +681,10 @@ def add_call():
 
 
 def add_def_func():
-    pass
+    from forms import alg_func
+    dlg = alg_func.AlgoFuncStmt(window)
+    if dlg.run():
+        append_line(FuncStmt(dlg.func, dlg.args, []))
 
 
 def add_return():
@@ -806,6 +809,13 @@ def btn_edit_line():
             stmt.begin = dlg.f_from
             stmt.end = dlg.f_to
             stmt.step = dlg.f_step
+
+    elif isinstance(stmt, FuncStmt):
+        from forms import alg_func
+        dlg = alg_func.AlgoFuncStmt(window, (stmt.name, stmt.arguments))
+        if dlg.run():
+            stmt.name = dlg.func
+            stmt.arguments = dlg.args
 
     refresh_algo()
     algo_sel_changed()
