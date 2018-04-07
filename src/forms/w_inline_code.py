@@ -32,6 +32,7 @@ class Ui_InlineCodeEditor(object):
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/action/media/accept.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnSubmit.setIcon(icon1)
+        self.btnSubmit.setDefault(True)
         self.btnSubmit.setObjectName("btnSubmit")
         self.horizontalLayout.addWidget(self.btnSubmit)
         self.verticalLayout.addLayout(self.horizontalLayout)
