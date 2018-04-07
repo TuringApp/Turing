@@ -48,6 +48,9 @@
         <iconset resource="../turing.qrc">
          <normaloff>:/action/media/accept.png</normaloff>:/action/media/accept.png</iconset>
        </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>
