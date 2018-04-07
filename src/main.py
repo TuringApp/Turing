@@ -665,7 +665,10 @@ def add_def_variable():
 
 
 def add_input():
-    pass
+    from forms import alg_input
+    dlg = alg_input.AlgoInputStmt(window)
+    if dlg.run():
+        append_line(InputStmt(dlg.varname, dlg.expr))
 
 
 def add_call():
@@ -749,6 +752,13 @@ def btn_edit_line():
         if dlg.run():
             stmt.variable = dlg.varname
             stmt.value = dlg.expr
+
+    elif isinstance(stmt, InputStmt):
+        from forms import alg_input
+        dlg = alg_input.AlgoInputStmt(window, (stmt.variable, stmt.prompt.code() if stmt.prompt is not None else None))
+        if dlg.run():
+            stmt.variable = dlg.varname
+            stmt.prompt = dlg.expr
 
     elif isinstance(stmt, IfStmt):
         from forms import alg_if
