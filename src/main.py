@@ -1016,7 +1016,7 @@ def str_stmt(stmt):
     ret = ret.replace("[t]", comment_html).replace("[/t]", "</span>")
 
     ret = ret.replace("[g]", "<b>").replace("[/g]", "</b>")
-    ret = ret.replace("[n]", "<i>" + red_html).replace("[/n]", "</i></span>")
+    ret = ret.replace("[n]", "<i>" + red_html).replace("[/n]", "</span></i>")
     ret = ret.replace("[s]", red_html).replace("[/s]", "</span>")
 
     ret = util.html.unescape_brackets(ret)
