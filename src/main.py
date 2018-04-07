@@ -681,7 +681,10 @@ def add_return():
 
 
 def add_if_block():
-    pass
+    from forms import alg_if
+    dlg = alg_if.AlgoIfStmt(window)
+    if dlg.run():
+        append_line(IfStmt(dlg.expr, []))
 
 
 def add_else_block():
@@ -746,6 +749,12 @@ def btn_edit_line():
         if dlg.run():
             stmt.variable = dlg.varname
             stmt.value = dlg.expr
+
+    elif isinstance(stmt, IfStmt):
+        from forms import alg_if
+        dlg = alg_if.AlgoIfStmt(window, stmt.condition.code())
+        if dlg.run():
+            stmt.condition = dlg.expr
 
     refresh_algo()
     algo_sel_changed()
