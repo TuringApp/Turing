@@ -1092,7 +1092,7 @@ def str_stmt(stmt):
         if stmt.value is None:
             ret = translate("Algo", "[k]DECLARE[/k] [c]{var}[/c]").format(var=stmt.variable)
         else:
-            ret = translate("Algo", "[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]").format(var=code(stmt.variable),
+            ret = translate("Algo", "[k]VARIABLE[/k] [c]{var}[/c] TAKES VALUE [c]{value}[/c]").format(var=code(stmt.variable),
                                                                                           value=code(stmt.value))
 
     elif isinstance(stmt, CallStmt):
