@@ -112,8 +112,7 @@ def is_modified():
 class MainWindowWrapper(QMainWindow):
     def closeEvent(self, event):
         if not is_modified():
-            event.accept_token()
-            exit()
+            event.setAccepted(True)
             return
         msg = get_themed_box()
         msg.setIcon(QMessageBox.Question)
@@ -121,13 +120,7 @@ class MainWindowWrapper(QMainWindow):
         msg.setDefaultButton(QMessageBox.No)
         msg.setText(translate("MainWindow", "Do you really want to exit?\nAll unsaved changes will be lost."))
         center_widget(msg, self)
-        event.ignore()
-        if msg.exec_() == QMessageBox.Yes:
-            try:
-                event.accept_token()
-            except:
-                pass
-            exit()
+        event.setAccepted(msg.exec_() == QMessageBox.Yes)
 
 
 def get_action(name: str) -> QAction:
