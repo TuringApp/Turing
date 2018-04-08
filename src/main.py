@@ -700,6 +700,7 @@ def get_item_label(item):
     txt = QClickableLabel()
     txt.setStyleSheet(ui.treeWidget.styleSheet())
     txt.clicked.connect(gen_func(item))
+    txt.dclicked.connect(algo_double_click)
     item.lbl = txt
     ui.treeWidget.setItemWidget(item, 0, txt)
 
