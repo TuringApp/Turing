@@ -438,7 +438,15 @@ def handler_Step():
         ui.actionStop.setEnabled(not worker.finished)
 
 
-def handler_Run():
+def handler_Debug():
+    handler_Run(True)
+
+
+def handler_Run(flag=False):
+    if not flag and not mode_python:
+        algo_run_python()
+        return
+
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
     ui.actionStop.setEnabled(True)
@@ -453,6 +461,7 @@ def handler_Run():
                 file.write(code)
                 file.close()
                 running = True
+                run_started = datetime.datetime.now()
                 runpy.run_path(file.name, init_globals={"print": python_print, "input": python_input})
             except SyntaxError as err:
                 msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
@@ -500,13 +509,23 @@ def handler_Run():
             running = False
 
 
-def handler_RunOptimized():
+def handler_ConvertToPython():
+    global mode_python, current_file
+    py_code = "\n".join(algo.python())
+    code_editor.setPlainText(py_code, "", "")
+    mode_python = True
+    current_file = None
+    refresh()
+
+
+def algo_run_python():
     global mode_python
-    py_code = algo.python()
+    py_code = "\n".join(algo.python())
     code_editor.setPlainText(py_code, "", "")
     mode_python = True
     handler_Run()
     mode_python = False
+    #code_editor.setPlainText("", "", "")
 
 
 def handler_AboutTuring():
