@@ -437,6 +437,7 @@ class Ui_MainWindow(object):
         self.actionConvertToPython.setIcon(icon10)
         self.actionConvertToPython.setObjectName("actionConvertToPython")
         self.actionConvertToPseudocode = QtWidgets.QAction(MainWindow)
+        self.actionConvertToPseudocode.setEnabled(False)
         self.actionConvertToPseudocode.setIcon(icon9)
         self.actionConvertToPseudocode.setObjectName("actionConvertToPseudocode")
         self.actionEnglish = QtWidgets.QAction(MainWindow)
