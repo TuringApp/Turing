@@ -378,7 +378,7 @@
      <string>&amp;Program</string>
     </property>
     <addaction name="actionRun"/>
-    <addaction name="actionRunOptimized"/>
+    <addaction name="actionDebug"/>
     <addaction name="actionStep"/>
     <addaction name="actionStop"/>
     <addaction name="separator"/>
@@ -430,6 +430,7 @@
    <addaction name="actionFind"/>
    <addaction name="separator"/>
    <addaction name="actionRun"/>
+   <addaction name="actionDebug"/>
    <addaction name="actionStep"/>
    <addaction name="actionStop"/>
    <addaction name="separator"/>
@@ -1148,13 +1149,13 @@ p, li { white-space: pre-wrap; }
     <string>Stop</string>
    </property>
   </action>
-  <action name="actionRunOptimized">
+  <action name="actionDebug">
    <property name="icon">
     <iconset resource="../turing.qrc">
-     <normaloff>:/action/media/run_fast.png</normaloff>:/action/media/run_fast.png</iconset>
+     <normaloff>:/action/media/debug.png</normaloff>:/action/media/debug.png</iconset>
    </property>
    <property name="text">
-    <string>Run (optimized)</string>
+    <string>Debug</string>
    </property>
    <property name="visible">
     <bool>false</bool>

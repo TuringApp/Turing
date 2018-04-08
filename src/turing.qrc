@@ -49,7 +49,7 @@
         <file>media/down_double.png</file>
         <file>media/up_double.png</file>
         <file>media/stop.png</file>
-        <file>media/run_fast.png</file>
+        <file>media/debug.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>
