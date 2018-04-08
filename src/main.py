@@ -1210,6 +1210,11 @@ def load_algo():
     ]))
 
 
+def algo_double_click():
+    if ui.btnAlgo_Edit.isEnabled():
+        btn_edit_line()
+
+
 def algo_sel_changed():
     current = get_current_pos()
     current_stmt = get_current_stmt()
@@ -1310,6 +1315,7 @@ def init_ui():
     ui.btnAlgo_Comment.clicked.connect(add_comment_stmt)
 
     ui.treeWidget.itemSelectionChanged.connect(algo_sel_changed)
+    ui.treeWidget.itemDoubleClicked.connect(algo_double_click)
 
     ui.tabWidget.currentChanged.connect(change_tab)
 
