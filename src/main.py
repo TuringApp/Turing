@@ -1366,7 +1366,7 @@ def init_ui():
 
     global filters
     filters = {
-        "all": translate("MainWindow", "Program file (*.py; *.tr; *.alg)"),
+        "all": translate("MainWindow", "Program file (*.py *.tr *.alg)"),
         "py": translate("MainWindow", "Python file (*.py)"),
         "tr": translate("MainWindow", "Turing program (*.tr)"),
         "alg": translate("MainWindow", "Algobox file (*.alg)")
