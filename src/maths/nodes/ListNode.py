@@ -23,7 +23,7 @@ class ListNode(AstNode):
         return "ListNode(%r)" % self.value
 
     def code(self, bb=False) -> str:
-        return util.html.sanitize("[%s]") % proper_str([node.code(bb) for node in self.value])[1:-1]
+        return (util.html.sanitize("[%s]") if bb else "[%s]") % proper_str([node.code(bb) for node in self.value])[1:-1]
 
     def python(self) -> str:
         return repr(x.python() for x in self.value)
