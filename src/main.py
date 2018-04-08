@@ -68,8 +68,10 @@ python_only = [
     "FindNext",
     "Replace",
     "Indent",
-    "Unindent",
-    "RunOptimized"
+    "Unindent"
+]
+algo_only = [
+    "Debug"
 ]
 filters = {}
 
@@ -171,6 +173,9 @@ def refresh_buttons_status():
 
     for c in python_only:
         get_action(c).setVisible(mode_python)
+
+    for c in algo_only:
+        get_action(c).setVisible(not mode_python)
 
     # if current_file != -1:
     #    get_action("Undo").setEnabled(undo_objs[current_file].can_undo())
