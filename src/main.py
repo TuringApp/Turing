@@ -548,22 +548,19 @@ def handler_Save():
 
 
 def handler_Open():
-    global algo, mode_python, current_file
-    sel_file, _ = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "../saves/", ";;".join([
-        translate("MainWindow", "Program file (*.py; *.tr; *.alg)"),
-        translate("MainWindow", "Python file (*.py)"),
-        translate("MainWindow", "Turing program (*.tr)"),
-        translate("MainWindow", "Algobox file (*.alg)")
-    ]))
     global algo, mode_python, current_file, last_saved
     sel_file, _ = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "", ";;".join(filters.values()))
 
     if not sel_file:
         return
+
     current_file = sel_file
+
     _, ext = os.path.splitext(current_file)
+
     with open(current_file, "r", encoding="utf8") as openfile:
         newcode = openfile.read()
+
     if ext == ".alg":
         from algo.algobox import parse_algobox
         mode_python = False
