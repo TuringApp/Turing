@@ -85,7 +85,7 @@ red_html = '<span style="color:#cb4b16">'
 running = False
 skip_step = False
 stopped = False
-
+last_saved = None
 
 def sleep(duration: int):
     duration *= 1000
@@ -135,11 +135,24 @@ def get_action(name: str) -> QAction:
 
 def refresh():
     refresh_buttons_status()
-    print(current_file)
+    if not mode_python:
+        refresh_algo()
+        algo_sel_changed()
+    print("refresh %s" % datetime.datetime.now())
+    if ui.tabWidget.currentIndex() == 0:
+        title = "Turing"
+    else:
+        if current_file:
+            filename = os.path.basename(current_file)
+            if is_modified():
+                title = translate("MainWindow", "Turing - {file} (unsaved)").format(file=filename)
+            else:
+                title = translate("MainWindow", "Turing - {file}").format(file=filename)
+        else:
+            title = translate("MainWindow", "Turing - New File")
 
+    window.setWindowTitle(title)
 
-# def refresh_on_tap():
-#    print("tap :p")
 
 def refresh_buttons_status():
     if mode_python:
@@ -252,7 +265,7 @@ def change_tab():
         mode_python = False
     elif ui.tabWidget.currentIndex() == 2:
         mode_python = True
-    refresh_buttons_status()
+    refresh()
 
 
 def python_print(*args, end="\n"):
@@ -539,16 +552,18 @@ def handler_Open():
         from algo.algobox import parse_algobox
         mode_python = False
         load_block(parse_algobox(newcode))
-        refresh_algo()
-        algo_sel_changed()
+        last_saved = repr(algo)
+
     elif ext == ".tr":
         mode_python = False
         load_pseudocode(newcode)
-        refresh_algo()
-        algo_sel_changed()
+        last_saved = repr(algo)
+
     elif ext == ".py":
         mode_python = True
         code_editor.setPlainText(newcode, "", "")
+        last_saved = newcode
+
     refresh()
 
 
@@ -560,8 +575,6 @@ def handler_New():
     algo = BlockStmt([])
     code_editor.setPlainText("", "", "")
     refresh()
-    refresh_algo()
-    algo_sel_changed()
 
 
 def init_action_handlers():
@@ -583,7 +596,7 @@ def change_language(language: str):
     load_editor_actions()
     for a in ui.menuLanguage.actions():
         a.setChecked(a.statusTip() == language)
-    refresh_algo_text()
+    refresh()
 
 
 def send_user_input():
@@ -652,7 +665,7 @@ def load_code_editor():
     panel_search = code_editor.panels.append(panels.SearchAndReplacePanel(), api.Panel.Position.BOTTOM)
     copy_actions_to_editor(panel_search)
 
-    # code_editor.textChanged.connect(refresh_on_tap)
+    code_editor.textChanged.connect(refresh)
 
     load_editor_actions()
 
@@ -802,8 +815,7 @@ def btn_delete_line():
 
     del parent_stmt.children[current_pos[-1]]
 
-    refresh_algo()
-    algo_sel_changed()
+    refresh()
 
 
 def btn_edit_line():
@@ -879,8 +891,7 @@ def btn_edit_line():
         if dlg.run():
             stmt.content = dlg.comment
 
-    refresh_algo()
-    algo_sel_changed()
+    refresh()
 
 
 def btn_move_up_block():
@@ -931,7 +942,7 @@ def append_line(stmt):
         existing = parent_stmt.children[current_pos[-1]]
         if type(existing) == BaseStmt:
             parent_stmt.children[current_pos[-1]] = stmt
-            refresh_algo()
+            refresh()
             return
     else:
         existing = algo
@@ -1022,7 +1033,7 @@ def move_line(old_pos, new_pos):
     del old_parent_stmt.children[old_pos[-1]]
     new_parent_stmt.children.insert(new_pos[-1], line)
 
-    refresh_algo()
+    refresh()
 
 
 def add_line(pos, stmt, add=True):
