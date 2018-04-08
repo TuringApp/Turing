@@ -27,7 +27,16 @@ def parse_algobox(xml):
 
 
 def parse_expr(expr):
-    return parse(expr.replace("Math.PI", "pi"))
+    lut = {
+        "Math.PI": "pi",
+        "&&": "&",
+        "||": "|"
+    }
+
+    for k, v in lut.items():
+        expr = expr.replace(k, v)
+
+    return parse(expr)
 
 
 def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
