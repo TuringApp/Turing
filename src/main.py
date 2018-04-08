@@ -94,10 +94,25 @@ def sleep(duration: int):
         QCoreApplication.processEvents()
 
 
+def is_empty():
+    if mode_python:
+        return not code_editor.toPlainText()
+    else:
+        return algo.children == []
+
+
+def is_modified():
+    if mode_python:
+        return code_editor.toPlainText() != last_saved
+    else:
+        return repr(algo) != last_saved
+
+
 class MainWindowWrapper(QMainWindow):
     def closeEvent(self, event):
-        if False:
+        if not is_modified():
             event.accept_token()
+            exit()
             return
         msg = get_themed_box()
         msg.setIcon(QMessageBox.Question)
