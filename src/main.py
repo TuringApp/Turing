@@ -542,6 +542,9 @@ def handler_Open():
         translate("MainWindow", "Turing program (*.tr)"),
         translate("MainWindow", "Algobox file (*.alg)")
     ]))
+    global algo, mode_python, current_file, last_saved
+    sel_file, _ = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "", ";;".join(filters.values()))
+
     if not sel_file:
         return
     current_file = sel_file
@@ -1307,6 +1310,14 @@ def init_ui():
 
     for action in ui.menuLanguage.actions():
         action.triggered.connect(gen(action.statusTip()))
+
+    global filters
+    filters = {
+        "all": translate("MainWindow", "Program file (*.py; *.tr; *.alg)"),
+        "py": translate("MainWindow", "Python file (*.py)"),
+        "tr": translate("MainWindow", "Turing program (*.tr)"),
+        "alg": translate("MainWindow", "Algobox file (*.alg)")
+    }
 
     window.show()
 
