@@ -20,3 +20,6 @@ class IfStmt(BlockStmt):
 
     def python_header(self) -> str:
         return "if %s:" % self.condition.python()
+
+    def get_children(self) -> List[AstNode]:
+        return self.condition.flatten() + super().get_children()

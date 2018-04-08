@@ -64,3 +64,6 @@ class BinOpNode(AstNode):
         }
         op_fix = op_table.get(self.operator.upper(), self.operator.lower())
         return "((%s) %s (%s))" % (self.left.python(), op_fix, self.right.python())
+
+    def children(self) -> List["AstNode"]:
+        return [self.left, self.right]

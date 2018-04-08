@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from typing import List, Callable
+
 
 class AstNode:
     """Base node class"""
@@ -17,3 +19,9 @@ class AstNode:
 
     def python(self) -> str:
         return "<unimplemented>"
+
+    def children(self) -> List["AstNode"]:
+        return []
+
+    def flatten(self) -> List["AstNode"]:
+        return [self] + self.children()

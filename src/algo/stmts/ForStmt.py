@@ -28,3 +28,6 @@ class ForStmt(BlockStmt):
     def python_header(self) -> str:
         return "for %s in range(%s, (%s) + 1, %s):" % (
         self.variable, self.begin.python(), self.end.python(), 1 if self.step is None else self.step.python())
+
+    def get_children(self) -> List[AstNode]:
+        return self.begin.flatten() + self.end.flatten() + ([] if self.step is None else self.step.flatten()) + super().get_children()

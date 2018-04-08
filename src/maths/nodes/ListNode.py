@@ -27,3 +27,6 @@ class ListNode(AstNode):
 
     def python(self) -> str:
         return repr(x.python() for x in self.value)
+
+    def children(self) -> List["AstNode"]:
+        return self.value

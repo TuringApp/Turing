@@ -29,3 +29,6 @@ class LambdaNode(AstNode):
 
     def python(self) -> str:
         return "(lambda %s: %s)" % (", ".join(self.args), self.expr.python())
+
+    def children(self) -> List["AstNode"]:
+        return [self.expr]

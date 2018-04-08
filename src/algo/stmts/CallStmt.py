@@ -28,3 +28,6 @@ class CallStmt(BaseStmt):
     @staticmethod
     def from_node(node: CallNode):
         return CallStmt(node.func, node.args)
+
+    def get_children(self) -> List[AstNode]:
+        return self.function.flatten() + [x.flatten() for x in self.arguments]

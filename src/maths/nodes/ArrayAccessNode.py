@@ -27,3 +27,6 @@ class ArrayAccessNode(AstNode):
 
     def python(self) -> str:
         return "(%s)[%s]" % (self.array.python(), self.index.python())
+
+    def children(self) -> List["AstNode"]:
+        return [self.array, self.index]

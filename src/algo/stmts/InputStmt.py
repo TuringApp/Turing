@@ -21,3 +21,6 @@ class InputStmt(BaseStmt):
 
     def python(self) -> List[str]:
         return ["%s = input(%s)" % (self.variable.python(), '""' if self.prompt is None else self.prompt.python())]
+
+    def get_children(self) -> List[AstNode]:
+        return self.variable.flatten() + ([] if self.prompt is None else self.prompt.flatten())

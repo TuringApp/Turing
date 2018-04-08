@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-from typing import List
+from typing import List, Optional
 
+import util
 from algo.stmts import BaseStmt, CodeBlock
+from maths.nodes import AstNode
 
 
 class BlockStmt(BaseStmt):
@@ -25,10 +27,13 @@ class BlockStmt(BaseStmt):
             return [header] + lines
         return lines
 
-    def python_header(self) -> str:
+    def python_header(self) -> Optional[str]:
         return None
 
     def set_children(self, children: CodeBlock):
         self.children = children
         for c in self.children:
             c.parent = self
+
+    def get_children(self) -> List[AstNode]:
+        return util.flatten(x.get_children() for x in self.children)

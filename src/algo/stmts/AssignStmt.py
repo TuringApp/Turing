@@ -21,3 +21,6 @@ class AssignStmt(BaseStmt):
 
     def python(self) -> List[str]:
         return ["%s = %s" % (self.variable.python(), self.value.python())]
+
+    def get_children(self) -> List[AstNode]:
+        return self.variable.flatten() + self.value.flatten()

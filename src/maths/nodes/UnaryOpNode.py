@@ -29,3 +29,6 @@ class UnaryOpNode(AstNode):
 
     def python(self) -> str:
         return "(%s (%s))" % (self.operator, self.value.python())
+
+    def children(self) -> List["AstNode"]:
+        return [self.value]

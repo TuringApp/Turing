@@ -19,3 +19,6 @@ class ReturnStmt(BaseStmt):
 
     def python(self) -> List[str]:
         return ["return"]
+
+    def get_children(self) -> List[AstNode]:
+        return [] if self.value is None else self.value.flatten()

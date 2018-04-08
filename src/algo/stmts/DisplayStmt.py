@@ -21,3 +21,6 @@ class DisplayStmt(BaseStmt):
 
     def python(self) -> List[str]:
         return [("print(%s)" if self.newline else "print(%s, end='')") % self.content.code()]
+
+    def get_children(self) -> List[AstNode]:
+        return self.content.flatten()

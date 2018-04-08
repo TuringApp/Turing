@@ -2,6 +2,8 @@
 
 from typing import List
 
+from maths.nodes import AstNode
+
 
 class BaseStmt:
     parent = None
@@ -14,6 +16,9 @@ class BaseStmt:
 
     def python(self) -> List[str]:
         return [""]
+
+    def get_children(self) -> List[AstNode]:
+        return []
 
 
 CodeBlock = List[BaseStmt]
