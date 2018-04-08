@@ -4,7 +4,7 @@ from typing import List
 
 from util.math import proper_str
 from .AstNode import *
-
+import util.html
 
 class ListNode(AstNode):
     """Identifier node
@@ -23,7 +23,7 @@ class ListNode(AstNode):
         return "ListNode(%r)" % self.value
 
     def code(self, bb=False) -> str:
-        return proper_str([node.code(bb) for node in self.value])
+        return util.html.sanitize("[%s]") % proper_str([node.code(bb) for node in self.value])[1:-1]
 
     def python(self) -> str:
         return repr(x.python() for x in self.value)

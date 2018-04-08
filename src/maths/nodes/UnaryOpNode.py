@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .AstNode import *
-
+import util.html
 
 class UnaryOpNode(AstNode):
     """Unary operator node
@@ -25,7 +25,10 @@ class UnaryOpNode(AstNode):
         return "UnaryOpNode(%r, %r)" % (self.value, self.operator)
 
     def code(self, bb=False) -> str:
-        return self.operator + self.value.code_fix(bb)
+        op = self.operator
+        if bb:
+            op = util.html.sanitize(op)
+        return op + self.value.code_fix(bb)
 
     def python(self) -> str:
         return "(%s (%s))" % (self.operator, self.value.python())

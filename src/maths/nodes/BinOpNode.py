@@ -2,7 +2,7 @@
 import maths.parser
 from .IdentifierNode import *
 from .NumberNode import *
-
+import util.html
 
 class BinOpNode(AstNode):
     """Binary (two operands) operator node
@@ -53,8 +53,11 @@ class BinOpNode(AstNode):
         # handle complex numbers
         if self.is_imag_part:
             return "%si" % self.left.code(bb)
+        op = maths.parser.Operators.pretty_print(self.operator)
+        if bb:
+            op = util.html.sanitize(op)
         return "%s %s %s" % (
-            self.operand_code(self.left, bb), maths.parser.Operators.pretty_print(self.operator),
+            self.operand_code(self.left, bb), op,
             self.operand_code(self.right, bb))
 
     def python(self) -> str:

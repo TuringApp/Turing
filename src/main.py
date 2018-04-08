@@ -1061,7 +1061,7 @@ def add_line(pos, stmt, add=True):
 
 
 def str_stmt(stmt):
-    code = lambda stmt: html.escape(stmt.code(True))
+    code = lambda stmt: stmt.code(True)
 
     if isinstance(stmt, DisplayStmt):
         ret = translate("Algo", "[k]DISPLAY[/k] [c]{val}[/c]").format(val=code(stmt.content))

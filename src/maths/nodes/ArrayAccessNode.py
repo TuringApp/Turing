@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .AstNode import *
-
+import util.html
 
 class ArrayAccessNode(AstNode):
     """Array access node
@@ -23,7 +23,7 @@ class ArrayAccessNode(AstNode):
         return "ArrayAccessNode(%r, %r)" % (self.array, self.index)
 
     def code(self, bb=False) -> str:
-        return "%s[%s]" % (self.array.code_fix(bb), self.index.code(bb))
+        return (util.html.escape_brackets("%s[%s]") if bb else "%s[%s]") % (self.array.code_fix(bb), self.index.code(bb))
 
     def python(self) -> str:
         return "(%s)[%s]" % (self.array.python(), self.index.python())
