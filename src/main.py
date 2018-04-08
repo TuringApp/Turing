@@ -327,7 +327,19 @@ def python_input(prompt=""):
     after_output = ""
     python_print(user_input)
 
-    return user_input
+    try:
+        to_int = int(user_input)
+        return to_int
+    except:
+        try:
+            to_float = float(user_input)
+            return to_float
+        except:
+            try:
+                to_complex = complex(user_input)
+                return to_complex
+            except:
+                return user_input
 
 
 def python_print_error(msg):
