@@ -84,6 +84,7 @@ comment_html = '<span style="color:darkgreen;font-style:italic">'
 red_html = '<span style="color:#cb4b16">'
 
 running = False
+run_started = None
 skip_step = False
 stopped = False
 last_saved = None
