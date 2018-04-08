@@ -961,7 +961,7 @@ def append_line(stmt):
         existing = algo
 
     if isinstance(existing, BlockStmt):
-        current_pos.append(0)
+        current_pos.append(len(existing.children))
     else:
         current_pos[-1] += 1
     add_line(current_pos, stmt)
