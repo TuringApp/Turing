@@ -138,7 +138,7 @@ def refresh():
     if not mode_python:
         refresh_algo()
         algo_sel_changed()
-    print("refresh %s" % datetime.datetime.now())
+
     if ui.tabWidget.currentIndex() == 0:
         title = "Turing"
     else:
