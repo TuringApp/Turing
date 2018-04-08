@@ -33,7 +33,7 @@ translate = QCoreApplication.translate
 __version__ = "β-0.3"
 __channel__ = "beta"
 
-current_file = None
+current_file: Optional[str] = None
 can_save = False
 dialog_window = None
 
@@ -71,6 +71,7 @@ python_only = [
     "Unindent",
     "RunOptimized"
 ]
+filters = {}
 
 worker = None
 algo = BlockStmt([])
@@ -486,6 +487,7 @@ def handler_Run():
 
 
 def handler_RunOptimized():
+    global mode_python
     py_code = algo.python()
     code_editor.setPlainText(py_code, "", "")
     mode_python = True
@@ -494,6 +496,7 @@ def handler_RunOptimized():
 
 
 def handler_AboutTuring():
+    import forms.about
     forms.about.AboutWindow(window, __version__, __channel__).run()
 
 
