@@ -35,6 +35,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.tab_pseudocode)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.treeWidget = QtWidgets.QTreeWidget(self.tab_pseudocode)
+        self.treeWidget.setAlternatingRowColors(True)
         self.treeWidget.setAnimated(True)
         self.treeWidget.setHeaderHidden(True)
         self.treeWidget.setObjectName("treeWidget")
