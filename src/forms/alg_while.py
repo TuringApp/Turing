@@ -35,7 +35,8 @@ class AlgoWhileStmt(QDialog):
 
     def click(self):
         dlg = InlineCodeDialog(self, self.ui.lineEdit.text())
-        self.ui.lineEdit.setText(dlg.run())
+        if dlg.run():
+            self.ui.lineEdit.setText(dlg.value())
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok
