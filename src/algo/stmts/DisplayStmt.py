@@ -20,7 +20,8 @@ class DisplayStmt(BaseStmt):
         return "DisplayStmt(%r)" % self.content
 
     def python(self) -> List[str]:
-        return [("print(%s)" if self.newline else "print(%s, end='')") % self.content.code()]
+        content = self.content.python()
+        return [("print(%s)" if self.newline else "print(%s, end='')") % content]
 
     def get_children(self) -> List[AstNode]:
         return self.content.flatten()
