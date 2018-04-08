@@ -3,6 +3,7 @@ import maths.parser
 from .IdentifierNode import *
 from .NumberNode import *
 import util.html
+from .StringNode import StringNode
 
 class BinOpNode(AstNode):
     """Binary (two operands) operator node
@@ -66,7 +67,15 @@ class BinOpNode(AstNode):
             "XOR": "^"
         }
         op_fix = op_table.get(self.operator.upper(), self.operator.lower())
-        return "((%s) %s (%s))" % (self.left.python(), op_fix, self.right.python())
+        left = self.left
+        right = self.right
+        if op_fix == "+" and type(right) == StringNode and type(left) != StringNode:
+            left, right = right, left
+        left_py = left.python()
+        right_py = right.python()
+        if op_fix == "+" and type(left) == StringNode and type(right) != StringNode:
+            right_py = "str(%s)" % right_py
+        return "((%s) %s (%s))" % (left_py, op_fix, right_py)
 
     def children(self) -> List["AstNode"]:
         return [self.left, self.right]
