@@ -55,117 +55,117 @@ p, li { white-space: pre-wrap; }
         <translation>Variable {var} = </translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="200"/>
+        <location filename="../algo/worker.py" line="201"/>
         <source>BREAK can only be used inside a loop</source>
         <translation>SORTIR ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="210"/>
+        <location filename="../algo/worker.py" line="211"/>
         <source>CONTINUE can only be used inside a loop</source>
         <translation>CONTINUER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="239"/>
+        <location filename="../algo/worker.py" line="240"/>
         <source>RETURN can only be used inside a function</source>
         <translation>RENVOYER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une fonction</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="316"/>
+        <location filename="../algo/worker.py" line="317"/>
         <source>Unknown statement type: {type}</source>
         <translation>Type d&apos;instruction inconnu : {type}</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="267"/>
+        <location filename="../algo/worker.py" line="268"/>
         <source>ELSE can only be used after an IF block</source>
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1041"/>
+        <location filename="../main.py" line="1042"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1044"/>
+        <location filename="../main.py" line="1045"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1035"/>
+        <location filename="../main.py" line="1036"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1047"/>
+        <location filename="../main.py" line="1048"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1050"/>
+        <location filename="../main.py" line="1051"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1053"/>
+        <location filename="../main.py" line="1054"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1078"/>
+        <location filename="../main.py" line="1079"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1058"/>
+        <location filename="../main.py" line="1059"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1060"/>
+        <location filename="../main.py" line="1061"/>
         <source>[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]</source>
         <translation>[k]ASSIGNER[/k] [c]{var}[/c] = [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1064"/>
+        <location filename="../main.py" line="1065"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1074"/>
+        <location filename="../main.py" line="1075"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1088"/>
+        <location filename="../main.py" line="1089"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1038"/>
+        <location filename="../main.py" line="1039"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1067"/>
+        <location filename="../main.py" line="1068"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation>[b]POUR[/b] [c]{var}[/c] [b]DE[/b] [c]{begin}[/c] [b]À[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1068"/>
+        <location filename="../main.py" line="1069"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation>([b]PAS[/b] [c]{step}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1091"/>
+        <location filename="../main.py" line="1092"/>
         <source>[i]empty[/i]</source>
         <translation>[i]vide[/i]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1082"/>
+        <location filename="../main.py" line="1083"/>
         <source>[k]STOP[/k]</source>
         <translation>[k]STOP[/k]</translation>
     </message>
     <message>
-        <location filename="../util/code.py" line="42"/>
+        <location filename="../util/code.py" line="44"/>
         <source>The following errors occured while parsing the expression:
 
 </source>
@@ -174,43 +174,38 @@ p, li { white-space: pre-wrap; }
 </translation>
     </message>
     <message>
-        <location filename="../forms/alg_for.py" line="48"/>
+        <location filename="../forms/alg_for.py" line="47"/>
         <source>Invalid variable name: {name}</source>
         <translation>Nom de variable invalide : {name}</translation>
     </message>
     <message>
-        <location filename="../forms/alg_func.py" line="34"/>
+        <location filename="../forms/alg_func.py" line="32"/>
         <source>Invalid name: {name}</source>
         <translation>Nom invalide : {name}</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="151"/>
+        <location filename="../algo/worker.py" line="152"/>
         <source>Array access target must be of array type</source>
         <translation>La cible d&apos;un accès de liste doit être une liste</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="163"/>
+        <location filename="../algo/worker.py" line="164"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
         <translation>Indice &apos;{idx}&apos; trop grand pour la liste</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="166"/>
+        <location filename="../algo/worker.py" line="167"/>
         <source>Assignment target must be either variable or array item</source>
         <translation>La cible d&apos;une affectation doit être une variable ou un élément de liste</translation>
     </message>
     <message>
-        <location filename="../forms/alg_input.py" line="45"/>
+        <location filename="../forms/alg_input.py" line="44"/>
         <source>Invalid assignment target (must be either variable or array item): {name}</source>
         <translation>Cible d&apos;affectation invalide (doit être une variable ou un élément de liste) : {name}</translation>
     </message>
 </context>
 <context>
     <name>AlgoCallStmt</name>
-    <message>
-        <location filename="../forms/ui_alg_call.py" line="66"/>
-        <source>Display value</source>
-        <translation type="obsolete">Afficher valeur</translation>
-    </message>
     <message>
         <location filename="../forms/ui_alg_call.py" line="67"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calls the function with the specified arguments.&lt;/p&gt;&lt;p&gt;The argument list must consist of a comma-separated list of arguments.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -299,11 +294,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoForStmt</name>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="90"/>
-        <source>Define variable</source>
-        <translation type="obsolete">Définir variable</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_alg_for.py" line="91"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Executes the instructions for all values of the variable in the specified range.&lt;/p&gt;&lt;p&gt;At each iteration, the variable will be incremented by the step which is defaulted to 1. &lt;/p&gt;&lt;p&gt;The bounds are inclusive.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Executes the instructions for all values of the variable in the specified range.&lt;/p&gt;&lt;p&gt;At each iteration, the variable will be incremented by the step which is defaulted to 1. &lt;/p&gt;&lt;p&gt;The bounds are inclusive.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -342,11 +332,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoFuncStmt</name>
     <message>
-        <location filename="../forms/ui_alg_func.py" line="54"/>
-        <source>Display value</source>
-        <translation type="obsolete">Afficher valeur</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_alg_func.py" line="55"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Creates a custom function. The parameters must be a comma-separated list of identifiers.&lt;/p&gt;&lt;p&gt;A function may or may not return a value, it can very well only &amp;quot;do&amp;quot; things without ever giving a result. Such a function can be called using the CALL statement.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Définit une fonction personnalisée. Les paramètres doivent être séparés par des virgules.&lt;/p&gt;&lt;p&gt;Une fonction peut renvoyer ou non une valeur, elle peut très bien simplement exécuter des instructions sans donner de résultat.Une telle fonction peut être appelée en utilisant une instruction APPELER.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -370,11 +355,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoIfStmt</name>
     <message>
-        <location filename="../forms/ui_alg_if.py" line="55"/>
-        <source>Display value</source>
-        <translation type="obsolete">Afficher valeur</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_alg_if.py" line="57"/>
         <source>Condition:</source>
         <translation>Condition :</translation>
@@ -392,11 +372,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>AlgoInputStmt</name>
-    <message>
-        <location filename="../forms/ui_alg_input.py" line="66"/>
-        <source>Define variable</source>
-        <translation type="obsolete">Définir variable</translation>
-    </message>
     <message>
         <location filename="../forms/ui_alg_input.py" line="68"/>
         <source>Display a message</source>
@@ -426,11 +401,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoReturnStmt</name>
     <message>
-        <location filename="../forms/ui_alg_return.py" line="60"/>
-        <source>Define variable</source>
-        <translation type="obsolete">Définir variable</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_alg_return.py" line="61"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exits the current function and optionally passes a value to the caller.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sort de la fonction actuelle et renvoie optionnellement une valeur au code appelant.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -446,11 +416,6 @@ p, li { white-space: pre-wrap; }
         <translation>Renvoyer une valeur</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="70"/>
-        <source>Variable:</source>
-        <translation type="obsolete">Variable :</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_alg_return.py" line="60"/>
         <source>Return</source>
         <translation>Renvoyer</translation>
@@ -458,11 +423,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>AlgoWhileStmt</name>
-    <message>
-        <location filename="../forms/ui_alg_while.py" line="55"/>
-        <source>Display value</source>
-        <translation type="obsolete">Afficher valeur</translation>
-    </message>
     <message>
         <location filename="../forms/ui_alg_while.py" line="56"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Executes the instructions while the condition is true.&lt;/p&gt;&lt;p&gt;As soon as the condition is false, the program continues with the instruction following the block.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -482,7 +442,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algobox</name>
     <message>
-        <location filename="../algo/algobox.py" line="75"/>
+        <location filename="../algo/algobox.py" line="84"/>
         <source>Unknown variable type: {type}</source>
         <translation>Type de variable inconnu : {type}</translation>
     </message>
@@ -495,7 +455,7 @@ p, li { white-space: pre-wrap; }
         <translation>Calculatrice</translation>
     </message>
     <message>
-        <location filename="../forms/calculator.py" line="77"/>
+        <location filename="../forms/calculator.py" line="72"/>
         <source>Result is None</source>
         <translation>Résultat nul</translation>
     </message>
@@ -1083,7 +1043,7 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule la fonction Beta à {{a}} et {{b}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/algobox.py" line="7"/>
+        <location filename="../maths/lib/algobox.py" line="6"/>
         <source>Algobox compatibility</source>
         <translation>Compatibilité Algobox</translation>
     </message>
@@ -1204,27 +1164,27 @@ p, li { white-space: pre-wrap; }
         <translation>Pages d&apos;aide</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="58"/>
+        <location filename="../forms/help.py" line="57"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Arguments :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="62"/>
+        <location filename="../forms/help.py" line="61"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
         <translation>&lt;li&gt;Aucun&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="72"/>
+        <location filename="../forms/help.py" line="71"/>
         <source>default = {deft}</source>
         <translation>par défaut = {deft}</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="87"/>
+        <location filename="../forms/help.py" line="86"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Alias :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="100"/>
+        <location filename="../forms/help.py" line="99"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Fonctions :&lt;/h2&gt;</translation>
     </message>
@@ -1535,7 +1495,7 @@ p, li { white-space: pre-wrap; }
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="110"/>
+        <location filename="../main.py" line="108"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
@@ -1567,12 +1527,12 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="329"/>
+        <location filename="../main.py" line="327"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="268"/>
+        <location filename="../main.py" line="266"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
@@ -1647,11 +1607,6 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Changer de thème</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="716"/>
-        <source>default</source>
-        <translation type="obsolete">par défaut</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_mainwindow.py" line="611"/>
         <source>Change style</source>
         <translation>Changer de style</translation>
@@ -1677,16 +1632,6 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Modifier</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="594"/>
-        <source>Define function</source>
-        <translation>Définir fonction</translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_mainwindow.py" line="595"/>
-        <source>Call function</source>
-        <translation>Appeler fonction</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_mainwindow.py" line="592"/>
         <source>Delete line</source>
         <translation>Supprimer</translation>
@@ -1697,21 +1642,6 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="596"/>
-        <source>Return</source>
-        <translation>Renvoyer</translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_mainwindow.py" line="597"/>
-        <source>Define variable</source>
-        <translation>Définir variable</translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_mainwindow.py" line="598"/>
-        <source>Read user input</source>
-        <translation>Lire entrée</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_mainwindow.py" line="593"/>
         <source>FOR loop</source>
         <translation>Boucle POUR</translation>
@@ -1720,11 +1650,6 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <location filename="../forms/ui_mainwindow.py" line="589"/>
         <source>WHILE loop</source>
         <translation>Boucle TANT QUE</translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_mainwindow.py" line="599"/>
-        <source>Display value</source>
-        <translation>Afficher valeur</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="591"/>
@@ -1752,11 +1677,6 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Arrêter</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="600"/>
-        <source>Stop execution</source>
-        <translation>Point d&apos;arrêt</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_mainwindow.py" line="601"/>
         <source>Comment</source>
         <translation>Commentaire</translation>
@@ -1772,29 +1692,64 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Exécuter (optimisé)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="329"/>
+        <location filename="../main.py" line="327"/>
         <source>end of output [{time}]</source>
         <translation>fin de l&apos;exécution [{time}]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="513"/>
+        <location filename="../main.py" line="515"/>
         <source>Python file (*.py)</source>
         <translation>Fichier Python (*.py)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="513"/>
+        <location filename="../main.py" line="515"/>
         <source>Turing program (*.tr)</source>
         <translation>Algorithme Turing (*.tr)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="513"/>
+        <location filename="../main.py" line="515"/>
         <source>Program file (*.py; *.tr; *.alg)</source>
         <translation>Fichier de programme (*.py; *.tr; *.alg)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="513"/>
+        <location filename="../main.py" line="515"/>
         <source>Algobox file (*.alg)</source>
         <translation>Algorithme Algobox (*.alg)</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="594"/>
+        <source>Define FUNCTION</source>
+        <translation>Définir FONCTION</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="595"/>
+        <source>CALL function</source>
+        <translation>APPELER fonction</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="596"/>
+        <source>RETURN</source>
+        <translation>RENVOYER</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="597"/>
+        <source>DEFINE variable</source>
+        <translation>DÉFINIR variable</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="598"/>
+        <source>Read user INPUT</source>
+        <translation>LIRE entrée</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="599"/>
+        <source>DISPLAY value</source>
+        <translation>AFFICHER valeur</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="600"/>
+        <source>Pause execution</source>
+        <translation>Point d&apos;arrêt</translation>
     </message>
 </context>
 <context>
@@ -1805,12 +1760,12 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Jeton attendu ({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="471"/>
+        <location filename="../maths/parser.py" line="472"/>
         <source>Unexpected EOL</source>
         <translation>Fin de ligne inattendue</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="473"/>
+        <location filename="../maths/parser.py" line="474"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
         <translation>Jeton ({type}) &apos;{val}&apos; inattendu</translation>
     </message>
@@ -1830,7 +1785,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>NON</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="265"/>
+        <location filename="../maths/parser.py" line="266"/>
         <source>Unexpected token ({type}) &apos;{val}&apos; after end of expression</source>
         <translation>Jeton ({type}) &apos;{val}&apos; inattendu après la fin de l&apos;expression</translation>
     </message>

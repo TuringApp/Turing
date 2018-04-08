@@ -192,49 +192,49 @@
            <item row="9" column="0">
             <widget class="QPushButton" name="btnAlgo_Func">
              <property name="text">
-              <string>Define function</string>
+              <string>Define FUNCTION</string>
              </property>
             </widget>
            </item>
            <item row="8" column="0">
             <widget class="QPushButton" name="btnAlgo_Call">
              <property name="text">
-              <string>Call function</string>
+              <string>CALL function</string>
              </property>
             </widget>
            </item>
            <item row="10" column="0">
             <widget class="QPushButton" name="btnAlgo_Return">
              <property name="text">
-              <string>Return</string>
+              <string>RETURN</string>
              </property>
             </widget>
            </item>
            <item row="5" column="0">
             <widget class="QPushButton" name="btnAlgo_Variable">
              <property name="text">
-              <string>Define variable</string>
+              <string>DEFINE variable</string>
              </property>
             </widget>
            </item>
            <item row="7" column="0">
             <widget class="QPushButton" name="btnAlgo_Input">
              <property name="text">
-              <string>Read user input</string>
+              <string>Read user INPUT</string>
              </property>
             </widget>
            </item>
            <item row="6" column="0">
             <widget class="QPushButton" name="btnAlgo_Display">
              <property name="text">
-              <string>Display value</string>
+              <string>DISPLAY value</string>
              </property>
             </widget>
            </item>
            <item row="11" column="0">
             <widget class="QPushButton" name="btnAlgo_Stop">
              <property name="text">
-              <string>Stop execution</string>
+              <string>Pause execution</string>
              </property>
             </widget>
            </item>
