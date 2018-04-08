@@ -122,7 +122,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1061"/>
         <source>[k]ASSIGN[/k] [c]{var}[/c] = [c]{value}[/c]</source>
-        <translation>[k]ASSIGNER[/k] [c]{var}[/c] = [c]{value}[/c]</translation>
+        <translation type="unfinished">[k]VARIABLE[/k] [c]{var}[/c] [k]PREND LA VALEUR[/b] [c]{value}[/c]</translation>
     </message>
     <message>
         <location filename="../main.py" line="1065"/>
