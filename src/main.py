@@ -511,27 +511,40 @@ def handler_ShowToolbarText():
         ui.toolBar.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
 
-def handler_Save():
-    global current_file
-    if mode_python:
-        ext = "py"
-        saveme = str(code_editor.toPlainText())
-    else:
-        ext = "tr"
-        saveme = repr(algo)
+def save(filename):
+    global last_saved
 
-    if not current_file:
-        list = os.listdir("../saves/")
-        number_files = len(list) + 1
-        current_file = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"),
-                                                   "../saves/Turing_scripts_" + str(number_files) + "_." + ext,
-                                                   "*." + ext)[0]
-        if not current_file:
-            return
+    if mode_python:
+        last_saved = str(code_editor.toPlainText())
+    else:
+        last_saved = repr(algo)
 
     with open(current_file, "w+", encoding="utf8") as savefile:
-        savefile.write(saveme)
+
+        savefile.write(last_saved)
     refresh()
+
+
+def handler_SaveAs():
+    global current_file
+
+
+    file = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"),
+                                               "",
+                                               filters[["tr", "py"][mode_python]])[0]
+    if not file:
+        return
+
+    current_file = file
+    handler_Save()
+
+
+def handler_Save():
+    if not current_file:
+        handler_SaveAs()
+        return
+
+    save(current_file)
 
 
 def handler_Open():
