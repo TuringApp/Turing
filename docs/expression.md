@@ -230,7 +230,7 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`map` / `appl`|<ul><li>`func` (Function(1 arg))</li><li>`lst` (List)</li></ul>|Applies `func` to each element of `lst` and returns the resulting list.|
 |`max`|<ul><li>`args` (List(Number))</li></ul>|Returns the maximum value of `args`.|
 |`min`|<ul><li>`args` (List(Number))</li></ul>|Returns the minimum value of `args`.|
-|`randint` / `alea_ent`|<ul><li>`a` (Integer)</li><li>`b` (Integer)</li></ul>|Returns a random integer between a and b (inclusive).|
+|`randint` / `alea_ent`|<ul><li>`a` (Integer)</li><li>`b` (Integer)</li></ul>|Returns a random integer between `a` and `b` (inclusive).|
 |`random` / `alea`|<ul><li>None</li></ul>|Returns a random number between 0 (inclusive) and 1 (exclusive).|
 |`slice` / `tranche`|<ul><li>`lst` (List)</li><li>`start` (Integer) 0 <= start <= end <= len(lst)</li><li>`end` (Integer) start <= end <= len(lst)</li></ul>|Returns a slice of the specified list, from index `start` (inclusive) to either index `end` (exclusive) or the end of the list.|
 |`stand_dev` / `ecart_type`|<ul><li>`lst` (List(Number))</li></ul>|Returns the population standard deviation of `lst`.|
