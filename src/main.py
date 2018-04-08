@@ -1441,5 +1441,5 @@ if __name__ == "__main__":
     except:
         show_error()
         exitCode = 1
-
+    code_editor.backend.stop()
     sys.exit(exitCode)
