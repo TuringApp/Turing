@@ -68,10 +68,13 @@ python_only = [
     "FindNext",
     "Replace",
     "Indent",
-    "Unindent"
+    "Unindent",
+    "ConvertToPseudocode"
 ]
 algo_only = [
-    "Debug"
+    "Debug",
+    "Step",
+    "ConvertToPython"
 ]
 filters = {}
 

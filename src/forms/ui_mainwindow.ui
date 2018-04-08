@@ -1024,6 +1024,9 @@ p, li { white-space: pre-wrap; }
    </property>
   </action>
   <action name="actionConvertToPseudocode">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../turing.qrc">
      <normaloff>:/action/media/code.png</normaloff>:/action/media/code.png</iconset>

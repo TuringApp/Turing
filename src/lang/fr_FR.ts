@@ -80,82 +80,82 @@ p, li { white-space: pre-wrap; }
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1115"/>
+        <location filename="../main.py" line="1116"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1118"/>
+        <location filename="../main.py" line="1119"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1109"/>
+        <location filename="../main.py" line="1110"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1121"/>
+        <location filename="../main.py" line="1122"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1124"/>
+        <location filename="../main.py" line="1125"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1127"/>
+        <location filename="../main.py" line="1128"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1152"/>
+        <location filename="../main.py" line="1153"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1132"/>
+        <location filename="../main.py" line="1133"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1138"/>
+        <location filename="../main.py" line="1139"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1148"/>
+        <location filename="../main.py" line="1149"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1162"/>
+        <location filename="../main.py" line="1163"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1112"/>
+        <location filename="../main.py" line="1113"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1141"/>
+        <location filename="../main.py" line="1142"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation>[b]POUR[/b] [c]{var}[/c] [b]DE[/b] [c]{begin}[/c] [b]À[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1142"/>
+        <location filename="../main.py" line="1143"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation>([b]PAS[/b] [c]{step}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1165"/>
+        <location filename="../main.py" line="1166"/>
         <source>[i]empty[/i]</source>
         <translation>[i]vide[/i]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1156"/>
+        <location filename="../main.py" line="1157"/>
         <source>[k]STOP[/k]</source>
         <translation>[k]STOP[/k]</translation>
     </message>
@@ -199,7 +199,7 @@ p, li { white-space: pre-wrap; }
         <translation>Cible d&apos;affectation invalide (doit être une variable ou un élément de liste) : {name}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1134"/>
+        <location filename="../main.py" line="1135"/>
         <source>[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]</source>
         <translation>[k]VARIABLE[/k] [c]{var}[/c] [k]PREND LA VALEUR[/b] [c]{value}[/c]</translation>
     </message>
@@ -1495,7 +1495,7 @@ p, li { white-space: pre-wrap; }
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="126"/>
+        <location filename="../main.py" line="127"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
@@ -1527,17 +1527,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="367"/>
+        <location filename="../main.py" line="368"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="294"/>
+        <location filename="../main.py" line="295"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="468"/>
+        <location filename="../main.py" line="469"/>
         <source>Syntax error ({type}) at line {line}, offset {off}: </source>
         <translation>Erreur de syntaxe ({type}) à la ligne {line}, caractère {off} : </translation>
     </message>
@@ -1682,7 +1682,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Commentaire</translation>
     </message>
     <message>
-        <location filename="../main.py" line="389"/>
+        <location filename="../main.py" line="390"/>
         <source>program interrupted</source>
         <translation>algorithme interrompu</translation>
     </message>
@@ -1692,27 +1692,27 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation type="obsolete">Exécuter (optimisé)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="367"/>
+        <location filename="../main.py" line="368"/>
         <source>end of output [{time}]</source>
         <translation>fin de l&apos;exécution [{time}]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1372"/>
+        <location filename="../main.py" line="1373"/>
         <source>Python file (*.py)</source>
         <translation>Fichier Python (*.py)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1373"/>
+        <location filename="../main.py" line="1374"/>
         <source>Turing program (*.tr)</source>
         <translation>Algorithme Turing (*.tr)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1371"/>
+        <location filename="../main.py" line="1372"/>
         <source>Program file (*.py; *.tr; *.alg)</source>
         <translation>Fichier de programme (*.py; *.tr; *.alg)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1374"/>
+        <location filename="../main.py" line="1375"/>
         <source>Algobox file (*.alg)</source>
         <translation>Algorithme Algobox (*.alg)</translation>
     </message>
@@ -1752,17 +1752,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Point d&apos;arrêt</translation>
     </message>
     <message>
-        <location filename="../main.py" line="151"/>
+        <location filename="../main.py" line="152"/>
         <source>Turing - New File</source>
         <translation>Turing - Sans titre</translation>
     </message>
     <message>
-        <location filename="../main.py" line="147"/>
+        <location filename="../main.py" line="148"/>
         <source>Turing - {file} (unsaved)</source>
         <translation>Turing - {file} (modifié)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="149"/>
+        <location filename="../main.py" line="150"/>
         <source>Turing - {file}</source>
         <translation>Turing - {file}</translation>
     </message>
