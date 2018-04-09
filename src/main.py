@@ -7,6 +7,7 @@ import sys
 import tempfile
 import threading
 import traceback
+import ctypes
 from typing import Optional
 from sys import exit
 
@@ -721,13 +722,20 @@ def handler_Open():
 
 
 def handler_New():
-    global current_file
-    global algo
-    global code_editor
-    current_file = None
-    algo = BlockStmt([])
-    code_editor.setPlainText("", "", "")
-    refresh()
+    msg = get_themed_box()
+    msg.setIcon(QMessageBox.Question)
+    msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+    msg.setDefaultButton(QMessageBox.No)
+    msg.setText(translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."))
+    center_widget(msg, QDesktopWidget().availableGeometry().center())
+    if msg.exec_() == QMessageBox.Yes:
+        global current_file
+        global algo
+        global code_editor
+        current_file = None
+        algo = BlockStmt([])
+        code_editor.setPlainText("", "", "")
+        refresh()
 
 
 def init_action_handlers():
@@ -1600,6 +1608,7 @@ def init_ui():
     ui.tabWidget.currentChanged.connect(change_tab)
 
     algo_sel_changed()
+    get_Talkback()
 
     def gen(act):
         return lambda: change_language(act)
@@ -1618,6 +1627,8 @@ def init_ui():
 
     window.show()
 
+def get_Talkback():
+    ctypes.windll.user32.MessageBoxW(0, translate("MainWindow", "Something to say about our app?\nhttps://goo.gl/forms/jZaGHGL40Dh9Nunw2"), "HEY !", 0)
 
 def show_error():
     traceback.print_exc()
