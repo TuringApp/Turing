@@ -329,6 +329,8 @@ def python_input(prompt=""):
     global user_input
     user_input = None
 
+    ui.txtInput.setFocus(Qt.OtherFocusReason)
+
     while user_input is None:
         QCoreApplication.processEvents()
 
