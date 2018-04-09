@@ -2,7 +2,7 @@
 
 from maths.nodes import AstNode
 from .BaseStmt import *
-
+from util import translate
 
 class InputStmt(BaseStmt):
     variable = None
@@ -20,7 +20,7 @@ class InputStmt(BaseStmt):
         return "InputStmt(%r, %r)" % (self.variable, self.prompt)
 
     def python(self) -> List[str]:
-        return ["%s = input(%s)" % (self.variable.python(), '""' if self.prompt is None else self.prompt.python())]
+        return ["%s = input(%s)" % (self.variable.python(), ('"%s"' % translate("Algo", "Variable {var} = ").format(var=self.variable.python())) if self.prompt is None else self.prompt.python())]
 
     def get_children(self) -> List[AstNode]:
         return self.variable.flatten() + ([] if self.prompt is None else self.prompt.flatten())
