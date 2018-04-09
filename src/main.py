@@ -945,7 +945,7 @@ def add_gpoint():
     from forms import alg_point
     dlg = alg_point.AlgoGPointStmt(window)
     if dlg.run():
-        append_line(GPointStmt(dlg.f_x, dlg.f_y, dlg.color))
+        append_line(GPointStmt(dlg.f_x, dlg.f_y, dlg.f_color))
 
 
 def add_gwindow():
