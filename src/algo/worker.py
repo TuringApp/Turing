@@ -42,7 +42,7 @@ class Worker:
         else:
             res = input(prompt)
 
-        p = Parser(res)
+        p = Parser(str(res))
         return self.evaluator.eval_node(p.parse())
 
     def stmt_print(self, *args, end="\n"):
