@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AlgoGLineStmt</class>
+ <widget class="QDialog" name="AlgoGLineStmt">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>477</width>
+    <height>251</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Plot line</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../turing.qrc">
+    <normaloff>:/action/media/settings.png</normaloff>:/action/media/settings.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws a line with the specified coordinates.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="txtColor"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>End Y:</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtEndY</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>End X:</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtEndX</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="txtEndX"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="txtEndY"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="txtStartX"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Start X:</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtStartX</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Start Y:</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtStartY</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="btnCodeStartX">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QPushButton" name="btnCodeColor">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="btnCodeStartY">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="txtStartY"/>
+     </item>
+     <item row="2" column="2">
+      <widget class="QPushButton" name="btnCodeEndX">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QPushButton" name="btnCodeEndY">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>Color:</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor</cstring>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>txtStartX</tabstop>
+  <tabstop>txtStartY</tabstop>
+  <tabstop>txtEndX</tabstop>
+  <tabstop>txtEndY</tabstop>
+  <tabstop>txtColor</tabstop>
+  <tabstop>btnCodeStartX</tabstop>
+  <tabstop>btnCodeStartY</tabstop>
+  <tabstop>btnCodeEndX</tabstop>
+  <tabstop>btnCodeEndY</tabstop>
+  <tabstop>btnCodeColor</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../turing.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>AlgoGLineStmt</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>238</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>238</x>
+     <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>AlgoGLineStmt</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>238</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>238</x>
+     <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
