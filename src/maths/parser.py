@@ -79,9 +79,21 @@ class Operators:
         ["^", "**"]
     ]
 
+    commutative = [
+        "|",
+        "XOR",
+        "&",
+        "+",
+        "*"
+    ]
+
     @staticmethod
     def get_precedence(op: str) -> int:
         return next(i for i, ops in enumerate(Operators.precedence) if op.upper() in ops)
+
+    @staticmethod
+    def is_commutative(op: str) -> bool:
+        return op in Operators.commutative
 
     @staticmethod
     def pretty_print(op: str) -> str:
