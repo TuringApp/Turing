@@ -369,7 +369,7 @@ def update_plot():
 
 def g_clear():
     plot_axes.clear()
-    update_plot()
+    g_window(-10, 10, -10, 10)
 
 
 def g_window(xmin, xmax, ymin, ymax, xgrad=1, ygrad=1):
@@ -647,9 +647,20 @@ def save(filename):
         last_saved = repr(algo)
 
     with open(current_file, "w+", encoding="utf8") as savefile:
-
         savefile.write(last_saved)
+
     refresh()
+
+
+def handler_SaveOutput():
+    file = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save output"),
+                                       "",
+                                       translate("MainWindow", "Text files (*.txt)"))[0]
+    if not file:
+        return
+
+    with open(file, "w+", encoding="utf8") as savefile:
+        savefile.write(ui.txtOutput.toPlainText())
 
 
 def handler_SaveAs():
@@ -980,6 +991,18 @@ def btn_add_line():
     append_line(BaseStmt())
 
 
+def btn_dupl_line():
+    stmt = get_current_stmt()
+
+    if isinstance(stmt, IfStmt):
+        current_pos = get_current_pos()
+        _, parent_stmt = get_parent(current_pos)
+        if current_pos[-1] + 1 < len(parent_stmt.children) and isinstance(parent_stmt.children[current_pos[-1] + 1], ElseStmt):
+            append_line(eval(repr(parent_stmt.children[current_pos[-1] + 1])), True)
+
+    append_line(eval(repr(stmt)), True)
+
+
 def btn_delete_line():
     current_pos = get_current_pos()
     _, parent_stmt = get_parent(current_pos)
@@ -1139,7 +1162,7 @@ def btn_move_down(block=False):
     move_line(get_current_pos(), current_pos)
 
 
-def append_line(stmt):
+def append_line(stmt, force_after=False):
     current_pos = get_current_pos()
     _, parent_stmt = get_parent(current_pos)
     if current_pos != []:
@@ -1151,11 +1174,19 @@ def append_line(stmt):
     else:
         existing = algo
 
-    if isinstance(existing, BlockStmt) and not (isinstance(stmt, ElseStmt) and isinstance(existing, IfStmt)):
+    if force_after and isinstance(existing, IfStmt) and current_pos[-1] + 1 < len(parent_stmt.children) and isinstance(parent_stmt.children[current_pos[-1] + 1], ElseStmt):
+        current_pos[-1] += 1
+
+    if not force_after and isinstance(existing, BlockStmt) \
+            and not (isinstance(stmt, ElseStmt) and isinstance(existing, IfStmt)):
         current_pos.append(len(existing.children))
     else:
         current_pos[-1] += 1
+
     add_line(current_pos, stmt)
+
+    if isinstance(stmt, BlockStmt):
+        add_block(stmt, current_pos)
 
 
 def get_current_stmt():
@@ -1368,10 +1399,24 @@ def store_line(item: QTreeWidgetItem, stmt: BaseStmt):
     item_map[id(stmt)] = item, stmt
 
 
+def add_block(block: BlockStmt, current, add=False):
+    current.append(0)
+
+    for child in block.children:
+        add_line(current, child, add=add)
+
+        if isinstance(child, BlockStmt):
+            add_block(child, current, add)
+
+        current[-1] += 1
+
+    current.pop()
+
+
+
 def load_block(stmt: BlockStmt):
     global item_map
     item_map = {}
-    item_labels = {}
     ui.treeWidget.clear()
 
     global root_item, algo
@@ -1383,21 +1428,7 @@ def load_block(stmt: BlockStmt):
 
     current = []
 
-    def add_block(block: BlockStmt):
-        nonlocal current
-        current.append(0)
-
-        for child in block.children:
-            add_line(current, child, add=False)
-
-            if isinstance(child, BlockStmt):
-                add_block(child)
-
-            current[-1] += 1
-
-        current.pop()
-
-    add_block(stmt)
+    add_block(stmt, current)
 
     ui.treeWidget.expandAll()
 
@@ -1449,6 +1480,7 @@ def algo_sel_changed():
     ui.btnAlgo_Add.setEnabled(is_item)
     ui.btnAlgo_Delete.setEnabled(is_changeable)
     ui.btnAlgo_Edit.setEnabled(is_editable)
+    ui.btnAlgo_Dupl.setEnabled(is_changeable and not isinstance(current_stmt, ElseStmt))
 
     can_up = is_changeable and current != [0]
     ui.btnAlgo_UpBlock.setEnabled(can_up)
@@ -1522,6 +1554,8 @@ def init_ui():
     ui.btnAlgo_Up.clicked.connect(btn_move_up)
     ui.btnAlgo_Down.clicked.connect(btn_move_down)
     ui.btnAlgo_DownBlock.clicked.connect(btn_move_down_block)
+
+    ui.btnAlgo_Dupl.clicked.connect(btn_dupl_line)
 
     ui.btnAlgo_Variable.clicked.connect(add_def_variable)
     ui.btnAlgo_Display.clicked.connect(add_display)

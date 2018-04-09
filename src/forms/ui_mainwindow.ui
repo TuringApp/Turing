@@ -74,131 +74,146 @@
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout">
-           <item row="0" column="0">
-            <widget class="QPushButton" name="btnAlgo_Add">
-             <property name="text">
-              <string>Add line</string>
-             </property>
-             <property name="icon">
-              <iconset resource="../turing.qrc">
-               <normaloff>:/action/media/add.png</normaloff>:/action/media/add.png</iconset>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="1">
-            <widget class="QPushButton" name="btnAlgo_Break">
-             <property name="text">
-              <string>BREAK</string>
-             </property>
-            </widget>
+           <item row="1" column="0" colspan="3">
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="0">
+              <widget class="QPushButton" name="btnAlgo_Add">
+               <property name="text">
+                <string>Add line</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/add.png</normaloff>:/action/media/add.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="btnAlgo_Delete">
+               <property name="text">
+                <string>Delete line</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/delete.png</normaloff>:/action/media/delete.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="btnAlgo_Edit">
+               <property name="text">
+                <string>Edit line</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="btnAlgo_Dupl">
+               <property name="text">
+                <string>Duplicate line</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/copy.png</normaloff>:/action/media/copy.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item row="9" column="1">
-            <widget class="QPushButton" name="btnAlgo_Continue">
-             <property name="text">
-              <string>CONTINUE</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="btnAlgo_Delete">
-             <property name="text">
-              <string>Delete line</string>
-             </property>
-             <property name="icon">
-              <iconset resource="../turing.qrc">
-               <normaloff>:/action/media/delete.png</normaloff>:/action/media/delete.png</iconset>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="1">
             <widget class="QPushButton" name="btnAlgo_While">
              <property name="text">
               <string>WHILE loop</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="11" column="1">
+            <widget class="QPushButton" name="btnAlgo_Break">
+             <property name="text">
+              <string>BREAK</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <widget class="QPushButton" name="btnAlgo_Continue">
+             <property name="text">
+              <string>CONTINUE</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
             <widget class="QPushButton" name="btnAlgo_If">
              <property name="text">
               <string>IF block</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="1">
-            <widget class="QPushButton" name="btnAlgo_Else">
-             <property name="text">
-              <string>ELSE block</string>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="0">
-            <widget class="QPushButton" name="btnAlgo_Func">
-             <property name="text">
-              <string>Define FUNCTION</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="1">
+           <item row="8" column="1">
             <widget class="QPushButton" name="btnAlgo_For">
              <property name="text">
               <string>FOR loop</string>
              </property>
             </widget>
            </item>
-           <item row="10" column="0">
+           <item row="11" column="0">
             <widget class="QPushButton" name="btnAlgo_Return">
              <property name="text">
               <string>RETURN</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="0">
-            <widget class="QPushButton" name="btnAlgo_Variable">
+           <item row="7" column="1">
+            <widget class="QPushButton" name="btnAlgo_Else">
              <property name="text">
-              <string>DEFINE variable</string>
+              <string>ELSE block</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="0">
+           <item row="10" column="0">
+            <widget class="QPushButton" name="btnAlgo_Func">
+             <property name="text">
+              <string>Define FUNCTION</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
             <widget class="QPushButton" name="btnAlgo_Call">
              <property name="text">
               <string>CALL function</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="0">
-            <widget class="QPushButton" name="btnAlgo_Display">
-             <property name="text">
-              <string>DISPLAY value</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="0">
+           <item row="8" column="0">
             <widget class="QPushButton" name="btnAlgo_Input">
              <property name="text">
               <string>Read user INPUT</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="2">
+           <item row="7" column="0">
+            <widget class="QPushButton" name="btnAlgo_Display">
+             <property name="text">
+              <string>DISPLAY value</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QPushButton" name="btnAlgo_Variable">
+             <property name="text">
+              <string>DEFINE variable</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2">
             <widget class="QPushButton" name="btnAlgo_GClear">
              <property name="text">
               <string>Clear plot</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="2">
-            <widget class="QPushButton" name="btnAlgo_Edit">
-             <property name="text">
-              <string>Edit line</string>
-             </property>
-             <property name="icon">
-              <iconset resource="../turing.qrc">
-               <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0" colspan="3">
+           <item row="3" column="0" colspan="3">
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
               <widget class="QPushButton" name="btnAlgo_UpBlock">
@@ -234,7 +249,14 @@
              </item>
             </layout>
            </item>
-           <item row="4" column="0" colspan="3">
+           <item row="7" column="2">
+            <widget class="QPushButton" name="btnAlgo_GWindow">
+             <property name="text">
+              <string>Set window</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="3">
             <widget class="Line" name="line">
              <property name="lineWidth">
               <number>1</number>
@@ -244,38 +266,31 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="2">
-            <widget class="QPushButton" name="btnAlgo_GWindow">
-             <property name="text">
-              <string>Set window</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="2">
+           <item row="8" column="2">
             <widget class="QPushButton" name="btnAlgo_GPoint">
              <property name="text">
               <string>Draw point</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="2">
+           <item row="9" column="2">
             <widget class="QPushButton" name="btnAlgo_GLine">
              <property name="text">
               <string>Draw line</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="2">
-            <widget class="QPushButton" name="btnAlgo_Comment">
+           <item row="11" column="2">
+            <widget class="QPushButton" name="btnAlgo_Stop">
              <property name="text">
-              <string>Comment</string>
+              <string>Pause execution</string>
              </property>
             </widget>
            </item>
            <item row="10" column="2">
-            <widget class="QPushButton" name="btnAlgo_Stop">
+            <widget class="QPushButton" name="btnAlgo_Comment">
              <property name="text">
-              <string>Pause execution</string>
+              <string>Comment</string>
              </property>
             </widget>
            </item>
@@ -1149,9 +1164,6 @@ p, li { white-space: pre-wrap; }
   </action>
  </widget>
  <tabstops>
-  <tabstop>btnAlgo_Add</tabstop>
-  <tabstop>btnAlgo_Delete</tabstop>
-  <tabstop>btnAlgo_Edit</tabstop>
   <tabstop>btnAlgo_UpBlock</tabstop>
   <tabstop>btnAlgo_Up</tabstop>
   <tabstop>btnAlgo_Down</tabstop>
