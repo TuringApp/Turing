@@ -8,6 +8,7 @@ import tempfile
 import threading
 import traceback
 from typing import Optional
+from sys import exit
 
 import pygments.styles
 import pyqode.python.backend
@@ -21,7 +22,6 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 
-import editor_backend
 import forms
 import util.code
 import util.html
@@ -127,7 +127,7 @@ class MainWindowWrapper(QMainWindow):
     def closeEvent(self, event):
         if not is_modified():
             event.setAccepted(True)
-            exit()
+            clean_exit()
             return
         msg = get_themed_box()
         msg.setIcon(QMessageBox.Question)
@@ -138,7 +138,7 @@ class MainWindowWrapper(QMainWindow):
         event.ignore()
         if msg.exec_() == QMessageBox.Yes:
             event.setAccepted(True)
-            exit()
+            clean_exit()
 
 
 def get_action(name: str) -> QAction:
@@ -791,7 +791,12 @@ def set_style(style):
 def load_code_editor():
     global code_editor
     code_editor = api.CodeEdit()
-    code_editor.backend.start(editor_backend.__file__)
+    if hasattr(sys, "frozen"):
+        backend = "editor_backend.exe"
+    else:
+        import editor_backend
+        backend = editor_backend.__file__
+    code_editor.backend.start(backend)
 
     code_editor.modes.append(modes.CodeCompletionMode())
     code_editor.modes.append(modes.CaretLineHighlighterMode())
@@ -1640,6 +1645,11 @@ def setup_thread_excepthook():
     threading.Thread.__init__ = init
 
 
+def clean_exit():
+    code_editor.backend.stop()
+    sys.exit()
+
+
 if __name__ == "__main__":
     sys.excepthook = except_hook
     setup_thread_excepthook()
@@ -1669,5 +1679,4 @@ if __name__ == "__main__":
     except:
         show_error()
         exitCode = 1
-    code_editor.backend.stop()
-    sys.exit(exitCode)
+    clean_exit()

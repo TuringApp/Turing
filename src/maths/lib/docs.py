@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import inspect
+import sys
 
 from util.math import proper_str
 
@@ -11,7 +12,7 @@ ext_aliases = {}
 
 
 def doc(*kwargs):
-    module = inspect.getmodule(inspect.stack()[1][0])
+    module = sys.modules[inspect.stack()[1][0].f_globals["__name__"]]
     mod_name = module.__desc__
     modules[mod_name] = module
     if mod_name not in funcs:
@@ -20,7 +21,7 @@ def doc(*kwargs):
 
 
 def doc_c(*kwargs):
-    module = inspect.getmodule(inspect.stack()[1][0])
+    module = sys.modules[inspect.stack()[1][0].f_globals["__name__"]]
     mod_name = module.__desc__
     modules[mod_name] = module
     if mod_name not in consts:
