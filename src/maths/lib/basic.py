@@ -316,6 +316,7 @@ doc("integrate",
 
 
 def integrate(func, a, b, steps=1000):
+    steps = int(steps)
     step = (b - a) / steps
 
     sum = func(a)
