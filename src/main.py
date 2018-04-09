@@ -835,6 +835,31 @@ def add_while_loop():
         append_line(WhileStmt(dlg.expr, []))
 
 
+def add_gclear():
+    append_line(GClearStmt())
+
+
+def add_gline():
+    from forms import alg_line
+    dlg = alg_line.AlgoGLineStmt(window)
+    if dlg.run():
+        append_line(GLineStmt(dlg.f_start_x, dlg.f_start_y, dlg.f_end_x, dlg.f_end_y, dlg.f_color))
+
+
+def add_gpoint():
+    from forms import alg_point
+    dlg = alg_point.AlgoGPointStmt(window)
+    if dlg.run():
+        append_line(GPointStmt(dlg.f_x, dlg.f_y, dlg.color))
+
+
+def add_gwindow():
+    from forms import alg_window
+    dlg = alg_window.AlgoGWindowStmt(window)
+    if dlg.run():
+        append_line(GWindowStmt(dlg.f_x_min, dlg.f_x_max, dlg.f_y_min, dlg.f_y_max, dlg.f_x_grad, dlg.f_y_grad))
+
+
 def add_break_stmt():
     append_line(BreakStmt())
 
@@ -943,6 +968,35 @@ def btn_edit_line():
         dlg = alg_comment.AlgoCommentStmt(window, stmt.content)
         if dlg.run():
             stmt.content = dlg.comment
+
+    elif isinstance(stmt, GLineStmt):
+        from forms import alg_line
+        dlg = alg_line.AlgoGLineStmt(window, (stmt.start_x.code(), stmt.start_y.code(), stmt.end_x.code(), stmt.end_y.code(), stmt.color.code()))
+        if dlg.run():
+            stmt.start_x = dlg.f_start_x
+            stmt.start_y = dlg.f_start_y
+            stmt.end_x = dlg.f_end_x
+            stmt.end_y = dlg.f_end_y
+            stmt.color = dlg.f_color
+
+    elif isinstance(stmt, GPointStmt):
+        from forms import alg_point
+        dlg = alg_point.AlgoGPointStmt(window, (stmt.x.code(), stmt.y.code(), stmt.color.code()))
+        if dlg.run():
+            stmt.x = dlg.f_x
+            stmt.y = dlg.f_y
+            stmt.color = dlg.f_color
+
+    elif isinstance(stmt, GWindowStmt):
+        from forms import alg_window
+        dlg = alg_window.AlgoGWindowStmt(window, (stmt.x_min.code(), stmt.x_max.code(), stmt.y_min.code(), stmt.y_max.code(), stmt.x_grad.code(), stmt.y_grad.code()))
+        if dlg.run():
+            stmt.x_min = dlg.f_x_min
+            stmt.x_max = dlg.f_x_max
+            stmt.y_min = dlg.f_y_min
+            stmt.y_max = dlg.f_y_max
+            stmt.x_grad = dlg.f_x_grad
+            stmt.y_grad = dlg.f_y_grad
 
     refresh()
 
@@ -1158,6 +1212,35 @@ def str_stmt(stmt):
 
     elif isinstance(stmt, CommentStmt):
         ret = "[t]{com}[/t]".format(com=util.html.sanitize(stmt.content))
+
+    elif isinstance(stmt, GClearStmt):
+        ret = translate("Algo", "[k]CLEAR PLOT[/k]")
+
+    elif isinstance(stmt, GLineStmt):
+        ret = translate("Algo", "[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])").format(
+            color=code(stmt.color),
+            start_x=code(stmt.start_x),
+            start_y=code(stmt.start_y),
+            end_x=code(stmt.end_x),
+            end_y=code(stmt.end_y)
+        )
+
+    elif isinstance(stmt, GPointStmt):
+        ret = translate("Algo", "[k]DRAW POINT[/k] [c]{color}[/c] [k]AT[/k] ([c]{x}[/c]; [c]{y}[/c])").format(
+            color=code(stmt.color),
+            x=code(stmt.x),
+            y=code(stmt.y),
+        )
+
+    elif isinstance(stmt, GWindowStmt):
+        ret = translate("Algo", "[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]").format(
+            x_min=code(stmt.x_min),
+            x_max=code(stmt.x_max),
+            y_min=code(stmt.y_min),
+            y_max=code(stmt.y_max),
+            x_grad=code(stmt.x_grad),
+            y_grad=code(stmt.y_grad),
+        )
 
     elif isinstance(stmt, BlockStmt):
         ret = translate("Algo", "[b]PROGRAM[/b]")
