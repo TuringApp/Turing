@@ -1193,6 +1193,8 @@ def append_line(stmt, force_after=False):
     if isinstance(stmt, BlockStmt):
         add_block(stmt, current_pos)
 
+    set_current_stmt(stmt)
+
 
 def get_current_stmt():
     current_item = ui.treeWidget.currentItem()
@@ -1249,6 +1251,16 @@ def get_parent(pos):
     return parent, parent_stmt
 
 
+def set_current_stmt(current):
+    if current is None:
+        return
+
+    for item, stmt in item_map.values():
+        if stmt == current:
+            ui.treeWidget.setCurrentItem(item)
+            break
+
+
 def refresh_algo():
     current = None
     line = ui.treeWidget.currentItem()
@@ -1259,10 +1271,7 @@ def refresh_algo():
 
     load_block(algo)
 
-    for item, stmt in item_map.values():
-        if stmt == current:
-            ui.treeWidget.setCurrentItem(item)
-            break
+    set_current_stmt(current)
 
 
 def move_line(old_pos, new_pos):
