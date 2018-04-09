@@ -48,7 +48,7 @@ doc("sqrt",
 
 
 def sqrt(x):
-    return cmath.sqrt(x)
+    return cmath.sqrt(x) if type(x) == complex or x < 0 else rmath.sqrt(x)
 
 
 rac = sqrt
@@ -88,7 +88,7 @@ doc("exp",
 
 
 def exp(x):
-    return cmath.exp(x)
+    return cmath.exp(x) if type(x) == complex else rmath.exp(x)
 
 
 doc("ln",
@@ -99,7 +99,7 @@ doc("ln",
 
 
 def ln(x):
-    return cmath.log(x)
+    return cmath.log(x) if type(x) == complex else rmath.log(x)
 
 
 doc("log",
@@ -112,8 +112,8 @@ doc("log",
 
 def log(x, b=None):
     if b is None:
-        return cmath.log(x)
-    return cmath.log(x, b)
+        return ln(x)
+    return cmath.log(x, b) if type(x) == complex or type(b) == complex or x < 0 else rmath.log(x, b)
 
 
 doc("log10",
@@ -124,7 +124,7 @@ doc("log10",
 
 
 def log10(x):
-    return cmath.log10(x)
+    return cmath.log10(x) if type(x) == complex or x < 0 else rmath.log10(x)
 
 
 doc("floor",

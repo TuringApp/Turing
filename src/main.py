@@ -353,9 +353,9 @@ def python_input(prompt=""):
                 return user_input
 
 
-def python_print_error(msg):
+def python_print_error(msg, end="\n"):
     global current_output
-    current_output += util.html.color_span(msg, "red") + "\n"
+    current_output += util.html.color_span(msg, "red") + end
     if not mode_python:
         set_current_line(worker.last, True)
     update_output()
@@ -553,7 +553,7 @@ def handler_Run(flag=False):
             except SyntaxError as err:
                 msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
                     type=type(err).__name__, line=err.lineno - 10, off=err.offset)
-                python_print_error(msg + err.text)
+                python_print_error(msg + err.text, end="")
                 python_print_error(" " * (len(msg) + err.offset - 1) + "↑")
             except:
                 python_print_error(str(sys.exc_info()[1]))
@@ -828,7 +828,7 @@ def load_plot_canvas():
     plot_canvas = FigureCanvas(plot_figure)
     plot_axes.set_xlim(-10, 10)
     plot_axes.set_ylim(-10, 10)
-    ui.verticalLayout_10.addWidget(plot_canvas)
+    ui.verticalLayout_4.addWidget(plot_canvas)
 
 
 def get_item_label(item):

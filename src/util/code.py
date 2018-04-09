@@ -18,6 +18,8 @@ for n, x in maths.lib.__dict__.items():
         for k, i in module.__dict__.items():
             if type(i) == types.FunctionType:
                 globals()[k] = getattr(module, k)
+            elif k.startswith("c_"):
+                globals()[k[2:]] = getattr(module, k)
 del maths, types, n, x
 
 %s

@@ -294,16 +294,6 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_8"/>
       </widget>
-      <widget class="QWidget" name="tab_plot">
-       <attribute name="icon">
-        <iconset resource="../turing.qrc">
-         <normaloff>:/action/media/plot.png</normaloff>:/action/media/plot.png</iconset>
-       </attribute>
-       <attribute name="title">
-        <string>Plot</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_10"/>
-      </widget>
      </widget>
     </item>
    </layout>
@@ -478,6 +468,9 @@
    <addaction name="actionHelpContents"/>
   </widget>
   <widget class="QDockWidget" name="dock_output">
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
    <property name="windowTitle">
     <string>Output</string>
    </property>
@@ -588,6 +581,20 @@ p, li { white-space: pre-wrap; }
       </layout>
      </item>
     </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dock_plot">
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="windowTitle">
+    <string>Plot</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_4"/>
    </widget>
   </widget>
   <action name="actionNew">
