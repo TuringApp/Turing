@@ -12,7 +12,7 @@ translate = QCoreApplication.translate
 
 
 class AlgoGWindowStmt(QDialog):
-    def __init__(self, parent, origcode=("", "", "", "", "", "")):
+    def __init__(self, parent, origcode=("", "", "", "", "1", "1")):
         super().__init__(parent)
         self.ui = Ui_AlgoGWindowStmt()
         self.ui.setupUi(self)

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="fr_FR" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.1" language="fr_FR" sourcelanguage="en">
 <context>
     <name>AboutWindow</name>
     <message>
@@ -80,82 +81,82 @@ p, li { white-space: pre-wrap; }
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1270"/>
+        <location filename="../main.py" line="1272"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1273"/>
+        <location filename="../main.py" line="1275"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1264"/>
+        <location filename="../main.py" line="1266"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1276"/>
+        <location filename="../main.py" line="1278"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1279"/>
+        <location filename="../main.py" line="1281"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1282"/>
+        <location filename="../main.py" line="1284"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1307"/>
+        <location filename="../main.py" line="1309"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1287"/>
+        <location filename="../main.py" line="1289"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1293"/>
+        <location filename="../main.py" line="1295"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1303"/>
+        <location filename="../main.py" line="1305"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1346"/>
+        <location filename="../main.py" line="1348"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1267"/>
+        <location filename="../main.py" line="1269"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1296"/>
+        <location filename="../main.py" line="1298"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation>[b]POUR[/b] [c]{var}[/c] [b]DE[/b] [c]{begin}[/c] [b]À[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1297"/>
+        <location filename="../main.py" line="1299"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation>([b]PAS[/b] [c]{step}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1349"/>
+        <location filename="../main.py" line="1351"/>
         <source>[i]empty[/i]</source>
         <translation>[i]vide[/i]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1311"/>
+        <location filename="../main.py" line="1313"/>
         <source>[k]STOP[/k]</source>
         <translation>[k]STOP[/k]</translation>
     </message>
@@ -199,29 +200,29 @@ p, li { white-space: pre-wrap; }
         <translation>Cible d&apos;affectation invalide (doit être une variable ou un élément de liste) : {name}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1289"/>
+        <location filename="../main.py" line="1291"/>
         <source>[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]</source>
         <translation>[k]VARIABLE[/k] [c]{var}[/c] [k]PREND LA VALEUR[/b] [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1317"/>
+        <location filename="../main.py" line="1319"/>
         <source>[k]CLEAR PLOT[/k]</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]EFFACER GRAPHIQUE[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1320"/>
+        <location filename="../main.py" line="1322"/>
         <source>[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]DESSINER LIGNE[/k] [c]{color}[/c] [k]DE[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]À[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1329"/>
+        <location filename="../main.py" line="1331"/>
         <source>[k]DRAW POINT[/k] [c]{color}[/c] [k]AT[/k] ([c]{x}[/c]; [c]{y}[/c])</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]DESSINER POINT[/k] [c]{color}[/c] [k]À[/k] ([c]{x}[/c]; [c]{y}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1336"/>
+        <location filename="../main.py" line="1338"/>
         <source>[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]DÉFINIR REPÈRE[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</translation>
     </message>
 </context>
 <context>
@@ -316,7 +317,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="102"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Executes the instructions for all values of the variable in the specified range.&lt;/p&gt;&lt;p&gt;At each iteration, the variable will be incremented by the step which is defaulted to 1. &lt;/p&gt;&lt;p&gt;The bounds are inclusive.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Executes the instructions for all values of the variable in the specified range.&lt;/p&gt;&lt;p&gt;At each iteration, the variable will be incremented by the step which is defaulted to 1. &lt;/p&gt;&lt;p&gt;The bounds are inclusive.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exécute une instruction pour toutes les valeurs de la variable dans l&apos;intervalle spécifié.&lt;/p&gt;&lt;p&gt;À chaque itération, la variable est incrémentée du pas spécifié (1 par défaut). &lt;/p&gt;&lt;p&gt;Les bornes sont inclusives.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="103"/>
@@ -354,7 +355,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_func.py" line="57"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Creates a custom function. The parameters must be a comma-separated list of identifiers.&lt;/p&gt;&lt;p&gt;A function may or may not return a value, it can very well only &amp;quot;do&amp;quot; things without ever giving a result. Such a function can be called using the CALL statement.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Définit une fonction personnalisée. Les paramètres doivent être séparés par des virgules.&lt;/p&gt;&lt;p&gt;Une fonction peut renvoyer ou non une valeur, elle peut très bien simplement exécuter des instructions sans donner de résultat.Une telle fonction peut être appelée en utilisant une instruction APPELER.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Définit une fonction personnalisée. Les paramètres doivent être séparés par des virgules.&lt;/p&gt;&lt;p&gt;Une fonction peut renvoyer ou non une valeur, elle peut très bien simplement exécuter des instructions sans donner de résultat. Une telle fonction peut être appelée en utilisant une instruction APPELER.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_func.py" line="58"/>
@@ -377,37 +378,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gline.py" line="118"/>
         <source>Plot line</source>
-        <translation type="unfinished"></translation>
+        <translation>Dessiner une ligne</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gline.py" line="119"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws a line with the specified coordinates.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dessine une ligne avec les coordonnées spécifiées.&lt;/p&gt;&lt;p&gt;La couleur doit être une chaîne de caractères contenant le nom de la couleur ou la valeur RGB hexadécimale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gline.py" line="120"/>
         <source>End Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y arrivée :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gline.py" line="121"/>
         <source>End X:</source>
-        <translation type="unfinished"></translation>
+        <translation>X arrivée :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gline.py" line="122"/>
         <source>Start X:</source>
-        <translation type="unfinished"></translation>
+        <translation>X début :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gline.py" line="123"/>
         <source>Start Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y début :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gline.py" line="124"/>
         <source>Color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur :</translation>
     </message>
 </context>
 <context>
@@ -415,27 +416,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gpoint.py" line="86"/>
         <source>Plot point</source>
-        <translation type="unfinished"></translation>
+        <translation>Dessiner un point</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gpoint.py" line="87"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws a point at the specified coordinates.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dessine un point aux coordonnées spécifiées.&lt;/p&gt;&lt;p&gt;La couleur doit être une chaîne de caractères contenant le nom de la couleur ou la valeur RGB hexadécimale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gpoint.py" line="88"/>
         <source>Color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gpoint.py" line="89"/>
         <source>X:</source>
-        <translation type="unfinished"></translation>
+        <translation>X :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gpoint.py" line="90"/>
         <source>Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y :</translation>
     </message>
 </context>
 <context>
@@ -443,42 +444,47 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="133"/>
         <source>Canvas size</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Définir le repère</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="134"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Changes the size of the plot window canvas.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Définit la taille du repère et de la fenêtre du graphique.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="135"/>
         <source>Max Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y max :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="136"/>
         <source>Min Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y min :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="137"/>
         <source>Min X:</source>
-        <translation type="unfinished"></translation>
+        <translation>X min :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="138"/>
         <source>Max X:</source>
-        <translation type="unfinished"></translation>
+        <translation>X max :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="139"/>
         <source>Grad X:</source>
-        <translation type="unfinished"></translation>
+        <translation>X grad :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="140"/>
         <source>Grad Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y grad :</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_gwindow.py" line="133"/>
+        <source>Set window</source>
+        <translation>Définir le repère</translation>
     </message>
 </context>
 <context>
@@ -578,7 +584,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../algo/algobox.py" line="51"/>
         <source>Unknown color: {color}</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur inconnue : {color}</translation>
     </message>
 </context>
 <context>
@@ -1334,277 +1340,277 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="592"/>
+        <location filename="../forms/ui_mainwindow.py" line="604"/>
         <source>Turing</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="593"/>
+        <location filename="../forms/ui_mainwindow.py" line="605"/>
         <source>Home</source>
         <translation>Accueil</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="617"/>
+        <location filename="../forms/ui_mainwindow.py" line="629"/>
         <source>&amp;File</source>
         <translation>&amp;Fichier</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="619"/>
+        <location filename="../forms/ui_mainwindow.py" line="631"/>
         <source>&amp;Edit</source>
         <translation>&amp;Édition</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="620"/>
+        <location filename="../forms/ui_mainwindow.py" line="632"/>
         <source>&amp;Settings</source>
         <translation>&amp;Options</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="621"/>
+        <location filename="../forms/ui_mainwindow.py" line="633"/>
         <source>&amp;Help</source>
         <translation>&amp;Aide</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="622"/>
+        <location filename="../forms/ui_mainwindow.py" line="634"/>
         <source>&amp;View</source>
         <translation>&amp;Affichage</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="625"/>
+        <location filename="../forms/ui_mainwindow.py" line="637"/>
         <source>&amp;Program</source>
         <translation>&amp;Programme</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="626"/>
+        <location filename="../forms/ui_mainwindow.py" line="638"/>
         <source>&amp;Tools</source>
         <translation>&amp;Outils</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="670"/>
+        <location filename="../forms/ui_mainwindow.py" line="682"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="629"/>
+        <location filename="../forms/ui_mainwindow.py" line="641"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="635"/>
+        <location filename="../forms/ui_mainwindow.py" line="647"/>
         <source>New</source>
         <translation>Nouveau</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="636"/>
+        <location filename="../forms/ui_mainwindow.py" line="648"/>
         <source>Ctrl+N</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="638"/>
+        <location filename="../forms/ui_mainwindow.py" line="650"/>
         <source>Open</source>
         <translation>Ouvrir</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="639"/>
+        <location filename="../forms/ui_mainwindow.py" line="651"/>
         <source>Ctrl+O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="641"/>
+        <location filename="../forms/ui_mainwindow.py" line="653"/>
         <source>Save</source>
         <translation>Enregistrer</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="642"/>
+        <location filename="../forms/ui_mainwindow.py" line="654"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="644"/>
+        <location filename="../forms/ui_mainwindow.py" line="656"/>
         <source>Save As</source>
         <translation>Enregistrer sous</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="646"/>
+        <location filename="../forms/ui_mainwindow.py" line="658"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="647"/>
+        <location filename="../forms/ui_mainwindow.py" line="659"/>
         <source>Ctrl+W</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="649"/>
+        <location filename="../forms/ui_mainwindow.py" line="661"/>
         <source>Exit</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="650"/>
+        <location filename="../forms/ui_mainwindow.py" line="662"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="652"/>
+        <location filename="../forms/ui_mainwindow.py" line="664"/>
         <source>Save All</source>
         <translation>Enregistrer tout</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="653"/>
+        <location filename="../forms/ui_mainwindow.py" line="665"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Maj+S</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="655"/>
+        <location filename="../forms/ui_mainwindow.py" line="667"/>
         <source>Undo</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="656"/>
+        <location filename="../forms/ui_mainwindow.py" line="668"/>
         <source>Ctrl+Z</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="658"/>
+        <location filename="../forms/ui_mainwindow.py" line="670"/>
         <source>Redo</source>
         <translation>Rétablir</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="659"/>
+        <location filename="../forms/ui_mainwindow.py" line="671"/>
         <source>Ctrl+Y</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="661"/>
+        <location filename="../forms/ui_mainwindow.py" line="673"/>
         <source>Cut</source>
         <translation>Couper</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="662"/>
+        <location filename="../forms/ui_mainwindow.py" line="674"/>
         <source>Ctrl+X</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="664"/>
+        <location filename="../forms/ui_mainwindow.py" line="676"/>
         <source>Copy</source>
         <translation>Copier</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="665"/>
+        <location filename="../forms/ui_mainwindow.py" line="677"/>
         <source>Ctrl+C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="667"/>
+        <location filename="../forms/ui_mainwindow.py" line="679"/>
         <source>Paste</source>
         <translation>Coller</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="668"/>
+        <location filename="../forms/ui_mainwindow.py" line="680"/>
         <source>Ctrl+V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="672"/>
+        <location filename="../forms/ui_mainwindow.py" line="684"/>
         <source>Quick Start</source>
         <translation>Tutoriel rapide</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="674"/>
+        <location filename="../forms/ui_mainwindow.py" line="686"/>
         <source>Help Contents</source>
         <translation>Pages d&apos;aide</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="675"/>
+        <location filename="../forms/ui_mainwindow.py" line="687"/>
         <source>F1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="677"/>
+        <location filename="../forms/ui_mainwindow.py" line="689"/>
         <source>About Turing</source>
         <translation>À propos de Turing</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="679"/>
+        <location filename="../forms/ui_mainwindow.py" line="691"/>
         <source>Show toolbar</source>
         <translation>Barre d&apos;outils</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="680"/>
+        <location filename="../forms/ui_mainwindow.py" line="692"/>
         <source>Examples</source>
         <translation>Exemples</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="682"/>
+        <location filename="../forms/ui_mainwindow.py" line="694"/>
         <source>Print</source>
         <translation>Imprimer</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="683"/>
+        <location filename="../forms/ui_mainwindow.py" line="695"/>
         <source>Ctrl+P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="685"/>
+        <location filename="../forms/ui_mainwindow.py" line="697"/>
         <source>Find</source>
         <translation>Rechercher</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="687"/>
+        <location filename="../forms/ui_mainwindow.py" line="699"/>
         <source>Replace</source>
         <translation>Remplacer</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="689"/>
+        <location filename="../forms/ui_mainwindow.py" line="701"/>
         <source>Calculator</source>
         <translation>Calculatrice</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="691"/>
+        <location filename="../forms/ui_mainwindow.py" line="703"/>
         <source>Clear</source>
         <translation>Effacer</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="693"/>
+        <location filename="../forms/ui_mainwindow.py" line="705"/>
         <source>Select All</source>
         <translation>Sélectionner tout</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="694"/>
+        <location filename="../forms/ui_mainwindow.py" line="706"/>
         <source>Ctrl+A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="696"/>
+        <location filename="../forms/ui_mainwindow.py" line="708"/>
         <source>Run</source>
         <translation>Exécuter</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="697"/>
+        <location filename="../forms/ui_mainwindow.py" line="709"/>
         <source>F5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="699"/>
+        <location filename="../forms/ui_mainwindow.py" line="711"/>
         <source>Step-by-step</source>
         <translation>Pas-à-pas</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="700"/>
+        <location filename="../forms/ui_mainwindow.py" line="712"/>
         <source>F10</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="702"/>
+        <location filename="../forms/ui_mainwindow.py" line="714"/>
         <source>Show toolbar text</source>
         <translation>Texte des boutons</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="704"/>
+        <location filename="../forms/ui_mainwindow.py" line="716"/>
         <source>Convert to Python</source>
         <translation>Convertir en Python</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="706"/>
+        <location filename="../forms/ui_mainwindow.py" line="718"/>
         <source>Convert to pseudocode</source>
         <translation>Convertir en pseudocode</translation>
     </message>
@@ -1616,294 +1622,294 @@ All unsaved changes will be lost.</source>
 Toutes les modifications non sauvegardées seront perdues.</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="618"/>
+        <location filename="../forms/ui_mainwindow.py" line="630"/>
         <source>Recent files</source>
         <translation>Récents</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="628"/>
+        <location filename="../forms/ui_mainwindow.py" line="640"/>
         <source>Toolbar</source>
         <translation>Barre d&apos;outils</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="627"/>
+        <location filename="../forms/ui_mainwindow.py" line="639"/>
         <source>&amp;Language</source>
         <translation>&amp;Langue</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="615"/>
+        <location filename="../forms/ui_mainwindow.py" line="627"/>
         <source>Pseudocode</source>
         <translation>Algorithme</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="616"/>
+        <location filename="../forms/ui_mainwindow.py" line="628"/>
         <source>Code</source>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="436"/>
+        <location filename="../main.py" line="439"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="308"/>
+        <location filename="../main.py" line="309"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="558"/>
+        <location filename="../main.py" line="561"/>
         <source>Syntax error ({type}) at line {line}, offset {off}: </source>
         <translation>Erreur de syntaxe ({type}) à la ligne {line}, caractère {off} : </translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="708"/>
+        <location filename="../forms/ui_mainwindow.py" line="720"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="709"/>
+        <location filename="../forms/ui_mainwindow.py" line="721"/>
         <source>Indent</source>
         <translation>Indenter</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="711"/>
+        <location filename="../forms/ui_mainwindow.py" line="723"/>
         <source>Unindent</source>
         <translation>Dé-indenter</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="707"/>
+        <location filename="../forms/ui_mainwindow.py" line="719"/>
         <source>Duplicate Line</source>
         <translation>Dupliquer la ligne</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="713"/>
+        <location filename="../forms/ui_mainwindow.py" line="725"/>
         <source>Go To Line</source>
         <translation>Aller à la ligne</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="714"/>
+        <location filename="../forms/ui_mainwindow.py" line="726"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="715"/>
+        <location filename="../forms/ui_mainwindow.py" line="727"/>
         <source>Find Previous</source>
         <translation>Rechercher précédent</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="716"/>
+        <location filename="../forms/ui_mainwindow.py" line="728"/>
         <source>Shift+F3</source>
         <translation>Maj+F3</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="717"/>
+        <location filename="../forms/ui_mainwindow.py" line="729"/>
         <source>Find Next</source>
         <translation>Rechercher suivant</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="718"/>
+        <location filename="../forms/ui_mainwindow.py" line="730"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="710"/>
+        <location filename="../forms/ui_mainwindow.py" line="722"/>
         <source>Tab</source>
         <translation>Tab</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="712"/>
+        <location filename="../forms/ui_mainwindow.py" line="724"/>
         <source>Shift+Tab</source>
         <translation>Maj+Tab</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="623"/>
+        <location filename="../forms/ui_mainwindow.py" line="635"/>
         <source>Change theme</source>
         <translation>Changer de thème</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="624"/>
+        <location filename="../forms/ui_mainwindow.py" line="636"/>
         <source>Change style</source>
         <translation>Changer de style</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="630"/>
+        <location filename="../forms/ui_mainwindow.py" line="642"/>
         <source>Clear Output</source>
         <translation>Effacer la sortie</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="631"/>
+        <location filename="../forms/ui_mainwindow.py" line="643"/>
         <source>Save Output</source>
         <translation>Enregistrer la sortie</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="632"/>
+        <location filename="../forms/ui_mainwindow.py" line="644"/>
         <source>Print Output</source>
         <translation>Imprimer la sortie</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="609"/>
+        <location filename="../forms/ui_mainwindow.py" line="621"/>
         <source>Edit line</source>
         <translation>Modifier</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="597"/>
+        <location filename="../forms/ui_mainwindow.py" line="609"/>
         <source>Delete line</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="594"/>
+        <location filename="../forms/ui_mainwindow.py" line="606"/>
         <source>Add line</source>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="602"/>
+        <location filename="../forms/ui_mainwindow.py" line="614"/>
         <source>FOR loop</source>
         <translation>Boucle POUR</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="598"/>
+        <location filename="../forms/ui_mainwindow.py" line="610"/>
         <source>WHILE loop</source>
         <translation>Boucle TANT QUE</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="599"/>
+        <location filename="../forms/ui_mainwindow.py" line="611"/>
         <source>IF block</source>
         <translation>Bloc SI</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="600"/>
+        <location filename="../forms/ui_mainwindow.py" line="612"/>
         <source>ELSE block</source>
         <translation>Bloc SINON</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="595"/>
+        <location filename="../forms/ui_mainwindow.py" line="607"/>
         <source>BREAK</source>
         <translation>SORTIR</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="596"/>
+        <location filename="../forms/ui_mainwindow.py" line="608"/>
         <source>CONTINUE</source>
         <translation>CONTINUER</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="719"/>
+        <location filename="../forms/ui_mainwindow.py" line="731"/>
         <source>Stop</source>
         <translation>Arrêter</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="613"/>
+        <location filename="../forms/ui_mainwindow.py" line="625"/>
         <source>Comment</source>
         <translation>Commentaire</translation>
     </message>
     <message>
-        <location filename="../main.py" line="458"/>
+        <location filename="../main.py" line="461"/>
         <source>program interrupted</source>
         <translation>algorithme interrompu</translation>
     </message>
     <message>
-        <location filename="../main.py" line="436"/>
+        <location filename="../main.py" line="439"/>
         <source>end of output [{time}]</source>
         <translation>fin de l&apos;exécution [{time}]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1566"/>
+        <location filename="../main.py" line="1568"/>
         <source>Python file (*.py)</source>
         <translation>Fichier Python (*.py)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1567"/>
+        <location filename="../main.py" line="1569"/>
         <source>Turing program (*.tr)</source>
         <translation>Algorithme Turing (*.tr)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1568"/>
+        <location filename="../main.py" line="1570"/>
         <source>Algobox file (*.alg)</source>
         <translation>Algorithme Algobox (*.alg)</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="601"/>
+        <location filename="../forms/ui_mainwindow.py" line="613"/>
         <source>Define FUNCTION</source>
         <translation>Définir FONCTION</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="605"/>
+        <location filename="../forms/ui_mainwindow.py" line="617"/>
         <source>CALL function</source>
         <translation>APPELER fonction</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="603"/>
+        <location filename="../forms/ui_mainwindow.py" line="615"/>
         <source>RETURN</source>
         <translation>RENVOYER</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="604"/>
+        <location filename="../forms/ui_mainwindow.py" line="616"/>
         <source>DEFINE variable</source>
         <translation>DÉFINIR variable</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="607"/>
+        <location filename="../forms/ui_mainwindow.py" line="619"/>
         <source>Read user INPUT</source>
         <translation>LIRE entrée</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="606"/>
+        <location filename="../forms/ui_mainwindow.py" line="618"/>
         <source>DISPLAY value</source>
         <translation>AFFICHER valeur</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="614"/>
+        <location filename="../forms/ui_mainwindow.py" line="626"/>
         <source>Pause execution</source>
         <translation>Point d&apos;arrêt</translation>
     </message>
     <message>
-        <location filename="../main.py" line="165"/>
+        <location filename="../main.py" line="166"/>
         <source>Turing - New File</source>
         <translation>Turing - Sans titre</translation>
     </message>
     <message>
-        <location filename="../main.py" line="161"/>
+        <location filename="../main.py" line="162"/>
         <source>Turing - {file} (unsaved)</source>
         <translation>Turing - {file} (modifié)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="163"/>
+        <location filename="../main.py" line="164"/>
         <source>Turing - {file}</source>
         <translation>Turing - {file}</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="720"/>
+        <location filename="../forms/ui_mainwindow.py" line="732"/>
         <source>Debug</source>
         <translation>Déboguer</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1565"/>
+        <location filename="../main.py" line="1567"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation>Fichier de programme (*.py *.tr *.alg)</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="608"/>
+        <location filename="../forms/ui_mainwindow.py" line="620"/>
         <source>Clear plot</source>
-        <translation type="unfinished"></translation>
+        <translation>Effacer graphique</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="610"/>
-        <source>Set plot window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_mainwindow.py" line="611"/>
+        <location filename="../forms/ui_mainwindow.py" line="623"/>
         <source>Draw point</source>
-        <translation type="unfinished"></translation>
+        <translation>Dessiner point</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="612"/>
+        <location filename="../forms/ui_mainwindow.py" line="624"/>
         <source>Draw line</source>
-        <translation type="unfinished"></translation>
+        <translation>Dessiner ligne</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="633"/>
+        <location filename="../forms/ui_mainwindow.py" line="645"/>
         <source>Plot</source>
-        <translation type="unfinished"></translation>
+        <translation>Graphique</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="622"/>
+        <source>Set window</source>
+        <translation>Définir le repère</translation>
     </message>
 </context>
 <context>

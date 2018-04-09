@@ -135,6 +135,7 @@ class MainWindowWrapper(QMainWindow):
         msg.setDefaultButton(QMessageBox.No)
         msg.setText(translate("MainWindow", "Do you really want to exit?\nAll unsaved changes will be lost."))
         center_widget(msg, self)
+        event.ignore()
         if msg.exec_() == QMessageBox.Yes:
             event.setAccepted(True)
             exit()
@@ -362,6 +363,7 @@ def python_print_error(msg, end="\n"):
 
 
 def update_plot():
+    plot_axes.grid(linestyle='-')
     plot_canvas.draw()
 
 
@@ -373,7 +375,8 @@ def g_clear():
 def g_window(xmin, xmax, ymin, ymax, xgrad=1, ygrad=1):
     plot_axes.set_xlim(xmin, xmax)
     plot_axes.set_ylim(ymin, ymax)
-    # todo
+    #plot_axes.set_xticks(range(xmin, xmax, xgrad))
+    #plot_axes.set_yticks(range(ymin, ymax, ygrad))
     update_plot()
 
 
@@ -826,8 +829,7 @@ def load_plot_canvas():
     plot_figure = Figure()
     plot_axes = plot_figure.add_subplot(111)
     plot_canvas = FigureCanvas(plot_figure)
-    plot_axes.set_xlim(-10, 10)
-    plot_axes.set_ylim(-10, 10)
+    g_window(-10, 10, -10, 10)
     ui.verticalLayout_4.addWidget(plot_canvas)
 
 
@@ -1562,6 +1564,7 @@ def init_ui():
         "tr": translate("MainWindow", "Turing program (*.tr)"),
         "alg": translate("MainWindow", "Algobox file (*.alg)")
     }
+
 
     window.show()
 

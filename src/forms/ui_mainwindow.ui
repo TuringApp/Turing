@@ -247,7 +247,7 @@
            <item row="6" column="2">
             <widget class="QPushButton" name="btnAlgo_GWindow">
              <property name="text">
-              <string>Set plot window</string>
+              <string>Set window</string>
              </property>
             </widget>
            </item>
@@ -468,6 +468,12 @@
    <addaction name="actionHelpContents"/>
   </widget>
   <widget class="QDockWidget" name="dock_output">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="features">
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
@@ -483,6 +489,12 @@
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QTextEdit" name="txtOutput">
+         <property name="minimumSize">
+          <size>
+           <width>310</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="acceptDrops">
           <bool>false</bool>
          </property>
@@ -584,6 +596,18 @@ p, li { white-space: pre-wrap; }
    </widget>
   </widget>
   <widget class="QDockWidget" name="dock_plot">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>300</width>
+     <height>40</height>
+    </size>
+   </property>
    <property name="features">
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
@@ -1159,5 +1183,22 @@ p, li { white-space: pre-wrap; }
  <resources>
   <include location="../turing.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>txtInput</sender>
+   <signal>returnPressed()</signal>
+   <receiver>btnSendInput</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>613</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>474</x>
+     <y>613</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

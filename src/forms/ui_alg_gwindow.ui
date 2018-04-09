@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Canvas size</string>
+   <string>Set window</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../turing.qrc">
