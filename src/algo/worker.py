@@ -24,12 +24,30 @@ class Worker:
     strict_typing = None
     last = None
     callback_stop = None
+    map = None
 
     def __init__(self, code: CodeBlock):
         self.code = BlockStmt(code)
         self.log = Logger("Algo")
         self.strict_typing = False
         self.callback_stop = lambda: ()
+        self.map = {
+            DisplayStmt: self.exec_display,
+            InputStmt: self.exec_input,
+            AssignStmt: self.exec_assign,
+            IfStmt: self.exec_if,
+            ForStmt: self.exec_for,
+            WhileStmt: self.exec_while,
+            BreakStmt: self.exec_break,
+            ContinueStmt: self.exec_continue,
+            FuncStmt: self.exec_function,
+            ReturnStmt: self.exec_return,
+            CallStmt: self.exec_call,
+            ElseStmt: self.exec_else,
+            BaseStmt: lambda _: (),
+            CommentStmt: lambda _: (),
+            StopStmt: self.exec_stop,
+        }
 
     def reset_eval(self):
         self.evaluator = Evaluator()
@@ -292,33 +310,15 @@ class Worker:
     def exec_stmt(self, stmt):
         self.last = stmt
 
-        map = {
-            DisplayStmt: self.exec_display,
-            InputStmt: self.exec_input,
-            AssignStmt: self.exec_assign,
-            IfStmt: self.exec_if,
-            ForStmt: self.exec_for,
-            WhileStmt: self.exec_while,
-            BreakStmt: self.exec_break,
-            ContinueStmt: self.exec_continue,
-            FuncStmt: self.exec_function,
-            ReturnStmt: self.exec_return,
-            CallStmt: self.exec_call,
-            ElseStmt: self.exec_else,
-            BaseStmt: lambda _: (),
-            CommentStmt: lambda _: (),
-            StopStmt: self.exec_stop,
-        }
-
         if self.if_status is not None and type(stmt) != ElseStmt and len(self.stack) <= self.if_status[0]:
             self.if_status = None
 
-        if type(stmt) not in map:
+        if type(stmt) not in self.map:
             self.log.error(translate("Algo", "Unknown statement type: {type}").format(type=type(stmt)))
             self.finish()
             return
 
-        map[type(stmt)](stmt)
+        self.map[type(stmt)](stmt)
 
     def finish(self, normal=False):
         self.finished = True
