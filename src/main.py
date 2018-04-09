@@ -682,7 +682,7 @@ def copy_actions_to_editor(panel):
             setattr(code_editor, "action_" + name[6:], obj)
 
 
-def setStyle(style):
+def set_style(style):
     syntax_highlighter.pygments_style = style
 
     for act in ui.menuChangeStyle.actions():
@@ -722,7 +722,7 @@ def load_code_editor():
     load_editor_actions()
 
     def gen(s):
-        return lambda: setStyle(s)
+        return lambda: set_style(s)
 
     for style in pygments.styles.get_all_styles():
         action = QAction(window)
@@ -731,7 +731,7 @@ def load_code_editor():
         action.triggered.connect(gen(style))
         ui.menuChangeStyle.addAction(action)
 
-    setStyle("default")
+    set_style("default")
 
     ui.verticalLayout_8.addWidget(code_editor)
 
@@ -1376,6 +1376,10 @@ def algo_sel_changed():
     ui.btnAlgo_Continue.setEnabled(is_changeable)
     ui.btnAlgo_Break.setEnabled(is_changeable)
     ui.btnAlgo_Comment.setEnabled(is_item)
+    ui.btnAlgo_GClear.setEnabled(is_item)
+    ui.btnAlgo_GWindow.setEnabled(is_item)
+    ui.btnAlgo_GPoint.setEnabled(is_item)
+    ui.btnAlgo_GLine.setEnabled(is_item)
 
     if is_changeable:
         ui.btnAlgo_Else.setEnabled(isinstance(current_stmt, IfStmt))
@@ -1436,6 +1440,11 @@ def init_ui():
     ui.btnAlgo_Continue.clicked.connect(add_continue_stmt)
     ui.btnAlgo_Break.clicked.connect(add_break_stmt)
     ui.btnAlgo_Comment.clicked.connect(add_comment_stmt)
+
+    ui.btnAlgo_GClear.clicked.connect(add_gclear)
+    ui.btnAlgo_GWindow.clicked.connect(add_gwindow)
+    ui.btnAlgo_GPoint.clicked.connect(add_gpoint)
+    ui.btnAlgo_GLine.clicked.connect(add_gline)
 
     ui.treeWidget.itemSelectionChanged.connect(algo_sel_changed)
     ui.treeWidget.itemDoubleClicked.connect(algo_double_click)
