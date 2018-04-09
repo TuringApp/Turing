@@ -263,6 +263,16 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_8"/>
       </widget>
+      <widget class="QWidget" name="tab_plot">
+       <attribute name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/plot.png</normaloff>:/action/media/plot.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Plot</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_10"/>
+      </widget>
      </widget>
     </item>
    </layout>

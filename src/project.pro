@@ -20,6 +20,10 @@ SOURCES += \
     algo\stmts\ElseStmt.py \
     algo\stmts\ForStmt.py \
     algo\stmts\FuncStmt.py \
+    algo\stmts\GClearStmt.py \
+    algo\stmts\GLineStmt.py \
+    algo\stmts\GPointStmt.py \
+    algo\stmts\GWindowStmt.py \
     algo\stmts\IfStmt.py \
     algo\stmts\InputStmt.py \
     algo\stmts\ReturnStmt.py \
@@ -35,8 +39,11 @@ SOURCES += \
     forms\alg_func.py \
     forms\alg_if.py \
     forms\alg_input.py \
+    forms\alg_line.py \
+    forms\alg_point.py \
     forms\alg_return.py \
     forms\alg_while.py \
+    forms\alg_window.py \
     forms\calculator.py \
     forms\help.py \
     forms\inline_code_dialog.py \
@@ -49,6 +56,9 @@ SOURCES += \
     forms\ui_alg_display.py \
     forms\ui_alg_for.py \
     forms\ui_alg_func.py \
+    forms\ui_alg_gline.py \
+    forms\ui_alg_gpoint.py \
+    forms\ui_alg_gwindow.py \
     forms\ui_alg_if.py \
     forms\ui_alg_input.py \
     forms\ui_alg_return.py \
@@ -109,6 +119,9 @@ FORMS += \
     forms\ui_alg_display.ui \
     forms\ui_alg_for.ui \
     forms\ui_alg_func.ui \
+    forms\ui_alg_gline.ui \
+    forms\ui_alg_gpoint.ui \
+    forms\ui_alg_gwindow.ui \
     forms\ui_alg_if.ui \
     forms\ui_alg_input.ui \
     forms\ui_alg_return.ui \
