@@ -11,6 +11,10 @@ from .DisplayStmt import *
 from .ElseStmt import *
 from .ForStmt import *
 from .FuncStmt import *
+from .GClearStmt import *
+from .GLineStmt import *
+from .GPointStmt import *
+from .GWindowStmt import *
 from .IfStmt import *
 from .InputStmt import *
 from .ReturnStmt import *
