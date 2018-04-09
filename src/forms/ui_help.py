@@ -59,6 +59,9 @@ class Ui_HelpWindow(object):
         self.buttonBox.accepted.connect(HelpWindow.accept)
         self.buttonBox.rejected.connect(HelpWindow.reject)
         QtCore.QMetaObject.connectSlotsByName(HelpWindow)
+        HelpWindow.setTabOrder(self.textSearch, self.btnClear)
+        HelpWindow.setTabOrder(self.btnClear, self.listFuncs)
+        HelpWindow.setTabOrder(self.listFuncs, self.textBrowser)
 
     def retranslateUi(self, HelpWindow):
         _translate = QtCore.QCoreApplication.translate

@@ -48,6 +48,10 @@ class Ui_InlineCodeEditor(object):
 
         self.retranslateUi(InlineCodeEditor)
         QtCore.QMetaObject.connectSlotsByName(InlineCodeEditor)
+        InlineCodeEditor.setTabOrder(self.txtExpr, self.btnClear)
+        InlineCodeEditor.setTabOrder(self.btnClear, self.btnSubmit)
+        InlineCodeEditor.setTabOrder(self.btnSubmit, self.cbxFuncs)
+        InlineCodeEditor.setTabOrder(self.cbxFuncs, self.lstFuncs)
 
     def retranslateUi(self, InlineCodeEditor):
         pass

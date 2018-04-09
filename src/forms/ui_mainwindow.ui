@@ -1165,6 +1165,42 @@ p, li { white-space: pre-wrap; }
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>btnAlgo_Add</tabstop>
+  <tabstop>btnAlgo_Delete</tabstop>
+  <tabstop>btnAlgo_Edit</tabstop>
+  <tabstop>btnAlgo_UpBlock</tabstop>
+  <tabstop>btnAlgo_Up</tabstop>
+  <tabstop>btnAlgo_Down</tabstop>
+  <tabstop>btnAlgo_DownBlock</tabstop>
+  <tabstop>btnAlgo_Variable</tabstop>
+  <tabstop>btnAlgo_Display</tabstop>
+  <tabstop>btnAlgo_Input</tabstop>
+  <tabstop>btnAlgo_Call</tabstop>
+  <tabstop>btnAlgo_Func</tabstop>
+  <tabstop>btnAlgo_Return</tabstop>
+  <tabstop>btnAlgo_Stop</tabstop>
+  <tabstop>btnAlgo_If</tabstop>
+  <tabstop>btnAlgo_Else</tabstop>
+  <tabstop>btnAlgo_For</tabstop>
+  <tabstop>btnAlgo_While</tabstop>
+  <tabstop>btnAlgo_Continue</tabstop>
+  <tabstop>btnAlgo_Break</tabstop>
+  <tabstop>btnAlgo_Comment</tabstop>
+  <tabstop>treeWidget</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>tabWidget_2</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton_3</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>txtOutput</tabstop>
+  <tabstop>btnClearOutput</tabstop>
+  <tabstop>btnSaveOutput</tabstop>
+  <tabstop>btnPrintOutput</tabstop>
+  <tabstop>txtInput</tabstop>
+  <tabstop>btnSendInput</tabstop>
+ </tabstops>
  <resources>
   <include location="../turing.qrc"/>
  </resources>

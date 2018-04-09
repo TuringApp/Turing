@@ -37,6 +37,7 @@ class Ui_AlgoCommentStmt(object):
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
+        self.label_2.setBuddy(self.lineEdit)
 
         self.retranslateUi(AlgoCommentStmt)
         self.buttonBox.accepted.connect(AlgoCommentStmt.accept)

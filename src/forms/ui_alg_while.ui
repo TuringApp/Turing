@@ -55,6 +55,9 @@
        <property name="text">
         <string>Condition:</string>
        </property>
+       <property name="buddy">
+        <cstring>lineEdit</cstring>
+       </property>
       </widget>
      </item>
     </layout>

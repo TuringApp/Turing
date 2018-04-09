@@ -55,11 +55,16 @@ class Ui_AlgoCallStmt(object):
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
+        self.label_2.setBuddy(self.txtFunction)
+        self.label_3.setBuddy(self.txtArguments)
 
         self.retranslateUi(AlgoCallStmt)
         self.buttonBox.accepted.connect(AlgoCallStmt.accept)
         self.buttonBox.rejected.connect(AlgoCallStmt.reject)
         QtCore.QMetaObject.connectSlotsByName(AlgoCallStmt)
+        AlgoCallStmt.setTabOrder(self.txtFunction, self.txtArguments)
+        AlgoCallStmt.setTabOrder(self.txtArguments, self.btnCodeFunc)
+        AlgoCallStmt.setTabOrder(self.btnCodeFunc, self.btnCodeArgs)
 
     def retranslateUi(self, AlgoCallStmt):
         _translate = QtCore.QCoreApplication.translate

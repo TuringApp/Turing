@@ -48,11 +48,14 @@ class Ui_AlgoDisplayStmt(object):
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
+        self.label_2.setBuddy(self.lineEdit)
 
         self.retranslateUi(AlgoDisplayStmt)
         self.buttonBox.accepted.connect(AlgoDisplayStmt.accept)
         self.buttonBox.rejected.connect(AlgoDisplayStmt.reject)
         QtCore.QMetaObject.connectSlotsByName(AlgoDisplayStmt)
+        AlgoDisplayStmt.setTabOrder(self.lineEdit, self.cbxNewline)
+        AlgoDisplayStmt.setTabOrder(self.cbxNewline, self.btnCode)
 
     def retranslateUi(self, AlgoDisplayStmt):
         _translate = QtCore.QCoreApplication.translate

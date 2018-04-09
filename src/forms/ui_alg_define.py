@@ -50,6 +50,8 @@ class Ui_AlgoDefineStmt(object):
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
+        self.label_3.setBuddy(self.txtValue)
+        self.label_2.setBuddy(self.txtVariable)
 
         self.retranslateUi(AlgoDefineStmt)
         self.buttonBox.accepted.connect(AlgoDefineStmt.accept)

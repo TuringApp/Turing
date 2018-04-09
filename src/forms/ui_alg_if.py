@@ -44,6 +44,7 @@ class Ui_AlgoIfStmt(object):
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
+        self.label_2.setBuddy(self.lineEdit)
 
         self.retranslateUi(AlgoIfStmt)
         self.buttonBox.accepted.connect(AlgoIfStmt.accept)

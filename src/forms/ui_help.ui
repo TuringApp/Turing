@@ -82,6 +82,12 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>textSearch</tabstop>
+  <tabstop>btnClear</tabstop>
+  <tabstop>listFuncs</tabstop>
+  <tabstop>textBrowser</tabstop>
+ </tabstops>
  <resources>
   <include location="../turing.qrc"/>
  </resources>

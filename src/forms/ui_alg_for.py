@@ -79,11 +79,22 @@ class Ui_AlgoForStmt(object):
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
+        self.label_2.setBuddy(self.txtFrom)
+        self.label_5.setBuddy(self.txtTo)
+        self.label_3.setBuddy(self.txtStep)
+        self.label_4.setBuddy(self.txtVariable)
 
         self.retranslateUi(AlgoForStmt)
         self.buttonBox.accepted.connect(AlgoForStmt.accept)
         self.buttonBox.rejected.connect(AlgoForStmt.reject)
         QtCore.QMetaObject.connectSlotsByName(AlgoForStmt)
+        AlgoForStmt.setTabOrder(self.txtVariable, self.txtFrom)
+        AlgoForStmt.setTabOrder(self.txtFrom, self.txtTo)
+        AlgoForStmt.setTabOrder(self.txtTo, self.cbxHasValue)
+        AlgoForStmt.setTabOrder(self.cbxHasValue, self.txtStep)
+        AlgoForStmt.setTabOrder(self.txtStep, self.btnCodeFrom)
+        AlgoForStmt.setTabOrder(self.btnCodeFrom, self.btnCodeTo)
+        AlgoForStmt.setTabOrder(self.btnCodeTo, self.btnCodeStep)
 
     def retranslateUi(self, AlgoForStmt):
         _translate = QtCore.QCoreApplication.translate
