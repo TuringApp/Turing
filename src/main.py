@@ -445,6 +445,17 @@ def handler_Debug():
     handler_Run(True)
 
 
+class compat_list(list):
+    def __init__(self, iterable=()):
+        super().__init__(iterable)
+
+    def __setitem__(self, key, value):
+        while len(self) <= key:
+            self.append(0)
+
+        super().__setitem__(key, value)
+
+
 def handler_Run(flag=False):
     if not flag and not mode_python:
         algo_run_python()
@@ -465,7 +476,12 @@ def handler_Run(flag=False):
                 file.close()
                 running = True
                 run_started = datetime.datetime.now()
-                runpy.run_path(file.name, init_globals={"print": python_print, "input": python_input})
+                runpy.run_path(file.name, init_globals={
+                    "print": python_print,
+                    "input": python_input,
+
+                    "list": compat_list
+                })
             except SyntaxError as err:
                 msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
                     type=type(err).__name__, line=err.lineno - 10, off=err.offset)

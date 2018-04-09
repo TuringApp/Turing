@@ -26,7 +26,7 @@ class ListNode(AstNode):
         return (util.html.sanitize("[%s]") if bb else "[%s]") % proper_str([node.code(bb) for node in self.value])[1:-1]
 
     def python(self) -> str:
-        return repr(x.python() for x in self.value)
+        return "list([%s])" % ", ".join(x.python() for x in self.value)
 
     def children(self) -> List["AstNode"]:
         return self.value
