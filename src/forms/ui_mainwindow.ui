@@ -1120,6 +1120,7 @@ p, li { white-space: pre-wrap; }
  <tabstops>
   <tabstop>btnAlgo_Add</tabstop>
   <tabstop>btnAlgo_Delete</tabstop>
+  <tabstop>btnAlgo_Edit</tabstop>
   <tabstop>btnAlgo_UpBlock</tabstop>
   <tabstop>btnAlgo_Up</tabstop>
   <tabstop>btnAlgo_Down</tabstop>
@@ -1136,14 +1137,12 @@ p, li { white-space: pre-wrap; }
   <tabstop>btnAlgo_While</tabstop>
   <tabstop>btnAlgo_Continue</tabstop>
   <tabstop>btnAlgo_Break</tabstop>
-  <tabstop>treeWidget</tabstop>
-  <tabstop>tabWidget</tabstop>
-  <tabstop>tabWidget_2</tabstop>
-  <tabstop>pushButton</tabstop>
-  <tabstop>pushButton_2</tabstop>
-  <tabstop>pushButton_3</tabstop>
-  <tabstop>pushButton_4</tabstop>
-  <tabstop>txtOutput</tabstop>
+  <tabstop>btnAlgo_GClear</tabstop>
+  <tabstop>btnAlgo_GWindow</tabstop>
+  <tabstop>btnAlgo_GPoint</tabstop>
+  <tabstop>btnAlgo_GLine</tabstop>
+  <tabstop>btnAlgo_Comment</tabstop>
+  <tabstop>btnAlgo_Stop</tabstop>
   <tabstop>btnClearOutput</tabstop>
   <tabstop>btnSaveOutput</tabstop>
   <tabstop>btnPrintOutput</tabstop>

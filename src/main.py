@@ -12,9 +12,14 @@ from typing import Optional
 import pygments.styles
 import pyqode.python.backend
 from PyQt5.QtGui import *
+from matplotlib.axes import Axes
 from pyqode.core import api
 from pyqode.core import modes
 from pyqode.core import panels
+
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+import matplotlib.pyplot as plt
 
 import editor_backend
 import forms
@@ -40,6 +45,9 @@ dialog_window = None
 undo = None
 mode_python = False
 code_editor = None
+plot_canvas: FigureCanvas = None
+plot_figure: Figure = None
+plot_axes: Axes = None
 panel_search = None
 current_output = ""
 after_output = ""
@@ -353,6 +361,57 @@ def python_print_error(msg):
     update_output()
 
 
+def update_plot():
+    plot_canvas.draw()
+
+
+def g_clear():
+    plot_axes.clear()
+    update_plot()
+
+
+def g_window(xmin, xmax, ymin, ymax, xgrad=1, ygrad=1):
+    plot_axes.set_xlim(xmin, xmax)
+    plot_axes.set_ylim(ymin, ymax)
+    # todo
+    update_plot()
+
+
+def g_point(x, y, color="red"):
+    plot_axes.scatter([x], [y], c=color)
+    update_plot()
+
+
+def g_line(startx, starty, endx, endy, color="red"):
+    plot_axes.plot([startx, endx], [starty, endy], c=color, linestyle="-", marker="o")
+    update_plot()
+
+
+def stmt_GClear(stmt: GClearStmt):
+    g_clear()
+
+
+def stmt_GWindow(stmt: GWindowStmt):
+    g_window(worker.evaluator.eval_node(stmt.x_min),
+             worker.evaluator.eval_node(stmt.x_max),
+             worker.evaluator.eval_node(stmt.y_min),
+             worker.evaluator.eval_node(stmt.y_max),
+             worker.evaluator.eval_node(stmt.x_grad),
+             worker.evaluator.eval_node(stmt.y_grad))
+
+
+def stmt_GPoint(stmt: GPointStmt):
+    g_point(worker.evaluator.eval_node(stmt.x), worker.evaluator.eval_node(stmt.y), worker.evaluator.eval_node(stmt.color))
+
+
+def stmt_GLine(stmt: GLineStmt):
+    g_line(worker.evaluator.eval_node(stmt.start_x),
+           worker.evaluator.eval_node(stmt.start_y),
+           worker.evaluator.eval_node(stmt.end_x),
+           worker.evaluator.eval_node(stmt.end_y),
+           worker.evaluator.eval_node(stmt.color))
+
+
 def init_worker():
     global worker
     worker = Worker(algo.children)
@@ -362,6 +421,10 @@ def init_worker():
     worker.log.use_prefix = False
     worker.init()
     worker.callback_stop = callback_stop
+    worker.map[GClearStmt] = stmt_GClear
+    worker.map[GWindowStmt] = stmt_GWindow
+    worker.map[GPointStmt] = stmt_GPoint
+    worker.map[GLineStmt] = stmt_GLine
     set_current_line(None)
 
 
@@ -475,11 +538,16 @@ def handler_Run(flag=False):
                 file.write(code)
                 file.close()
                 running = True
+                g_clear()
                 run_started = datetime.datetime.now()
                 runpy.run_path(file.name, init_globals={
                     "print": python_print,
                     "input": python_input,
 
+                    "g_clear": g_clear,
+                    "g_window": g_window,
+                    "g_point": g_point,
+                    "g_line": g_line,
                     "list": compat_list
                 })
             except SyntaxError as err:
@@ -494,6 +562,7 @@ def handler_Run(flag=False):
         else:
             if not running:
                 init_worker()
+                g_clear()
                 worker.break_on_error = True
                 running = True
                 stopped = False
@@ -750,6 +819,16 @@ def load_code_editor():
     set_style("default")
 
     ui.verticalLayout_8.addWidget(code_editor)
+
+
+def load_plot_canvas():
+    global plot_canvas, plot_figure, plot_axes
+    plot_figure = Figure()
+    plot_axes = plot_figure.add_subplot(111)
+    plot_canvas = FigureCanvas(plot_figure)
+    plot_axes.set_xlim(-10, 10)
+    plot_axes.set_ylim(-10, 10)
+    ui.verticalLayout_10.addWidget(plot_canvas)
 
 
 def get_item_label(item):
@@ -1421,6 +1500,7 @@ def init_ui():
     ui.setupUi(window)
 
     load_code_editor()
+    load_plot_canvas()
     load_algo()
 
     init_action_handlers()
