@@ -39,17 +39,42 @@ def parse_expr(expr):
     return parse(expr)
 
 
+def get_color(color):
+    lut = {
+        "Bleu": "blue",
+        "Rouge": "red",
+        "Vert": "green",
+        "Blanc": "white"
+    }
+
+    if color not in lut:
+        raise ValueError(translate("Algobox", "Unknown color: {color}").format(color=color))
+
+    return lut[color]
+
+
 def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
     if elem.tag == "description":
         value = elem.attrib["texte"]
+
         if not value:
             return None
-        return CommentStmt(elem.attrib["texte"])
+
+        return [CommentStmt(x) for x in elem.attrib["texte"].replace("\r\n", "\n").split("\n")]
+
+    if elem.tag == "repere":
+        if elem.attrib["repetat"] == "inactif":
+            return None
+
+        xmin, xmax, ymin, ymax, xgrad, ygrad = elem.attrib["repcode"].split("#")
+
+        return GWindowStmt(parse_expr(xmin), parse_expr(xmax), parse_expr(ymin), parse_expr(ymax), parse_expr(xgrad), parse_expr(ygrad))
 
     if elem.tag == "fonction":
         if elem.attrib["fctetat"] == "inactif":
             return None
-        print("shit")
+
+        return AssignStmt(IdentifierNode("F1"), LambdaNode(["x"], parse_expr(elem.attrib["fctcode"])))
 
     if elem.tag == "item":
         code, *args = elem.attrib["code"].split("#")
@@ -175,11 +200,15 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
         elif code == 50:  # POINT
             x, y, color = args
 
+            return GPointStmt(parse_expr(x), parse_expr(y), StringNode(get_color(color)))
+
         elif code == 51:  # SEGMENT
             start_x, start_y, end_x, end_y, color = args
 
+            return GLineStmt(parse_expr(start_x), parse_expr(start_y), parse_expr(end_x), parse_expr(end_y), StringNode(get_color(color)))
+
         elif code == 52:  # EFFACE
-            pass
+            return GClearStmt()
 
         elif code == 100:  # VARIABLES
             return children
