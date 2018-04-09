@@ -69,12 +69,17 @@ class BinOpNode(AstNode):
         op_fix = op_table.get(self.operator.upper(), self.operator.lower())
         left = self.left
         right = self.right
-        if op_fix == "+" and type(right) == StringNode and type(left) != StringNode:
-            left, right = right, left
+
         left_py = left.python()
         right_py = right.python()
-        if op_fix == "+" and type(left) == StringNode and type(right) != StringNode:
-            right_py = "str(%s)" % right_py
+
+        if op_fix == "+":
+            if type(left) == StringNode and type(right) != StringNode:
+                right_py = "str(%s)" % right_py
+
+            elif type(right) == StringNode and type(left) != StringNode:
+                left_py = "str(%s)" % left_py
+
         return "((%s) %s (%s))" % (left_py, op_fix, right_py)
 
     def children(self) -> List["AstNode"]:
