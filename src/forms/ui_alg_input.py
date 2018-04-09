@@ -12,7 +12,7 @@ class Ui_AlgoInputStmt(object):
     def setupUi(self, AlgoInputStmt):
         AlgoInputStmt.setObjectName("AlgoInputStmt")
         AlgoInputStmt.setWindowModality(QtCore.Qt.WindowModal)
-        AlgoInputStmt.resize(477, 193)
+        AlgoInputStmt.resize(477, 240)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/action/media/settings.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AlgoInputStmt.setWindowIcon(icon)
