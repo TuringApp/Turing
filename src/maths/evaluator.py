@@ -76,9 +76,6 @@ class Evaluator:
                 raise
             self.log.error(translate("Evaluator", "Parser: ") + str(sys.exc_info()[1]))
 
-        for msg in parser.log.get_messages():
-            self.log.messages.append(msg)
-
         self.beautified = parser.beautify()
 
         if not node:
