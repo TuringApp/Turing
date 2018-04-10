@@ -8,8 +8,14 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>697</height>
+    <height>710</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>0</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Turing</string>
@@ -622,7 +628,7 @@ p, li { white-space: pre-wrap; }
    <property name="minimumSize">
     <size>
      <width>300</width>
-     <height>40</height>
+     <height>260</height>
     </size>
    </property>
    <property name="features">

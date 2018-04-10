@@ -11,7 +11,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 697)
+        MainWindow.resize(800, 710)
+        MainWindow.setMinimumSize(QtCore.QSize(800, 0))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icon/media/icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -292,7 +293,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.dock_plot.sizePolicy().hasHeightForWidth())
         self.dock_plot.setSizePolicy(sizePolicy)
-        self.dock_plot.setMinimumSize(QtCore.QSize(300, 40))
+        self.dock_plot.setMinimumSize(QtCore.QSize(300, 260))
         self.dock_plot.setFeatures(QtWidgets.QDockWidget.DockWidgetFloatable|QtWidgets.QDockWidget.DockWidgetMovable)
         self.dock_plot.setObjectName("dock_plot")
         self.dockWidgetContents = QtWidgets.QWidget()
