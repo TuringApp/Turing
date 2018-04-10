@@ -54,4 +54,4 @@ def get_func_def_html(f, name_bold=True):
             cur += "=%s" % proper_str(a[3])
         hargs.append(cur)
 
-    return "%s(%s)" % (name, ", ".join(hargs))
+    return "<span>%s</span>(%s)" % (name, ", ".join(hargs))
