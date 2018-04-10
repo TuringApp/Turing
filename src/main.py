@@ -472,6 +472,7 @@ def handler_Stop():
 
 def handler_Step():
     ui.actionRun.setDisabled(True)
+    ui.actionDebug.setDisabled(True)
     ui.actionStep.setDisabled(True)
     ui.actionStop.setEnabled(True)
     global running, current, skip_step, stopped
@@ -500,11 +501,12 @@ def handler_Step():
         show_error()
     finally:
         if worker.finished:
+            ui.actionRun.setDisabled(False)
             end_output()
             if not worker.error:
                 set_current_line(None)
             running = False
-        ui.actionRun.setDisabled(False)
+        ui.actionDebug.setDisabled(False)
         ui.actionStep.setDisabled(False)
         ui.actionStop.setEnabled(not worker.finished)
 
@@ -794,8 +796,10 @@ def load_code_editor():
     global code_editor
     code_editor = api.CodeEdit()
     if hasattr(sys, "frozen"):
+        print("using external backend")
         backend = "editor_backend.exe"
     else:
+        print("using script file")
         import editor_backend
         backend = editor_backend.__file__
     code_editor.backend.start(backend)
