@@ -292,7 +292,7 @@ def python_print(*args, end="\n"):
 
 def update_output():
     global current_output
-    ui.txtOutput.setHtml("<pre>%s</pre>" % (current_output + after_output))
+    ui.txtOutput.setHtml('<pre style="margin: 0">%s</pre>' % (current_output + after_output))
     ui.txtOutput.moveCursor(QTextCursor.End)
     ui.txtOutput.ensureCursorVisible()
     if current_output.endswith("\n\n"):
@@ -439,7 +439,7 @@ def end_output():
         util.html.color_span(translate("MainWindow", "end of output") if run_started is None
                              else translate("MainWindow", "end of output [{time}]").format(
             time=datetime.datetime.now() - run_started), "red"))
-    current_output += "<hr>"
+    current_output += "<hr />\n"
     run_started = None
     update_output()
 
@@ -874,6 +874,7 @@ def get_item_label(item):
     txt.dclicked.connect(algo_double_click)
     item.lbl = txt
     ui.treeWidget.setItemWidget(item, 0, txt)
+    ui.treeWidget.header().setSectionResizeMode(QHeaderView.ResizeToContents)
 
     return txt
 
