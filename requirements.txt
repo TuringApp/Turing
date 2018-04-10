@@ -1,15 +1,20 @@
+altgraph==0.15
 cycler==0.10.0
 docutils==0.14
 future==0.16.0
 jedi==0.11.1
 kiwisolver==1.0.1
+macholib==1.9
 matplotlib==2.2.2
 numpy==1.14.2
 parso==0.1.1
+pefile==2017.11.5
 pep8==1.7.1
 pyflakes==1.6.0
 Pygments==2.2.0
+PyInstaller==3.3.1
 pyparsing==2.2.0
+pypiwin32==223
 pyqode.core==2.11.0
 pyqode.python==2.10.0
 pyqode.qt==2.10.0
@@ -17,5 +22,6 @@ PyQt5==5.10.1
 PyQt5Designer==5.10.1
 python-dateutil==2.7.2
 pytz==2018.3
+pywin32==223
 sip==4.19.8
 six==1.11.0
