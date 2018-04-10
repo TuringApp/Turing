@@ -723,20 +723,13 @@ def handler_Open():
 
 
 def handler_New():
-    msg = get_themed_box()
-    msg.setIcon(QMessageBox.Question)
-    msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-    msg.setDefaultButton(QMessageBox.No)
-    msg.setText(translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."))
-    center_widget(msg, QDesktopWidget().availableGeometry().center())
-    if msg.exec_() == QMessageBox.Yes:
-        global current_file
-        global algo
-        global code_editor
-        current_file = None
-        algo = BlockStmt([])
-        code_editor.setPlainText("", "", "")
-        refresh()
+    global current_file
+    global algo
+    global code_editor
+    current_file = None
+    algo = BlockStmt([])
+    code_editor.setPlainText("", "", "")
+    refresh()
 
 
 def init_action_handlers():
