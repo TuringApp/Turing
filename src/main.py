@@ -21,7 +21,6 @@ from pyqode.core import panels
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
-import matplotlib.pyplot as plt
 
 import forms
 import util.code
@@ -36,7 +35,7 @@ from util.widgets import *
 
 translate = QCoreApplication.translate
 
-__version__ = "β-0.3"
+__version__ = "β-0.4"
 __channel__ = "beta"
 
 current_file: Optional[str] = None

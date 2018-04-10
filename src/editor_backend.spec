@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['editor_backend.py'],
-             pathex=['D:\\Documents\\GitHub\\Turing\\src'],
+             pathex=['/mnt/d/Documents/GitHub/Turing/src'],
              binaries=[],
              datas=[],
              hiddenimports=['pyqode.python.backend'],
@@ -26,4 +26,4 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           runtime_tmpdir=None,
-          console=True , icon='media\\icon.ico')
+          console=True , icon='media/icon.ico')
