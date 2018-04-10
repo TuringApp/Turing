@@ -46,7 +46,7 @@ def load(lang: str):
         QCoreApplication.removeTranslator(tr_object)
 
     tr_object = QTranslator()
-    tr_object.load(current, "lang")
+    tr_object.load(current, ":/lang/lang")
 
     QCoreApplication.installTranslator(tr_object)
 

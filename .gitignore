@@ -48,3 +48,8 @@ __pycache__
 dist
 build
 src/editor_backend.spec
+editor_backend
+turing
+*.gz
+*.zip
+src/turing.spec
