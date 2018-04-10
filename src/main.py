@@ -755,6 +755,8 @@ def copy_action(source: QAction, target: QAction):
 
 
 def change_language(language: str):
+    if language not in [x.statusTip() for x in ui.menuLanguage.actions()]:
+        language = "en_US"
     translator.load(language)
     load_editor_actions()
     for a in ui.menuLanguage.actions():
@@ -1713,7 +1715,7 @@ if __name__ == "__main__":
         app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
 
     init_ui()
-    change_language("en_US")
+    change_language(QLocale.system().name())
 
     try:
         exitCode = app.exec_()
