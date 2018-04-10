@@ -656,7 +656,7 @@ def save(filename):
     refresh()
 
 
-def handler_SaveOutput():
+def save_output():
     file = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save output"),
                                        "",
                                        translate("MainWindow", "Text files (*.txt)"))[0]
@@ -1575,6 +1575,7 @@ def init_ui():
     ui.btnSendInput.clicked.connect(send_user_input)
     ui.btnClearOutput.clicked.connect(clear_output)
     ui.btnPrintOutput.clicked.connect(print_output)
+    ui.btnSaveOutput.clicked.connect(save_output)
 
     ui.btnAlgo_Add.clicked.connect(btn_add_line)
     ui.btnAlgo_Delete.clicked.connect(btn_delete_line)
