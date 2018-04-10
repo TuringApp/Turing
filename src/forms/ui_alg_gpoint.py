@@ -78,8 +78,10 @@ class Ui_AlgoGPointStmt(object):
         self.buttonBox.rejected.connect(AlgoGPointStmt.reject)
         QtCore.QMetaObject.connectSlotsByName(AlgoGPointStmt)
         AlgoGPointStmt.setTabOrder(self.txtX, self.txtY)
-        AlgoGPointStmt.setTabOrder(self.txtY, self.btnCodeX)
+        AlgoGPointStmt.setTabOrder(self.txtY, self.txtColor)
+        AlgoGPointStmt.setTabOrder(self.txtColor, self.btnCodeX)
         AlgoGPointStmt.setTabOrder(self.btnCodeX, self.btnCodeY)
+        AlgoGPointStmt.setTabOrder(self.btnCodeY, self.btnCodeColor)
 
     def retranslateUi(self, AlgoGPointStmt):
         _translate = QtCore.QCoreApplication.translate

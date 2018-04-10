@@ -134,8 +134,10 @@
  <tabstops>
   <tabstop>txtX</tabstop>
   <tabstop>txtY</tabstop>
+  <tabstop>txtColor</tabstop>
   <tabstop>btnCodeX</tabstop>
   <tabstop>btnCodeY</tabstop>
+  <tabstop>btnCodeColor</tabstop>
  </tabstops>
  <resources>
   <include location="../turing.qrc"/>
