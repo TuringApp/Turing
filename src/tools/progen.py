@@ -10,7 +10,7 @@ with open("../project.pro", "w") as file:
 
 SOURCES += \
 """)
-    file.write(" \\\n".join("    " + x[3:] for x in glob.iglob('../**/*.py', recursive=True)))
+    file.write(" \\\n".join("    " + x[3:] for x in glob.iglob('../**/*.py', recursive=True) if "pycache" not in x))
 
     file.write(r"""
     
