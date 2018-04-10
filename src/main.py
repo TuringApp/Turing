@@ -1612,7 +1612,6 @@ def init_ui():
     ui.tabWidget.currentChanged.connect(change_tab)
 
     algo_sel_changed()
-    get_Talkback()
 
     def gen(act):
         return lambda: change_language(act)
@@ -1631,8 +1630,6 @@ def init_ui():
 
     window.show()
 
-def get_Talkback():
-    ctypes.windll.user32.MessageBoxW(0, translate("MainWindow", "Something to say about our app?\nhttps://goo.gl/forms/jZaGHGL40Dh9Nunw2"), "HEY !", 0)
 
 def show_error():
     traceback.print_exc()
@@ -1676,6 +1673,23 @@ def clean_exit():
     sys.exit()
 
 
+def handler_SendFeedback():
+    QDesktopServices.openUrl(QUrl("https://goo.gl/forms/GVCJoBTQv0jYp3MA3"))
+
+
+def init_style():
+    if "Fusion" in [st for st in QStyleFactory.keys()]:
+        app.setStyle(QStyleFactory.create("Fusion"))
+    elif sys.platform == "win32":
+        app.setStyle(QStyleFactory.create("WindowsVista"))
+    elif sys.platform == "linux":
+        app.setStyle(QStyleFactory.create("gtk"))
+    elif sys.platform == "darwin":
+        app.setStyle(QStyleFactory.create("macintosh"))
+
+    app.setPalette(QApplication.style().standardPalette())
+
+
 if __name__ == "__main__":
     sys.excepthook = except_hook
     setup_thread_excepthook()
@@ -1685,6 +1699,7 @@ if __name__ == "__main__":
     app.setApplicationVersion(__version__)
 
     util.translate_backend = translate
+    init_style()
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
 
     if os.name == "nt":

@@ -495,6 +495,11 @@ class Ui_MainWindow(object):
         self.actionDebug.setIcon(icon51)
         self.actionDebug.setVisible(False)
         self.actionDebug.setObjectName("actionDebug")
+        self.actionSendFeedback = QtWidgets.QAction(MainWindow)
+        icon52 = QtGui.QIcon()
+        icon52.addPixmap(QtGui.QPixmap(":/action/media/feedback.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionSendFeedback.setIcon(icon52)
+        self.actionSendFeedback.setObjectName("actionSendFeedback")
         self.menuRecent.addSeparator()
         self.menuRecent.addAction(self.actionClearRecent)
         self.menuFile.addAction(self.actionNew)
@@ -534,6 +539,7 @@ class Ui_MainWindow(object):
         self.menuHelp.addSeparator()
         self.menuHelp.addAction(self.actionExamples)
         self.menuHelp.addSeparator()
+        self.menuHelp.addAction(self.actionSendFeedback)
         self.menuHelp.addAction(self.actionAboutTuring)
         self.menuView.addAction(self.actionShowToolbar)
         self.menuView.addAction(self.actionShowToolbarText)
@@ -572,6 +578,7 @@ class Ui_MainWindow(object):
         self.toolBar.addAction(self.actionStop)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionHelpContents)
+        self.toolBar.addAction(self.actionSendFeedback)
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(1)
@@ -736,5 +743,6 @@ class Ui_MainWindow(object):
         self.actionFindNext.setShortcut(_translate("MainWindow", "F3"))
         self.actionStop.setText(_translate("MainWindow", "Stop"))
         self.actionDebug.setText(_translate("MainWindow", "Debug"))
+        self.actionSendFeedback.setText(_translate("MainWindow", "Send Feedback"))
 
 import turing_rc

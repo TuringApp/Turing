@@ -389,6 +389,7 @@
     <addaction name="separator"/>
     <addaction name="actionExamples"/>
     <addaction name="separator"/>
+    <addaction name="actionSendFeedback"/>
     <addaction name="actionAboutTuring"/>
    </widget>
    <widget class="QMenu" name="menuView">
@@ -481,6 +482,7 @@
    <addaction name="actionStop"/>
    <addaction name="separator"/>
    <addaction name="actionHelpContents"/>
+   <addaction name="actionSendFeedback"/>
   </widget>
   <widget class="QDockWidget" name="dock_output">
    <property name="sizePolicy">
@@ -1160,6 +1162,15 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="visible">
     <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionSendFeedback">
+   <property name="icon">
+    <iconset resource="../turing.qrc">
+     <normaloff>:/action/media/feedback.png</normaloff>:/action/media/feedback.png</iconset>
+   </property>
+   <property name="text">
+    <string>Send Feedback</string>
    </property>
   </action>
  </widget>

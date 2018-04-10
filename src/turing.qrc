@@ -51,6 +51,7 @@
         <file>media/stop.png</file>
         <file>media/debug.png</file>
         <file>media/plot.png</file>
+        <file>media/feedback.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>
