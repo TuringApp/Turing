@@ -46,6 +46,7 @@ def load(lang: str):
 
     tr_object = QTranslator()
     tr_object.load(current_lang, ":/lang/lang")
+    tr_object.load("qt_%s" % current_lang, QLibraryInfo.location(QLibraryInfo.TranslationsPath))
 
     QCoreApplication.installTranslator(tr_object)
 
