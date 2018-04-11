@@ -63,6 +63,6 @@ class Ui_AlgoStopStmt(object):
         AlgoStopStmt.setWindowTitle(_translate("AlgoStopStmt", "Breakpoint"))
         self.label.setText(_translate("AlgoStopStmt", "<html><head/><body><p>Pauses the program until &quot;Run&quot; or &quot;Debug&quot; is pressed.</p></body></html>"))
         self.label_3.setText(_translate("AlgoStopStmt", "Message:"))
-        self.cbxHasValue.setText(_translate("AlgoStopStmt", "Show a message"))
+        self.cbxHasValue.setText(_translate("AlgoStopStmt", "Display a message"))
 
 import turing_rc

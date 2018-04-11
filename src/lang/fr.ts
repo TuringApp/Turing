@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="fr" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.1" language="fr" sourcelanguage="en">
 <context>
     <name>AboutWindow</name>
     <message>
@@ -226,7 +227,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1456"/>
         <source>[k]STOP[/k] [c]{val}[/c]</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]STOP[/k] [c]{val}[/c]</translation>
     </message>
 </context>
 <context>
@@ -565,22 +566,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_stop.py" line="63"/>
         <source>Breakpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Point d&apos;arrêt</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_stop.py" line="64"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pauses the program until &amp;quot;Run&amp;quot; or &amp;quot;Debug&amp;quot; is pressed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Suspend l&apos;exécution du programme jusqu&apos;à ce que l&apos;utilisateur clique sur &amp;quot;Exécuter&amp;quot; or &amp;quot;Déboguer&amp;quot;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_stop.py" line="65"/>
         <source>Message:</source>
-        <translation type="unfinished">Message :</translation>
+        <translation>Message :</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_stop.py" line="66"/>
-        <source>Show a message</source>
-        <translation type="unfinished"></translation>
+        <source>Display a message</source>
+        <translation>Afficher un message</translation>
     </message>
 </context>
 <context>
@@ -1975,12 +1976,12 @@ Voulez-vous la télécharger ?</translation>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="639"/>
         <source>Breakpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Point d&apos;arrêt</translation>
     </message>
     <message>
         <location filename="../main.py" line="473"/>
         <source>Breakpoint: </source>
-        <translation type="unfinished"></translation>
+        <translation>Point d&apos;arrêt : </translation>
     </message>
 </context>
 <context>
