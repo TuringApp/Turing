@@ -749,13 +749,14 @@ def copy_action(source: QAction, target: QAction):
 
 
 def change_language(language: str):
-    if language not in [x.statusTip() for x in ui.menuLanguage.actions()]:
-        language = "en_US"
+    available = [x.statusTip() for x in ui.menuLanguage.actions()]
+    if language not in available and util.get_short_lang(language) not in available:
+        language = "en"
     translator.load(language)
     ui.menubar.resizeEvent(QResizeEvent(ui.menubar.size(), ui.menubar.size()))
     load_editor_actions()
     for a in ui.menuLanguage.actions():
-        a.setChecked(a.statusTip() == language)
+        a.setChecked(a.statusTip() in [language, util.get_short_lang(language)])
     refresh()
 
 

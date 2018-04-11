@@ -65,6 +65,6 @@
     <qresource prefix="/lang">
         <file>media/lang/english.png</file>
         <file>media/lang/french.png</file>
-        <file>lang/fr_FR.qm</file>
+        <file>lang/fr.qm</file>
     </qresource>
 </RCC>

@@ -11,6 +11,7 @@ from PyQt5.QtWidgets import QWidget
 uis: List[Tuple[object, QWidget]] = []
 current_lang = None
 tr_object: QTranslator = None
+tr_object_qt: QTranslator = None
 
 
 def add(ui: object, window: QWidget):
@@ -38,17 +39,22 @@ def update():
 
 
 def load(lang: str):
-    global current_lang, tr_object
+    global current_lang, tr_object, tr_object_qt
     current_lang = lang
-
+    locale = QLocale(lang)
     if tr_object:
         QCoreApplication.removeTranslator(tr_object)
+        QCoreApplication.removeTranslator(tr_object_qt)
 
     tr_object = QTranslator()
-    tr_object.load(current_lang, ":/lang/lang")
-    tr_object.load("qt_%s" % current_lang, QLibraryInfo.location(QLibraryInfo.TranslationsPath))
+    tr_object.load(locale, "", "", ":/lang/lang")
+    tr_object_qt = QTranslator()
 
+    if not tr_object_qt.load(locale, "qt", "_", QLibraryInfo.location(QLibraryInfo.TranslationsPath)):
+        tr_object_qt.load(locale, "qtbase", "_", QLibraryInfo.location(QLibraryInfo.TranslationsPath))
+
+    QCoreApplication.installTranslator(tr_object_qt)
     QCoreApplication.installTranslator(tr_object)
 
-    QLocale.setDefault(QLocale(lang))
+    QLocale.setDefault(locale)
     update()

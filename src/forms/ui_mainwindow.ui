@@ -1056,7 +1056,7 @@ p, li { white-space: pre-wrap; }
     <string notr="true">English</string>
    </property>
    <property name="statusTip">
-    <string notr="true">en_US</string>
+    <string notr="true">en</string>
    </property>
   </action>
   <action name="actionFrench">
@@ -1071,7 +1071,7 @@ p, li { white-space: pre-wrap; }
     <string notr="true">Français</string>
    </property>
    <property name="statusTip">
-    <string notr="true">fr_FR</string>
+    <string notr="true">fr</string>
    </property>
   </action>
   <action name="actionDuplicateLine">

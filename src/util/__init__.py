@@ -23,3 +23,9 @@ def flatten(lst: Iterable) -> List:
             result += item
 
     return result
+
+
+def get_short_lang(lang):
+    if "_" not in lang:
+        return lang
+    return lang[0:lang.index("_")]
