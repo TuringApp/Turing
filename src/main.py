@@ -326,8 +326,11 @@ def python_input(prompt=""):
 
     ui.txtInput.setFocus(Qt.OtherFocusReason)
 
-    while user_input is None:
+    while user_input is None and not stopped:
         QCoreApplication.processEvents()
+
+    if stopped:
+        raise KeyboardInterrupt()
 
     ui.btnSendInput.setEnabled(False)
     ui.txtInput.setEnabled(False)
@@ -455,16 +458,17 @@ def callback_stop():
 
 def handler_Stop():
     python_print_error(translate("MainWindow", "program interrupted"))
+    global running, after_output, stopped
+    after_output = ""
+    stopped = True
     if mode_python:
-        pass
+        running = False
     else:
-        global running, after_output, stopped
-        after_output = ""
         running = True
         worker.finished = True
         worker.error = False
-        stopped = True
         handler_Step()
+    update_output()
 
 
 def handler_Step():
@@ -542,6 +546,7 @@ def handler_Run(flag=False):
                 file.write(code)
                 file.close()
                 running = True
+                stopped = False
                 g_clear()
                 run_started = datetime.datetime.now()
                 runpy.run_path(file.name, init_globals={
