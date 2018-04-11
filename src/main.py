@@ -728,7 +728,7 @@ def handler_New():
     msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
     msg.setDefaultButton(QMessageBox.No)
     msg.setText(translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."))
-    center_widget(msg, QDesktopWidget().availableGeometry().center())
+    center_widget(msg, window)
     if msg.exec_() == QMessageBox.Yes:
         global current_file
         global algo
