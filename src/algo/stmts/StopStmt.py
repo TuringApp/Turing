@@ -4,14 +4,17 @@ from .BaseStmt import *
 
 
 class StopStmt(BaseStmt):
-    def __init__(self):
+    message = None
+
+    def __init__(self, message: AstNode = None):
         super().__init__()
+        self.message = message
 
     def __str__(self):
-        return "[Stop]"
+        return "[Stop %s]" % self.message
 
     def __repr__(self):
-        return "StopStmt()"
+        return "StopStmt(%r)" % self.message
 
     def python(self) -> List[str]:
-        return ["shit"]
+        return ["breakpoint(%s)" % ("" if self.message is None else self.message.python())]

@@ -1007,7 +1007,10 @@ def add_continue_stmt():
 
 
 def add_stop_stmt():
-    append_line(StopStmt())
+    from forms import alg_stop
+    dlg = alg_stop.AlgoStopStmt(window)
+    if dlg.run():
+        append_line(StopStmt(dlg.expr))
 
 
 def add_comment_stmt():
@@ -1076,6 +1079,12 @@ def btn_edit_line():
         dlg = alg_return.AlgoReturnStmt(window, stmt.value.code() if stmt.value is not None else None)
         if dlg.run():
             stmt.value = dlg.expr
+            
+    elif isinstance(stmt, StopStmt):
+        from forms import alg_stop
+        dlg = alg_stop.AlgoStopStmt(window, stmt.message.code() if stmt.message is not None else None)
+        if dlg.run():
+            stmt.message = dlg.expr
 
     elif isinstance(stmt, InputStmt):
         from forms import alg_input
@@ -1520,7 +1529,7 @@ def algo_sel_changed():
     is_root = current == []
     is_changeable = is_item and not is_root
     is_editable = is_changeable and not isinstance(current_stmt,
-                                                   (BreakStmt, ContinueStmt, ElseStmt, StopStmt)) and type(
+                                                   (BreakStmt, ContinueStmt, ElseStmt)) and type(
         current_stmt) not in [BaseStmt, BlockStmt]
 
     ui.btnAlgo_Add.setEnabled(is_item)
