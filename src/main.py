@@ -730,9 +730,7 @@ def handler_New():
     msg.setText(translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."))
     center_widget(msg, window)
     if msg.exec_() == QMessageBox.Yes:
-        global current_file
-        global algo
-        global code_editor
+        global current_file, algo, code_editor
         current_file = None
         algo = BlockStmt([])
         code_editor.setPlainText("", "", "")
