@@ -217,3 +217,15 @@ def check_type(obj: Any, typ: str) -> bool:
         return type(obj) == list
 
     raise ValueError("unknown type %s" % typ)
+
+def mod(x):
+    import cmath, math
+    return cmath if type(x) == complex else math
+
+def modn(x):
+    import cmath, math
+    return cmath if type(x) == complex or x < 0 else math
+
+def mods(x, b):
+    import cmath, math
+    return cmath if type(x) == complex or abs(x) > b else math

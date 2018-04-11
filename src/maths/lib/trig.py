@@ -4,6 +4,7 @@ import cmath
 
 from maths.lib import basic
 from util import translate
+from util.math import mod, mods
 from .docs import *
 
 __desc__ = translate("Docs", "Trigonometry")
@@ -49,21 +50,21 @@ doc("asin", [("x", "Number")], translate("Docs", "Returns the arc sine of {{x}}.
 
 
 def asin(x):
-    return cmath.asin(x)
+    return mods(x, 1).asin(x)
 
 
 doc("acos", [("x", "Number")], translate("Docs", "Returns the arc cosine of {{x}}."))
 
 
 def acos(x):
-    return cmath.acos(x)
+    return mods(x, 1).acos(x)
 
 
 doc("atan", [("x", "Number")], translate("Docs", "Returns the arc tangent of {{x}}."))
 
 
 def atan(x):
-    return cmath.atan(x)
+    return mods(x, 1).atan(x)
 
 
 doc("atan2", [("y", "Number"), ("x", "Number")], translate("Docs", "Returns the arc tangent of {{y}} / {{x}}."))
@@ -77,63 +78,63 @@ doc("asinh", [("x", "Number")], translate("Docs", "Returns the inverse hyperboli
 
 
 def asinh(x):
-    return cmath.asinh(x)
+    return mods(x, 1).asinh(x)
 
 
 doc("acosh", [("x", "Number")], translate("Docs", "Returns the inverse hyperbolic cosine of {{x}}."))
 
 
 def acosh(x):
-    return cmath.acosh(x)
+    return mods(x, 1).acosh(x)
 
 
 doc("atanh", [("x", "Number")], translate("Docs", "Returns the inverse hyperbolic tangent of {{x}}."))
 
 
 def atanh(x):
-    return cmath.atanh(x)
+    return mods(x, 1).atanh(x)
 
 
 doc("sin", [("x", "Number")], translate("Docs", "Returns the sine of {{x}}."))
 
 
 def sin(x):
-    return cmath.sin(x)
+    return mod(x).sin(x)
 
 
 doc("cos", [("x", "Number")], translate("Docs", "Returns the cosine of {{x}}."))
 
 
 def cos(x):
-    return cmath.cos(x)
+    return mod(x).cos(x)
 
 
 doc("tan", [("x", "Number")], translate("Docs", "Returns the tangent of {{x}}."))
 
 
 def tan(x):
-    return cmath.tan(x)
+    return mod(x).tan(x)
 
 
 doc("sinh", [("x", "Number")], translate("Docs", "Returns the hyperbolic sine of {{x}}."))
 
 
 def sinh(x):
-    return cmath.sinh(x)
+    return mod(x).sinh(x)
 
 
 doc("cosh", [("x", "Number")], translate("Docs", "Returns the hyperbolic cosine of {{x}}."))
 
 
 def cosh(x):
-    return cmath.cosh(x)
+    return mod(x).cosh(x)
 
 
 doc("tanh", [("x", "Number")], translate("Docs", "Returns the hyperbolic tangent of {{x}}."))
 
 
 def tanh(x):
-    return cmath.tanh(x)
+    return mod(x).tanh(x)
 
 
 doc("sec", [("x", "Number")], translate("Docs", "Returns the secant of {{x}}."))

@@ -4,7 +4,9 @@ import builtins
 import cmath
 import math as rmath
 
+from maths.lib import const
 from util import translate
+from util.math import mod, modn
 from .docs import *
 
 __desc__ = translate("Docs", "Basic")
@@ -48,7 +50,7 @@ doc("sqrt",
 
 
 def sqrt(x):
-    return cmath.sqrt(x) if type(x) == complex or x < 0 else rmath.sqrt(x)
+    return modn(x).sqrt(x)
 
 
 rac = sqrt
@@ -88,7 +90,7 @@ doc("exp",
 
 
 def exp(x):
-    return cmath.exp(x) if type(x) == complex else rmath.exp(x)
+    return mod(x).exp(x)
 
 
 doc("ln",
@@ -99,7 +101,7 @@ doc("ln",
 
 
 def ln(x):
-    return cmath.log(x) if type(x) == complex else rmath.log(x)
+    return log(x, const.c_e)
 
 
 doc("log",
@@ -124,7 +126,7 @@ doc("log10",
 
 
 def log10(x):
-    return cmath.log10(x) if type(x) == complex or x < 0 else rmath.log10(x)
+    return mod(x).log10(x)
 
 
 doc("floor",
