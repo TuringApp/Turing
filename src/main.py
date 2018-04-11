@@ -51,7 +51,7 @@ plot_axes: Axes = None
 panel_search = None
 current_output = ""
 after_output = ""
-user_input = None
+user_input: str = None
 syntax_highlighter = None
 editor_action_table = [
     ("Copy", "copy"),
@@ -101,6 +101,7 @@ run_started = None
 skip_step = False
 stopped = False
 last_saved = None
+current_stmt = None
 
 def sleep(duration: int):
     duration *= 1000
@@ -475,7 +476,7 @@ def handler_Step():
     ui.actionDebug.setDisabled(True)
     ui.actionStep.setDisabled(True)
     ui.actionStop.setEnabled(True)
-    global running, current, skip_step, stopped
+    global running, current_stmt, skip_step, stopped
 
     try:
         if mode_python:
@@ -486,15 +487,15 @@ def handler_Step():
                     if skip_step:
                         skip_step = False
                     else:
-                        worker.exec_stmt(current)
+                        worker.exec_stmt(current_stmt)
                 else:
                     init_worker()
                     running = True
 
                 if not worker.error:
-                    current = worker.next_stmt()
+                    current_stmt = worker.next_stmt()
 
-                    set_current_line(current)
+                    set_current_line(current_stmt)
             else:
                 stopped = False
     except:
@@ -534,7 +535,7 @@ def handler_Run(flag=False):
     ui.actionRun.setDisabled(True)
     ui.actionStep.setDisabled(True)
     ui.actionStop.setEnabled(True)
-    global running, current, skip_step, stopped, run_started
+    global running, current_stmt, skip_step, stopped, run_started
 
     set_current_line(None)
     try:
@@ -579,7 +580,7 @@ def handler_Run(flag=False):
                 if skip_step:
                     skip_step = False
                 else:
-                    worker.exec_stmt(current)
+                    worker.exec_stmt(current_stmt)
                     if not worker.error:
                         set_current_line(None)
 
@@ -886,7 +887,7 @@ def get_item_html(html, data=""):
 
     ui.treeWidget.setItemWidget(item, 0, lbl)
 
-    return (item, lbl)
+    return item, lbl
 
 
 def refresh_algo_text():
@@ -1184,7 +1185,7 @@ def btn_move_down(block=False):
 def append_line(stmt, force_after=False):
     current_pos = get_current_pos()
     _, parent_stmt = get_parent(current_pos)
-    if current_pos != []:
+    if current_pos:
         existing = parent_stmt.children[current_pos[-1]]
         if type(existing) == BaseStmt:
             parent_stmt.children[current_pos[-1]] = stmt
