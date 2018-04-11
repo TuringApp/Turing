@@ -1694,10 +1694,24 @@ def init_style():
     app.setPalette(QApplication.style().standardPalette())
 
 
+def version_check():
+    import json
+    import urllib.request
+    import re
+    global new_version
+    result = json.load(urllib.request.urlopen("https://api.github.com/repos/TuringApp/Turing/releases/latest"))
+    if result and type(result) == dict and "tag_name" in result:
+        version = re.findall(r"[\d.]+", result["tag_name"])[0]
+        current = re.findall(r"[\d.]+", __version__)[0]
+        from distutils.version import StrictVersion
+        if StrictVersion(version) >= StrictVersion(current):
+            new_version = True
+
+
 if __name__ == "__main__":
     sys.excepthook = except_hook
     setup_thread_excepthook()
-
+    global app
     app = QApplication(sys.argv)
     app.setApplicationName("Turing")
     app.setApplicationVersion(__version__)
@@ -1711,11 +1725,6 @@ if __name__ == "__main__":
         font = QFont("Segoe UI", 9)
         app.setFont(font)
 
-    if False:
-        import qdarkstyle
-
-        app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-
     import turing_rc
     splash = QSplashScreen(QPixmap(":/icon/media/icon_128.png"), Qt.WindowStaysOnTopHint)
     splash.show()
@@ -1726,6 +1735,25 @@ if __name__ == "__main__":
 
     window.show()
     splash.finish(window)
+
+    global new_version
+    new_version = False
+
+    thr = threading.Thread(target=version_check, args=())
+    thr.start()
+
+    while thr.is_alive():
+        app.processEvents()
+
+    if new_version:
+        msg = get_themed_box()
+        msg.setIcon(QMessageBox.Question)
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msg.setDefaultButton(QMessageBox.No)
+        msg.setText(translate("MainWindow", "A new version of Turing is available.\nWould you like to download it?"))
+        center_widget(msg, window)
+        if msg.exec_() == QMessageBox.Yes:
+            QDesktopServices.openUrl(QUrl("https://github.com/TuringApp/Turing/releases/latest"))
 
     try:
         exitCode = app.exec_()

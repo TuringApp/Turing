@@ -1929,13 +1929,20 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <location filename="../main.py" line="729"/>
         <source>Do you really want to create a new file?
 All unsaved changes will be lost.</source>
-        <translation type="unfinished">Voulez-vous vraiment créer un nouveau fichier ?
+        <translation>Voulez-vous vraiment créer un nouveau fichier ?
 Toutes les modifications non sauvegardées seront perdues.</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="747"/>
         <source>Send Feedback</source>
         <translation>Un commentaire ?</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="1758"/>
+        <source>A new version of Turing is available.
+Would you like to download it?</source>
+        <translation>Une nouvelle version de Turing est disponible.
+Voulez-vous la télécharger ?</translation>
     </message>
 </context>
 <context>
