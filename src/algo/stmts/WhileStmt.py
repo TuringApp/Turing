@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from algo.stmts import BlockStmt
-from maths.nodes import AstNode
 from .BaseStmt import *
 
 

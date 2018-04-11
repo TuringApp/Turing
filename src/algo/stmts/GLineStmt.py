@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from maths.nodes import AstNode
 from .BaseStmt import *
 
 
@@ -26,7 +25,8 @@ class GLineStmt(BaseStmt):
         return "GLineStmt(%r, %r, %r, %r, %r)" % (self.start_x, self.start_y, self.end_x, self.end_y, self.color)
 
     def python(self) -> List[str]:
-        return ["g_line(%s, %s, %s, %s, %s)" % (self.start_x.python(), self.start_y.python(), self.end_x.python(), self.end_y.python(), self.color.python())]
+        return ["g_line(%s, %s, %s, %s, %s)" % (
+        self.start_x.python(), self.start_y.python(), self.end_x.python(), self.end_y.python(), self.color.python())]
 
     def get_children(self) -> List[AstNode]:
         return [x for c in (self.start_x, self.start_y, self.end_x, self.end_y, self.color) for x in c.flatten()]

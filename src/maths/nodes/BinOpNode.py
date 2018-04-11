@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import maths.parser
+import util.html
 from .IdentifierNode import *
 from .NumberNode import *
-import util.html
 from .StringNode import StringNode
+
 
 class BinOpNode(AstNode):
     """Binary (two operands) operator node
@@ -47,7 +48,9 @@ class BinOpNode(AstNode):
     def operand_code(self, operand: AstNode, bb=False) -> str:
         return operand.code_fix(bb) \
             if (isinstance(operand, BinOpNode) and operand.is_complex and operand.operator == self.operator) \
-               or (not self.is_complex and isinstance(operand, BinOpNode) and (operand.precedence < self.precedence or (operand.precedence == self.precedence and not maths.parser.Operators.is_commutative(self.operator)))) \
+               or (not self.is_complex and isinstance(operand, BinOpNode) and (operand.precedence < self.precedence or (
+                    operand.precedence == self.precedence and not maths.parser.Operators.is_commutative(
+                self.operator)))) \
             else operand.code(bb)
 
     def code(self, bb=False) -> str:

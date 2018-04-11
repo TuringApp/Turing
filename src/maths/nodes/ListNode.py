@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from typing import List
-
+import util.html
 from util.math import proper_str
 from .AstNode import *
-import util.html
+
 
 class ListNode(AstNode):
     """Identifier node

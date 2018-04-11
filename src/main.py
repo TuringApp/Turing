@@ -7,22 +7,17 @@ import sys
 import tempfile
 import threading
 import traceback
-import ctypes
-from typing import Optional
-from sys import exit
 
 import pygments.styles
 import pyqode.python.backend
 from PyQt5.QtGui import *
 from matplotlib.axes import Axes
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
 from pyqode.core import api
 from pyqode.core import modes
 from pyqode.core import panels
 
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-
-import forms
 import util.code
 import util.html
 from algo.stmts import *
@@ -102,6 +97,7 @@ skip_step = False
 stopped = False
 last_saved = None
 current_stmt = None
+
 
 def sleep(duration: int):
     duration *= 1000
@@ -378,8 +374,8 @@ def g_clear():
 def g_window(xmin, xmax, ymin, ymax, xgrad=1, ygrad=1):
     plot_axes.set_xlim(xmin, xmax)
     plot_axes.set_ylim(ymin, ymax)
-    #plot_axes.set_xticks(range(xmin, xmax, xgrad))
-    #plot_axes.set_yticks(range(ymin, ymax, ygrad))
+    # plot_axes.set_xticks(range(xmin, xmax, xgrad))
+    # plot_axes.set_yticks(range(ymin, ymax, ygrad))
     update_plot()
 
 
@@ -407,7 +403,8 @@ def stmt_GWindow(stmt: GWindowStmt):
 
 
 def stmt_GPoint(stmt: GPointStmt):
-    g_point(worker.evaluator.eval_node(stmt.x), worker.evaluator.eval_node(stmt.y), worker.evaluator.eval_node(stmt.color))
+    g_point(worker.evaluator.eval_node(stmt.x), worker.evaluator.eval_node(stmt.y),
+            worker.evaluator.eval_node(stmt.color))
 
 
 def stmt_GLine(stmt: GLineStmt):
@@ -621,7 +618,7 @@ def algo_run_python():
     mode_python = True
     handler_Run()
     mode_python = False
-    #code_editor.setPlainText("", "", "")
+    # code_editor.setPlainText("", "", "")
 
 
 def handler_AboutTuring():
@@ -671,10 +668,9 @@ def save_output():
 def handler_SaveAs():
     global current_file
 
-
     file = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"),
-                                               "",
-                                               filters[["tr", "py"][mode_python]])[0]
+                                       "",
+                                       filters[["tr", "py"][mode_python]])[0]
     if not file:
         return
 
@@ -1017,7 +1013,8 @@ def btn_dupl_line():
     if isinstance(stmt, IfStmt):
         current_pos = get_current_pos()
         _, parent_stmt = get_parent(current_pos)
-        if current_pos[-1] + 1 < len(parent_stmt.children) and isinstance(parent_stmt.children[current_pos[-1] + 1], ElseStmt):
+        if current_pos[-1] + 1 < len(parent_stmt.children) and isinstance(parent_stmt.children[current_pos[-1] + 1],
+                                                                          ElseStmt):
             append_line(eval(repr(parent_stmt.children[current_pos[-1] + 1])), True)
 
     append_line(eval(repr(stmt)), True)
@@ -1089,7 +1086,7 @@ def btn_edit_line():
     elif isinstance(stmt, ForStmt):
         from forms import alg_for
         dlg = alg_for.AlgoForStmt(window, (
-        stmt.variable, stmt.begin.code(), stmt.end.code(), stmt.step.code() if stmt.step is not None else None))
+            stmt.variable, stmt.begin.code(), stmt.end.code(), stmt.step.code() if stmt.step is not None else None))
         if dlg.run():
             stmt.variable = dlg.varname
             stmt.begin = dlg.f_from
@@ -1111,7 +1108,8 @@ def btn_edit_line():
 
     elif isinstance(stmt, GLineStmt):
         from forms import alg_line
-        dlg = alg_line.AlgoGLineStmt(window, (stmt.start_x.code(), stmt.start_y.code(), stmt.end_x.code(), stmt.end_y.code(), stmt.color.code()))
+        dlg = alg_line.AlgoGLineStmt(window, (
+            stmt.start_x.code(), stmt.start_y.code(), stmt.end_x.code(), stmt.end_y.code(), stmt.color.code()))
         if dlg.run():
             stmt.start_x = dlg.f_start_x
             stmt.start_y = dlg.f_start_y
@@ -1129,7 +1127,9 @@ def btn_edit_line():
 
     elif isinstance(stmt, GWindowStmt):
         from forms import alg_window
-        dlg = alg_window.AlgoGWindowStmt(window, (stmt.x_min.code(), stmt.x_max.code(), stmt.y_min.code(), stmt.y_max.code(), stmt.x_grad.code(), stmt.y_grad.code()))
+        dlg = alg_window.AlgoGWindowStmt(window, (
+            stmt.x_min.code(), stmt.x_max.code(), stmt.y_min.code(), stmt.y_max.code(), stmt.x_grad.code(),
+            stmt.y_grad.code()))
         if dlg.run():
             stmt.x_min = dlg.f_x_min
             stmt.x_max = dlg.f_x_max
@@ -1194,7 +1194,8 @@ def append_line(stmt, force_after=False):
     else:
         existing = algo
 
-    if force_after and isinstance(existing, IfStmt) and current_pos[-1] + 1 < len(parent_stmt.children) and isinstance(parent_stmt.children[current_pos[-1] + 1], ElseStmt):
+    if force_after and isinstance(existing, IfStmt) and current_pos[-1] + 1 < len(parent_stmt.children) and isinstance(
+            parent_stmt.children[current_pos[-1] + 1], ElseStmt):
         current_pos[-1] += 1
 
     if not force_after and isinstance(existing, BlockStmt) \
@@ -1343,8 +1344,9 @@ def str_stmt(stmt):
         if stmt.value is None:
             ret = translate("Algo", "[k]DECLARE[/k] [c]{var}[/c]").format(var=stmt.variable)
         else:
-            ret = translate("Algo", "[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]").format(var=code(stmt.variable),
-                                                                                          value=code(stmt.value))
+            ret = translate("Algo", "[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]").format(
+                var=code(stmt.variable),
+                value=code(stmt.value))
 
     elif isinstance(stmt, CallStmt):
         ret = translate("Algo", "[k]CALL[/k] [c]{code}[/c]").format(code=code(stmt.to_node()))
@@ -1374,7 +1376,8 @@ def str_stmt(stmt):
         ret = translate("Algo", "[k]CLEAR PLOT[/k]")
 
     elif isinstance(stmt, GLineStmt):
-        ret = translate("Algo", "[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])").format(
+        ret = translate("Algo",
+                        "[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])").format(
             color=code(stmt.color),
             start_x=code(stmt.start_x),
             start_y=code(stmt.start_y),
@@ -1390,7 +1393,8 @@ def str_stmt(stmt):
         )
 
     elif isinstance(stmt, GWindowStmt):
-        ret = translate("Algo", "[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]").format(
+        ret = translate("Algo",
+                        "[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]").format(
             x_min=code(stmt.x_min),
             x_max=code(stmt.x_max),
             y_min=code(stmt.y_min),
@@ -1440,7 +1444,6 @@ def add_block(block: BlockStmt, current, add=False):
         current[-1] += 1
 
     current.pop()
-
 
 
 def load_block(stmt: BlockStmt):
@@ -1628,7 +1631,6 @@ def init_ui():
         "tr": translate("MainWindow", "Turing program (*.tr)"),
         "alg": translate("MainWindow", "Algobox file (*.alg)")
     }
-
 
     window.show()
 

@@ -5,8 +5,8 @@ from PyQt5.QtWidgets import *
 
 from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_gwindow import Ui_AlgoGWindowStmt
-from util.code import try_parse, is_id
-from util.widgets import center_widget, get_themed_box
+from util.code import try_parse
+from util.widgets import center_widget
 
 translate = QCoreApplication.translate
 
@@ -32,7 +32,6 @@ class AlgoGWindowStmt(QDialog):
         self.ui.btnCodeYgrad.clicked.connect(lambda: self.click(self.ui.txtYgrad))
 
         center_widget(self, parent)
-
 
     def done(self, res):
         if res == QDialog.Accepted:

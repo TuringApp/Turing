@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from .AstNode import *
 import util.html
+from .AstNode import *
+
 
 class UnaryOpNode(AstNode):
     """Unary operator node

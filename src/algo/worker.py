@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import typing
 from collections import Iterable
-from typing import Optional, Union
+from typing import Union
 
 from algo.stmts import *
 from maths.evaluator import Evaluator

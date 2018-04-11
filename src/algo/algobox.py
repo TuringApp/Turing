@@ -2,7 +2,7 @@
 
 import builtins
 import xml.etree.ElementTree as etree
-from typing import Union, Optional
+from typing import Union
 
 from algo.stmts import *
 from maths.nodes import *
@@ -68,7 +68,8 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
 
         xmin, xmax, ymin, ymax, xgrad, ygrad = elem.attrib["repcode"].split("#")
 
-        return GWindowStmt(parse_expr(xmin), parse_expr(xmax), parse_expr(ymin), parse_expr(ymax), parse_expr(xgrad), parse_expr(ygrad))
+        return GWindowStmt(parse_expr(xmin), parse_expr(xmax), parse_expr(ymin), parse_expr(ymax), parse_expr(xgrad),
+                           parse_expr(ygrad))
 
     if elem.tag == "fonction":
         if elem.attrib["fctetat"] == "inactif":
@@ -205,7 +206,8 @@ def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
         elif code == 51:  # SEGMENT
             start_x, start_y, end_x, end_y, color = args
 
-            return GLineStmt(parse_expr(start_x), parse_expr(start_y), parse_expr(end_x), parse_expr(end_y), StringNode(get_color(color)))
+            return GLineStmt(parse_expr(start_x), parse_expr(start_y), parse_expr(end_x), parse_expr(end_y),
+                             StringNode(get_color(color)))
 
         elif code == 52:  # EFFACE
             return GClearStmt()

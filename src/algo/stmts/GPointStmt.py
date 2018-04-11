@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from maths.nodes import AstNode
 from .BaseStmt import *
 
 

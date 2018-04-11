@@ -5,8 +5,8 @@ from PyQt5.QtWidgets import *
 
 from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_gline import Ui_AlgoGLineStmt
-from util.code import try_parse, is_id
-from util.widgets import center_widget, get_themed_box
+from util.code import try_parse
+from util.widgets import center_widget
 
 translate = QCoreApplication.translate
 
@@ -30,7 +30,6 @@ class AlgoGLineStmt(QDialog):
         self.ui.btnCodeColor.clicked.connect(lambda: self.click(self.ui.txtColor))
 
         center_widget(self, parent)
-
 
     def done(self, res):
         if res == QDialog.Accepted:
