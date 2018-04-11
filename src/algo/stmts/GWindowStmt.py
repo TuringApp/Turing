@@ -23,16 +23,16 @@ class GWindowStmt(BaseStmt):
 
     def __str__(self):
         return "[Window X(%s; %s) Y(%s; %s) Grad(%s; %s)]" % (
-        self.x_min, self.x_max, self.y_min, self.y_max, self.x_grad, self.y_grad)
+            self.x_min, self.x_max, self.y_min, self.y_max, self.x_grad, self.y_grad)
 
     def __repr__(self):
         return "GWindowStmt(%r, %r, %r, %r, %r, %r)" % (
-        self.x_min, self.x_max, self.y_min, self.y_max, self.x_grad, self.y_grad)
+            self.x_min, self.x_max, self.y_min, self.y_max, self.x_grad, self.y_grad)
 
     def python(self) -> List[str]:
         return ["g_window(%s, %s, %s, %s, %s, %s)" % (
-        self.x_min.python(), self.x_max.python(), self.y_min.python(), self.y_max.python(), self.x_grad.python(),
-        self.y_grad.python())]
+            self.x_min.python(), self.x_max.python(), self.y_min.python(), self.y_max.python(), self.x_grad.python(),
+            self.y_grad.python())]
 
     def get_children(self) -> List[AstNode]:
         return [x for c in (self.x_min, self.x_max, self.y_min, self.y_max, self.x_grad, self.y_grad) for x in

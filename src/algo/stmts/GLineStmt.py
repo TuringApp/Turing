@@ -26,7 +26,8 @@ class GLineStmt(BaseStmt):
 
     def python(self) -> List[str]:
         return ["g_line(%s, %s, %s, %s, %s)" % (
-        self.start_x.python(), self.start_y.python(), self.end_x.python(), self.end_y.python(), self.color.python())]
+            self.start_x.python(), self.start_y.python(), self.end_x.python(), self.end_y.python(),
+            self.color.python())]
 
     def get_children(self) -> List[AstNode]:
         return [x for c in (self.start_x, self.start_y, self.end_x, self.end_y, self.color) for x in c.flatten()]

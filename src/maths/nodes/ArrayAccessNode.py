@@ -25,7 +25,7 @@ class ArrayAccessNode(AstNode):
 
     def code(self, bb=False) -> str:
         return (util.html.escape_brackets("%s[%s]") if bb else "%s[%s]") % (
-        self.array.code_fix(bb), self.index.code(bb))
+            self.array.code_fix(bb), self.index.code(bb))
 
     def python(self) -> str:
         return "(%s)[%s]" % (self.array.python(), self.index.python())
