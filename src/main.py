@@ -752,6 +752,7 @@ def change_language(language: str):
     if language not in [x.statusTip() for x in ui.menuLanguage.actions()]:
         language = "en_US"
     translator.load(language)
+    ui.menubar.resizeEvent(QResizeEvent(ui.menubar.size(), ui.menubar.size()))
     load_editor_actions()
     for a in ui.menuLanguage.actions():
         a.setChecked(a.statusTip() == language)
