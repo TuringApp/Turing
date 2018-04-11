@@ -1759,6 +1759,9 @@ if __name__ == "__main__":
         if msg.exec_() == QMessageBox.Yes:
             QDesktopServices.openUrl(QUrl("https://github.com/TuringApp/Turing/releases/latest"))
 
+    window.raise_()
+    window.activateWindow()
+
     try:
         exitCode = app.exec_()
     except:
