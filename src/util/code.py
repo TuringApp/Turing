@@ -10,17 +10,23 @@ from .widgets import get_themed_box, center_widget
 
 def python_wrapper(input: str) -> str:
     return """# -*- coding: utf-8 -*-
-import maths.lib
-import types
-for n, x in maths.lib.__dict__.items():
-    if type(x) == types.ModuleType and "maths.lib." in x.__name__:
-        module = __import__(x.__name__, globals(), locals(), ["*"], 0)
-        for k, i in module.__dict__.items():
-            if type(i) == types.FunctionType:
-                globals()[k] = getattr(module, k)
-            elif k.startswith("c_"):
-                globals()[k[2:]] = getattr(module, k)
-del maths, types, n, x
+def __turing_loader__():
+    import maths.lib
+    import types
+    for n, x in maths.lib.__dict__.items():
+        if type(x) == types.ModuleType and "maths.lib." in x.__name__:
+            module = __import__(x.__name__, globals(), locals(), ["*"], 0)
+            for k, i in module.__dict__.items():
+                if type(i) == types.FunctionType:
+                    globals()[k] = getattr(module, k)
+                elif k.startswith("c_"):
+                    globals()[k[2:]] = getattr(module, k)
+__turing_loader__()
+del __turing_loader__
+
+__input__ = input
+def input(prompt=""):
+    return __input__(prompt, globals(), locals())
 
 %s
 """ % input

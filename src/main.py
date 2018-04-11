@@ -294,7 +294,7 @@ def update_output():
         current_output = current_output[:-1]
 
 
-def python_input(prompt=""):
+def python_input(prompt="", globals=None, locals=None):
     python_print(prompt, end="")
 
     global after_output
@@ -338,20 +338,25 @@ def python_input(prompt=""):
 
     after_output = ""
     python_print(user_input)
+    update_output()
 
     try:
-        to_int = int(user_input)
-        return to_int
+        evaled = eval(user_input, globals, locals)
+        return evaled
     except:
         try:
-            to_float = float(user_input)
-            return to_float
+            to_int = int(user_input)
+            return to_int
         except:
             try:
-                to_complex = complex(user_input)
-                return to_complex
+                to_float = float(user_input)
+                return to_float
             except:
-                return user_input
+                try:
+                    to_complex = complex(user_input)
+                    return to_complex
+                except:
+                    return user_input
 
 
 def python_print_error(msg, end="\n"):
@@ -781,7 +786,7 @@ def clear_output():
 
 
 def print_output():
-    print("\n".join(dir(code_editor)))
+    print(current_output)
     pass
 
 
