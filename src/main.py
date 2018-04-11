@@ -1716,8 +1716,16 @@ if __name__ == "__main__":
 
         app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
 
+    import turing_rc
+    splash = QSplashScreen(QPixmap(":/icon/media/icon_128.png"), Qt.WindowStaysOnTopHint)
+    splash.show()
+    app.processEvents()
+
     init_ui()
     change_language(QLocale.system().name())
+
+    window.show()
+    splash.finish(window)
 
     try:
         exitCode = app.exec_()
