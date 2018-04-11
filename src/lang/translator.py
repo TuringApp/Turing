@@ -11,7 +11,7 @@ from PyQt5.QtWidgets import QWidget
 import maths.lib
 
 uis: List[Tuple[object, QWidget]] = []
-current = None
+current_lang = None
 tr_object: QTranslator = None
 
 
@@ -39,14 +39,14 @@ def update():
 
 
 def load(lang: str):
-    global current, tr_object
-    current = lang
+    global current_lang, tr_object
+    current_lang = lang
 
     if tr_object:
         QCoreApplication.removeTranslator(tr_object)
 
     tr_object = QTranslator()
-    tr_object.load(current, ":/lang/lang")
+    tr_object.load(current_lang, ":/lang/lang")
 
     QCoreApplication.installTranslator(tr_object)
 
