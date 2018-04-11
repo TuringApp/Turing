@@ -562,10 +562,12 @@ def handler_Run(flag=False):
             except SyntaxError as err:
                 msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
                     type=type(err).__name__, line=err.lineno - 10, off=err.offset)
-                python_print_error(msg + err.text, end="")
+                python_print_error(msg + html.escape(err.text), end="")
                 python_print_error(" " * (len(msg) + err.offset - 1) + "↑")
+            except KeyboardInterrupt:
+                pass
             except:
-                python_print_error(str(sys.exc_info()[1]))
+                python_print_error(html.escape(str(sys.exc_info()[1])))
             finally:
                 os.unlink(file.name)
         else:
