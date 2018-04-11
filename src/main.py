@@ -28,7 +28,7 @@ from util.widgets import *
 
 translate = QCoreApplication.translate
 
-__version__ = "β-0.4"
+__version__ = "β-0.5"
 __channel__ = "beta"
 
 current_file: Optional[str] = None
@@ -1707,7 +1707,7 @@ def version_check():
         version = re.findall(r"[\d.]+", result["tag_name"])[0]
         current = re.findall(r"[\d.]+", __version__)[0]
         from distutils.version import StrictVersion
-        if StrictVersion(version) >= StrictVersion(current):
+        if StrictVersion(version) > StrictVersion(current):
             new_version = True
 
 
