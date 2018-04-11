@@ -636,7 +636,7 @@ class Ui_MainWindow(object):
         self.btnAlgo_GWindow.setText(_translate("MainWindow", "Set window"))
         self.btnAlgo_GPoint.setText(_translate("MainWindow", "Draw point"))
         self.btnAlgo_GLine.setText(_translate("MainWindow", "Draw line"))
-        self.btnAlgo_Stop.setText(_translate("MainWindow", "Pause execution"))
+        self.btnAlgo_Stop.setText(_translate("MainWindow", "Breakpoint"))
         self.btnAlgo_Comment.setText(_translate("MainWindow", "Comment"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_pseudocode), _translate("MainWindow", "Pseudocode"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_code), _translate("MainWindow", "Code"))

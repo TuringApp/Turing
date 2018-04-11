@@ -289,7 +289,7 @@
            <item row="11" column="2">
             <widget class="QPushButton" name="btnAlgo_Stop">
              <property name="text">
-              <string>Pause execution</string>
+              <string>Breakpoint</string>
              </property>
             </widget>
            </item>

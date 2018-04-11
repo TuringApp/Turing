@@ -80,84 +80,84 @@ p, li { white-space: pre-wrap; }
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1347"/>
+        <location filename="../main.py" line="1414"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1350"/>
+        <location filename="../main.py" line="1417"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1341"/>
+        <location filename="../main.py" line="1408"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1353"/>
+        <location filename="../main.py" line="1420"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1356"/>
+        <location filename="../main.py" line="1423"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1359"/>
+        <location filename="../main.py" line="1426"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1385"/>
+        <location filename="../main.py" line="1452"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1364"/>
+        <location filename="../main.py" line="1431"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1371"/>
+        <location filename="../main.py" line="1438"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1381"/>
+        <location filename="../main.py" line="1448"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1426"/>
+        <location filename="../main.py" line="1494"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1344"/>
+        <location filename="../main.py" line="1411"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1374"/>
+        <location filename="../main.py" line="1441"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation>[b]POUR[/b] [c]{var}[/c] [b]DE[/b] [c]{begin}[/c] [b]À[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1375"/>
+        <location filename="../main.py" line="1442"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation>([b]PAS[/b] [c]{step}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1429"/>
+        <location filename="../main.py" line="1497"/>
         <source>[i]empty[/i]</source>
         <translation>[i]vide[/i]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1389"/>
+        <location filename="../main.py" line="1437"/>
         <source>[k]STOP[/k]</source>
-        <translation>[k]STOP[/k]</translation>
+        <translation type="obsolete">[k]STOP[/k]</translation>
     </message>
     <message>
         <location filename="../util/code.py" line="51"/>
@@ -199,29 +199,34 @@ p, li { white-space: pre-wrap; }
         <translation>Cible d&apos;affectation invalide (doit être une variable ou un élément de liste) : {name}</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1366"/>
+        <location filename="../main.py" line="1433"/>
         <source>[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]</source>
         <translation>[k]VARIABLE[/k] [c]{var}[/c] [k]PREND LA VALEUR[/b] [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1395"/>
+        <location filename="../main.py" line="1463"/>
         <source>[k]CLEAR PLOT[/k]</source>
         <translation>[k]EFFACER GRAPHIQUE[/k]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1398"/>
+        <location filename="../main.py" line="1466"/>
         <source>[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</source>
         <translation>[k]DESSINER LIGNE[/k] [c]{color}[/c] [k]DE[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]À[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1408"/>
+        <location filename="../main.py" line="1476"/>
         <source>[k]DRAW POINT[/k] [c]{color}[/c] [k]AT[/k] ([c]{x}[/c]; [c]{y}[/c])</source>
         <translation>[k]DESSINER POINT[/k] [c]{color}[/c] [k]À[/k] ([c]{x}[/c]; [c]{y}[/c])</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1415"/>
+        <location filename="../main.py" line="1483"/>
         <source>[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</source>
         <translation>[k]DÉFINIR REPÈRE[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="1456"/>
+        <source>[k]STOP[/k] [c]{val}[/c]</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -556,6 +561,29 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>AlgoStopStmt</name>
+    <message>
+        <location filename="../forms/ui_alg_stop.py" line="63"/>
+        <source>Breakpoint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_stop.py" line="64"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pauses the program until &amp;quot;Run&amp;quot; or &amp;quot;Debug&amp;quot; is pressed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_stop.py" line="65"/>
+        <source>Message:</source>
+        <translation type="unfinished">Message :</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_stop.py" line="66"/>
+        <source>Show a message</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AlgoWhileStmt</name>
     <message>
         <location filename="../forms/ui_alg_while.py" line="57"/>
@@ -602,87 +630,87 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Docs</name>
     <message>
-        <location filename="../maths/lib/basic.py" line="12"/>
+        <location filename="../maths/lib/basic.py" line="14"/>
         <source>Rounds {{num}} to the nearest integer / (if specified) to {{prec}} decimals.</source>
         <translation>Arrondit {{num}} à l&apos;entier le plus proche / (si spécifié) à {{prec}} décimales.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="31"/>
+        <location filename="../maths/lib/basic.py" line="33"/>
         <source>Returns the absolute value of {{num}}.</source>
         <translation>Calcule la valeur absolue de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="42"/>
+        <location filename="../maths/lib/basic.py" line="44"/>
         <source>Returns the square root of {{num}}. If {{num}} &lt; 0, the result will be Complex.</source>
         <translation>Calcule la racine carrée de {{num}}. Si {{num}} &lt; 0, le résultat sera de type Complex.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="56"/>
+        <location filename="../maths/lib/basic.py" line="58"/>
         <source>Returns the {{n}}-th root of {{num}}.</source>
         <translation>Calcule la racine {{n}}-ème de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="68"/>
+        <location filename="../maths/lib/basic.py" line="70"/>
         <source>Returns {{num}} to the {{p}}-th power.</source>
         <translation>Calcule {{num}} élevé à la puissance {{p}}..</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="83"/>
+        <location filename="../maths/lib/basic.py" line="85"/>
         <source>Returns //e// to the power of {{num}}.</source>
         <translation>Calcule //e// élevé à la puissance {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="94"/>
+        <location filename="../maths/lib/basic.py" line="96"/>
         <source>Returns the natural (base-//e//) logarithm of {{num}}.</source>
         <translation>Calcule le logarithme naturel/népérien (de base //e//) de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="105"/>
+        <location filename="../maths/lib/basic.py" line="107"/>
         <source>Returns the base-{{b}} logarithm of {{num}}.</source>
         <translation>Calcule le logarithme de base {{b}} de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="119"/>
+        <location filename="../maths/lib/basic.py" line="121"/>
         <source>Returns the base-10 logarithm of {{num}}.</source>
         <translation>Calcule le logarithme de base 10 de {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="130"/>
+        <location filename="../maths/lib/basic.py" line="132"/>
         <source>Returns the largest integer less than or equal to {{num}}.</source>
         <translation>Détermine le plus grand entier inférieur ou égal à {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="143"/>
+        <location filename="../maths/lib/basic.py" line="145"/>
         <source>Returns the smallest integer greater than or equal to {{num}}.</source>
         <translation>Détermine le plus petit entier supérieur ou égal à {{num}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="156"/>
+        <location filename="../maths/lib/basic.py" line="158"/>
         <source>Returns the sign of {{num}} (-1 if negative, 1 if positive, 0 otherwise).</source>
         <translation>Détermine le signe de {{num}} (-1 si négatif, 1 si positif, 0 sinon).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="171"/>
+        <location filename="../maths/lib/basic.py" line="173"/>
         <source>Returns the greatest common divisor of {{a}} and {{b}}.</source>
         <translation>Calcule le PGCD (plus grand diviseur commun) de {{a}} et {{b}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="186"/>
+        <location filename="../maths/lib/basic.py" line="188"/>
         <source>Returns the least common multiple of {{a}} and {{b}}.</source>
         <translation>Calcule le PPCM (plus petit commun multiple) de {{a}} et {{b}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="201"/>
+        <location filename="../maths/lib/basic.py" line="203"/>
         <source>Returns the argument (or phase) of {{x}}.</source>
         <translation>Calcule l&apos;argument (ou phase) de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="215"/>
+        <location filename="../maths/lib/basic.py" line="217"/>
         <source>Returns a list containing the polar coordinates of {{x}}, respectively the modulus (radius) and argument (angle).</source>
         <translation>Renvoie une liste contenant les coordonnées polaires de {{x}}, respectivement le module (rayon) et l&apos;argument (angle).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="231"/>
+        <location filename="../maths/lib/basic.py" line="233"/>
         <source>Converts the specified polar coordinates to a complex number.</source>
         <translation>Convertit les coordonnées polaires spéficiées en nombre complexe.</translation>
     </message>
@@ -892,207 +920,207 @@ p, li { white-space: pre-wrap; }
         <translation>Renvoie un nombre aléatoire compris entre 0 (inclus) et 1 (exclus).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="20"/>
+        <location filename="../maths/lib/trig.py" line="21"/>
         <source>Converts angle {{x}} from radians to degrees.</source>
         <translation>Convertit l&apos;angle {{x}} des radians vers les degrés.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="34"/>
+        <location filename="../maths/lib/trig.py" line="35"/>
         <source>Converts angle {{x}} from degrees to radians.</source>
         <translation>Convertit l&apos;angle {{x}} des degrés vers les radians.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="48"/>
+        <location filename="../maths/lib/trig.py" line="49"/>
         <source>Returns the arc sine of {{x}}.</source>
         <translation>Calcule l&apos;arc sinus de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="55"/>
+        <location filename="../maths/lib/trig.py" line="56"/>
         <source>Returns the arc cosine of {{x}}.</source>
         <translation>Calcule l&apos;arc cosinus de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="62"/>
+        <location filename="../maths/lib/trig.py" line="63"/>
         <source>Returns the arc tangent of {{x}}.</source>
         <translation>Calcule &apos;arc tangente de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="69"/>
+        <location filename="../maths/lib/trig.py" line="70"/>
         <source>Returns the arc tangent of {{y}} / {{x}}.</source>
         <translation>Calcule l&apos;arc tangente de {{y}} / {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="76"/>
+        <location filename="../maths/lib/trig.py" line="77"/>
         <source>Returns the inverse hyperbolic sine of {{x}}.</source>
         <translation>Calcule l&apos;arc sinus hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="83"/>
+        <location filename="../maths/lib/trig.py" line="84"/>
         <source>Returns the inverse hyperbolic cosine of {{x}}.</source>
         <translation>Calcule l&apos;arc cosinus hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="90"/>
+        <location filename="../maths/lib/trig.py" line="91"/>
         <source>Returns the inverse hyperbolic tangent of {{x}}.</source>
         <translation>Calcule l&apos;arc tangente hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="97"/>
+        <location filename="../maths/lib/trig.py" line="98"/>
         <source>Returns the sine of {{x}}.</source>
         <translation>Calcule le sinus de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="104"/>
+        <location filename="../maths/lib/trig.py" line="105"/>
         <source>Returns the cosine of {{x}}.</source>
         <translation>Calcule le cosinus de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="111"/>
+        <location filename="../maths/lib/trig.py" line="112"/>
         <source>Returns the tangent of {{x}}.</source>
         <translation>Calcule la tangente de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="118"/>
+        <location filename="../maths/lib/trig.py" line="119"/>
         <source>Returns the hyperbolic sine of {{x}}.</source>
         <translation>Calcule le sinus hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="125"/>
+        <location filename="../maths/lib/trig.py" line="126"/>
         <source>Returns the hyperbolic cosine of {{x}}.</source>
         <translation>Calcule le cosinus hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="132"/>
+        <location filename="../maths/lib/trig.py" line="133"/>
         <source>Returns the hyperbolic tangent of {{x}}.</source>
         <translation>Calcule la tangente hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="139"/>
+        <location filename="../maths/lib/trig.py" line="140"/>
         <source>Returns the secant of {{x}}.</source>
         <translation>Calcule la sécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="146"/>
+        <location filename="../maths/lib/trig.py" line="147"/>
         <source>Returns the cosecant of {{x}}.</source>
         <translation>Calcule la cosécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="153"/>
+        <location filename="../maths/lib/trig.py" line="154"/>
         <source>Returns the cotangent of {{x}}.</source>
         <translation>Calcule la cotangente de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="160"/>
+        <location filename="../maths/lib/trig.py" line="161"/>
         <source>Returns the exsecant of {{x}}.</source>
         <translation>Calcule l&apos;exsécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="167"/>
+        <location filename="../maths/lib/trig.py" line="168"/>
         <source>Returns the excosecant of {{x}}.</source>
         <translation>Calcule l&apos;excosécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="174"/>
+        <location filename="../maths/lib/trig.py" line="175"/>
         <source>Returns the chord of {{x}}.</source>
         <translation>Calcule la corde de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="183"/>
+        <location filename="../maths/lib/trig.py" line="184"/>
         <source>Returns the hyperbolic secant of {{x}}.</source>
         <translation>Calcule la sécante hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="190"/>
+        <location filename="../maths/lib/trig.py" line="191"/>
         <source>Returns the hyperbolic cosecant of {{x}}.</source>
         <translation>Calcule la cosécante hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="197"/>
+        <location filename="../maths/lib/trig.py" line="198"/>
         <source>Returns the hyperbolic cotangent of {{x}}.</source>
         <translation>Calcule la cotangente hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="204"/>
+        <location filename="../maths/lib/trig.py" line="205"/>
         <source>Returns the inverse secant of {{x}}.</source>
         <translation>Calcule l&apos;arc sécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="211"/>
+        <location filename="../maths/lib/trig.py" line="212"/>
         <source>Returns the inverse cosecant of {{x}}.</source>
         <translation>Calcule l&apos;arc cosécante de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="218"/>
+        <location filename="../maths/lib/trig.py" line="219"/>
         <source>Returns the inverse cotangent of {{x}}.</source>
         <translation>Calcule l&apos;arc tangente de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="225"/>
+        <location filename="../maths/lib/trig.py" line="226"/>
         <source>Returns the inverse hyperbolic secant of {{x}}.</source>
         <translation>Calcule l&apos;arc sécante hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="232"/>
+        <location filename="../maths/lib/trig.py" line="233"/>
         <source>Returns the inverse hyperbolic cosecant of {{x}}.</source>
         <translation>Calcule l&apos;arc cosécante hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="239"/>
+        <location filename="../maths/lib/trig.py" line="240"/>
         <source>Returns the inverse hyperbolic cotangent of {{x}}.</source>
         <translation>Calcule l&apos;arc cotangente hyperbolique de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="246"/>
+        <location filename="../maths/lib/trig.py" line="247"/>
         <source>Returns the cardinal sine of {{x}}.</source>
         <translation>Calcule le sinus cardinal de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="253"/>
+        <location filename="../maths/lib/trig.py" line="254"/>
         <source>Returns the versed sine of {{x}}.</source>
         <translation>Calcule le sinus verse de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="260"/>
+        <location filename="../maths/lib/trig.py" line="261"/>
         <source>Returns the versed cosine of {{x}}.</source>
         <translation>Calcule le cosinus verse de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="267"/>
+        <location filename="../maths/lib/trig.py" line="268"/>
         <source>Returns the coversed sine of {{x}}.</source>
         <translation>Calcule le sinus coverse de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="274"/>
+        <location filename="../maths/lib/trig.py" line="275"/>
         <source>Returns the coversed cosine of {{x}}.</source>
         <translation>Calcule le cosinus coverse de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="281"/>
+        <location filename="../maths/lib/trig.py" line="282"/>
         <source>Returns the haversed sine of {{x}}.</source>
         <translation>Calcule l&apos;haversine de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="288"/>
+        <location filename="../maths/lib/trig.py" line="289"/>
         <source>Returns the haversed cosine of {{x}}.</source>
         <translation>Calcule l&apos;havercosine de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="295"/>
+        <location filename="../maths/lib/trig.py" line="296"/>
         <source>Returns the hacoversed sine of {{x}}.</source>
         <translation>Calcule l&apos;hacoversine de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="302"/>
+        <location filename="../maths/lib/trig.py" line="303"/>
         <source>Returns the hacoversed cosine of {{x}}.</source>
         <translation>Calcule l&apos;hacovercosine de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="309"/>
+        <location filename="../maths/lib/trig.py" line="310"/>
         <source>Returns the hypotenuse / Euclidean norm of the vector ({{x}}, {{y}}).</source>
         <translation>Calcule l&apos;hypoténuse / la norme euclidienne du vecteur ({{x}}, {{y}}).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="10"/>
+        <location filename="../maths/lib/basic.py" line="12"/>
         <source>Basic</source>
         <translation>Basique</translation>
     </message>
@@ -1122,7 +1150,7 @@ p, li { white-space: pre-wrap; }
         <translation>Statistiques</translation>
     </message>
     <message>
-        <location filename="../maths/lib/trig.py" line="9"/>
+        <location filename="../maths/lib/trig.py" line="10"/>
         <source>Trigonometry</source>
         <translation>Trigonométrie</translation>
     </message>
@@ -1132,17 +1160,17 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule la moyenne harmonique de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="243"/>
+        <location filename="../maths/lib/basic.py" line="245"/>
         <source>Returns the real part of {{x}}.</source>
         <translation>Renvoie la partie réelle de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="254"/>
+        <location filename="../maths/lib/basic.py" line="256"/>
         <source>Returns the imaginary part of {{x}}.</source>
         <translation>Renvoie la partie imaginaire de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="265"/>
+        <location filename="../maths/lib/basic.py" line="267"/>
         <source>Returns the complex conjugate of {{x}}.</source>
         <translation>Calcule le conjugué de {{x}}.</translation>
     </message>
@@ -1152,17 +1180,17 @@ p, li { white-space: pre-wrap; }
         <translation>Calcule le {{n}}-ième terme de la suite de Fibonacci.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="276"/>
+        <location filename="../maths/lib/basic.py" line="278"/>
         <source>Returns the gradient of {{func}} at {{x}} (optional precision {{h}}).</source>
         <translation>Calcule le nombre dérivé de {{func}} à {{x}} (facultatif : précision {{h}}).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="292"/>
+        <location filename="../maths/lib/basic.py" line="294"/>
         <source>Returns the derivative of {{func}} (optional precision {{h}}).</source>
         <translation>Détermine la dérivée de {{func}} (facultatif : précision {{h}}).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="307"/>
+        <location filename="../maths/lib/basic.py" line="309"/>
         <source>Returns the integral of {{func}} from {{a}} to {{b}} (optional number of steps: {{steps}}).</source>
         <translation>Calcule l&apos;intégrale de {{a}} à {{b}} de {{func}} (facultatif : nombre d&apos;étapes {{steps}}).</translation>
     </message>
@@ -1614,7 +1642,7 @@ p, li { white-space: pre-wrap; }
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../main.py" line="132"/>
+        <location filename="../main.py" line="133"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
@@ -1646,17 +1674,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
+        <location filename="../main.py" line="447"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../main.py" line="304"/>
+        <location filename="../main.py" line="305"/>
         <source>Input: </source>
         <translation>Entrée : </translation>
     </message>
     <message>
-        <location filename="../main.py" line="572"/>
+        <location filename="../main.py" line="625"/>
         <source>Syntax error ({type}) at line {line}, offset {off}: </source>
         <translation>Erreur de syntaxe ({type}) à la ligne {line}, caractère {off} : </translation>
     </message>
@@ -1801,27 +1829,27 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Commentaire</translation>
     </message>
     <message>
-        <location filename="../main.py" line="468"/>
+        <location filename="../main.py" line="505"/>
         <source>program interrupted</source>
         <translation>algorithme interrompu</translation>
     </message>
     <message>
-        <location filename="../main.py" line="446"/>
+        <location filename="../main.py" line="447"/>
         <source>end of output [{time}]</source>
         <translation>fin de l&apos;exécution [{time}]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1650"/>
+        <location filename="../main.py" line="1718"/>
         <source>Python file (*.py)</source>
         <translation>Fichier Python (*.py)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1651"/>
+        <location filename="../main.py" line="1719"/>
         <source>Turing program (*.tr)</source>
         <translation>Algorithme Turing (*.tr)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1652"/>
+        <location filename="../main.py" line="1720"/>
         <source>Algobox file (*.alg)</source>
         <translation>Algorithme Algobox (*.alg)</translation>
     </message>
@@ -1858,20 +1886,20 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="639"/>
         <source>Pause execution</source>
-        <translation>Point d&apos;arrêt</translation>
+        <translation type="obsolete">Point d&apos;arrêt</translation>
     </message>
     <message>
-        <location filename="../main.py" line="161"/>
+        <location filename="../main.py" line="162"/>
         <source>Turing - New File</source>
         <translation>Turing - Sans titre</translation>
     </message>
     <message>
-        <location filename="../main.py" line="157"/>
+        <location filename="../main.py" line="158"/>
         <source>Turing - {file} (unsaved)</source>
         <translation>Turing - {file} (modifié)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="159"/>
+        <location filename="../main.py" line="160"/>
         <source>Turing - {file}</source>
         <translation>Turing - {file}</translation>
     </message>
@@ -1881,7 +1909,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Déboguer</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1649"/>
+        <location filename="../main.py" line="1717"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation>Fichier de programme (*.py *.tr *.alg)</translation>
     </message>
@@ -1916,17 +1944,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Dupliquer la ligne</translation>
     </message>
     <message>
-        <location filename="../main.py" line="673"/>
+        <location filename="../main.py" line="731"/>
         <source>Save output</source>
         <translation>Enregistrer la sortie</translation>
     </message>
     <message>
-        <location filename="../main.py" line="673"/>
+        <location filename="../main.py" line="731"/>
         <source>Text files (*.txt)</source>
         <translation>Fichiers texte (*.txt)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="742"/>
+        <location filename="../main.py" line="800"/>
         <source>Do you really want to create a new file?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment créer un nouveau fichier ?
@@ -1938,11 +1966,21 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Un commentaire ?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1773"/>
+        <location filename="../main.py" line="1841"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation>Une nouvelle version de Turing est disponible.
 Voulez-vous la télécharger ?</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="639"/>
+        <source>Breakpoint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.py" line="473"/>
+        <source>Breakpoint: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

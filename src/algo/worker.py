@@ -294,7 +294,7 @@ class Worker:
 
     def exec_stop(self, stmt: StopStmt):
         self.stopped = True
-        self.callback_stop()
+        self.callback_stop(stmt)
 
     def step(self):
         stmt = self.next_stmt()

@@ -95,6 +95,7 @@ skip_step = False
 stopped = False
 last_saved = None
 current_stmt = None
+python_stopped = False
 
 def sleep(duration: int):
     duration *= 1000
@@ -457,8 +458,43 @@ def set_current_line(current: Optional[BaseStmt], error=False):
             item.setBackground(0, root_item.background(0))
 
 
-def callback_stop():
-    worker.finished = True
+def callback_stop(stmt, virtual=False):
+    breakpoint_message(str(worker.evaluator.eval_node(stmt.message)))
+    if not virtual:
+        worker.finished = True
+
+
+def breakpoint_message(message=""):
+    global after_output
+    after_output = "<hr>"
+    after_output += util.html.centered(
+        "<h3>%s</h3>" % util.html.color_span("<i>%s</i>" % (
+            translate("MainWindow", "Breakpoint: ") + html.escape(message) if message else translate("MainWindow",
+                                                                                                     "Breakpoint")),
+                                             "red"))
+    update_output()
+
+def python_breakpoint(message=""):
+    global after_output
+    breakpoint_message(message)
+
+    global python_stopped
+    python_stopped = True
+
+    ui.actionRun.setDisabled(False)
+    ui.actionStop.setDisabled(False)
+
+    while python_stopped and not stopped:
+        QCoreApplication.processEvents()
+
+    if stopped:
+        raise KeyboardInterrupt()
+
+    after_output = ""
+    update_output()
+
+    ui.actionRun.setDisabled(True)
+    ui.actionStop.setDisabled(True)
 
 
 def handler_Stop():
@@ -491,13 +527,20 @@ def handler_Step():
                 if running:
                     if skip_step:
                         skip_step = False
+                        global after_output
+                        after_output = ""
+                        update_output()
                     else:
-                        worker.exec_stmt(current_stmt)
+                        if isinstance(current_stmt, StopStmt):
+                            callback_stop(current_stmt, True)
+                            skip_step = True
+                        else:
+                            worker.exec_stmt(current_stmt)
                 else:
                     init_worker()
                     running = True
 
-                if not worker.error:
+                if not skip_step and not worker.error:
                     current_stmt = worker.next_stmt()
 
                     set_current_line(current_stmt)
@@ -533,11 +576,17 @@ class compat_list(list):
 
 
 def handler_Run(flag=False):
+    global python_stopped
+    if python_stopped:
+        python_stopped = False
+        return
+
     if not flag and not mode_python:
         algo_run_python()
         return
 
     ui.actionRun.setDisabled(True)
+    ui.actionDebug.setDisabled(True)
     ui.actionStep.setDisabled(True)
     ui.actionStop.setEnabled(True)
     global running, current_stmt, skip_step, stopped, run_started
@@ -552,11 +601,13 @@ def handler_Run(flag=False):
                 file.close()
                 running = True
                 stopped = False
+                python_stopped = False
                 g_clear()
                 run_started = datetime.datetime.now()
                 runpy.run_path(file.name, init_globals={
                     "print": python_print,
                     "input": python_input,
+                    "breakpoint": python_breakpoint,
 
                     "g_clear": g_clear,
                     "g_window": g_window,
@@ -587,6 +638,9 @@ def handler_Run(flag=False):
             else:
                 if skip_step:
                     skip_step = False
+                    global after_output
+                    after_output = ""
+                    update_output()
                 else:
                     worker.exec_stmt(current_stmt)
                     if not worker.error:
@@ -599,7 +653,7 @@ def handler_Run(flag=False):
     finally:
         if not mode_python and worker.stopped:
             ui.actionStep.setDisabled(False)
-            ui.actionRun.setDisabled(False)
+            ui.actionDebug.setDisabled(False)
             set_current_line(worker.last)
             skip_step = True
 
@@ -609,6 +663,7 @@ def handler_Run(flag=False):
             end_output()
             ui.actionRun.setDisabled(False)
             ui.actionStep.setDisabled(False)
+            ui.actionDebug.setDisabled(False)
             ui.actionStop.setEnabled(False)
             running = False
 
@@ -1390,7 +1445,8 @@ def str_stmt(stmt):
             val="" if stmt.value is None else code(stmt.value))
 
     elif isinstance(stmt, StopStmt):
-        ret = translate("Algo", "[k]STOP[/k]")
+        ret = translate("Algo", "[k]STOP[/k] [c]{val}[/c]").format(
+            val="" if stmt.message is None else code(stmt.message))
 
     elif isinstance(stmt, CommentStmt):
         ret = "[t]{com}[/t]".format(com=util.html.sanitize(stmt.content))

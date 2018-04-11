@@ -42,6 +42,7 @@ SOURCES += \
     forms\alg_line.py \
     forms\alg_point.py \
     forms\alg_return.py \
+    forms\alg_stop.py \
     forms\alg_while.py \
     forms\alg_window.py \
     forms\calculator.py \
@@ -62,6 +63,7 @@ SOURCES += \
     forms\ui_alg_if.py \
     forms\ui_alg_input.py \
     forms\ui_alg_return.py \
+    forms\ui_alg_stop.py \
     forms\ui_alg_while.py \
     forms\ui_calculator.py \
     forms\ui_help.py \
@@ -124,6 +126,7 @@ FORMS += \
     forms\ui_alg_if.ui \
     forms\ui_alg_input.ui \
     forms\ui_alg_return.ui \
+    forms\ui_alg_stop.ui \
     forms\ui_alg_while.ui \
     forms\ui_calculator.ui \
     forms\ui_help.ui \
