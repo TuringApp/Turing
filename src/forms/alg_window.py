@@ -21,8 +21,8 @@ class AlgoGWindowStmt(QDialog):
         self.ui.txtXmax.setText(origcode[1])
         self.ui.txtYmin.setText(origcode[2])
         self.ui.txtYmax.setText(origcode[3])
-        self.ui.txtXgrad.setText(origcode[2])
-        self.ui.txtYgrad.setText(origcode[3])
+        self.ui.txtXgrad.setText(origcode[4])
+        self.ui.txtYgrad.setText(origcode[5])
 
         self.ui.btnCodeXmin.clicked.connect(lambda: self.click(self.ui.txtXmin))
         self.ui.btnCodeXmax.clicked.connect(lambda: self.click(self.ui.txtXmax))
