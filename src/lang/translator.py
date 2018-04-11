@@ -8,8 +8,6 @@ from typing import List, Tuple
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QWidget
 
-import maths.lib
-
 uis: List[Tuple[object, QWidget]] = []
 current_lang = None
 tr_object: QTranslator = None
@@ -25,6 +23,7 @@ def remove(ui: object):
 
 
 def update():
+    import maths.lib
     global uis
     uis = [x for x in uis if not sip.isdeleted(x[1])]
 

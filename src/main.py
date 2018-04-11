@@ -21,8 +21,6 @@ from pyqode.core import panels
 import util.code
 import util.html
 from algo.stmts import *
-from algo.worker import Worker
-from forms.ui_mainwindow import Ui_MainWindow
 from lang import translator
 from maths.nodes import *
 from maths.parser import quick_parse as parse
@@ -97,7 +95,6 @@ skip_step = False
 stopped = False
 last_saved = None
 current_stmt = None
-
 
 def sleep(duration: int):
     duration *= 1000
@@ -416,6 +413,7 @@ def stmt_GLine(stmt: GLineStmt):
 
 
 def init_worker():
+    from algo.worker import Worker
     global worker
     worker = Worker(algo.children)
     worker.callback_print = python_print
@@ -1559,6 +1557,7 @@ def algo_sel_changed():
 
 
 def init_ui():
+    from forms.ui_mainwindow import Ui_MainWindow
     global window, ui
     window = MainWindowWrapper()
     ui = Ui_MainWindow()
