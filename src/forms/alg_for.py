@@ -45,6 +45,8 @@ class AlgoForStmt(QDialog):
                 box.setIcon(QMessageBox.Critical)
                 box.setStandardButtons(QMessageBox.Ok)
                 box.setText(translate("Algo", "Invalid variable name: {name}").format(name=name))
+                box.adjustSize()
+                center_widget(box, self)
                 box.exec_()
                 return
 

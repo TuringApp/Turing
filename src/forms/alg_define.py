@@ -36,6 +36,8 @@ class AlgoDefineStmt(QDialog):
                 box.setText(translate("Algo",
                                       "Invalid assignment target (must be either variable or array item): {name}").format(
                     name=name))
+                box.adjustSize()
+                center_widget(box, self)
                 box.exec_()
                 return
 

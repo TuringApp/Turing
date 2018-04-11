@@ -128,6 +128,7 @@ class MainWindowWrapper(QMainWindow):
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msg.setDefaultButton(QMessageBox.No)
         msg.setText(translate("MainWindow", "Do you really want to exit?\nAll unsaved changes will be lost."))
+        msg.adjustSize()
         center_widget(msg, self)
         event.ignore()
         if msg.exec_() == QMessageBox.Yes:
@@ -723,6 +724,7 @@ def handler_New():
     msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
     msg.setDefaultButton(QMessageBox.No)
     msg.setText(translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."))
+    msg.adjustSize()
     center_widget(msg, window)
     if msg.exec_() == QMessageBox.Yes:
         global current_file, algo, code_editor
@@ -1751,6 +1753,7 @@ if __name__ == "__main__":
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msg.setDefaultButton(QMessageBox.No)
         msg.setText(translate("MainWindow", "A new version of Turing is available.\nWould you like to download it?"))
+        msg.adjustSize()
         center_widget(msg, window)
         if msg.exec_() == QMessageBox.Yes:
             QDesktopServices.openUrl(QUrl("https://github.com/TuringApp/Turing/releases/latest"))
