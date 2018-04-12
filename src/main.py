@@ -1625,11 +1625,13 @@ def algo_sel_changed():
     ui.btnAlgo_GLine.setEnabled(is_item)
 
     if is_changeable:
-        ui.btnAlgo_Else.setEnabled(isinstance(current_stmt, IfStmt))
-
         parent_stack = [algo]
         for p in current:
             parent_stack.append(parent_stack[-1].children[p])
+
+        existing_else = current[-1] + 1 < len(parent_stack[-2].children) and isinstance(parent_stack[-2].children[current[-1] + 1], ElseStmt)
+
+        ui.btnAlgo_Else.setEnabled(isinstance(current_stmt, IfStmt) and not existing_else)
 
         in_loop = any(x for x in parent_stack if type(x) in [ForStmt, WhileStmt])
         ui.btnAlgo_Continue.setEnabled(in_loop)

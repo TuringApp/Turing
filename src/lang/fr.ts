@@ -727,7 +727,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/cast.py" line="30"/>
         <source>Tries to convert {{obj}} to List.</source>
-        <translation>Convertir {{obj}} en List.</translation>
+        <translation>Convertit {{obj}} en List.</translation>
     </message>
     <message>
         <location filename="../maths/lib/cast.py" line="41"/>
@@ -1839,17 +1839,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>fin de l&apos;exécution [{time}]</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1721"/>
+        <location filename="../main.py" line="1723"/>
         <source>Python file (*.py)</source>
         <translation>Fichier Python (*.py)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1722"/>
+        <location filename="../main.py" line="1724"/>
         <source>Turing program (*.tr)</source>
         <translation>Algorithme Turing (*.tr)</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1723"/>
+        <location filename="../main.py" line="1725"/>
         <source>Algobox file (*.alg)</source>
         <translation>Algorithme Algobox (*.alg)</translation>
     </message>
@@ -1909,7 +1909,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Déboguer</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1720"/>
+        <location filename="../main.py" line="1722"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation>Fichier de programme (*.py *.tr *.alg)</translation>
     </message>
@@ -1966,7 +1966,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Un commentaire ?</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1844"/>
+        <location filename="../main.py" line="1846"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation>Une nouvelle version de Turing est disponible.
