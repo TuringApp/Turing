@@ -79,7 +79,7 @@ doc("max",
     translate("Docs", "Returns the maximum value of {{args}}."))
 
 
-def max(*args):
+def max(args):
     return builtins.max(args)
 
 
