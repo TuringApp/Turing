@@ -21,6 +21,8 @@ doc("round",
 
 
 def round(num, prec=None):
+    if 0 < prec < 1:
+        return round(num, -int(rmath.log10(prec)))
     if type(num) == complex:
         return complex(round(num.real, prec), round(num.imag, prec))
     if prec:
@@ -287,7 +289,7 @@ doc("gradient",
 def gradient(func, x, h=1e-7):
     result = (func(x + h) - func(x - h)) / (2 * h)
     if h < 1:
-        result = round(result, -int(round(log10(h).real)))
+        result = round(result, h)
     return result
 
 
