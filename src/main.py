@@ -786,19 +786,22 @@ def handler_Open():
 
 
 def handler_New():
-    msg = get_themed_box()
-    msg.setIcon(QMessageBox.Question)
-    msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-    msg.setDefaultButton(QMessageBox.No)
-    msg.setText(translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."))
-    msg.adjustSize()
-    center_widget(msg, window)
-    if msg.exec_() == QMessageBox.Yes:
-        global current_file, algo, code_editor
-        current_file = None
-        algo = BlockStmt([])
-        code_editor.setPlainText("", "", "")
-        refresh()
+    if is_modified():
+        msg = get_themed_box()
+        msg.setIcon(QMessageBox.Question)
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msg.setDefaultButton(QMessageBox.No)
+        msg.setText(translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."))
+        msg.adjustSize()
+        center_widget(msg, window)
+        if msg.exec_() != QMessageBox.Yes:
+            return
+
+    global current_file, algo, code_editor
+    current_file = None
+    algo = BlockStmt([])
+    code_editor.setPlainText("", "", "")
+    refresh()
 
 
 def init_action_handlers():
