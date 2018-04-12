@@ -96,6 +96,8 @@ stopped = False
 last_saved = None
 current_stmt = None
 python_stopped = False
+settings: QSettings = None
+recent_actions = None
 
 def sleep(duration: int):
     duration *= 1000
@@ -116,6 +118,69 @@ def is_modified():
         return code_editor.toPlainText() != last_saved
     else:
         return repr(algo) != last_saved
+
+
+def add_recent(path):
+    from collections import OrderedDict
+
+    recent = settings.value("recent", [])
+    recent.insert(0, path)
+    recent = list(OrderedDict(zip(recent, recent)))[0:10]
+
+    settings.setValue("recent", recent)
+
+    update_recent_text()
+
+
+def update_recent_text():
+    recent = settings.value("recent", [])
+
+    for i, file in enumerate(recent):
+        recent_actions[i].setText(os.path.basename(file))
+        _, ext = os.path.splitext(file.lower())
+
+        if ext == ".alg":
+            icon = QIcon(":/action/media/algobox.ico")
+        elif ext == ".tr":
+            icon = ui.tabWidget.tabIcon(1)
+        elif ext == ".py":
+            icon = ui.tabWidget.tabIcon(2)
+        else:
+            icon = QIcon()
+
+        recent_actions[i].setIcon(icon)
+
+        recent_actions[i].setVisible(True)
+
+    for i in range(len(recent), 10):
+        recent_actions[i].setVisible(False)
+        recent_actions[i].setIcon(QIcon())
+
+
+def recent_clicked(index):
+    recent = settings.value("recent", [])
+
+    if index < len(recent) and recent[index]:
+        load_file(recent[index])
+
+
+def init_recent_actions():
+    global recent_actions
+    recent_actions = []
+
+    def generator(num):
+        return lambda: recent_clicked(num)
+
+    for i in range(10):
+        act = QAction(window)
+        act.setVisible(False)
+        act.triggered.connect(generator(i))
+        recent_actions.append(act)
+        ui.menuRecent.insertAction(ui.actionClearRecent, act)
+
+    ui.menuRecent.insertSeparator(ui.actionClearRecent)
+
+    update_recent_text()
 
 
 class MainWindowWrapper(QMainWindow):
@@ -756,15 +821,19 @@ def handler_Save():
 
 
 def handler_Open():
-    global algo, mode_python, current_file, last_saved
+    global algo, current_file
     sel_file, _ = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "", ";;".join(filters.values()))
 
     if not sel_file:
         return
 
-    current_file = sel_file
+    load_file(sel_file)
 
-    _, ext = os.path.splitext(current_file)
+
+def load_file(file):
+    global current_file, mode_python, last_saved
+    current_file = file
+    _, ext = os.path.splitext(current_file.lower())
 
     with open(current_file, "r", encoding="utf8") as openfile:
         newcode = openfile.read()
@@ -784,6 +853,8 @@ def handler_Open():
         mode_python = True
         code_editor.setPlainText(newcode, "", "")
         last_saved = newcode
+
+    add_recent(current_file)
 
     refresh()
 
@@ -844,6 +915,7 @@ def clear_output():
     if not mode_python:
         set_current_line(None)
     update_output()
+    g_clear()
 
 
 def print_output():
@@ -1654,6 +1726,8 @@ def init_ui():
     translator.add(ui, window)
     ui.setupUi(window)
 
+    init_recent_actions()
+
     load_code_editor()
     load_plot_canvas()
     load_algo()
@@ -1800,10 +1874,12 @@ def version_check():
 if __name__ == "__main__":
     sys.excepthook = except_hook
     setup_thread_excepthook()
-    global app
+    #global app, settings
     app = QApplication(sys.argv)
     app.setApplicationName("Turing")
     app.setApplicationVersion(__version__)
+
+    settings = QSettings("Turing", "Turing")
 
     util.translate_backend = translate
     init_style()

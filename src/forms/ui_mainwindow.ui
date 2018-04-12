@@ -340,7 +340,6 @@
       <iconset resource="../turing.qrc">
        <normaloff>:/action/media/recent.png</normaloff>:/action/media/recent.png</iconset>
      </property>
-     <addaction name="separator"/>
      <addaction name="actionClearRecent"/>
     </widget>
     <addaction name="actionNew"/>

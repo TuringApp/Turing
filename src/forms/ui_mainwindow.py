@@ -501,7 +501,6 @@ class Ui_MainWindow(object):
         icon52.addPixmap(QtGui.QPixmap(":/action/media/feedback.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionSendFeedback.setIcon(icon52)
         self.actionSendFeedback.setObjectName("actionSendFeedback")
-        self.menuRecent.addSeparator()
         self.menuRecent.addAction(self.actionClearRecent)
         self.menuFile.addAction(self.actionNew)
         self.menuFile.addAction(self.actionOpen)
