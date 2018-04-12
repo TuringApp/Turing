@@ -375,6 +375,8 @@ def update_plot():
 
 def g_clear():
     plot_axes.clear()
+    plot_axes.axhline(y=0, color='k')
+    plot_axes.axvline(x=0, color='k')
     g_window(-10, 10, -10, 10)
 
 
@@ -437,6 +439,7 @@ def init_worker():
     worker.map[GPointStmt] = stmt_GPoint
     worker.map[GLineStmt] = stmt_GLine
     set_current_line(None)
+    g_clear()
 
 
 def end_output():
@@ -927,6 +930,7 @@ def load_plot_canvas():
     plot_figure = Figure()
     plot_axes = plot_figure.add_subplot(111)
     plot_canvas = FigureCanvas(plot_figure)
+    g_clear()
     g_window(-10, 10, -10, 10)
     ui.verticalLayout_4.addWidget(plot_canvas)
 
