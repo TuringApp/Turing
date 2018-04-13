@@ -29,7 +29,7 @@ from util.widgets import *
 
 translate = QCoreApplication.translate
 
-__version__ = "β-0.5"
+__version__ = "β-0.6"
 __channel__ = "beta"
 
 current_file: Optional[str] = None
