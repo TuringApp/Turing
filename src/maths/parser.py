@@ -123,7 +123,7 @@ class Parser:
         self.tokens = []
         self.index = 0
         self.log = Logger("Parser")
-        #♣self.fix_mul()
+        #self.fix_mul()
 
     def fix_mul(self):
         """Fixes the multiplication syntax by adding starts (*) between numbers and identifiers.
@@ -258,7 +258,14 @@ class Parser:
                         self.tokens.append((TokenType.NUMBER, num))
                     except:
                         if re.search('^[a-zA-Z_0-9]+$', token):
-                            self.tokens.append((TokenType.IDENTIFIER, token))
+                            match = re.search('^([0-9]+)([a-zA-Z_0-9]+$)', token)
+                            if match:
+                                factor, variable = match.groups()
+                                self.tokens.append((TokenType.NUMBER, int(factor)))
+                                self.tokens.append((TokenType.OPERATOR, "*"))
+                                self.tokens.append((TokenType.IDENTIFIER, variable))
+                            else:
+                                self.tokens.append((TokenType.IDENTIFIER, token))
                         else:
                             self.tokens.append((TokenType.INVALID, token))
 

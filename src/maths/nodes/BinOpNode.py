@@ -45,11 +45,11 @@ class BinOpNode(AstNode):
     def __repr__(self):
         return "BinOpNode(%r, %r, %r)" % (self.left, self.right, self.operator)
 
-    def operand_code(self, operand: AstNode, bb=False) -> str:
+    def operand_code(self, operand: AstNode, bb=False, right=False) -> str:
         return operand.code_fix(bb) \
             if (isinstance(operand, BinOpNode) and operand.is_complex and operand.operator == self.operator) \
                or (not self.is_complex and isinstance(operand, BinOpNode) and (operand.precedence < self.precedence or (
-                operand.precedence == self.precedence and not maths.parser.Operators.is_commutative(
+                right and operand.precedence == self.precedence and not maths.parser.Operators.is_commutative(
             self.operator)))) \
             else operand.code(bb)
 
@@ -62,7 +62,7 @@ class BinOpNode(AstNode):
             op = util.html.sanitize(op)
         return "%s %s %s" % (
             self.operand_code(self.left, bb), op,
-            self.operand_code(self.right, bb))
+            self.operand_code(self.right, bb, True))
 
     def python(self) -> str:
         op_table = {
