@@ -112,7 +112,7 @@
        </property>
        <property name="icon">
         <iconset resource="../turing.qrc">
-         <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
        </property>
       </widget>
      </item>
@@ -208,8 +208,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>238</x>
-     <y>172</y>
+     <x>247</x>
+     <y>241</y>
     </hint>
     <hint type="destinationlabel">
      <x>238</x>
@@ -224,8 +224,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>238</x>
-     <y>172</y>
+     <x>247</x>
+     <y>241</y>
     </hint>
     <hint type="destinationlabel">
      <x>238</x>

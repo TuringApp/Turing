@@ -112,7 +112,7 @@
        </property>
        <property name="icon">
         <iconset resource="../turing.qrc">
-         <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
        </property>
       </widget>
      </item>

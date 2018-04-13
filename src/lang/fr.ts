@@ -390,42 +390,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGFuncStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="124"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="126"/>
         <source>Plot function</source>
         <translation>Tracer une fonction</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="125"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="127"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws the curve of the function on the specified interval.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dessine la courbe représentative de la fonction sur l&apos;intervalle spécifié.&lt;/p&gt;&lt;p&gt;La couleur doit être une chaîne de caractères contenant le nom de la couleur ou la valeur RGB hexadécimale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="126"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="128"/>
         <source>Start:</source>
         <translation>Début :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="127"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="129"/>
         <source>Step:</source>
         <translation>Pas :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="128"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="130"/>
         <source>Function:</source>
         <translation>Fonction :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="129"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="131"/>
         <source>Variable:</source>
         <translation>Variable :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="130"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="132"/>
         <source>Color:</source>
         <translation>Couleur :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="131"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="133"/>
         <source>End:</source>
         <translation>Fin :</translation>
     </message>
@@ -433,37 +433,37 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGLineStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="118"/>
+        <location filename="../forms/ui_alg_gline.py" line="120"/>
         <source>Plot line</source>
         <translation>Dessiner une ligne</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="119"/>
+        <location filename="../forms/ui_alg_gline.py" line="121"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws a line with the specified coordinates.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dessine une ligne avec les coordonnées spécifiées.&lt;/p&gt;&lt;p&gt;La couleur doit être une chaîne de caractères contenant le nom de la couleur ou la valeur RGB hexadécimale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="120"/>
+        <location filename="../forms/ui_alg_gline.py" line="122"/>
         <source>End Y:</source>
         <translation>Y arrivée :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="121"/>
+        <location filename="../forms/ui_alg_gline.py" line="123"/>
         <source>End X:</source>
         <translation>X arrivée :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="122"/>
+        <location filename="../forms/ui_alg_gline.py" line="124"/>
         <source>Start X:</source>
         <translation>X début :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="123"/>
+        <location filename="../forms/ui_alg_gline.py" line="125"/>
         <source>Start Y:</source>
         <translation>Y début :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="124"/>
+        <location filename="../forms/ui_alg_gline.py" line="126"/>
         <source>Color:</source>
         <translation>Couleur :</translation>
     </message>
@@ -471,27 +471,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGPointStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="88"/>
+        <location filename="../forms/ui_alg_gpoint.py" line="90"/>
         <source>Plot point</source>
         <translation>Dessiner un point</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="89"/>
+        <location filename="../forms/ui_alg_gpoint.py" line="91"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws a point at the specified coordinates.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dessine un point aux coordonnées spécifiées.&lt;/p&gt;&lt;p&gt;La couleur doit être une chaîne de caractères contenant le nom de la couleur ou la valeur RGB hexadécimale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="90"/>
+        <location filename="../forms/ui_alg_gpoint.py" line="92"/>
         <source>Color:</source>
         <translation>Couleur :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="91"/>
+        <location filename="../forms/ui_alg_gpoint.py" line="93"/>
         <source>X:</source>
         <translation>X :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="92"/>
+        <location filename="../forms/ui_alg_gpoint.py" line="94"/>
         <source>Y:</source>
         <translation>Y :</translation>
     </message>
@@ -2208,12 +2208,12 @@ Voulez-vous la télécharger ?</translation>
         <translation>Jeton attendu ({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="484"/>
+        <location filename="../maths/parser.py" line="491"/>
         <source>Unexpected EOL</source>
         <translation>Fin de ligne inattendue</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="486"/>
+        <location filename="../maths/parser.py" line="493"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
         <translation>Jeton ({type}) &apos;{val}&apos; inattendu</translation>
     </message>
@@ -2233,7 +2233,7 @@ Voulez-vous la télécharger ?</translation>
         <translation>NON</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="278"/>
+        <location filename="../maths/parser.py" line="285"/>
         <source>Unexpected token ({type}) &apos;{val}&apos; after end of expression</source>
         <translation>Jeton ({type}) &apos;{val}&apos; inattendu après la fin de l&apos;expression</translation>
     </message>
