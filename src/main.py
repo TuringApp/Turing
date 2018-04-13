@@ -972,6 +972,38 @@ def load_editor_actions():
     copy_action(ui.actionFind, panel_search.menu.menuAction())
     code_editor._sub_menus["Advanced"].setTitle(translate("MainWindow", "Advanced"))
 
+    panel_folding.context_menu.setTitle(translate("MainWindow", "Folding"))
+    panel_folding.context_menu.actions()[0].setText(translate("MainWindow", "Collapse"))
+    panel_folding.context_menu.actions()[1].setText(translate("MainWindow", "Expand"))
+    panel_folding.context_menu.actions()[3].setText(translate("MainWindow", "Collapse all"))
+    panel_folding.context_menu.actions()[4].setText(translate("MainWindow", "Expand all"))
+
+    mode_ext_select.action_select_word.setText(translate("MainWindow", "Select word"))
+    mode_ext_select.action_select_extended_word.setText(translate("MainWindow", "Select extended word"))
+    mode_ext_select.action_select_matched.setText(translate("MainWindow", "Matched select"))
+    mode_ext_select.action_select_line.setText(translate("MainWindow", "Select line"))
+    mode_ext_select.action_select_line.associatedWidgets()[0].setTitle(translate("MainWindow", "Select"))
+
+    panel_search.labelSearch.setPixmap(ui.actionFind.icon().pixmap(16, 16))
+    panel_search.labelSearch.setMaximumSize(QSize(16, 16))
+    panel_search.labelReplace.setPixmap(ui.actionReplace.icon().pixmap(16, 16))
+    panel_search.labelReplace.setMaximumSize(QSize(16, 16))
+    panel_search.toolButtonPrevious.setIcon(QIcon(QPixmap(":/action/media/up.png")))
+    panel_search.toolButtonNext.setIcon(QIcon(QPixmap(":/action/media/down.png")))
+    panel_search.toolButtonClose.setIcon(QIcon(QPixmap(":/action/media/cross.png")))
+
+    panel_search.checkBoxRegex.setText(translate("MainWindow", "Regex"))
+    panel_search.checkBoxCase.setText(translate("MainWindow", "Match case"))
+    panel_search.checkBoxWholeWords.setText(translate("MainWindow", "Whole words"))
+    panel_search.checkBoxInSelection.setText(translate("MainWindow", "In Selection"))
+    panel_search.labelMatches.setText(translate("MainWindow", "0 matches"))
+    panel_search.toolButtonReplace.setText(translate("MainWindow", "Replace"))
+    panel_search.toolButtonReplaceAll.setText(translate("MainWindow", "Replace All"))
+    panel_search.lineEditSearch.prompt_text = translate("MainWindow", "Find")
+    panel_search.lineEditSearch.button.setIcon(QIcon(QPixmap(":/action/media/backspace.png")))
+    panel_search.lineEditReplace.prompt_text = translate("MainWindow", "Replace")
+    panel_search.lineEditReplace.button.setIcon(QIcon(QPixmap(":/action/media/backspace.png")))
+
 
 def copy_actions_to_editor(panel):
     for name, obj in panel.__dict__.items():
@@ -1015,13 +1047,16 @@ def load_code_editor():
     code_editor.action_zoom_in = zoom.mnu_zoom.actions()[0]
     code_editor.action_zoom_out = zoom.mnu_zoom.actions()[1]
     code_editor.action_reset_zoom = zoom.mnu_zoom.actions()[2]
-    code_editor.modes.append(modes.ExtendedSelectionMode())
+
+    global mode_ext_select
+    mode_ext_select = code_editor.modes.append(modes.ExtendedSelectionMode())
 
     global syntax_highlighter
     syntax_highlighter = code_editor.modes.append(modes.PygmentsSyntaxHighlighter(code_editor.document()))
     syntax_highlighter.fold_detector = api.IndentFoldDetector()
 
-    code_editor.panels.append(panels.FoldingPanel())
+    global panel_folding
+    panel_folding = code_editor.panels.append(panels.FoldingPanel())
     code_editor.panels.append(panels.LineNumberPanel())
     code_editor.modes.append(modes.CheckerMode(pyqode.python.backend.run_pep8))
     code_editor.panels.append(panels.GlobalCheckerPanel(), panels.GlobalCheckerPanel.Position.LEFT)
@@ -1205,10 +1240,6 @@ def add_comment_stmt():
     dlg = alg_comment.AlgoCommentStmt(window)
     if dlg.run():
         append_line(CommentStmt(dlg.comment))
-
-
-def btn_add_line():
-    append_line(BaseStmt())
 
 
 def btn_dupl_line():
@@ -1720,7 +1751,6 @@ def algo_sel_changed():
                                                    (BreakStmt, ContinueStmt, ElseStmt)) and type(
         current_stmt) not in [BaseStmt, BlockStmt]
 
-    ui.btnAlgo_Add.setEnabled(is_item)
     ui.btnAlgo_Delete.setEnabled(is_changeable)
     ui.btnAlgo_Edit.setEnabled(is_editable)
     ui.btnAlgo_Dupl.setEnabled(is_changeable and not isinstance(current_stmt, ElseStmt))
@@ -1810,7 +1840,6 @@ def init_ui():
     ui.btnPrintOutput.clicked.connect(print_output)
     ui.btnSaveOutput.clicked.connect(save_output)
 
-    ui.btnAlgo_Add.clicked.connect(btn_add_line)
     ui.btnAlgo_Delete.clicked.connect(btn_delete_line)
     ui.btnAlgo_Edit.clicked.connect(btn_edit_line)
     ui.btnAlgo_UpBlock.clicked.connect(btn_move_up_block)
@@ -1924,6 +1953,8 @@ def init_style():
         app.setStyle(QStyleFactory.create("macintosh"))
 
     app.setPalette(QApplication.style().standardPalette())
+
+    app.setStyleSheet("QLineEdit { padding: 3px }")
 
 
 def version_check():
