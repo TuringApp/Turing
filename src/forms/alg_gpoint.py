@@ -25,7 +25,7 @@ class AlgoGPointStmt(QDialog):
 
         self.ui.btnCodeX.clicked.connect(lambda: self.click(self.ui.txtX))
         self.ui.btnCodeY.clicked.connect(lambda: self.click(self.ui.txtY))
-        self.ui.btnCodeColor.clicked.connect(lambda: self.click(self.ui.txtColor))
+        self.ui.btnCodeColor.clicked.connect(self.change_color)
 
         center_widget(self, parent)
 
@@ -60,6 +60,14 @@ class AlgoGPointStmt(QDialog):
         dlg = InlineCodeDialog(self, wgt.text())
         if dlg.run():
             wgt.setText(dlg.value())
+
+
+    def change_color(self, _):
+        dlg = QColorDialog(self)
+
+        if dlg.exec_():
+            self.ui.txtColor.setText('"%s"' % dlg.currentColor().name())
+
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok

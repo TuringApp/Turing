@@ -12,7 +12,6 @@ from util.widgets import center_widget, get_themed_box
 
 translate = QCoreApplication.translate
 
-
 class AlgoGFuncStmt(QDialog):
     def __init__(self, parent, origcode=("x", "cos(x)", "", "", "0.1", '"red"')):
         super().__init__(parent)
@@ -32,9 +31,10 @@ class AlgoGFuncStmt(QDialog):
         self.ui.btnCodeStart.clicked.connect(lambda: self.click(self.ui.txtStart))
         self.ui.btnCodeEnd.clicked.connect(lambda: self.click(self.ui.txtEnd))
         self.ui.btnCodeStep.clicked.connect(lambda: self.click(self.ui.txtStep))
-        self.ui.btnCodeColor.clicked.connect(lambda: self.click(self.ui.txtColor))
+        self.ui.btnCodeColor.clicked.connect(self.change_color)
 
         center_widget(self, parent)
+
 
     def done(self, res):
         if res == QDialog.Accepted:
@@ -94,10 +94,19 @@ class AlgoGFuncStmt(QDialog):
 
         super(AlgoGFuncStmt, self).done(res)
 
+
     def click(self, wgt):
         dlg = InlineCodeDialog(self, wgt.text())
         if dlg.run():
             wgt.setText(dlg.value())
+
+
+    def change_color(self, _):
+        dlg = QColorDialog(self)
+
+        if dlg.exec_():
+            self.ui.txtColor.setText('"%s"' % dlg.currentColor().name())
+
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok
