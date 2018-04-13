@@ -8,6 +8,7 @@ import tempfile
 import threading
 import traceback
 
+import numpy as np
 import pygments.styles
 import pyqode.python.backend
 from PyQt5.QtGui import *
@@ -470,6 +471,13 @@ def g_line(startx, starty, endx, endy, color="red"):
     update_plot()
 
 
+def g_func(func, start, end, step, color="red"):
+    domain = np.arange(start, end, step)
+    results = [func(x) for x in domain]
+    plot_axes.plot(domain, results, c=color, linestyle="-")
+    update_plot()
+
+
 def stmt_GClear(stmt: GClearStmt):
     g_clear()
 
@@ -493,6 +501,14 @@ def stmt_GLine(stmt: GLineStmt):
            worker.evaluator.eval_node(stmt.start_y),
            worker.evaluator.eval_node(stmt.end_x),
            worker.evaluator.eval_node(stmt.end_y),
+           worker.evaluator.eval_node(stmt.color))
+
+
+def stmt_GFunc(stmt: GFuncStmt):
+    g_func(worker.evaluator.eval_node(stmt.get_function()),
+           worker.evaluator.eval_node(stmt.start),
+           worker.evaluator.eval_node(stmt.end),
+           worker.evaluator.eval_node(stmt.step),
            worker.evaluator.eval_node(stmt.color))
 
 
@@ -688,6 +704,8 @@ def handler_Run(flag=False):
                     "g_window": g_window,
                     "g_point": g_point,
                     "g_line": g_line,
+                    "g_func": g_func,
+
                     "list": compat_list
                 })
             except SyntaxError as err:
@@ -791,6 +809,8 @@ def save(filename):
 
     with open(current_file, "w+", encoding="utf8") as savefile:
         savefile.write(last_saved)
+
+    add_recent(current_file)
 
     refresh()
 
@@ -1219,6 +1239,13 @@ def add_gwindow():
     dlg = alg_gwindow.AlgoGWindowStmt(window)
     if dlg.run():
         append_line(GWindowStmt(dlg.f_x_min, dlg.f_x_max, dlg.f_y_min, dlg.f_y_max, dlg.f_x_grad, dlg.f_y_grad))
+        
+        
+def add_gfunc():
+    from forms import alg_gfunc
+    dlg = alg_gfunc.AlgoGFuncStmt(window)
+    if dlg.run():
+        append_line(GFuncStmt(dlg.f_variable, dlg.f_function, dlg.f_start, dlg.f_end, dlg.f_step, dlg.f_color))
 
 
 def add_break_stmt():
@@ -1379,6 +1406,17 @@ def btn_edit_line():
             stmt.y_max = dlg.f_y_max
             stmt.x_grad = dlg.f_x_grad
             stmt.y_grad = dlg.f_y_grad
+
+    elif isinstance(stmt, GFuncStmt):
+        from forms import alg_gfunc
+        dlg = alg_gfunc.AlgoGFuncStmt(window, (stmt.var, stmt.expr.code(), stmt.start.code(), stmt.end.code(), stmt.step.code(), stmt.color.code()))
+        if dlg.run():
+            stmt.var = dlg.f_variable
+            stmt.expr = dlg.f_function
+            stmt.start = dlg.f_start
+            stmt.end = dlg.f_end
+            stmt.step = dlg.f_step
+            stmt.color = dlg.f_color
 
     refresh()
 
@@ -1646,6 +1684,16 @@ def str_stmt(stmt):
             y_grad=code(stmt.y_grad),
         )
 
+    elif isinstance(stmt, GFuncStmt):
+        ret = translate("Algo", "[k]PLOT FUNCTION[/k] [c]{color}[/c] [i]f[/i]({var}) = [c]{expr}[/c] [k]FROM[/k] [c]{begin}[/c] [k]TO[/k] [c]{end}[/c] [k]STEP[/k] [c]{step}[/c]").format(
+            color=code(stmt.color),
+            var=stmt.var,
+            expr=code(stmt.expr),
+            begin=code(stmt.start),
+            end=code(stmt.end),
+            step=code(stmt.step)
+        )
+
     elif isinstance(stmt, BlockStmt):
         ret = translate("Algo", "[b]PROGRAM[/b]")
 
@@ -1783,6 +1831,7 @@ def algo_sel_changed():
     ui.btnAlgo_GWindow.setEnabled(is_item)
     ui.btnAlgo_GPoint.setEnabled(is_item)
     ui.btnAlgo_GLine.setEnabled(is_item)
+    ui.btnAlgo_GFunc.setEnabled(is_item)
 
     if is_changeable:
         parent_stack = [algo]
@@ -1876,6 +1925,7 @@ def init_ui():
     ui.btnAlgo_GWindow.clicked.connect(add_gwindow)
     ui.btnAlgo_GPoint.clicked.connect(add_gpoint)
     ui.btnAlgo_GLine.clicked.connect(add_gline)
+    ui.btnAlgo_GFunc.clicked.connect(add_gfunc)
 
     ui.treeWidget.itemSelectionChanged.connect(algo_sel_changed)
     ui.treeWidget.itemDoubleClicked.connect(algo_double_click)

@@ -332,7 +332,7 @@
               </size>
              </property>
              <property name="currentIndex">
-              <number>1</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="tab_basic">
               <attribute name="title">
@@ -547,6 +547,17 @@
                  <property name="icon">
                   <iconset resource="../turing.qrc">
                    <normaloff>:/action/media/draw_line.png</normaloff>:/action/media/draw_line.png</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QPushButton" name="btnAlgo_GFunc">
+                 <property name="text">
+                  <string>Plot function</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/plot_function.png</normaloff>:/action/media/plot_function.png</iconset>
                  </property>
                 </widget>
                </item>

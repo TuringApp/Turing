@@ -12,6 +12,7 @@ from .ElseStmt import *
 from .ForStmt import *
 from .FuncStmt import *
 from .GClearStmt import *
+from .GFuncStmt import *
 from .GLineStmt import *
 from .GPointStmt import *
 from .GWindowStmt import *

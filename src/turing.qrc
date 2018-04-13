@@ -72,6 +72,7 @@
         <file>media/break.png</file>
         <file>media/else_block.png</file>
         <file>media/if_block.png</file>
+        <file>media/plot_function.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>
