@@ -123,7 +123,7 @@ class Parser:
         self.tokens = []
         self.index = 0
         self.log = Logger("Parser")
-        self.fix_mul()
+        #♣self.fix_mul()
 
     def fix_mul(self):
         """Fixes the multiplication syntax by adding starts (*) between numbers and identifiers.

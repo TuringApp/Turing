@@ -29,7 +29,7 @@ class AlgoGLineStmt(QDialog):
         self.ui.btnCodeStartY.clicked.connect(lambda: self.click(self.ui.txtStartY))
         self.ui.btnCodeEndX.clicked.connect(lambda: self.click(self.ui.txtEndX))
         self.ui.btnCodeEndY.clicked.connect(lambda: self.click(self.ui.txtEndY))
-        self.ui.btnCodeColor.clicked.connect(lambda: self.click(self.ui.txtColor))
+        self.ui.btnCodeColor.clicked.connect(self.change_color)
 
         center_widget(self, parent)
 
@@ -78,6 +78,14 @@ class AlgoGLineStmt(QDialog):
         dlg = InlineCodeDialog(self, wgt.text())
         if dlg.run():
             wgt.setText(dlg.value())
+
+
+    def change_color(self, _):
+        dlg = QColorDialog(self)
+
+        if dlg.exec_():
+            self.ui.txtColor.setText('"%s"' % dlg.currentColor().name())
+
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok
