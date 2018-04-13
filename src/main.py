@@ -1061,7 +1061,12 @@ def load_code_editor():
     code_editor = api.CodeEdit()
     if hasattr(sys, "frozen"):
         print("using external backend")
-        backend = "editor_backend.exe"
+        if sys.platform == "win32":
+            backend = "editor_backend.exe"
+        elif sys.platform == "linux":
+            backend = "editor_backend"
+        elif sys.platform == "darwin":
+            backend = "editor_backend"
     else:
         print("using script file")
         import editor_backend
