@@ -1034,6 +1034,7 @@ def load_editor_actions():
     panel_search.toolButtonReplaceAll.setText(translate("MainWindow", "Replace All"))
     panel_search.lineEditSearch.prompt_text = translate("MainWindow", "Find")
     panel_search.lineEditSearch.button.setIcon(QIcon(QPixmap(":/action/media/backspace.png")))
+    panel_search.lineEditSearch.button.setMinimumSize(QSize(21, 21))
     panel_search.lineEditReplace.prompt_text = translate("MainWindow", "Replace")
     panel_search.lineEditReplace.button.setIcon(QIcon(QPixmap(":/action/media/backspace.png")))
 
@@ -1095,6 +1096,17 @@ def load_code_editor():
     code_editor.panels.append(panels.GlobalCheckerPanel(), panels.GlobalCheckerPanel.Position.LEFT)
     global panel_search
     panel_search = code_editor.panels.append(panels.SearchAndReplacePanel(), api.Panel.Position.BOTTOM)
+
+    panel_search._update_label_matches_orig = panel_search._update_label_matches
+
+    def wrapper():
+        panel_search._update_label_matches_orig()
+        if panel_search.labelMatches.text():
+            panel_search.labelMatches.setText(
+                translate("MainWindow", "{num} matches").format(num=panel_search.cpt_occurences))
+
+    panel_search._update_label_matches = wrapper
+
     copy_actions_to_editor(panel_search)
 
     code_editor.textChanged.connect(refresh)
