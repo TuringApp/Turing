@@ -53,6 +53,9 @@
         <file>media/plot.png</file>
         <file>media/feedback.png</file>
         <file>media/algobox.ico</file>
+        <file>media/zoom_in.png</file>
+        <file>media/zoom_out.png</file>
+        <file>media/zoom_reset.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>

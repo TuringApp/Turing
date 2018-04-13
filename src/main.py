@@ -37,7 +37,7 @@ dialog_window = None
 
 undo = None
 mode_python = False
-code_editor = None
+code_editor: api.CodeEdit = None
 plot_canvas: FigureCanvas = None
 plot_figure: Figure = None
 plot_axes: Axes = None
@@ -46,6 +46,7 @@ current_output = ""
 after_output = ""
 user_input: str = None
 syntax_highlighter = None
+algo_base_font: QFont = None
 editor_action_table = [
     ("Copy", "copy"),
     ("Cut", "cut"),
@@ -60,7 +61,10 @@ editor_action_table = [
     ("Find", "Search"),
     ("Replace", "ActionSearchAndReplace"),
     ("FindPrevious", "FindPrevious"),
-    ("FindNext", "FindNext")
+    ("FindNext", "FindNext"),
+    ("ZoomIn", "zoom_in"),
+    ("ZoomOut", "zoom_out"),
+    ("ResetZoom", "reset_zoom")
 ]
 python_only = [
     "SelectAll",
@@ -878,6 +882,37 @@ def handler_New():
     refresh()
 
 
+def handler_ZoomIn():
+   if mode_python:
+       code_editor.zoom_in()
+   else:
+       set_algo_size(ui.treeWidget.font().pointSize() + 1)
+
+
+def handler_ZoomOut():
+    if mode_python:
+        code_editor.zoom_out()
+    else:
+        set_algo_size(ui.treeWidget.font().pointSize() - 1)
+
+
+def handler_ResetZoom():
+    if mode_python:
+        code_editor.reset_zoom()
+    else:
+        set_algo_size(algo_base_font.pointSize())
+
+
+def set_algo_size(size):
+    if size < 1:
+        size = 1
+    set_font_size(ui.treeWidget, size)
+    for idstmt, (item, stmt) in item_map.items():
+        set_font_size(item, size, 0)
+        if hasattr(item, "lbl"):
+            set_font_size(item.lbl, size)
+
+
 def init_action_handlers():
     for item in dir(ui):
         if item.startswith("action"):
@@ -890,6 +925,9 @@ def init_action_handlers():
 def copy_action(source: QAction, target: QAction):
     target.setText(source.text())
     target.setIcon(source.icon())
+    target.triggered.disconnect()
+    target.triggered.connect(source.trigger)
+
 
 
 def change_language(language: str):
@@ -919,13 +957,17 @@ def clear_output():
 
 
 def print_output():
-    print(current_output)
+    print(dir(code_editor))
     pass
 
 
 def load_editor_actions():
     for ours, theirs in editor_action_table:
         copy_action(getattr(ui, "action" + ours), getattr(code_editor, "action_" + theirs))
+
+    # edge cases
+    copy_action(ui.actionFind, panel_search.menu.menuAction())
+    code_editor._sub_menus["Advanced"].setTitle(translate("MainWindow", "Advanced"))
 
 
 def copy_actions_to_editor(panel):
@@ -937,6 +979,8 @@ def copy_actions_to_editor(panel):
 
 
 def set_style(style):
+    print(style)
+    settings.setValue("editor_style", style)
     syntax_highlighter.pygments_style = style
 
     for act in ui.menuChangeStyle.actions():
@@ -963,7 +1007,11 @@ def load_code_editor():
     code_editor.modes.append(modes.OccurrencesHighlighterMode())
     code_editor.modes.append(modes.SmartBackSpaceMode())
     code_editor.modes.append(modes.SymbolMatcherMode())
-    code_editor.modes.append(modes.ZoomMode())
+    zoom = modes.ZoomMode()
+    code_editor.modes.append(zoom)
+    code_editor.action_zoom_in = zoom.mnu_zoom.actions()[0]
+    code_editor.action_zoom_out = zoom.mnu_zoom.actions()[1]
+    code_editor.action_reset_zoom = zoom.mnu_zoom.actions()[2]
     code_editor.modes.append(modes.ExtendedSelectionMode())
 
     global syntax_highlighter
@@ -992,7 +1040,8 @@ def load_code_editor():
         action.triggered.connect(gen(style))
         ui.menuChangeStyle.addAction(action)
 
-    set_style("default")
+    syntax_highlighter.pygments_style = settings.value("editor_style", "default")
+    set_style(syntax_highlighter.pygments_style)
 
     ui.verticalLayout_8.addWidget(code_editor)
 
@@ -1025,8 +1074,9 @@ def get_item_label(item):
 def get_item_html(html, data=""):
     item = QTreeWidgetItem()
     item.setStatusTip(0, data)
-
+    item.setFont(0, ui.treeWidget.font())
     lbl = get_item_label(item)
+    lbl.setFont(item.font(0))
     lbl.setText('&nbsp;<span>%s</span>' % html)
 
     ui.treeWidget.setItemWidget(item, 0, lbl)
@@ -1717,6 +1767,17 @@ def algo_sel_changed():
         ui.btnAlgo_Return.setEnabled(in_func)
 
 
+def algo_scroll(event: QWheelEvent):
+    if event.modifiers() and Qt.ControlModifier:
+        if event.angleDelta().y() > 0:
+            handler_ZoomIn()
+        elif event.angleDelta().y() < 0:
+            handler_ZoomOut()
+        event.accept()
+    else:
+        ui.treeWidget.wheelEventOrig(event)
+
+
 def init_ui():
     from forms.ui_mainwindow import Ui_MainWindow
     global window, ui
@@ -1725,6 +1786,9 @@ def init_ui():
 
     translator.add(ui, window)
     ui.setupUi(window)
+
+    global algo_base_font
+    algo_base_font = ui.treeWidget.font()
 
     init_recent_actions()
 
@@ -1776,6 +1840,8 @@ def init_ui():
 
     ui.treeWidget.itemSelectionChanged.connect(algo_sel_changed)
     ui.treeWidget.itemDoubleClicked.connect(algo_double_click)
+    ui.treeWidget.wheelEventOrig = ui.treeWidget.wheelEvent
+    ui.treeWidget.wheelEvent = algo_scroll
 
     ui.tabWidget.currentChanged.connect(change_tab)
 

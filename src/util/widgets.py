@@ -3,7 +3,7 @@
 import datetime
 
 from PyQt5.QtCore import *
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QWidget, QMessageBox
 
@@ -36,10 +36,18 @@ def center_widget(wgt: QWidget, host: QWidget):
 def get_themed_box(parent=None):
     msg = QMessageBox(parent)
     msg.setWindowTitle("Turing")
-    # msg.set_style(DEFAULT_STYLE)
     msg.setWindowIcon(QIcon(":/icon/media/icon.ico"))
 
     if parent:
         center_widget(msg, parent)
 
     return msg
+
+
+def set_font_size(wgt, size, index=None):
+    font = wgt.font() if index is None else wgt.font(index)
+    result = QFont(font.family(), size)
+    if index is None:
+        wgt.setFont(result)
+    else:
+        wgt.setFont(index, result)
