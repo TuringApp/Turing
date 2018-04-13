@@ -74,7 +74,8 @@ python_only = [
     "Replace",
     "Indent",
     "Unindent",
-    "ConvertToPseudocode"
+    "ConvertToPseudocode",
+    "GoToLine"
 ]
 algo_only = [
     "Debug",
@@ -294,6 +295,8 @@ def handler_Paste():
 def handler_DuplicateLine():
     if mode_python:
         code_editor.duplicate_line()
+    else:
+        btn_dupl_line()
 
 
 def handler_Indent():
