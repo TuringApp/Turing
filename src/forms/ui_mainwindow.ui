@@ -55,7 +55,7 @@
        <attribute name="title">
         <string>Pseudocode</string>
        </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QTreeWidget" name="treeWidget">
           <property name="alternatingRowColors">
@@ -75,409 +75,423 @@
          </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item>
-           <layout class="QGridLayout" name="gridLayout_2">
-            <item row="0" column="0">
-             <widget class="QPushButton" name="btnAlgo_UpBlock">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="icon">
-               <iconset resource="../turing.qrc">
-                <normaloff>:/action/media/up_double.png</normaloff>:/action/media/up_double.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QPushButton" name="btnAlgo_DownBlock">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="icon">
-               <iconset resource="../turing.qrc">
-                <normaloff>:/action/media/down_double.png</normaloff>:/action/media/down_double.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QPushButton" name="btnAlgo_Up">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="icon">
-               <iconset resource="../turing.qrc">
-                <normaloff>:/action/media/up.png</normaloff>:/action/media/up.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="3">
-             <widget class="QPushButton" name="btnAlgo_Dupl">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="text">
-               <string comment="shorter">Duplicate Line</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../turing.qrc">
-                <normaloff>:/action/media/duplicate_line.png</normaloff>:/action/media/duplicate_line.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QPushButton" name="btnAlgo_Down">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="icon">
-               <iconset resource="../turing.qrc">
-                <normaloff>:/action/media/down.png</normaloff>:/action/media/down.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QPushButton" name="btnAlgo_Delete">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Delete Line</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../turing.qrc">
-                <normaloff>:/action/media/delete.png</normaloff>:/action/media/delete.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="2" colspan="2">
-             <widget class="QPushButton" name="btnAlgo_Edit">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Edit Line</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../turing.qrc">
-                <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="Line" name="line_2">
-            <property name="lineWidth">
-             <number>1</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
-            <item>
-             <widget class="QPushButton" name="btnAlgo_ZoomIn">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Zoom in</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../turing.qrc">
-                <normaloff>:/action/media/zoom_in.png</normaloff>:/action/media/zoom_in.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="btnAlgo_ZoomOut">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Zoom out</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../turing.qrc">
-                <normaloff>:/action/media/zoom_out.png</normaloff>:/action/media/zoom_out.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="btnAlgo_ResetZoom">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Reset zoom</string>
-              </property>
-              <property name="icon">
-               <iconset resource="../turing.qrc">
-                <normaloff>:/action/media/zoom_reset.png</normaloff>:/action/media/zoom_reset.png</iconset>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="Line" name="line">
-            <property name="lineWidth">
-             <number>1</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QTabWidget" name="tabWidget_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>270</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="currentIndex">
-             <number>0</number>
-            </property>
-            <widget class="QWidget" name="tab_basic">
-             <attribute name="title">
-              <string>Basic</string>
-             </attribute>
-             <layout class="QGridLayout" name="gridLayout">
-              <item row="0" column="0">
-               <widget class="QPushButton" name="btnAlgo_Variable">
-                <property name="text">
-                 <string>DEFINE variable</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QPushButton" name="btnAlgo_Stop">
-                <property name="text">
-                 <string>Breakpoint</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QPushButton" name="btnAlgo_Display">
-                <property name="text">
-                 <string>DISPLAY value</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="btnAlgo_Comment">
-                <property name="text">
-                 <string>Comment</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QPushButton" name="btnAlgo_Input">
-                <property name="text">
-                 <string>Read user INPUT</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+         <widget class="QWidget" name="widget" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="0">
+              <widget class="QPushButton" name="btnAlgo_UpBlock">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/up_double.png</normaloff>:/action/media/up_double.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="btnAlgo_DownBlock">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/down_double.png</normaloff>:/action/media/down_double.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="btnAlgo_Up">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/up.png</normaloff>:/action/media/up.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QPushButton" name="btnAlgo_Dupl">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="text">
+                <string comment="shorter">Duplicate Line</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/duplicate_line.png</normaloff>:/action/media/duplicate_line.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="btnAlgo_Down">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/down.png</normaloff>:/action/media/down.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QPushButton" name="btnAlgo_Delete">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Delete Line</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/delete.png</normaloff>:/action/media/delete.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2" colspan="2">
+              <widget class="QPushButton" name="btnAlgo_Edit">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Edit Line</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/edit_line.png</normaloff>:/action/media/edit_line.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="Line" name="line_2">
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
             </widget>
-            <widget class="QWidget" name="tab_blocks">
-             <attribute name="title">
-              <string>Blocks</string>
-             </attribute>
-             <layout class="QGridLayout" name="gridLayout_4">
-              <item row="1" column="1">
-               <widget class="QPushButton" name="btnAlgo_While">
-                <property name="text">
-                 <string>WHILE loop</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="btnAlgo_Else">
-                <property name="text">
-                 <string>ELSE block</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QPushButton" name="btnAlgo_For">
-                <property name="text">
-                 <string>FOR loop</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="btnAlgo_If">
-                <property name="text">
-                 <string>IF block</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QPushButton" name="btnAlgo_Continue">
-                <property name="text">
-                 <string>CONTINUE</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QPushButton" name="btnAlgo_Break">
-                <property name="text">
-                 <string>BREAK</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QPushButton" name="btnAlgo_ZoomIn">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Zoom in</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/zoom_in.png</normaloff>:/action/media/zoom_in.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnAlgo_ZoomOut">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Zoom out</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/zoom_out.png</normaloff>:/action/media/zoom_out.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnAlgo_ResetZoom">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Reset zoom</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../turing.qrc">
+                 <normaloff>:/action/media/zoom_reset.png</normaloff>:/action/media/zoom_reset.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="Line" name="line">
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
             </widget>
-            <widget class="QWidget" name="tab_funcs">
-             <attribute name="title">
-              <string>Functions</string>
-             </attribute>
-             <layout class="QGridLayout" name="gridLayout_5">
-              <item row="1" column="0">
-               <widget class="QPushButton" name="btnAlgo_Call">
-                <property name="text">
-                 <string>CALL function</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="btnAlgo_Func">
-                <property name="text">
-                 <string>Define FUNCTION</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QPushButton" name="btnAlgo_Return">
-                <property name="text">
-                 <string>RETURN</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+           </item>
+           <item>
+            <widget class="QTabWidget" name="tabWidget_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>270</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="tab_basic">
+              <attribute name="title">
+               <string>Basic</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="btnAlgo_Variable">
+                 <property name="text">
+                  <string>DEFINE variable</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QPushButton" name="btnAlgo_Stop">
+                 <property name="text">
+                  <string>Breakpoint</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QPushButton" name="btnAlgo_Input">
+                 <property name="text">
+                  <string>Read user INPUT</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QPushButton" name="btnAlgo_Display">
+                 <property name="text">
+                  <string>DISPLAY value</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnAlgo_Comment">
+                 <property name="text">
+                  <string>Comment</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_blocks">
+              <attribute name="title">
+               <string>Blocks</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <item row="1" column="1">
+                <widget class="QPushButton" name="btnAlgo_While">
+                 <property name="text">
+                  <string>WHILE loop</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnAlgo_Else">
+                 <property name="text">
+                  <string>ELSE block</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QPushButton" name="btnAlgo_For">
+                 <property name="text">
+                  <string>FOR loop</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QPushButton" name="btnAlgo_If">
+                 <property name="text">
+                  <string>IF block</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QPushButton" name="btnAlgo_Continue">
+                 <property name="text">
+                  <string>CONTINUE</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QPushButton" name="btnAlgo_Break">
+                 <property name="text">
+                  <string>BREAK</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_funcs">
+              <attribute name="title">
+               <string>Functions</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <item row="1" column="0">
+                <widget class="QPushButton" name="btnAlgo_Call">
+                 <property name="text">
+                  <string>CALL function</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QPushButton" name="btnAlgo_Func">
+                 <property name="text">
+                  <string>Define FUNCTION</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QPushButton" name="btnAlgo_Return">
+                 <property name="text">
+                  <string>RETURN</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_plot">
+              <attribute name="title">
+               <string>Plot</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_6">
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnAlgo_GWindow">
+                 <property name="text">
+                  <string>Set window</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QPushButton" name="btnAlgo_GClear">
+                 <property name="text">
+                  <string>Clear plot</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QPushButton" name="btnAlgo_GPoint">
+                 <property name="text">
+                  <string>Draw point</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QPushButton" name="btnAlgo_GLine">
+                 <property name="text">
+                  <string>Draw line</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
             </widget>
-            <widget class="QWidget" name="tab_plot">
-             <attribute name="title">
-              <string>Plot</string>
-             </attribute>
-             <layout class="QGridLayout" name="gridLayout_6">
-              <item row="0" column="1">
-               <widget class="QPushButton" name="btnAlgo_GWindow">
-                <property name="text">
-                 <string>Set window</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="btnAlgo_GClear">
-                <property name="text">
-                 <string>Clear plot</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QPushButton" name="btnAlgo_GPoint">
-                <property name="text">
-                 <string>Draw point</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QPushButton" name="btnAlgo_GLine">
-                <property name="text">
-                 <string>Draw line</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </widget>
-          </item>
-         </layout>
+           </item>
+          </layout>
+         </widget>
         </item>
        </layout>
       </widget>

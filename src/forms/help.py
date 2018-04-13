@@ -30,6 +30,7 @@ class HelpWindow(QDialog):
         self.ui.btnClear.clicked.connect(self.clear_search_field)
 
         # by default, 25-75 ratio
+        self.ui.splitter.setStretchFactor(0, 2)
         self.ui.splitter.setStretchFactor(1, 5)
 
         self.ui.listFuncs.itemSelectionChanged.connect(self.on_item_select)

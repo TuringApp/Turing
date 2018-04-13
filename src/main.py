@@ -1893,6 +1893,8 @@ def init_ui():
         "alg": translate("MainWindow", "Algobox file (*.alg)")
     }
 
+    ui.widget.setFixedWidth(window.width() / 3)
+
     window.show()
 
 
