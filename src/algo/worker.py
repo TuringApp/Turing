@@ -3,6 +3,8 @@ import typing
 from collections import Iterable
 from typing import Union
 
+import time
+
 from algo.stmts import *
 from maths.evaluator import Evaluator
 from maths.nodes import *
@@ -47,6 +49,7 @@ class Worker:
             BaseStmt: lambda _: (),
             CommentStmt: lambda _: (),
             StopStmt: self.exec_stop,
+            SleepStmt: self.exec_sleep
         }
 
     def reset_eval(self):
@@ -295,6 +298,9 @@ class Worker:
     def exec_stop(self, stmt: StopStmt):
         self.stopped = True
         self.callback_stop(stmt)
+
+    def exec_sleep(self, stmt: SleepStmt):
+        time.sleep(self.evaluator.eval_node(stmt.duration))
 
     def step(self):
         stmt = self.next_stmt()
