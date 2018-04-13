@@ -105,11 +105,15 @@ python_stopped = False
 settings: QSettings = None
 recent_actions = None
 
-def sleep(duration: int):
+def sleep(duration):
     duration *= 1000
     begin = datetime.datetime.now()
     while (datetime.datetime.now() - begin).microseconds < duration:
         QCoreApplication.processEvents()
+
+
+def sleep_seconds(duration):
+    sleep(duration * 1000)
 
 
 def is_empty():
@@ -512,6 +516,10 @@ def stmt_GFunc(stmt: GFuncStmt):
            worker.evaluator.eval_node(stmt.color))
 
 
+def stmt_Sleep(stmt: SleepStmt):
+    sleep_seconds(worker.evaluator.eval_node(stmt.duration))
+
+
 def init_worker():
     from algo.worker import Worker
     global worker
@@ -526,6 +534,8 @@ def init_worker():
     worker.map[GWindowStmt] = stmt_GWindow
     worker.map[GPointStmt] = stmt_GPoint
     worker.map[GLineStmt] = stmt_GLine
+    worker.map[GFuncStmt] = stmt_GFunc
+    worker.map[SleepStmt] = stmt_Sleep
     set_current_line(None)
     g_clear()
 
@@ -699,14 +709,14 @@ def handler_Run(flag=False):
                     "print": python_print,
                     "input": python_input,
                     "breakpoint": python_breakpoint,
+                    "list": compat_list,
+                    "sleep": sleep_seconds,
 
                     "g_clear": g_clear,
                     "g_window": g_window,
                     "g_point": g_point,
                     "g_line": g_line,
-                    "g_func": g_func,
-
-                    "list": compat_list
+                    "g_func": g_func
                 })
             except SyntaxError as err:
                 msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
@@ -1261,6 +1271,13 @@ def add_stop_stmt():
     dlg = alg_stop.AlgoStopStmt(window)
     if dlg.run():
         append_line(StopStmt(dlg.expr))
+        
+        
+def add_sleep_stmt():
+    from forms import alg_sleep
+    dlg = alg_sleep.AlgoSleepStmt(window)
+    if dlg.run():
+        append_line(SleepStmt(dlg.expr))
 
 
 def add_comment_stmt():
@@ -1331,6 +1348,12 @@ def btn_edit_line():
         dlg = alg_stop.AlgoStopStmt(window, stmt.message.code() if stmt.message is not None else None)
         if dlg.run():
             stmt.message = dlg.expr
+            
+    elif isinstance(stmt, SleepStmt):
+        from forms import alg_sleep
+        dlg = alg_sleep.AlgoSleepStmt(window, stmt.duration.code())
+        if dlg.run():
+            stmt.duration = dlg.expr
 
     elif isinstance(stmt, InputStmt):
         from forms import alg_input
@@ -1500,7 +1523,7 @@ def get_current_stmt():
             if item == current_item:
                 return stmt
 
-    return None
+    return algo
 
 
 def get_current_pos():
@@ -1649,6 +1672,9 @@ def str_stmt(stmt):
     elif isinstance(stmt, StopStmt):
         ret = translate("Algo", "[k]STOP[/k] [c]{val}[/c]").format(
             val="" if stmt.message is None else code(stmt.message))
+
+    elif isinstance(stmt, SleepStmt):
+        ret = translate("Algo", "[k]WAIT[/k] [c]{val}[/c] [k]SECONDS[/k]").format(val=code(stmt.duration))
 
     elif isinstance(stmt, CommentStmt):
         ret = "[t]{com}[/t]".format(com=util.html.sanitize(stmt.content))
@@ -1819,6 +1845,7 @@ def algo_sel_changed():
     ui.btnAlgo_Func.setEnabled(is_item)
     ui.btnAlgo_Return.setEnabled(is_changeable)
     ui.btnAlgo_Stop.setEnabled(is_item)
+    ui.btnAlgo_Sleep.setEnabled(is_item)
 
     ui.btnAlgo_If.setEnabled(is_item)
     ui.btnAlgo_Else.setEnabled(is_changeable)
@@ -1865,6 +1892,7 @@ def fix_qt_shitty_margins():
     for wgt in window.centralWidget().findChildren(QPushButton):
         if wgt.text():
             wgt.setText("  " + wgt.text())
+            wgt.setMinimumHeight(28)
 
 
 def init_ui():
@@ -1912,6 +1940,7 @@ def init_ui():
     ui.btnAlgo_Func.clicked.connect(add_def_func)
     ui.btnAlgo_Return.clicked.connect(add_return)
     ui.btnAlgo_Stop.clicked.connect(add_stop_stmt)
+    ui.btnAlgo_Sleep.clicked.connect(add_sleep_stmt)
 
     ui.btnAlgo_If.clicked.connect(add_if_block)
     ui.btnAlgo_Else.clicked.connect(add_else_block)

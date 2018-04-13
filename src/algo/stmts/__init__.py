@@ -19,5 +19,6 @@ from .GWindowStmt import *
 from .IfStmt import *
 from .InputStmt import *
 from .ReturnStmt import *
+from .SleepStmt import *
 from .StopStmt import *
 from .WhileStmt import *
