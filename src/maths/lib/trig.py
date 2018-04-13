@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import cmath
-
 from maths.lib import basic
 from util import translate
 from util.math import mod, mods

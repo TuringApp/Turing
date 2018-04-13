@@ -105,6 +105,7 @@ python_stopped = False
 settings: QSettings = None
 recent_actions = None
 
+
 def sleep(duration):
     duration *= 1000
     begin = datetime.datetime.now()
@@ -575,6 +576,7 @@ def breakpoint_message(message=""):
                                              "red"))
     update_output()
 
+
 def python_breakpoint(message=""):
     global after_output
     breakpoint_message(message)
@@ -902,7 +904,8 @@ def handler_New():
         msg.setIcon(QMessageBox.Question)
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msg.setDefaultButton(QMessageBox.No)
-        msg.setText(translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."))
+        msg.setText(
+            translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."))
         msg.adjustSize()
         center_widget(msg, window)
         if msg.exec_() != QMessageBox.Yes:
@@ -916,10 +919,10 @@ def handler_New():
 
 
 def handler_ZoomIn():
-   if mode_python:
-       code_editor.zoom_in()
-   else:
-       set_algo_size(ui.treeWidget.font().pointSize() + 1)
+    if mode_python:
+        code_editor.zoom_in()
+    else:
+        set_algo_size(ui.treeWidget.font().pointSize() + 1)
 
 
 def handler_ZoomOut():
@@ -960,7 +963,6 @@ def copy_action(source: QAction, target: QAction):
     target.setIcon(source.icon())
     target.triggered.disconnect()
     target.triggered.connect(source.trigger)
-
 
 
 def change_language(language: str):
@@ -1249,8 +1251,8 @@ def add_gwindow():
     dlg = alg_gwindow.AlgoGWindowStmt(window)
     if dlg.run():
         append_line(GWindowStmt(dlg.f_x_min, dlg.f_x_max, dlg.f_y_min, dlg.f_y_max, dlg.f_x_grad, dlg.f_y_grad))
-        
-        
+
+
 def add_gfunc():
     from forms import alg_gfunc
     dlg = alg_gfunc.AlgoGFuncStmt(window)
@@ -1271,8 +1273,8 @@ def add_stop_stmt():
     dlg = alg_stop.AlgoStopStmt(window)
     if dlg.run():
         append_line(StopStmt(dlg.expr))
-        
-        
+
+
 def add_sleep_stmt():
     from forms import alg_sleep
     dlg = alg_sleep.AlgoSleepStmt(window)
@@ -1342,13 +1344,13 @@ def btn_edit_line():
         dlg = alg_return.AlgoReturnStmt(window, stmt.value.code() if stmt.value is not None else None)
         if dlg.run():
             stmt.value = dlg.expr
-            
+
     elif isinstance(stmt, StopStmt):
         from forms import alg_stop
         dlg = alg_stop.AlgoStopStmt(window, stmt.message.code() if stmt.message is not None else None)
         if dlg.run():
             stmt.message = dlg.expr
-            
+
     elif isinstance(stmt, SleepStmt):
         from forms import alg_sleep
         dlg = alg_sleep.AlgoSleepStmt(window, stmt.duration.code())
@@ -1432,7 +1434,8 @@ def btn_edit_line():
 
     elif isinstance(stmt, GFuncStmt):
         from forms import alg_gfunc
-        dlg = alg_gfunc.AlgoGFuncStmt(window, (stmt.var, stmt.expr.code(), stmt.start.code(), stmt.end.code(), stmt.step.code(), stmt.color.code()))
+        dlg = alg_gfunc.AlgoGFuncStmt(window, (
+        stmt.var, stmt.expr.code(), stmt.start.code(), stmt.end.code(), stmt.step.code(), stmt.color.code()))
         if dlg.run():
             stmt.var = dlg.f_variable
             stmt.expr = dlg.f_function
@@ -1711,7 +1714,8 @@ def str_stmt(stmt):
         )
 
     elif isinstance(stmt, GFuncStmt):
-        ret = translate("Algo", "[k]PLOT FUNCTION[/k] [c]{color}[/c] [i]f[/i]({var}) = [c]{expr}[/c] [k]FROM[/k] [c]{begin}[/c] [k]TO[/k] [c]{end}[/c] [k]STEP[/k] [c]{step}[/c]").format(
+        ret = translate("Algo",
+                        "[k]PLOT FUNCTION[/k] [c]{color}[/c] [i]f[/i]({var}) = [c]{expr}[/c] [k]FROM[/k] [c]{begin}[/c] [k]TO[/k] [c]{end}[/c] [k]STEP[/k] [c]{step}[/c]").format(
             color=code(stmt.color),
             var=stmt.var,
             expr=code(stmt.expr),
@@ -1865,7 +1869,8 @@ def algo_sel_changed():
         for p in current:
             parent_stack.append(parent_stack[-1].children[p])
 
-        existing_else = current[-1] + 1 < len(parent_stack[-2].children) and isinstance(parent_stack[-2].children[current[-1] + 1], ElseStmt)
+        existing_else = current[-1] + 1 < len(parent_stack[-2].children) and isinstance(
+            parent_stack[-2].children[current[-1] + 1], ElseStmt)
 
         ui.btnAlgo_Else.setEnabled(isinstance(current_stmt, IfStmt) and not existing_else)
 
@@ -2062,7 +2067,7 @@ def version_check():
 if __name__ == "__main__":
     sys.excepthook = except_hook
     setup_thread_excepthook()
-    #global app, settings
+    # global app, settings
     app = QApplication(sys.argv)
     app.setApplicationName("Turing")
     app.setApplicationVersion(__version__)
@@ -2078,7 +2083,6 @@ if __name__ == "__main__":
         font = QFont("Segoe UI", 9)
         app.setFont(font)
 
-    import turing_rc
     splash = QSplashScreen(QPixmap(":/icon/media/icon_128.png"), Qt.WindowStaysOnTopHint)
     splash.show()
     app.processEvents()

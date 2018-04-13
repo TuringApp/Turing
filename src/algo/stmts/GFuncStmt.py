@@ -21,7 +21,8 @@ class GFuncStmt(BaseStmt):
         self.color = color
 
     def __str__(self):
-        return "[Func (%s) -> (%s) [%s; %s] / %s - %s]" % (self.var, self.expr, self.start, self.end, self.step, self.color)
+        return "[Func (%s) -> (%s) [%s; %s] / %s - %s]" % (
+        self.var, self.expr, self.start, self.end, self.step, self.color)
 
     def __repr__(self):
         return "GFuncStmt(%r, %r, %r, %r, %r, %r)" % (self.var, self.expr, self.start, self.end, self.step, self.color)
@@ -30,7 +31,8 @@ class GFuncStmt(BaseStmt):
         return LambdaNode([self.var], self.expr)
 
     def python(self) -> List[str]:
-        return ["g_func(%s)" % ", ".join(x.python() for x in (self.get_function(), self.start, self.end, self.step, self.color))]
+        return ["g_func(%s)" % ", ".join(
+            x.python() for x in (self.get_function(), self.start, self.end, self.step, self.color))]
 
     def get_children(self) -> List[AstNode]:
         return [x for c in (self.expr, self.start, self.end, self.step, self.color) for x in c.flatten()]

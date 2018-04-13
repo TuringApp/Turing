@@ -5,8 +5,8 @@ from PyQt5.QtWidgets import *
 
 from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_gfunc import Ui_AlgoGFuncStmt
-from maths.parser import quick_parse as parse
 from maths.nodes import *
+from maths.parser import quick_parse as parse
 from util.code import try_parse
 from util.widgets import center_widget, get_themed_box
 

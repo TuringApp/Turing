@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
+import time
 import typing
 from collections import Iterable
 from typing import Union
-
-import time
 
 from algo.stmts import *
 from maths.evaluator import Evaluator
