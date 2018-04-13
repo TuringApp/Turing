@@ -1201,22 +1201,22 @@ def add_gclear():
 
 
 def add_gline():
-    from forms import alg_line
-    dlg = alg_line.AlgoGLineStmt(window)
+    from forms import alg_gline
+    dlg = alg_gline.AlgoGLineStmt(window)
     if dlg.run():
         append_line(GLineStmt(dlg.f_start_x, dlg.f_start_y, dlg.f_end_x, dlg.f_end_y, dlg.f_color))
 
 
 def add_gpoint():
-    from forms import alg_point
-    dlg = alg_point.AlgoGPointStmt(window)
+    from forms import alg_gpoint
+    dlg = alg_gpoint.AlgoGPointStmt(window)
     if dlg.run():
         append_line(GPointStmt(dlg.f_x, dlg.f_y, dlg.f_color))
 
 
 def add_gwindow():
-    from forms import alg_window
-    dlg = alg_window.AlgoGWindowStmt(window)
+    from forms import alg_gwindow
+    dlg = alg_gwindow.AlgoGWindowStmt(window)
     if dlg.run():
         append_line(GWindowStmt(dlg.f_x_min, dlg.f_x_max, dlg.f_y_min, dlg.f_y_max, dlg.f_x_grad, dlg.f_y_grad))
 
@@ -1349,8 +1349,8 @@ def btn_edit_line():
             stmt.content = dlg.comment
 
     elif isinstance(stmt, GLineStmt):
-        from forms import alg_line
-        dlg = alg_line.AlgoGLineStmt(window, (
+        from forms import alg_gline
+        dlg = alg_gline.AlgoGLineStmt(window, (
             stmt.start_x.code(), stmt.start_y.code(), stmt.end_x.code(), stmt.end_y.code(), stmt.color.code()))
         if dlg.run():
             stmt.start_x = dlg.f_start_x
@@ -1360,16 +1360,16 @@ def btn_edit_line():
             stmt.color = dlg.f_color
 
     elif isinstance(stmt, GPointStmt):
-        from forms import alg_point
-        dlg = alg_point.AlgoGPointStmt(window, (stmt.x.code(), stmt.y.code(), stmt.color.code()))
+        from forms import alg_gpoint
+        dlg = alg_gpoint.AlgoGPointStmt(window, (stmt.x.code(), stmt.y.code(), stmt.color.code()))
         if dlg.run():
             stmt.x = dlg.f_x
             stmt.y = dlg.f_y
             stmt.color = dlg.f_color
 
     elif isinstance(stmt, GWindowStmt):
-        from forms import alg_window
-        dlg = alg_window.AlgoGWindowStmt(window, (
+        from forms import alg_gwindow
+        dlg = alg_gwindow.AlgoGWindowStmt(window, (
             stmt.x_min.code(), stmt.x_max.code(), stmt.y_min.code(), stmt.y_max.code(), stmt.x_grad.code(),
             stmt.y_grad.code()))
         if dlg.run():
