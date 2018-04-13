@@ -58,7 +58,28 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QComboBox" name="cbxFuncs"/>
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,2">
+       <item>
+        <widget class="QComboBox" name="cbxFuncs">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="txtSearch">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QListWidget" name="lstFuncs"/>
@@ -71,7 +92,6 @@
   <tabstop>txtExpr</tabstop>
   <tabstop>btnClear</tabstop>
   <tabstop>btnSubmit</tabstop>
-  <tabstop>cbxFuncs</tabstop>
   <tabstop>lstFuncs</tabstop>
  </tabstops>
  <resources>

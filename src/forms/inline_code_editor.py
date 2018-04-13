@@ -40,6 +40,8 @@ class InlineCodeEditor(QWidget):
         self.ui.btnClear.clicked.connect(self.clear)
         self.ui.btnClear.setVisible(False)
 
+        self.ui.txtSearch.textChanged.connect(self.search_changed)
+
         self.on_sel(0)
 
     def get_text(self):
@@ -49,9 +51,9 @@ class InlineCodeEditor(QWidget):
         self.ui.txtExpr.setText(text)
 
     def on_sel(self, id: int):
-        for idx, items in enumerate(self.doc_items):
-            for it in items:
-                it.setHidden(idx != id)
+        self.current_sel = id
+        self.ui.txtSearch.setText("")
+        self.search_changed("")
 
     def load_funcs(self):
         self.functions = maths.lib.get_funcs()
@@ -96,3 +98,8 @@ class InlineCodeEditor(QWidget):
 
     def txt_changed(self, txt: str):
         self.ui.btnClear.setVisible(bool(txt))
+
+    def search_changed(self, txt: str):
+        for idx, items in enumerate(self.doc_items):
+            for it in items:
+                it.setHidden(idx != self.current_sel or txt not in it.statusTip())
