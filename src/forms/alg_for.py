@@ -16,6 +16,8 @@ class AlgoForStmt(QDialog):
         super().__init__(parent)
         self.ui = Ui_AlgoForStmt()
         self.ui.setupUi(self)
+        self.setFixedWidth(self.width())
+        self.adjustSize()
         self.setFixedSize(self.size())
         self.ui.txtVariable.setText(origcode[0])
         self.ui.txtFrom.setText(origcode[1])

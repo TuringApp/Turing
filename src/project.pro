@@ -28,6 +28,7 @@ SOURCES += \
     algo\stmts\IfStmt.py \
     algo\stmts\InputStmt.py \
     algo\stmts\ReturnStmt.py \
+    algo\stmts\SleepStmt.py \
     algo\stmts\StopStmt.py \
     algo\stmts\WhileStmt.py \
     algo\stmts\__init__.py \
@@ -45,6 +46,7 @@ SOURCES += \
     forms\alg_if.py \
     forms\alg_input.py \
     forms\alg_return.py \
+    forms\alg_sleep.py \
     forms\alg_stop.py \
     forms\alg_while.py \
     forms\calculator.py \
@@ -66,6 +68,7 @@ SOURCES += \
     forms\ui_alg_if.py \
     forms\ui_alg_input.py \
     forms\ui_alg_return.py \
+    forms\ui_alg_sleep.py \
     forms\ui_alg_stop.py \
     forms\ui_alg_while.py \
     forms\ui_calculator.py \
@@ -130,6 +133,7 @@ FORMS += \
     forms\ui_alg_if.ui \
     forms\ui_alg_input.ui \
     forms\ui_alg_return.ui \
+    forms\ui_alg_sleep.ui \
     forms\ui_alg_stop.ui \
     forms\ui_alg_while.ui \
     forms\ui_calculator.ui \

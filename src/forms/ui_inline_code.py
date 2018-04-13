@@ -12,7 +12,7 @@ class Ui_InlineCodeDialog(object):
     def setupUi(self, InlineCodeDialog):
         InlineCodeDialog.setObjectName("InlineCodeDialog")
         InlineCodeDialog.setWindowModality(QtCore.Qt.WindowModal)
-        InlineCodeDialog.resize(453, 241)
+        InlineCodeDialog.resize(470, 347)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/action/media/edit_line.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         InlineCodeDialog.setWindowIcon(icon)

@@ -73,6 +73,7 @@
         <file>media/else_block.png</file>
         <file>media/if_block.png</file>
         <file>media/plot_function.png</file>
+        <file>media/time.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>

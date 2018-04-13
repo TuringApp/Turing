@@ -16,6 +16,8 @@ class AlgoDisplayStmt(QDialog):
         super().__init__(parent)
         self.ui = Ui_AlgoDisplayStmt()
         self.ui.setupUi(self)
+        self.setFixedWidth(self.width())
+        self.adjustSize()
         self.setFixedSize(self.size())
         self.ui.lineEdit.setText(origcode[0])
         self.ui.cbxNewline.setChecked(origcode[1])

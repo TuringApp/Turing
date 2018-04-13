@@ -16,6 +16,8 @@ class AlgoGWindowStmt(QDialog):
         super().__init__(parent)
         self.ui = Ui_AlgoGWindowStmt()
         self.ui.setupUi(self)
+        self.setFixedWidth(self.width())
+        self.adjustSize()
         self.setFixedSize(self.size())
         self.ui.txtXmin.setText(origcode[0])
         self.ui.txtXmax.setText(origcode[1])

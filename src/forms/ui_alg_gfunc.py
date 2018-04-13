@@ -12,7 +12,7 @@ class Ui_AlgoGFuncStmt(object):
     def setupUi(self, AlgoGFuncStmt):
         AlgoGFuncStmt.setObjectName("AlgoGFuncStmt")
         AlgoGFuncStmt.setWindowModality(QtCore.Qt.WindowModal)
-        AlgoGFuncStmt.resize(477, 251)
+        AlgoGFuncStmt.resize(477, 263)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/action/media/settings.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AlgoGFuncStmt.setWindowIcon(icon)

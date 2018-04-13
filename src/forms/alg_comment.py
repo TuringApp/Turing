@@ -14,6 +14,8 @@ class AlgoCommentStmt(QDialog):
         super().__init__(parent)
         self.ui = Ui_AlgoCommentStmt()
         self.ui.setupUi(self)
+        self.setFixedWidth(self.width())
+        self.adjustSize()
         self.setFixedSize(self.size())
         self.ui.lineEdit.setText(origcode)
         center_widget(self, parent)

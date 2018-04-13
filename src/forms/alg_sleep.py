@@ -16,6 +16,8 @@ class AlgoSleepStmt(QDialog):
         super().__init__(parent)
         self.ui = Ui_AlgoSleepStmt()
         self.ui.setupUi(self)
+        self.setFixedWidth(self.width())
+        self.adjustSize()
         self.setFixedSize(self.size())
         self.ui.txtValue.setText(origcode)
         self.ui.btnCode.clicked.connect(self.click)
