@@ -332,7 +332,7 @@
               </size>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="tab_basic">
               <attribute name="title">
@@ -344,12 +344,20 @@
                  <property name="text">
                   <string>DEFINE variable</string>
                  </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/variable.png</normaloff>:/action/media/variable.png</iconset>
+                 </property>
                 </widget>
                </item>
                <item row="5" column="0">
                 <widget class="QPushButton" name="btnAlgo_Stop">
                  <property name="text">
                   <string>Breakpoint</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/breakpoint.png</normaloff>:/action/media/breakpoint.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -358,6 +366,10 @@
                  <property name="text">
                   <string>Read user INPUT</string>
                  </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/input.png</normaloff>:/action/media/input.png</iconset>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="0">
@@ -365,12 +377,20 @@
                  <property name="text">
                   <string>DISPLAY value</string>
                  </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/message.png</normaloff>:/action/media/message.png</iconset>
+                 </property>
                 </widget>
                </item>
                <item row="0" column="1">
                 <widget class="QPushButton" name="btnAlgo_Comment">
                  <property name="text">
                   <string>Comment</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/comment.png</normaloff>:/action/media/comment.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -386,12 +406,20 @@
                  <property name="text">
                   <string>WHILE loop</string>
                  </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/while_loop.png</normaloff>:/action/media/while_loop.png</iconset>
+                 </property>
                 </widget>
                </item>
                <item row="0" column="1">
                 <widget class="QPushButton" name="btnAlgo_Else">
                  <property name="text">
                   <string>ELSE block</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/else_block.png</normaloff>:/action/media/else_block.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -400,12 +428,20 @@
                  <property name="text">
                   <string>FOR loop</string>
                  </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/for_loop.png</normaloff>:/action/media/for_loop.png</iconset>
+                 </property>
                 </widget>
                </item>
                <item row="0" column="0">
                 <widget class="QPushButton" name="btnAlgo_If">
                  <property name="text">
                   <string>IF block</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/if_block.png</normaloff>:/action/media/if_block.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -414,12 +450,20 @@
                  <property name="text">
                   <string>CONTINUE</string>
                  </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/continue.png</normaloff>:/action/media/continue.png</iconset>
+                 </property>
                 </widget>
                </item>
                <item row="2" column="1">
                 <widget class="QPushButton" name="btnAlgo_Break">
                  <property name="text">
                   <string>BREAK</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/break.png</normaloff>:/action/media/break.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -442,6 +486,10 @@
                  <property name="text">
                   <string>Define FUNCTION</string>
                  </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/function.png</normaloff>:/action/media/function.png</iconset>
+                 </property>
                 </widget>
                </item>
                <item row="2" column="0">
@@ -463,12 +511,20 @@
                  <property name="text">
                   <string>Set window</string>
                  </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/window_size.png</normaloff>:/action/media/window_size.png</iconset>
+                 </property>
                 </widget>
                </item>
                <item row="0" column="0">
                 <widget class="QPushButton" name="btnAlgo_GClear">
                  <property name="text">
                   <string>Clear plot</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/erase.png</normaloff>:/action/media/erase.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -477,12 +533,20 @@
                  <property name="text">
                   <string>Draw point</string>
                  </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/draw_points.png</normaloff>:/action/media/draw_points.png</iconset>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="1">
                 <widget class="QPushButton" name="btnAlgo_GLine">
                  <property name="text">
                   <string>Draw line</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../turing.qrc">
+                   <normaloff>:/action/media/draw_line.png</normaloff>:/action/media/draw_line.png</iconset>
                  </property>
                 </widget>
                </item>

@@ -56,6 +56,22 @@
         <file>media/zoom_out.png</file>
         <file>media/zoom_reset.png</file>
         <file>media/backspace.png</file>
+        <file>media/draw_line.png</file>
+        <file>media/draw_points.png</file>
+        <file>media/erase.png</file>
+        <file>media/window_size.png</file>
+        <file>media/message.png</file>
+        <file>media/input.png</file>
+        <file>media/comment.png</file>
+        <file>media/function.png</file>
+        <file>media/breakpoint.png</file>
+        <file>media/variable.png</file>
+        <file>media/for_loop.png</file>
+        <file>media/while_loop.png</file>
+        <file>media/continue.png</file>
+        <file>media/break.png</file>
+        <file>media/else_block.png</file>
+        <file>media/if_block.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>

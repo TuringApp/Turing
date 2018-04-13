@@ -942,6 +942,7 @@ def change_language(language: str):
     load_editor_actions()
     for a in ui.menuLanguage.actions():
         a.setChecked(a.statusTip() in [language, util.get_short_lang(language)])
+    fix_qt_shitty_margins()
     refresh()
 
 
@@ -1809,6 +1810,12 @@ def algo_scroll(event: QWheelEvent):
         event.accept()
     else:
         ui.treeWidget.wheelEventOrig(event)
+
+
+def fix_qt_shitty_margins():
+    for wgt in window.centralWidget().findChildren(QPushButton):
+        if wgt.text():
+            wgt.setText("  " + wgt.text())
 
 
 def init_ui():
