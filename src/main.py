@@ -2084,7 +2084,7 @@ def version_check():
 if __name__ == "__main__":
     sys.excepthook = except_hook
     setup_thread_excepthook()
-    # global app, settings
+
     app = QApplication(sys.argv)
     app.setApplicationName("Turing")
     app.setApplicationVersion(__version__)
@@ -2100,6 +2100,8 @@ if __name__ == "__main__":
         font = QFont("Segoe UI", 9)
         app.setFont(font)
 
+    # noinspection PyUnresolvedReferences
+    import turing_rc
     splash = QSplashScreen(QPixmap(":/icon/media/icon_128.png"), Qt.WindowStaysOnTopHint)
     splash.show()
     app.processEvents()
