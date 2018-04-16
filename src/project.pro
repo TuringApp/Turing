@@ -144,4 +144,6 @@ FORMS += \
     forms\w_inline_code.ui
     
 TRANSLATIONS += \
+    lang\de.ts \
+    lang\es.ts \
     lang\fr.ts

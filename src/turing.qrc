@@ -89,5 +89,9 @@
         <file>media/lang/english.png</file>
         <file>media/lang/french.png</file>
         <file>lang/fr.qm</file>
+        <file>media/lang/german.png</file>
+        <file>media/lang/spanish.png</file>
+        <file>lang/de.qm</file>
+        <file>lang/es.qm</file>
     </qresource>
 </RCC>

@@ -692,6 +692,8 @@
     </property>
     <addaction name="actionEnglish"/>
     <addaction name="actionFrench"/>
+    <addaction name="actionSpanish"/>
+    <addaction name="actionDeutsch"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -959,17 +961,6 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="toolTip">
     <string>Save As</string>
-   </property>
-  </action>
-  <action name="actionClose">
-   <property name="text">
-    <string>Close</string>
-   </property>
-   <property name="toolTip">
-    <string>Close</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+W</string>
    </property>
   </action>
   <action name="actionExit">
@@ -1464,6 +1455,36 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="text">
     <string>Reset zoom</string>
+   </property>
+  </action>
+  <action name="actionSpanish">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../turing.qrc">
+     <normaloff>:/lang/media/lang/spanish.png</normaloff>:/lang/media/lang/spanish.png</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Español</string>
+   </property>
+   <property name="statusTip">
+    <string notr="true">es</string>
+   </property>
+  </action>
+  <action name="actionDeutsch">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../turing.qrc">
+     <normaloff>:/lang/media/lang/german.png</normaloff>:/lang/media/lang/german.png</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Deutsch</string>
+   </property>
+   <property name="statusTip">
+    <string notr="true">de</string>
    </property>
   </action>
  </widget>

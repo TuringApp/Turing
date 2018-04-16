@@ -249,7 +249,6 @@ def refresh_buttons_status():
     for c in [
         "Save",
         "SaveAs",
-        "Close",
         "Print",
         "Find",
         "Replace",
