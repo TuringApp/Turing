@@ -36,6 +36,7 @@ current_file: Optional[str] = None
 can_save = False
 dialog_window = None
 
+autosave_timer = None
 undo = None
 mode_python = False
 code_editor: api.CodeEdit = None
@@ -85,6 +86,7 @@ algo_only = [
 ]
 filters = {}
 
+app_started = False
 worker = None
 algo = BlockStmt([])
 item_map = {}
@@ -819,10 +821,10 @@ def save(filename):
     else:
         last_saved = repr(algo)
 
-    with open(current_file, "w+", encoding="utf8") as savefile:
+    with open(filename, "w+", encoding="utf8") as savefile:
         savefile.write(last_saved)
 
-    add_recent(current_file)
+    add_recent(filename)
 
     refresh()
 
@@ -2001,6 +2003,8 @@ def init_ui():
         "alg": translate("MainWindow", "Algobox file (*.alg)")
     }
 
+    init_autosave()
+
     ui.widget.setFixedWidth(window.width() / 3)
 
     window.show()
@@ -2043,7 +2047,55 @@ def setup_thread_excepthook():
     threading.Thread.__init__ = init
 
 
+def autosave():
+    settings.setValue("autosave_type", mode_python)
+    settings.setValue("autosave_date", datetime.datetime.now())
+
+    if mode_python:
+        settings.setValue("autosave", code_editor.toPlainText())
+    else:
+        settings.setValue("autosave", repr(algo))
+
+
+def autosave_tick():
+    if app_started:
+        if is_modified():
+            settings.setValue("dirty", True)
+            autosave()
+        else:
+            settings.setValue("dirty", False)
+            autosave_clear()
+
+
+def init_autosave():
+    global autosave_timer
+    autosave_timer = QTimer()
+    autosave_timer.timeout.connect(autosave_tick)
+    autosave_timer.start(1000)
+
+
+def autosave_load():
+    global mode_python
+    mode_python = settings.value("autosave_type", type=bool)
+    content = settings.value("autosave")
+
+    if mode_python:
+        code_editor.setPlainText(content, "", "")
+    else:
+        load_pseudocode(content)
+
+    refresh()
+
+
+def autosave_clear():
+    settings.setValue("dirty", False)
+    settings.remove("autosave")
+    settings.remove("autosave_date")
+    settings.remove("autosave_type")
+
+
 def clean_exit():
+    autosave_clear()
     code_editor.backend.stop()
     sys.exit()
 
@@ -2134,6 +2186,23 @@ if __name__ == "__main__":
 
     window.raise_()
     window.activateWindow()
+
+    dirty = settings.value("dirty", type=bool)
+
+    if dirty:
+        msg = get_themed_box()
+        msg.setIcon(QMessageBox.Question)
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msg.setDefaultButton(QMessageBox.No)
+        msg.setText(translate("MainWindow", "A modified file has been automatically saved.\nWould you like to recover it?"))
+        msg.adjustSize()
+        center_widget(msg, window)
+        if msg.exec_() == QMessageBox.Yes:
+            autosave_load()
+        else:
+            autosave_clear()
+
+    app_started = True
 
     try:
         exitCode = app.exec_()
