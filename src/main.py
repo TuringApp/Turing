@@ -202,13 +202,8 @@ class MainWindowWrapper(QMainWindow):
             event.setAccepted(True)
             clean_exit()
             return
-        msg = get_themed_box()
-        msg.setIcon(QMessageBox.Question)
-        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-        msg.setDefaultButton(QMessageBox.No)
-        msg.setText(translate("MainWindow", "Do you really want to exit?\nAll unsaved changes will be lost."))
-        msg.adjustSize()
-        center_widget(msg, self)
+        msg = msg_box(translate("MainWindow", "Do you really want to exit?\nAll unsaved changes will be lost."),
+                      parent=self)
         event.ignore()
         if msg.exec_() == QMessageBox.Yes:
             event.setAccepted(True)
@@ -901,14 +896,8 @@ def load_file(file):
 
 def handler_New():
     if is_modified():
-        msg = get_themed_box()
-        msg.setIcon(QMessageBox.Question)
-        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-        msg.setDefaultButton(QMessageBox.No)
-        msg.setText(
-            translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."))
-        msg.adjustSize()
-        center_widget(msg, window)
+        msg = msg_box(translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."),
+                      parent=window)
         if msg.exec_() != QMessageBox.Yes:
             return
 
@@ -2173,13 +2162,8 @@ if __name__ == "__main__":
         app.processEvents()
 
     if new_version:
-        msg = get_themed_box()
-        msg.setIcon(QMessageBox.Question)
-        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-        msg.setDefaultButton(QMessageBox.No)
-        msg.setText(translate("MainWindow", "A new version of Turing is available.\nWould you like to download it?"))
-        msg.adjustSize()
-        center_widget(msg, window)
+        msg = msg_box(translate("MainWindow", "A new version of Turing is available.\nWould you like to download it?"),
+                      parent=window)
         if msg.exec_() == QMessageBox.Yes:
             QDesktopServices.openUrl(QUrl("https://github.com/TuringApp/Turing/releases/latest"))
 
@@ -2189,13 +2173,8 @@ if __name__ == "__main__":
     dirty = settings.value("dirty", type=bool)
 
     if dirty:
-        msg = get_themed_box()
-        msg.setIcon(QMessageBox.Question)
-        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-        msg.setDefaultButton(QMessageBox.No)
-        msg.setText(translate("MainWindow", "A modified file has been automatically saved.\nWould you like to recover it?"))
-        msg.adjustSize()
-        center_widget(msg, window)
+        msg = msg_box(translate("MainWindow", "A modified file has been automatically saved.\nWould you like to recover it?"),
+                      parent=window)
         if msg.exec_() == QMessageBox.Yes:
             autosave_load()
         else:

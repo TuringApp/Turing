@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import *
 from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_for import Ui_AlgoForStmt
 from util.code import try_parse, is_id
-from util.widgets import center_widget, get_themed_box
+from util.widgets import center_widget, get_themed_box, msg_box_error
 
 translate = QCoreApplication.translate
 
@@ -43,12 +43,7 @@ class AlgoForStmt(QDialog):
         if res == QDialog.Accepted:
             name = self.ui.txtVariable.text().strip()
             if not is_id(name):
-                box = get_themed_box(self)
-                box.setIcon(QMessageBox.Critical)
-                box.setStandardButtons(QMessageBox.Ok)
-                box.setText(translate("Algo", "Invalid variable name: {name}").format(name=name))
-                box.adjustSize()
-                center_widget(box, self)
+                box = msg_box_error(translate("Algo", "Invalid variable name: {name}").format(name=name), parent=self)
                 box.exec_()
                 return
 

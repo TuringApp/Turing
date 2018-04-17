@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import *
 
 from forms.ui_alg_func import Ui_AlgoFuncStmt
 from util.code import is_id
-from util.widgets import center_widget, get_themed_box
+from util.widgets import center_widget, get_themed_box, msg_box_error
 
 translate = QCoreApplication.translate
 
@@ -28,12 +28,7 @@ class AlgoFuncStmt(QDialog):
 
             for name in lst:
                 if not is_id(name):
-                    box = get_themed_box(self)
-                    box.setIcon(QMessageBox.Critical)
-                    box.setStandardButtons(QMessageBox.Ok)
-                    box.setText(translate("Algo", "Invalid name: {name}").format(name=name))
-                    box.adjustSize()
-                    center_widget(box, self)
+                    box = msg_box_error(translate("Algo", "Invalid name: {name}").format(name=name), parent=self)
                     box.exec_()
                     return
 

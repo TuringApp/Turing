@@ -8,7 +8,7 @@ from forms.ui_alg_define import Ui_AlgoDefineStmt
 from maths.nodes import *
 from maths.parser import quick_parse as parse
 from util.code import try_parse
-from util.widgets import center_widget, get_themed_box
+from util.widgets import center_widget, get_themed_box, msg_box_error
 
 translate = QCoreApplication.translate
 
@@ -32,14 +32,9 @@ class AlgoDefineStmt(QDialog):
             parsed = parse(name)
 
             if not isinstance(parsed, (IdentifierNode, ArrayAccessNode)):
-                box = get_themed_box(self)
-                box.setIcon(QMessageBox.Critical)
-                box.setStandardButtons(QMessageBox.Ok)
-                box.setText(translate("Algo",
+                box = msg_box_error(translate("Algo",
                                       "Invalid assignment target (must be either variable or array item): {name}").format(
-                    name=name))
-                box.adjustSize()
-                center_widget(box, self)
+                    name=name), parent=self)
                 box.exec_()
                 return
 
