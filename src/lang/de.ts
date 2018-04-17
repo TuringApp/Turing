@@ -10,7 +10,7 @@
     <message>
         <location filename="../forms/ui_about.py" line="87"/>
         <source>Program</source>
-        <translation type="unfinished"></translation>
+        <translation>Programm</translation>
     </message>
     <message>
         <location filename="../forms/ui_about.py" line="74"/>
@@ -40,7 +40,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1638"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]ANZEIGEN[/k] [c]{val}[/c]</translation>
     </message>
     <message>
         <location filename="../main.py" line="1641"/>
@@ -50,7 +50,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1644"/>
         <source>[k]CONTINUE[/k]</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]FORTSETZEN[/k]</translation>
     </message>
     <message>
         <location filename="../main.py" line="1647"/>
@@ -60,7 +60,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1650"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
-        <translation type="unfinished"></translation>
+        <translation>[b]SOLANGE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
         <location filename="../main.py" line="1653"/>
@@ -70,12 +70,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1656"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]EINGEBEN[/k] [c]{prompt}[/c] [k]IN[/k] [c]{var}[/c]</translation>
     </message>
     <message>
         <location filename="../main.py" line="1661"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]DEKLARIEREN[/k] [c]{var}[/c]</translation>
     </message>
     <message>
         <location filename="../main.py" line="1663"/>
@@ -85,27 +85,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1668"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]AUFRUFEN[/k] [c]{code}[/c]</translation>
     </message>
     <message>
         <location filename="../main.py" line="1671"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
-        <translation type="unfinished"></translation>
+        <translation>[b]FÜR[/b] [c]{var}[/c] [b]VON[/b] [c]{begin}[/c] [b]BIS[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
         <location filename="../main.py" line="1672"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
-        <translation type="unfinished"></translation>
+        <translation>([b]SCHRITTWEITE[/b] [c]{step}[/c])</translation>
     </message>
     <message>
         <location filename="../main.py" line="1678"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
-        <translation type="unfinished"></translation>
+        <translation>[b]FUNKTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
         <location filename="../main.py" line="1682"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
-        <translation type="unfinished"></translation>
+        <translation>[k]ZURÜCKGEBEN[/k] [c]{val}[/c]</translation>
     </message>
     <message>
         <location filename="../main.py" line="1686"/>
@@ -145,7 +145,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1738"/>
         <source>[b]PROGRAM[/b]</source>
-        <translation type="unfinished"></translation>
+        <translation>[b]PROGRAMM[/b]</translation>
     </message>
     <message>
         <location filename="../main.py" line="1741"/>
@@ -195,7 +195,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../algo/worker.py" line="322"/>
         <source>Unknown statement type: {type}</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Anweisungstyp: {type}</translation>
     </message>
     <message>
         <location filename="../forms/alg_input.py" line="43"/>
@@ -205,7 +205,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/alg_gfunc.py" line="45"/>
         <source>Invalid variable name: {name}</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungültiger Variablenname: {name}</translation>
     </message>
     <message>
         <location filename="../forms/alg_func.py" line="31"/>
@@ -225,7 +225,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_call.py" line="71"/>
         <source>Call function</source>
-        <translation type="unfinished"></translation>
+        <translation>Funktion aufrufen</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_call.py" line="72"/>
@@ -235,12 +235,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_call.py" line="73"/>
         <source>Function:</source>
-        <translation type="unfinished">Funktion:</translation>
+        <translation>Funktion:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_call.py" line="74"/>
         <source>Arguments:</source>
-        <translation type="unfinished"></translation>
+        <translation>Parameter:</translation>
     </message>
 </context>
 <context>
@@ -312,7 +312,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="101"/>
         <source>FOR loop</source>
-        <translation type="unfinished"></translation>
+        <translation>FÜR Schleife</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="102"/>
@@ -322,17 +322,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="103"/>
         <source>From:</source>
-        <translation type="unfinished"></translation>
+        <translation>Von:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="104"/>
         <source>To:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bis:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="105"/>
         <source>Step:</source>
-        <translation type="unfinished"></translation>
+        <translation>Schrittweite:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="106"/>
@@ -342,7 +342,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="107"/>
         <source>Custom step</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzerdefiniert Schrittweite</translation>
     </message>
 </context>
 <context>
@@ -365,7 +365,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_func.py" line="59"/>
         <source>Parameters:</source>
-        <translation type="unfinished"></translation>
+        <translation>Parameter:</translation>
     </message>
 </context>
 <context>
@@ -388,17 +388,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="129"/>
         <source>Step:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Schrittweite:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="130"/>
         <source>Function:</source>
-        <translation type="unfinished">Funktion:</translation>
+        <translation>Funktion:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="131"/>
         <source>Variable:</source>
-        <translation type="unfinished">Variable:</translation>
+        <translation>Variable:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="132"/>
@@ -543,7 +543,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_input.py" line="71"/>
         <source>Read user input</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzereingaben lesen</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_input.py" line="72"/>
@@ -571,7 +571,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_return.py" line="63"/>
         <source>Return</source>
-        <translation type="unfinished"></translation>
+        <translation>Zurückgeben</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_return.py" line="64"/>
@@ -594,7 +594,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_sleep.py" line="57"/>
         <source>Wait</source>
-        <translation type="unfinished">Warten</translation>
+        <translation>Warten</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_sleep.py" line="58"/>
@@ -635,7 +635,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_while.py" line="56"/>
         <source>WHILE loop</source>
-        <translation type="unfinished"></translation>
+        <translation>SOLANGE Schleife</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_while.py" line="57"/>
@@ -653,12 +653,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../algo/algobox.py" line="51"/>
         <source>Unknown color: {color}</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannte Farbe: {color}</translation>
     </message>
     <message>
         <location filename="../algo/algobox.py" line="110"/>
         <source>Unknown variable type: {type}</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Variablentyp: {type}</translation>
     </message>
 </context>
 <context>
@@ -671,7 +671,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/calculator.py" line="72"/>
         <source>Result is None</source>
-        <translation type="unfinished"></translation>
+        <translation>Ergebnis ist None</translation>
     </message>
 </context>
 <context>
@@ -679,12 +679,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/algobox.py" line="6"/>
         <source>Algobox compatibility</source>
-        <translation type="unfinished"></translation>
+        <translation>Algobox Kompatibilität</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="12"/>
         <source>Basic</source>
-        <translation type="unfinished"></translation>
+        <translation>Basisch</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="14"/>
@@ -834,7 +834,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/geom.py" line="9"/>
         <source>Geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Geometrie</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="11"/>
@@ -939,12 +939,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/physics.py" line="6"/>
         <source>Physics</source>
-        <translation type="unfinished"></translation>
+        <translation>Physik</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="12"/>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Statistiken</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="20"/>
@@ -1064,7 +1064,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/trig.py" line="8"/>
         <source>Trigonometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Trigonometrie</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="19"/>
@@ -1277,17 +1277,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="77"/>
         <source>Parser: </source>
-        <translation type="unfinished"></translation>
+        <translation>Parser: </translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="229"/>
         <source>Argument count mismatch (expected {exp}, got {act})</source>
-        <translation type="unfinished"></translation>
+        <translation>Unverträgliche Anzahl an Argumenten (erwartet {exp}, aktuell {act})</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="183"/>
         <source>Unknown node type: {type}</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Knotentyp: {type}</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="194"/>
@@ -1302,7 +1302,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="207"/>
         <source>Callee is None</source>
-        <translation type="unfinished"></translation>
+        <translation>Angerufener ist None</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="217"/>
@@ -1312,12 +1312,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="235"/>
         <source>Type mismatch for argument #{idx} &apos;{arg}&apos; (expected {exp})</source>
-        <translation type="unfinished"></translation>
+        <translation>Typenkonflikt für Parameter #{idx} &apos;{arg}&apos; (erwartet {exp})</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="268"/>
         <source>Invalid unary operator &apos;{op}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungültiger unärer Operator &apos;{op}&apos;</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="279"/>
@@ -1367,7 +1367,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="388"/>
         <source>Invalid binary operator &apos;{op}&apos; for &apos;{left}&apos; and &apos;{right}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungültiger binärer Operator &apos;{op}&apos; für &apos;{left}&apos; und &apos;{right}&apos;</translation>
     </message>
 </context>
 <context>
@@ -1380,27 +1380,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/help.py" line="57"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h2&gt;Parameter:&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="61"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;li&gt;Keiner&lt;/li&gt;</translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="71"/>
         <source>default = {deft}</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard = {deft}</translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="86"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h2&gt;Aliase:&lt;/h2&gt;</translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="99"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h2&gt;Funktionen:&lt;/h2&gt;</translation>
     </message>
 </context>
 <context>
@@ -1414,19 +1414,14 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="765"/>
-        <source>Turing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../forms/ui_mainwindow.py" line="766"/>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="797"/>
         <source>Pseudocode</source>
-        <translation type="unfinished"></translation>
+        <translation>Pseudocode</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="767"/>
@@ -1462,7 +1457,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="779"/>
         <source>Basic</source>
-        <translation type="unfinished"></translation>
+        <translation>Basisch</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="773"/>
@@ -1477,7 +1472,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="775"/>
         <source>Read user INPUT</source>
-        <translation type="unfinished"></translation>
+        <translation>BENUTZEREINGABEN lesen</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="776"/>
@@ -1502,7 +1497,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="780"/>
         <source>WHILE loop</source>
-        <translation type="unfinished"></translation>
+        <translation>SOLANGE Schleife</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="781"/>
@@ -1512,7 +1507,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="782"/>
         <source>FOR loop</source>
-        <translation type="unfinished"></translation>
+        <translation>FÜR Schleife</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="783"/>
@@ -1532,12 +1527,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="790"/>
         <source>Functions</source>
-        <translation type="unfinished"></translation>
+        <translation>Funktionen</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="787"/>
         <source>CALL function</source>
-        <translation type="unfinished"></translation>
+        <translation>Funktion AUFRUFEN</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="788"/>
@@ -1547,7 +1542,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="789"/>
         <source>RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>ZURÜCKGEBEN</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="814"/>
@@ -1667,7 +1662,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="817"/>
         <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+N</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="819"/>
@@ -1677,7 +1672,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="820"/>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+O</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="822"/>
@@ -1687,7 +1682,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="823"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+S</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="825"/>
@@ -1702,7 +1697,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="828"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Q</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="830"/>
@@ -1712,7 +1707,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="831"/>
         <source>Ctrl+Shift+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Umsch+S</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="833"/>
@@ -1722,7 +1717,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="834"/>
         <source>Ctrl+Z</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Z</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="836"/>
@@ -1732,7 +1727,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="837"/>
         <source>Ctrl+Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Y</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="839"/>
@@ -1742,7 +1737,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="840"/>
         <source>Ctrl+X</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+X</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="842"/>
@@ -1752,7 +1747,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="843"/>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+C</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="845"/>
@@ -1762,7 +1757,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="846"/>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+V</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="848"/>
@@ -1777,7 +1772,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="851"/>
         <source>F1</source>
-        <translation type="unfinished"></translation>
+        <translation>F1</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="853"/>
@@ -1792,7 +1787,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="856"/>
         <source>Examples</source>
-        <translation type="unfinished"></translation>
+        <translation>Beispiele</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="858"/>
@@ -1802,7 +1797,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="859"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+P</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="861"/>
@@ -1832,7 +1827,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="870"/>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+A</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="872"/>
@@ -1842,7 +1837,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="873"/>
         <source>F5</source>
-        <translation type="unfinished"></translation>
+        <translation>F5</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="875"/>
@@ -1852,7 +1847,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="876"/>
         <source>F10</source>
-        <translation type="unfinished"></translation>
+        <translation>F10</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="878"/>
@@ -1877,7 +1872,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="884"/>
         <source>Ctrl+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+D</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="885"/>
@@ -1887,7 +1882,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="886"/>
         <source>Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Tab</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="887"/>
@@ -1897,7 +1892,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="888"/>
         <source>Shift+Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Umsch+Tab</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="889"/>
@@ -1907,7 +1902,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="890"/>
         <source>Ctrl+G</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+G</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="891"/>
@@ -1917,7 +1912,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="892"/>
         <source>Shift+F3</source>
-        <translation type="unfinished"></translation>
+        <translation>Umsch+F3</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="893"/>
@@ -1927,7 +1922,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="894"/>
         <source>F3</source>
-        <translation type="unfinished"></translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="895"/>
@@ -1969,7 +1964,7 @@ Alle nicht gespeicherten Änderungen gehen verloren.</translation>
     <message>
         <location filename="../main.py" line="374"/>
         <source>Input: </source>
-        <translation type="unfinished"></translation>
+        <translation>Eingeben: </translation>
     </message>
     <message>
         <location filename="../main.py" line="540"/>
@@ -1999,7 +1994,7 @@ Alle nicht gespeicherten Änderungen gehen verloren.</translation>
     <message>
         <location filename="../main.py" line="829"/>
         <source>Save output</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausgabedaten speichern</translation>
     </message>
     <message>
         <location filename="../main.py" line="829"/>
@@ -2155,7 +2150,7 @@ Would you like to recover it?</source>
     <message>
         <location filename="../maths/parser.py" line="193"/>
         <source>Expected token ({type}) &apos;{val}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Token erwartet ({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="285"/>
@@ -2165,12 +2160,12 @@ Would you like to recover it?</source>
     <message>
         <location filename="../maths/parser.py" line="491"/>
         <source>Unexpected EOL</source>
-        <translation type="unfinished"></translation>
+        <translation>Unerwartetes Dateiende</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="493"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Unerwarteter Token ({type}) &apos;{val}&apos;</translation>
     </message>
 </context>
 <context>

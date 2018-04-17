@@ -13,6 +13,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(900, 713)
         MainWindow.setMinimumSize(QtCore.QSize(800, 0))
+        MainWindow.setWindowTitle("Turing")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icon/media/icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -762,7 +763,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Turing"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_home), _translate("MainWindow", "Home"))
         self.btnAlgo_Dupl.setText(_translate("MainWindow", "Duplicate Line", "shorter"))
         self.btnAlgo_Delete.setText(_translate("MainWindow", "Delete Line"))

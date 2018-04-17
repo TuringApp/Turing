@@ -1414,11 +1414,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="765"/>
-        <source>Turing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../forms/ui_mainwindow.py" line="766"/>
         <source>Home</source>
         <translation type="unfinished"></translation>
