@@ -618,12 +618,6 @@
     <addaction name="actionIndent"/>
     <addaction name="actionUnindent"/>
    </widget>
-   <widget class="QMenu" name="menuSettings">
-    <property name="title">
-     <string>&amp;Settings</string>
-    </property>
-    <addaction name="actionSettings"/>
-   </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>&amp;Help</string>
@@ -699,7 +693,6 @@
    <addaction name="menuEdit"/>
    <addaction name="menuView"/>
    <addaction name="menuProgram"/>
-   <addaction name="menuSettings"/>
    <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
    <addaction name="menuLanguage"/>
@@ -1062,18 +1055,6 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>Ctrl+V</string>
-   </property>
-  </action>
-  <action name="actionSettings">
-   <property name="icon">
-    <iconset resource="../turing.qrc">
-     <normaloff>:/action/media/settings.png</normaloff>:/action/media/settings.png</iconset>
-   </property>
-   <property name="text">
-    <string>Settings</string>
-   </property>
-   <property name="toolTip">
-    <string>Settings</string>
    </property>
   </action>
   <action name="actionQuickStart">

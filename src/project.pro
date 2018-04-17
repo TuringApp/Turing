@@ -53,7 +53,6 @@ SOURCES += \
     forms\help.py \
     forms\inline_code_dialog.py \
     forms\inline_code_editor.py \
-    forms\settings.py \
     forms\ui_about.py \
     forms\ui_alg_call.py \
     forms\ui_alg_comment.py \
@@ -75,7 +74,6 @@ SOURCES += \
     forms\ui_help.py \
     forms\ui_inline_code.py \
     forms\ui_mainwindow.py \
-    forms\ui_settings.py \
     forms\w_inline_code.py \
     forms\__init__.py \
     lang\translator.py \
@@ -140,7 +138,6 @@ FORMS += \
     forms\ui_help.ui \
     forms\ui_inline_code.ui \
     forms\ui_mainwindow.ui \
-    forms\ui_settings.ui \
     forms\w_inline_code.ui
     
 TRANSLATIONS += \

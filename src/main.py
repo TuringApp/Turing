@@ -334,11 +334,6 @@ def handler_Calculator():
     calculator.CalculatorWindow()
 
 
-def handler_Settings():
-    from forms import settings
-    settings.run()
-
-
 def handler_HelpContents():
     from forms import help
     help.HelpWindow(window)
