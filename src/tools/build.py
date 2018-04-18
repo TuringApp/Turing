@@ -3,6 +3,8 @@
 
 from PyQt5.QtCore import QLibraryInfo
 import subprocess
+import sys
+import os
 
 subprocess.call([
     "pyinstaller",
@@ -13,7 +15,7 @@ subprocess.call([
     "colorsys",
     "--windowed",
     "--add-data",
-    r'%s;PyQt5\Qt\translations' % QLibraryInfo.location(QLibraryInfo.TranslationsPath),
+    os.pathsep.join([QLibraryInfo.location(QLibraryInfo.TranslationsPath), "PyQt5/Qt/translations"]),
     "-n",
     "turing",
     "-y",
