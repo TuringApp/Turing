@@ -552,7 +552,7 @@ def set_current_line(current: Optional[BaseStmt], error=False):
 
 
 def callback_stop(stmt, virtual=False):
-    breakpoint_message(str(worker.evaluator.eval_node(stmt.message)))
+    breakpoint_message(worker.evaluator.eval_node(stmt.message))
     if not virtual:
         worker.finished = True
 
@@ -562,7 +562,7 @@ def breakpoint_message(message=""):
     after_output = "<hr>"
     after_output += util.html.centered(
         "<h3>%s</h3>" % util.html.color_span("<i>%s</i>" % (
-            translate("MainWindow", "Breakpoint: ") + html.escape(message) if message else translate("MainWindow",
+            translate("MainWindow", "Breakpoint: ") + html.escape(str(message)) if message else translate("MainWindow",
                                                                                                      "Breakpoint")),
                                              "red"))
     update_output()
