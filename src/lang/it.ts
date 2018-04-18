@@ -38,117 +38,117 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algo</name>
     <message>
-        <location filename="../main.py" line="1659"/>
+        <location filename="../main.py" line="1670"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1662"/>
+        <location filename="../main.py" line="1673"/>
         <source>[k]BREAK[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1665"/>
+        <location filename="../main.py" line="1676"/>
         <source>[k]CONTINUE[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1668"/>
+        <location filename="../main.py" line="1679"/>
         <source>[b]ELSE[/b]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1671"/>
+        <location filename="../main.py" line="1682"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1674"/>
+        <location filename="../main.py" line="1685"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1677"/>
+        <location filename="../main.py" line="1688"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1682"/>
+        <location filename="../main.py" line="1693"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1684"/>
+        <location filename="../main.py" line="1695"/>
         <source>[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1689"/>
+        <location filename="../main.py" line="1700"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1692"/>
+        <location filename="../main.py" line="1703"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1693"/>
+        <location filename="../main.py" line="1704"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1699"/>
+        <location filename="../main.py" line="1710"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1703"/>
+        <location filename="../main.py" line="1714"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1707"/>
+        <location filename="../main.py" line="1718"/>
         <source>[k]STOP[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1711"/>
+        <location filename="../main.py" line="1722"/>
         <source>[k]WAIT[/k] [c]{val}[/c] [k]SECONDS[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1717"/>
+        <location filename="../main.py" line="1728"/>
         <source>[k]CLEAR PLOT[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1720"/>
+        <location filename="../main.py" line="1731"/>
         <source>[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1730"/>
+        <location filename="../main.py" line="1741"/>
         <source>[k]DRAW POINT[/k] [c]{color}[/c] [k]AT[/k] ([c]{x}[/c]; [c]{y}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1737"/>
+        <location filename="../main.py" line="1748"/>
         <source>[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1748"/>
+        <location filename="../main.py" line="1759"/>
         <source>[k]PLOT FUNCTION[/k] [c]{color}[/c] [i]f[/i]({var}) = [c]{expr}[/c] [k]FROM[/k] [c]{begin}[/c] [k]TO[/k] [c]{end}[/c] [k]STEP[/k] [c]{step}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1759"/>
+        <location filename="../main.py" line="1770"/>
         <source>[b]PROGRAM[/b]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1762"/>
+        <location filename="../main.py" line="1773"/>
         <source>[i]empty[/i]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1897,128 +1897,128 @@ All unsaved changes will be lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1018"/>
+        <location filename="../main.py" line="1029"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1019"/>
+        <location filename="../main.py" line="1030"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1021"/>
+        <location filename="../main.py" line="1032"/>
         <source>Folding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1022"/>
+        <location filename="../main.py" line="1033"/>
         <source>Collapse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1023"/>
+        <location filename="../main.py" line="1034"/>
         <source>Expand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1024"/>
+        <location filename="../main.py" line="1035"/>
         <source>Collapse all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1025"/>
+        <location filename="../main.py" line="1036"/>
         <source>Expand all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1027"/>
+        <location filename="../main.py" line="1038"/>
         <source>Select word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1028"/>
+        <location filename="../main.py" line="1039"/>
         <source>Select extended word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1029"/>
+        <location filename="../main.py" line="1040"/>
         <source>Matched select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1030"/>
+        <location filename="../main.py" line="1041"/>
         <source>Select line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1031"/>
+        <location filename="../main.py" line="1042"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1041"/>
+        <location filename="../main.py" line="1052"/>
         <source>Regex</source>
         <translation>Espressione regolare</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1042"/>
+        <location filename="../main.py" line="1053"/>
         <source>Match case</source>
         <translation>L&apos;evidenziazione è case-sensitive</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1043"/>
+        <location filename="../main.py" line="1054"/>
         <source>Whole words</source>
         <translation>Identifica solo parole intere</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1044"/>
+        <location filename="../main.py" line="1055"/>
         <source>In Selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1045"/>
+        <location filename="../main.py" line="1056"/>
         <source>0 matches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1047"/>
+        <location filename="../main.py" line="1058"/>
         <source>Replace All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1124"/>
+        <location filename="../main.py" line="1135"/>
         <source>{num} matches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2008"/>
+        <location filename="../main.py" line="2019"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2009"/>
+        <location filename="../main.py" line="2020"/>
         <source>Python file (*.py)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2010"/>
+        <location filename="../main.py" line="2021"/>
         <source>Turing program (*.tr)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2011"/>
+        <location filename="../main.py" line="2022"/>
         <source>Algobox file (*.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2185"/>
+        <location filename="../main.py" line="2194"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2196"/>
+        <location filename="../main.py" line="2205"/>
         <source>A modified file has been automatically saved.
 Would you like to recover it?</source>
         <translation type="unfinished"></translation>
