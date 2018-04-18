@@ -1008,6 +1008,7 @@ def load_editor_actions():
     # edge cases
     copy_action(ui.actionFind, panel_search.menu.menuAction())
     code_editor._sub_menus["Advanced"].setTitle(translate("MainWindow", "Advanced"))
+    mode_zoom.mnu_zoom.setTitle(translate("MainWindow", "Zoom"))
 
     panel_folding.context_menu.setTitle(translate("MainWindow", "Folding"))
     panel_folding.context_menu.actions()[0].setText(translate("MainWindow", "Collapse"))
@@ -1085,11 +1086,12 @@ def load_code_editor():
     code_editor.modes.append(modes.OccurrencesHighlighterMode())
     code_editor.modes.append(modes.SmartBackSpaceMode())
     code_editor.modes.append(modes.SymbolMatcherMode())
-    zoom = modes.ZoomMode()
-    code_editor.modes.append(zoom)
-    code_editor.action_zoom_in = zoom.mnu_zoom.actions()[0]
-    code_editor.action_zoom_out = zoom.mnu_zoom.actions()[1]
-    code_editor.action_reset_zoom = zoom.mnu_zoom.actions()[2]
+    global mode_zoom
+    mode_zoom = modes.ZoomMode()
+    code_editor.modes.append(mode_zoom)
+    code_editor.action_zoom_in = mode_zoom.mnu_zoom.actions()[0]
+    code_editor.action_zoom_out = mode_zoom.mnu_zoom.actions()[1]
+    code_editor.action_reset_zoom = mode_zoom.mnu_zoom.actions()[2]
 
     global mode_ext_select
     mode_ext_select = code_editor.modes.append(modes.ExtendedSelectionMode())

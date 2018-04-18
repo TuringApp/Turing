@@ -144,4 +144,5 @@ TRANSLATIONS += \
     lang\de.ts \
     lang\es.ts \
     lang\fr.ts \
+    lang\it.ts \
     lang\zh-CN.ts

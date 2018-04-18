@@ -75,6 +75,7 @@
         <file>media/plot_function.png</file>
         <file>media/time.png</file>
         <file>media/color_wheel.png</file>
+        <file>media/language.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>
@@ -95,5 +96,6 @@
         <file>media/lang/fr.png</file>
         <file>media/lang/zh-CN.png</file>
         <file>lang/zh-CN.qm</file>
+        <file>media/lang/it.png</file>
     </qresource>
 </RCC>

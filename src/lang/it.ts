@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_CN" sourcelanguage="en">
+<TS version="2.1" language="it" sourcelanguage="en">
 <context>
     <name>AboutWindow</name>
     <message>
         <location filename="../forms/ui_about.py" line="73"/>
         <source>About Turing</source>
-        <translation>关于Turing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_about.py" line="87"/>
@@ -249,7 +249,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_comment.py" line="49"/>
         <source>Comment</source>
-        <translation>注释/取消注释</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_comment.py" line="50"/>
@@ -1333,12 +1333,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="311"/>
         <source>left</source>
-        <translation>左</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="314"/>
         <source>right</source>
-        <translation>右</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="316"/>
@@ -1391,7 +1391,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/help.py" line="71"/>
         <source>default = {deft}</source>
-        <translation>缺省 = {deft}</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="86"/>
@@ -1483,7 +1483,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="765"/>
         <source>Comment</source>
-        <translation>注释/取消注释</translation>
+        <translation>Commenta</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="766"/>
@@ -1583,17 +1583,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="787"/>
         <source>&amp;File</source>
-        <translation>文件(&amp;F)</translation>
+        <translation>&amp;File</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="788"/>
         <source>Recent files</source>
-        <translation>近期文件</translation>
+        <translation>File recenti</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="789"/>
         <source>&amp;Edit</source>
-        <translation>编辑(&amp;E)</translation>
+        <translation>&amp;Modifica</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="790"/>
@@ -1603,7 +1603,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="791"/>
         <source>&amp;View</source>
-        <translation>视图(&amp;V)</translation>
+        <translation>&amp;Visualizza</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="792"/>
@@ -1623,7 +1623,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="795"/>
         <source>&amp;Tools</source>
-        <translation>工具(&amp;O)</translation>
+        <translation>&amp;Strumenti</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="796"/>
@@ -1653,57 +1653,57 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="803"/>
         <source>New</source>
-        <translation>新建</translation>
+        <translation>Nuovo</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="805"/>
         <source>Open</source>
-        <translation>打开</translation>
+        <translation>Apri</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="807"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>Salva</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="809"/>
         <source>Save As</source>
-        <translation>另存为</translation>
+        <translation>Salva come</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="811"/>
         <source>Exit</source>
-        <translation>退出</translation>
+        <translation>Esci</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="813"/>
         <source>Save All</source>
-        <translation>全部保存</translation>
+        <translation>Salva tutto</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="815"/>
         <source>Undo</source>
-        <translation>撤消</translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="817"/>
         <source>Redo</source>
-        <translation>恢复</translation>
+        <translation>Ripristina</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="819"/>
         <source>Cut</source>
-        <translation>剪切</translation>
+        <translation>Taglia</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="821"/>
         <source>Copy</source>
-        <translation>复制</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="823"/>
         <source>Paste</source>
-        <translation>粘贴</translation>
+        <translation>Incolla</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="825"/>
@@ -1718,7 +1718,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="829"/>
         <source>About Turing</source>
-        <translation>关于Turing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="831"/>
@@ -1733,17 +1733,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="834"/>
         <source>Print</source>
-        <translation>打印</translation>
+        <translation>Stampa</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="836"/>
         <source>Find</source>
-        <translation>查找</translation>
+        <translation>Trova</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="838"/>
         <source>Replace</source>
-        <translation>替换</translation>
+        <translation>Sostituisci</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="840"/>
@@ -1758,12 +1758,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="844"/>
         <source>Select All</source>
-        <translation>全选</translation>
+        <translation>Seleziona tutto</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="846"/>
         <source>Run</source>
-        <translation>运行</translation>
+        <translation>Esegui</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="848"/>
@@ -1793,12 +1793,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="856"/>
         <source>Indent</source>
-        <translation>插入制表符</translation>
+        <translation>Inserisci tabulazione</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="857"/>
         <source>Unindent</source>
-        <translation>删除制表符</translation>
+        <translation>Rimuovi tabulazione</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="858"/>
@@ -1808,12 +1808,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="859"/>
         <source>Find Previous</source>
-        <translation>查找上一个</translation>
+        <translation>Trova precedente</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="860"/>
         <source>Find Next</source>
-        <translation>查找下一个</translation>
+        <translation>Trova successivo</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="861"/>
@@ -1903,6 +1903,11 @@ All unsaved changes will be lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../main.py" line="1019"/>
+        <source>Zoom</source>
+        <translation>Zoom</translation>
+    </message>
+    <message>
         <location filename="../main.py" line="1021"/>
         <source>Folding</source>
         <translation type="unfinished"></translation>
@@ -1955,17 +1960,17 @@ All unsaved changes will be lost.</source>
     <message>
         <location filename="../main.py" line="1041"/>
         <source>Regex</source>
-        <translation>正则表达式</translation>
+        <translation>Espressione regolare</translation>
     </message>
     <message>
         <location filename="../main.py" line="1042"/>
         <source>Match case</source>
-        <translation>区分大小写</translation>
+        <translation>L&apos;evidenziazione è case-sensitive</translation>
     </message>
     <message>
         <location filename="../main.py" line="1043"/>
         <source>Whole words</source>
-        <translation>仅匹配完整词</translation>
+        <translation>Identifica solo parole intere</translation>
     </message>
     <message>
         <location filename="../main.py" line="1044"/>
@@ -1975,7 +1980,7 @@ All unsaved changes will be lost.</source>
     <message>
         <location filename="../main.py" line="1045"/>
         <source>0 matches</source>
-        <translation>0次匹配</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1047"/>
@@ -1985,7 +1990,7 @@ All unsaved changes will be lost.</source>
     <message>
         <location filename="../main.py" line="1124"/>
         <source>{num} matches</source>
-        <translation>{num}次匹配</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="2008"/>
@@ -2019,28 +2024,23 @@ Would you like to download it?</source>
 Would you like to recover it?</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../main.py" line="1019"/>
-        <source>Zoom</source>
-        <translation>缩放</translation>
-    </message>
 </context>
 <context>
     <name>Parser</name>
     <message>
         <location filename="../maths/parser.py" line="101"/>
         <source>OR</source>
-        <translation>或</translation>
+        <translation>O</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="102"/>
         <source>AND</source>
-        <translation>和</translation>
+        <translation>E</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="103"/>
         <source>NOT</source>
-        <translation>不</translation>
+        <translation>NON</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="193"/>
