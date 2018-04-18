@@ -2016,8 +2016,6 @@ def init_ui():
 
     init_autosave()
 
-    ui.widget.setFixedWidth(window.width() / 3)
-
     window.show()
 
 
