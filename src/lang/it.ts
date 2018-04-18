@@ -248,7 +248,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_comment.py" line="49"/>
         <source>Comment</source>
-        <translation type="unfinished">Commenta</translation>
+        <translation>Commenta</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_comment.py" line="50"/>
@@ -1442,17 +1442,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="864"/>
         <source>Zoom in</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingrandisci testo</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="865"/>
         <source>Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>Riduci testo</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="866"/>
         <source>Reset zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Reimposta</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="767"/>
@@ -2044,7 +2044,7 @@ Would you like to recover it?</source>
     <message>
         <location filename="../maths/parser.py" line="193"/>
         <source>Expected token ({type}) &apos;{val}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Token previsto ({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="285"/>
@@ -2054,12 +2054,12 @@ Would you like to recover it?</source>
     <message>
         <location filename="../maths/parser.py" line="491"/>
         <source>Unexpected EOL</source>
-        <translation type="unfinished"></translation>
+        <translation>Fine della linea imprevista</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="493"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Token imprevisto ({type}) &apos;{val}&apos;</translation>
     </message>
 </context>
 <context>

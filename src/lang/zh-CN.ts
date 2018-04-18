@@ -1442,17 +1442,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="864"/>
         <source>Zoom in</source>
-        <translation type="unfinished"></translation>
+        <translation>放大</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="865"/>
         <source>Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>缩小</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="866"/>
         <source>Reset zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>恢复默认缩放</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="767"/>
@@ -2044,7 +2044,7 @@ Would you like to recover it?</source>
     <message>
         <location filename="../maths/parser.py" line="193"/>
         <source>Expected token ({type}) &apos;{val}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>需要的符号({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="285"/>
@@ -2054,12 +2054,12 @@ Would you like to recover it?</source>
     <message>
         <location filename="../maths/parser.py" line="491"/>
         <source>Unexpected EOL</source>
-        <translation type="unfinished"></translation>
+        <translation>意外的 EOL</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="493"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>意外的令牌({type}) &apos;{val}&apos;</translation>
     </message>
 </context>
 <context>

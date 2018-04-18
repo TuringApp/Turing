@@ -248,7 +248,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_comment.py" line="49"/>
         <source>Comment</source>
-        <translation type="unfinished">Comentario</translation>
+        <translation>Comentario</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_comment.py" line="50"/>
@@ -684,7 +684,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/basic.py" line="12"/>
         <source>Basic</source>
-        <translation type="unfinished"></translation>
+        <translation>Básico</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="14"/>
@@ -1442,22 +1442,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="864"/>
         <source>Zoom in</source>
-        <translation type="unfinished"></translation>
+        <translation>Aumentar zoom</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="865"/>
         <source>Zoom out</source>
-        <translation type="unfinished"></translation>
+        <translation>Disminuir zoom</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="866"/>
         <source>Reset zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="767"/>
         <source>Basic</source>
-        <translation type="unfinished"></translation>
+        <translation>Básico</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="761"/>
@@ -1507,7 +1507,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="770"/>
         <source>FOR loop</source>
-        <translation type="unfinished">Bucle PARA</translation>
+        <translation>Bucle PARA</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="771"/>
@@ -2044,7 +2044,7 @@ Would you like to recover it?</source>
     <message>
         <location filename="../maths/parser.py" line="193"/>
         <source>Expected token ({type}) &apos;{val}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Token esperado ({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="285"/>
@@ -2054,12 +2054,12 @@ Would you like to recover it?</source>
     <message>
         <location filename="../maths/parser.py" line="491"/>
         <source>Unexpected EOL</source>
-        <translation type="unfinished"></translation>
+        <translation>Fin de la linea inesperado</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="493"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Token inesperado ({type}) &apos;{val}&apos;</translation>
     </message>
 </context>
 <context>

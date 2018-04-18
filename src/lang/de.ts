@@ -388,7 +388,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="129"/>
         <source>Step:</source>
-        <translation type="unfinished">Schrittweite:</translation>
+        <translation>Schrittweite:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="130"/>
@@ -1442,17 +1442,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="864"/>
         <source>Zoom in</source>
-        <translation>Vergrößern</translation>
+        <translation>Schrift vergrößern</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="865"/>
         <source>Zoom out</source>
-        <translation>Verkleinern</translation>
+        <translation>Schrift verkleinern</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="866"/>
         <source>Reset zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardgröße</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="767"/>
