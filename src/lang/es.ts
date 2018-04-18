@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es" sourcelanguage="en">
+<!DOCTYPE TS><TS version="2.0" language="es" sourcelanguage="en">
 <context>
     <name>AboutWindow</name>
     <message>
@@ -313,7 +312,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="101"/>
         <source>FOR loop</source>
-        <translation type="unfinished"></translation>
+        <translation>Bucle PARA</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="102"/>
@@ -323,12 +322,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="103"/>
         <source>From:</source>
-        <translation type="unfinished"></translation>
+        <translation>De:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="104"/>
         <source>To:</source>
-        <translation type="unfinished"></translation>
+        <translation>A:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="105"/>
@@ -1508,7 +1507,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="770"/>
         <source>FOR loop</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bucle PARA</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="771"/>
