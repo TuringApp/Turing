@@ -313,7 +313,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="101"/>
         <source>FOR loop</source>
-        <translation type="unfinished"></translation>
+        <translation>Bucle PARA</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="102"/>
@@ -323,12 +323,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="103"/>
         <source>From:</source>
-        <translation type="unfinished"></translation>
+        <translation>De:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="104"/>
         <source>To:</source>
-        <translation type="unfinished"></translation>
+        <translation>A:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="105"/>
