@@ -86,12 +86,14 @@
         <file>media/icon.ico</file>
     </qresource>
     <qresource prefix="/lang">
-        <file>media/lang/english.png</file>
-        <file>media/lang/french.png</file>
         <file>lang/fr.qm</file>
-        <file>media/lang/german.png</file>
-        <file>media/lang/spanish.png</file>
         <file>lang/de.qm</file>
         <file>lang/es.qm</file>
+        <file>media/lang/de.png</file>
+        <file>media/lang/en.png</file>
+        <file>media/lang/es.png</file>
+        <file>media/lang/fr.png</file>
+        <file>media/lang/zh-CN.png</file>
+        <file>lang/zh-CN.qm</file>
     </qresource>
 </RCC>

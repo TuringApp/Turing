@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="de" sourcelanguage="en">
+<!DOCTYPE TS><TS version="2.0" language="zh-CN" sourcelanguage="en">
 <context>
     <name>AboutWindow</name>
     <message>
         <location filename="../forms/ui_about.py" line="73"/>
         <source>About Turing</source>
-        <translation>Über Turing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_about.py" line="87"/>
         <source>Program</source>
-        <translation>Programm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_about.py" line="74"/>
@@ -32,7 +32,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_about.py" line="88"/>
         <source>License</source>
-        <translation>Lizenz</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -40,42 +40,42 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1657"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
-        <translation>[k]ANZEIGEN[/k] [c]{val}[/c]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1660"/>
         <source>[k]BREAK[/k]</source>
-        <translation>[k]VERLASSEN[/k]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1663"/>
         <source>[k]CONTINUE[/k]</source>
-        <translation>[k]FORTSETZEN[/k]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1666"/>
         <source>[b]ELSE[/b]</source>
-        <translation>[b]SONST[/b]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1669"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
-        <translation>[b]SOLANGE[/b] [c]{cond}[/c]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1672"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
-        <translation>[b]WENN[/b] [c]{cond}[/c]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1675"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
-        <translation>[k]EINGEBEN[/k] [c]{prompt}[/c] [k]IN[/k] [c]{var}[/c]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1680"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
-        <translation>[k]DEKLARIEREN[/k] [c]{var}[/c]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1682"/>
@@ -85,37 +85,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1687"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
-        <translation>[k]AUFRUFEN[/k] [c]{code}[/c]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1690"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
-        <translation>[b]FÜR[/b] [c]{var}[/c] [b]VON[/b] [c]{begin}[/c] [b]BIS[/b] [c]{end}[/c] {step}</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1691"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
-        <translation>([b]SCHRITTWEITE[/b] [c]{step}[/c])</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1697"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
-        <translation>[b]FUNKTION[/b] [c]{func}({args})[/c]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1701"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
-        <translation>[k]ZURÜCKGEBEN[/k] [c]{val}[/c]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1705"/>
         <source>[k]STOP[/k] [c]{val}[/c]</source>
-        <translation>[k]UNTERBRECHEN[/k] [c]{val}[/c]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1709"/>
         <source>[k]WAIT[/k] [c]{val}[/c] [k]SECONDS[/k]</source>
-        <translation>[k]WARTEN[/k] [c]{val}[/c] [k]SEKUNDEN[/k]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1715"/>
@@ -145,17 +145,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../main.py" line="1757"/>
         <source>[b]PROGRAM[/b]</source>
-        <translation>[b]PROGRAMM[/b]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1760"/>
         <source>[i]empty[/i]</source>
-        <translation>[i]frei[/i]</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../algo/stmts/InputStmt.py" line="23"/>
         <source>Variable {var} = </source>
-        <translation>Variable {var} = </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../algo/worker.py" line="172"/>
@@ -195,7 +195,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../algo/worker.py" line="322"/>
         <source>Unknown statement type: {type}</source>
-        <translation>Unbekannter Anweisungstyp: {type}</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/alg_input.py" line="43"/>
@@ -205,12 +205,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/alg_gfunc.py" line="45"/>
         <source>Invalid variable name: {name}</source>
-        <translation>Ungültiger Variablenname: {name}</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/alg_func.py" line="31"/>
         <source>Invalid name: {name}</source>
-        <translation>Ungültiger Name: {name}</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../util/code.py" line="48"/>
@@ -225,7 +225,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_call.py" line="71"/>
         <source>Call function</source>
-        <translation>Funktion aufrufen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_call.py" line="72"/>
@@ -235,12 +235,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_call.py" line="73"/>
         <source>Function:</source>
-        <translation>Funktion:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_call.py" line="74"/>
         <source>Arguments:</source>
-        <translation>Parameter:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -248,7 +248,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_comment.py" line="49"/>
         <source>Comment</source>
-        <translation>Kommentar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_comment.py" line="50"/>
@@ -258,7 +258,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_comment.py" line="51"/>
         <source>Comment:</source>
-        <translation>Kommentar:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -281,7 +281,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_define.py" line="66"/>
         <source>Variable:</source>
-        <translation>Variable:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -312,7 +312,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="101"/>
         <source>FOR loop</source>
-        <translation>FÜR Schleife</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="102"/>
@@ -322,27 +322,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_for.py" line="103"/>
         <source>From:</source>
-        <translation>Von:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="104"/>
         <source>To:</source>
-        <translation>Bis:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="105"/>
         <source>Step:</source>
-        <translation>Schrittweite:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="106"/>
         <source>Variable:</source>
-        <translation>Variable:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_for.py" line="107"/>
         <source>Custom step</source>
-        <translation>Benutzerdefiniert Schrittweite</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -360,12 +360,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_func.py" line="58"/>
         <source>Function:</source>
-        <translation>Funktion:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_func.py" line="59"/>
         <source>Parameters:</source>
-        <translation>Parameter:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -388,22 +388,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="129"/>
         <source>Step:</source>
-        <translation type="unfinished">Schrittweite:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="130"/>
         <source>Function:</source>
-        <translation>Funktion:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="131"/>
         <source>Variable:</source>
-        <translation>Variable:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="132"/>
         <source>Color:</source>
-        <translation>Farbe:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="133"/>
@@ -446,7 +446,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gline.py" line="126"/>
         <source>Color:</source>
-        <translation>Farbe:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -464,17 +464,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gpoint.py" line="92"/>
         <source>Color:</source>
-        <translation>Farbe:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gpoint.py" line="93"/>
         <source>X:</source>
-        <translation>X:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gpoint.py" line="94"/>
         <source>Y:</source>
-        <translation>Y:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -543,7 +543,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_input.py" line="71"/>
         <source>Read user input</source>
-        <translation>Benutzereingaben lesen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_input.py" line="72"/>
@@ -563,7 +563,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_input.py" line="75"/>
         <source>Variable:</source>
-        <translation>Variable:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -571,7 +571,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_return.py" line="63"/>
         <source>Return</source>
-        <translation>Zurückgeben</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_return.py" line="64"/>
@@ -594,7 +594,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_sleep.py" line="57"/>
         <source>Wait</source>
-        <translation>Warten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_sleep.py" line="58"/>
@@ -612,7 +612,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_stop.py" line="63"/>
         <source>Breakpoint</source>
-        <translation>Haltepunkt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_stop.py" line="64"/>
@@ -635,7 +635,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_while.py" line="56"/>
         <source>WHILE loop</source>
-        <translation>SOLANGE Schleife</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_while.py" line="57"/>
@@ -653,12 +653,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../algo/algobox.py" line="51"/>
         <source>Unknown color: {color}</source>
-        <translation>Unbekannte Farbe: {color}</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../algo/algobox.py" line="110"/>
         <source>Unknown variable type: {type}</source>
-        <translation>Unbekannter Variablentyp: {type}</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -666,12 +666,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_calculator.py" line="33"/>
         <source>Calculator</source>
-        <translation>Rechner</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/calculator.py" line="72"/>
         <source>Result is None</source>
-        <translation>Ergebnis ist None</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -679,12 +679,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/algobox.py" line="6"/>
         <source>Algobox compatibility</source>
-        <translation>Algobox Kompatibilität</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="12"/>
         <source>Basic</source>
-        <translation>Basisch</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="14"/>
@@ -834,7 +834,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/geom.py" line="9"/>
         <source>Geometry</source>
-        <translation>Geometrie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="11"/>
@@ -939,12 +939,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/physics.py" line="6"/>
         <source>Physics</source>
-        <translation>Physik</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="12"/>
         <source>Statistics</source>
-        <translation>Statistiken</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="20"/>
@@ -1064,7 +1064,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/lib/trig.py" line="8"/>
         <source>Trigonometry</source>
-        <translation>Trigonometrie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="19"/>
@@ -1277,17 +1277,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="77"/>
         <source>Parser: </source>
-        <translation>Parser: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="229"/>
         <source>Argument count mismatch (expected {exp}, got {act})</source>
-        <translation>Unverträgliche Anzahl an Argumenten (erwartet {exp}, aktuell {act})</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="183"/>
         <source>Unknown node type: {type}</source>
-        <translation>Unbekannter Knotentyp: {type}</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="194"/>
@@ -1302,7 +1302,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="207"/>
         <source>Callee is None</source>
-        <translation>Angerufener ist None</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="217"/>
@@ -1312,12 +1312,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="235"/>
         <source>Type mismatch for argument #{idx} &apos;{arg}&apos; (expected {exp})</source>
-        <translation>Typenkonflikt für Parameter #{idx} &apos;{arg}&apos; (erwartet {exp})</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="268"/>
         <source>Invalid unary operator &apos;{op}&apos;</source>
-        <translation>Ungültiger unärer Operator &apos;{op}&apos;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="279"/>
@@ -1332,12 +1332,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="311"/>
         <source>left</source>
-        <translation>links</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="314"/>
         <source>right</source>
-        <translation>rechts</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="316"/>
@@ -1347,7 +1347,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="316"/>
         <source> and </source>
-        <translation> und </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="321"/>
@@ -1367,7 +1367,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../maths/evaluator.py" line="388"/>
         <source>Invalid binary operator &apos;{op}&apos; for &apos;{left}&apos; and &apos;{right}&apos;</source>
-        <translation>Ungültiger binärer Operator &apos;{op}&apos; für &apos;{left}&apos; und &apos;{right}&apos;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1375,32 +1375,32 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_help.py" line="68"/>
         <source>Help Contents</source>
-        <translation>Hilfethemen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="57"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Parameter:&lt;/h2&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="61"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
-        <translation>&lt;li&gt;Keiner&lt;/li&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="71"/>
         <source>default = {deft}</source>
-        <translation>Standard = {deft}</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="86"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Aliase:&lt;/h2&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="99"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
-        <translation>&lt;h2&gt;Funktionen:&lt;/h2&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1408,7 +1408,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_inline_code.py" line="28"/>
         <source>Expression editor</source>
-        <translation>Ausdrucks-Editor</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1416,12 +1416,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="730"/>
         <source>Home</source>
-        <translation>Start</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="761"/>
         <source>Pseudocode</source>
-        <translation>Pseudocode</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="731"/>
@@ -1442,12 +1442,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="862"/>
         <source>Zoom in</source>
-        <translation>Vergrößern</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="863"/>
         <source>Zoom out</source>
-        <translation>Verkleinern</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="864"/>
@@ -1457,7 +1457,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="743"/>
         <source>Basic</source>
-        <translation>Basisch</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="737"/>
@@ -1467,12 +1467,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="738"/>
         <source>Breakpoint</source>
-        <translation>Haltepunkt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="739"/>
         <source>Read user INPUT</source>
-        <translation>BENUTZEREINGABEN lesen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="740"/>
@@ -1482,12 +1482,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="741"/>
         <source>Comment</source>
-        <translation>Kommentar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="742"/>
         <source>Wait</source>
-        <translation>Warten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="750"/>
@@ -1497,7 +1497,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="744"/>
         <source>WHILE loop</source>
-        <translation>SOLANGE Schleife</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="745"/>
@@ -1507,7 +1507,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="746"/>
         <source>FOR loop</source>
-        <translation>FÜR Schleife</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="747"/>
@@ -1522,17 +1522,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="749"/>
         <source>BREAK</source>
-        <translation>VERLASSEN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="754"/>
         <source>Functions</source>
-        <translation>Funktionen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="751"/>
         <source>CALL function</source>
-        <translation>Funktion AUFRUFEN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="752"/>
@@ -1542,7 +1542,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="753"/>
         <source>RETURN</source>
-        <translation>ZURÜCKGEBEN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="778"/>
@@ -1582,17 +1582,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="763"/>
         <source>&amp;File</source>
-        <translation>&amp;Datei</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="764"/>
         <source>Recent files</source>
-        <translation>Zuletzt verwendet</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="765"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Bearbeiten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="766"/>
@@ -1602,7 +1602,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="767"/>
         <source>&amp;View</source>
-        <translation>&amp;Ansicht</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="768"/>
@@ -1622,17 +1622,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="771"/>
         <source>&amp;Tools</source>
-        <translation>&amp;Werkzeuge</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="772"/>
         <source>&amp;Language</source>
-        <translation>&amp;Sprachen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="773"/>
         <source>Toolbar</source>
-        <translation>Symbolleiste</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="774"/>
@@ -1657,187 +1657,187 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="780"/>
         <source>New</source>
-        <translation>Neu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="781"/>
         <source>Ctrl+N</source>
-        <translation>Strg+N</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="783"/>
         <source>Open</source>
-        <translation>Öffnen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="784"/>
         <source>Ctrl+O</source>
-        <translation>Strg+O</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="786"/>
         <source>Save</source>
-        <translation>Speichern</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="787"/>
         <source>Ctrl+S</source>
-        <translation>Strg+S</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="789"/>
         <source>Save As</source>
-        <translation>Speichern unter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="791"/>
         <source>Exit</source>
-        <translation>Beenden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="792"/>
         <source>Ctrl+Q</source>
-        <translation>Strg+Q</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="794"/>
         <source>Save All</source>
-        <translation>Alle speichern</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="795"/>
         <source>Ctrl+Shift+S</source>
-        <translation>Strg+Umsch+S</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="797"/>
         <source>Undo</source>
-        <translation>Rückgängig</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="798"/>
         <source>Ctrl+Z</source>
-        <translation>Strg+Z</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="800"/>
         <source>Redo</source>
-        <translation>Wiederherstellen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="801"/>
         <source>Ctrl+Y</source>
-        <translation>Strg+Y</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="803"/>
         <source>Cut</source>
-        <translation>Ausschneiden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="804"/>
         <source>Ctrl+X</source>
-        <translation>Strg+X</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="806"/>
         <source>Copy</source>
-        <translation>Kopieren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="807"/>
         <source>Ctrl+C</source>
-        <translation>Strg+C</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="809"/>
         <source>Paste</source>
-        <translation>Einfügen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="810"/>
         <source>Ctrl+V</source>
-        <translation>Strg+V</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="812"/>
         <source>Quick Start</source>
-        <translation>Schnellstart</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="814"/>
         <source>Help Contents</source>
-        <translation>Hilfethemen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="815"/>
         <source>F1</source>
-        <translation>F1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="817"/>
         <source>About Turing</source>
-        <translation>Über Turing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="819"/>
         <source>Show toolbar</source>
-        <translation>Symbolleiste anzeigen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="820"/>
         <source>Examples</source>
-        <translation>Beispiele</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="822"/>
         <source>Print</source>
-        <translation>Ausgeben</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="823"/>
         <source>Ctrl+P</source>
-        <translation>Strg+P</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="825"/>
         <source>Find</source>
-        <translation>Suchen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="827"/>
         <source>Replace</source>
-        <translation>Ersetzen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="829"/>
         <source>Calculator</source>
-        <translation>Rechner</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="831"/>
         <source>Clear</source>
-        <translation>Löschen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="833"/>
         <source>Select All</source>
-        <translation>Alles auswählen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="834"/>
         <source>Ctrl+A</source>
-        <translation>Strg+A</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="836"/>
         <source>Run</source>
-        <translation>Ausführen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="837"/>
         <source>F5</source>
-        <translation>F5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="839"/>
@@ -1847,7 +1847,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="840"/>
         <source>F10</source>
-        <translation>F10</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="842"/>
@@ -1872,99 +1872,98 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="848"/>
         <source>Ctrl+D</source>
-        <translation>Strg+D</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="849"/>
         <source>Indent</source>
-        <translation>Einzug</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="850"/>
         <source>Tab</source>
-        <translation>Tab</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="851"/>
         <source>Unindent</source>
-        <translation>Einzug aufheben</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="852"/>
         <source>Shift+Tab</source>
-        <translation>Umsch+Tab</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="853"/>
         <source>Go To Line</source>
-        <translation>Gehe zu Zeile</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="854"/>
         <source>Ctrl+G</source>
-        <translation>Strg+G</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="855"/>
         <source>Find Previous</source>
-        <translation>Vorheriges suchen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="856"/>
         <source>Shift+F3</source>
-        <translation>Umsch+F3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="857"/>
         <source>Find Next</source>
-        <translation>Weitersuchen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="858"/>
         <source>F3</source>
-        <translation>F3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="859"/>
         <source>Stop</source>
-        <translation>Beenden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="860"/>
         <source>Debug</source>
-        <translation>Debuggen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="861"/>
         <source>Send Feedback</source>
-        <translation>Feedback senden</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="207"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
-        <translation>Möchten Sie wirklich beenden?
-Alle nicht gespeicherten Änderungen gehen verloren.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="231"/>
         <source>Turing - {file} (unsaved)</source>
-        <translation>Turing - {file} (geändert)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="233"/>
         <source>Turing - {file}</source>
-        <translation>Turing - {file}</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="235"/>
         <source>Turing - New File</source>
-        <translation>Turing - Unbenannt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="374"/>
         <source>Input: </source>
-        <translation>Eingeben: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="540"/>
@@ -1979,7 +1978,7 @@ Alle nicht gespeicherten Änderungen gehen verloren.</translation>
     <message>
         <location filename="../main.py" line="566"/>
         <source>Breakpoint: </source>
-        <translation>Haltepunkt: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="599"/>
@@ -1994,12 +1993,12 @@ Alle nicht gespeicherten Änderungen gehen verloren.</translation>
     <message>
         <location filename="../main.py" line="829"/>
         <source>Save output</source>
-        <translation>Ausgabedaten speichern</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="829"/>
         <source>Text files (*.txt)</source>
-        <translation>Textdateien (*.txt)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="901"/>
@@ -2010,32 +2009,32 @@ All unsaved changes will be lost.</source>
     <message>
         <location filename="../main.py" line="1018"/>
         <source>Advanced</source>
-        <translation>Erweitert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1020"/>
         <source>Folding</source>
-        <translation>Faltung</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1021"/>
         <source>Collapse</source>
-        <translation>Reduzieren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1022"/>
         <source>Expand</source>
-        <translation>Erweitern</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1023"/>
         <source>Collapse all</source>
-        <translation>Alle reduzieren</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1024"/>
         <source>Expand all</source>
-        <translation>Alle erweitern</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1026"/>
@@ -2060,22 +2059,22 @@ All unsaved changes will be lost.</source>
     <message>
         <location filename="../main.py" line="1030"/>
         <source>Select</source>
-        <translation>Auswahl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1040"/>
         <source>Regex</source>
-        <translation>RegEx</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1041"/>
         <source>Match case</source>
-        <translation>Groß-/Kleinschreibung beachten</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1042"/>
         <source>Whole words</source>
-        <translation>Nur ganzes Wort suchen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1043"/>
@@ -2090,7 +2089,7 @@ All unsaved changes will be lost.</source>
     <message>
         <location filename="../main.py" line="1046"/>
         <source>Replace All</source>
-        <translation>Alle ersetzen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.py" line="1122"/>
@@ -2135,22 +2134,22 @@ Would you like to recover it?</source>
     <message>
         <location filename="../maths/parser.py" line="101"/>
         <source>OR</source>
-        <translation>ODER</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="102"/>
         <source>AND</source>
-        <translation>UND</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="103"/>
         <source>NOT</source>
-        <translation>NICHT</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="193"/>
         <source>Expected token ({type}) &apos;{val}&apos;</source>
-        <translation>Token erwartet ({type}) &apos;{val}&apos;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="285"/>
@@ -2160,12 +2159,12 @@ Would you like to recover it?</source>
     <message>
         <location filename="../maths/parser.py" line="491"/>
         <source>Unexpected EOL</source>
-        <translation>Unerwartetes Dateiende</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="493"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
-        <translation>Unerwarteter Token ({type}) &apos;{val}&apos;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2173,12 +2172,12 @@ Would you like to recover it?</source>
     <message>
         <location filename="../util/math.py" line="162"/>
         <source>TRUE</source>
-        <translation>WAHR</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../util/math.py" line="162"/>
         <source>FALSE</source>
-        <translation>FALSCH</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

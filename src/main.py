@@ -85,7 +85,7 @@ algo_only = [
     "ConvertToPython"
 ]
 filters = {}
-
+lng_actions = {}
 app_started = False
 worker = None
 algo = BlockStmt([])
@@ -950,15 +950,34 @@ def copy_action(source: QAction, target: QAction):
     target.triggered.connect(source.trigger)
 
 
+def load_languages():
+    def gen(loc):
+        return lambda: change_language(loc)
+
+    it = QDirIterator(":/lang/media/lang")
+
+    while it.hasNext():
+        cur = it.next()
+        locale_name, _ = os.path.splitext(os.path.basename(cur))
+        locale = QLocale(locale_name)
+        act = QAction(window)
+        act.setCheckable(True)
+        act.setIcon(QIcon(cur))
+        act.setText(locale.nativeLanguageName())
+        act.triggered.connect(gen(locale_name))
+        ui.menuLanguage.addAction(act)
+        lng_actions[locale_name] = act
+
+
 def change_language(language: str):
-    available = [x.statusTip() for x in ui.menuLanguage.actions()]
+    available = lng_actions.keys()
     if language not in available and util.get_short_lang(language) not in available:
         language = "en"
     translator.load(language)
     ui.menubar.resizeEvent(QResizeEvent(ui.menubar.size(), ui.menubar.size()))
     load_editor_actions()
-    for a in ui.menuLanguage.actions():
-        a.setChecked(a.statusTip() in [language, util.get_short_lang(language)])
+    for l, a in lng_actions.items():
+        a.setChecked(l in [language, util.get_short_lang(language)])
     fix_qt_shitty_margins()
     refresh()
 
@@ -1911,6 +1930,8 @@ def init_ui():
     translator.add(ui, window)
     ui.setupUi(window)
 
+    load_languages()
+
     global algo_base_font
     algo_base_font = ui.treeWidget.font()
 
@@ -1971,12 +1992,6 @@ def init_ui():
     ui.tabWidget.currentChanged.connect(change_tab)
 
     algo_sel_changed()
-
-    def gen(act):
-        return lambda: change_language(act)
-
-    for action in ui.menuLanguage.actions():
-        action.triggered.connect(gen(action.statusTip()))
 
     global filters
     filters = {

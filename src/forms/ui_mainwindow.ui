@@ -684,10 +684,6 @@
     <property name="title">
      <string>&amp;Language</string>
     </property>
-    <addaction name="actionEnglish"/>
-    <addaction name="actionFrench"/>
-    <addaction name="actionSpanish"/>
-    <addaction name="actionDeutsch"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -1276,36 +1272,6 @@ p, li { white-space: pre-wrap; }
     <string>Convert to pseudocode</string>
    </property>
   </action>
-  <action name="actionEnglish">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../turing.qrc">
-     <normaloff>:/lang/media/lang/english.png</normaloff>:/lang/media/lang/english.png</iconset>
-   </property>
-   <property name="text">
-    <string notr="true">English</string>
-   </property>
-   <property name="statusTip">
-    <string notr="true">en</string>
-   </property>
-  </action>
-  <action name="actionFrench">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../turing.qrc">
-     <normaloff>:/lang/media/lang/french.png</normaloff>:/lang/media/lang/french.png</iconset>
-   </property>
-   <property name="text">
-    <string notr="true">Français</string>
-   </property>
-   <property name="statusTip">
-    <string notr="true">fr</string>
-   </property>
-  </action>
   <action name="actionDuplicateLine">
    <property name="icon">
     <iconset resource="../turing.qrc">
@@ -1436,36 +1402,6 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="text">
     <string>Reset zoom</string>
-   </property>
-  </action>
-  <action name="actionSpanish">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../turing.qrc">
-     <normaloff>:/lang/media/lang/spanish.png</normaloff>:/lang/media/lang/spanish.png</iconset>
-   </property>
-   <property name="text">
-    <string notr="true">Español</string>
-   </property>
-   <property name="statusTip">
-    <string notr="true">es</string>
-   </property>
-  </action>
-  <action name="actionDeutsch">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../turing.qrc">
-     <normaloff>:/lang/media/lang/german.png</normaloff>:/lang/media/lang/german.png</iconset>
-   </property>
-   <property name="text">
-    <string notr="true">Deutsch</string>
-   </property>
-   <property name="statusTip">
-    <string notr="true">de</string>
    </property>
   </action>
  </widget>
