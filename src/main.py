@@ -969,6 +969,16 @@ def load_languages():
         lng_actions[locale_name] = act
 
 
+def fix_tabwidget_width():
+    ui.tabWidget_2.setMinimumWidth(
+        sum(ui.tabWidget_2.tabBar().tabSizeHint(x).width() for x in range(ui.tabWidget_2.count())))
+    ui.widget.setMinimumWidth(0)
+    ui.widget.setMaximumWidth(16777215)
+    ui.widget.adjustSize()
+    ui.widget.setMinimumWidth(ui.widget.width())
+    ui.widget.setMaximumWidth(ui.widget.width())
+
+
 def change_language(language: str):
     available = lng_actions.keys()
     if language not in available and util.get_short_lang(language) not in available:
@@ -979,6 +989,7 @@ def change_language(language: str):
     for l, a in lng_actions.items():
         a.setChecked(l in [language, util.get_short_lang(language)])
     fix_qt_shitty_margins()
+    fix_tabwidget_width()
     refresh()
 
 
