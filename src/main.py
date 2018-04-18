@@ -975,8 +975,9 @@ def fix_tabwidget_width():
     ui.widget.setMinimumWidth(0)
     ui.widget.setMaximumWidth(16777215)
     ui.widget.adjustSize()
-    ui.widget.setMinimumWidth(ui.widget.width())
-    ui.widget.setMaximumWidth(ui.widget.width())
+    width = max(window.width() / 3, ui.widget.width())
+    ui.widget.setMinimumWidth(width)
+    ui.widget.setMaximumWidth(width)
 
 
 def change_language(language: str):
