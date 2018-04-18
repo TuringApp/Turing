@@ -5,6 +5,9 @@ import sip
 import types
 from typing import List, Tuple
 
+import sys
+
+import os
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QWidget
 
@@ -52,8 +55,13 @@ def load(lang: str):
             print("error loading %s" % lang)
     tr_object_qt = QTranslator()
 
-    if not tr_object_qt.load(locale, "qt", "_", QLibraryInfo.location(QLibraryInfo.TranslationsPath)):
-        tr_object_qt.load(locale, "qtbase", "_", QLibraryInfo.location(QLibraryInfo.TranslationsPath))
+    if hasattr(sys, "frozen"):
+        tpath = os.path.join(sys._MEIPASS, "PyQt5", "Qt", "translations")
+    else:
+        tpath = QLibraryInfo.location(QLibraryInfo.TranslationsPath)
+
+    if not tr_object_qt.load(locale, "qt", "_", tpath):
+        tr_object_qt.load(locale, "qtbase", "_", tpath)
 
     QCoreApplication.installTranslator(tr_object_qt)
     QCoreApplication.installTranslator(tr_object)

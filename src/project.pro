@@ -106,6 +106,7 @@ SOURCES += \
     tests\chat.py \
     tests\framework.py \
     tests\__init__.py \
+    tools\build.py \
     tools\docgen.py \
     tools\progen.py \
     util\code.py \

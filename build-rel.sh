@@ -3,7 +3,7 @@
 cd src
 
 tools/compile-gui.sh
-tools/build.sh
+python3 tools/build.py
 
 cd ..
 
