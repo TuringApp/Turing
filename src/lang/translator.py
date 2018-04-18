@@ -47,7 +47,9 @@ def load(lang: str):
         QCoreApplication.removeTranslator(tr_object_qt)
 
     tr_object = QTranslator()
-    tr_object.load(locale, "", "", ":/lang/lang")
+    if not tr_object.load(locale, "", "", ":/lang/lang"):
+        if not tr_object.load(lang, ":/lang/lang"):
+            print("error loading %s" % lang)
     tr_object_qt = QTranslator()
 
     if not tr_object_qt.load(locale, "qt", "_", QLibraryInfo.location(QLibraryInfo.TranslationsPath)):

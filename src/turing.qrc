@@ -97,5 +97,6 @@
         <file>media/lang/zh-CN.png</file>
         <file>lang/zh-CN.qm</file>
         <file>media/lang/it.png</file>
+        <file>lang/it.qm</file>
     </qresource>
 </RCC>

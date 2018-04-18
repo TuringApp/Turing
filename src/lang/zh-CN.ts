@@ -667,7 +667,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_calculator.py" line="33"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>计算器</translation>
     </message>
     <message>
         <location filename="../forms/calculator.py" line="72"/>
@@ -1748,7 +1748,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="840"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>计算器</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="842"/>
@@ -2068,12 +2068,12 @@ Would you like to recover it?</source>
     <message>
         <location filename="../util/math.py" line="162"/>
         <source>TRUE</source>
-        <translation type="unfinished"></translation>
+        <translation>实</translation>
     </message>
     <message>
         <location filename="../util/math.py" line="162"/>
         <source>FALSE</source>
-        <translation type="unfinished"></translation>
+        <translation>假</translation>
     </message>
 </context>
 </TS>
