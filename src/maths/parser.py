@@ -113,7 +113,7 @@ class Parser:
     expression: str = None
     tokens: List[Token] = None
     index: int = None
-    log = None
+    log: Logger = None
 
     def __init__(self, expr: str):
         """Initializes the Parser instance.
@@ -125,7 +125,7 @@ class Parser:
         self.log = Logger("Parser")
 
     def fix_mul_tok(self):
-        """More advanced version of fix_mul, works at token level."""
+        """Fixes implicit multiplication (e.g. 2pi) at token level."""
         result = []
 
         previous = (None, None)
@@ -546,6 +546,7 @@ class Parser:
         return re.sub("\s\s+", " ", result)
 
 
-def quick_parse(expr: str):
+def quick_parse(expr: str) -> nodes.AstNode:
+    """Parses the specified expression."""
     p = Parser(expr)
     return p.parse()
