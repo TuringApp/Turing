@@ -2,6 +2,7 @@
 
 import math
 import sys
+from typing import Dict
 
 import maths.lib as mlib
 from maths.parser import *
@@ -41,13 +42,22 @@ class Evaluator:
         self.log = Logger("Eval")
         self.strict_typing = strict
 
-    def enter_frame(self, value=None):
+    def enter_frame(self, value: Dict[str, Any] = None):
+        """Pushes the a new frame / the specified frame to the stack.
+
+        value -- Frame (optional)"""
         self.frames.append(value or {})
 
     def exit_frame(self):
+        """Pops the last frame from the stack."""
         return self.frames.pop()
 
-    def set_variable(self, variable: str, value: object, local=False):
+    def set_variable(self, variable: str, value: Any, local=False):
+        """Sets the value of the specified variable.
+
+        variable -- Variable name
+        value -- Variable value
+        local -- If true, forces the creation of a new variable in the current frame. Otherwise, sets the value in the nearest frame containing the variable."""
         if not local:
             for frame in reversed(self.frames):
                 if variable in frame:
@@ -56,7 +66,10 @@ class Evaluator:
 
         self.frames[-1][variable] = value
 
-    def get_variable(self, variable: str) -> object:
+    def get_variable(self, variable: str) -> Optional[Any]:
+        """Returns the value of the specified variable.
+
+        variable -- Variable name"""
         for frame in reversed(self.frames):
             if variable in frame:
                 return frame[variable]
@@ -64,7 +77,10 @@ class Evaluator:
         self.log.error(translate("Evaluator", "Cannot find variable or function {name}").format(name=variable))
         return None
 
-    def evaluate(self, expr: str) -> object:
+    def evaluate(self, expr: str) -> Optional[Any]:
+        """Evaluates the specified expression.
+        If an error occurs during the parsing, the result will be None.
+        If an error occurs during the evaluation, the result will be undefined."""
         parser = Parser(expr)
         parser.log = self.log
         node = None
@@ -84,6 +100,9 @@ class Evaluator:
         return self.evaluate_parsed(node)
 
     def evaluate_parsed(self, node: nodes.AstNode):
+        """Evaluates the specified root node.
+
+        node -- Node to be evaluated"""
         self.node_tree = node
         self.beautified = self.node_tree.code()
 
@@ -99,7 +118,8 @@ class Evaluator:
         return result
 
     def eval_node(self, node: nodes.AstNode):
-        """Wrapper for evalNodeReal that handles all the IEEE754 floating point rounding fuckery"""
+        """Evaluates the specified node.
+        Basically just a wrapper for eval_node_real that handles all the IEEE754 floating point rounding fuckery."""
         value = self.eval_node_real(node)
 
         if value is not None and is_num(value) and not isinstance(value, bool):
@@ -122,7 +142,10 @@ class Evaluator:
         return value
 
     def call_lambda(self, node: nodes.LambdaNode, *args):
-        """Lambda function call wrapper"""
+        """Calls the specified lambda function.
+
+        node -- Function node
+        args -- Argument list"""
         args = list(args)
 
         if len(args) != len(node.args):
@@ -149,6 +172,9 @@ class Evaluator:
         return result
 
     def eval_node_real(self, node: nodes.AstNode):
+        """Evaluates the specified node.
+
+        node -- Node to be evaluated"""
         if isinstance(node, nodes.ListNode):
             return [self.eval_node(x) for x in node.value]
 
@@ -184,9 +210,11 @@ class Evaluator:
         return None
 
     def eval_lambda(self, node: nodes.LambdaNode):
+        """Evaluates the specified lambda function node."""
         return lambda *args: self.call_lambda(node, *list(args))
 
     def eval_array_access(self, node: nodes.ArrayAccessNode):
+        """Evaluates the specified array access node."""
         array = self.eval_node(node.array)
         index = int(self.eval_node(node.index))
 
@@ -201,6 +229,7 @@ class Evaluator:
             return None
 
     def eval_call(self, node: nodes.CallNode):
+        """Evaluates the specified function call node."""
         function = self.eval_node(node.func)
 
         if function is None:
@@ -250,6 +279,7 @@ class Evaluator:
         return result
 
     def eval_unary(self, node: nodes.UnaryOpNode):
+        """Evaluates the specified unary operation node."""
         value = self.eval_node(node.value)
         value_type = ValueType.get_type(value)
 
@@ -269,9 +299,12 @@ class Evaluator:
         return None
 
     def eval_binary(self, node: nodes.BinOpNode):
+        """Evaluates the specified binary operation node.
+        Wrapper for binary_operation."""
         return self.binary_operation(self.eval_node(node.left), self.eval_node(node.right), node.operator)
 
     def binary_operation(self, left, right, operator):
+        """Evaluates the specified binary operation."""
         left_type = ValueType.get_type(left)
         right_type = ValueType.get_type(right)
 
@@ -280,6 +313,8 @@ class Evaluator:
             return None
 
         if operator == "+" and ValueType.STRING in [left_type, right_type]:
+            # if one of the operands is a string and the operator is +, then it's a string concatenation
+            # since Python doesn't cast automatically, we must do it ourselves
             return str(left) + str(right)
 
         if operator in ["*"] and right_type == ValueType.LIST and left_type != ValueType.LIST:
