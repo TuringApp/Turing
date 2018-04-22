@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import builtins
-import xml.etree.ElementTree as etree
+from xml.etree import ElementTree
 from typing import Union
 
 from algo.stmts import *
@@ -10,8 +10,9 @@ from maths.parser import quick_parse as parse
 from util import translate
 
 
-def parse_algobox(xml):
-    root = etree.fromstring(xml)
+def parse_algobox(xml: str) -> BlockStmt:
+    """Parses the Algobox XML document and converts it to a Turing code block."""
+    root = ElementTree.fromstring(xml)
     result = []
 
     for elem in root:
@@ -26,7 +27,8 @@ def parse_algobox(xml):
     return BlockStmt(result)
 
 
-def parse_expr(expr):
+def parse_expr(expr: str) -> AstNode:
+    """Fixes it to match the Turing syntax and parses it."""
     lut = {
         "Math.PI": "pi",
         "&&": "&",
@@ -39,7 +41,8 @@ def parse_expr(expr):
     return parse(expr)
 
 
-def get_color(color):
+def get_color(color: str) -> str:
+    """Converts the specified Algobox color to a standard CSS X11 color."""
     lut = {
         "Bleu": "blue",
         "Rouge": "red",
@@ -53,7 +56,8 @@ def get_color(color):
     return lut[color]
 
 
-def to_stmt(elem) -> Optional[Union[BaseStmt, CodeBlock]]:
+def to_stmt(elem: ElementTree) -> Optional[Union[BaseStmt, CodeBlock]]:
+    """Converts an Algobox XML element to a Turing statement."""
     if elem.tag == "description":
         value = elem.attrib["texte"]
 
