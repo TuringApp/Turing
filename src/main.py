@@ -109,14 +109,14 @@ recent_actions = None
 
 
 def sleep(duration):
-    duration *= 1000
     begin = datetime.datetime.now()
-    while (datetime.datetime.now() - begin).microseconds < duration:
+    while (datetime.datetime.now() - begin).total_seconds() < duration:
+        check_stop()
         QCoreApplication.processEvents()
 
 
 def sleep_seconds(duration):
-    sleep(duration * 1000)
+    sleep(float(duration))
 
 
 def is_empty():
@@ -364,6 +364,11 @@ def update_output():
         current_output = current_output[:-1]
 
 
+def check_stop():
+    if stopped or (not mode_python and worker.finished):
+        raise KeyboardInterrupt()
+
+
 def python_input(prompt="", globals=None, locals=None):
     python_print(prompt, end="")
 
@@ -379,28 +384,26 @@ def python_input(prompt="", globals=None, locals=None):
 
     for n in range(3):
         ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
-        sleep(50)
+        sleep(0.050)
         ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
-        sleep(50)
+        sleep(0.050)
         ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff5252; }")
-        sleep(50)
+        sleep(0.050)
         ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
-        sleep(50)
+        sleep(0.050)
         ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
-        sleep(50)
+        sleep(0.050)
         ui.txtInput.setStyleSheet("")
-        sleep(200)
+        sleep(0.200)
 
     global user_input
     user_input = None
 
     ui.txtInput.setFocus(Qt.OtherFocusReason)
 
-    while user_input is None and not stopped:
+    while user_input is None:
+        check_stop()
         QCoreApplication.processEvents()
-
-    if stopped:
-        raise KeyboardInterrupt()
 
     ui.btnSendInput.setEnabled(False)
     ui.txtInput.setEnabled(False)
@@ -684,7 +687,7 @@ def handler_Run(flag=False):
     ui.actionStep.setDisabled(True)
     ui.actionStop.setEnabled(True)
     global running, current_stmt, skip_step, stopped, run_started
-
+    user_stop = False
     set_current_line(None)
     try:
         if mode_python:
@@ -744,6 +747,8 @@ def handler_Run(flag=False):
 
             while not worker.finished:
                 worker.step()
+    except KeyboardInterrupt:
+        user_stop = True
     except:
         show_error()
     finally:
@@ -752,11 +757,11 @@ def handler_Run(flag=False):
             ui.actionDebug.setDisabled(False)
             set_current_line(worker.last)
             skip_step = True
-
             worker.finished = False
             worker.stopped = False
         else:
-            end_output()
+            if not user_stop:
+                end_output()
             ui.actionRun.setDisabled(False)
             ui.actionStep.setDisabled(False)
             ui.actionDebug.setDisabled(False)

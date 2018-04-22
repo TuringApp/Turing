@@ -38,117 +38,117 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algo</name>
     <message>
-        <location filename="../main.py" line="1671"/>
+        <location filename="../main.py" line="1676"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1674"/>
+        <location filename="../main.py" line="1679"/>
         <source>[k]BREAK[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1677"/>
+        <location filename="../main.py" line="1682"/>
         <source>[k]CONTINUE[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1680"/>
+        <location filename="../main.py" line="1685"/>
         <source>[b]ELSE[/b]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1683"/>
+        <location filename="../main.py" line="1688"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1686"/>
+        <location filename="../main.py" line="1691"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1689"/>
+        <location filename="../main.py" line="1694"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1694"/>
+        <location filename="../main.py" line="1699"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1696"/>
+        <location filename="../main.py" line="1701"/>
         <source>[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1701"/>
+        <location filename="../main.py" line="1706"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1704"/>
+        <location filename="../main.py" line="1709"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1705"/>
+        <location filename="../main.py" line="1710"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1711"/>
+        <location filename="../main.py" line="1716"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1715"/>
+        <location filename="../main.py" line="1720"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1719"/>
+        <location filename="../main.py" line="1724"/>
         <source>[k]STOP[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1723"/>
+        <location filename="../main.py" line="1728"/>
         <source>[k]WAIT[/k] [c]{val}[/c] [k]SECONDS[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1729"/>
+        <location filename="../main.py" line="1734"/>
         <source>[k]CLEAR PLOT[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1732"/>
+        <location filename="../main.py" line="1737"/>
         <source>[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1742"/>
+        <location filename="../main.py" line="1747"/>
         <source>[k]DRAW POINT[/k] [c]{color}[/c] [k]AT[/k] ([c]{x}[/c]; [c]{y}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1749"/>
+        <location filename="../main.py" line="1754"/>
         <source>[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1760"/>
+        <location filename="../main.py" line="1765"/>
         <source>[k]PLOT FUNCTION[/k] [c]{color}[/c] [i]f[/i]({var}) = [c]{expr}[/c] [k]FROM[/k] [c]{begin}[/c] [k]TO[/k] [c]{end}[/c] [k]STEP[/k] [c]{step}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1771"/>
+        <location filename="../main.py" line="1776"/>
         <source>[b]PROGRAM[/b]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1774"/>
+        <location filename="../main.py" line="1779"/>
         <source>[i]empty[/i]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -158,42 +158,42 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="172"/>
+        <location filename="../algo/worker.py" line="186"/>
         <source>Array access target must be of array type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="184"/>
+        <location filename="../algo/worker.py" line="198"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="187"/>
+        <location filename="../algo/worker.py" line="201"/>
         <source>Assignment target must be either variable or array item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="221"/>
+        <location filename="../algo/worker.py" line="240"/>
         <source>BREAK can only be used inside a loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="231"/>
+        <location filename="../algo/worker.py" line="251"/>
         <source>CONTINUE can only be used inside a loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="260"/>
+        <location filename="../algo/worker.py" line="281"/>
         <source>RETURN can only be used inside a function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="288"/>
+        <location filename="../algo/worker.py" line="312"/>
         <source>ELSE can only be used after an IF block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="322"/>
+        <location filename="../algo/worker.py" line="348"/>
         <source>Unknown statement type: {type}</source>
         <translation type="unfinished"></translation>
     </message>
@@ -651,12 +651,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algobox</name>
     <message>
-        <location filename="../algo/algobox.py" line="51"/>
+        <location filename="../algo/algobox.py" line="54"/>
         <source>Unknown color: {color}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/algobox.py" line="110"/>
+        <location filename="../algo/algobox.py" line="114"/>
         <source>Unknown variable type: {type}</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1270,102 +1270,102 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Evaluator</name>
     <message>
-        <location filename="../maths/evaluator.py" line="64"/>
+        <location filename="../maths/evaluator.py" line="77"/>
         <source>Cannot find variable or function {name}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="77"/>
+        <location filename="../maths/evaluator.py" line="93"/>
         <source>Parser: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="229"/>
+        <location filename="../maths/evaluator.py" line="258"/>
         <source>Argument count mismatch (expected {exp}, got {act})</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="183"/>
+        <location filename="../maths/evaluator.py" line="209"/>
         <source>Unknown node type: {type}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="194"/>
+        <location filename="../maths/evaluator.py" line="222"/>
         <source>Array access target must be of array type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="200"/>
+        <location filename="../maths/evaluator.py" line="228"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="207"/>
+        <location filename="../maths/evaluator.py" line="236"/>
         <source>Callee is None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="217"/>
+        <location filename="../maths/evaluator.py" line="246"/>
         <source>Only lists can be expanded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="235"/>
+        <location filename="../maths/evaluator.py" line="264"/>
         <source>Type mismatch for argument #{idx} &apos;{arg}&apos; (expected {exp})</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="268"/>
+        <location filename="../maths/evaluator.py" line="298"/>
         <source>Invalid unary operator &apos;{op}&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="279"/>
+        <location filename="../maths/evaluator.py" line="312"/>
         <source>Trying to use None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="294"/>
+        <location filename="../maths/evaluator.py" line="329"/>
         <source>Type mismatch: operands have different types ({left} and {right})</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="311"/>
+        <location filename="../maths/evaluator.py" line="346"/>
         <source>left</source>
         <translation>izquierdo</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="314"/>
+        <location filename="../maths/evaluator.py" line="349"/>
         <source>right</source>
         <translation>derecho</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="316"/>
+        <location filename="../maths/evaluator.py" line="351"/>
         <source>Invalid value type for {val} and operator &apos;{op}&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="316"/>
+        <location filename="../maths/evaluator.py" line="351"/>
         <source> and </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="321"/>
+        <location filename="../maths/evaluator.py" line="356"/>
         <source>Operator &apos;{op}&apos; not allowed for value type {type}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="337"/>
+        <location filename="../maths/evaluator.py" line="372"/>
         <source>Trying to multiply List by non-integer ({val})</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="346"/>
+        <location filename="../maths/evaluator.py" line="381"/>
         <source>Trying to divide by zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="388"/>
+        <location filename="../maths/evaluator.py" line="423"/>
         <source>Invalid binary operator &apos;{op}&apos; for &apos;{left}&apos; and &apos;{right}&apos;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1851,175 +1851,175 @@ All unsaved changes will be lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="374"/>
+        <location filename="../main.py" line="379"/>
         <source>Input: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="540"/>
+        <location filename="../main.py" line="543"/>
         <source>end of output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="540"/>
+        <location filename="../main.py" line="543"/>
         <source>end of output [{time}]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="566"/>
+        <location filename="../main.py" line="569"/>
         <source>Breakpoint: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="599"/>
+        <location filename="../main.py" line="602"/>
         <source>program interrupted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="721"/>
+        <location filename="../main.py" line="724"/>
         <source>Syntax error ({type}) at line {line}, offset {off}: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="829"/>
+        <location filename="../main.py" line="834"/>
         <source>Save output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="829"/>
+        <location filename="../main.py" line="834"/>
         <source>Text files (*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="901"/>
+        <location filename="../main.py" line="906"/>
         <source>Do you really want to create a new file?
 All unsaved changes will be lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1030"/>
+        <location filename="../main.py" line="1035"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1033"/>
+        <location filename="../main.py" line="1038"/>
         <source>Folding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1034"/>
+        <location filename="../main.py" line="1039"/>
         <source>Collapse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1035"/>
+        <location filename="../main.py" line="1040"/>
         <source>Expand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1036"/>
+        <location filename="../main.py" line="1041"/>
         <source>Collapse all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1037"/>
+        <location filename="../main.py" line="1042"/>
         <source>Expand all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1039"/>
+        <location filename="../main.py" line="1044"/>
         <source>Select word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1040"/>
+        <location filename="../main.py" line="1045"/>
         <source>Select extended word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1041"/>
+        <location filename="../main.py" line="1046"/>
         <source>Matched select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1042"/>
+        <location filename="../main.py" line="1047"/>
         <source>Select line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1043"/>
+        <location filename="../main.py" line="1048"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1053"/>
+        <location filename="../main.py" line="1058"/>
         <source>Regex</source>
         <translation>Expresión regular</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1054"/>
+        <location filename="../main.py" line="1059"/>
         <source>Match case</source>
         <translation>Coincidir MAYÚSCULAS/minúsculas</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1055"/>
+        <location filename="../main.py" line="1060"/>
         <source>Whole words</source>
         <translation>Solo palabras completas</translation>
     </message>
     <message>
-        <location filename="../main.py" line="1056"/>
+        <location filename="../main.py" line="1061"/>
         <source>In Selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1057"/>
+        <location filename="../main.py" line="1062"/>
         <source>0 matches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1059"/>
+        <location filename="../main.py" line="1064"/>
         <source>Replace All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1136"/>
+        <location filename="../main.py" line="1141"/>
         <source>{num} matches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2020"/>
+        <location filename="../main.py" line="2025"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2021"/>
+        <location filename="../main.py" line="2026"/>
         <source>Python file (*.py)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2022"/>
+        <location filename="../main.py" line="2027"/>
         <source>Turing program (*.tr)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2023"/>
+        <location filename="../main.py" line="2028"/>
         <source>Algobox file (*.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2195"/>
+        <location filename="../main.py" line="2200"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2206"/>
+        <location filename="../main.py" line="2211"/>
         <source>A modified file has been automatically saved.
 Would you like to recover it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1031"/>
+        <location filename="../main.py" line="1036"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
@@ -2042,22 +2042,22 @@ Would you like to recover it?</source>
         <translation>NO</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="193"/>
+        <location filename="../maths/parser.py" line="179"/>
         <source>Expected token ({type}) &apos;{val}&apos;</source>
         <translation>Token esperado ({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="285"/>
+        <location filename="../maths/parser.py" line="271"/>
         <source>Unexpected token ({type}) &apos;{val}&apos; after end of expression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="491"/>
+        <location filename="../maths/parser.py" line="477"/>
         <source>Unexpected EOL</source>
         <translation>Fin de la linea inesperado</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="493"/>
+        <location filename="../maths/parser.py" line="479"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
         <translation>Token inesperado ({type}) &apos;{val}&apos;</translation>
     </message>
