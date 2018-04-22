@@ -123,20 +123,6 @@ class Parser:
         self.tokens = []
         self.index = 0
         self.log = Logger("Parser")
-        #self.fix_mul()
-
-    def fix_mul(self):
-        """Fixes the multiplication syntax by adding starts (*) between numbers and identifiers.
-
-        Example: 2pi becomes 2*pi"""
-        for i in range(1, len(self.expression)):
-            if self.expression[i - 1].isdigit() and self.expression[i].isalpha():
-                if i < len(self.expression) - 1:
-                    if self.expression[i].upper() == "E":
-                        if self.expression[i - 1].isdigit() or self.expression[i - 1] in ["+", "-"]:
-                            continue
-
-                self.expression = self.expression[:i] + "*" + self.expression[i:]
 
     def fix_mul_tok(self):
         """More advanced version of fix_mul, works at token level."""
