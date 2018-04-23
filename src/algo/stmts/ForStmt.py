@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
 
 from algo.stmts.BlockStmt import BlockStmt
 from .BaseStmt import *
