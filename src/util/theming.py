@@ -8,6 +8,12 @@ from util import translate
 
 app = QApplication
 
+themes = {
+    "default": (translate("Themes", "Default"), []),
+    "dark": (translate("Themes", "Dark"), ["#353535", "#ffffff", "#7f7f7f", "#2a2a2a", "#424242", "#ffffff", "#353535", "#ffffff", "#7f7f7f", "#232323", "#141414", "#353535", "#ffffff", "#7f7f7f", "#ff0000", "#2a82da", "#2a82da", "#505050", "#ffffff", "#7f7f7f"]),
+    "darkblue": (translate("Themes", "Dark blue"), ['#43505d', '#ebebeb', '#b0bec5', '#78909c', '#607d8b', '#ffffdc', '#ebebeb', '#ebebeb', '#bebebe', '#b0bec5', '#263238', '#4e5d6c', '#ebebeb', '#b0bec5', '#eceff1', '#df691a', '#308cc6', '#607d8b', '#ffffff', '#ffffff'])
+}
+
 
 def init_theming():
     if "Fusion" in [st for st in QStyleFactory.keys()]:
@@ -22,46 +28,6 @@ def init_theming():
     app.setPalette(QApplication.style().standardPalette())
 
 
-def set_localized_name(name):
-    def decorator(func):
-        func.name = name
-        return func
-    return decorator
-
-
-@set_localized_name(translate("Themes", "Default"))
-def theme_default(p):
-    pass
-
-
-@set_localized_name(translate("Themes", "Dark"))
-def theme_dark(p):
-    p.setColor(QPalette.Window, QColor(53, 53, 53))
-    p.setColor(QPalette.WindowText, Qt.white)
-    p.setColor(QPalette.Disabled, QPalette.WindowText, QColor(127, 127, 127))
-    p.setColor(QPalette.Base, QColor(42, 42, 42))
-    p.setColor(QPalette.AlternateBase, QColor(66, 66, 66))
-    p.setColor(QPalette.ToolTipBase, Qt.white)
-    p.setColor(QPalette.ToolTipText, QColor(53, 53, 53))
-    p.setColor(QPalette.Text, Qt.white)
-    p.setColor(QPalette.Disabled, QPalette.Text, QColor(127, 127, 127))
-    p.setColor(QPalette.Dark, QColor(35, 35, 35))
-    p.setColor(QPalette.Shadow, QColor(20, 20, 20))
-    p.setColor(QPalette.Button, QColor(53, 53, 53))
-    p.setColor(QPalette.ButtonText, Qt.white)
-    p.setColor(QPalette.Disabled, QPalette.ButtonText, QColor(127, 127, 127))
-    p.setColor(QPalette.BrightText, Qt.red)
-    p.setColor(QPalette.Link, QColor(42, 130, 218))
-    p.setColor(QPalette.Highlight, QColor(42, 130, 218))
-    p.setColor(QPalette.Disabled, QPalette.Highlight, QColor(80, 80, 80))
-    p.setColor(QPalette.HighlightedText, Qt.white)
-    p.setColor(QPalette.Disabled, QPalette.HighlightedText, QColor(127, 127, 127))
-
-
-def get_themes():
-    return {n[6:]: f for n, f in globals().items() if n.startswith("theme_")}
-
-
 def reset_theme():
     init_theming()
 
@@ -71,9 +37,28 @@ def load_theme(name):
 
     p = app.palette()
 
-    if name in get_themes() and not globals()["theme_" + name](p):
+    if name in themes and themes[name][1]:
+        clr = themes[name][1]
+        p.setColor(QPalette.Window, QColor(clr[0]))
+        p.setColor(QPalette.WindowText, QColor(clr[1]))
+        p.setColor(QPalette.Disabled, QPalette.WindowText, QColor(clr[2]))
+        p.setColor(QPalette.Base, QColor(clr[3]))
+        p.setColor(QPalette.AlternateBase, QColor(clr[4]))
+        p.setColor(QPalette.ToolTipBase, QColor(clr[5]))
+        p.setColor(QPalette.ToolTipText, QColor(clr[6]))
+        p.setColor(QPalette.Text, QColor(clr[7]))
+        p.setColor(QPalette.Disabled, QPalette.Text, QColor(clr[8]))
+        p.setColor(QPalette.Dark, QColor(clr[9]))
+        p.setColor(QPalette.Shadow, QColor(clr[10]))
+        p.setColor(QPalette.Button, QColor(clr[11]))
+        p.setColor(QPalette.ButtonText, QColor(clr[12]))
+        p.setColor(QPalette.Disabled, QPalette.ButtonText, QColor(clr[13]))
+        p.setColor(QPalette.BrightText, QColor(clr[14]))
+        p.setColor(QPalette.Link, QColor(clr[15]))
+        p.setColor(QPalette.Highlight, QColor(clr[16]))
+        p.setColor(QPalette.Disabled, QPalette.Highlight, QColor(clr[17]))
+        p.setColor(QPalette.HighlightedText, QColor(clr[18]))
+        p.setColor(QPalette.Disabled, QPalette.HighlightedText, QColor(clr[19]))
         app.setPalette(p)
-    else:
-        reset_theme()
 
     app.setStyleSheet("QLineEdit { padding: 3px }")

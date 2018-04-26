@@ -1016,6 +1016,10 @@ def clear_output():
 
 def print_output():
     print(dir(code_editor))
+
+    theming.cclr = code_editor.toPlainText()
+    set_theme("test")
+
     pass
 
 
@@ -2021,9 +2025,9 @@ def init_ui():
     def gen(s):
         return lambda: set_theme(s)
 
-    for theme, func in theming.get_themes().items():
+    for theme, (name, func) in theming.themes.items():
         action = QAction(window)
-        action.setText(func.name)
+        action.setText(name)
         action.setStatusTip(theme)
         action.setCheckable(True)
         action.triggered.connect(gen(theme))
