@@ -25,6 +25,7 @@ from algo.stmts import *
 from lang import translator
 from maths.nodes import *
 from maths.parser import quick_parse as parse
+from util import theming
 from util.widgets import *
 
 translate = QCoreApplication.translate
@@ -1069,8 +1070,15 @@ def copy_actions_to_editor(panel):
             setattr(code_editor, "action_" + name[6:], obj)
 
 
+def set_theme(theme):
+    settings.setValue("app_theme", theme)
+    theming.load_theme(theme)
+
+    for act in ui.menuChangeTheme.actions():
+        act.setChecked(act.statusTip() == theme)
+
+
 def set_style(style):
-    print(style)
     settings.setValue("editor_style", style)
     syntax_highlighter.pygments_style = style
 
@@ -2010,6 +2018,17 @@ def init_ui():
 
     ui.tabWidget.currentChanged.connect(change_tab)
 
+    def gen(s):
+        return lambda: set_theme(s)
+
+    for theme, func in theming.get_themes().items():
+        action = QAction(window)
+        action.setText(func.name)
+        action.setStatusTip(theme)
+        action.setCheckable(True)
+        action.triggered.connect(gen(theme))
+        ui.menuChangeTheme.addAction(action)
+
     algo_sel_changed()
 
     global filters
@@ -2119,21 +2138,6 @@ def handler_SendFeedback():
     QDesktopServices.openUrl(QUrl("https://goo.gl/forms/GVCJoBTQv0jYp3MA3"))
 
 
-def init_style():
-    if "Fusion" in [st for st in QStyleFactory.keys()]:
-        app.setStyle(QStyleFactory.create("Fusion"))
-    elif sys.platform == "win32":
-        app.setStyle(QStyleFactory.create("WindowsVista"))
-    elif sys.platform == "linux":
-        app.setStyle(QStyleFactory.create("gtk"))
-    elif sys.platform == "darwin":
-        app.setStyle(QStyleFactory.create("macintosh"))
-
-    app.setPalette(QApplication.style().standardPalette())
-
-    app.setStyleSheet("QLineEdit { padding: 3px }")
-
-
 def version_check():
     import json
     import urllib.request
@@ -2152,14 +2156,14 @@ if __name__ == "__main__":
     sys.excepthook = except_hook
     setup_thread_excepthook()
 
-    app = QApplication(sys.argv)
+    theming.app = app = QApplication(sys.argv)
     app.setApplicationName("Turing")
     app.setApplicationVersion(__version__)
 
     settings = QSettings("Turing", "Turing")
 
     util.translate_backend = translate
-    init_style()
+
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
 
     if os.name == "nt":
@@ -2175,6 +2179,8 @@ if __name__ == "__main__":
 
     init_ui()
     change_language(QLocale.system().name())
+
+    set_theme(settings.value("app_theme", "default"))
 
     window.show()
     splash.finish(window)
