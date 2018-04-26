@@ -1017,8 +1017,8 @@ def clear_output():
 def print_output():
     print(dir(code_editor))
 
-    theming.cclr = code_editor.toPlainText()
-    set_theme("test")
+    theming.themes["devtest"] = (theming.themes["devtest"][0], code_editor.toPlainText().split("\n"))
+    set_theme("devtest")
 
     pass
 
