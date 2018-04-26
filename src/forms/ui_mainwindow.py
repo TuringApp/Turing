@@ -29,6 +29,15 @@ class Ui_MainWindow(object):
         self.tab_home.setObjectName("tab_home")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.tab_home)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.textBrowser = QtWidgets.QTextBrowser(self.tab_home)
+        self.textBrowser.setEnabled(True)
+        self.textBrowser.setAcceptDrops(False)
+        self.textBrowser.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.textBrowser.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.textBrowser.setLineWidth(1)
+        self.textBrowser.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByKeyboard|QtCore.Qt.LinksAccessibleByMouse)
+        self.textBrowser.setObjectName("textBrowser")
+        self.verticalLayout_3.addWidget(self.textBrowser)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/action/media/home.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.tabWidget.addTab(self.tab_home, icon1, "")
@@ -352,6 +361,7 @@ class Ui_MainWindow(object):
         self.menuTools = QtWidgets.QMenu(self.menubar)
         self.menuTools.setObjectName("menuTools")
         self.menuLanguage = QtWidgets.QMenu(self.menubar)
+        self.menuLanguage.setTitle("")
         icon35 = QtGui.QIcon()
         icon35.addPixmap(QtGui.QPixmap(":/action/media/language.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.menuLanguage.setIcon(icon35)
@@ -658,6 +668,8 @@ class Ui_MainWindow(object):
         self.actionResetZoom = QtWidgets.QAction(MainWindow)
         self.actionResetZoom.setIcon(icon11)
         self.actionResetZoom.setObjectName("actionResetZoom")
+        self.actionPersonnalis = QtWidgets.QAction(MainWindow)
+        self.actionPersonnalis.setObjectName("actionPersonnalis")
         self.menuRecent.addAction(self.actionClearRecent)
         self.menuFile.addAction(self.actionNew)
         self.menuFile.addAction(self.actionOpen)
@@ -696,6 +708,7 @@ class Ui_MainWindow(object):
         self.menuHelp.addSeparator()
         self.menuHelp.addAction(self.actionSendFeedback)
         self.menuHelp.addAction(self.actionAboutTuring)
+        self.menuChangeTheme.addAction(self.actionPersonnalis)
         self.menuView.addAction(self.actionShowToolbar)
         self.menuView.addAction(self.actionShowToolbarText)
         self.menuView.addSeparator()
@@ -737,7 +750,7 @@ class Ui_MainWindow(object):
         self.toolBar.addAction(self.actionSendFeedback)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
         self.txtInput.returnPressed.connect(self.btnSendInput.click)
         self.btnAlgo_ZoomIn.clicked.connect(self.actionZoomIn.trigger)
@@ -751,6 +764,15 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
+        self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\" bgcolor=\"#d6dbdf\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600; color:#ff3538;\">Welcome on </span><span style=\" font-size:16pt; font-weight:600; color:#0772ff;\">Turing</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt; font-weight:600; color:#0772ff;\"><br /></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt; font-weight:600; color:#0772ff;\"><br /></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><img src=\":/icon/media/icon_128.png\" />  </p></body></html>"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_home), _translate("MainWindow", "Home"))
         self.btnAlgo_Dupl.setText(_translate("MainWindow", "Duplicate Line", "shorter"))
         self.btnAlgo_Delete.setText(_translate("MainWindow", "Delete Line"))
@@ -864,5 +886,6 @@ class Ui_MainWindow(object):
         self.actionZoomIn.setText(_translate("MainWindow", "Zoom in"))
         self.actionZoomOut.setText(_translate("MainWindow", "Zoom out"))
         self.actionResetZoom.setText(_translate("MainWindow", "Reset zoom"))
+        self.actionPersonnalis.setText(_translate("MainWindow", "Personnalisé"))
 
 import turing_rc
