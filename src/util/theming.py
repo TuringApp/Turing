@@ -9,10 +9,11 @@ from util import translate
 app = QApplication
 
 themes = {
-    "default": (translate("Themes", "Default"), []),
-    "dark": (translate("Themes", "Dark"), ["#353535", "#ffffff", "#7f7f7f", "#2a2a2a", "#424242", "#ffffff", "#353535", "#ffffff", "#7f7f7f", "#232323", "#141414", "#353535", "#ffffff", "#7f7f7f", "#ff0000", "#2a82da", "#2a82da", "#505050", "#ffffff", "#7f7f7f"]),
-    "darkblue": (translate("Themes", "Dark blue"), ['#43505d', '#ebebeb', '#b0bec5', '#78909c', '#607d8b', '#ffffdc', '#ebebeb', '#ebebeb', '#bebebe', '#b0bec5', '#263238', '#4e5d6c', '#ebebeb', '#b0bec5', '#eceff1', '#df691a', '#308cc6', '#607d8b', '#ffffff', '#ffffff']),
-    "devtest": ("DEVTEST", [])
+    "default": (lambda: translate("Themes", "Default"), []),
+    "dark": (lambda: translate("Themes", "Dark"), ["#353535", "#ffffff", "#7f7f7f", "#2a2a2a", "#424242", "#ffffff", "#353535", "#ffffff", "#7f7f7f", "#232323", "#141414", "#353535", "#ffffff", "#7f7f7f", "#ff0000", "#2a82da", "#2a82da", "#505050", "#ffffff", "#7f7f7f"]),
+    "darkblue": (lambda: translate("Themes", "Dark blue"), ['#43505d', '#ebebeb', '#b0bec5', '#78909c', '#607d8b', '#ffffdc', '#ebebeb', '#ebebeb', '#bebebe', '#b0bec5', '#263238', '#4e5d6c', '#ebebeb', '#b0bec5', '#eceff1', '#df691a', '#308cc6', '#607d8b', '#ffffff', '#ffffff']),
+    "devtest": (lambda: "DEVTEST", []),
+    "custom": (lambda: translate("Themes", "Custom"), [])
 }
 
 

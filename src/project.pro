@@ -50,6 +50,7 @@ SOURCES += \
     forms\alg_stop.py \
     forms\alg_while.py \
     forms\calculator.py \
+    forms\changtheme.py \
     forms\help.py \
     forms\inline_code_dialog.py \
     forms\inline_code_editor.py \
@@ -71,6 +72,7 @@ SOURCES += \
     forms\ui_alg_stop.py \
     forms\ui_alg_while.py \
     forms\ui_calculator.py \
+    forms\ui_changtheme.py \
     forms\ui_help.py \
     forms\ui_inline_code.py \
     forms\ui_mainwindow.py \
@@ -137,6 +139,7 @@ FORMS += \
     forms\ui_alg_stop.ui \
     forms\ui_alg_while.ui \
     forms\ui_calculator.ui \
+    forms\ui_changtheme.ui \
     forms\ui_help.ui \
     forms\ui_inline_code.ui \
     forms\ui_mainwindow.ui \

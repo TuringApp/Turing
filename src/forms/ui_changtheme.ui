@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ChangeThemeWindow</class>
+ <widget class="QDialog" name="ChangeThemeWindow">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>503</width>
+    <height>353</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Edit theme</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../turing.qrc">
+    <normaloff>:/action/media/settings.png</normaloff>:/action/media/settings.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_01">
+       <property name="text">
+        <string>Window :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>80</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="btnCodeColor_01">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="txtColor_01"/>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_16">
+       <property name="text">
+        <string>Shadow :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLineEdit" name="txtColor_11"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="txtColor_02"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="txtColor_03"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="txtColor_04"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="txtColor_05"/>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="txtColor_06"/>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="txtColor_07"/>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="txtColor_08"/>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLineEdit" name="txtColor_09"/>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLineEdit" name="txtColor_10"/>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="btnCodeColor_02">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QPushButton" name="btnCodeColor_03">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QPushButton" name="btnCodeColor_04">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QPushButton" name="btnCodeColor_05">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QPushButton" name="btnCodeColor_06">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QPushButton" name="btnCodeColor_07">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2">
+      <widget class="QPushButton" name="btnCodeColor_08">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="2">
+      <widget class="QPushButton" name="btnCodeColor_09">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="2">
+      <widget class="QPushButton" name="btnCodeColor_10">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6">
+      <widget class="QPushButton" name="btnCodeColor_11">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLabel" name="label_17">
+       <property name="text">
+        <string>Button :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_12</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLabel" name="label_18">
+       <property name="text">
+        <string>Button Text :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_12</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QLabel" name="label_19">
+       <property name="text">
+        <string>Disabled
+Button Text :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_14</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="4">
+      <widget class="QLabel" name="label_20">
+       <property name="text">
+        <string>Bright Text :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_15</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="5">
+      <widget class="QLineEdit" name="txtColor_12"/>
+     </item>
+     <item row="2" column="5">
+      <widget class="QLineEdit" name="txtColor_13"/>
+     </item>
+     <item row="3" column="5">
+      <widget class="QLineEdit" name="txtColor_14"/>
+     </item>
+     <item row="4" column="5">
+      <widget class="QLineEdit" name="txtColor_15"/>
+     </item>
+     <item row="5" column="5">
+      <widget class="QLineEdit" name="txtColor_16"/>
+     </item>
+     <item row="6" column="5">
+      <widget class="QLineEdit" name="txtColor_17"/>
+     </item>
+     <item row="7" column="5">
+      <widget class="QLineEdit" name="txtColor_18"/>
+     </item>
+     <item row="8" column="5">
+      <widget class="QLineEdit" name="txtColor_19"/>
+     </item>
+     <item row="9" column="5">
+      <widget class="QLineEdit" name="txtColor_20"/>
+     </item>
+     <item row="1" column="6">
+      <widget class="QPushButton" name="btnCodeColor_12">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="6">
+      <widget class="QPushButton" name="btnCodeColor_13">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="6">
+      <widget class="QPushButton" name="btnCodeColor_14">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="6">
+      <widget class="QPushButton" name="btnCodeColor_15">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="6">
+      <widget class="QPushButton" name="btnCodeColor_16">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="6">
+      <widget class="QPushButton" name="btnCodeColor_17">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="6">
+      <widget class="QPushButton" name="btnCodeColor_18">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="6">
+      <widget class="QPushButton" name="btnCodeColor_19">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="6">
+      <widget class="QPushButton" name="btnCodeColor_20">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../turing.qrc">
+         <normaloff>:/action/media/color_wheel.png</normaloff>:/action/media/color_wheel.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="4">
+      <widget class="QLabel" name="label_21">
+       <property name="text">
+        <string>Link :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_15</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="4">
+      <widget class="QLabel" name="label_22">
+       <property name="text">
+        <string>Highlight :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_15</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="4">
+      <widget class="QLabel" name="label_23">
+       <property name="text">
+        <string>Disabled
+Highlight :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_15</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="4">
+      <widget class="QLabel" name="label_24">
+       <property name="text">
+        <string>Highlighted Text :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_15</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="4">
+      <widget class="QLabel" name="label_25">
+       <property name="text">
+        <string>Disabled
+Highlighted Text :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_15</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_02">
+       <property name="text">
+        <string>Window Text :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_03">
+       <property name="text">
+        <string>Disabled
+window Text : </string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_04">
+       <property name="text">
+        <string>Base :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_05">
+       <property name="text">
+        <string>Alternate Base :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_06">
+       <property name="text">
+        <string>Tool Tip Base :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_07">
+       <property name="text">
+        <string>Tool Tip Text :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_08">
+       <property name="text">
+        <string>Text :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_09">
+       <property name="text">
+        <string>Disabled
+Text :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Dark :</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtColor_11</cstring>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../turing.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>ChangeThemeWindow</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>238</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>238</x>
+     <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ChangeThemeWindow</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>238</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>238</x>
+     <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

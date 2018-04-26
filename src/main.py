@@ -334,6 +334,11 @@ def handler_Calculator():
     from forms import calculator
     calculator.CalculatorWindow()
 
+def handler_ChangTheme():
+    from forms import changtheme
+    dlg = changtheme.ChangeThemeWindow(window)
+    if dlg.run():
+        pass
 
 def handler_HelpContents():
     from forms import help
@@ -2025,9 +2030,8 @@ def init_ui():
     def gen(s):
         return lambda: set_theme(s)
 
-    for theme, (name, func) in theming.themes.items():
+    for theme in theming.themes:
         action = QAction(window)
-        action.setText(name)
         action.setStatusTip(theme)
         action.setCheckable(True)
         action.triggered.connect(gen(theme))

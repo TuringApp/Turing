@@ -54,6 +54,9 @@
           <property name="acceptDrops">
            <bool>false</bool>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
           </property>
@@ -676,7 +679,8 @@ p, li { white-space: pre-wrap; }
       <iconset resource="../turing.qrc">
        <normaloff>:/action/media/theme.png</normaloff>:/action/media/theme.png</iconset>
      </property>
-     <addaction name="actionPersonnalis"/>
+     <addaction name="actionChangTheme"/>
+     <addaction name="separator"/>
     </widget>
     <widget class="QMenu" name="menuChangeStyle">
      <property name="title">
@@ -1443,9 +1447,9 @@ p, li { white-space: pre-wrap; }
     <string>Reset zoom</string>
    </property>
   </action>
-  <action name="actionPersonnalis">
+  <action name="actionChangTheme">
    <property name="text">
-    <string>Personnalisé</string>
+    <string>Edit theme</string>
    </property>
   </action>
  </widget>
