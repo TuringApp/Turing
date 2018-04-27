@@ -418,7 +418,7 @@ class Ui_ChangeThemeWindow(object):
         self.label_25.setText(_translate("ChangeThemeWindow", "Disabled\n"
 "Highlighted Text:"))
         self.label_03.setText(_translate("ChangeThemeWindow", "Disabled\n"
-"window Text : "))
+"Window Text :"))
         self.label_05.setText(_translate("ChangeThemeWindow", "Alternate Base:"))
         self.label_04.setText(_translate("ChangeThemeWindow", "Base:"))
         self.label_02.setText(_translate("ChangeThemeWindow", "Window Text:"))

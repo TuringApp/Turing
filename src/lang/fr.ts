@@ -693,132 +693,143 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_changtheme.py" line="401"/>
         <source>Edit theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="420"/>
-        <source>Disabled
-window Text : </source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier le thème</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="402"/>
         <source>Block:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloc :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="403"/>
         <source>Comment:</source>
-        <translation type="unfinished">Commentaire :</translation>
+        <translation>Commentaire :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="404"/>
         <source>Keyword:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mot-clé :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="405"/>
         <source>Literal:</source>
-        <translation type="unfinished"></translation>
+        <translation>Valeur :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="406"/>
         <source>Window:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenêtre :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="407"/>
         <source>Shadow:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ombre :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="408"/>
         <source>Button:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bouton :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="409"/>
         <source>Button Text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte de bouton :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="410"/>
         <source>Disabled
 Button Text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte de bouton
+désactivé :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="412"/>
         <source>Bright Text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte clair :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="413"/>
         <source>Disabled
 Highlight:</source>
-        <translation type="unfinished"></translation>
+        <translation>Surligné
+désactivé :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="415"/>
         <source>Highlight:</source>
-        <translation type="unfinished"></translation>
+        <translation>Surligné :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="416"/>
         <source>Highlighted Text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte surligné :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="417"/>
         <source>Link:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lien :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="418"/>
         <source>Disabled
 Highlighted Text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte surligné
+désactivé :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="422"/>
         <source>Alternate Base:</source>
-        <translation type="unfinished"></translation>
+        <translation>Base alternative :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="423"/>
         <source>Base:</source>
-        <translation type="unfinished"></translation>
+        <translation>Base :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="424"/>
         <source>Window Text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte de fenêtre :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="425"/>
         <source>Dark:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sombre :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="426"/>
         <source>Disabled
 Text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte désactivé :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="428"/>
         <source>Tool Tip Text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte d&apos;infobulle :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="429"/>
         <source>Text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="430"/>
         <source>Tool Tip Base:</source>
-        <translation type="unfinished"></translation>
+        <translation>Base d&apos;infobulle :</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="420"/>
+        <source>Disabled
+Window Text : </source>
+        <translation type="obsolete">Texte de fenêtre
+désactivé :</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="420"/>
+        <source>Disabled
+Window Text :</source>
+        <translation>Texte de fenêtre
+désactivé :</translation>
     </message>
 </context>
 <context>
@@ -2190,7 +2201,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="891"/>
         <source>Edit theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier le thème</translation>
     </message>
 </context>
 <context>
@@ -2236,22 +2247,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../util/theming.py" line="18"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Par défaut</translation>
     </message>
     <message>
         <location filename="../util/theming.py" line="19"/>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Sombre</translation>
     </message>
     <message>
         <location filename="../util/theming.py" line="20"/>
         <source>Dark blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Bleu foncé</translation>
     </message>
     <message>
         <location filename="../util/theming.py" line="22"/>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Personnalisé</translation>
     </message>
 </context>
 <context>

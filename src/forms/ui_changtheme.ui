@@ -573,7 +573,7 @@ Highlighted Text:</string>
       <widget class="QLabel" name="label_03">
        <property name="text">
         <string>Disabled
-window Text : </string>
+Window Text :</string>
        </property>
        <property name="buddy">
         <cstring>txtColor_11</cstring>

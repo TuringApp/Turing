@@ -682,12 +682,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="420"/>
-        <source>Disabled
-window Text : </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../forms/ui_changtheme.py" line="402"/>
         <source>Block:</source>
         <translation type="unfinished"></translation>
@@ -804,6 +798,12 @@ Text:</source>
     <message>
         <location filename="../forms/ui_changtheme.py" line="430"/>
         <source>Tool Tip Base:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="420"/>
+        <source>Disabled
+Window Text :</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1508,7 +1508,7 @@ Text:</source>
     <message>
         <location filename="../forms/ui_help.py" line="68"/>
         <source>Help Contents</source>
-        <translation type="unfinished"></translation>
+        <translation>Sommario Guida</translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="57"/>
@@ -1523,7 +1523,7 @@ Text:</source>
     <message>
         <location filename="../forms/help.py" line="71"/>
         <source>default = {deft}</source>
-        <translation type="unfinished"></translation>
+        <translation>difetto = {deft}</translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="86"/>
@@ -1845,7 +1845,7 @@ Text:</source>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="851"/>
         <source>Help Contents</source>
-        <translation type="unfinished"></translation>
+        <translation>Sommario Guida</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="853"/>
@@ -2218,7 +2218,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../util/theming.py" line="18"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Difetto</translation>
     </message>
     <message>
         <location filename="../util/theming.py" line="19"/>
@@ -2233,7 +2233,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../util/theming.py" line="22"/>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Personalizzata</translation>
     </message>
 </context>
 <context>

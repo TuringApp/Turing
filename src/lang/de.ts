@@ -682,12 +682,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="420"/>
-        <source>Disabled
-window Text : </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../forms/ui_changtheme.py" line="402"/>
         <source>Block:</source>
         <translation type="unfinished"></translation>
@@ -804,6 +798,12 @@ Text:</source>
     <message>
         <location filename="../forms/ui_changtheme.py" line="430"/>
         <source>Tool Tip Base:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="420"/>
+        <source>Disabled
+Window Text :</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2128,7 +2128,7 @@ All unsaved changes will be lost.</source>
     <message>
         <location filename="../main.py" line="2077"/>
         <source>Python file (*.py)</source>
-        <translation type="unfinished"></translation>
+        <translation>Python Dateien (*.py)</translation>
     </message>
     <message>
         <location filename="../main.py" line="2078"/>
@@ -2138,7 +2138,7 @@ All unsaved changes will be lost.</source>
     <message>
         <location filename="../main.py" line="2079"/>
         <source>Algobox file (*.alg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Algobox Dateien (*.alg)</translation>
     </message>
     <message>
         <location filename="../main.py" line="2243"/>
@@ -2219,7 +2219,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../util/theming.py" line="18"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <location filename="../util/theming.py" line="19"/>
@@ -2234,7 +2234,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../util/theming.py" line="22"/>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzerdefiniert</translation>
     </message>
 </context>
 <context>
