@@ -336,9 +336,18 @@ def handler_Calculator():
 
 def handler_ChangTheme():
     from forms import changtheme
-    dlg = changtheme.ChangeThemeWindow(window)
+    backup = settings.value("app_theme")
+    dlg = changtheme.ChangeThemeWindow(window, theming.themes[backup][1])
+    dlg.theme_callback = lambda: set_theme("custom")
+
     if dlg.run():
-        pass
+        settings.setValue("custom_theme", theming.themes["custom"][1])
+        for act in ui.menuChangeTheme.actions():
+            if act.statusTip() == "custom":
+                act.setVisible(True)
+                break
+    else:
+        set_theme(backup)
 
 def handler_HelpContents():
     from forms import help
@@ -991,6 +1000,12 @@ def fix_tabwidget_width():
     ui.widget.setMaximumWidth(width)
 
 
+def refresh_locs():
+    for act in ui.menuChangeTheme.actions():
+        if act.statusTip():
+            act.setText(theming.themes[act.statusTip()][0]())
+
+
 def change_language(language: str):
     available = lng_actions.keys()
     if language not in available and util.get_short_lang(language) not in available:
@@ -1002,6 +1017,7 @@ def change_language(language: str):
         a.setChecked(l in [language, util.get_short_lang(language)])
     fix_qt_shitty_margins()
     fix_tabwidget_width()
+    refresh_locs()
     refresh()
 
 
@@ -1080,6 +1096,9 @@ def copy_actions_to_editor(panel):
 
 
 def set_theme(theme):
+    if theme not in theming.themes or not theming.themes[theme][1]:
+        theme = "default"
+
     settings.setValue("app_theme", theme)
     theming.load_theme(theme)
 
@@ -2037,6 +2056,9 @@ def init_ui():
         action.triggered.connect(gen(theme))
         ui.menuChangeTheme.addAction(action)
 
+        if theme == "custom":
+            action.setVisible(bool(theming.themes["custom"][1]))
+
     algo_sel_changed()
 
     global filters
@@ -2184,6 +2206,11 @@ if __name__ == "__main__":
     splash = QSplashScreen(QPixmap(":/icon/media/icon_128.png"), Qt.WindowStaysOnTopHint)
     splash.show()
     app.processEvents()
+
+    try:
+        theming.themes["custom"] = (theming.themes["custom"][0], settings.value("custom_theme", [], type=list))
+    except:
+        pass
 
     init_ui()
     change_language(QLocale.system().name())

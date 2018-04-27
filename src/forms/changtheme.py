@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
-from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_changtheme import Ui_ChangeThemeWindow
-from maths.nodes import *
-from maths.parser import quick_parse as parse
-from util.code import try_parse
-from util.widgets import center_widget, get_themed_box, msg_box_error
 from util import theming
-import main
+from util.widgets import center_widget
 
 translate = QCoreApplication.translate
 
@@ -43,7 +39,6 @@ class ChangeThemeWindow(QDialog):
     def apply_theme(self):
         colors = [getattr(self.ui, "txtColor_%02d" % (i + 1)).text() for i in range(20)]
         theming.themes["custom"] = (theming.themes["custom"][0], colors)
-        main.set_theme("custom")
         self.theme_callback()
 
 
@@ -57,7 +52,7 @@ class ChangeThemeWindow(QDialog):
 
     def change_color(self, wgt):
         dlg = QColorDialog(self)
-        #dlg.setCurrentColor(QColor(wgt.text()))
+        dlg.setCurrentColor(QColor(wgt.text()))
         if dlg.exec_():
             wgt.setText(dlg.currentColor().name())
 
