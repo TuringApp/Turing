@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5.QtCore import *
+from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import *
 
 from forms.inline_code_dialog import InlineCodeDialog
@@ -82,7 +83,10 @@ class AlgoGLineStmt(QDialog):
 
     def change_color(self, _):
         dlg = QColorDialog(self)
-
+        current = self.ui.txtColor.text()
+        if current[0] == current[-1] == '"':
+            current = current[1:-1]
+        dlg.setCurrentColor(QColor(current))
         if dlg.exec_():
             self.ui.txtColor.setText('"%s"' % dlg.currentColor().name())
 

@@ -203,7 +203,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/alg_gfunc.py" line="45"/>
+        <location filename="../forms/alg_gfunc.py" line="46"/>
         <source>Invalid variable name: {name}</source>
         <translation type="unfinished"></translation>
     </message>
