@@ -2231,9 +2231,14 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/theming.py" line="22"/>
+        <location filename="../util/theming.py" line="23"/>
         <source>Custom</source>
         <translation>自定</translation>
+    </message>
+    <message>
+        <location filename="../util/theming.py" line="21"/>
+        <source>Dark green</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

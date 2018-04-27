@@ -18,6 +18,7 @@ themes = {
     "default": (translate("Themes", "Default"), []),
     "dark": (translate("Themes", "Dark"), ["#353535", "#ffffff", "#7f7f7f", "#2a2a2a", "#424242", "#ffffff", "#353535", "#ffffff", "#7f7f7f", "#232323", "#141414", "#353535", "#ffffff", "#7f7f7f", "#ff0000", "#2a82da", "#2a82da", "#505050", "#ffffff", "#7f7f7f", "#ff5864", "#969696", "#45c0ef", "#fd861e"]),
     "darkblue": (translate("Themes", "Dark blue"), ['#43505d', '#ebebeb', '#b0bec5', '#78909c', '#607d8b', '#ffffdc', '#ebebeb', '#ebebeb', '#bebebe', '#b0bec5', '#263238', '#4e5d6c', '#ebebeb', '#b0bec5', '#eceff1', '#df691a', '#308cc6', '#607d8b', '#ffffff', '#ffffff', "#eb932f", "#7cfc00", "#00ecec", "#ff7da6"]),
+    "darkgreen": (translate("Themes", "Dark green"), ["#435d4d", "#ebebeb", "#b0c5b6", "#789c81", "#608c69", "#ffffdc", "#ebebeb", "#ebebeb", "#bebebe", "#b0c5b6", "#263826", "#546c4e", "#ebebeb", "#b0c5b6", "#edf1ec", "#df691a", "#308cc6", "#607d8b", "#ffffff", "#ffffff", "#bad086", "#f2fee7", "#7cf000", "#00ef0f"]),
     "devtest": (lambda: "DEVTEST", []),
     "custom": (translate("Themes", "Custom"), [])
 }
