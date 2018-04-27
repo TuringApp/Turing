@@ -37,7 +37,7 @@ class ChangeThemeWindow(QDialog):
 
 
     def apply_theme(self):
-        colors = [getattr(self.ui, "txtColor_%02d" % (i + 1)).text() for i in range(20)]
+        colors = [getattr(self.ui, "txtColor_%02d" % (i + 1)).text() for i in range(24)]
         theming.themes["custom"] = (theming.themes["custom"][0], colors)
         self.theme_callback()
 

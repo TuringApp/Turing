@@ -38,117 +38,117 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algo</name>
     <message>
-        <location filename="../main.py" line="1712"/>
+        <location filename="../main.py" line="1714"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1715"/>
+        <location filename="../main.py" line="1717"/>
         <source>[k]BREAK[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1718"/>
+        <location filename="../main.py" line="1720"/>
         <source>[k]CONTINUE[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1721"/>
+        <location filename="../main.py" line="1723"/>
         <source>[b]ELSE[/b]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1724"/>
+        <location filename="../main.py" line="1726"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1727"/>
+        <location filename="../main.py" line="1729"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1730"/>
+        <location filename="../main.py" line="1732"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1735"/>
+        <location filename="../main.py" line="1737"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1737"/>
+        <location filename="../main.py" line="1739"/>
         <source>[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1742"/>
+        <location filename="../main.py" line="1744"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1745"/>
+        <location filename="../main.py" line="1747"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1746"/>
+        <location filename="../main.py" line="1748"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1752"/>
+        <location filename="../main.py" line="1754"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1756"/>
+        <location filename="../main.py" line="1758"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1760"/>
+        <location filename="../main.py" line="1762"/>
         <source>[k]STOP[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1764"/>
+        <location filename="../main.py" line="1766"/>
         <source>[k]WAIT[/k] [c]{val}[/c] [k]SECONDS[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1770"/>
+        <location filename="../main.py" line="1772"/>
         <source>[k]CLEAR PLOT[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1773"/>
+        <location filename="../main.py" line="1775"/>
         <source>[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1783"/>
+        <location filename="../main.py" line="1785"/>
         <source>[k]DRAW POINT[/k] [c]{color}[/c] [k]AT[/k] ([c]{x}[/c]; [c]{y}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1790"/>
+        <location filename="../main.py" line="1792"/>
         <source>[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1801"/>
+        <location filename="../main.py" line="1803"/>
         <source>[k]PLOT FUNCTION[/k] [c]{color}[/c] [i]f[/i]({var}) = [c]{expr}[/c] [k]FROM[/k] [c]{begin}[/c] [k]TO[/k] [c]{end}[/c] [k]STEP[/k] [c]{step}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1812"/>
+        <location filename="../main.py" line="1814"/>
         <source>[b]PROGRAM[/b]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1815"/>
+        <location filename="../main.py" line="1817"/>
         <source>[i]empty[/i]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -677,113 +677,133 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ChangeThemeWindow</name>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="302"/>
+        <location filename="../forms/ui_changtheme.py" line="401"/>
         <source>Edit theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="303"/>
-        <source>Window :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="304"/>
-        <source>Shadow :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="305"/>
-        <source>Button :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="306"/>
-        <source>Button Text :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="307"/>
-        <source>Disabled
-Button Text :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="309"/>
-        <source>Bright Text :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="310"/>
-        <source>Link :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="311"/>
-        <source>Highlight :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="312"/>
-        <source>Disabled
-Highlight :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="314"/>
-        <source>Highlighted Text :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="315"/>
-        <source>Disabled
-Highlighted Text :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="317"/>
-        <source>Window Text :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="318"/>
+        <location filename="../forms/ui_changtheme.py" line="420"/>
         <source>Disabled
 window Text : </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="320"/>
-        <source>Base :</source>
+        <location filename="../forms/ui_changtheme.py" line="402"/>
+        <source>Block:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="321"/>
-        <source>Alternate Base :</source>
+        <location filename="../forms/ui_changtheme.py" line="403"/>
+        <source>Comment:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="322"/>
-        <source>Tool Tip Base :</source>
+        <location filename="../forms/ui_changtheme.py" line="404"/>
+        <source>Keyword:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="323"/>
-        <source>Tool Tip Text :</source>
+        <location filename="../forms/ui_changtheme.py" line="405"/>
+        <source>Literal:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="324"/>
-        <source>Text :</source>
+        <location filename="../forms/ui_changtheme.py" line="406"/>
+        <source>Window:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="325"/>
+        <location filename="../forms/ui_changtheme.py" line="407"/>
+        <source>Shadow:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="408"/>
+        <source>Button:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="409"/>
+        <source>Button Text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="410"/>
         <source>Disabled
-Text :</source>
+Button Text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="327"/>
-        <source>Dark :</source>
+        <location filename="../forms/ui_changtheme.py" line="412"/>
+        <source>Bright Text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="413"/>
+        <source>Disabled
+Highlight:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="415"/>
+        <source>Highlight:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="416"/>
+        <source>Highlighted Text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="417"/>
+        <source>Link:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="418"/>
+        <source>Disabled
+Highlighted Text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="422"/>
+        <source>Alternate Base:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="423"/>
+        <source>Base:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="424"/>
+        <source>Window Text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="425"/>
+        <source>Dark:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="426"/>
+        <source>Disabled
+Text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="428"/>
+        <source>Tool Tip Text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="429"/>
+        <source>Text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_changtheme.py" line="430"/>
+        <source>Tool Tip Base:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2100,38 +2120,38 @@ All unsaved changes will be lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="1177"/>
+        <location filename="../main.py" line="1179"/>
         <source>{num} matches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2074"/>
+        <location filename="../main.py" line="2076"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2075"/>
+        <location filename="../main.py" line="2077"/>
         <source>Python file (*.py)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2076"/>
+        <location filename="../main.py" line="2078"/>
         <source>Turing program (*.tr)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2077"/>
+        <location filename="../main.py" line="2079"/>
         <source>Algobox file (*.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2241"/>
+        <location filename="../main.py" line="2243"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.py" line="2252"/>
+        <location filename="../main.py" line="2254"/>
         <source>A modified file has been automatically saved.
 Would you like to recover it?</source>
         <translation type="unfinished"></translation>
@@ -2196,22 +2216,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Themes</name>
     <message>
-        <location filename="../util/theming.py" line="15"/>
+        <location filename="../util/theming.py" line="18"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/theming.py" line="16"/>
+        <location filename="../util/theming.py" line="19"/>
         <source>Dark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/theming.py" line="17"/>
+        <location filename="../util/theming.py" line="20"/>
         <source>Dark blue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/theming.py" line="19"/>
+        <location filename="../util/theming.py" line="22"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>

@@ -11,10 +11,13 @@ app = QApplication
 def translate(ctx, str):
     return lambda: translate_wrapper(ctx, str)
 
+default_algo_colors = ["darkred", "darkgreen", "blue", "#cb4b16"]
+algo_colors = default_algo_colors
+
 themes = {
     "default": (translate("Themes", "Default"), []),
-    "dark": (translate("Themes", "Dark"), ["#353535", "#ffffff", "#7f7f7f", "#2a2a2a", "#424242", "#ffffff", "#353535", "#ffffff", "#7f7f7f", "#232323", "#141414", "#353535", "#ffffff", "#7f7f7f", "#ff0000", "#2a82da", "#2a82da", "#505050", "#ffffff", "#7f7f7f"]),
-    "darkblue": (translate("Themes", "Dark blue"), ['#43505d', '#ebebeb', '#b0bec5', '#78909c', '#607d8b', '#ffffdc', '#ebebeb', '#ebebeb', '#bebebe', '#b0bec5', '#263238', '#4e5d6c', '#ebebeb', '#b0bec5', '#eceff1', '#df691a', '#308cc6', '#607d8b', '#ffffff', '#ffffff']),
+    "dark": (translate("Themes", "Dark"), ["#353535", "#ffffff", "#7f7f7f", "#2a2a2a", "#424242", "#ffffff", "#353535", "#ffffff", "#7f7f7f", "#232323", "#141414", "#353535", "#ffffff", "#7f7f7f", "#ff0000", "#2a82da", "#2a82da", "#505050", "#ffffff", "#7f7f7f", "#ff5864", "#969696", "#45c0ef", "#fd861e"]),
+    "darkblue": (translate("Themes", "Dark blue"), ['#43505d', '#ebebeb', '#b0bec5', '#78909c', '#607d8b', '#ffffdc', '#ebebeb', '#ebebeb', '#bebebe', '#b0bec5', '#263238', '#4e5d6c', '#ebebeb', '#b0bec5', '#eceff1', '#df691a', '#308cc6', '#607d8b', '#ffffff', '#ffffff', "#eb932f", "#7cfc00", "#00ecec", "#ff7da6"]),
     "devtest": (lambda: "DEVTEST", []),
     "custom": (translate("Themes", "Custom"), [])
 }
@@ -35,6 +38,8 @@ def init_theming():
 
 def reset_theme():
     init_theming()
+    global algo_colors
+    algo_colors = default_algo_colors
 
 
 def load_theme(name):
@@ -65,5 +70,7 @@ def load_theme(name):
         p.setColor(QPalette.HighlightedText, QColor(clr[18]))
         p.setColor(QPalette.Disabled, QPalette.HighlightedText, QColor(clr[19]))
         app.setPalette(p)
+        global algo_colors
+        algo_colors = clr[20:24]
 
     app.setStyleSheet("QLineEdit { padding: 3px }")

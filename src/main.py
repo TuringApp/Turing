@@ -93,10 +93,10 @@ algo = BlockStmt([])
 item_map = {}
 root_item = None
 
-block_html = '<span style="color:darkred;font-weight:bold">'
-keyword_html = '<span style="color:blue;font-weight:bold">'
-comment_html = '<span style="color:darkgreen;font-style:italic">'
-red_html = '<span style="color:#cb4b16">'
+block_html = lambda: '<span style="color:%s;font-weight:bold">' % theming.algo_colors[0]
+comment_html = lambda: '<span style="color:%s;font-style:italic">' % theming.algo_colors[1]
+keyword_html = lambda: '<span style="color:%s;font-weight:bold">' % theming.algo_colors[2]
+red_html = lambda: '<span style="color:%s">' % theming.algo_colors[3]
 
 running = False
 run_started = None
@@ -1105,6 +1105,8 @@ def set_theme(theme):
     for act in ui.menuChangeTheme.actions():
         act.setChecked(act.statusTip() == theme)
 
+    refresh_algo()
+
 
 def set_style(style):
     settings.setValue("editor_style", style)
@@ -1809,15 +1811,15 @@ def str_stmt(stmt):
     else:
         ret = "unimpl %s" % stmt
 
-    ret = ret.replace("[b]", block_html).replace("[/b]", "</span>")
-    ret = ret.replace("[k]", keyword_html).replace("[/k]", "</span>")
+    ret = ret.replace("[b]", block_html()).replace("[/b]", "</span>")
+    ret = ret.replace("[k]", keyword_html()).replace("[/k]", "</span>")
     ret = ret.replace("[c]", "<code>").replace("[/c]", "</code>")
     ret = ret.replace("[i]", "<i>").replace("[/i]", "</i>")
-    ret = ret.replace("[t]", comment_html).replace("[/t]", "</span>")
+    ret = ret.replace("[t]", comment_html()).replace("[/t]", "</span>")
 
     ret = ret.replace("[g]", "<b>").replace("[/g]", "</b>")
-    ret = ret.replace("[n]", "<i>" + red_html).replace("[/n]", "</span></i>")
-    ret = ret.replace("[s]", red_html).replace("[/s]", "</span>")
+    ret = ret.replace("[n]", "<i>" + red_html()).replace("[/n]", "</span></i>")
+    ret = ret.replace("[s]", red_html()).replace("[/s]", "</span>")
 
     ret = util.html.unescape_brackets(ret)
     ret = ret.replace("  ", " ")
