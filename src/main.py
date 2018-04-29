@@ -118,6 +118,7 @@ def sleep(duration):
 
 def sleep_seconds(duration):
     sleep(float(duration))
+    update_plot()
 
 
 def is_empty():
@@ -216,6 +217,7 @@ def get_action(name: str) -> QAction:
 
 
 def refresh():
+    update_plot()
     refresh_buttons_status()
     if not mode_python:
         refresh_algo()
@@ -377,6 +379,7 @@ def update_output():
     ui.txtOutput.ensureCursorVisible()
     if current_output.endswith("\n\n"):
         current_output = current_output[:-1]
+    update_plot()
 
 
 def check_stop():
@@ -386,7 +389,7 @@ def check_stop():
 
 def python_input(prompt="", globals=None, locals=None):
     python_print(prompt, end="")
-
+    update_plot()
     global after_output
     after_output = "<hr>"
     after_output += util.html.centered(
@@ -456,8 +459,9 @@ def python_print_error(msg, end="\n"):
 
 
 def update_plot():
-    plot_axes.grid(linestyle='-')
-    plot_canvas.draw()
+    if plot_axes is not None and plot_canvas is not None:
+        plot_axes.grid(linestyle='-')
+        plot_canvas.draw()
 
 
 def g_clear():
@@ -472,17 +476,17 @@ def g_window(xmin, xmax, ymin, ymax, xgrad=1, ygrad=1):
     plot_axes.set_ylim(ymin, ymax)
     # plot_axes.set_xticks(range(xmin, xmax, xgrad))
     # plot_axes.set_yticks(range(ymin, ymax, ygrad))
-    update_plot()
+    #update_plot()
 
 
 def g_point(x, y, color="red"):
     plot_axes.scatter([x], [y], c=color)
-    update_plot()
+    #update_plot()
 
 
 def g_line(startx, starty, endx, endy, color="red"):
     plot_axes.plot([startx, endx], [starty, endy], c=color, linestyle="-", marker="o")
-    update_plot()
+    #update_plot()
 
 
 def g_func(func, start, end, step, color="red"):
@@ -658,9 +662,12 @@ def handler_Step():
                     set_current_line(current_stmt)
             else:
                 stopped = False
+
+        update_plot()
     except:
         show_error()
     finally:
+        update_plot()
         if worker.finished:
             ui.actionRun.setDisabled(False)
             end_output()
@@ -729,6 +736,7 @@ def handler_Run(flag=False):
                     "g_line": g_line,
                     "g_func": g_func
                 })
+                update_plot()
             except SyntaxError as err:
                 msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
                     type=type(err).__name__, line=err.lineno - 10, off=err.offset)
@@ -740,6 +748,7 @@ def handler_Run(flag=False):
                 python_print_error(html.escape(str(sys.exc_info()[1])))
             finally:
                 os.unlink(file.name)
+                update_plot()
         else:
             if not running:
                 init_worker()
@@ -767,6 +776,7 @@ def handler_Run(flag=False):
     except:
         show_error()
     finally:
+        update_plot()
         if not mode_python and worker.stopped:
             ui.actionStep.setDisabled(False)
             ui.actionDebug.setDisabled(False)
