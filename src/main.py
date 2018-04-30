@@ -1001,7 +1001,7 @@ def load_languages():
 
 def fix_tabwidget_width():
     ui.tabWidget_2.setMinimumWidth(
-        sum(ui.tabWidget_2.tabBar().tabSizeHint(x).width() for x in range(ui.tabWidget_2.count())))
+        sum(ui.tabWidget_2.tabBar().tabRect(x).width() for x in range(ui.tabWidget_2.count())))
     ui.widget.setMinimumWidth(0)
     ui.widget.setMaximumWidth(16777215)
     ui.widget.adjustSize()
