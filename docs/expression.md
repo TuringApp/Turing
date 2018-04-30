@@ -259,7 +259,6 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`coth`|<ul><li>`x` (Number)</li></ul>|Returns the hyperbolic cotangent of `x`.|
 |`covercos`|<ul><li>`x` (Number)</li></ul>|Returns the coversed cosine of `x`.|
 |`coversin`|<ul><li>`x` (Number)</li></ul>|Returns the coversed sine of `x`.|
-|`coversin`|<ul><li>`x` (Number)</li></ul>|Returns the haversed sine of `x`.|
 |`csc`|<ul><li>`x` (Number)</li></ul>|Returns the cosecant of `x`.|
 |`csch`|<ul><li>`x` (Number)</li></ul>|Returns the hyperbolic cosecant of `x`.|
 |`degrees` / `deg`|<ul><li>`x` (Number)</li></ul>|Converts angle `x` from radians to degrees.|
@@ -268,6 +267,7 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`hacovercos`|<ul><li>`x` (Number)</li></ul>|Returns the hacoversed cosine of `x`.|
 |`hacoversin`|<ul><li>`x` (Number)</li></ul>|Returns the hacoversed sine of `x`.|
 |`havercos`|<ul><li>`x` (Number)</li></ul>|Returns the haversed cosine of `x`.|
+|`haversin`|<ul><li>`x` (Number)</li></ul>|Returns the haversed sine of `x`.|
 |`hypot`|<ul><li>`x` (Number)</li><li>`y` (Number)</li></ul>|Returns the hypotenuse / Euclidean norm of the vector (`x`, `y`).|
 |`radians` / `rad`|<ul><li>`x` (Number)</li></ul>|Converts angle `x` from degrees to radians.|
 |`sec`|<ul><li>`x` (Number)</li></ul>|Returns the secant of `x`.|

@@ -277,7 +277,7 @@ def covercos(x):
     return 1 + sin(x)
 
 
-doc("coversin", [("x", "Number")], translate("Docs", "Returns the haversed sine of {{x}}."))
+doc("haversin", [("x", "Number")], translate("Docs", "Returns the haversed sine of {{x}}."))
 
 
 def haversin(x):

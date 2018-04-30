@@ -1147,7 +1147,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/trig.py" line="61"/>
         <source>Returns the arc tangent of {{x}}.</source>
-        <translation>Calcule &apos;arc tangente de {{x}}.</translation>
+        <translation>Calcule l&apos;arc tangente de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="68"/>
@@ -2272,7 +2272,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../util/theming.py" line="22"/>
         <source>Dark red</source>
-        <translation type="unfinished"></translation>
+        <translation>Rouge foncé</translation>
     </message>
 </context>
 <context>
