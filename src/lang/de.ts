@@ -371,42 +371,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGFuncStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="126"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="128"/>
         <source>Plot function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="127"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="129"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws the curve of the function on the specified interval.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="128"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="130"/>
         <source>Start:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="129"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="131"/>
         <source>Step:</source>
         <translation>Schrittweite:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="130"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="132"/>
         <source>Function:</source>
         <translation>Funktion:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="131"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="133"/>
         <source>Variable:</source>
         <translation>Variable:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="132"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="134"/>
         <source>Color:</source>
         <translation>Farbe:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="133"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="135"/>
         <source>End:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -485,11 +485,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="134"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Changes the size of the plot window canvas.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../forms/ui_alg_gwindow.py" line="135"/>
         <source>Max Y:</source>
         <translation type="unfinished"></translation>
@@ -517,6 +512,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="140"/>
         <source>Grad Y:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_gwindow.py" line="134"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Changes the size of the plot window canvas. For Grad, 0 means automatic.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

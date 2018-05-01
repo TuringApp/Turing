@@ -106,7 +106,7 @@ class Ui_AlgoGFuncStmt(object):
         self.label_5.setBuddy(self.txtFunction)
         self.label_2.setBuddy(self.txtVariable)
         self.label_8.setBuddy(self.txtColor)
-        self.label_9.setBuddy(self.txtStart)
+        self.label_9.setBuddy(self.txtEnd)
 
         self.retranslateUi(AlgoGFuncStmt)
         self.buttonBox.accepted.connect(AlgoGFuncStmt.accept)
@@ -114,11 +114,13 @@ class Ui_AlgoGFuncStmt(object):
         QtCore.QMetaObject.connectSlotsByName(AlgoGFuncStmt)
         AlgoGFuncStmt.setTabOrder(self.txtVariable, self.txtFunction)
         AlgoGFuncStmt.setTabOrder(self.txtFunction, self.txtStart)
-        AlgoGFuncStmt.setTabOrder(self.txtStart, self.txtStep)
+        AlgoGFuncStmt.setTabOrder(self.txtStart, self.txtEnd)
+        AlgoGFuncStmt.setTabOrder(self.txtEnd, self.txtStep)
         AlgoGFuncStmt.setTabOrder(self.txtStep, self.txtColor)
         AlgoGFuncStmt.setTabOrder(self.txtColor, self.btnCodeFunction)
         AlgoGFuncStmt.setTabOrder(self.btnCodeFunction, self.btnCodeStart)
-        AlgoGFuncStmt.setTabOrder(self.btnCodeStart, self.btnCodeStep)
+        AlgoGFuncStmt.setTabOrder(self.btnCodeStart, self.btnCodeEnd)
+        AlgoGFuncStmt.setTabOrder(self.btnCodeEnd, self.btnCodeStep)
         AlgoGFuncStmt.setTabOrder(self.btnCodeStep, self.btnCodeColor)
 
     def retranslateUi(self, AlgoGFuncStmt):

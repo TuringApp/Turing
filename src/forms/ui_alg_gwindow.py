@@ -131,7 +131,7 @@ class Ui_AlgoGWindowStmt(object):
     def retranslateUi(self, AlgoGWindowStmt):
         _translate = QtCore.QCoreApplication.translate
         AlgoGWindowStmt.setWindowTitle(_translate("AlgoGWindowStmt", "Set window"))
-        self.label.setText(_translate("AlgoGWindowStmt", "<html><head/><body><p>Changes the size of the plot window canvas.</p></body></html>"))
+        self.label.setText(_translate("AlgoGWindowStmt", "<html><head/><body><p>Changes the size of the plot window canvas. For Grad, 0 means automatic.</p></body></html>"))
         self.label_7.setText(_translate("AlgoGWindowStmt", "Max Y:"))
         self.label_6.setText(_translate("AlgoGWindowStmt", "Min Y:"))
         self.label_2.setText(_translate("AlgoGWindowStmt", "Min X:"))

@@ -216,7 +216,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/mainwindow.py" line="1794"/>
         <source>[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</source>
-        <translation type="unfinished">[k]DÉFINIR REPÈRE[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</translation>
+        <translation>[k]DÉFINIR REPÈRE[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</translation>
     </message>
     <message>
         <location filename="../forms/mainwindow.py" line="1764"/>
@@ -385,42 +385,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGFuncStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="126"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="128"/>
         <source>Plot function</source>
         <translation>Tracer une fonction</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="127"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="129"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws the curve of the function on the specified interval.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dessine la courbe représentative de la fonction sur l&apos;intervalle spécifié.&lt;/p&gt;&lt;p&gt;La couleur doit être une chaîne de caractères contenant le nom de la couleur ou la valeur RGB hexadécimale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="128"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="130"/>
         <source>Start:</source>
         <translation>Début :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="129"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="131"/>
         <source>Step:</source>
         <translation>Pas :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="130"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="132"/>
         <source>Function:</source>
         <translation>Fonction :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="131"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="133"/>
         <source>Variable:</source>
         <translation>Variable :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="132"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="134"/>
         <source>Color:</source>
         <translation>Couleur :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="133"/>
+        <location filename="../forms/ui_alg_gfunc.py" line="135"/>
         <source>End:</source>
         <translation>Fin :</translation>
     </message>
@@ -494,11 +494,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGWindowStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="134"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Changes the size of the plot window canvas.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Définit la taille du repère et de la fenêtre du graphique.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_alg_gwindow.py" line="135"/>
         <source>Max Y:</source>
         <translation>Y max :</translation>
@@ -532,6 +527,11 @@ p, li { white-space: pre-wrap; }
         <location filename="../forms/ui_alg_gwindow.py" line="133"/>
         <source>Set window</source>
         <translation>Définir le repère</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_alg_gwindow.py" line="134"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Changes the size of the plot window canvas. For Grad, 0 means automatic.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Définit la taille du repère et de la fenêtre du graphique. Pour Grad, 0 signifie automatique.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -816,13 +816,6 @@ Text:</source>
         <location filename="../forms/ui_changtheme.py" line="430"/>
         <source>Tool Tip Base:</source>
         <translation>Base d&apos;infobulle :</translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_changtheme.py" line="420"/>
-        <source>Disabled
-Window Text : </source>
-        <translation type="obsolete">Texte de fenêtre
-désactivé :</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="420"/>

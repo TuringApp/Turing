@@ -163,7 +163,7 @@
         <string>End:</string>
        </property>
        <property name="buddy">
-        <cstring>txtStart</cstring>
+        <cstring>txtEnd</cstring>
        </property>
       </widget>
      </item>
@@ -202,10 +202,12 @@
   <tabstop>txtVariable</tabstop>
   <tabstop>txtFunction</tabstop>
   <tabstop>txtStart</tabstop>
+  <tabstop>txtEnd</tabstop>
   <tabstop>txtStep</tabstop>
   <tabstop>txtColor</tabstop>
   <tabstop>btnCodeFunction</tabstop>
   <tabstop>btnCodeStart</tabstop>
+  <tabstop>btnCodeEnd</tabstop>
   <tabstop>btnCodeStep</tabstop>
   <tabstop>btnCodeColor</tabstop>
  </tabstops>

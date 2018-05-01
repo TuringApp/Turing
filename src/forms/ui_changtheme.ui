@@ -32,7 +32,7 @@
         <string>Block:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_21</cstring>
        </property>
       </widget>
      </item>
@@ -42,7 +42,7 @@
         <string>Comment:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_22</cstring>
        </property>
       </widget>
      </item>
@@ -55,7 +55,7 @@
         <string>Keyword:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_15</cstring>
+        <cstring>txtColor_23</cstring>
        </property>
       </widget>
      </item>
@@ -96,7 +96,7 @@
         <string>Literal:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_15</cstring>
+        <cstring>txtColor_24</cstring>
        </property>
       </widget>
      </item>
@@ -139,7 +139,7 @@
         <string>Window:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_01</cstring>
        </property>
       </widget>
      </item>
@@ -342,7 +342,7 @@
         <string>Button Text:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_12</cstring>
+        <cstring>txtColor_13</cstring>
        </property>
       </widget>
      </item>
@@ -524,7 +524,7 @@ Button Text:</string>
 Highlight:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_15</cstring>
+        <cstring>txtColor_18</cstring>
        </property>
       </widget>
      </item>
@@ -534,7 +534,7 @@ Highlight:</string>
         <string>Highlight:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_15</cstring>
+        <cstring>txtColor_17</cstring>
        </property>
       </widget>
      </item>
@@ -544,7 +544,7 @@ Highlight:</string>
         <string>Highlighted Text:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_15</cstring>
+        <cstring>txtColor_19</cstring>
        </property>
       </widget>
      </item>
@@ -554,7 +554,7 @@ Highlight:</string>
         <string>Link:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_15</cstring>
+        <cstring>txtColor_16</cstring>
        </property>
       </widget>
      </item>
@@ -565,7 +565,7 @@ Highlight:</string>
 Highlighted Text:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_15</cstring>
+        <cstring>txtColor_20</cstring>
        </property>
       </widget>
      </item>
@@ -576,7 +576,7 @@ Highlighted Text:</string>
 Window Text :</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_03</cstring>
        </property>
       </widget>
      </item>
@@ -586,7 +586,7 @@ Window Text :</string>
         <string>Alternate Base:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_05</cstring>
        </property>
       </widget>
      </item>
@@ -596,7 +596,7 @@ Window Text :</string>
         <string>Base:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_04</cstring>
        </property>
       </widget>
      </item>
@@ -606,7 +606,7 @@ Window Text :</string>
         <string>Window Text:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_02</cstring>
        </property>
       </widget>
      </item>
@@ -616,7 +616,7 @@ Window Text :</string>
         <string>Dark:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_10</cstring>
        </property>
       </widget>
      </item>
@@ -627,7 +627,7 @@ Window Text :</string>
 Text:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_09</cstring>
        </property>
       </widget>
      </item>
@@ -637,7 +637,7 @@ Text:</string>
         <string>Tool Tip Text:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_07</cstring>
        </property>
       </widget>
      </item>
@@ -647,7 +647,7 @@ Text:</string>
         <string>Text:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_08</cstring>
        </property>
       </widget>
      </item>
@@ -657,7 +657,7 @@ Text:</string>
         <string>Tool Tip Base:</string>
        </property>
        <property name="buddy">
-        <cstring>txtColor_11</cstring>
+        <cstring>txtColor_06</cstring>
        </property>
       </widget>
      </item>
