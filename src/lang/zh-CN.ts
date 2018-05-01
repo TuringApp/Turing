@@ -2120,33 +2120,33 @@ All unsaved changes will be lost.</source>
         <translation>{num}次匹配</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2073"/>
+        <location filename="../forms/mainwindow.py" line="2037"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2074"/>
+        <location filename="../forms/mainwindow.py" line="2038"/>
         <source>Python file (*.py)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2075"/>
+        <location filename="../forms/mainwindow.py" line="2039"/>
         <source>Turing program (*.tr)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2076"/>
+        <location filename="../forms/mainwindow.py" line="2040"/>
         <source>Algobox file (*.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2162"/>
+        <location filename="../forms/mainwindow.py" line="2177"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2172"/>
+        <location filename="../forms/mainwindow.py" line="2187"/>
         <source>A modified file has been automatically saved.
 Would you like to recover it?</source>
         <translation type="unfinished"></translation>

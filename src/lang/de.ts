@@ -266,7 +266,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_define.py" line="63"/>
         <source>Define variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Variable definieren</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_define.py" line="64"/>
@@ -289,7 +289,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_display.py" line="62"/>
         <source>Display value</source>
-        <translation type="unfinished"></translation>
+        <translation>Wert anzeigen</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_display.py" line="63"/>
@@ -304,7 +304,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_display.py" line="65"/>
         <source>Followed by a line break</source>
-        <translation type="unfinished"></translation>
+        <translation>Einen Zeilenumbruch einfügen</translation>
     </message>
 </context>
 <context>
@@ -350,7 +350,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_func.py" line="56"/>
         <source>Define function</source>
-        <translation type="unfinished"></translation>
+        <translation>Funktion definieren</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_func.py" line="57"/>
@@ -373,7 +373,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="128"/>
         <source>Plot function</source>
-        <translation type="unfinished"></translation>
+        <translation>Plotten einer Funktion</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gfunc.py" line="129"/>
@@ -416,7 +416,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gline.py" line="120"/>
         <source>Plot line</source>
-        <translation type="unfinished"></translation>
+        <translation>Plotten einer Linie</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gline.py" line="121"/>
@@ -454,7 +454,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gpoint.py" line="90"/>
         <source>Plot point</source>
-        <translation type="unfinished"></translation>
+        <translation>Plotten eines Punktes</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gpoint.py" line="91"/>
@@ -482,27 +482,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="133"/>
         <source>Set window</source>
-        <translation type="unfinished"></translation>
+        <translation>Einstellen des Grafikfensters</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="135"/>
         <source>Max Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Max Y:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="136"/>
         <source>Min Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Min Y:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="137"/>
         <source>Min X:</source>
-        <translation type="unfinished"></translation>
+        <translation>Min X:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="138"/>
         <source>Max X:</source>
-        <translation type="unfinished"></translation>
+        <translation>Max X:</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_gwindow.py" line="139"/>
@@ -553,7 +553,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_input.py" line="73"/>
         <source>Display a message</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine Nachricht anzeigen</translation>
     </message>
     <message>
         <location filename="../forms/ui_alg_input.py" line="74"/>
@@ -627,7 +627,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_stop.py" line="66"/>
         <source>Display a message</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine Nachricht anzeigen</translation>
     </message>
 </context>
 <context>
@@ -689,7 +689,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_changtheme.py" line="403"/>
         <source>Comment:</source>
-        <translation type="unfinished">Kommentar:</translation>
+        <translation>Kommentar:</translation>
     </message>
     <message>
         <location filename="../forms/ui_changtheme.py" line="404"/>
@@ -827,22 +827,22 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/basic.py" line="35"/>
         <source>Returns the absolute value of {{num}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den absoluten Wert von {{num}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="46"/>
         <source>Returns the square root of {{num}}. If {{num}} &lt; 0, the result will be Complex.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt die Quadratwurzel aus {{num}} zurück. Wenn {{num}} &lt; 0, ist das Ergebnis komplex.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="60"/>
         <source>Returns the {{n}}-th root of {{num}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt die {{n}}-te Wurzel von {{num}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="72"/>
         <source>Returns {{num}} to the {{p}}-th power.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt {{num}} auf die {{n}}-te Potenz zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="87"/>
@@ -862,37 +862,37 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/basic.py" line="123"/>
         <source>Returns the base-10 logarithm of {{num}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den Dekadischer Logarithmus von {{num}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="134"/>
         <source>Returns the largest integer less than or equal to {{num}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt die größte ganze Zahl kleiner oder gleich {{num}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="147"/>
         <source>Returns the smallest integer greater than or equal to {{num}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt die kleinste ganze Zahl größer oder gleich {{num}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="160"/>
         <source>Returns the sign of {{num}} (-1 if negative, 1 if positive, 0 otherwise).</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt das Vorzeichen von {{num}} (-1 wenn negativ, 1 wenn positiv, sonst 0) zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="175"/>
         <source>Returns the greatest common divisor of {{a}} and {{b}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den größten gemeinsamen Teiler von {{a}} und {{b}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="190"/>
         <source>Returns the least common multiple of {{a}} and {{b}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt das am kleinsten gemeinsame Vielfache von {{a}} und {{b}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="205"/>
         <source>Returns the argument (or phase) of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt das Argument von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="219"/>
@@ -907,17 +907,17 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/basic.py" line="247"/>
         <source>Returns the real part of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den Realteil von {{x}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="258"/>
         <source>Returns the imaginary part of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den Imaginärteil von {{x}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="269"/>
         <source>Returns the complex conjugate of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den Komplex Konjugiert von {{x}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="280"/>
@@ -1082,12 +1082,12 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/stats.py" line="20"/>
         <source>Returns the arithmetic mean of {{args}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt das arithmetische Mittel von {{args}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="35"/>
         <source>Returns the harmonic mean of {{args}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt das harmonische Mittel von {{args}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="51"/>
@@ -1102,12 +1102,12 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/stats.py" line="75"/>
         <source>Returns the maximum value of {{args}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den maximalen Wert von {{args}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="86"/>
         <source>Returns the minimum value of {{args}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den minimalen Wert von {{args}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="97"/>
@@ -1122,7 +1122,7 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/stats.py" line="119"/>
         <source>Returns the factorial of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt die Fakultät von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="130"/>
@@ -1152,12 +1152,12 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/stats.py" line="204"/>
         <source>Returns the population standard deviation of {{lst}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt die Standardabweichung von {{lst}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="218"/>
         <source>Returns the population variance of {{lst}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt die Varianz von {{lst}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="229"/>
@@ -1172,12 +1172,12 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/stats.py" line="257"/>
         <source>Returns a random number between 0 (inclusive) and 1 (exclusive).</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt eine Zufallszahl zwischen 0 (inklusive) und 1 (exklusiv) zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="269"/>
         <source>Returns a random integer between {{a}} and {{b}} (inclusive).</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt eine Zufallszahl zwischen {{a}} und {{b}} (inklusive) zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="287"/>
@@ -1212,17 +1212,17 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/trig.py" line="47"/>
         <source>Returns the arc sine of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den Arkussinus von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="54"/>
         <source>Returns the arc cosine of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den Arcuskosinus von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="61"/>
         <source>Returns the arc tangent of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den Arcustangens von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="68"/>
@@ -1232,47 +1232,47 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/trig.py" line="75"/>
         <source>Returns the inverse hyperbolic sine of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den umgekehrten hyperbolischen Sinus von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="82"/>
         <source>Returns the inverse hyperbolic cosine of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den umgekehrten hyperbolischen Kosinus von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="89"/>
         <source>Returns the inverse hyperbolic tangent of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den umgekehrten hyperbolischen Tangens von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="96"/>
         <source>Returns the sine of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den Sinus von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="103"/>
         <source>Returns the cosine of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den Kosinus von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="110"/>
         <source>Returns the tangent of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den Tangens von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="117"/>
         <source>Returns the hyperbolic sine of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den hyperbolischen Sinus von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="124"/>
         <source>Returns the hyperbolic cosine of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den hyperbolischen Kosinus von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="131"/>
         <source>Returns the hyperbolic tangent of {{x}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gibt den hyperbolischen Tangens von {{x}}} zurück.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="138"/>
@@ -1685,7 +1685,7 @@ Window Text :</source>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="803"/>
         <source>Set window</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafikfensters</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="804"/>
@@ -1695,17 +1695,17 @@ Window Text :</source>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="805"/>
         <source>Draw point</source>
-        <translation type="unfinished"></translation>
+        <translation>Plotten Punktes</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="806"/>
         <source>Draw line</source>
-        <translation type="unfinished"></translation>
+        <translation>Plotten Linie</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="807"/>
         <source>Plot function</source>
-        <translation type="unfinished"></translation>
+        <translation>Plotten Funktion</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="810"/>
@@ -2121,33 +2121,33 @@ All unsaved changes will be lost.</source>
         <translation>{num} Treffer</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2073"/>
+        <location filename="../forms/mainwindow.py" line="2037"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2074"/>
+        <location filename="../forms/mainwindow.py" line="2038"/>
         <source>Python file (*.py)</source>
         <translation>Python Dateien (*.py)</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2075"/>
+        <location filename="../forms/mainwindow.py" line="2039"/>
         <source>Turing program (*.tr)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2076"/>
+        <location filename="../forms/mainwindow.py" line="2040"/>
         <source>Algobox file (*.alg)</source>
         <translation>Algobox Dateien (*.alg)</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2162"/>
+        <location filename="../forms/mainwindow.py" line="2177"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2172"/>
+        <location filename="../forms/mainwindow.py" line="2187"/>
         <source>A modified file has been automatically saved.
 Would you like to recover it?</source>
         <translation type="unfinished"></translation>
