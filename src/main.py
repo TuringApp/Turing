@@ -98,6 +98,7 @@ comment_html = lambda: '<span style="color:%s;font-style:italic">' % theming.alg
 keyword_html = lambda: '<span style="color:%s;font-weight:bold">' % theming.algo_colors[2]
 red_html = lambda: '<span style="color:%s">' % theming.algo_colors[3]
 
+stop_flag = False
 running = False
 run_started = None
 skip_step = False
@@ -615,7 +616,7 @@ def python_breakpoint(message=""):
 
 def handler_Stop():
     python_print_error(translate("MainWindow", "program interrupted"))
-    global running, after_output, stopped, python_stopped
+    global running, after_output, stopped, python_stopped, stop_flag
     after_output = ""
     stopped = True
     if mode_python:
@@ -625,7 +626,9 @@ def handler_Stop():
         running = True
         worker.finished = True
         worker.error = False
+        stop_flag = True
         handler_Step()
+        stop_flag = False
     update_output()
 
 
@@ -672,7 +675,8 @@ def handler_Step():
         update_plot()
         if worker.finished:
             ui.actionRun.setDisabled(False)
-            end_output()
+            if not stop_flag:
+                end_output()
             if not worker.error:
                 set_current_line(None)
             running = False
