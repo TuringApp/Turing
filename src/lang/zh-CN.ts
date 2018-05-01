@@ -38,117 +38,117 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algo</name>
     <message>
-        <location filename="../forms/mainwindow.py" line="1727"/>
+        <location filename="../forms/mainwindow.py" line="1729"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1730"/>
+        <location filename="../forms/mainwindow.py" line="1732"/>
         <source>[k]BREAK[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1733"/>
+        <location filename="../forms/mainwindow.py" line="1735"/>
         <source>[k]CONTINUE[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1736"/>
+        <location filename="../forms/mainwindow.py" line="1738"/>
         <source>[b]ELSE[/b]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1739"/>
+        <location filename="../forms/mainwindow.py" line="1741"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1742"/>
+        <location filename="../forms/mainwindow.py" line="1744"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1745"/>
+        <location filename="../forms/mainwindow.py" line="1747"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1750"/>
+        <location filename="../forms/mainwindow.py" line="1752"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1752"/>
+        <location filename="../forms/mainwindow.py" line="1754"/>
         <source>[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1757"/>
+        <location filename="../forms/mainwindow.py" line="1759"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1760"/>
+        <location filename="../forms/mainwindow.py" line="1762"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1761"/>
+        <location filename="../forms/mainwindow.py" line="1763"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1767"/>
+        <location filename="../forms/mainwindow.py" line="1769"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1771"/>
+        <location filename="../forms/mainwindow.py" line="1773"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1775"/>
+        <location filename="../forms/mainwindow.py" line="1777"/>
         <source>[k]STOP[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1779"/>
+        <location filename="../forms/mainwindow.py" line="1781"/>
         <source>[k]WAIT[/k] [c]{val}[/c] [k]SECONDS[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1785"/>
+        <location filename="../forms/mainwindow.py" line="1787"/>
         <source>[k]CLEAR PLOT[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1788"/>
+        <location filename="../forms/mainwindow.py" line="1790"/>
         <source>[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1798"/>
+        <location filename="../forms/mainwindow.py" line="1800"/>
         <source>[k]DRAW POINT[/k] [c]{color}[/c] [k]AT[/k] ([c]{x}[/c]; [c]{y}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1805"/>
+        <location filename="../forms/mainwindow.py" line="1807"/>
         <source>[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1816"/>
+        <location filename="../forms/mainwindow.py" line="1818"/>
         <source>[k]PLOT FUNCTION[/k] [c]{color}[/c] [i]f[/i]({var}) = [c]{expr}[/c] [k]FROM[/k] [c]{begin}[/c] [k]TO[/k] [c]{end}[/c] [k]STEP[/k] [c]{step}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1827"/>
+        <location filename="../forms/mainwindow.py" line="1829"/>
         <source>[b]PROGRAM[/b]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1830"/>
+        <location filename="../forms/mainwindow.py" line="1832"/>
         <source>[i]empty[/i]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -158,42 +158,42 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="186"/>
+        <location filename="../algo/worker.py" line="187"/>
         <source>Array access target must be of array type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="198"/>
+        <location filename="../algo/worker.py" line="199"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="201"/>
+        <location filename="../algo/worker.py" line="202"/>
         <source>Assignment target must be either variable or array item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="240"/>
+        <location filename="../algo/worker.py" line="241"/>
         <source>BREAK can only be used inside a loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="251"/>
+        <location filename="../algo/worker.py" line="252"/>
         <source>CONTINUE can only be used inside a loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="281"/>
+        <location filename="../algo/worker.py" line="282"/>
         <source>RETURN can only be used inside a function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="312"/>
+        <location filename="../algo/worker.py" line="313"/>
         <source>ELSE can only be used after an IF block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="350"/>
+        <location filename="../algo/worker.py" line="351"/>
         <source>Unknown statement type: {type}</source>
         <translation type="unfinished"></translation>
     </message>
@@ -213,7 +213,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/code.py" line="48"/>
+        <location filename="../util/code.py" line="46"/>
         <source>The following errors occured while parsing the expression:
 
 </source>
@@ -1963,196 +1963,196 @@ Window Text :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="206"/>
+        <location filename="../forms/mainwindow.py" line="205"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="231"/>
+        <location filename="../forms/mainwindow.py" line="230"/>
         <source>Turing - {file} (unsaved)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="233"/>
+        <location filename="../forms/mainwindow.py" line="232"/>
         <source>Turing - {file}</source>
         <translation>Turing - {file}</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="235"/>
+        <location filename="../forms/mainwindow.py" line="234"/>
         <source>Turing - New File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="394"/>
+        <location filename="../forms/mainwindow.py" line="395"/>
         <source>Input: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="559"/>
+        <location filename="../forms/mainwindow.py" line="560"/>
         <source>end of output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="559"/>
+        <location filename="../forms/mainwindow.py" line="560"/>
         <source>end of output [{time}]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="585"/>
+        <location filename="../forms/mainwindow.py" line="586"/>
         <source>Breakpoint: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="618"/>
+        <location filename="../forms/mainwindow.py" line="619"/>
         <source>program interrupted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="749"/>
+        <location filename="../forms/mainwindow.py" line="750"/>
         <source>Syntax error ({type}) at line {line}, offset {off}: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="862"/>
+        <location filename="../forms/mainwindow.py" line="863"/>
         <source>Save output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="862"/>
+        <location filename="../forms/mainwindow.py" line="863"/>
         <source>Text files (*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="934"/>
+        <location filename="../forms/mainwindow.py" line="935"/>
         <source>Do you really want to create a new file?
 All unsaved changes will be lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1074"/>
+        <location filename="../forms/mainwindow.py" line="1076"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1077"/>
+        <location filename="../forms/mainwindow.py" line="1079"/>
         <source>Folding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1078"/>
+        <location filename="../forms/mainwindow.py" line="1080"/>
         <source>Collapse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1079"/>
+        <location filename="../forms/mainwindow.py" line="1081"/>
         <source>Expand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1080"/>
+        <location filename="../forms/mainwindow.py" line="1082"/>
         <source>Collapse all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1081"/>
+        <location filename="../forms/mainwindow.py" line="1083"/>
         <source>Expand all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1083"/>
+        <location filename="../forms/mainwindow.py" line="1085"/>
         <source>Select word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1084"/>
+        <location filename="../forms/mainwindow.py" line="1086"/>
         <source>Select extended word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1085"/>
+        <location filename="../forms/mainwindow.py" line="1087"/>
         <source>Matched select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1086"/>
+        <location filename="../forms/mainwindow.py" line="1088"/>
         <source>Select line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1087"/>
+        <location filename="../forms/mainwindow.py" line="1089"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1097"/>
+        <location filename="../forms/mainwindow.py" line="1099"/>
         <source>Regex</source>
         <translation>正则表达式</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1098"/>
+        <location filename="../forms/mainwindow.py" line="1100"/>
         <source>Match case</source>
         <translation>区分大小写</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1099"/>
+        <location filename="../forms/mainwindow.py" line="1101"/>
         <source>Whole words</source>
         <translation>仅匹配完整词</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1100"/>
+        <location filename="../forms/mainwindow.py" line="1102"/>
         <source>In Selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1101"/>
+        <location filename="../forms/mainwindow.py" line="1103"/>
         <source>0 matches</source>
         <translation>0次匹配</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1103"/>
+        <location filename="../forms/mainwindow.py" line="1105"/>
         <source>Replace All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1192"/>
+        <location filename="../forms/mainwindow.py" line="1194"/>
         <source>{num} matches</source>
         <translation>{num}次匹配</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2089"/>
+        <location filename="../forms/mainwindow.py" line="2091"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2090"/>
+        <location filename="../forms/mainwindow.py" line="2092"/>
         <source>Python file (*.py)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2091"/>
+        <location filename="../forms/mainwindow.py" line="2093"/>
         <source>Turing program (*.tr)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2092"/>
+        <location filename="../forms/mainwindow.py" line="2094"/>
         <source>Algobox file (*.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2185"/>
+        <location filename="../forms/mainwindow.py" line="2184"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2195"/>
+        <location filename="../forms/mainwindow.py" line="2194"/>
         <source>A modified file has been automatically saved.
 Would you like to recover it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1075"/>
+        <location filename="../forms/mainwindow.py" line="1077"/>
         <source>Zoom</source>
         <translation>缩放</translation>
     </message>
@@ -2216,32 +2216,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Themes</name>
     <message>
-        <location filename="../util/theming.py" line="18"/>
+        <location filename="../util/theming.py" line="20"/>
         <source>Default</source>
         <translation>缺省</translation>
     </message>
     <message>
-        <location filename="../util/theming.py" line="19"/>
+        <location filename="../util/theming.py" line="21"/>
         <source>Dark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/theming.py" line="20"/>
+        <location filename="../util/theming.py" line="25"/>
         <source>Dark blue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/theming.py" line="24"/>
+        <location filename="../util/theming.py" line="38"/>
         <source>Custom</source>
         <translation>自定</translation>
     </message>
     <message>
-        <location filename="../util/theming.py" line="21"/>
+        <location filename="../util/theming.py" line="29"/>
         <source>Dark green</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/theming.py" line="22"/>
+        <location filename="../util/theming.py" line="33"/>
         <source>Dark red</source>
         <translation type="unfinished"></translation>
     </message>
