@@ -54,6 +54,7 @@ SOURCES += \
     forms\help.py \
     forms\inline_code_dialog.py \
     forms\inline_code_editor.py \
+    forms\mainwindow.py \
     forms\ui_about.py \
     forms\ui_alg_call.py \
     forms\ui_alg_comment.py \

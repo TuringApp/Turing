@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import traceback
 from typing import Union, List, Iterable
 
 number = Union[int, float, complex]
@@ -29,3 +29,8 @@ def get_short_lang(lang):
     if "_" not in lang:
         return lang
     return lang[0:lang.index("_")]
+
+
+def show_error():
+    traceback.print_exc()
+    # print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]) + "\n" + str(sys.exc_info()[2]))
