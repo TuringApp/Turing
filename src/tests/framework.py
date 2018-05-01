@@ -38,6 +38,9 @@ def end_test(name):
 
 
 def good_str(x):
+    """Returns a safe (escaped) version of the string.
+
+    str -- The string"""
     return repr(str(x))[1:-1]
 
 

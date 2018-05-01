@@ -1904,9 +1904,9 @@ def algo_sel_changed():
     is_item = ExecState.current_stmt is not None
     is_root = current == []
     is_changeable = is_item and not is_root
-    is_editable = is_changeable and not isinstance(ExecState.current_stmt,
-                                                   (BreakStmt, ContinueStmt, ElseStmt)) and type(
-        ExecState.current_stmt) not in [BaseStmt, BlockStmt]
+    is_editable = is_changeable \
+                  and not isinstance(ExecState.current_stmt, (BreakStmt, ContinueStmt, ElseStmt)) \
+                  and type(ExecState.current_stmt) not in [BaseStmt, BlockStmt]
 
     GuiState.ui.btnAlgo_Delete.setEnabled(is_changeable)
     GuiState.ui.btnAlgo_Edit.setEnabled(is_editable)
@@ -1966,6 +1966,7 @@ def algo_scroll(event: QWheelEvent):
             handler_ZoomIn()
         elif event.angleDelta().y() < 0:
             handler_ZoomOut()
+            
         event.accept()
     else:
         GuiState.ui.treeWidget.wheelEventOrig(event)
@@ -1976,6 +1977,21 @@ def fix_qt_shitty_margins():
         if wgt.text():
             wgt.setText("  " + wgt.text())
             wgt.setMinimumHeight(28)
+            
+            
+def init_theme_actions():
+    def gen(s):
+        return lambda: set_theme(s)
+
+    for theme in theming.themes:
+        action = QAction(GuiState.window)
+        action.setStatusTip(theme)
+        action.setCheckable(True)
+        action.triggered.connect(gen(theme))
+        GuiState.ui.menuChangeTheme.addAction(action)
+
+        if theme == "custom":
+            action.setVisible(bool(theming.themes["custom"][1]))
 
 
 def init_ui():
@@ -2002,6 +2018,25 @@ def init_ui():
     GuiState.ui.menubar.removeAction(GuiState.ui.menuLanguage.menuAction())
     right_corner.addAction(GuiState.ui.menuLanguage.menuAction())
     GuiState.ui.menubar.setCornerWidget(right_corner)
+
+    init_event_handlers()
+    
+    init_theme_actions()
+
+    algo_sel_changed()
+
+    GuiState.filters = {
+        "all": translate("MainWindow", "Program file (*.py *.tr *.alg)"),
+        "py": translate("MainWindow", "Python file (*.py)"),
+        "tr": translate("MainWindow", "Turing program (*.tr)"),
+        "alg": translate("MainWindow", "Algobox file (*.alg)")
+    }
+
+    autosave_init()
+
+    GuiState.window.show()
+    
+def init_event_handlers():
     GuiState.ui.btnSendInput.clicked.connect(send_user_input)
     GuiState.ui.btnClearOutput.clicked.connect(clear_output)
     GuiState.ui.btnPrintOutput.clicked.connect(print_output)
@@ -2041,36 +2076,11 @@ def init_ui():
 
     GuiState.ui.treeWidget.itemSelectionChanged.connect(algo_sel_changed)
     GuiState.ui.treeWidget.itemDoubleClicked.connect(algo_double_click)
+    
     GuiState.ui.treeWidget.wheelEventOrig = GuiState.ui.treeWidget.wheelEvent
     GuiState.ui.treeWidget.wheelEvent = algo_scroll
 
     GuiState.ui.tabWidget.currentChanged.connect(change_tab)
-
-    def gen(s):
-        return lambda: set_theme(s)
-
-    for theme in theming.themes:
-        action = QAction(GuiState.window)
-        action.setStatusTip(theme)
-        action.setCheckable(True)
-        action.triggered.connect(gen(theme))
-        GuiState.ui.menuChangeTheme.addAction(action)
-
-        if theme == "custom":
-            action.setVisible(bool(theming.themes["custom"][1]))
-
-    algo_sel_changed()
-
-    GuiState.filters = {
-        "all": translate("MainWindow", "Program file (*.py *.tr *.alg)"),
-        "py": translate("MainWindow", "Python file (*.py)"),
-        "tr": translate("MainWindow", "Turing program (*.tr)"),
-        "alg": translate("MainWindow", "Algobox file (*.alg)")
-    }
-
-    autosave_init()
-
-    GuiState.window.show()
 
 
 def autosave_write():
@@ -2078,18 +2088,20 @@ def autosave_write():
     util.settings.setValue("autosave_date", datetime.datetime.now())
 
     if AppState.mode_python:
-        util.settings.setValue("autosave_content", GuiState.code_editor.toPlainText())
+        content = GuiState.code_editor.toPlainText()
     else:
-        util.settings.setValue("autosave_content", repr(AppState.algo))
+        content = repr(AppState.algo)
 
+    util.settings.setValue("autosave_content", content)
+    
 
 def autosave_tick():
     if AppState.app_started:
         if is_modified():
-            util.settings.setValue("dirty", True)
+            util.settings.setValue("autosave_dirty", True)
             autosave_write()
         else:
-            util.settings.setValue("dirty", False)
+            util.settings.setValue("autosave_dirty", False)
             autosave_clear()
 
 
@@ -2112,7 +2124,7 @@ def autosave_load():
 
 
 def autosave_clear():
-    util.settings.setValue("dirty", False)
+    util.settings.setValue("autosave_dirty", False)
     util.settings.remove("autosave_content")
     util.settings.remove("autosave_date")
     util.settings.remove("autosave_type")
@@ -2132,11 +2144,14 @@ def version_check():
     import json
     import urllib.request
     import re
+
     result = json.load(urllib.request.urlopen("https://api.github.com/repos/TuringApp/Turing/releases/latest"))
+
     if result and type(result) == dict and "tag_name" in result:
         version = re.findall(r"[\d.]+", result["tag_name"])[0]
         current = re.findall(r"[\d.]+", util.__version__)[0]
         from distutils.version import StrictVersion
+
         if StrictVersion(version) > StrictVersion(current):
             AppState.new_version = True
 
@@ -2158,7 +2173,7 @@ def run_updater():
 
 
 def autosave_check():
-    dirty = util.settings.value("dirty", type=bool)
+    dirty = util.settings.value("autosave_dirty", type=bool)
 
     if dirty:
         msg = msg_box(
