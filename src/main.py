@@ -615,11 +615,12 @@ def python_breakpoint(message=""):
 
 def handler_Stop():
     python_print_error(translate("MainWindow", "program interrupted"))
-    global running, after_output, stopped
+    global running, after_output, stopped, python_stopped
     after_output = ""
     stopped = True
     if mode_python:
         running = False
+        python_stopped = False
     else:
         running = True
         worker.finished = True
