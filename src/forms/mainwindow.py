@@ -2084,7 +2084,7 @@ def init_ui():
         "alg": translate("MainWindow", "Algobox file (*.alg)")
     }
 
-    init_autosave()
+    autosave_init()
 
     window.show()
 
@@ -2092,27 +2092,27 @@ def init_ui():
 
 
 
-def autosave():
+def autosave_write():
     util.settings.setValue("autosave_type", mode_python)
     util.settings.setValue("autosave_date", datetime.datetime.now())
 
     if mode_python:
-        util.settings.setValue("autosave", code_editor.toPlainText())
+        util.settings.setValue("autosave_content", code_editor.toPlainText())
     else:
-        util.settings.setValue("autosave", repr(algo))
+        util.settings.setValue("autosave_content", repr(algo))
 
 
 def autosave_tick():
     if app_started:
         if is_modified():
             util.settings.setValue("dirty", True)
-            autosave()
+            autosave_write()
         else:
             util.settings.setValue("dirty", False)
             autosave_clear()
 
 
-def init_autosave():
+def autosave_init():
     global autosave_timer
     autosave_timer = QTimer()
     autosave_timer.timeout.connect(autosave_tick)
@@ -2122,7 +2122,7 @@ def init_autosave():
 def autosave_load():
     global mode_python
     mode_python = util.settings.value("autosave_type", type=bool)
-    content = util.settings.value("autosave")
+    content = util.settings.value("autosave_content")
 
     if mode_python:
         code_editor.setPlainText(content, "", "")
@@ -2134,7 +2134,7 @@ def autosave_load():
 
 def autosave_clear():
     util.settings.setValue("dirty", False)
-    util.settings.remove("autosave")
+    util.settings.remove("autosave_content")
     util.settings.remove("autosave_date")
     util.settings.remove("autosave_type")
 

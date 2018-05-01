@@ -3,6 +3,9 @@ import traceback
 from typing import Union, List, Iterable
 
 number = Union[int, float, complex]
+settings = None
+__version__ = None
+__channel__ = None
 
 
 def translate(context: str, string: str) -> str:
