@@ -33,8 +33,6 @@ translate = QCoreApplication.translate
 __version__ = "β-0.8"
 __channel__ = "beta"
 
-THREADING = True
-
 current_file: Optional[str] = None
 can_save = False
 dialog_window = None
@@ -91,7 +89,6 @@ filters = {}
 lng_actions = {}
 app_started = False
 worker = None
-wthread = None
 algo = BlockStmt([])
 item_map = {}
 root_item = None
@@ -122,29 +119,6 @@ def sleep(duration):
 def sleep_seconds(duration):
     sleep(float(duration))
     update_plot()
-
-
-class WorkerThread(QObject):
-    call = pyqtSignal(str, list, dict)
-    last_return = None
-    returned = False
-
-    def __init__(self):
-        super().__init__()
-
-    def wrap(self, fname):
-        if THREADING:
-            def caller(*args, **kwargs):
-                self.last_return = None
-                self.returned = False
-                self.call.emit(fname, list(args), dict(kwargs))
-                while not self.returned:
-                    pass
-                return self.last_return
-
-            return caller
-        else:
-            return globals()[fname]
 
 
 def is_empty():
@@ -560,24 +534,16 @@ def stmt_Sleep(stmt: SleepStmt):
     sleep_seconds(worker.evaluator.eval_node(stmt.duration))
 
 
-def on_wthread_call(fname, args, kwargs):
-    wthread.last_return = globals()[fname](*args, **kwargs)
-    wthread.returned = True
-
-
 def init_worker():
     from algo.worker import Worker
-    global wthread
-    wthread = WorkerThread()
-    wthread.call.connect(on_wthread_call)
     global worker
     worker = Worker(algo.children)
-    worker.callback_print = wthread.wrap("python_print")
-    worker.callback_input = wthread.wrap("python_input")
+    worker.callback_print = python_print
+    worker.callback_input = python_input
     worker.log.set_callback(python_print_error)
     worker.log.use_prefix = False
     worker.init()
-    worker.callback_stop = wthread.wrap("callback_stop")
+    worker.callback_stop = callback_stop
     worker.map[GClearStmt] = stmt_GClear
     worker.map[GWindowStmt] = stmt_GWindow
     worker.map[GPointStmt] = stmt_GPoint
@@ -586,16 +552,6 @@ def init_worker():
     worker.map[SleepStmt] = stmt_Sleep
     set_current_line(None)
     g_clear()
-
-
-def wait_thread(func):
-    if THREADING:
-        thr = threading.Thread(target=func)
-        thr.start()
-        while thr.is_alive():
-            QCoreApplication.processEvents()
-    else:
-        func()
 
 
 def end_output():
@@ -695,7 +651,7 @@ def handler_Step():
                             callback_stop(current_stmt, True)
                             skip_step = True
                         else:
-                            wait_thread(lambda: worker.exec_stmt(current_stmt))
+                            worker.exec_stmt(current_stmt)
                 else:
                     init_worker()
                     running = True
@@ -809,15 +765,12 @@ def handler_Run(flag=False):
                     after_output = ""
                     update_output()
                 else:
-                    wait_thread(lambda: worker.exec_stmt(current_stmt))
+                    worker.exec_stmt(current_stmt)
                     if not worker.error:
                         set_current_line(None)
 
-            def runner():
-                while not worker.finished:
-                    worker.step()
-
-            wait_thread(runner)
+            while not worker.finished:
+                worker.step()
     except KeyboardInterrupt:
         user_stop = True
     except:
