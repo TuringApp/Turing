@@ -6,6 +6,7 @@ import runpy
 import sys
 import tempfile
 import threading
+from datetime import datetime
 
 import numpy as np
 import pygments.styles
@@ -14,6 +15,7 @@ from PyQt5.QtGui import *
 from matplotlib.axes import Axes
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
+from matplotlib.ticker import AutoLocator, LinearLocator
 from pyqode.core import api
 from pyqode.core import modes
 from pyqode.core import panels
@@ -33,8 +35,7 @@ translate = QCoreApplication.translate
 class AppState():
     current_file: Optional[str] = None
     can_save = False
-    dialog_window = None
-    autosave_timer = None
+    autosave_timer: QTimer = None
     mode_python = False
     app_started = False
     algo = BlockStmt([])
@@ -42,14 +43,14 @@ class AppState():
 
 
 class GuiState():
-    window = None
+    window: QMainWindow = None
     ui = None
     code_editor: api.CodeEdit = None
     plot_canvas: FigureCanvas = None
     plot_figure: Figure = None
     plot_axes: Axes = None
-    panel_search = None
-    syntax_highlighter = None
+    panel_search: panels.SearchAndReplacePanel = None
+    syntax_highlighter: modes.PygmentsSyntaxHighlighter = None
     algo_base_font: QFont = None
     editor_action_table = [
         ("Copy", "copy"),
@@ -89,20 +90,20 @@ class GuiState():
     filters = {}
     lng_actions = {}  
     item_map = {}
-    root_item = None
-    mode_zoom = None
-    mode_ext_select = None
-    panel_folding = None
+    root_item: QTreeWidgetItem = None
+    mode_zoom: modes.ZoomMode = None
+    mode_ext_select: modes.ExtendedSelectionMode = None
+    panel_folding: panels.FoldingPanel = None
 
 
 class ExecState():
     stop_flag = False
     running = False
-    run_started = None
+    run_started: datetime = None
     skip_step = False
     stopped = False
     last_saved = None
-    current_stmt = None
+    current_stmt: BaseStmt = None
     python_stopped = False
     recent_actions = None
     current_output = ""
@@ -126,7 +127,7 @@ def sleep(duration):
 
 def sleep_seconds(duration):
     sleep(float(duration))
-    update_plot()
+    plot_update()
 
 
 def is_empty():
@@ -143,7 +144,7 @@ def is_modified():
         return repr(AppState.algo) != ExecState.last_saved
 
 
-def add_recent(path):
+def recent_add(path):
     from collections import OrderedDict
 
     recent = util.settings.value("recent", [])
@@ -152,10 +153,10 @@ def add_recent(path):
 
     util.settings.setValue("recent", recent)
 
-    update_recent_text()
+    recent_update_text()
 
 
-def update_recent_text():
+def recent_update_text():
     recent = util.settings.value("recent", [])
 
     for i, file in enumerate(recent):
@@ -187,7 +188,7 @@ def recent_clicked(index):
         load_file(recent[index])
 
 
-def init_recent_actions():
+def recent_init_actions():
     ExecState.recent_actions = []
 
     def generator(num):
@@ -202,7 +203,7 @@ def init_recent_actions():
 
     GuiState.ui.menuRecent.insertSeparator(GuiState.ui.actionClearRecent)
 
-    update_recent_text()
+    recent_update_text()
 
 
 class MainWindowWrapper(QMainWindow):
@@ -224,12 +225,17 @@ def get_action(name: str) -> QAction:
 
 
 def refresh():
-    update_plot()
+    plot_update()
     refresh_buttons_status()
+
     if not AppState.mode_python:
         refresh_algo()
         algo_sel_changed()
 
+    refresh_window_title()
+
+
+def refresh_window_title():
     if GuiState.ui.tabWidget.currentIndex() == 0:
         title = "Turing"
     else:
@@ -346,12 +352,15 @@ def handler_Calculator():
 
 def handler_ChangTheme():
     from forms import changtheme
+
     backup = util.settings.value("app_theme")
+
     dlg = changtheme.ChangeThemeWindow(GuiState.window, theming.themes[backup][1])
     dlg.theme_callback = lambda: set_theme("custom")
 
     if dlg.run():
         util.settings.setValue("custom_theme", theming.themes["custom"][1])
+
         for act in GuiState.ui.menuChangeTheme.actions():
             if act.statusTip() == "custom":
                 act.setVisible(True)
@@ -370,6 +379,7 @@ def change_tab():
         AppState.mode_python = False
     elif GuiState.ui.tabWidget.currentIndex() == 2:
         AppState.mode_python = True
+
     refresh()
 
 
@@ -385,7 +395,7 @@ def update_output():
     GuiState.ui.txtOutput.ensureCursorVisible()
     if ExecState.current_output.endswith("\n\n"):
         ExecState.current_output = ExecState.current_output[:-1]
-    update_plot()
+    plot_update()
 
 
 def check_stop():
@@ -395,7 +405,8 @@ def check_stop():
 
 def python_input(prompt="", globals=None, locals=None):
     python_print(prompt, end="")
-    update_plot()
+    plot_update()
+
     ExecState.after_output = "<hr>"
     ExecState.after_output += util.html.centered(
         "<h3>%s</h3>" % util.html.color_span("<i>%s</i>" % translate("MainWindow", "Input: ") + html.escape(prompt),
@@ -456,25 +467,27 @@ def python_input(prompt="", globals=None, locals=None):
 
 def python_print_error(msg, end="\n"):
     ExecState.current_output += util.html.color_span(msg, "red") + end
+
     if not AppState.mode_python:
         set_current_line(ExecState.worker.last, True)
+
     update_output()
 
 
-def update_plot():
+def plot_update():
     if GuiState.plot_axes is not None and GuiState.plot_canvas is not None:
         GuiState.plot_axes.grid(linestyle='-')
         GuiState.plot_canvas.draw()
 
 
-def g_clear():
+def plot_clear():
     GuiState.plot_axes.clear()
     GuiState.plot_axes.axhline(y=0, color='k')
     GuiState.plot_axes.axvline(x=0, color='k')
-    g_window(-10, 10, -10, 10)
+    plot_window(-10, 10, -10, 10)
 
 
-def g_window(xmin, xmax, ymin, ymax, xgrad=1, ygrad=1):
+def plot_window(xmin, xmax, ymin, ymax, xgrad=0, ygrad=0):
     GuiState.plot_axes.set_xlim(xmin, xmax)
     GuiState.plot_axes.set_ylim(ymin, ymax)
 
@@ -482,55 +495,53 @@ def g_window(xmin, xmax, ymin, ymax, xgrad=1, ygrad=1):
     GuiState.plot_axes.get_yaxis().set_major_locator(AutoLocator() if ygrad == 0 else LinearLocator(int((ymax - ymin) / ygrad) + 1))
 
 
-def g_point(x, y, color="red"):
+def plot_point(x, y, color="red"):
     GuiState.plot_axes.scatter([x], [y], c=color)
-    # update_plot()
 
 
-def g_line(startx, starty, endx, endy, color="red"):
+def plot_line(startx, starty, endx, endy, color="red"):
     GuiState.plot_axes.plot([startx, endx], [starty, endy], c=color, linestyle="-", marker="o")
-    # update_plot()
 
 
-def g_func(func, start, end, step, color="red"):
+def plot_function(func, start, end, step, color="red"):
     domain = np.arange(start, end, step)
     results = [func(x) for x in domain]
     GuiState.plot_axes.plot(domain, results, c=color, linestyle="-")
-    update_plot()
+    plot_update()
 
 
 def stmt_GClear(stmt: GClearStmt):
-    g_clear()
+    plot_clear()
 
 
 def stmt_GWindow(stmt: GWindowStmt):
-    g_window(ExecState.worker.evaluator.eval_node(stmt.x_min),
-             ExecState.worker.evaluator.eval_node(stmt.x_max),
-             ExecState.worker.evaluator.eval_node(stmt.y_min),
-             ExecState.worker.evaluator.eval_node(stmt.y_max),
-             ExecState.worker.evaluator.eval_node(stmt.x_grad),
-             ExecState.worker.evaluator.eval_node(stmt.y_grad))
+    plot_window(ExecState.worker.evaluator.eval_node(stmt.x_min),
+                ExecState.worker.evaluator.eval_node(stmt.x_max),
+                ExecState.worker.evaluator.eval_node(stmt.y_min),
+                ExecState.worker.evaluator.eval_node(stmt.y_max),
+                ExecState.worker.evaluator.eval_node(stmt.x_grad),
+                ExecState.worker.evaluator.eval_node(stmt.y_grad))
 
 
 def stmt_GPoint(stmt: GPointStmt):
-    g_point(ExecState.worker.evaluator.eval_node(stmt.x), ExecState.worker.evaluator.eval_node(stmt.y),
-            ExecState.worker.evaluator.eval_node(stmt.color))
+    plot_point(ExecState.worker.evaluator.eval_node(stmt.x), ExecState.worker.evaluator.eval_node(stmt.y),
+               ExecState.worker.evaluator.eval_node(stmt.color))
 
 
 def stmt_GLine(stmt: GLineStmt):
-    g_line(ExecState.worker.evaluator.eval_node(stmt.start_x),
-           ExecState.worker.evaluator.eval_node(stmt.start_y),
-           ExecState.worker.evaluator.eval_node(stmt.end_x),
-           ExecState.worker.evaluator.eval_node(stmt.end_y),
-           ExecState.worker.evaluator.eval_node(stmt.color))
+    plot_line(ExecState.worker.evaluator.eval_node(stmt.start_x),
+              ExecState.worker.evaluator.eval_node(stmt.start_y),
+              ExecState.worker.evaluator.eval_node(stmt.end_x),
+              ExecState.worker.evaluator.eval_node(stmt.end_y),
+              ExecState.worker.evaluator.eval_node(stmt.color))
 
 
 def stmt_GFunc(stmt: GFuncStmt):
-    g_func(ExecState.worker.evaluator.eval_node(stmt.get_function()),
-           ExecState.worker.evaluator.eval_node(stmt.start),
-           ExecState.worker.evaluator.eval_node(stmt.end),
-           ExecState.worker.evaluator.eval_node(stmt.step),
-           ExecState.worker.evaluator.eval_node(stmt.color))
+    plot_function(ExecState.worker.evaluator.eval_node(stmt.get_function()),
+                  ExecState.worker.evaluator.eval_node(stmt.start),
+                  ExecState.worker.evaluator.eval_node(stmt.end),
+                  ExecState.worker.evaluator.eval_node(stmt.step),
+                  ExecState.worker.evaluator.eval_node(stmt.color))
 
 
 def stmt_Sleep(stmt: SleepStmt):
@@ -553,7 +564,7 @@ def init_worker():
     ExecState.worker.map[GFuncStmt] = stmt_GFunc
     ExecState.worker.map[SleepStmt] = stmt_Sleep
     set_current_line(None)
-    g_clear()
+    plot_clear()
 
 
 def end_output():
@@ -662,11 +673,11 @@ def handler_Step():
                 ExecState.stopped = False
 
         QCoreApplication.processEvents()
-        update_plot()
+        plot_update()
     except:
         show_error()
     finally:
-        update_plot()
+        plot_update()
         if ExecState.worker.finished:
             GuiState.ui.actionRun.setDisabled(False)
             if not ExecState.stop_flag:
@@ -719,7 +730,7 @@ def handler_Run(flag=False):
                 ExecState.running = True
                 ExecState.stopped = False
                 ExecState.python_stopped = False
-                g_clear()
+                plot_clear()
                 ExecState.run_started = datetime.datetime.now()
                 runpy.run_path(file.name, init_globals={
                     "print": python_print,
@@ -728,13 +739,13 @@ def handler_Run(flag=False):
                     "list": compat_list,
                     "sleep": sleep_seconds,
 
-                    "g_clear": g_clear,
-                    "g_window": g_window,
-                    "g_point": g_point,
-                    "g_line": g_line,
-                    "g_func": g_func
+                    "g_clear": plot_clear,
+                    "g_window": plot_window,
+                    "g_point": plot_point,
+                    "g_line": plot_line,
+                    "g_func": plot_function
                 })
-                update_plot()
+                plot_update()
             except SyntaxError as err:
                 msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
                     type=type(err).__name__, line=err.lineno - 10, off=err.offset)
@@ -746,11 +757,11 @@ def handler_Run(flag=False):
                 python_print_error(html.escape(str(sys.exc_info()[1])))
             finally:
                 os.unlink(file.name)
-                update_plot()
+                plot_update()
         else:
             if not ExecState.running:
                 init_worker()
-                g_clear()
+                plot_clear()
                 ExecState.worker.break_on_error = True
                 ExecState.running = True
                 ExecState.stopped = False
@@ -774,7 +785,7 @@ def handler_Run(flag=False):
     except:
         show_error()
     finally:
-        update_plot()
+        plot_update()
         if not AppState.mode_python and ExecState.worker.stopped:
             GuiState.ui.actionStep.setDisabled(False)
             GuiState.ui.actionDebug.setDisabled(False)
@@ -837,7 +848,7 @@ def save(filename):
     with open(filename, "w+", encoding="utf8") as savefile:
         savefile.write(ExecState.last_saved)
 
-    add_recent(filename)
+    recent_add(filename)
 
     refresh()
 
@@ -904,7 +915,7 @@ def load_file(file):
         GuiState.code_editor.setPlainText(newcode, "", "")
         ExecState.last_saved = newcode
 
-    add_recent(AppState.current_file)
+    recent_add(AppState.current_file)
 
     refresh()
 
@@ -1030,7 +1041,7 @@ def clear_output():
     if not AppState.mode_python:
         set_current_line(None)
     update_output()
-    g_clear()
+    plot_clear()
 
 
 def print_output():
@@ -1191,8 +1202,8 @@ def load_plot_canvas():
     GuiState.plot_figure = Figure()
     GuiState.plot_axes = GuiState.plot_figure.add_subplot(111)
     GuiState.plot_canvas = FigureCanvas(GuiState.plot_figure)
-    g_clear()
-    g_window(-10, 10, -10, 10)
+    plot_clear()
+    plot_window(-10, 10, -10, 10)
     GuiState.ui.verticalLayout_4.addWidget(GuiState.plot_canvas)
 
 
@@ -1773,7 +1784,7 @@ def str_stmt(stmt):
 
     elif isinstance(stmt, GWindowStmt):
         ret = translate("Algo",
-                        "[k]SET GuiState.window[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]").format(
+                        "[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]").format(
             x_min=code(stmt.x_min),
             x_max=code(stmt.x_max),
             y_min=code(stmt.y_min),
@@ -1979,7 +1990,7 @@ def init_ui():
 
     GuiState.algo_base_font = GuiState.ui.treeWidget.font()
 
-    init_recent_actions()
+    recent_init_actions()
 
     load_code_editor()
     load_plot_canvas()
