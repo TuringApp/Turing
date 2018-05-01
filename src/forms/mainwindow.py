@@ -29,80 +29,92 @@ from util.widgets import *
 
 translate = QCoreApplication.translate
 
-current_file: Optional[str] = None
-can_save = False
-dialog_window = None
 
-autosave_timer = None
-undo = None
-mode_python = False
-code_editor: api.CodeEdit = None
-plot_canvas: FigureCanvas = None
-plot_figure: Figure = None
-plot_axes: Axes = None
-panel_search = None
-current_output = ""
-after_output = ""
-user_input: str = None
-syntax_highlighter = None
-algo_base_font: QFont = None
-editor_action_table = [
-    ("Copy", "copy"),
-    ("Cut", "cut"),
-    ("Paste", "paste"),
-    ("Undo", "undo"),
-    ("Redo", "redo"),
-    ("SelectAll", "select_all"),
-    ("DuplicateLine", "duplicate_line"),
-    ("Indent", "indent"),
-    ("Unindent", "un_indent"),
-    ("GoToLine", "goto_line"),
-    ("Find", "Search"),
-    ("Replace", "ActionSearchAndReplace"),
-    ("FindPrevious", "FindPrevious"),
-    ("FindNext", "FindNext"),
-    ("ZoomIn", "zoom_in"),
-    ("ZoomOut", "zoom_out"),
-    ("ResetZoom", "reset_zoom")
-]
-python_only = [
-    "SelectAll",
-    "Find",
-    "FindPrevious",
-    "FindNext",
-    "Replace",
-    "Indent",
-    "Unindent",
-    "ConvertToPseudocode",
-    "GoToLine"
-]
-algo_only = [
-    "Debug",
-    "Step",
-    "ConvertToPython"
-]
-filters = {}
-lng_actions = {}
-app_started = False
-worker = None
-algo = BlockStmt([])
-item_map = {}
-root_item = None
+class AppState():
+    current_file: Optional[str] = None
+    can_save = False
+    dialog_window = None
+    autosave_timer = None
+    mode_python = False
+    app_started = False
+    algo = BlockStmt([])
+    new_version = False
+
+
+class GuiState():
+    window = None
+    ui = None
+    code_editor: api.CodeEdit = None
+    plot_canvas: FigureCanvas = None
+    plot_figure: Figure = None
+    plot_axes: Axes = None
+    panel_search = None
+    syntax_highlighter = None
+    algo_base_font: QFont = None
+    editor_action_table = [
+        ("Copy", "copy"),
+        ("Cut", "cut"),
+        ("Paste", "paste"),
+        ("Undo", "undo"),
+        ("Redo", "redo"),
+        ("SelectAll", "select_all"),
+        ("DuplicateLine", "duplicate_line"),
+        ("Indent", "indent"),
+        ("Unindent", "un_indent"),
+        ("GoToLine", "goto_line"),
+        ("Find", "Search"),
+        ("Replace", "ActionSearchAndReplace"),
+        ("FindPrevious", "FindPrevious"),
+        ("FindNext", "FindNext"),
+        ("ZoomIn", "zoom_in"),
+        ("ZoomOut", "zoom_out"),
+        ("ResetZoom", "reset_zoom")
+    ]
+    python_only = [
+        "SelectAll",
+        "Find",
+        "FindPrevious",
+        "FindNext",
+        "Replace",
+        "Indent",
+        "Unindent",
+        "ConvertToPseudocode",
+        "GoToLine"
+    ]
+    algo_only = [
+        "Debug",
+        "Step",
+        "ConvertToPython"
+    ]
+    filters = {}
+    lng_actions = {}  
+    item_map = {}
+    root_item = None
+    mode_zoom = None
+    mode_ext_select = None
+    panel_folding = None
+
+
+class ExecState():
+    stop_flag = False
+    running = False
+    run_started = None
+    skip_step = False
+    stopped = False
+    last_saved = None
+    current_stmt = None
+    python_stopped = False
+    recent_actions = None
+    current_output = ""
+    after_output = ""
+    user_input: str = None
+    worker = None
+
 
 block_html = lambda: '<span style="color:%s;font-weight:bold">' % theming.algo_colors[0]
 comment_html = lambda: '<span style="color:%s;font-style:italic">' % theming.algo_colors[1]
 keyword_html = lambda: '<span style="color:%s;font-weight:bold">' % theming.algo_colors[2]
 red_html = lambda: '<span style="color:%s">' % theming.algo_colors[3]
-
-stop_flag = False
-running = False
-run_started = None
-skip_step = False
-stopped = False
-last_saved = None
-current_stmt = None
-python_stopped = False
-recent_actions = None
 
 
 def sleep(duration):
@@ -118,17 +130,17 @@ def sleep_seconds(duration):
 
 
 def is_empty():
-    if mode_python:
-        return not code_editor.toPlainText()
+    if AppState.mode_python:
+        return not GuiState.code_editor.toPlainText()
     else:
-        return algo.children == []
+        return AppState.algo.children == []
 
 
 def is_modified():
-    if mode_python:
-        return code_editor.toPlainText() != last_saved
+    if AppState.mode_python:
+        return GuiState.code_editor.toPlainText() != ExecState.last_saved
     else:
-        return repr(algo) != last_saved
+        return repr(AppState.algo) != ExecState.last_saved
 
 
 def add_recent(path):
@@ -147,25 +159,25 @@ def update_recent_text():
     recent = util.settings.value("recent", [])
 
     for i, file in enumerate(recent):
-        recent_actions[i].setText(os.path.basename(file))
+        ExecState.recent_actions[i].setText(os.path.basename(file))
         _, ext = os.path.splitext(file.lower())
 
         if ext == ".alg":
             icon = QIcon(":/action/media/algobox.ico")
         elif ext == ".tr":
-            icon = ui.tabWidget.tabIcon(1)
+            icon = GuiState.ui.tabWidget.tabIcon(1)
         elif ext == ".py":
-            icon = ui.tabWidget.tabIcon(2)
+            icon = GuiState.ui.tabWidget.tabIcon(2)
         else:
             icon = QIcon()
 
-        recent_actions[i].setIcon(icon)
+        ExecState.recent_actions[i].setIcon(icon)
 
-        recent_actions[i].setVisible(True)
+        ExecState.recent_actions[i].setVisible(True)
 
     for i in range(len(recent), 10):
-        recent_actions[i].setVisible(False)
-        recent_actions[i].setIcon(QIcon())
+        ExecState.recent_actions[i].setVisible(False)
+        ExecState.recent_actions[i].setIcon(QIcon())
 
 
 def recent_clicked(index):
@@ -176,20 +188,19 @@ def recent_clicked(index):
 
 
 def init_recent_actions():
-    global recent_actions
-    recent_actions = []
+    ExecState.recent_actions = []
 
     def generator(num):
         return lambda: recent_clicked(num)
 
     for i in range(10):
-        act = QAction(window)
+        act = QAction(GuiState.window)
         act.setVisible(False)
         act.triggered.connect(generator(i))
-        recent_actions.append(act)
-        ui.menuRecent.insertAction(ui.actionClearRecent, act)
+        ExecState.recent_actions.append(act)
+        GuiState.ui.menuRecent.insertAction(GuiState.ui.actionClearRecent, act)
 
-    ui.menuRecent.insertSeparator(ui.actionClearRecent)
+    GuiState.ui.menuRecent.insertSeparator(GuiState.ui.actionClearRecent)
 
     update_recent_text()
 
@@ -209,21 +220,21 @@ class MainWindowWrapper(QMainWindow):
 
 
 def get_action(name: str) -> QAction:
-    return getattr(ui, "action" + name)
+    return getattr(GuiState.ui, "action" + name)
 
 
 def refresh():
     update_plot()
     refresh_buttons_status()
-    if not mode_python:
+    if not AppState.mode_python:
         refresh_algo()
         algo_sel_changed()
 
-    if ui.tabWidget.currentIndex() == 0:
+    if GuiState.ui.tabWidget.currentIndex() == 0:
         title = "Turing"
     else:
-        if current_file:
-            filename = os.path.basename(current_file)
+        if AppState.current_file:
+            filename = os.path.basename(AppState.current_file)
             if is_modified():
                 title = translate("MainWindow", "Turing - {file} (unsaved)").format(file=filename)
             else:
@@ -231,13 +242,13 @@ def refresh():
         else:
             title = translate("MainWindow", "Turing - New File")
 
-    window.setWindowTitle(title)
+    GuiState.window.setWindowTitle(title)
 
 
 def refresh_buttons_status():
-    if mode_python:
-        for ours, theirs in editor_action_table:
-            get_action(ours).setEnabled(getattr(code_editor, "action_" + theirs).isEnabled())
+    if AppState.mode_python:
+        for ours, theirs in GuiState.editor_action_table:
+            get_action(ours).setEnabled(getattr(GuiState.code_editor, "action_" + theirs).isEnabled())
 
     active_code = True
     for c in [
@@ -253,79 +264,79 @@ def refresh_buttons_status():
     ]:
         get_action(c).setEnabled(active_code)
 
-    for c in python_only:
-        get_action(c).setVisible(mode_python)
+    for c in GuiState.python_only:
+        get_action(c).setVisible(AppState.mode_python)
 
-    for c in algo_only:
-        get_action(c).setVisible(not mode_python)
+    for c in GuiState.algo_only:
+        get_action(c).setVisible(not AppState.mode_python)
 
-    # if current_file != -1:
-    #    get_action("Undo").setEnabled(undo_objs[current_file].can_undo())
-    #    get_action("Redo").setEnabled(undo_objs[current_file].can_redo())
+    # if AppState.current_file != -1:
+    #    get_action("Undo").setEnabled(undo_objs[AppState.current_file].can_undo())
+    #    get_action("Redo").setEnabled(undo_objs[AppState.current_file].can_redo())
 
 
 def handler_Undo():
-    if mode_python:
-        code_editor.undo()
+    if AppState.mode_python:
+        GuiState.code_editor.undo()
 
 
 def handler_Redo():
-    if mode_python:
-        code_editor.redo()
+    if AppState.mode_python:
+        GuiState.code_editor.redo()
 
 
 def handler_SelectAll():
-    code_editor.selectAll()
+    GuiState.code_editor.selectAll()
 
 
 def handler_Cut():
-    if mode_python:
-        code_editor.cut()
+    if AppState.mode_python:
+        GuiState.code_editor.cut()
 
 
 def handler_Copy():
-    if mode_python:
-        code_editor.copy()
+    if AppState.mode_python:
+        GuiState.code_editor.copy()
 
 
 def handler_Paste():
-    if mode_python:
-        code_editor.paste()
+    if AppState.mode_python:
+        GuiState.code_editor.paste()
 
 
 def handler_DuplicateLine():
-    if mode_python:
-        code_editor.duplicate_line()
+    if AppState.mode_python:
+        GuiState.code_editor.duplicate_line()
     else:
         btn_dupl_line()
 
 
 def handler_Indent():
-    code_editor.indent()
+    GuiState.code_editor.indent()
 
 
 def handler_Unindent():
-    code_editor.un_indent()
+    GuiState.code_editor.un_indent()
 
 
 def handler_GoToLine():
-    code_editor.goto_line()
+    GuiState.code_editor.goto_line()
 
 
 def handler_Find():
-    panel_search.on_search()
+    GuiState.panel_search.on_search()
 
 
 def handler_FindPrevious():
-    panel_search.select_previous()
+    GuiState.panel_search.select_previous()
 
 
 def handler_FindNext():
-    panel_search.select_next()
+    GuiState.panel_search.select_next()
 
 
 def handler_Replace():
-    panel_search.on_search_and_replace()
+    GuiState.panel_search.on_search_and_replace()
 
 
 def handler_Calculator():
@@ -336,12 +347,12 @@ def handler_Calculator():
 def handler_ChangTheme():
     from forms import changtheme
     backup = util.settings.value("app_theme")
-    dlg = changtheme.ChangeThemeWindow(window, theming.themes[backup][1])
+    dlg = changtheme.ChangeThemeWindow(GuiState.window, theming.themes[backup][1])
     dlg.theme_callback = lambda: set_theme("custom")
 
     if dlg.run():
         util.settings.setValue("custom_theme", theming.themes["custom"][1])
-        for act in ui.menuChangeTheme.actions():
+        for act in GuiState.ui.menuChangeTheme.actions():
             if act.statusTip() == "custom":
                 act.setVisible(True)
                 break
@@ -351,146 +362,140 @@ def handler_ChangTheme():
 
 def handler_HelpContents():
     from forms import help
-    help.HelpWindow(window)
+    help.HelpWindow(GuiState.window)
 
 
 def change_tab():
-    global mode_python
-    if ui.tabWidget.currentIndex() == 1:
-        mode_python = False
-    elif ui.tabWidget.currentIndex() == 2:
-        mode_python = True
+    if GuiState.ui.tabWidget.currentIndex() == 1:
+        AppState.mode_python = False
+    elif GuiState.ui.tabWidget.currentIndex() == 2:
+        AppState.mode_python = True
     refresh()
 
 
 def python_print(*args, end="\n"):
-    global current_output
-    current_output += html.escape(" ".join(str(arg) for arg in args))
-    current_output += end
+    ExecState.current_output += html.escape(" ".join(str(arg) for arg in args))
+    ExecState.current_output += end
     update_output()
 
 
 def update_output():
-    global current_output
-    ui.txtOutput.setHtml('<pre style="margin: 0">%s</pre>' % (current_output + after_output))
-    ui.txtOutput.moveCursor(QTextCursor.End)
-    ui.txtOutput.ensureCursorVisible()
-    if current_output.endswith("\n\n"):
-        current_output = current_output[:-1]
+    GuiState.ui.txtOutput.setHtml('<pre style="margin: 0">%s</pre>' % (ExecState.current_output + ExecState.after_output))
+    GuiState.ui.txtOutput.moveCursor(QTextCursor.End)
+    GuiState.ui.txtOutput.ensureCursorVisible()
+    if ExecState.current_output.endswith("\n\n"):
+        ExecState.current_output = ExecState.current_output[:-1]
     update_plot()
 
 
 def check_stop():
-    if stopped or (not mode_python and worker.finished):
+    if ExecState.stopped or (not AppState.mode_python and ExecState.worker.finished):
         raise KeyboardInterrupt()
 
 
 def python_input(prompt="", globals=None, locals=None):
     python_print(prompt, end="")
     update_plot()
-    global after_output
-    after_output = "<hr>"
-    after_output += util.html.centered(
+    ExecState.after_output = "<hr>"
+    ExecState.after_output += util.html.centered(
         "<h3>%s</h3>" % util.html.color_span("<i>%s</i>" % translate("MainWindow", "Input: ") + html.escape(prompt),
                                              "red"))
     update_output()
 
-    ui.btnSendInput.setEnabled(True)
-    ui.txtInput.setEnabled(True)
+    GuiState.ui.btnSendInput.setEnabled(True)
+    GuiState.ui.txtInput.setEnabled(True)
 
     for n in range(3):
-        ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
+        GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
         sleep(0.050)
-        ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
+        GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
         sleep(0.050)
-        ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff5252; }")
+        GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff5252; }")
         sleep(0.050)
-        ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
+        GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
         sleep(0.050)
-        ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
+        GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
         sleep(0.050)
-        ui.txtInput.setStyleSheet("")
+        GuiState.ui.txtInput.setStyleSheet("")
         sleep(0.200)
 
-    global user_input
-    user_input = None
+    ExecState.user_input = None
 
-    ui.txtInput.setFocus(Qt.OtherFocusReason)
+    GuiState.ui.txtInput.setFocus(Qt.OtherFocusReason)
 
-    while user_input is None:
+    while ExecState.user_input is None:
         check_stop()
         QCoreApplication.processEvents()
 
-    ui.btnSendInput.setEnabled(False)
-    ui.txtInput.setEnabled(False)
-    ui.txtInput.setText("")
+    GuiState.ui.btnSendInput.setEnabled(False)
+    GuiState.ui.txtInput.setEnabled(False)
+    GuiState.ui.txtInput.setText("")
 
-    after_output = ""
-    python_print(user_input)
+    ExecState.after_output = ""
+    python_print(ExecState.user_input)
     update_output()
 
     try:
-        evaled = eval(user_input, globals, locals)
+        evaled = eval(ExecState.user_input, globals, locals)
         return evaled
     except:
         try:
-            to_int = int(user_input)
+            to_int = int(ExecState.user_input)
             return to_int
         except:
             try:
-                to_float = float(user_input)
+                to_float = float(ExecState.user_input)
                 return to_float
             except:
                 try:
-                    to_complex = complex(user_input)
+                    to_complex = complex(ExecState.user_input)
                     return to_complex
                 except:
-                    return user_input
+                    return ExecState.user_input
 
 
 def python_print_error(msg, end="\n"):
-    global current_output
-    current_output += util.html.color_span(msg, "red") + end
-    if not mode_python:
-        set_current_line(worker.last, True)
+    ExecState.current_output += util.html.color_span(msg, "red") + end
+    if not AppState.mode_python:
+        set_current_line(ExecState.worker.last, True)
     update_output()
 
 
 def update_plot():
-    if plot_axes is not None and plot_canvas is not None:
-        plot_axes.grid(linestyle='-')
-        plot_canvas.draw()
+    if GuiState.plot_axes is not None and GuiState.plot_canvas is not None:
+        GuiState.plot_axes.grid(linestyle='-')
+        GuiState.plot_canvas.draw()
 
 
 def g_clear():
-    plot_axes.clear()
-    plot_axes.axhline(y=0, color='k')
-    plot_axes.axvline(x=0, color='k')
+    GuiState.plot_axes.clear()
+    GuiState.plot_axes.axhline(y=0, color='k')
+    GuiState.plot_axes.axvline(x=0, color='k')
     g_window(-10, 10, -10, 10)
 
 
 def g_window(xmin, xmax, ymin, ymax, xgrad=1, ygrad=1):
-    plot_axes.set_xlim(xmin, xmax)
-    plot_axes.set_ylim(ymin, ymax)
-    # plot_axes.set_xticks(range(xmin, xmax, xgrad))
-    # plot_axes.set_yticks(range(ymin, ymax, ygrad))
+    GuiState.plot_axes.set_xlim(xmin, xmax)
+    GuiState.plot_axes.set_ylim(ymin, ymax)
+    # GuiState.plot_axes.set_xticks(range(xmin, xmax, xgrad))
+    # GuiState.plot_axes.set_yticks(range(ymin, ymax, ygrad))
     # update_plot()
 
 
 def g_point(x, y, color="red"):
-    plot_axes.scatter([x], [y], c=color)
+    GuiState.plot_axes.scatter([x], [y], c=color)
     # update_plot()
 
 
 def g_line(startx, starty, endx, endy, color="red"):
-    plot_axes.plot([startx, endx], [starty, endy], c=color, linestyle="-", marker="o")
+    GuiState.plot_axes.plot([startx, endx], [starty, endy], c=color, linestyle="-", marker="o")
     # update_plot()
 
 
 def g_func(func, start, end, step, color="red"):
     domain = np.arange(start, end, step)
     results = [func(x) for x in domain]
-    plot_axes.plot(domain, results, c=color, linestyle="-")
+    GuiState.plot_axes.plot(domain, results, c=color, linestyle="-")
     update_plot()
 
 
@@ -499,88 +504,85 @@ def stmt_GClear(stmt: GClearStmt):
 
 
 def stmt_GWindow(stmt: GWindowStmt):
-    g_window(worker.evaluator.eval_node(stmt.x_min),
-             worker.evaluator.eval_node(stmt.x_max),
-             worker.evaluator.eval_node(stmt.y_min),
-             worker.evaluator.eval_node(stmt.y_max),
-             worker.evaluator.eval_node(stmt.x_grad),
-             worker.evaluator.eval_node(stmt.y_grad))
+    g_window(ExecState.worker.evaluator.eval_node(stmt.x_min),
+             ExecState.worker.evaluator.eval_node(stmt.x_max),
+             ExecState.worker.evaluator.eval_node(stmt.y_min),
+             ExecState.worker.evaluator.eval_node(stmt.y_max),
+             ExecState.worker.evaluator.eval_node(stmt.x_grad),
+             ExecState.worker.evaluator.eval_node(stmt.y_grad))
 
 
 def stmt_GPoint(stmt: GPointStmt):
-    g_point(worker.evaluator.eval_node(stmt.x), worker.evaluator.eval_node(stmt.y),
-            worker.evaluator.eval_node(stmt.color))
+    g_point(ExecState.worker.evaluator.eval_node(stmt.x), ExecState.worker.evaluator.eval_node(stmt.y),
+            ExecState.worker.evaluator.eval_node(stmt.color))
 
 
 def stmt_GLine(stmt: GLineStmt):
-    g_line(worker.evaluator.eval_node(stmt.start_x),
-           worker.evaluator.eval_node(stmt.start_y),
-           worker.evaluator.eval_node(stmt.end_x),
-           worker.evaluator.eval_node(stmt.end_y),
-           worker.evaluator.eval_node(stmt.color))
+    g_line(ExecState.worker.evaluator.eval_node(stmt.start_x),
+           ExecState.worker.evaluator.eval_node(stmt.start_y),
+           ExecState.worker.evaluator.eval_node(stmt.end_x),
+           ExecState.worker.evaluator.eval_node(stmt.end_y),
+           ExecState.worker.evaluator.eval_node(stmt.color))
 
 
 def stmt_GFunc(stmt: GFuncStmt):
-    g_func(worker.evaluator.eval_node(stmt.get_function()),
-           worker.evaluator.eval_node(stmt.start),
-           worker.evaluator.eval_node(stmt.end),
-           worker.evaluator.eval_node(stmt.step),
-           worker.evaluator.eval_node(stmt.color))
+    g_func(ExecState.worker.evaluator.eval_node(stmt.get_function()),
+           ExecState.worker.evaluator.eval_node(stmt.start),
+           ExecState.worker.evaluator.eval_node(stmt.end),
+           ExecState.worker.evaluator.eval_node(stmt.step),
+           ExecState.worker.evaluator.eval_node(stmt.color))
 
 
 def stmt_Sleep(stmt: SleepStmt):
-    sleep_seconds(worker.evaluator.eval_node(stmt.duration))
+    sleep_seconds(ExecState.worker.evaluator.eval_node(stmt.duration))
 
 
 def init_worker():
     from algo.worker import Worker
-    global worker
-    worker = Worker(algo.children)
-    worker.callback_print = python_print
-    worker.callback_input = python_input
-    worker.log.set_callback(python_print_error)
-    worker.log.use_prefix = False
-    worker.init()
-    worker.callback_stop = callback_stop
-    worker.map[GClearStmt] = stmt_GClear
-    worker.map[GWindowStmt] = stmt_GWindow
-    worker.map[GPointStmt] = stmt_GPoint
-    worker.map[GLineStmt] = stmt_GLine
-    worker.map[GFuncStmt] = stmt_GFunc
-    worker.map[SleepStmt] = stmt_Sleep
+    ExecState.worker = Worker(AppState.algo.children)
+    ExecState.worker.callback_print = python_print
+    ExecState.worker.callback_input = python_input
+    ExecState.worker.log.set_callback(python_print_error)
+    ExecState.worker.log.use_prefix = False
+    ExecState.worker.init()
+    ExecState.worker.callback_stop = callback_stop
+    ExecState.worker.map[GClearStmt] = stmt_GClear
+    ExecState.worker.map[GWindowStmt] = stmt_GWindow
+    ExecState.worker.map[GPointStmt] = stmt_GPoint
+    ExecState.worker.map[GLineStmt] = stmt_GLine
+    ExecState.worker.map[GFuncStmt] = stmt_GFunc
+    ExecState.worker.map[SleepStmt] = stmt_Sleep
     set_current_line(None)
     g_clear()
 
 
 def end_output():
-    global current_output, run_started
-    current_output += util.html.centered(
-        util.html.color_span(translate("MainWindow", "end of output") if run_started is None
+    ExecState.current_output += util.html.centered(
+        util.html.color_span(translate("MainWindow", "end of output") if ExecState.run_started is None
                              else translate("MainWindow", "end of output [{time}]").format(
-            time=datetime.datetime.now() - run_started), "red"))
-    current_output += "<hr />\n"
-    run_started = None
+            time=datetime.datetime.now() - ExecState.run_started), "red"))
+    ExecState.current_output += "<hr />\n"
+    ExecState.run_started = None
     update_output()
 
 
 def set_current_line(current: Optional[BaseStmt], error=False):
-    for item, stmt in item_map.values():
+    for item, stmt in GuiState.item_map.values():
         if stmt == current:
             item.setBackground(0, QBrush(QColor("#ef5350") if error else QColor("#fdd835")))
         else:
-            item.setBackground(0, root_item.background(0))
+            item.setBackground(0, GuiState.root_item.background(0))
 
 
 def callback_stop(stmt, virtual=False):
-    breakpoint_message(worker.evaluator.eval_node(stmt.message))
+    breakpoint_message(ExecState.worker.evaluator.eval_node(stmt.message))
     if not virtual:
-        worker.finished = True
+        ExecState.worker.finished = True
 
 
 def breakpoint_message(message=""):
-    global after_output
-    after_output = "<hr>"
-    after_output += util.html.centered(
+    ExecState.after_output = "<hr>"
+    ExecState.after_output += util.html.centered(
         "<h3>%s</h3>" % util.html.color_span("<i>%s</i>" % (
             translate("MainWindow", "Breakpoint: ") + html.escape(str(message)) if message else translate("MainWindow",
                                                                                                           "Breakpoint")),
@@ -589,80 +591,75 @@ def breakpoint_message(message=""):
 
 
 def python_breakpoint(message=""):
-    global after_output
     breakpoint_message(message)
 
-    global python_stopped
-    python_stopped = True
+    ExecState.python_stopped = True
 
-    ui.actionRun.setDisabled(False)
-    ui.actionStop.setDisabled(False)
+    GuiState.ui.actionRun.setDisabled(False)
+    GuiState.ui.actionStop.setDisabled(False)
 
-    while python_stopped and not stopped:
+    while ExecState.python_stopped and not ExecState.stopped:
         QCoreApplication.processEvents()
 
-    if stopped:
+    if ExecState.stopped:
         raise KeyboardInterrupt()
 
-    after_output = ""
+    ExecState.after_output = ""
     update_output()
 
-    ui.actionRun.setDisabled(True)
-    ui.actionStop.setDisabled(True)
+    GuiState.ui.actionRun.setDisabled(True)
+    GuiState.ui.actionStop.setDisabled(True)
 
 
 def handler_Stop():
     python_print_error(translate("MainWindow", "program interrupted"))
-    global running, after_output, stopped, python_stopped, stop_flag
-    after_output = ""
-    stopped = True
-    if mode_python:
-        running = False
-        python_stopped = False
+    ExecState.after_output = ""
+    ExecState.stopped = True
+    if AppState.mode_python:
+        ExecState.running = False
+        ExecState.python_stopped = False
     else:
-        running = True
-        worker.finished = True
-        worker.error = False
-        stop_flag = True
+        ExecState.running = True
+        ExecState.worker.finished = True
+        ExecState.worker.error = False
+        ExecState.stop_flag = True
         handler_Step()
-        stop_flag = False
+        ExecState.stop_flag = False
     update_output()
 
 
 def handler_Step():
-    ui.actionRun.setDisabled(True)
-    ui.actionDebug.setDisabled(True)
-    ui.actionStep.setDisabled(True)
-    ui.actionStop.setEnabled(True)
-    global running, current_stmt, skip_step, stopped
+    GuiState.ui.actionRun.setDisabled(True)
+    GuiState.ui.actionDebug.setDisabled(True)
+    GuiState.ui.actionStep.setDisabled(True)
+    GuiState.ui.actionStop.setEnabled(True)
 
     try:
-        if mode_python:
+        if AppState.mode_python:
             pass
         else:
-            if not stopped:
-                if running:
-                    if skip_step:
-                        skip_step = False
-                        global after_output
-                        after_output = ""
+            if not ExecState.stopped:
+                if ExecState.running:
+                    if ExecState.skip_step:
+                        ExecState.skip_step = False
+                        ExecState.after_output = ""
                         update_output()
                     else:
-                        if isinstance(current_stmt, StopStmt):
-                            callback_stop(current_stmt, True)
-                            skip_step = True
+                        if isinstance(ExecState.current_stmt, StopStmt):
+                            callback_stop(ExecState.current_stmt, True)
+                            ExecState.skip_step = True
                         else:
-                            worker.exec_stmt(current_stmt)
+                            ExecState.worker.exec_stmt(ExecState.current_stmt)
                 else:
                     init_worker()
-                    running = True
+                    ExecState.running = True
 
-                if not skip_step and not worker.error:
-                    current_stmt = worker.next_stmt()
+                if not ExecState.skip_step and not ExecState.worker.error:
+                    ExecState.current_stmt = ExecState.worker.next_stmt()
 
-                    set_current_line(current_stmt)
+                    set_current_line(ExecState.current_stmt)
             else:
-                stopped = False
+                ExecState.stopped = False
 
         QCoreApplication.processEvents()
         update_plot()
@@ -670,16 +667,16 @@ def handler_Step():
         show_error()
     finally:
         update_plot()
-        if worker.finished:
-            ui.actionRun.setDisabled(False)
-            if not stop_flag:
+        if ExecState.worker.finished:
+            GuiState.ui.actionRun.setDisabled(False)
+            if not ExecState.stop_flag:
                 end_output()
-            if not worker.error:
+            if not ExecState.worker.error:
                 set_current_line(None)
-            running = False
-        ui.actionDebug.setDisabled(False)
-        ui.actionStep.setDisabled(False)
-        ui.actionStop.setEnabled(not worker.finished)
+            ExecState.running = False
+        GuiState.ui.actionDebug.setDisabled(False)
+        GuiState.ui.actionStep.setDisabled(False)
+        GuiState.ui.actionStop.setEnabled(not ExecState.worker.finished)
 
 
 def handler_Debug():
@@ -698,34 +695,32 @@ class compat_list(list):
 
 
 def handler_Run(flag=False):
-    global python_stopped
-    if python_stopped:
-        python_stopped = False
+    if ExecState.python_stopped:
+        ExecState.python_stopped = False
         return
 
-    if not flag and not mode_python:
+    if not flag and not AppState.mode_python:
         algo_run_python()
         return
 
-    ui.actionRun.setDisabled(True)
-    ui.actionDebug.setDisabled(True)
-    ui.actionStep.setDisabled(True)
-    ui.actionStop.setEnabled(True)
-    global running, current_stmt, skip_step, stopped, run_started
+    GuiState.ui.actionRun.setDisabled(True)
+    GuiState.ui.actionDebug.setDisabled(True)
+    GuiState.ui.actionStep.setDisabled(True)
+    GuiState.ui.actionStop.setEnabled(True)
     user_stop = False
     set_current_line(None)
     try:
-        if mode_python:
+        if AppState.mode_python:
             file = tempfile.NamedTemporaryFile(mode="w+b", suffix=".py", delete=False)
             try:
-                code = util.code.python_wrapper(code_editor.toPlainText()).encode("utf8")
+                code = util.code.python_wrapper(GuiState.code_editor.toPlainText()).encode("utf8")
                 file.write(code)
                 file.close()
-                running = True
-                stopped = False
-                python_stopped = False
+                ExecState.running = True
+                ExecState.stopped = False
+                ExecState.python_stopped = False
                 g_clear()
-                run_started = datetime.datetime.now()
+                ExecState.run_started = datetime.datetime.now()
                 runpy.run_path(file.name, init_globals={
                     "print": python_print,
                     "input": python_input,
@@ -753,27 +748,26 @@ def handler_Run(flag=False):
                 os.unlink(file.name)
                 update_plot()
         else:
-            if not running:
+            if not ExecState.running:
                 init_worker()
                 g_clear()
-                worker.break_on_error = True
-                running = True
-                stopped = False
-                run_started = datetime.datetime.now()
-                skip_step = False
+                ExecState.worker.break_on_error = True
+                ExecState.running = True
+                ExecState.stopped = False
+                ExecState.run_started = datetime.datetime.now()
+                ExecState.skip_step = False
             else:
-                if skip_step:
-                    skip_step = False
-                    global after_output
-                    after_output = ""
+                if ExecState.skip_step:
+                    ExecState.skip_step = False
+                    ExecState.after_output = ""
                     update_output()
                 else:
-                    worker.exec_stmt(current_stmt)
-                    if not worker.error:
+                    ExecState.worker.exec_stmt(ExecState.current_stmt)
+                    if not ExecState.worker.error:
                         set_current_line(None)
 
-            while not worker.finished:
-                worker.step()
+            while not ExecState.worker.finished:
+                ExecState.worker.step()
                 QCoreApplication.processEvents()
     except KeyboardInterrupt:
         user_stop = True
@@ -781,71 +775,67 @@ def handler_Run(flag=False):
         show_error()
     finally:
         update_plot()
-        if not mode_python and worker.stopped:
-            ui.actionStep.setDisabled(False)
-            ui.actionDebug.setDisabled(False)
-            set_current_line(worker.last)
-            skip_step = True
-            worker.finished = False
-            worker.stopped = False
+        if not AppState.mode_python and ExecState.worker.stopped:
+            GuiState.ui.actionStep.setDisabled(False)
+            GuiState.ui.actionDebug.setDisabled(False)
+            set_current_line(ExecState.worker.last)
+            ExecState.skip_step = True
+            ExecState.worker.finished = False
+            ExecState.worker.stopped = False
         else:
             if not user_stop:
                 end_output()
-            ui.actionRun.setDisabled(False)
-            ui.actionStep.setDisabled(False)
-            ui.actionDebug.setDisabled(False)
-            ui.actionStop.setEnabled(False)
-            running = False
+            GuiState.ui.actionRun.setDisabled(False)
+            GuiState.ui.actionStep.setDisabled(False)
+            GuiState.ui.actionDebug.setDisabled(False)
+            GuiState.ui.actionStop.setEnabled(False)
+            ExecState.running = False
 
 
 def handler_ConvertToPython():
-    global mode_python, current_file
-    py_code = "\n".join(algo.python())
-    code_editor.setPlainText(py_code, "", "")
-    mode_python = True
-    current_file = None
+    py_code = "\n".join(AppState.algo.python())
+    GuiState.code_editor.setPlainText(py_code, "", "")
+    AppState.mode_python = True
+    AppState.current_file = None
     refresh()
 
 
 def algo_run_python():
-    global mode_python
-    py_code = "\n".join(algo.python())
-    code_editor.setPlainText(py_code, "", "")
-    mode_python = True
+    py_code = "\n".join(AppState.algo.python())
+    GuiState.code_editor.setPlainText(py_code, "", "")
+    AppState.mode_python = True
     handler_Run()
-    mode_python = False
-    # code_editor.setPlainText("", "", "")
+    AppState.mode_python = False
+    # GuiState.code_editor.setPlainText("", "", "")
 
 
 def handler_AboutTuring():
     import forms.about
-    forms.about.AboutWindow(window, util.__version__, util.__channel__).run()
+    forms.about.AboutWindow(GuiState.window, util.__version__, util.__channel__).run()
 
 
 def handler_ShowToolbar():
-    if ui.toolBar.isVisible():
-        ui.toolBar.hide()
+    if GuiState.ui.toolBar.isVisible():
+        GuiState.ui.toolBar.hide()
     else:
-        ui.toolBar.show()
+        GuiState.ui.toolBar.show()
 
 
 def handler_ShowToolbarText():
-    if ui.toolBar.toolButtonStyle() == Qt.ToolButtonTextUnderIcon:
-        ui.toolBar.setToolButtonStyle(Qt.ToolButtonIconOnly)
+    if GuiState.ui.toolBar.toolButtonStyle() == Qt.ToolButtonTextUnderIcon:
+        GuiState.ui.toolBar.setToolButtonStyle(Qt.ToolButtonIconOnly)
     else:
-        ui.toolBar.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+        GuiState.ui.toolBar.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
 
 
 def save(filename):
-    global last_saved
-
-    if mode_python:
-        last_saved = str(code_editor.toPlainText())
+    if AppState.mode_python:
+        ExecState.last_saved = str(GuiState.code_editor.toPlainText())
     else:
-        last_saved = repr(algo)
+        ExecState.last_saved = repr(AppState.algo)
 
     with open(filename, "w+", encoding="utf8") as savefile:
-        savefile.write(last_saved)
+        savefile.write(ExecState.last_saved)
 
     add_recent(filename)
 
@@ -853,40 +843,37 @@ def save(filename):
 
 
 def save_output():
-    file = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save output"),
+    file = QFileDialog.getSaveFileName(GuiState.window, translate("MainWindow", "Save output"),
                                        "",
                                        translate("MainWindow", "Text files (*.txt)"))[0]
     if not file:
         return
 
     with open(file, "w+", encoding="utf8") as savefile:
-        savefile.write(ui.txtOutput.toPlainText())
+        savefile.write(GuiState.ui.txtOutput.toPlainText())
 
 
 def handler_SaveAs():
-    global current_file
-
-    file = QFileDialog.getSaveFileName(window, translate("MainWindow", "Save"),
+    file = QFileDialog.getSaveFileName(GuiState.window, translate("MainWindow", "Save"),
                                        "",
-                                       filters[["tr", "py"][mode_python]])[0]
+                                       GuiState.filters[["tr", "py"][AppState.mode_python]])[0]
     if not file:
         return
 
-    current_file = file
+    AppState.current_file = file
     handler_Save()
 
 
 def handler_Save():
-    if not current_file:
+    if not AppState.current_file:
         handler_SaveAs()
         return
 
-    save(current_file)
+    save(AppState.current_file)
 
 
 def handler_Open():
-    global algo, current_file
-    sel_file, _ = QFileDialog.getOpenFileName(window, translate("MainWindow", "Open"), "", ";;".join(filters.values()))
+    sel_file, _ = QFileDialog.getOpenFileName(GuiState.window, translate("MainWindow", "Open"), "", ";;".join(GuiState.filters.values()))
 
     if not sel_file:
         return
@@ -895,30 +882,29 @@ def handler_Open():
 
 
 def load_file(file):
-    global current_file, mode_python, last_saved
-    current_file = file
-    _, ext = os.path.splitext(current_file.lower())
+    AppState.current_file = file
+    _, ext = os.path.splitext(AppState.current_file.lower())
 
-    with open(current_file, "r", encoding="utf8") as openfile:
+    with open(AppState.current_file, "r", encoding="utf8") as openfile:
         newcode = openfile.read()
 
     if ext == ".alg":
         from algo.algobox import parse_algobox
-        mode_python = False
+        AppState.mode_python = False
         load_block(parse_algobox(newcode))
-        last_saved = repr(algo)
+        ExecState.last_saved = repr(AppState.algo)
 
     elif ext == ".tr":
-        mode_python = False
+        AppState.mode_python = False
         load_pseudocode(newcode)
-        last_saved = repr(algo)
+        ExecState.last_saved = repr(AppState.algo)
 
     elif ext == ".py":
-        mode_python = True
-        code_editor.setPlainText(newcode, "", "")
-        last_saved = newcode
+        AppState.mode_python = True
+        GuiState.code_editor.setPlainText(newcode, "", "")
+        ExecState.last_saved = newcode
 
-    add_recent(current_file)
+    add_recent(AppState.current_file)
 
     refresh()
 
@@ -927,55 +913,54 @@ def handler_New():
     if is_modified():
         msg = msg_box(
             translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."),
-            parent=window)
+            parent=GuiState.window)
         if msg.exec_() != QMessageBox.Yes:
             return
 
-    global current_file, algo, code_editor
-    current_file = None
-    algo = BlockStmt([])
-    code_editor.setPlainText("", "", "")
+    AppState.current_file = None
+    AppState.algo = BlockStmt([])
+    GuiState.code_editor.setPlainText("", "", "")
     refresh()
 
 
 def handler_ZoomIn():
-    if mode_python:
-        code_editor.zoom_in()
+    if AppState.mode_python:
+        GuiState.code_editor.zoom_in()
     else:
-        set_algo_size(ui.treeWidget.font().pointSize() + 1)
+        set_algo_size(GuiState.ui.treeWidget.font().pointSize() + 1)
 
 
 def handler_ZoomOut():
-    if mode_python:
-        code_editor.zoom_out()
+    if AppState.mode_python:
+        GuiState.code_editor.zoom_out()
     else:
-        set_algo_size(ui.treeWidget.font().pointSize() - 1)
+        set_algo_size(GuiState.ui.treeWidget.font().pointSize() - 1)
 
 
 def handler_ResetZoom():
-    if mode_python:
-        code_editor.reset_zoom()
+    if AppState.mode_python:
+        GuiState.code_editor.reset_zoom()
     else:
-        set_algo_size(algo_base_font.pointSize())
+        set_algo_size(GuiState.algo_base_font.pointSize())
 
 
 def set_algo_size(size):
     if size < 1:
         size = 1
-    set_font_size(ui.treeWidget, size)
-    for idstmt, (item, stmt) in item_map.items():
+    set_font_size(GuiState.ui.treeWidget, size)
+    for idstmt, (item, stmt) in GuiState.item_map.items():
         set_font_size(item, size, 0)
         if hasattr(item, "lbl"):
             set_font_size(item.lbl, size)
 
 
 def init_action_handlers():
-    for item in dir(ui):
+    for item in dir(GuiState.ui):
         if item.startswith("action"):
             name = "handler_" + item[6:]
 
             if name in globals():
-                getattr(ui, item).triggered.connect(globals()[name])
+                getattr(GuiState.ui, item).triggered.connect(globals()[name])
 
 
 def copy_action(source: QAction, target: QAction):
@@ -995,40 +980,40 @@ def load_languages():
         cur = it.next()
         locale_name, _ = os.path.splitext(os.path.basename(cur))
         locale = QLocale(locale_name)
-        act = QAction(window)
+        act = QAction(GuiState.window)
         act.setCheckable(True)
         act.setIcon(QIcon(cur))
         act.setText(locale.nativeLanguageName())
         act.triggered.connect(gen(locale_name))
-        ui.menuLanguage.addAction(act)
-        lng_actions[locale_name] = act
+        GuiState.ui.menuLanguage.addAction(act)
+        GuiState.lng_actions[locale_name] = act
 
 
 def fix_tabwidget_width():
-    ui.tabWidget_2.setMinimumWidth(
-        sum(ui.tabWidget_2.tabBar().tabRect(x).width() for x in range(ui.tabWidget_2.count())))
-    ui.widget.setMinimumWidth(0)
-    ui.widget.setMaximumWidth(16777215)
-    ui.widget.adjustSize()
-    width = max(window.width() / 3, ui.widget.width())
-    ui.widget.setMinimumWidth(width)
-    ui.widget.setMaximumWidth(width)
+    GuiState.ui.tabWidget_2.setMinimumWidth(
+        sum(GuiState.ui.tabWidget_2.tabBar().tabRect(x).width() for x in range(GuiState.ui.tabWidget_2.count())))
+    GuiState.ui.widget.setMinimumWidth(0)
+    GuiState.ui.widget.setMaximumWidth(16777215)
+    GuiState.ui.widget.adjustSize()
+    width = max(GuiState.window.width() / 3, GuiState.ui.widget.width())
+    GuiState.ui.widget.setMinimumWidth(width)
+    GuiState.ui.widget.setMaximumWidth(width)
 
 
 def refresh_locs():
-    for act in ui.menuChangeTheme.actions():
+    for act in GuiState.ui.menuChangeTheme.actions():
         if act.statusTip():
             act.setText(theming.themes[act.statusTip()][0]())
 
 
 def change_language(language: str):
-    available = lng_actions.keys()
+    available = GuiState.lng_actions.keys()
     if language not in available and util.get_short_lang(language) not in available:
         language = "en"
     translator.load(language)
-    ui.menubar.resizeEvent(QResizeEvent(ui.menubar.size(), ui.menubar.size()))
+    GuiState.ui.menubar.resizeEvent(QResizeEvent(GuiState.ui.menubar.size(), GuiState.ui.menubar.size()))
     load_editor_actions()
-    for l, a in lng_actions.items():
+    for l, a in GuiState.lng_actions.items():
         a.setChecked(l in [language, util.get_short_lang(language)])
     fix_qt_shitty_margins()
     fix_tabwidget_width()
@@ -1037,77 +1022,75 @@ def change_language(language: str):
 
 
 def send_user_input():
-    global user_input
-    user_input = ui.txtInput.text()
+    ExecState.user_input = GuiState.ui.txtInput.text()
 
 
 def clear_output():
-    global current_output
-    current_output = ""
-    if not mode_python:
+    ExecState.current_output = ""
+    if not AppState.mode_python:
         set_current_line(None)
     update_output()
     g_clear()
 
 
 def print_output():
-    print(dir(code_editor))
+    print(dir(GuiState.code_editor))
 
-    theming.themes["devtest"] = (theming.themes["devtest"][0], code_editor.toPlainText().split("\n"))
+    theming.themes["devtest"] = (theming.themes["devtest"][0], GuiState.code_editor.toPlainText().split("\n"))
     set_theme("devtest")
 
     pass
 
 
 def load_editor_actions():
-    for ours, theirs in editor_action_table:
-        copy_action(getattr(ui, "action" + ours), getattr(code_editor, "action_" + theirs))
+    for ours, theirs in GuiState.editor_action_table:
+        copy_action(getattr(GuiState.ui, "action" + ours), getattr(GuiState.code_editor, "action_" + theirs))
 
     # edge cases
-    copy_action(ui.actionFind, panel_search.menu.menuAction())
-    code_editor._sub_menus["Advanced"].setTitle(translate("MainWindow", "Advanced"))
-    mode_zoom.mnu_zoom.setTitle(translate("MainWindow", "Zoom"))
+    copy_action(GuiState.ui.actionFind, GuiState.panel_search.menu.menuAction())
+    GuiState.code_editor._sub_menus["Advanced"].setTitle(translate("MainWindow", "Advanced"))
+    GuiState.mode_zoom.mnu_zoom.setTitle(translate("MainWindow", "Zoom"))
 
-    panel_folding.context_menu.setTitle(translate("MainWindow", "Folding"))
-    panel_folding.context_menu.actions()[0].setText(translate("MainWindow", "Collapse"))
-    panel_folding.context_menu.actions()[1].setText(translate("MainWindow", "Expand"))
-    panel_folding.context_menu.actions()[3].setText(translate("MainWindow", "Collapse all"))
-    panel_folding.context_menu.actions()[4].setText(translate("MainWindow", "Expand all"))
+    GuiState.panel_folding.context_menu.setTitle(translate("MainWindow", "Folding"))
+    GuiState.panel_folding.context_menu.actions()[0].setText(translate("MainWindow", "Collapse"))
+    GuiState.panel_folding.context_menu.actions()[1].setText(translate("MainWindow", "Expand"))
+    GuiState.panel_folding.context_menu.actions()[3].setText(translate("MainWindow", "Collapse all"))
+    GuiState.panel_folding.context_menu.actions()[4].setText(translate("MainWindow", "Expand all"))
 
-    mode_ext_select.action_select_word.setText(translate("MainWindow", "Select word"))
-    mode_ext_select.action_select_extended_word.setText(translate("MainWindow", "Select extended word"))
-    mode_ext_select.action_select_matched.setText(translate("MainWindow", "Matched select"))
-    mode_ext_select.action_select_line.setText(translate("MainWindow", "Select line"))
-    mode_ext_select.action_select_line.associatedWidgets()[0].setTitle(translate("MainWindow", "Select"))
+    GuiState.mode_ext_select.action_select_word.setText(translate("MainWindow", "Select word"))
+    GuiState.mode_ext_select.action_select_extended_word.setText(translate("MainWindow", "Select extended word"))
+    GuiState.mode_ext_select.action_select_matched.setText(translate("MainWindow", "Matched select"))
+    GuiState.mode_ext_select.action_select_line.setText(translate("MainWindow", "Select line"))
+    GuiState.mode_ext_select.action_select_line.associatedWidgets()[0].setTitle(translate("MainWindow", "Select"))
 
-    panel_search.labelSearch.setPixmap(ui.actionFind.icon().pixmap(16, 16))
-    panel_search.labelSearch.setMaximumSize(QSize(16, 16))
-    panel_search.labelReplace.setPixmap(ui.actionReplace.icon().pixmap(16, 16))
-    panel_search.labelReplace.setMaximumSize(QSize(16, 16))
-    panel_search.toolButtonPrevious.setIcon(QIcon(QPixmap(":/action/media/up.png")))
-    panel_search.toolButtonNext.setIcon(QIcon(QPixmap(":/action/media/down.png")))
-    panel_search.toolButtonClose.setIcon(QIcon(QPixmap(":/action/media/cross.png")))
+    GuiState.panel_search.labelSearch.setPixmap(GuiState.ui.actionFind.icon().pixmap(16, 16))
+    GuiState.panel_search.labelSearch.setMaximumSize(QSize(16, 16))
+    GuiState.panel_search.labelReplace.setPixmap(GuiState.ui.actionReplace.icon().pixmap(16, 16))
+    GuiState.panel_search.labelReplace.setMaximumSize(QSize(16, 16))
+    GuiState.panel_search.toolButtonPrevious.setIcon(QIcon(QPixmap(":/action/media/up.png")))
+    GuiState.panel_search.toolButtonNext.setIcon(QIcon(QPixmap(":/action/media/down.png")))
+    GuiState.panel_search.toolButtonClose.setIcon(QIcon(QPixmap(":/action/media/cross.png")))
 
-    panel_search.checkBoxRegex.setText(translate("MainWindow", "Regex"))
-    panel_search.checkBoxCase.setText(translate("MainWindow", "Match case"))
-    panel_search.checkBoxWholeWords.setText(translate("MainWindow", "Whole words"))
-    panel_search.checkBoxInSelection.setText(translate("MainWindow", "In Selection"))
-    panel_search.labelMatches.setText(translate("MainWindow", "0 matches"))
-    panel_search.toolButtonReplace.setText(translate("MainWindow", "Replace"))
-    panel_search.toolButtonReplaceAll.setText(translate("MainWindow", "Replace All"))
-    panel_search.lineEditSearch.prompt_text = translate("MainWindow", "Find")
-    panel_search.lineEditSearch.button.setIcon(QIcon(QPixmap(":/action/media/backspace.png")))
-    panel_search.lineEditSearch.button.setMinimumSize(QSize(21, 21))
-    panel_search.lineEditReplace.prompt_text = translate("MainWindow", "Replace")
-    panel_search.lineEditReplace.button.setIcon(QIcon(QPixmap(":/action/media/backspace.png")))
+    GuiState.panel_search.checkBoxRegex.setText(translate("MainWindow", "Regex"))
+    GuiState.panel_search.checkBoxCase.setText(translate("MainWindow", "Match case"))
+    GuiState.panel_search.checkBoxWholeWords.setText(translate("MainWindow", "Whole words"))
+    GuiState.panel_search.checkBoxInSelection.setText(translate("MainWindow", "In Selection"))
+    GuiState.panel_search.labelMatches.setText(translate("MainWindow", "0 matches"))
+    GuiState.panel_search.toolButtonReplace.setText(translate("MainWindow", "Replace"))
+    GuiState.panel_search.toolButtonReplaceAll.setText(translate("MainWindow", "Replace All"))
+    GuiState.panel_search.lineEditSearch.prompt_text = translate("MainWindow", "Find")
+    GuiState.panel_search.lineEditSearch.button.setIcon(QIcon(QPixmap(":/action/media/backspace.png")))
+    GuiState.panel_search.lineEditSearch.button.setMinimumSize(QSize(21, 21))
+    GuiState.panel_search.lineEditReplace.prompt_text = translate("MainWindow", "Replace")
+    GuiState.panel_search.lineEditReplace.button.setIcon(QIcon(QPixmap(":/action/media/backspace.png")))
 
 
 def copy_actions_to_editor(panel):
     for name, obj in panel.__dict__.items():
         if name.startswith("action_"):
-            setattr(code_editor, name, obj)
+            setattr(GuiState.code_editor, name, obj)
         elif name.startswith("action"):  # workaround for shitty naming by the devs
-            setattr(code_editor, "action_" + name[6:], obj)
+            setattr(GuiState.code_editor, "action_" + name[6:], obj)
 
 
 def set_theme(theme):
@@ -1117,7 +1100,7 @@ def set_theme(theme):
     util.settings.setValue("app_theme", theme)
     theming.load_theme(theme)
 
-    for act in ui.menuChangeTheme.actions():
+    for act in GuiState.ui.menuChangeTheme.actions():
         act.setChecked(act.statusTip() == theme)
 
     refresh_algo()
@@ -1125,15 +1108,14 @@ def set_theme(theme):
 
 def set_style(style):
     util.settings.setValue("editor_style", style)
-    syntax_highlighter.pygments_style = style
+    GuiState.syntax_highlighter.pygments_style = style
 
-    for act in ui.menuChangeStyle.actions():
+    for act in GuiState.ui.menuChangeStyle.actions():
         act.setChecked(act.text() == style)
 
 
 def load_code_editor():
-    global code_editor
-    code_editor = api.CodeEdit()
+    GuiState.code_editor = api.CodeEdit()
     if hasattr(sys, "frozen"):
         print("using external backend")
         if sys.platform == "win32":
@@ -1146,51 +1128,46 @@ def load_code_editor():
         print("using script file")
         import editor_backend
         backend = editor_backend.__file__
-    code_editor.backend.start(backend)
+    GuiState.code_editor.backend.start(backend)
 
-    code_editor.modes.append(modes.CodeCompletionMode())
-    code_editor.modes.append(modes.CaretLineHighlighterMode())
-    code_editor.modes.append(modes.AutoCompleteMode())
-    code_editor.modes.append(modes.IndenterMode())
-    code_editor.modes.append(modes.AutoIndentMode())
-    code_editor.modes.append(modes.OccurrencesHighlighterMode())
-    code_editor.modes.append(modes.SmartBackSpaceMode())
-    code_editor.modes.append(modes.SymbolMatcherMode())
-    global mode_zoom
-    mode_zoom = modes.ZoomMode()
-    code_editor.modes.append(mode_zoom)
-    code_editor.action_zoom_in = mode_zoom.mnu_zoom.actions()[0]
-    code_editor.action_zoom_out = mode_zoom.mnu_zoom.actions()[1]
-    code_editor.action_reset_zoom = mode_zoom.mnu_zoom.actions()[2]
+    GuiState.code_editor.modes.append(modes.CodeCompletionMode())
+    GuiState.code_editor.modes.append(modes.CaretLineHighlighterMode())
+    GuiState.code_editor.modes.append(modes.AutoCompleteMode())
+    GuiState.code_editor.modes.append(modes.IndenterMode())
+    GuiState.code_editor.modes.append(modes.AutoIndentMode())
+    GuiState.code_editor.modes.append(modes.OccurrencesHighlighterMode())
+    GuiState.code_editor.modes.append(modes.SmartBackSpaceMode())
+    GuiState.code_editor.modes.append(modes.SymbolMatcherMode())
+    GuiState.mode_zoom = modes.ZoomMode()
+    GuiState.code_editor.modes.append(GuiState.mode_zoom)
+    GuiState.code_editor.action_zoom_in = GuiState.mode_zoom.mnu_zoom.actions()[0]
+    GuiState.code_editor.action_zoom_out = GuiState.mode_zoom.mnu_zoom.actions()[1]
+    GuiState.code_editor.action_reset_zoom = GuiState.mode_zoom.mnu_zoom.actions()[2]
 
-    global mode_ext_select
-    mode_ext_select = code_editor.modes.append(modes.ExtendedSelectionMode())
+    GuiState.mode_ext_select = GuiState.code_editor.modes.append(modes.ExtendedSelectionMode())
 
-    global syntax_highlighter
-    syntax_highlighter = code_editor.modes.append(modes.PygmentsSyntaxHighlighter(code_editor.document()))
-    syntax_highlighter.fold_detector = api.IndentFoldDetector()
+    GuiState.syntax_highlighter = GuiState.code_editor.modes.append(modes.PygmentsSyntaxHighlighter(GuiState.code_editor.document()))
+    GuiState.syntax_highlighter.fold_detector = api.IndentFoldDetector()
 
-    global panel_folding
-    panel_folding = code_editor.panels.append(panels.FoldingPanel())
-    code_editor.panels.append(panels.LineNumberPanel())
-    code_editor.modes.append(modes.CheckerMode(pyqode.python.backend.run_pep8))
-    code_editor.panels.append(panels.GlobalCheckerPanel(), panels.GlobalCheckerPanel.Position.LEFT)
-    global panel_search
-    panel_search = code_editor.panels.append(panels.SearchAndReplacePanel(), api.Panel.Position.BOTTOM)
+    GuiState.panel_folding = GuiState.code_editor.panels.append(panels.FoldingPanel())
+    GuiState.code_editor.panels.append(panels.LineNumberPanel())
+    GuiState.code_editor.modes.append(modes.CheckerMode(pyqode.python.backend.run_pep8))
+    GuiState.code_editor.panels.append(panels.GlobalCheckerPanel(), panels.GlobalCheckerPanel.Position.LEFT)
+    GuiState.panel_search = GuiState.code_editor.panels.append(panels.SearchAndReplacePanel(), api.Panel.Position.BOTTOM)
 
-    panel_search._update_label_matches_orig = panel_search._update_label_matches
+    GuiState.panel_search._update_label_matches_orig = GuiState.panel_search._update_label_matches
 
     def wrapper():
-        panel_search._update_label_matches_orig()
-        if panel_search.labelMatches.text():
-            panel_search.labelMatches.setText(
-                translate("MainWindow", "{num} matches").format(num=panel_search.cpt_occurences))
+        GuiState.panel_search._update_label_matches_orig()
+        if GuiState.panel_search.labelMatches.text():
+            GuiState.panel_search.labelMatches.setText(
+                translate("MainWindow", "{num} matches").format(num=GuiState.panel_search.cpt_occurences))
 
-    panel_search._update_label_matches = wrapper
+    GuiState.panel_search._update_label_matches = wrapper
 
-    copy_actions_to_editor(panel_search)
+    copy_actions_to_editor(GuiState.panel_search)
 
-    code_editor.textChanged.connect(refresh)
+    GuiState.code_editor.textChanged.connect(refresh)
 
     load_editor_actions()
 
@@ -1198,39 +1175,38 @@ def load_code_editor():
         return lambda: set_style(s)
 
     for style in pygments.styles.get_all_styles():
-        action = QAction(window)
+        action = QAction(GuiState.window)
         action.setText(style)
         action.setCheckable(True)
         action.triggered.connect(gen(style))
-        ui.menuChangeStyle.addAction(action)
+        GuiState.ui.menuChangeStyle.addAction(action)
 
-    syntax_highlighter.pygments_style = util.settings.value("editor_style", "default")
-    set_style(syntax_highlighter.pygments_style)
+    GuiState.syntax_highlighter.pygments_style = util.settings.value("editor_style", "default")
+    set_style(GuiState.syntax_highlighter.pygments_style)
 
-    ui.verticalLayout_8.addWidget(code_editor)
+    GuiState.ui.verticalLayout_8.addWidget(GuiState.code_editor)
 
 
 def load_plot_canvas():
-    global plot_canvas, plot_figure, plot_axes
-    plot_figure = Figure()
-    plot_axes = plot_figure.add_subplot(111)
-    plot_canvas = FigureCanvas(plot_figure)
+    GuiState.plot_figure = Figure()
+    GuiState.plot_axes = GuiState.plot_figure.add_subplot(111)
+    GuiState.plot_canvas = FigureCanvas(GuiState.plot_figure)
     g_clear()
     g_window(-10, 10, -10, 10)
-    ui.verticalLayout_4.addWidget(plot_canvas)
+    GuiState.ui.verticalLayout_4.addWidget(GuiState.plot_canvas)
 
 
 def get_item_label(item):
     def gen_func(item):
-        return lambda: ui.treeWidget.setCurrentItem(item)
+        return lambda: GuiState.ui.treeWidget.setCurrentItem(item)
 
     txt = QClickableLabel()
-    txt.setStyleSheet(ui.treeWidget.styleSheet())
+    txt.setStyleSheet(GuiState.ui.treeWidget.styleSheet())
     txt.clicked.connect(gen_func(item))
     txt.dclicked.connect(algo_double_click)
     item.lbl = txt
-    ui.treeWidget.setItemWidget(item, 0, txt)
-    ui.treeWidget.header().setSectionResizeMode(QHeaderView.ResizeToContents)
+    GuiState.ui.treeWidget.setItemWidget(item, 0, txt)
+    GuiState.ui.treeWidget.header().setSectionResizeMode(QHeaderView.ResizeToContents)
 
     return txt
 
@@ -1238,67 +1214,67 @@ def get_item_label(item):
 def get_item_html(html, data=""):
     item = QTreeWidgetItem()
     item.setStatusTip(0, data)
-    item.setFont(0, ui.treeWidget.font())
+    item.setFont(0, GuiState.ui.treeWidget.font())
     lbl = get_item_label(item)
     lbl.setFont(item.font(0))
     lbl.setText('&nbsp;<span>%s</span>' % html)
 
-    ui.treeWidget.setItemWidget(item, 0, lbl)
+    GuiState.ui.treeWidget.setItemWidget(item, 0, lbl)
 
     return item, lbl
 
 
 def refresh_algo_text():
-    for item, stmt in item_map.values():
+    for item, stmt in GuiState.item_map.values():
         lbl = get_item_label(item)
         lbl.setText('&nbsp;<span>%s</span>' % str_stmt(stmt))
 
 
 def add_display():
     from forms import alg_display
-    dlg = alg_display.AlgoDisplayStmt(window)
+    dlg = alg_display.AlgoDisplayStmt(GuiState.window)
     if dlg.run():
         append_line(DisplayStmt(dlg.expr, dlg.newline))
 
 
 def add_def_variable():
     from forms import alg_define
-    dlg = alg_define.AlgoDefineStmt(window)
+    dlg = alg_define.AlgoDefineStmt(GuiState.window)
     if dlg.run():
         append_line(AssignStmt(dlg.varname, dlg.expr))
 
 
 def add_input():
     from forms import alg_input
-    dlg = alg_input.AlgoInputStmt(window)
+    dlg = alg_input.AlgoInputStmt(GuiState.window)
     if dlg.run():
         append_line(InputStmt(dlg.varname, dlg.expr))
 
 
 def add_call():
     from forms import alg_call
-    dlg = alg_call.AlgoCallStmt(window)
+    dlg = alg_call.AlgoCallStmt(GuiState.window)
     if dlg.run():
         append_line(CallStmt(dlg.func, dlg.args))
 
 
 def add_def_func():
     from forms import alg_func
-    dlg = alg_func.AlgoFuncStmt(window)
+    dlg = alg_func.AlgoFuncStmt(GuiState.window)
     if dlg.run():
         append_line(FuncStmt(dlg.func, dlg.args, []))
 
 
 def add_return():
     from forms import alg_return
-    dlg = alg_return.AlgoReturnStmt(window)
+    dlg = alg_return.AlgoReturnStmt(GuiState.window)
     if dlg.run():
         append_line(ReturnStmt(dlg.expr))
 
 
 def add_if_block():
     from forms import alg_if
-    dlg = alg_if.AlgoIfStmt(window)
+    dlg = alg_if.AlgoIfStmt(GuiState.window)
     if dlg.run():
         append_line(IfStmt(dlg.expr, []))
 
@@ -1309,14 +1285,14 @@ def add_else_block():
 
 def add_for_loop():
     from forms import alg_for
-    dlg = alg_for.AlgoForStmt(window)
+    dlg = alg_for.AlgoForStmt(GuiState.window)
     if dlg.run():
         append_line(ForStmt(dlg.varname, dlg.f_from, dlg.f_to, [], dlg.f_step))
 
 
 def add_while_loop():
     from forms import alg_while
-    dlg = alg_while.AlgoWhileStmt(window)
+    dlg = alg_while.AlgoWhileStmt(GuiState.window)
     if dlg.run():
         append_line(WhileStmt(dlg.expr, []))
 
@@ -1327,28 +1303,28 @@ def add_gclear():
 
 def add_gline():
     from forms import alg_gline
-    dlg = alg_gline.AlgoGLineStmt(window)
+    dlg = alg_gline.AlgoGLineStmt(GuiState.window)
     if dlg.run():
         append_line(GLineStmt(dlg.f_start_x, dlg.f_start_y, dlg.f_end_x, dlg.f_end_y, dlg.f_color))
 
 
 def add_gpoint():
     from forms import alg_gpoint
-    dlg = alg_gpoint.AlgoGPointStmt(window)
+    dlg = alg_gpoint.AlgoGPointStmt(GuiState.window)
     if dlg.run():
         append_line(GPointStmt(dlg.f_x, dlg.f_y, dlg.f_color))
 
 
 def add_gwindow():
     from forms import alg_gwindow
-    dlg = alg_gwindow.AlgoGWindowStmt(window)
+    dlg = alg_gwindow.AlgoGWindowStmt(GuiState.window)
     if dlg.run():
         append_line(GWindowStmt(dlg.f_x_min, dlg.f_x_max, dlg.f_y_min, dlg.f_y_max, dlg.f_x_grad, dlg.f_y_grad))
 
 
 def add_gfunc():
     from forms import alg_gfunc
-    dlg = alg_gfunc.AlgoGFuncStmt(window)
+    dlg = alg_gfunc.AlgoGFuncStmt(GuiState.window)
     if dlg.run():
         append_line(GFuncStmt(dlg.f_variable, dlg.f_function, dlg.f_start, dlg.f_end, dlg.f_step, dlg.f_color))
 
@@ -1363,21 +1339,21 @@ def add_continue_stmt():
 
 def add_stop_stmt():
     from forms import alg_stop
-    dlg = alg_stop.AlgoStopStmt(window)
+    dlg = alg_stop.AlgoStopStmt(GuiState.window)
     if dlg.run():
         append_line(StopStmt(dlg.expr))
 
 
 def add_sleep_stmt():
     from forms import alg_sleep
-    dlg = alg_sleep.AlgoSleepStmt(window)
+    dlg = alg_sleep.AlgoSleepStmt(GuiState.window)
     if dlg.run():
         append_line(SleepStmt(dlg.expr))
 
 
 def add_comment_stmt():
     from forms import alg_comment
-    dlg = alg_comment.AlgoCommentStmt(window)
+    dlg = alg_comment.AlgoCommentStmt(GuiState.window)
     if dlg.run():
         append_line(CommentStmt(dlg.comment))
 
@@ -1413,46 +1389,46 @@ def btn_edit_line():
 
     if isinstance(stmt, DisplayStmt):
         from forms import alg_display
-        dlg = alg_display.AlgoDisplayStmt(window, (stmt.content.code(), stmt.newline))
+        dlg = alg_display.AlgoDisplayStmt(GuiState.window, (stmt.content.code(), stmt.newline))
         if dlg.run():
             stmt.content = dlg.expr
             stmt.newline = dlg.newline
 
     elif isinstance(stmt, CallStmt):
         from forms import alg_call
-        dlg = alg_call.AlgoCallStmt(window, (stmt.function.code(), [x.code() for x in stmt.arguments]))
+        dlg = alg_call.AlgoCallStmt(GuiState.window, (stmt.function.code(), [x.code() for x in stmt.arguments]))
         if dlg.run():
             stmt.function = dlg.func
             stmt.arguments = dlg.args
 
     elif isinstance(stmt, AssignStmt):
         from forms import alg_define
-        dlg = alg_define.AlgoDefineStmt(window, (stmt.variable.code(), stmt.value.code()))
+        dlg = alg_define.AlgoDefineStmt(GuiState.window, (stmt.variable.code(), stmt.value.code()))
         if dlg.run():
             stmt.variable = dlg.varname
             stmt.value = dlg.expr
 
     elif isinstance(stmt, ReturnStmt):
         from forms import alg_return
-        dlg = alg_return.AlgoReturnStmt(window, stmt.value.code() if stmt.value is not None else None)
+        dlg = alg_return.AlgoReturnStmt(GuiState.window, stmt.value.code() if stmt.value is not None else None)
         if dlg.run():
             stmt.value = dlg.expr
 
     elif isinstance(stmt, StopStmt):
         from forms import alg_stop
-        dlg = alg_stop.AlgoStopStmt(window, stmt.message.code() if stmt.message is not None else None)
+        dlg = alg_stop.AlgoStopStmt(GuiState.window, stmt.message.code() if stmt.message is not None else None)
         if dlg.run():
             stmt.message = dlg.expr
 
     elif isinstance(stmt, SleepStmt):
         from forms import alg_sleep
-        dlg = alg_sleep.AlgoSleepStmt(window, stmt.duration.code())
+        dlg = alg_sleep.AlgoSleepStmt(GuiState.window, stmt.duration.code())
         if dlg.run():
             stmt.duration = dlg.expr
 
     elif isinstance(stmt, InputStmt):
         from forms import alg_input
-        dlg = alg_input.AlgoInputStmt(window,
+        dlg = alg_input.AlgoInputStmt(GuiState.window,
                                       (stmt.variable.code(), stmt.prompt.code() if stmt.prompt is not None else None))
         if dlg.run():
             stmt.variable = dlg.varname
@@ -1460,19 +1436,19 @@ def btn_edit_line():
 
     elif isinstance(stmt, IfStmt):
         from forms import alg_if
-        dlg = alg_if.AlgoIfStmt(window, stmt.condition.code())
+        dlg = alg_if.AlgoIfStmt(GuiState.window, stmt.condition.code())
         if dlg.run():
             stmt.condition = dlg.expr
 
     elif isinstance(stmt, WhileStmt):
         from forms import alg_while
-        dlg = alg_while.AlgoWhileStmt(window, stmt.condition.code())
+        dlg = alg_while.AlgoWhileStmt(GuiState.window, stmt.condition.code())
         if dlg.run():
             stmt.condition = dlg.expr
 
     elif isinstance(stmt, ForStmt):
         from forms import alg_for
-        dlg = alg_for.AlgoForStmt(window, (
+        dlg = alg_for.AlgoForStmt(GuiState.window, (
             stmt.variable, stmt.begin.code(), stmt.end.code(), stmt.step.code() if stmt.step is not None else None))
         if dlg.run():
             stmt.variable = dlg.varname
@@ -1482,20 +1458,20 @@ def btn_edit_line():
 
     elif isinstance(stmt, FuncStmt):
         from forms import alg_func
-        dlg = alg_func.AlgoFuncStmt(window, (stmt.name, stmt.parameters))
+        dlg = alg_func.AlgoFuncStmt(GuiState.window, (stmt.name, stmt.parameters))
         if dlg.run():
             stmt.name = dlg.func
             stmt.parameters = dlg.args
 
     elif isinstance(stmt, CommentStmt):
         from forms import alg_comment
-        dlg = alg_comment.AlgoCommentStmt(window, stmt.content)
+        dlg = alg_comment.AlgoCommentStmt(GuiState.window, stmt.content)
         if dlg.run():
             stmt.content = dlg.comment
 
     elif isinstance(stmt, GLineStmt):
         from forms import alg_gline
-        dlg = alg_gline.AlgoGLineStmt(window, (
+        dlg = alg_gline.AlgoGLineStmt(GuiState.window, (
             stmt.start_x.code(), stmt.start_y.code(), stmt.end_x.code(), stmt.end_y.code(), stmt.color.code()))
         if dlg.run():
             stmt.start_x = dlg.f_start_x
@@ -1506,7 +1482,7 @@ def btn_edit_line():
 
     elif isinstance(stmt, GPointStmt):
         from forms import alg_gpoint
-        dlg = alg_gpoint.AlgoGPointStmt(window, (stmt.x.code(), stmt.y.code(), stmt.color.code()))
+        dlg = alg_gpoint.AlgoGPointStmt(GuiState.window, (stmt.x.code(), stmt.y.code(), stmt.color.code()))
         if dlg.run():
             stmt.x = dlg.f_x
             stmt.y = dlg.f_y
@@ -1514,7 +1490,7 @@ def btn_edit_line():
 
     elif isinstance(stmt, GWindowStmt):
         from forms import alg_gwindow
-        dlg = alg_gwindow.AlgoGWindowStmt(window, (
+        dlg = alg_gwindow.AlgoGWindowStmt(GuiState.window, (
             stmt.x_min.code(), stmt.x_max.code(), stmt.y_min.code(), stmt.y_max.code(), stmt.x_grad.code(),
             stmt.y_grad.code()))
         if dlg.run():
@@ -1527,7 +1503,7 @@ def btn_edit_line():
 
     elif isinstance(stmt, GFuncStmt):
         from forms import alg_gfunc
-        dlg = alg_gfunc.AlgoGFuncStmt(window, (
+        dlg = alg_gfunc.AlgoGFuncStmt(GuiState.window, (
             stmt.var, stmt.expr.code(), stmt.start.code(), stmt.end.code(), stmt.step.code(), stmt.color.code()))
         if dlg.run():
             stmt.var = dlg.f_variable
@@ -1591,7 +1567,7 @@ def append_line(stmt, force_after=False):
             refresh()
             return
     else:
-        existing = algo
+        existing = AppState.algo
 
     if force_after and isinstance(existing, IfStmt) and current_pos[-1] + 1 < len(parent_stmt.children) and isinstance(
             parent_stmt.children[current_pos[-1] + 1], ElseStmt):
@@ -1612,20 +1588,20 @@ def append_line(stmt, force_after=False):
 
 
 def get_current_stmt():
-    current_item = ui.treeWidget.currentItem()
+    current_item = GuiState.ui.treeWidget.currentItem()
 
     if current_item is not None:
-        for item, stmt in item_map.values():
+        for item, stmt in GuiState.item_map.values():
             if item == current_item:
                 return stmt
 
-    return algo
+    return AppState.algo
 
 
 def get_current_pos():
     current = []
     found = False
-    current_stmt = get_current_stmt()
+    ExecState.current_stmt = get_current_stmt()
 
     def find_block(block: BlockStmt):
         nonlocal found
@@ -1636,7 +1612,7 @@ def get_current_pos():
         current.append(0)
 
         for child in block.children:
-            if child == current_stmt:
+            if child == ExecState.current_stmt:
                 found = True
                 return
 
@@ -1649,15 +1625,15 @@ def get_current_pos():
 
         current.pop()
 
-    if current_stmt is not None:
-        find_block(algo)
+    if ExecState.current_stmt is not None:
+        find_block(AppState.algo)
 
     return current
 
 
 def get_parent(pos):
-    parent = root_item
-    parent_stmt = algo
+    parent = GuiState.root_item
+    parent_stmt = AppState.algo
 
     for p in pos[:-1]:
         parent = parent.child(p)
@@ -1670,21 +1646,21 @@ def set_current_stmt(current):
     if current is None:
         return
 
-    for item, stmt in item_map.values():
+    for item, stmt in GuiState.item_map.values():
         if stmt == current:
-            ui.treeWidget.setCurrentItem(item)
+            GuiState.ui.treeWidget.setCurrentItem(item)
             break
 
 
 def refresh_algo():
     current = None
-    line = ui.treeWidget.currentItem()
-    for item, stmt in item_map.values():
+    line = GuiState.ui.treeWidget.currentItem()
+    for item, stmt in GuiState.item_map.values():
         if item == line:
             current = stmt
             break
 
-    load_block(algo)
+    load_block(AppState.algo)
 
     set_current_stmt(current)
 
@@ -1711,7 +1687,7 @@ def add_line(pos, stmt, add=True):
 
     store_line(item, stmt)
 
-    ui.treeWidget.setItemWidget(item, 0, lbl)
+    GuiState.ui.treeWidget.setItemWidget(item, 0, lbl)
 
 
 def str_stmt(stmt):
@@ -1797,7 +1773,7 @@ def str_stmt(stmt):
 
     elif isinstance(stmt, GWindowStmt):
         ret = translate("Algo",
-                        "[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]").format(
+                        "[k]SET GuiState.window[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]").format(
             x_min=code(stmt.x_min),
             x_max=code(stmt.x_max),
             y_min=code(stmt.y_min),
@@ -1843,7 +1819,7 @@ def str_stmt(stmt):
 
 
 def store_line(item: QTreeWidgetItem, stmt: BaseStmt):
-    item_map[id(stmt)] = item, stmt
+    GuiState.item_map[id(stmt)] = item, stmt
 
 
 def add_block(block: BlockStmt, current, add=False):
@@ -1861,22 +1837,20 @@ def add_block(block: BlockStmt, current, add=False):
 
 
 def load_block(stmt: BlockStmt):
-    global item_map
-    item_map = {}
-    ui.treeWidget.clear()
+    GuiState.item_map = {}
+    GuiState.ui.treeWidget.clear()
 
-    global root_item, algo
-    algo = stmt
-    root_item, lbl = get_item_html(str_stmt(algo))
-    ui.treeWidget.addTopLevelItem(root_item)
-    store_line(root_item, algo)
-    ui.treeWidget.setItemWidget(root_item, 0, lbl)
+    AppState.algo = stmt
+    GuiState.root_item, lbl = get_item_html(str_stmt(AppState.algo))
+    GuiState.ui.treeWidget.addTopLevelItem(GuiState.root_item)
+    store_line(GuiState.root_item, AppState.algo)
+    GuiState.ui.treeWidget.setItemWidget(GuiState.root_item, 0, lbl)
 
     current = []
 
     add_block(stmt, current)
 
-    ui.treeWidget.expandAll()
+    GuiState.ui.treeWidget.expandAll()
 
 
 def load_pseudocode(algo):
@@ -1908,71 +1882,71 @@ def load_algo():
 
 
 def algo_double_click():
-    if ui.btnAlgo_Edit.isEnabled():
+    if GuiState.ui.btnAlgo_Edit.isEnabled():
         btn_edit_line()
 
 
 def algo_sel_changed():
     current = get_current_pos()
-    current_stmt = get_current_stmt()
+    ExecState.current_stmt = get_current_stmt()
 
-    is_item = current_stmt is not None
+    is_item = ExecState.current_stmt is not None
     is_root = current == []
     is_changeable = is_item and not is_root
-    is_editable = is_changeable and not isinstance(current_stmt,
+    is_editable = is_changeable and not isinstance(ExecState.current_stmt,
                                                    (BreakStmt, ContinueStmt, ElseStmt)) and type(
-        current_stmt) not in [BaseStmt, BlockStmt]
+        ExecState.current_stmt) not in [BaseStmt, BlockStmt]
 
-    ui.btnAlgo_Delete.setEnabled(is_changeable)
-    ui.btnAlgo_Edit.setEnabled(is_editable)
-    ui.btnAlgo_Dupl.setEnabled(is_changeable and not isinstance(current_stmt, ElseStmt))
+    GuiState.ui.btnAlgo_Delete.setEnabled(is_changeable)
+    GuiState.ui.btnAlgo_Edit.setEnabled(is_editable)
+    GuiState.ui.btnAlgo_Dupl.setEnabled(is_changeable and not isinstance(ExecState.current_stmt, ElseStmt))
 
     can_up = is_changeable and current != [0]
-    ui.btnAlgo_UpBlock.setEnabled(can_up)
-    ui.btnAlgo_Up.setEnabled(can_up)
+    GuiState.ui.btnAlgo_UpBlock.setEnabled(can_up)
+    GuiState.ui.btnAlgo_Up.setEnabled(can_up)
 
-    can_down = is_changeable and current != [len(algo.children) - 1]
-    ui.btnAlgo_Down.setEnabled(can_down)
-    ui.btnAlgo_DownBlock.setEnabled(can_down)
+    can_down = is_changeable and current != [len(AppState.algo.children) - 1]
+    GuiState.ui.btnAlgo_Down.setEnabled(can_down)
+    GuiState.ui.btnAlgo_DownBlock.setEnabled(can_down)
 
-    ui.btnAlgo_Variable.setEnabled(is_item)
-    ui.btnAlgo_Display.setEnabled(is_item)
-    ui.btnAlgo_Input.setEnabled(is_item)
-    ui.btnAlgo_Call.setEnabled(is_item)
-    ui.btnAlgo_Func.setEnabled(is_item)
-    ui.btnAlgo_Return.setEnabled(is_changeable)
-    ui.btnAlgo_Stop.setEnabled(is_item)
-    ui.btnAlgo_Sleep.setEnabled(is_item)
+    GuiState.ui.btnAlgo_Variable.setEnabled(is_item)
+    GuiState.ui.btnAlgo_Display.setEnabled(is_item)
+    GuiState.ui.btnAlgo_Input.setEnabled(is_item)
+    GuiState.ui.btnAlgo_Call.setEnabled(is_item)
+    GuiState.ui.btnAlgo_Func.setEnabled(is_item)
+    GuiState.ui.btnAlgo_Return.setEnabled(is_changeable)
+    GuiState.ui.btnAlgo_Stop.setEnabled(is_item)
+    GuiState.ui.btnAlgo_Sleep.setEnabled(is_item)
 
-    ui.btnAlgo_If.setEnabled(is_item)
-    ui.btnAlgo_Else.setEnabled(is_changeable)
-    ui.btnAlgo_For.setEnabled(is_item)
-    ui.btnAlgo_While.setEnabled(is_item)
-    ui.btnAlgo_Continue.setEnabled(is_changeable)
-    ui.btnAlgo_Break.setEnabled(is_changeable)
-    ui.btnAlgo_Comment.setEnabled(is_item)
-    ui.btnAlgo_GClear.setEnabled(is_item)
-    ui.btnAlgo_GWindow.setEnabled(is_item)
-    ui.btnAlgo_GPoint.setEnabled(is_item)
-    ui.btnAlgo_GLine.setEnabled(is_item)
-    ui.btnAlgo_GFunc.setEnabled(is_item)
+    GuiState.ui.btnAlgo_If.setEnabled(is_item)
+    GuiState.ui.btnAlgo_Else.setEnabled(is_changeable)
+    GuiState.ui.btnAlgo_For.setEnabled(is_item)
+    GuiState.ui.btnAlgo_While.setEnabled(is_item)
+    GuiState.ui.btnAlgo_Continue.setEnabled(is_changeable)
+    GuiState.ui.btnAlgo_Break.setEnabled(is_changeable)
+    GuiState.ui.btnAlgo_Comment.setEnabled(is_item)
+    GuiState.ui.btnAlgo_GClear.setEnabled(is_item)
+    GuiState.ui.btnAlgo_GWindow.setEnabled(is_item)
+    GuiState.ui.btnAlgo_GPoint.setEnabled(is_item)
+    GuiState.ui.btnAlgo_GLine.setEnabled(is_item)
+    GuiState.ui.btnAlgo_GFunc.setEnabled(is_item)
 
     if is_changeable:
-        parent_stack = [algo]
+        parent_stack = [AppState.algo]
         for p in current:
             parent_stack.append(parent_stack[-1].children[p])
 
         existing_else = current[-1] + 1 < len(parent_stack[-2].children) and isinstance(
             parent_stack[-2].children[current[-1] + 1], ElseStmt)
 
-        ui.btnAlgo_Else.setEnabled(isinstance(current_stmt, IfStmt) and not existing_else)
+        GuiState.ui.btnAlgo_Else.setEnabled(isinstance(ExecState.current_stmt, IfStmt) and not existing_else)
 
         in_loop = any(x for x in parent_stack if type(x) in [ForStmt, WhileStmt])
-        ui.btnAlgo_Continue.setEnabled(in_loop)
-        ui.btnAlgo_Break.setEnabled(in_loop)
+        GuiState.ui.btnAlgo_Continue.setEnabled(in_loop)
+        GuiState.ui.btnAlgo_Break.setEnabled(in_loop)
 
         in_func = any(x for x in parent_stack if type(x) == FuncStmt)
-        ui.btnAlgo_Return.setEnabled(in_func)
+        GuiState.ui.btnAlgo_Return.setEnabled(in_func)
 
 
 def algo_scroll(event: QWheelEvent):
@@ -1983,11 +1957,11 @@ def algo_scroll(event: QWheelEvent):
             handler_ZoomOut()
         event.accept()
     else:
-        ui.treeWidget.wheelEventOrig(event)
+        GuiState.ui.treeWidget.wheelEventOrig(event)
 
 
 def fix_qt_shitty_margins():
-    for wgt in window.centralWidget().findChildren(QPushButton):
+    for wgt in GuiState.window.centralWidget().findChildren(QPushButton):
         if wgt.text():
             wgt.setText("  " + wgt.text())
             wgt.setMinimumHeight(28)
@@ -1995,17 +1969,15 @@ def fix_qt_shitty_margins():
 
 def init_ui():
     from forms.ui_mainwindow import Ui_MainWindow
-    global window, ui
-    window = MainWindowWrapper()
-    ui = Ui_MainWindow()
+    GuiState.window = MainWindowWrapper()
+    GuiState.ui = Ui_MainWindow()
 
-    translator.add(ui, window)
-    ui.setupUi(window)
+    translator.add(GuiState.ui, GuiState.window)
+    GuiState.ui.setupUi(GuiState.window)
 
     load_languages()
 
-    global algo_base_font
-    algo_base_font = ui.treeWidget.font()
+    GuiState.algo_base_font = GuiState.ui.treeWidget.font()
 
     init_recent_actions()
 
@@ -2016,70 +1988,69 @@ def init_ui():
     init_action_handlers()
 
     right_corner = QMenuBar()
-    ui.menubar.removeAction(ui.menuLanguage.menuAction())
-    right_corner.addAction(ui.menuLanguage.menuAction())
-    ui.menubar.setCornerWidget(right_corner)
-    ui.btnSendInput.clicked.connect(send_user_input)
-    ui.btnClearOutput.clicked.connect(clear_output)
-    ui.btnPrintOutput.clicked.connect(print_output)
-    ui.btnSaveOutput.clicked.connect(save_output)
+    GuiState.ui.menubar.removeAction(GuiState.ui.menuLanguage.menuAction())
+    right_corner.addAction(GuiState.ui.menuLanguage.menuAction())
+    GuiState.ui.menubar.setCornerWidget(right_corner)
+    GuiState.ui.btnSendInput.clicked.connect(send_user_input)
+    GuiState.ui.btnClearOutput.clicked.connect(clear_output)
+    GuiState.ui.btnPrintOutput.clicked.connect(print_output)
+    GuiState.ui.btnSaveOutput.clicked.connect(save_output)
 
-    ui.btnAlgo_Delete.clicked.connect(btn_delete_line)
-    ui.btnAlgo_Edit.clicked.connect(btn_edit_line)
-    ui.btnAlgo_UpBlock.clicked.connect(btn_move_up_block)
-    ui.btnAlgo_Up.clicked.connect(btn_move_up)
-    ui.btnAlgo_Down.clicked.connect(btn_move_down)
-    ui.btnAlgo_DownBlock.clicked.connect(btn_move_down_block)
+    GuiState.ui.btnAlgo_Delete.clicked.connect(btn_delete_line)
+    GuiState.ui.btnAlgo_Edit.clicked.connect(btn_edit_line)
+    GuiState.ui.btnAlgo_UpBlock.clicked.connect(btn_move_up_block)
+    GuiState.ui.btnAlgo_Up.clicked.connect(btn_move_up)
+    GuiState.ui.btnAlgo_Down.clicked.connect(btn_move_down)
+    GuiState.ui.btnAlgo_DownBlock.clicked.connect(btn_move_down_block)
 
-    ui.btnAlgo_Dupl.clicked.connect(btn_dupl_line)
+    GuiState.ui.btnAlgo_Dupl.clicked.connect(btn_dupl_line)
 
-    ui.btnAlgo_Variable.clicked.connect(add_def_variable)
-    ui.btnAlgo_Display.clicked.connect(add_display)
-    ui.btnAlgo_Input.clicked.connect(add_input)
-    ui.btnAlgo_Call.clicked.connect(add_call)
-    ui.btnAlgo_Func.clicked.connect(add_def_func)
-    ui.btnAlgo_Return.clicked.connect(add_return)
-    ui.btnAlgo_Stop.clicked.connect(add_stop_stmt)
-    ui.btnAlgo_Sleep.clicked.connect(add_sleep_stmt)
+    GuiState.ui.btnAlgo_Variable.clicked.connect(add_def_variable)
+    GuiState.ui.btnAlgo_Display.clicked.connect(add_display)
+    GuiState.ui.btnAlgo_Input.clicked.connect(add_input)
+    GuiState.ui.btnAlgo_Call.clicked.connect(add_call)
+    GuiState.ui.btnAlgo_Func.clicked.connect(add_def_func)
+    GuiState.ui.btnAlgo_Return.clicked.connect(add_return)
+    GuiState.ui.btnAlgo_Stop.clicked.connect(add_stop_stmt)
+    GuiState.ui.btnAlgo_Sleep.clicked.connect(add_sleep_stmt)
 
-    ui.btnAlgo_If.clicked.connect(add_if_block)
-    ui.btnAlgo_Else.clicked.connect(add_else_block)
-    ui.btnAlgo_For.clicked.connect(add_for_loop)
-    ui.btnAlgo_While.clicked.connect(add_while_loop)
-    ui.btnAlgo_Continue.clicked.connect(add_continue_stmt)
-    ui.btnAlgo_Break.clicked.connect(add_break_stmt)
-    ui.btnAlgo_Comment.clicked.connect(add_comment_stmt)
+    GuiState.ui.btnAlgo_If.clicked.connect(add_if_block)
+    GuiState.ui.btnAlgo_Else.clicked.connect(add_else_block)
+    GuiState.ui.btnAlgo_For.clicked.connect(add_for_loop)
+    GuiState.ui.btnAlgo_While.clicked.connect(add_while_loop)
+    GuiState.ui.btnAlgo_Continue.clicked.connect(add_continue_stmt)
+    GuiState.ui.btnAlgo_Break.clicked.connect(add_break_stmt)
+    GuiState.ui.btnAlgo_Comment.clicked.connect(add_comment_stmt)
 
-    ui.btnAlgo_GClear.clicked.connect(add_gclear)
-    ui.btnAlgo_GWindow.clicked.connect(add_gwindow)
-    ui.btnAlgo_GPoint.clicked.connect(add_gpoint)
-    ui.btnAlgo_GLine.clicked.connect(add_gline)
-    ui.btnAlgo_GFunc.clicked.connect(add_gfunc)
+    GuiState.ui.btnAlgo_GClear.clicked.connect(add_gclear)
+    GuiState.ui.btnAlgo_GWindow.clicked.connect(add_gwindow)
+    GuiState.ui.btnAlgo_GPoint.clicked.connect(add_gpoint)
+    GuiState.ui.btnAlgo_GLine.clicked.connect(add_gline)
+    GuiState.ui.btnAlgo_GFunc.clicked.connect(add_gfunc)
 
-    ui.treeWidget.itemSelectionChanged.connect(algo_sel_changed)
-    ui.treeWidget.itemDoubleClicked.connect(algo_double_click)
-    ui.treeWidget.wheelEventOrig = ui.treeWidget.wheelEvent
-    ui.treeWidget.wheelEvent = algo_scroll
+    GuiState.ui.treeWidget.itemSelectionChanged.connect(algo_sel_changed)
+    GuiState.ui.treeWidget.itemDoubleClicked.connect(algo_double_click)
+    GuiState.ui.treeWidget.wheelEventOrig = GuiState.ui.treeWidget.wheelEvent
+    GuiState.ui.treeWidget.wheelEvent = algo_scroll
 
-    ui.tabWidget.currentChanged.connect(change_tab)
+    GuiState.ui.tabWidget.currentChanged.connect(change_tab)
 
     def gen(s):
         return lambda: set_theme(s)
 
     for theme in theming.themes:
-        action = QAction(window)
+        action = QAction(GuiState.window)
         action.setStatusTip(theme)
         action.setCheckable(True)
         action.triggered.connect(gen(theme))
-        ui.menuChangeTheme.addAction(action)
+        GuiState.ui.menuChangeTheme.addAction(action)
 
         if theme == "custom":
             action.setVisible(bool(theming.themes["custom"][1]))
 
     algo_sel_changed()
 
-    global filters
-    filters = {
+    GuiState.filters = {
         "all": translate("MainWindow", "Program file (*.py *.tr *.alg)"),
         "py": translate("MainWindow", "Python file (*.py)"),
         "tr": translate("MainWindow", "Turing program (*.tr)"),
@@ -2088,21 +2059,21 @@ def init_ui():
 
     autosave_init()
 
-    window.show()
+    GuiState.window.show()
 
 
 def autosave_write():
-    util.settings.setValue("autosave_type", mode_python)
+    util.settings.setValue("autosave_type", AppState.mode_python)
     util.settings.setValue("autosave_date", datetime.datetime.now())
 
-    if mode_python:
-        util.settings.setValue("autosave_content", code_editor.toPlainText())
+    if AppState.mode_python:
+        util.settings.setValue("autosave_content", GuiState.code_editor.toPlainText())
     else:
-        util.settings.setValue("autosave_content", repr(algo))
+        util.settings.setValue("autosave_content", repr(AppState.algo))
 
 
 def autosave_tick():
-    if app_started:
+    if AppState.app_started:
         if is_modified():
             util.settings.setValue("dirty", True)
             autosave_write()
@@ -2112,19 +2083,17 @@ def autosave_tick():
 
 
 def autosave_init():
-    global autosave_timer
-    autosave_timer = QTimer()
-    autosave_timer.timeout.connect(autosave_tick)
-    autosave_timer.start(1000)
+    AppState.autosave_timer = QTimer()
+    AppState.autosave_timer.timeout.connect(autosave_tick)
+    AppState.autosave_timer.start(1000)
 
 
 def autosave_load():
-    global mode_python
-    mode_python = util.settings.value("autosave_type", type=bool)
+    AppState.mode_python = util.settings.value("autosave_type", type=bool)
     content = util.settings.value("autosave_content")
 
-    if mode_python:
-        code_editor.setPlainText(content, "", "")
+    if AppState.mode_python:
+        GuiState.code_editor.setPlainText(content, "", "")
     else:
         load_pseudocode(content)
 
@@ -2140,7 +2109,7 @@ def autosave_clear():
 
 def clean_exit():
     autosave_clear()
-    code_editor.backend.stop()
+    GuiState.code_editor.backend.stop()
     sys.exit()
 
 
@@ -2152,19 +2121,17 @@ def version_check():
     import json
     import urllib.request
     import re
-    global new_version
     result = json.load(urllib.request.urlopen("https://api.github.com/repos/TuringApp/Turing/releases/latest"))
     if result and type(result) == dict and "tag_name" in result:
         version = re.findall(r"[\d.]+", result["tag_name"])[0]
         current = re.findall(r"[\d.]+", util.__version__)[0]
         from distutils.version import StrictVersion
         if StrictVersion(version) > StrictVersion(current):
-            new_version = True
+            AppState.new_version = True
 
 
 def run_updater():
-    global new_version
-    new_version = False
+    AppState.new_version = False
 
     thr = threading.Thread(target=version_check, args=())
     thr.start()
@@ -2172,9 +2139,9 @@ def run_updater():
     while thr.is_alive():
         QCoreApplication.processEvents()
 
-    if new_version:
+    if AppState.new_version:
         msg = msg_box(translate("MainWindow", "A new version of Turing is available.\nWould you like to download it?"),
-                      parent=window)
+                      parent=GuiState.window)
         if msg.exec_() == QMessageBox.Yes:
             QDesktopServices.openUrl(QUrl("https://github.com/TuringApp/Turing/releases/latest"))
 
@@ -2185,7 +2152,7 @@ def autosave_check():
     if dirty:
         msg = msg_box(
             translate("MainWindow", "A modified file has been automatically saved.\nWould you like to recover it?"),
-            parent=window)
+            parent=GuiState.window)
         if msg.exec_() == QMessageBox.Yes:
             autosave_load()
         else:
@@ -2198,15 +2165,14 @@ def init_main(splash):
 
     set_theme(util.settings.value("app_theme", "default"))
 
-    window.show()
-    splash.finish(window)
+    GuiState.window.show()
+    splash.finish(GuiState.window)
 
     run_updater()
 
-    window.raise_()
-    window.activateWindow()
+    GuiState.window.raise_()
+    GuiState.window.activateWindow()
 
     autosave_check()
 
-    global app_started
-    app_started = True
+    AppState.app_started = True
