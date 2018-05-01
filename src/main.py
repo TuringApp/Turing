@@ -663,6 +663,7 @@ def handler_Step():
             else:
                 stopped = False
 
+        QCoreApplication.processEvents()
         update_plot()
     except:
         show_error()
@@ -771,6 +772,7 @@ def handler_Run(flag=False):
 
             while not worker.finished:
                 worker.step()
+                QCoreApplication.processEvents()
     except KeyboardInterrupt:
         user_stop = True
     except:
