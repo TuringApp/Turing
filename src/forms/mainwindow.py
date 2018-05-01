@@ -477,9 +477,9 @@ def g_clear():
 def g_window(xmin, xmax, ymin, ymax, xgrad=1, ygrad=1):
     GuiState.plot_axes.set_xlim(xmin, xmax)
     GuiState.plot_axes.set_ylim(ymin, ymax)
-    # GuiState.plot_axes.set_xticks(range(xmin, xmax, xgrad))
-    # GuiState.plot_axes.set_yticks(range(ymin, ymax, ygrad))
-    # update_plot()
+
+    GuiState.plot_axes.get_xaxis().set_major_locator(AutoLocator() if xgrad == 0 else LinearLocator(int((xmax - xmin) / xgrad) + 1))
+    GuiState.plot_axes.get_yaxis().set_major_locator(AutoLocator() if ygrad == 0 else LinearLocator(int((ymax - ymin) / ygrad) + 1))
 
 
 def g_point(x, y, color="red"):
