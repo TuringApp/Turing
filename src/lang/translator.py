@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import importlib
+import os
 import sip
+import sys
 import types
 from typing import List, Tuple
 
-import sys
-
-import os
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QWidget
 

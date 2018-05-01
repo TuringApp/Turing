@@ -10,6 +10,7 @@ from util.widgets import center_widget
 
 translate = QCoreApplication.translate
 
+
 class ChangeThemeWindow(QDialog):
     def __init__(self, parent, orig=()):
         super().__init__(parent)
@@ -35,12 +36,10 @@ class ChangeThemeWindow(QDialog):
 
         center_widget(self, parent)
 
-
     def apply_theme(self):
         colors = [getattr(self.ui, "txtColor_%02d" % (i + 1)).text() for i in range(24)]
         theming.themes["custom"] = (theming.themes["custom"][0], colors)
         self.theme_callback()
-
 
     def done(self, res):
         if res == QDialog.Accepted:
@@ -49,13 +48,11 @@ class ChangeThemeWindow(QDialog):
 
         super(ChangeThemeWindow, self).done(res)
 
-
     def change_color(self, wgt):
         dlg = QColorDialog(self)
         dlg.setCurrentColor(QColor(wgt.text()))
         if dlg.exec_():
             wgt.setText(dlg.currentColor().name())
-
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok

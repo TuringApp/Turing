@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import builtins
-from xml.etree import ElementTree
 from typing import Union
+from xml.etree import ElementTree
 
 from algo.stmts import *
 from maths.nodes import *

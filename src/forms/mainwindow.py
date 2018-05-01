@@ -6,7 +6,6 @@ import runpy
 import sys
 import tempfile
 import threading
-import traceback
 
 import numpy as np
 import pygments.styles
@@ -333,6 +332,7 @@ def handler_Calculator():
     from forms import calculator
     calculator.CalculatorWindow()
 
+
 def handler_ChangTheme():
     from forms import changtheme
     backup = util.settings.value("app_theme")
@@ -347,6 +347,7 @@ def handler_ChangTheme():
                 break
     else:
         set_theme(backup)
+
 
 def handler_HelpContents():
     from forms import help
@@ -473,17 +474,17 @@ def g_window(xmin, xmax, ymin, ymax, xgrad=1, ygrad=1):
     plot_axes.set_ylim(ymin, ymax)
     # plot_axes.set_xticks(range(xmin, xmax, xgrad))
     # plot_axes.set_yticks(range(ymin, ymax, ygrad))
-    #update_plot()
+    # update_plot()
 
 
 def g_point(x, y, color="red"):
     plot_axes.scatter([x], [y], c=color)
-    #update_plot()
+    # update_plot()
 
 
 def g_line(startx, starty, endx, endy, color="red"):
     plot_axes.plot([startx, endx], [starty, endy], c=color, linestyle="-", marker="o")
-    #update_plot()
+    # update_plot()
 
 
 def g_func(func, start, end, step, color="red"):
@@ -582,7 +583,7 @@ def breakpoint_message(message=""):
     after_output += util.html.centered(
         "<h3>%s</h3>" % util.html.color_span("<i>%s</i>" % (
             translate("MainWindow", "Breakpoint: ") + html.escape(str(message)) if message else translate("MainWindow",
-                                                                                                     "Breakpoint")),
+                                                                                                          "Breakpoint")),
                                              "red"))
     update_output()
 
@@ -924,8 +925,9 @@ def load_file(file):
 
 def handler_New():
     if is_modified():
-        msg = msg_box(translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."),
-                      parent=window)
+        msg = msg_box(
+            translate("MainWindow", "Do you really want to create a new file?\nAll unsaved changes will be lost."),
+            parent=window)
         if msg.exec_() != QMessageBox.Yes:
             return
 
@@ -1526,7 +1528,7 @@ def btn_edit_line():
     elif isinstance(stmt, GFuncStmt):
         from forms import alg_gfunc
         dlg = alg_gfunc.AlgoGFuncStmt(window, (
-        stmt.var, stmt.expr.code(), stmt.start.code(), stmt.end.code(), stmt.step.code(), stmt.color.code()))
+            stmt.var, stmt.expr.code(), stmt.start.code(), stmt.end.code(), stmt.step.code(), stmt.color.code()))
         if dlg.run():
             stmt.var = dlg.f_variable
             stmt.expr = dlg.f_function
@@ -2087,9 +2089,6 @@ def init_ui():
     autosave_init()
 
     window.show()
-
-
-
 
 
 def autosave_write():

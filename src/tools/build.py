@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from PyQt5.QtCore import QLibraryInfo
-import subprocess
-import sys
 import os
+import subprocess
+
+from PyQt5.QtCore import QLibraryInfo
 
 subprocess.call([
     "pyinstaller",

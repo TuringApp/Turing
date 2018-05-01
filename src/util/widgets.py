@@ -44,8 +44,8 @@ def get_themed_box(parent=None):
     return msg
 
 
-
-def msg_box(text, title=None, icon=None, parent=None, buttons=QMessageBox.Yes | QMessageBox.No, default=QMessageBox.No, type=QMessageBox.Question):
+def msg_box(text, title=None, icon=None, parent=None, buttons=QMessageBox.Yes | QMessageBox.No, default=QMessageBox.No,
+            type=QMessageBox.Question):
     res = get_themed_box(parent)
 
     if title is not None:

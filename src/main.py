@@ -3,7 +3,6 @@
 import os
 import sys
 import threading
-import traceback
 
 from PyQt5.QtCore import QSettings, QCoreApplication, Qt
 from PyQt5.QtGui import QFont, QPixmap
@@ -49,6 +48,7 @@ def setup_thread_excepthook():
 
     threading.Thread.__init__ = init
 
+
 if __name__ == "__main__":
     sys.excepthook = except_hook
     setup_thread_excepthook()
@@ -70,6 +70,7 @@ if __name__ == "__main__":
 
     # noinspection PyUnresolvedReferences
     import turing_rc
+
     splash = QSplashScreen(QPixmap(":/icon/media/icon_128.png"), Qt.WindowStaysOnTopHint)
     splash.show()
     app.processEvents()

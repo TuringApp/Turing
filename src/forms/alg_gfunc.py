@@ -9,9 +9,10 @@ from forms.ui_alg_gfunc import Ui_AlgoGFuncStmt
 from maths.nodes import *
 from maths.parser import quick_parse as parse
 from util.code import try_parse
-from util.widgets import center_widget, get_themed_box, msg_box_error
+from util.widgets import center_widget, msg_box_error
 
 translate = QCoreApplication.translate
+
 
 class AlgoGFuncStmt(QDialog):
     def __init__(self, parent, origcode=("x", "cos(x)", "", "", "0.1", '"red"')):
@@ -36,7 +37,6 @@ class AlgoGFuncStmt(QDialog):
 
         center_widget(self, parent)
 
-
     def done(self, res):
         if res == QDialog.Accepted:
             name = self.ui.txtVariable.text()
@@ -44,7 +44,7 @@ class AlgoGFuncStmt(QDialog):
 
             if not isinstance(parsed, IdentifierNode):
                 box = msg_box_error(translate("Algo",
-                                      "Invalid variable name: {name}").format(
+                                              "Invalid variable name: {name}").format(
                     name=name), parent=self)
                 box.exec_()
                 return
@@ -90,12 +90,10 @@ class AlgoGFuncStmt(QDialog):
 
         super(AlgoGFuncStmt, self).done(res)
 
-
     def click(self, wgt):
         dlg = InlineCodeDialog(self, wgt.text())
         if dlg.run():
             wgt.setText(dlg.value())
-
 
     def change_color(self, _):
         dlg = QColorDialog(self)
@@ -105,7 +103,6 @@ class AlgoGFuncStmt(QDialog):
         dlg.setCurrentColor(QColor(current))
         if dlg.exec_():
             self.ui.txtColor.setText('"%s"' % dlg.currentColor().name())
-
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok

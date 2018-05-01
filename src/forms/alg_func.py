@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import *
 
 from forms.ui_alg_func import Ui_AlgoFuncStmt
 from util.code import is_id
-from util.widgets import center_widget, get_themed_box, msg_box_error
+from util.widgets import center_widget, msg_box_error
 
 translate = QCoreApplication.translate
 

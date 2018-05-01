@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 import re
 
-from PyQt5.QtWidgets import QMessageBox
-
 from maths.parser import Parser
 from . import translate
-from .widgets import get_themed_box, center_widget, msg_box_error
+from .widgets import msg_box_error
 
 
 def python_wrapper(input: str) -> str:
@@ -45,8 +43,9 @@ def try_parse(txt, parent=None):
     msgs = p.log.get_messages()
 
     if msgs:
-        box = msg_box_error(translate("Algo", "The following errors occured while parsing the expression:\n\n") + "\n".join(
-            x[1] for x in msgs), parent=parent)
+        box = msg_box_error(
+            translate("Algo", "The following errors occured while parsing the expression:\n\n") + "\n".join(
+                x[1] for x in msgs), parent=parent)
         box.exec_()
         ret = None
 

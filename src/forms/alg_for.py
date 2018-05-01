@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import *
 from forms.inline_code_dialog import InlineCodeDialog
 from forms.ui_alg_for import Ui_AlgoForStmt
 from util.code import try_parse, is_id
-from util.widgets import center_widget, get_themed_box, msg_box_error
+from util.widgets import center_widget, msg_box_error
 
 translate = QCoreApplication.translate
 

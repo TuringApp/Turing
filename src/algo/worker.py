@@ -15,6 +15,7 @@ Loops = (ForStmt, WhileStmt)
 StackFrame = Tuple[BlockStmt, int]
 ExecStack = List[StackFrame]
 
+
 class Worker:
     code: BlockStmt = None
     stack: ExecStack = None

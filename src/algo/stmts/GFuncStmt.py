@@ -22,7 +22,7 @@ class GFuncStmt(BaseStmt):
 
     def __str__(self):
         return "[Func (%s) -> (%s) [%s; %s] / %s - %s]" % (
-        self.var, self.expr, self.start, self.end, self.step, self.color)
+            self.var, self.expr, self.start, self.end, self.step, self.color)
 
     def __repr__(self):
         return "GFuncStmt(%r, %r, %r, %r, %r, %r)" % (self.var, self.expr, self.start, self.end, self.step, self.color)

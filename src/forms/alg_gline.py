@@ -80,7 +80,6 @@ class AlgoGLineStmt(QDialog):
         if dlg.run():
             wgt.setText(dlg.value())
 
-
     def change_color(self, _):
         dlg = QColorDialog(self)
         current = self.ui.txtColor.text()
@@ -89,7 +88,6 @@ class AlgoGLineStmt(QDialog):
         dlg.setCurrentColor(QColor(current))
         if dlg.exec_():
             self.ui.txtColor.setText('"%s"' % dlg.currentColor().name())
-
 
     def run(self):
         return self.exec_() == QDialog.Accepted and self.ok

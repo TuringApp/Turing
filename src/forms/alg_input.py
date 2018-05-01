@@ -8,7 +8,7 @@ from forms.ui_alg_input import Ui_AlgoInputStmt
 from maths.nodes import *
 from maths.parser import quick_parse as parse
 from util.code import try_parse
-from util.widgets import center_widget, get_themed_box, msg_box_error
+from util.widgets import center_widget, msg_box_error
 
 translate = QCoreApplication.translate
 
@@ -41,7 +41,7 @@ class AlgoInputStmt(QDialog):
 
             if not isinstance(parsed, (IdentifierNode, ArrayAccessNode)):
                 box = msg_box_error(translate("Algo",
-                                      "Invalid assignment target (must be either variable or array item): {name}").format(
+                                              "Invalid assignment target (must be either variable or array item): {name}").format(
                     name=name), parent=self)
                 box.exec_()
                 return
