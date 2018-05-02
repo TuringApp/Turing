@@ -24,6 +24,8 @@ Turing is cross-platform, but has only been tested on Windows and Linux-based op
 
 #### Python 3.6 required!
 
+**You need to have `python3` point to Python 3.6 in your shell! Either use or an alias or a distribution that comes with Python 3.6.**
+
 It uses the following libraries:
 
 - [PyQt 5](https://riverbankcomputing.com/software/pyqt/) - UI framework
@@ -33,9 +35,16 @@ It uses the following libraries:
 
 First, install everything using pip:
 
-    pip install -r requirements.txt
+    pip install --ignore-installed -r requirements.txt
 
-Note: if you have Python 2.x installed on your computer, the old `pip` may be present in `PATH` and interfere with the above command line. If that happens, try using `pip3` instead of `pip`.
+Note: if you have Python 2.x installed on your computer (which is the case on 99% of Linux distributions), the old `pip` may be present in `PATH` and interfere with the above command line. If that happens, try using `pip3` instead of `pip`. Of course, it must be the `pip` paired with the installed Python3 (so you may need to use `pip3.6` instead).
 
-Next, open the src/ folder and use `run` or `./run.sh` depending on your operating system. You may need to do `chmod +x run.sh` to be able to execute it directly.
+Next, open the src/ folder and use `run` or `source run.sh` depending on your operating system.
 
+#### Building Turing (using pyInstaller)
+
+You need:
+
+- Python 3.6 (`python3.6`)
+- Python 3.6 dev package (`python3.6-dev`)
+- Qt5 `lrelease` (`qt5-dev-tools`)
