@@ -21,7 +21,7 @@ cd lang
 
 for f in *.ts;
 do
-    lrelease $f;
+    lrelease -qt=qt5 $f;
 done
 
 cd ..

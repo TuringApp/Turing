@@ -2,11 +2,11 @@
 
 cd src
 
-tools/compile-gui.sh
+source tools/compile-gui.sh
 python3 tools/build.py
 
 cd ..
 
 \cp src/dist/* .
 
-./gen-arc.sh
+source gen-arc.sh

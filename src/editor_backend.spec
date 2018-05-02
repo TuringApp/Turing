@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['editor_backend.py'],
-             pathex=['/mnt/d/Documents/GitHub/Turing/src'],
+             pathex=['/mnt/hgfs/Turing/src'],
              binaries=[],
              datas=[],
              hiddenimports=['pyqode.python.backend'],
