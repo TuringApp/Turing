@@ -13,11 +13,11 @@ def translate(ctx, str):
     return lambda: translate_wrapper(ctx, str)
 
 
-default_algo_colors = ["darkred", "darkgreen", "blue", "#cb4b16"]
-algo_colors = default_algo_colors
-
 themes = {
-    "default": (translate("Themes", "Default"), []),
+    "default": (translate("Themes", "Default"),
+                ["#efefef", "#000000", "#bebebe", "#ffffff", "#f7f7f7", "#ffffdc", "#000000", "#000000", "#bebebe",
+                 "#9f9f9f", "#767676", "#efefef", "#000000", "#bebebe", "#ffffff", "#0000ff", "#308cc6", "#919191",
+                 "#ffffff", "#ffffff", "darkred", "darkgreen", "blue", "#cb4b16"]),
     "dark": (translate("Themes", "Dark"),
              ["#353535", "#ffffff", "#7f7f7f", "#2a2a2a", "#424242", "#ffffff", "#353535", "#ffffff", "#7f7f7f",
               "#232323", "#141414", "#353535", "#ffffff", "#7f7f7f", "#ff0000", "#2a82da", "#2a82da", "#505050",
@@ -42,6 +42,8 @@ themes = {
     "custom": (translate("Themes", "Custom"), [])
 }
 
+default_algo_colors = themes["default"][1][20:]
+algo_colors = default_algo_colors
 
 def init_theming():
     if "Fusion" in [st for st in QStyleFactory.keys()]:

@@ -1060,6 +1060,28 @@ def clear_output():
 
 def print_output():
     print(dir(GuiState.code_editor))
+    
+    p = QGuiApplication.palette()
+    print(p.color(QPalette.Window).name())
+    print(p.color(QPalette.WindowText).name())
+    print(p.color(QPalette.Disabled, QPalette.WindowText).name())
+    print(p.color(QPalette.Base).name())
+    print(p.color(QPalette.AlternateBase).name())
+    print(p.color(QPalette.ToolTipBase).name())
+    print(p.color(QPalette.ToolTipText).name())
+    print(p.color(QPalette.Text).name())
+    print(p.color(QPalette.Disabled, QPalette.Text).name())
+    print(p.color(QPalette.Dark).name())
+    print(p.color(QPalette.Shadow).name())
+    print(p.color(QPalette.Button).name())
+    print(p.color(QPalette.ButtonText).name())
+    print(p.color(QPalette.Disabled, QPalette.ButtonText).name())
+    print(p.color(QPalette.BrightText).name())
+    print(p.color(QPalette.Link).name())
+    print(p.color(QPalette.Highlight).name())
+    print(p.color(QPalette.Disabled, QPalette.Highlight).name())
+    print(p.color(QPalette.HighlightedText).name())
+    print(p.color(QPalette.Disabled, QPalette.HighlightedText).name())
 
     theming.themes["devtest"] = (theming.themes["devtest"][0], GuiState.code_editor.toPlainText().split("\n"))
     set_theme("devtest")
