@@ -825,18 +825,32 @@ def handler_AboutTuring():
     forms.about.AboutWindow(GuiState.window, util.__version__, util.__channel__).run()
 
 
-def handler_ShowToolbar():
-    if GuiState.ui.toolBar.isVisible():
-        GuiState.ui.toolBar.hide()
-    else:
+def set_show_toolbar(show):
+    if show:
         GuiState.ui.toolBar.show()
+    else:
+        GuiState.ui.toolBar.hide()
+
+    util.settings.setValue("show_toolbar", show)
+    GuiState.ui.actionShowToolbar.setChecked(show)
+
+
+def handler_ShowToolbar():
+    set_show_toolbar(not GuiState.ui.toolBar.isVisible())
+
+
+def set_show_toolbar_text(show):
+    if show:
+        GuiState.ui.toolBar.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+    else:
+        GuiState.ui.toolBar.setToolButtonStyle(Qt.ToolButtonIconOnly)
+
+    util.settings.setValue("show_toolbar_text", show)
+    GuiState.ui.actionShowToolbarText.setChecked(show)
 
 
 def handler_ShowToolbarText():
-    if GuiState.ui.toolBar.toolButtonStyle() == Qt.ToolButtonTextUnderIcon:
-        GuiState.ui.toolBar.setToolButtonStyle(Qt.ToolButtonIconOnly)
-    else:
-        GuiState.ui.toolBar.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+    set_show_toolbar_text(GuiState.ui.toolBar.toolButtonStyle() == Qt.ToolButtonIconOnly)
 
 
 def save(filename):
@@ -1701,6 +1715,11 @@ def add_line(pos, stmt, add=True):
     GuiState.ui.treeWidget.setItemWidget(item, 0, lbl)
 
 
+def handler_UseArrowNotation():
+    util.settings.setValue("use_arrow_notation", GuiState.ui.actionUseArrowNotation.isChecked())
+    refresh_algo()
+
+
 def str_stmt(stmt):
     code = lambda stmt: stmt.code(True)
 
@@ -1730,7 +1749,9 @@ def str_stmt(stmt):
         if stmt.value is None:
             ret = translate("Algo", "[k]DECLARE[/k] [c]{var}[/c]").format(var=stmt.variable)
         else:
-            ret = translate("Algo", "[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]").format(
+            ret = (translate("Algo", "[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]")
+            if GuiState.ui.actionUseArrowNotation.isChecked()
+            else translate("Algo", "[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]")).format(
                 var=code(stmt.variable),
                 value=code(stmt.value))
 
@@ -2034,6 +2055,11 @@ def init_ui():
 
     autosave_init()
 
+    set_show_toolbar(util.settings.value("show_toolbar", True, type=bool))
+    set_show_toolbar_text(util.settings.value("show_toolbar_text", True, type=bool))
+
+    GuiState.ui.actionUseArrowNotation.setChecked(util.settings.value("use_arrow_notation", False, type=bool))
+
     GuiState.window.show()
     
 def init_event_handlers():
@@ -2112,8 +2138,8 @@ def autosave_init():
 
 
 def autosave_load():
-    AppState.mode_python = util.settings.value("autosave_type", type=bool)
-    content = util.settings.value("autosave_content")
+    AppState.mode_python = util.settings.value("autosave_type", False, type=bool)
+    content = util.settings.value("autosave_content", "")
 
     if AppState.mode_python:
         GuiState.code_editor.setPlainText(content, "", "")
@@ -2173,7 +2199,7 @@ def run_updater():
 
 
 def autosave_check():
-    dirty = util.settings.value("autosave_dirty", type=bool)
+    dirty = util.settings.value("autosave_dirty", False, type=bool)
 
     if dirty:
         msg = msg_box(

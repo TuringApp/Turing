@@ -717,7 +717,18 @@ p, li { white-space: pre-wrap; }
     <property name="title">
      <string>&amp;Tools</string>
     </property>
+    <widget class="QMenu" name="menuSettings">
+     <property name="title">
+      <string>Settings</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../turing.qrc">
+       <normaloff>:/action/media/settings.png</normaloff>:/action/media/settings.png</iconset>
+     </property>
+     <addaction name="actionUseArrowNotation"/>
+    </widget>
     <addaction name="actionCalculator"/>
+    <addaction name="menuSettings"/>
    </widget>
    <widget class="QMenu" name="menuLanguage">
     <property name="title">
@@ -1450,6 +1461,14 @@ p, li { white-space: pre-wrap; }
   <action name="actionChangTheme">
    <property name="text">
     <string>Edit theme</string>
+   </property>
+  </action>
+  <action name="actionUseArrowNotation">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Use arrow notation</string>
    </property>
   </action>
  </widget>
