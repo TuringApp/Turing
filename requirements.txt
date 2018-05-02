@@ -19,7 +19,6 @@ pyqode.core==2.11.0
 pyqode.python==2.10.0
 pyqode.qt==2.10.0
 PyQt5==5.10.1
-PyQt5Designer==5.10.1
 python-dateutil==2.7.2
 pytz==2018.3
 pywin32==223
