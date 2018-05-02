@@ -17,6 +17,17 @@ c_catalan = 0.91596559417721901505460351493238411077414937428167
 doc_c("glaisher", "A", "Glaisher-Kinkelin constant")
 c_glaisher = 1.28242712910062263687534256886979172776768892732500
 
+def listfunc(func):
+    def wrapper(*args):
+        if len(args) == 1:
+            try:
+                return func(list(iter(args[0])))
+            except:
+                pass
+        return func(list(args))
+    setattr(wrapper, "listfunc", True)
+    return wrapper
+
 doc("arithm_mean",
     [
         ("args", "List(Number)")
@@ -25,6 +36,7 @@ doc("arithm_mean",
     ["moyenne", "average"])
 
 
+@listfunc
 def arithm_mean(args):
     return statistics.mean(args)
 
@@ -40,6 +52,7 @@ doc("harmonic_mean",
     ["moyenne_harmo"])
 
 
+@listfunc
 def harmonic_mean(args):
     if "harmonic_mean" not in dir(statistics):
         return len(args) / sum([1 / x for x in args])
@@ -55,6 +68,7 @@ doc("sum",
     translate("Docs", "Returns the sum of all the terms of {{args}}."))
 
 
+@listfunc
 def sum(args):
     return builtins.sum(args)
 
@@ -79,6 +93,7 @@ doc("max",
     translate("Docs", "Returns the maximum value of {{args}}."))
 
 
+@listfunc
 def max(args):
     return builtins.max(args)
 
@@ -90,6 +105,7 @@ doc("min",
     translate("Docs", "Returns the minimum value of {{args}}."))
 
 
+@listfunc
 def min(args):
     return builtins.min(args)
 
@@ -209,6 +225,7 @@ doc("stand_dev",
     ["ecart_type"])
 
 
+@listfunc
 def stand_dev(lst):
     return statistics.pstdev(lst)
 
@@ -222,6 +239,7 @@ doc("variance",
     translate("Docs", "Returns the population variance of {{lst}}."))
 
 
+@listfunc
 def variance(lst):
     return statistics.pvariance(lst)
 
@@ -234,6 +252,7 @@ doc("stand_dev_sample",
     ["ecart_type_echant"])
 
 
+@listfunc
 def stand_dev_sample(lst):
     return statistics.stdev(lst)
 
@@ -248,6 +267,7 @@ doc("variance_sample",
     ["variance_echant"])
 
 
+@listfunc
 def variance_sample(lst):
     return statistics.variance(lst)
 
@@ -332,3 +352,41 @@ doc("beta",
 
 def beta(a, b):
     return (gamma(a) * gamma(b)) / gamma(a + b)
+
+
+doc("median",
+    [
+        ("lst", "List(Number)"),
+    ],
+    translate("Docs", "Returns the median of {{lst}}."))
+
+
+@listfunc
+def median(lst):
+    return statistics.median(lst)
+
+
+doc("mode",
+    [
+        ("lst", "List(Number)"),
+    ],
+    translate("Docs", "Returns the mode of {{lst}}."))
+
+
+@listfunc
+def mode(lst):
+    return statistics.mode(lst)
+
+
+doc("d_binomial",
+    [
+        ("n", "Integer"),
+        ("p", "Real", "0 <= p <= 1"),
+        ("k", "Integer")
+    ],
+    translate("Docs", "Returns the probability for {{k}} with the binomial distribution of parameters {{n}} and {{p}}."))
+
+
+@listfunc
+def d_binomial(n, p, k):
+    return binomial(n, k) * basic.pow(p, k) * basic.pow(1 - p, n - k)

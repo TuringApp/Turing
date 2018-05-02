@@ -250,7 +250,7 @@ class Evaluator:
         else:
             args = [self.eval_node(x) for x in node.args]
 
-        if hasattr(function, "doc_spec"):
+        if hasattr(function, "doc_spec") and not hasattr(function, "listfunc"):
             arg_spec = function.doc_spec[1][1]
             num_opt = sum(1 for arg in arg_spec if len(arg) >= 4)
 
@@ -313,8 +313,7 @@ class Evaluator:
             return None
 
         if operator == "+" and ValueType.STRING in [left_type, right_type]:
-            # if one of the operands is a string and the operator is +, then it's a string concatenation
-            # since Python doesn't cast automatically, we must do it ourselves
+            # if one of the operands is a string
             return str(left) + str(right)
 
         if operator in ["*"] and right_type == ValueType.LIST and left_type != ValueType.LIST:

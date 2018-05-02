@@ -6,8 +6,9 @@ from util import translate
 __desc__ = translate("Docs", "Algobox compatibility")
 
 ALGOBOX_ALEA_ENT = randint
+ALGOBOX_NB_COMBINAISONS = binomial
 ALGOBOX_COEFF_BINOMIAL = binomial
-ALGOBOX_LOI_BINOMIAL = None
+ALGOBOX_LOI_BINOMIAL = d_binomial
 ALGOBOX_LOI_NORMALE_CR = None
 ALGOBOX_LOI_NORMALE = None
 ALGOBOX_INVERSE_LOI_NORMALE_CR = None
@@ -17,7 +18,7 @@ ALGOBOX_SOMME = lambda lst, p, n: sum(lst[p:n + 1])
 ALGOBOX_MOYENNE = lambda lst, p, n: arithm_mean(lst[p:n + 1])
 ALGOBOX_VARIANCE = lambda lst, p, n: variance(lst[p:n + 1])
 ALGOBOX_ECART_TYPE = lambda lst, p, n: stand_dev(lst[p:n + 1])
-ALGOBOX_MEDIANE = None
+ALGOBOX_MEDIANE = median
 ALGOBOX_QUARTILE1 = None
 ALGOBOX_QUARTILE3 = None
 ALGOBOX_QUARTILE1_BIS = None
