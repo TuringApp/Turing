@@ -1,4 +1,4 @@
-[![GitHub issues](https://img.shields.io/github/issues/TuringApp/Turing.svg)](https://github.com/TuringApp/Turing/issues) [![GitHub stars](https://img.shields.io/github/stars/TuringApp/Turing.svg)](https://github.com/TuringApp/Turing/stargazers) [![GitHub license](https://img.shields.io/github/license/TuringApp/Turing.svg)](https://github.com/TuringApp/Turing/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/TuringApp/Turing.svg)](https://github.com/TuringApp/Turing/issues) [![GitHub stars](https://img.shields.io/github/stars/TuringApp/Turing.svg)](https://github.com/TuringApp/Turing/stargazers) [![GitHub license](https://img.shields.io/github/license/TuringApp/Turing.svg)](https://github.com/TuringApp/Turing/blob/master/LICENSE) [![Gitter](https://img.shields.io/gitter/room/TuringDevelopment/Lobby.svg)]( https://gitter.im/TuringDevelopment)
 
 # Turing
 
