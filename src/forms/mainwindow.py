@@ -687,8 +687,8 @@ def handler_Step():
             if not ExecState.worker.error:
                 set_current_line(None)
             ExecState.running = False
-        GuiState.ui.actionDebug.setDisabled(not ExecState.worker.finished)
-        GuiState.ui.actionStep.setDisabled(not ExecState.worker.finished)
+        GuiState.ui.actionDebug.setDisabled(False)
+        GuiState.ui.actionStep.setDisabled(False)
         GuiState.ui.actionNew.setDisabled(not ExecState.worker.finished)
         GuiState.ui.actionOpen.setDisabled(not ExecState.worker.finished)
         GuiState.ui.actionStop.setEnabled(not ExecState.worker.finished)
