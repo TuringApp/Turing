@@ -13,15 +13,11 @@ DEBUG = False
 
 
 class Evaluator:
-    frames = None
-    arguments = None
-    log = None
-    beautified = None
-    strict_typing = False
-    node_tree = None
-
     def __init__(self, strict=False):
         self.frames = [{}]
+        self.arguments = None
+        self.beautified = None
+        self.node_tree = None
 
         for name, item in mlib.__dict__.items():
             if isinstance(item, types.ModuleType):

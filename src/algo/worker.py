@@ -17,23 +17,13 @@ ExecStack = List[StackFrame]
 
 
 class Worker:
-    code: BlockStmt = None
-    stack: ExecStack = None
-    evaluator: Evaluator = None
-    log: Logger = None
-    callback_input: Callable = None
-    callback_print: Callable = None
-    calls: List[Optional[Any]] = None
-    strict_typing: bool = None
-    last = None
-    callback_stop: Callable = None
-    map: Dict[Type[BaseStmt], Callable] = None
-
     def __init__(self, code: CodeBlock):
         self.code = BlockStmt(code)
         self.log = Logger("Algo")
         self.strict_typing = False
         self.callback_stop = lambda: ()
+        self.callback_input = None
+        self.callback_print = None
         self.map = {
             DisplayStmt: self.exec_display,
             InputStmt: self.exec_input,
@@ -371,6 +361,7 @@ class Worker:
         self.evaluator.enter_frame()
         self.stopped = False
         self.break_on_error = False
+        self.last = None
 
     def run(self):
         """Runs the program continuously."""

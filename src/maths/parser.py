@@ -110,11 +110,6 @@ Token = Tuple[TokenType, Any]
 class Parser:
     """Main parser class. Transforms a string into an AST tree."""
 
-    expression: str = None
-    tokens: List[Token] = None
-    index: int = None
-    log: Logger = None
-
     def __init__(self, expr: str):
         """Initializes the Parser instance.
 
