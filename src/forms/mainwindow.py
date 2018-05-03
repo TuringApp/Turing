@@ -640,6 +640,8 @@ def handler_Stop():
 
 
 def handler_Step():
+    GuiState.ui.actionNew.setDisabled(True)
+    GuiState.ui.actionOpen.setDisabled(True)
     GuiState.ui.actionRun.setDisabled(True)
     GuiState.ui.actionDebug.setDisabled(True)
     GuiState.ui.actionStep.setDisabled(True)
@@ -685,8 +687,10 @@ def handler_Step():
             if not ExecState.worker.error:
                 set_current_line(None)
             ExecState.running = False
-        GuiState.ui.actionDebug.setDisabled(False)
-        GuiState.ui.actionStep.setDisabled(False)
+        GuiState.ui.actionDebug.setDisabled(not ExecState.worker.finished)
+        GuiState.ui.actionStep.setDisabled(not ExecState.worker.finished)
+        GuiState.ui.actionNew.setDisabled(not ExecState.worker.finished)
+        GuiState.ui.actionOpen.setDisabled(not ExecState.worker.finished)
         GuiState.ui.actionStop.setEnabled(not ExecState.worker.finished)
 
 
@@ -714,6 +718,8 @@ def handler_Run(flag=False):
         algo_run_python()
         return
 
+    GuiState.ui.actionNew.setDisabled(True)
+    GuiState.ui.actionOpen.setDisabled(True)
     GuiState.ui.actionRun.setDisabled(True)
     GuiState.ui.actionDebug.setDisabled(True)
     GuiState.ui.actionStep.setDisabled(True)
@@ -796,6 +802,8 @@ def handler_Run(flag=False):
         else:
             if not user_stop:
                 end_output()
+            GuiState.ui.actionNew.setDisabled(False)
+            GuiState.ui.actionOpen.setDisabled(False)
             GuiState.ui.actionRun.setDisabled(False)
             GuiState.ui.actionStep.setDisabled(False)
             GuiState.ui.actionDebug.setDisabled(False)
