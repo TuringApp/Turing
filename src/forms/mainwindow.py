@@ -491,8 +491,8 @@ def plot_window(xmin, xmax, ymin, ymax, xgrad=0, ygrad=0):
     GuiState.plot_axes.set_xlim(xmin, xmax)
     GuiState.plot_axes.set_ylim(ymin, ymax)
 
-    GuiState.plot_axes.get_xaxis().set_major_locator(AutoLocator() if xgrad == 0 else LinearLocator(int((xmax - xmin) / xgrad) + 1))
-    GuiState.plot_axes.get_yaxis().set_major_locator(AutoLocator() if ygrad == 0 else LinearLocator(int((ymax - ymin) / ygrad) + 1))
+    GuiState.plot_axes.get_xaxis().set_major_locator(AutoLocator() if xgrad == 0 else LinearLocator(abs(int((xmax - xmin) / xgrad)) + 1))
+    GuiState.plot_axes.get_yaxis().set_major_locator(AutoLocator() if ygrad == 0 else LinearLocator(abs(int((ymax - ymin) / ygrad)) + 1))
 
 
 def plot_point(x, y, color="red"):
