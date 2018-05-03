@@ -55,27 +55,27 @@ p, li { white-space: pre-wrap; }
         <translation>Variable {var} = </translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="241"/>
+        <location filename="../algo/worker.py" line="231"/>
         <source>BREAK can only be used inside a loop</source>
         <translation>SORTIR ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="252"/>
+        <location filename="../algo/worker.py" line="242"/>
         <source>CONTINUE can only be used inside a loop</source>
         <translation>CONTINUER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une boucle</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="282"/>
+        <location filename="../algo/worker.py" line="272"/>
         <source>RETURN can only be used inside a function</source>
         <translation>RENVOYER ne peut être utilisé qu&apos;à l&apos;intérieur d&apos;une fonction</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="351"/>
+        <location filename="../algo/worker.py" line="341"/>
         <source>Unknown statement type: {type}</source>
         <translation>Type d&apos;instruction inconnu : {type}</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="313"/>
+        <location filename="../algo/worker.py" line="303"/>
         <source>ELSE can only be used after an IF block</source>
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
@@ -174,17 +174,17 @@ p, li { white-space: pre-wrap; }
         <translation>Nom invalide : {name}</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="187"/>
+        <location filename="../algo/worker.py" line="177"/>
         <source>Array access target must be of array type</source>
         <translation>La cible d&apos;un accès de liste doit être une liste</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="199"/>
+        <location filename="../algo/worker.py" line="189"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
         <translation>Indice &apos;{idx}&apos; trop grand pour la liste</translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="202"/>
+        <location filename="../algo/worker.py" line="192"/>
         <source>Assignment target must be either variable or array item</source>
         <translation>La cible d&apos;une affectation doit être une variable ou un élément de liste</translation>
     </message>
@@ -1441,102 +1441,102 @@ désactivé :</translation>
 <context>
     <name>Evaluator</name>
     <message>
-        <location filename="../maths/evaluator.py" line="93"/>
+        <location filename="../maths/evaluator.py" line="89"/>
         <source>Parser: </source>
         <translation>Analyseur : </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="258"/>
+        <location filename="../maths/evaluator.py" line="254"/>
         <source>Argument count mismatch (expected {exp}, got {act})</source>
         <translation>Nombre d&apos;arguments invalides (attendu : {exp}, reçu : {act})</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="77"/>
+        <location filename="../maths/evaluator.py" line="73"/>
         <source>Cannot find variable or function {name}</source>
         <translation>Impossible de trouver la variable ou fonction {name}</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="236"/>
+        <location filename="../maths/evaluator.py" line="232"/>
         <source>Callee is None</source>
         <translation>La fonction appelée est None</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="246"/>
+        <location filename="../maths/evaluator.py" line="242"/>
         <source>Only lists can be expanded</source>
         <translation>Seules les listes peuvent être étendues</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="228"/>
+        <location filename="../maths/evaluator.py" line="224"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
         <translation>Indice &apos;{idx}&apos; trop grand pour la liste</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="209"/>
+        <location filename="../maths/evaluator.py" line="205"/>
         <source>Unknown node type: {type}</source>
         <translation>Type de nœud inconnu : {type}</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="298"/>
+        <location filename="../maths/evaluator.py" line="294"/>
         <source>Invalid unary operator &apos;{op}&apos;</source>
         <translation>Opérateur unaire invalide &apos;{op}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="312"/>
+        <location filename="../maths/evaluator.py" line="308"/>
         <source>Trying to use None</source>
         <translation>Opération sur None impossible</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="328"/>
+        <location filename="../maths/evaluator.py" line="324"/>
         <source>Type mismatch: operands have different types ({left} and {right})</source>
         <translation>Types incompatibles : les opérandes ont des types différents ({left} et {right})</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="350"/>
+        <location filename="../maths/evaluator.py" line="346"/>
         <source>Invalid value type for {val} and operator &apos;{op}&apos;</source>
         <translation>Type de valeur invalide pour {val} et l&apos;opérateur &apos;{op}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="350"/>
+        <location filename="../maths/evaluator.py" line="346"/>
         <source> and </source>
         <translation> et </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="355"/>
+        <location filename="../maths/evaluator.py" line="351"/>
         <source>Operator &apos;{op}&apos; not allowed for value type {type}</source>
         <translation>Opérateur &apos;{op}&apos; non autorisé pour le type de valeur {type}</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="380"/>
+        <location filename="../maths/evaluator.py" line="376"/>
         <source>Trying to divide by zero</source>
         <translation>Tentative de division par zéro</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="422"/>
+        <location filename="../maths/evaluator.py" line="418"/>
         <source>Invalid binary operator &apos;{op}&apos; for &apos;{left}&apos; and &apos;{right}&apos;</source>
         <translation>Opérateur binaire &apos;{op}&apos; invalide pour &apos;{left}&apos; et &apos;{right}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="345"/>
+        <location filename="../maths/evaluator.py" line="341"/>
         <source>left</source>
         <translation>gauche</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="348"/>
+        <location filename="../maths/evaluator.py" line="344"/>
         <source>right</source>
         <translation>droite</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="371"/>
+        <location filename="../maths/evaluator.py" line="367"/>
         <source>Trying to multiply List by non-integer ({val})</source>
         <translation>Tentative de multiplication d&apos;une List par un non-entier ({val})</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="264"/>
+        <location filename="../maths/evaluator.py" line="260"/>
         <source>Type mismatch for argument #{idx} &apos;{arg}&apos; (expected {exp})</source>
         <translation>Type incorrect pour l&apos;argument #{idx} &apos;{arg}&apos; (attendu : {exp})</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="222"/>
+        <location filename="../maths/evaluator.py" line="218"/>
         <source>Array access target must be of array type</source>
         <translation>La cible d&apos;un accès de liste doit être une liste</translation>
     </message>
@@ -2230,17 +2230,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Parser</name>
     <message>
-        <location filename="../maths/parser.py" line="179"/>
+        <location filename="../maths/parser.py" line="174"/>
         <source>Expected token ({type}) &apos;{val}&apos;</source>
         <translation>Jeton attendu ({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="477"/>
+        <location filename="../maths/parser.py" line="472"/>
         <source>Unexpected EOL</source>
         <translation>Fin de ligne inattendue</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="479"/>
+        <location filename="../maths/parser.py" line="474"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
         <translation>Jeton ({type}) &apos;{val}&apos; inattendu</translation>
     </message>
@@ -2260,7 +2260,7 @@ p, li { white-space: pre-wrap; }
         <translation>NON</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="271"/>
+        <location filename="../maths/parser.py" line="266"/>
         <source>Unexpected token ({type}) &apos;{val}&apos; after end of expression</source>
         <translation>Jeton ({type}) &apos;{val}&apos; inattendu après la fin de l&apos;expression</translation>
     </message>

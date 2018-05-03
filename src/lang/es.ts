@@ -148,42 +148,42 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="187"/>
+        <location filename="../algo/worker.py" line="177"/>
         <source>Array access target must be of array type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="199"/>
+        <location filename="../algo/worker.py" line="189"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="202"/>
+        <location filename="../algo/worker.py" line="192"/>
         <source>Assignment target must be either variable or array item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="241"/>
+        <location filename="../algo/worker.py" line="231"/>
         <source>BREAK can only be used inside a loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="252"/>
+        <location filename="../algo/worker.py" line="242"/>
         <source>CONTINUE can only be used inside a loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="282"/>
+        <location filename="../algo/worker.py" line="272"/>
         <source>RETURN can only be used inside a function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="313"/>
+        <location filename="../algo/worker.py" line="303"/>
         <source>ELSE can only be used after an IF block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/worker.py" line="351"/>
+        <location filename="../algo/worker.py" line="341"/>
         <source>Unknown statement type: {type}</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1423,102 +1423,102 @@ Window Text :</source>
 <context>
     <name>Evaluator</name>
     <message>
-        <location filename="../maths/evaluator.py" line="77"/>
+        <location filename="../maths/evaluator.py" line="73"/>
         <source>Cannot find variable or function {name}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="93"/>
+        <location filename="../maths/evaluator.py" line="89"/>
         <source>Parser: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="258"/>
+        <location filename="../maths/evaluator.py" line="254"/>
         <source>Argument count mismatch (expected {exp}, got {act})</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="209"/>
+        <location filename="../maths/evaluator.py" line="205"/>
         <source>Unknown node type: {type}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="222"/>
+        <location filename="../maths/evaluator.py" line="218"/>
         <source>Array access target must be of array type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="228"/>
+        <location filename="../maths/evaluator.py" line="224"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="236"/>
+        <location filename="../maths/evaluator.py" line="232"/>
         <source>Callee is None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="246"/>
+        <location filename="../maths/evaluator.py" line="242"/>
         <source>Only lists can be expanded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="264"/>
+        <location filename="../maths/evaluator.py" line="260"/>
         <source>Type mismatch for argument #{idx} &apos;{arg}&apos; (expected {exp})</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="298"/>
+        <location filename="../maths/evaluator.py" line="294"/>
         <source>Invalid unary operator &apos;{op}&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="312"/>
+        <location filename="../maths/evaluator.py" line="308"/>
         <source>Trying to use None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="328"/>
+        <location filename="../maths/evaluator.py" line="324"/>
         <source>Type mismatch: operands have different types ({left} and {right})</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="345"/>
+        <location filename="../maths/evaluator.py" line="341"/>
         <source>left</source>
         <translation>izquierdo</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="348"/>
+        <location filename="../maths/evaluator.py" line="344"/>
         <source>right</source>
         <translation>derecho</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="350"/>
+        <location filename="../maths/evaluator.py" line="346"/>
         <source>Invalid value type for {val} and operator &apos;{op}&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="350"/>
+        <location filename="../maths/evaluator.py" line="346"/>
         <source> and </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="355"/>
+        <location filename="../maths/evaluator.py" line="351"/>
         <source>Operator &apos;{op}&apos; not allowed for value type {type}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="371"/>
+        <location filename="../maths/evaluator.py" line="367"/>
         <source>Trying to multiply List by non-integer ({val})</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="380"/>
+        <location filename="../maths/evaluator.py" line="376"/>
         <source>Trying to divide by zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="422"/>
+        <location filename="../maths/evaluator.py" line="418"/>
         <source>Invalid binary operator &apos;{op}&apos; for &apos;{left}&apos; and &apos;{right}&apos;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2223,22 +2223,22 @@ p, li { white-space: pre-wrap; }
         <translation>NO</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="179"/>
+        <location filename="../maths/parser.py" line="174"/>
         <source>Expected token ({type}) &apos;{val}&apos;</source>
         <translation>Token esperado ({type}) &apos;{val}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="271"/>
+        <location filename="../maths/parser.py" line="266"/>
         <source>Unexpected token ({type}) &apos;{val}&apos; after end of expression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="477"/>
+        <location filename="../maths/parser.py" line="472"/>
         <source>Unexpected EOL</source>
         <translation>Fin de la linea inesperado</translation>
     </message>
     <message>
-        <location filename="../maths/parser.py" line="479"/>
+        <location filename="../maths/parser.py" line="474"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
         <translation>Token inesperado ({type}) &apos;{val}&apos;</translation>
     </message>

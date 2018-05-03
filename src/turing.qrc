@@ -76,6 +76,7 @@
         <file>media/time.png</file>
         <file>media/color_wheel.png</file>
         <file>media/language.png</file>
+        <file>media/media.qrc</file>
     </qresource>
     <qresource prefix="/icon">
         <file>media/icon_16.png</file>
