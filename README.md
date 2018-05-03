@@ -6,6 +6,8 @@ Turing is a free and cross-platform app whose main goal is to assist the learnin
 
 It provides a lighter alternative to the well-known Algobox, which is the currently de-facto widely used solution.
 
+**Note:** Turing was originally meant to be a school project for the [CS class](https://twitter.com/davR74130). Don't expect enterprise-grade code here. We do our best to keep the whole codebase clean, but some parts are still undocumented and not covered by unit tests.
+
 ## Quid, quis, quomodo?
 
 Turing is written in Python 3.6 and uses the PyQt5 framework for its GUI. It provides two work modes:
@@ -24,7 +26,7 @@ Turing is cross-platform, but has only been tested on Windows and Linux-based op
 
 #### Python 3.6 required!
 
-**You need to have `python3` point to Python 3.6 in your shell! Either use or an alias or a distribution that comes with Python 3.6.**
+**You need to have `python3` point to Python 3.6 in your shell! Either use an alias in your `.bashrc` or a distribution that comes with Python 3.6.**
 
 It uses the following libraries:
 
