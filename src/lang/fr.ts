@@ -1038,87 +1038,87 @@ désactivé :</translation>
         <translation>Calcule le volume du cylindre de rayon {{radius}} et de hauteur {{height}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="20"/>
+        <location filename="../maths/lib/stats.py" line="31"/>
         <source>Returns the arithmetic mean of {{args}}.</source>
         <translation>Calcule la moyenne arithmétique de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="51"/>
+        <location filename="../maths/lib/stats.py" line="64"/>
         <source>Returns the sum of all the terms of {{args}}.</source>
         <translation>Calcule la somme de tous les éléments de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="62"/>
+        <location filename="../maths/lib/stats.py" line="76"/>
         <source>Returns the binomial coefficient for a subset of size {{k}} and a set of size {{n}}.</source>
         <translation>Calcule le coefficient binomial de {{k}} parmi {{n}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="75"/>
+        <location filename="../maths/lib/stats.py" line="89"/>
         <source>Returns the maximum value of {{args}}.</source>
         <translation>Détermine la valeur maximale de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="86"/>
+        <location filename="../maths/lib/stats.py" line="101"/>
         <source>Returns the minimum value of {{args}}.</source>
         <translation>Détermine la valeur minimale de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="97"/>
+        <location filename="../maths/lib/stats.py" line="113"/>
         <source>Returns the Gamma function at {{x}}.</source>
         <translation>Calcule la fonction Gamma à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="119"/>
+        <location filename="../maths/lib/stats.py" line="135"/>
         <source>Returns the factorial of {{x}}.</source>
         <translation>Calcule la factorielle de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="130"/>
+        <location filename="../maths/lib/stats.py" line="146"/>
         <source>Returns the error function at {{x}}.</source>
         <translation>Calcule la fonction d&apos;erreur à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="141"/>
+        <location filename="../maths/lib/stats.py" line="157"/>
         <source>Returns the complementary error function at {{x}}.</source>
         <translation>Calcule la fonction d&apos;erreur complémentaire à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="152"/>
+        <location filename="../maths/lib/stats.py" line="168"/>
         <source>Applies {{func}} to each element of {{lst}} and returns the resulting list.</source>
         <translation>Applique {{func}} à chaque élément de {{lst}} et renvoie la liste résultante.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="167"/>
+        <location filename="../maths/lib/stats.py" line="183"/>
         <source>Returns a list containing all elements of {{lst}} for which {{func}} returns a truthy value.</source>
         <translation>Renvoie une liste contenant tous les éléments de {{lst}} pour lesquels {{func}} est vraie.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="182"/>
+        <location filename="../maths/lib/stats.py" line="198"/>
         <source>Returns a slice of the specified list, from index {{start}} (inclusive) to either index {{end}} (exclusive) or the end of the list.</source>
         <translation>Renvoie une tranche de {{lst}} de l&apos;indice {{start}} (inclus), à l&apos;indice {{end}} (exclus) si spécifié ou à la fin de la liste.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="204"/>
+        <location filename="../maths/lib/stats.py" line="220"/>
         <source>Returns the population standard deviation of {{lst}}.</source>
         <translation>Calcule l&apos;écart-type de {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="218"/>
+        <location filename="../maths/lib/stats.py" line="235"/>
         <source>Returns the population variance of {{lst}}.</source>
         <translation>Calcule la variance de {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="229"/>
+        <location filename="../maths/lib/stats.py" line="247"/>
         <source>Returns the sample standard deviation of {{lst}}.</source>
         <translation>Calcule l&apos;écart-type de l&apos;échantillon {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="243"/>
+        <location filename="../maths/lib/stats.py" line="262"/>
         <source>Returns the sample variance of {{lst}}.</source>
         <translation>Calcule la variance de l&apos;échantillon {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="257"/>
+        <location filename="../maths/lib/stats.py" line="277"/>
         <source>Returns a random number between 0 (inclusive) and 1 (exclusive).</source>
         <translation>Renvoie un nombre aléatoire compris entre 0 (inclus) et 1 (exclus).</translation>
     </message>
@@ -1358,7 +1358,7 @@ désactivé :</translation>
         <translation>Trigonométrie</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="35"/>
+        <location filename="../maths/lib/stats.py" line="47"/>
         <source>Returns the harmonic mean of {{args}}.</source>
         <translation>Calcule la moyenne harmonique de {{args}}.</translation>
     </message>
@@ -1378,7 +1378,7 @@ désactivé :</translation>
         <translation>Calcule le conjugué de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="287"/>
+        <location filename="../maths/lib/stats.py" line="307"/>
         <source>Returns the {{n}}-th Fibonacci number.</source>
         <translation>Calcule le {{n}}-ième terme de la suite de Fibonacci.</translation>
     </message>
@@ -1398,17 +1398,17 @@ désactivé :</translation>
         <translation>Calcule l&apos;intégrale de {{a}} à {{b}} de {{func}} (facultatif : nombre d&apos;étapes {{steps}}).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="108"/>
+        <location filename="../maths/lib/stats.py" line="124"/>
         <source>Returns the natural logarithm of the absolute value of the Gamma function at {{x}}.</source>
         <translation>Calcule le logarithme naturel de la valeur absolue de la fonction Gamma à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="301"/>
+        <location filename="../maths/lib/stats.py" line="321"/>
         <source>Returns the {{n}}-th Euler number.</source>
         <translation>Calcule le {{n}}-ième nombre d&apos;Euler.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="325"/>
+        <location filename="../maths/lib/stats.py" line="345"/>
         <source>Returns the Beta function at {{a}} and {{b}}.</source>
         <translation>Calcule la fonction Beta à {{a}} et {{b}}.</translation>
     </message>
@@ -1418,9 +1418,24 @@ désactivé :</translation>
         <translation>Compatibilité Algobox</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="269"/>
+        <location filename="../maths/lib/stats.py" line="289"/>
         <source>Returns a random integer between {{a}} and {{b}} (inclusive).</source>
         <translation>Renvoie un nombre entier aléatoire compris entre {{a}} et {{b}} (inclus).</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="357"/>
+        <source>Returns the median of {{lst}}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="369"/>
+        <source>Returns the mode of {{lst}}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="381"/>
+        <source>Returns the probability for {{k}} with the binomial distribution of parameters {{n}} and {{p}}.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1471,47 +1486,47 @@ désactivé :</translation>
         <translation>Opération sur None impossible</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="329"/>
+        <location filename="../maths/evaluator.py" line="328"/>
         <source>Type mismatch: operands have different types ({left} and {right})</source>
         <translation>Types incompatibles : les opérandes ont des types différents ({left} et {right})</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="351"/>
+        <location filename="../maths/evaluator.py" line="350"/>
         <source>Invalid value type for {val} and operator &apos;{op}&apos;</source>
         <translation>Type de valeur invalide pour {val} et l&apos;opérateur &apos;{op}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="351"/>
+        <location filename="../maths/evaluator.py" line="350"/>
         <source> and </source>
         <translation> et </translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="356"/>
+        <location filename="../maths/evaluator.py" line="355"/>
         <source>Operator &apos;{op}&apos; not allowed for value type {type}</source>
         <translation>Opérateur &apos;{op}&apos; non autorisé pour le type de valeur {type}</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="381"/>
+        <location filename="../maths/evaluator.py" line="380"/>
         <source>Trying to divide by zero</source>
         <translation>Tentative de division par zéro</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="423"/>
+        <location filename="../maths/evaluator.py" line="422"/>
         <source>Invalid binary operator &apos;{op}&apos; for &apos;{left}&apos; and &apos;{right}&apos;</source>
         <translation>Opérateur binaire &apos;{op}&apos; invalide pour &apos;{left}&apos; et &apos;{right}&apos;</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="346"/>
+        <location filename="../maths/evaluator.py" line="345"/>
         <source>left</source>
         <translation>gauche</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="349"/>
+        <location filename="../maths/evaluator.py" line="348"/>
         <source>right</source>
         <translation>droite</translation>
     </message>
     <message>
-        <location filename="../maths/evaluator.py" line="372"/>
+        <location filename="../maths/evaluator.py" line="371"/>
         <source>Trying to multiply List by non-integer ({val})</source>
         <translation>Tentative de multiplication d&apos;une List par un non-entier ({val})</translation>
     </message>
