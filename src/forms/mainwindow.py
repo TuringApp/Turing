@@ -2091,6 +2091,7 @@ def init_ui():
 
     GuiState.ui.actionUseArrowNotation.setChecked(util.settings.value("use_arrow_notation", False, type=bool))
 
+    center_widget(GuiState.window, None)
     GuiState.window.show()
     
 def init_event_handlers():

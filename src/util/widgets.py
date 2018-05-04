@@ -30,7 +30,7 @@ def center_widget(wgt: QWidget, host: QWidget):
     if host:
         wgt.move(host.geometry().center() - wgt.rect().center())
     else:
-        wgt.move(QCoreApplication.desktop().screenGeometry().center() - wgt.rect().center())
+        wgt.move(QApplication.desktop().screenGeometry().center() - wgt.rect().center())
 
 
 def get_themed_box(parent=None):
