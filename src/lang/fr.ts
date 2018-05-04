@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="fr" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.1" language="fr" sourcelanguage="en">
 <context>
     <name>AboutWindow</name>
     <message>
@@ -238,7 +239,7 @@ p, li { white-space: pre-wrap; }
         <source>[c]{var}[/c] [k]??[/k] [c]{value}[/c]</source>
         <translation type="obsolete">[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]</translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../forms/mainwindow.py" line="1793"/>
         <source>[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]</source>
         <translation type="unfinished"></translation>
@@ -1551,7 +1552,7 @@ désactivé :</translation>
     <message>
         <location filename="../forms/ui_help.py" line="68"/>
         <source>Help Contents</source>
-        <translation>Pages d&apos;aide</translation>
+        <translation>Bibliothèque</translation>
     </message>
     <message>
         <location filename="../forms/help.py" line="57"/>
@@ -1692,7 +1693,7 @@ désactivé :</translation>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="863"/>
         <source>Help Contents</source>
-        <translation>Pages d&apos;aide</translation>
+        <translation>Bibliothèque</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="865"/>
