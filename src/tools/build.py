@@ -22,7 +22,7 @@ subprocess.call([
     "pyinstaller",
     "--onefile",
     "--additional-hooks-dir=.",
-    "--icon=media/icon.ico",
+    "--icon=media/icon." + ("icns" if sys.platform == "darwin" else "ico"),
     "--hidden-import",
     "colorsys",
     "--windowed",
