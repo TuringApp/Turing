@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
 
-    if os.name == "nt":
+    if sys.platform == "win32":
         # fix for ugly font on 7+
         font = QFont("Segoe UI", 9)
         app.setFont(font)
