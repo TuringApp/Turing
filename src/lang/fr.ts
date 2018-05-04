@@ -108,7 +108,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/mainwindow.py" line="1786"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
-        <translation>[k]LIRE[/k] [c]{prompt}[/c] [k]DANS[/k] [c]{var}[/c]</translation>
+        <translation>[k]SAISIR[/k] [c]{var}[/c]</translation>
     </message>
     <message>
         <location filename="../forms/mainwindow.py" line="1814"/>
@@ -588,7 +588,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_alg_input.py" line="71"/>
         <source>Read user input</source>
-        <translation>Lire entrée utilisateur</translation>
+        <translation>Saisir entrée utilisateur</translation>
     </message>
 </context>
 <context>
@@ -1950,7 +1950,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="798"/>
         <source>Read user INPUT</source>
-        <translation>LIRE entrée</translation>
+        <translation>SAISIR une entrée</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="799"/>
