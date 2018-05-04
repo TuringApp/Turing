@@ -1179,6 +1179,7 @@ def load_code_editor():
             backend = "editor_backend"
         elif sys.platform == "darwin":
             backend = "editor_backend"
+        backend = os.path.join(sys._MEIPASS, backend)
     else:
         print("using script file")
         import editor_backend

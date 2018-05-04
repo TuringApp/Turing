@@ -3,24 +3,9 @@
 
 import os
 import subprocess
+import sys
 
 from PyQt5.QtCore import QLibraryInfo
-
-subprocess.call([
-    "pyinstaller",
-    "--onefile",
-    "--additional-hooks-dir=.",
-    "--icon=media/icon.ico",
-    "--hidden-import",
-    "colorsys",
-    "--windowed",
-    "--add-data",
-    os.pathsep.join([QLibraryInfo.location(QLibraryInfo.TranslationsPath), "PyQt5/Qt/translations"]),
-    "-n",
-    "turing",
-    "-y",
-    "main.py"
-])
 
 subprocess.call([
     "pyinstaller",
@@ -32,3 +17,23 @@ subprocess.call([
     "-y",
     "editor_backend.py"
 ])
+
+subprocess.call([
+    "pyinstaller",
+    "--onefile",
+    "--additional-hooks-dir=.",
+    "--icon=media/icon.ico",
+    "--hidden-import",
+    "colorsys",
+    "--windowed",
+    "--add-data",
+    os.pathsep.join([QLibraryInfo.location(QLibraryInfo.TranslationsPath), "PyQt5/Qt/translations"]),
+    "--add-data",
+    os.pathsep.join([os.path.join("dist", "editor_backend" + (".exe" if sys.platform == "win32" else "")), "/"]),
+    "-n",
+    "turing",
+    "-y",
+    "main.py"
+])
+
+

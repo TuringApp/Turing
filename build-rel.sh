@@ -7,6 +7,6 @@ python3 tools/build.py
 
 cd ..
 
-\cp src/dist/* .
+\cp src/dist/turing .
 
 source gen-arc.sh
