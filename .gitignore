@@ -53,3 +53,4 @@ turing
 *.gz
 *.zip
 src/turing.spec
+.DS_Store
