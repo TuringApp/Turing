@@ -762,7 +762,7 @@ class Ui_MainWindow(object):
         self.toolBar.addAction(self.actionSendFeedback)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         self.tabWidget_2.setCurrentIndex(0)
         self.txtInput.returnPressed.connect(self.btnSendInput.click)
         self.btnAlgo_ZoomIn.clicked.connect(self.actionZoomIn.trigger)
@@ -793,7 +793,7 @@ class Ui_MainWindow(object):
         self.btnAlgo_ZoomIn.setText(_translate("MainWindow", "Zoom in"))
         self.btnAlgo_ZoomOut.setText(_translate("MainWindow", "Zoom out"))
         self.btnAlgo_ResetZoom.setText(_translate("MainWindow", "Reset zoom"))
-        self.btnAlgo_Variable.setText(_translate("MainWindow", "DEFINE variable"))
+        self.btnAlgo_Variable.setText(_translate("MainWindow", "ASSIGN variable"))
         self.btnAlgo_Stop.setText(_translate("MainWindow", "Breakpoint"))
         self.btnAlgo_Input.setText(_translate("MainWindow", "Read user INPUT"))
         self.btnAlgo_Display.setText(_translate("MainWindow", "DISPLAY value"))

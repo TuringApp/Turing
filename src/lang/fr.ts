@@ -233,6 +233,11 @@ p, li { white-space: pre-wrap; }
         <source>[k]WAIT[/k] [c]{val}[/c] [k]SECONDS[/k]</source>
         <translation>[k]ATTENDRE[/k] [c]{val}[/c] [k]SECONDES[/k]</translation>
     </message>
+    <message>
+        <location filename="../forms/mainwindow.py" line="1793"/>
+        <source>[c]{var}[/c] [k]??[/k] [c]{value}[/c]</source>
+        <translation type="obsolete">[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]</translation>
+    </message>
     <message encoding="UTF-8">
         <location filename="../forms/mainwindow.py" line="1793"/>
         <source>[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]</source>
@@ -1907,17 +1912,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>fin de l&apos;exécution [{time}]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2096"/>
+        <location filename="../forms/mainwindow.py" line="2093"/>
         <source>Python file (*.py)</source>
         <translation>Fichier Python (*.py)</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2097"/>
+        <location filename="../forms/mainwindow.py" line="2094"/>
         <source>Turing program (*.tr)</source>
         <translation>Algorithme Turing (*.tr)</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2098"/>
+        <location filename="../forms/mainwindow.py" line="2095"/>
         <source>Algobox file (*.alg)</source>
         <translation>Algorithme Algobox (*.alg)</translation>
     </message>
@@ -1939,7 +1944,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="796"/>
         <source>DEFINE variable</source>
-        <translation>DÉFINIR variable</translation>
+        <translation type="obsolete">DÉFINIR variable</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="798"/>
@@ -1972,7 +1977,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Déboguer</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2095"/>
+        <location filename="../forms/mainwindow.py" line="2092"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation>Fichier de programme (*.py *.tr *.alg)</translation>
     </message>
@@ -2024,7 +2029,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Un commentaire ?</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2241"/>
+        <location filename="../forms/mainwindow.py" line="2238"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation>Une nouvelle version de Turing est disponible.
@@ -2187,7 +2192,7 @@ Voulez-vous la télécharger ?</translation>
         <translation>{num} correspondances</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2251"/>
+        <location filename="../forms/mainwindow.py" line="2248"/>
         <source>A modified file has been automatically saved.
 Would you like to recover it?</source>
         <translation>Un fichier modifié a été enregistré automatiquement.
@@ -2225,6 +2230,11 @@ p, li { white-space: pre-wrap; }
         <location filename="../forms/ui_mainwindow.py" line="904"/>
         <source>Use arrow notation</source>
         <translation>Utiliser la notation fléchée</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="796"/>
+        <source>ASSIGN variable</source>
+        <translation>AFFECTER variable</translation>
     </message>
 </context>
 <context>
@@ -2300,7 +2310,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../util/theming.py" line="37"/>
         <source>Candy</source>
-        <translation type="unfinished"></translation>
+        <translation>Candy</translation>
     </message>
 </context>
 <context>
