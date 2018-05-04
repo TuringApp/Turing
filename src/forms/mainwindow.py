@@ -1175,7 +1175,7 @@ def load_code_editor():
         print("using external backend")
         if sys.platform == "win32":
             backend = "editor_backend.exe"
-        elif sys.platform == "linux":
+        elif sys.platform.startswith("linux"):
             backend = "editor_backend"
         elif sys.platform == "darwin":
             backend = "editor_backend"
