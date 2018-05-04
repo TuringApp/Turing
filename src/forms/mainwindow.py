@@ -1050,6 +1050,8 @@ def change_language(language: str):
         a.setChecked(l in [language, util.get_short_lang(language)])
     fix_qt_shitty_margins()
     fix_tabwidget_width()
+    if sys.platform == "darwin":
+        GuiState.ui.menuLanguage.setTitle(QLocale(language).nativeLanguageName())
     refresh_locs()
     refresh()
 
@@ -2066,10 +2068,11 @@ def init_ui():
 
     init_action_handlers()
 
-    right_corner = QMenuBar()
-    GuiState.ui.menubar.removeAction(GuiState.ui.menuLanguage.menuAction())
-    right_corner.addAction(GuiState.ui.menuLanguage.menuAction())
-    GuiState.ui.menubar.setCornerWidget(right_corner)
+    if sys.platform != "darwin":
+        right_corner = QMenuBar()
+        GuiState.ui.menubar.removeAction(GuiState.ui.menuLanguage.menuAction())
+        right_corner.addAction(GuiState.ui.menuLanguage.menuAction())
+        GuiState.ui.menubar.setCornerWidget(right_corner)
 
     init_event_handlers()
     
