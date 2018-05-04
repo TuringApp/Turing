@@ -768,6 +768,7 @@ class Ui_MainWindow(object):
         self.btnAlgo_ZoomIn.clicked.connect(self.actionZoomIn.trigger)
         self.btnAlgo_ZoomOut.clicked.connect(self.actionZoomOut.trigger)
         self.btnAlgo_ResetZoom.clicked.connect(self.actionResetZoom.trigger)
+        self.actionExit.triggered.connect(MainWindow.close)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.btnClearOutput, self.btnSaveOutput)
         MainWindow.setTabOrder(self.btnSaveOutput, self.btnPrintOutput)
