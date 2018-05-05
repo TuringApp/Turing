@@ -24,6 +24,19 @@ In both modes, the code can be debugged and executed step-by-step to facilitate 
 
 Turing is cross-platform, but has only been tested on Windows and Linux-based operating systems. macOS should be supported, but no guarantee is made of that.
 
+### Using pre-compiled binaries (recommended)
+
+Click on the [**Releases**](https://github.com/TuringApp/Turing/releases) tab at the top of the page and download the release corresponding to your OS.
+
+- windows32: Windows 32 bits (7 or later)
+	- tested on 10 x64
+- nix64: Linux 64 bits (Ubuntu 14.04 or later) 
+	- tested on 18.04
+- osx: macOS 64 bits (10.13 *High Sierra* or later)
+	- tested on 10.13
+
+### Using the source code (advanced users)
+
 #### Python 3.6 required!
 
 **You need to have `python3` point to Python 3.6 in your shell! Either use an alias in your `.bashrc` or a distribution that comes with Python 3.6.**
