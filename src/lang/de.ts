@@ -1613,11 +1613,6 @@ Window Text :</source>
         <translation>Basisch</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="796"/>
-        <source>DEFINE variable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../forms/ui_mainwindow.py" line="797"/>
         <source>Breakpoint</source>
         <translation>Haltepunkt</translation>
@@ -2141,33 +2136,33 @@ All unsaved changes will be lost.</source>
         <translation>{num} Treffer</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2095"/>
+        <location filename="../forms/mainwindow.py" line="2092"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2096"/>
+        <location filename="../forms/mainwindow.py" line="2093"/>
         <source>Python file (*.py)</source>
         <translation>Python Dateien (*.py)</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2097"/>
+        <location filename="../forms/mainwindow.py" line="2094"/>
         <source>Turing program (*.tr)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2098"/>
+        <location filename="../forms/mainwindow.py" line="2095"/>
         <source>Algobox file (*.alg)</source>
         <translation>Algobox Dateien (*.alg)</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2241"/>
+        <location filename="../forms/mainwindow.py" line="2238"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2251"/>
+        <location filename="../forms/mainwindow.py" line="2248"/>
         <source>A modified file has been automatically saved.
 Would you like to recover it?</source>
         <translation type="unfinished"></translation>
@@ -2203,6 +2198,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../forms/ui_mainwindow.py" line="904"/>
         <source>Use arrow notation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="796"/>
+        <source>ASSIGN variable</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

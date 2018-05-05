@@ -35,7 +35,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_home">
        <attribute name="icon">
@@ -343,7 +343,7 @@ p, li { white-space: pre-wrap; }
                <item row="0" column="0">
                 <widget class="QPushButton" name="btnAlgo_Variable">
                  <property name="text">
-                  <string>DEFINE variable</string>
+                  <string>ASSIGN variable</string>
                  </property>
                  <property name="icon">
                   <iconset resource="../turing.qrc">
