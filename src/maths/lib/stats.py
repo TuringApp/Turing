@@ -4,6 +4,7 @@ import builtins
 import math
 import random as rnd
 import statistics
+import numpy as np
 
 from maths.lib import basic
 from util import translate
@@ -19,11 +20,15 @@ c_glaisher = 1.28242712910062263687534256886979172776768892732500
 
 def listfunc(func):
     def wrapper(*args):
-        if len(args) == 1:
+        if builtins.len(args) == 1:
             try:
-                return func(list(iter(args[0])))
+                if isinstance(args[0], list):
+                    return func(args[0])
             except:
-                pass
+                try:
+                    return func(list(iter(args[0])))
+                except:
+                    pass
         return func(list(args))
     setattr(wrapper, "listfunc", True)
     return wrapper
@@ -55,7 +60,7 @@ doc("harmonic_mean",
 @listfunc
 def harmonic_mean(args):
     if "harmonic_mean" not in dir(statistics):
-        return len(args) / sum([1 / x for x in args])
+        return builtins.len(args) / sum([1 / x for x in args])
     return statistics.harmonic_mean(args)
 
 
@@ -389,7 +394,38 @@ doc("d_binomial",
 
 @listfunc
 def d_binomial(n, p, k):
-    return binomial(n, k) * basic.pow(p, k) * basic.pow(1 - p, n - k)doc("range",
+    return binomial(n, k) * basic.pow(p, k) * basic.pow(1 - p, n - k)
+
+
+doc("len",
+    [
+        ("T", "List")
+    ],
+    translate("Docs", "Returns the number of elements in {{T}}."),
+    ["taille"])
+
+
+@listfunc
+def len(T):
+    return builtins.len(T)
+
+taille = len
+
+doc("swap",
+    [
+        ("T", "List"),
+        ("a", "Integer"),
+        ("b", "Integer")
+    ],
+    translate("Docs", "Swaps the elements of {{t}} at indices {{a}} and {{b}}."))
+
+
+def swap(T, a, b):
+    T[a], T[b] = T[b], T[a]
+    return T
+
+
+doc("range",
     [
         ("start", "Number"),
         ("end", "Number"),
