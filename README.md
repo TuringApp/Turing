@@ -54,7 +54,7 @@ First, install everything using pip:
 
 Note: if you have Python 2.x installed on your computer (which is the case on 99% of Linux distributions), the old `pip` may be present in `PATH` and interfere with the above command line. If that happens, try using `pip3` instead of `pip`. Of course, it must be the `pip` paired with the installed Python3 (so you may need to use `pip3.6` instead).
 
-Next, open the src/ folder and use `run` or `source run.sh` depending on your operating system.
+Next, open the src/ folder and use `run.bat` or `source run.sh` depending on your operating system.
 
 #### Building Turing (using pyInstaller)
 
@@ -63,3 +63,9 @@ You need:
 - Python 3.6 (`python3.6`)
 - Python 3.6 dev package (`python3.6-dev`)
 - Qt5 `lrelease` (`qt5-dev-tools`)
+
+## Contributing
+
+We're currently looking for translators. For more information, see the [CONTRIBUTING.md](CONTRIBUTING.md) and [https://gitter.im/TuringDevelopment](the Gitter).
+
+If you're a developer and you found a bug somewhere and fixed it, feel free to make a PR, we usually answer in no more than a few hours.
