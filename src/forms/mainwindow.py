@@ -754,7 +754,7 @@ def handler_Run(flag=False):
                 plot_update()
             except SyntaxError as err:
                 msg = translate("MainWindow", "Syntax error ({type}) at line {line}, offset {off}: ").format(
-                    type=type(err).__name__, line=err.lineno - 19, off=err.offset)
+                    type=type(err).__name__, line=err.lineno - util.code.line_offset, off=err.offset)
                 python_print_error(msg + html.escape(err.text), end="")
                 python_print_error(" " * (len(msg) + err.offset - 1) + "↑")
             except KeyboardInterrupt:

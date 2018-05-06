@@ -6,8 +6,7 @@ from . import translate
 from .widgets import msg_box_error
 
 
-def python_wrapper(input: str) -> str:
-    return """# -*- coding: utf-8 -*-
+wrapper = """# -*- coding: utf-8 -*-
 def __turing_loader__():
     import maths.lib
     import types
@@ -27,7 +26,12 @@ def input(prompt=""):
     return __input__(prompt, globals(), locals())
 
 %s
-""" % input
+"""
+
+line_offset = len(wrapper.split("\n")) - 2
+
+def python_wrapper(input: str) -> str:
+    return wrapper % input
 
 
 def try_parse(txt, parent=None):
