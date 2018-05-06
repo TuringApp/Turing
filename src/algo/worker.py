@@ -70,17 +70,32 @@ class Worker:
     def iterate_for(self, stmt: ForStmt) -> bool:
         """Updates a for loop."""
         current = self.evaluator.get_variable(stmt.variable)
-        step = self.evaluator.eval_node(stmt.step or NumberNode(1))
+        begin = self.evaluator.eval_node(stmt.begin)
+        end = self.evaluator.eval_node(stmt.end)
+        step = None if stmt.step is None else self.evaluator.eval_node(stmt.step)
+
+        if step is None:
+            if end < begin:
+                step = -1
+            else:
+                step = 1
 
         current = self.evaluator.binary_operation(current, step, "+")
         self.evaluator.set_variable(stmt.variable, current)
 
-        return self.check_for_condition(stmt, current, step)
+        return self.check_for_condition(stmt, current, step, begin, end)
 
-    def check_for_condition(self, stmt: ForStmt, current: Any = None, step: Any = None) -> bool:
+    def check_for_condition(self, stmt: ForStmt, current=None, step=None, begin=None, end=None) -> bool:
         """Checks for the condition of a for loop."""
-        begin = self.evaluator.eval_node(stmt.begin)
-        end = self.evaluator.eval_node(stmt.end)
+        begin = self.evaluator.eval_node(stmt.begin) if begin is None else begin
+        end = self.evaluator.eval_node(stmt.end) if end is None else end
+        step = (None if stmt.step is None else self.evaluator.eval_node(stmt.step)) if step is None else step
+
+        if step is None:
+            if end < begin:
+                step = -1
+            else:
+                step = 1
 
         condition_1 = bool(self.evaluator.binary_operation(current, begin, "><"[step < 0] + "="))
         condition_2 = bool(self.evaluator.binary_operation(current, end, "<>"[step < 0] + "="))
@@ -222,7 +237,7 @@ class Worker:
         self.evaluator.set_variable(stmt.variable, self.evaluator.eval_node(stmt.begin), local=True)
 
         if not self.check_for_condition(stmt, self.evaluator.get_variable(stmt.variable),
-                                        self.evaluator.eval_node(stmt.step or NumberNode(1))):
+                                        None if stmt.step is None else self.evaluator.eval_node(stmt.step)):
             self.exit_block()
 
     def exec_break(self, stmt: BreakStmt):

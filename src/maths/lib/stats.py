@@ -389,4 +389,37 @@ doc("d_binomial",
 
 @listfunc
 def d_binomial(n, p, k):
-    return binomial(n, k) * basic.pow(p, k) * basic.pow(1 - p, n - k)
+    return binomial(n, k) * basic.pow(p, k) * basic.pow(1 - p, n - k)doc("range",
+    [
+        ("start", "Number"),
+        ("end", "Number"),
+        ("step", "Number", None, 1)
+    ],
+    translate("Docs", "Generates a list containing all number from {{start}} (inclusive) to {{end}} (exclusive) with a step of {{step}}."))
+
+
+def range(start, end, step=None):
+    if step is None:
+        if end < start:
+            step = -1
+        else:
+            step = 1
+    return np.arange(start, end, step)
+
+
+doc("irange",
+    [
+        ("start", "Number"),
+        ("end", "Number"),
+        ("step", "Number", None, 1)
+    ],
+    translate("Docs", "Generates a list containing all number from {{start}} (inclusive) to {{end}} (inclusive) with a step of {{step}}."))
+
+
+def irange(start, end, step=None):
+    if step is None:
+        if end < start:
+            step = -1
+        else:
+            step = 1
+    return np.arange(start, end + step, step)
