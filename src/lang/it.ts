@@ -203,7 +203,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/code.py" line="46"/>
+        <location filename="../util/code.py" line="50"/>
         <source>The following errors occured while parsing the expression:
 
 </source>
@@ -218,6 +218,11 @@ p, li { white-space: pre-wrap; }
         <location filename="../forms/mainwindow.py" line="1793"/>
         <source>[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/mainwindow.py" line="1793"/>
+        <source>[c]{var}[/c] [k]??[/k] [c]{value}[/c]</source>
+        <translation type="obsolete">[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../forms/mainwindow.py" line="1793"/>
