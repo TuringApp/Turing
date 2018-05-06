@@ -227,6 +227,8 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`filter` / `filtre`|<ul><li>`func` (Function(1 arg))</li><li>`lst` (List)</li></ul>|Returns a list containing all elements of `lst` for which `func` returns a truthy value.|
 |`gamma`|<ul><li>`x` (Number)</li></ul>|Returns the Gamma function at `x`.|
 |`harmonic_mean` / `moyenne_harmo`|<ul><li>`args` (List(Number))</li></ul>|Returns the harmonic mean of `args`.|
+|`irange`|<ul><li>`start` (Number)</li><li>`end` (Number)</li><li>`step` (Number) default = 1</li></ul>|Generates a list containing all number from `start` (inclusive) to `end` (inclusive) with a step of `step`.|
+|`len` / `taille`|<ul><li>`T` (List)</li></ul>|Returns the number of elements in `T`.|
 |`log_gamma`|<ul><li>`x` (Number)</li></ul>|Returns the natural logarithm of the absolute value of the Gamma function at `x`.|
 |`map` / `appl`|<ul><li>`func` (Function(1 arg))</li><li>`lst` (List)</li></ul>|Applies `func` to each element of `lst` and returns the resulting list.|
 |`max`|<ul><li>`args` (List(Number))</li></ul>|Returns the maximum value of `args`.|
@@ -235,10 +237,12 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`mode`|<ul><li>`lst` (List(Number))</li></ul>|Returns the mode of `lst`.|
 |`randint` / `alea_ent`|<ul><li>`a` (Integer)</li><li>`b` (Integer)</li></ul>|Returns a random integer between `a` and `b` (inclusive).|
 |`random` / `alea`|<ul><li>None</li></ul>|Returns a random number between 0 (inclusive) and 1 (exclusive).|
+|`range`|<ul><li>`start` (Number)</li><li>`end` (Number)</li><li>`step` (Number) default = 1</li></ul>|Generates a list containing all number from `start` (inclusive) to `end` (exclusive) with a step of `step`.|
 |`slice` / `tranche`|<ul><li>`lst` (List)</li><li>`start` (Integer) 0 <= start <= end <= len(lst)</li><li>`end` (Integer) start <= end <= len(lst)</li></ul>|Returns a slice of the specified list, from index `start` (inclusive) to either index `end` (exclusive) or the end of the list.|
 |`stand_dev` / `ecart_type`|<ul><li>`lst` (List(Number))</li></ul>|Returns the population standard deviation of `lst`.|
 |`stand_dev_sample` / `ecart_type_echant`|<ul><li>`lst` (List(Number))</li></ul>|Returns the sample standard deviation of `lst`.|
 |`sum`|<ul><li>`args` (List(Number))</li></ul>|Returns the sum of all the terms of `args`.|
+|`swap`|<ul><li>`T` (List)</li><li>`a` (Integer)</li><li>`b` (Integer)</li></ul>|Swaps the elements of `t` at indices `a` and `b`.|
 |`variance`|<ul><li>`lst` (List(Number))</li></ul>|Returns the population variance of `lst`.|
 |`variance_sample` / `variance_echant`|<ul><li>`lst` (List(Number))</li></ul>|Returns the sample variance of `lst`.|
 |&nbsp;|**Trigonometry**|&nbsp;|
