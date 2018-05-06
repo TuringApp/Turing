@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5.QtCore import *
-from PyQt5.QtGui import QGuiApplication
+from PyQt5.QtGui import QGuiApplication, QMovie
 from PyQt5.QtWidgets import *
 
 from forms.ui_about import Ui_AboutWindow
@@ -44,7 +44,10 @@ class AboutWindow(QDialog):
 
     def egg(self):
         self.kpos = 0
-        self.ui.label.setText("""<img src=":/action/media/media.qrc"/>""")
+        movie = QMovie(":/action/media/media.qrc")
+        self.ui.label.setText(None)
+        self.ui.label.setMovie(movie)
+        movie.start()
         self.setStyleSheet("QDialog { background-color: red; }")
 
     def run(self):
