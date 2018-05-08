@@ -489,6 +489,7 @@ def plot_clear():
 def plot_reset():
     plot_clear()
     plot_window(-10, 10, -10, 10)
+    plot_update()
 
 
 def plot_window(xmin, xmax, ymin, ymax, xgrad=0, ygrad=0):
@@ -511,7 +512,6 @@ def plot_function(func, start, end, step, color="red"):
     domain = np.arange(start, end, step)
     results = [func(x) for x in domain]
     GuiState.plot_axes.plot(domain, results, c=color, linestyle="-")
-    plot_update()
 
 
 def stmt_GClear(stmt: GClearStmt):
