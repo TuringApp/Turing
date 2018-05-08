@@ -500,9 +500,14 @@ doc("range",
         ("step", "Number", None, 1)
     ],
     translate("Docs", "Generates a list containing all number from {{start}} (inclusive) to {{end}} (exclusive) with a step of {{step}}."))
+    translate("Docs",
+              "Generates a list containing all number from {{start}} (inclusive) to {{end}} (exclusive) with a step of {{step}}."))
 
 
-def range(start, end, step=None):
+def range(start, end=None, step=None):
+    if end is None:
+        end = start
+        start = 0
     if step is None:
         if end < start:
             step = -1
@@ -517,10 +522,14 @@ doc("irange",
         ("end", "Number"),
         ("step", "Number", None, 1)
     ],
-    translate("Docs", "Generates a list containing all number from {{start}} (inclusive) to {{end}} (inclusive) with a step of {{step}}."))
+    translate("Docs",
+              "Generates a list containing all number from {{start}} (inclusive) to {{end}} (inclusive) with a step of {{step}}."))
 
 
-def irange(start, end, step=None):
+def irange(start, end=None, step=None):
+    if end is None:
+        end = start
+        start = 0
     if step is None:
         if end < start:
             step = -1
