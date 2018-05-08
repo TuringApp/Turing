@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import os
 import sys
 import threading
 
@@ -13,7 +12,7 @@ from util import theming, show_error
 
 translate = QCoreApplication.translate
 
-util.__version__ = "β-0.8"
+util.__version__ = "β-0.9"
 util.__channel__ = "beta"
 
 

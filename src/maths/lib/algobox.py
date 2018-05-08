@@ -5,12 +5,14 @@ from util import translate
 
 __desc__ = translate("Docs", "Algobox compatibility")
 
+
 def algobox_listfunc(func):
     def wrapper(lst, p, n):
         return func(lst[p:n + 1])
 
     setattr(wrapper, "algobox_listfunc", True)
     return wrapper
+
 
 ALGOBOX_ALEA_ENT = randint
 ALGOBOX_NB_COMBINAISONS = binomial

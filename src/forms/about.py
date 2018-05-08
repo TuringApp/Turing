@@ -11,7 +11,8 @@ translate = QCoreApplication.translate
 
 
 class AboutWindow(QDialog):
-    KONAMI = [Qt.Key_Up, Qt.Key_Up, Qt.Key_Down, Qt.Key_Down, Qt.Key_Left, Qt.Key_Right, Qt.Key_Left, Qt.Key_Right, Qt.Key_B, Qt.Key_A]
+    KONAMI = [Qt.Key_Up, Qt.Key_Up, Qt.Key_Down, Qt.Key_Down, Qt.Key_Left, Qt.Key_Right, Qt.Key_Left, Qt.Key_Right,
+              Qt.Key_B, Qt.Key_A]
 
     def __init__(self, parent, version, channel):
         super().__init__(parent)

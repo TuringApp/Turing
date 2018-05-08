@@ -35,5 +35,3 @@ subprocess.call([
     "-y",
     "main.py"
 ])
-
-

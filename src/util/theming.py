@@ -35,15 +35,16 @@ themes = {
                  "#c5b0b0", "#382626", "#6c4e4e", "#ebebeb", "#c5b0b0", "#f1ecec", "#df691a", "#308cc6", "#607d8b",
                  "#ffffff", "#ffffff", "#eb932f", "#7cfc00", "#00ecec", "#ff7da6"]),
     "candy": (translate("Themes", "Candy"),
-    			["#f51278", "#161059", "#cacaca", "#ff49a1", "#ff77be", "#ffffff", "#000000", "#000732", "#c62528",
-    			 "#48002d", "#000000", "#ff20c4", "#000732", "#71292a", "#00ffd9", "#5500ff", "#000732", "#0003d9",
-    			 "#17e1d4", "#0a645e", "#ad00bd", "#aa003b", "#a30fff", "#277008"]),
+              ["#f51278", "#161059", "#cacaca", "#ff49a1", "#ff77be", "#ffffff", "#000000", "#000732", "#c62528",
+               "#48002d", "#000000", "#ff20c4", "#000732", "#71292a", "#00ffd9", "#5500ff", "#000732", "#0003d9",
+               "#17e1d4", "#0a645e", "#ad00bd", "#aa003b", "#a30fff", "#277008"]),
     "devtest": (lambda: "DEVTEST", []),
     "custom": (translate("Themes", "Custom"), [])
 }
 
 default_algo_colors = themes["default"][1][20:]
 algo_colors = default_algo_colors
+
 
 def init_theming():
     if "Fusion" in [st for st in QStyleFactory.keys()]:

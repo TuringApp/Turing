@@ -88,7 +88,7 @@ class GuiState():
         "ConvertToPython"
     ]
     filters = {}
-    lng_actions = {}  
+    lng_actions = {}
     item_map = {}
     root_item: QTreeWidgetItem = None
     mode_zoom: modes.ZoomMode = None
@@ -390,7 +390,8 @@ def python_print(*args, end="\n"):
 
 
 def update_output():
-    GuiState.ui.txtOutput.setHtml('<pre style="margin: 0">%s</pre>' % (ExecState.current_output + ExecState.after_output))
+    GuiState.ui.txtOutput.setHtml(
+        '<pre style="margin: 0">%s</pre>' % (ExecState.current_output + ExecState.after_output))
     GuiState.ui.txtOutput.moveCursor(QTextCursor.End)
     GuiState.ui.txtOutput.ensureCursorVisible()
     if ExecState.current_output.endswith("\n\n"):
@@ -496,8 +497,10 @@ def plot_window(xmin, xmax, ymin, ymax, xgrad=0, ygrad=0):
     GuiState.plot_axes.set_xlim(xmin, xmax)
     GuiState.plot_axes.set_ylim(ymin, ymax)
 
-    GuiState.plot_axes.get_xaxis().set_major_locator(AutoLocator() if xgrad == 0 else LinearLocator(abs(int((xmax - xmin) / xgrad)) + 1))
-    GuiState.plot_axes.get_yaxis().set_major_locator(AutoLocator() if ygrad == 0 else LinearLocator(abs(int((ymax - ymin) / ygrad)) + 1))
+    GuiState.plot_axes.get_xaxis().set_major_locator(
+        AutoLocator() if xgrad == 0 else LinearLocator(abs(int((xmax - xmin) / xgrad)) + 1))
+    GuiState.plot_axes.get_yaxis().set_major_locator(
+        AutoLocator() if ygrad == 0 else LinearLocator(abs(int((ymax - ymin) / ygrad)) + 1))
 
 
 def plot_point(x, y, color="red"):
@@ -910,7 +913,8 @@ def handler_Save():
 
 
 def handler_Open():
-    sel_file, _ = QFileDialog.getOpenFileName(GuiState.window, translate("MainWindow", "Open"), "", ";;".join(GuiState.filters.values()))
+    sel_file, _ = QFileDialog.getOpenFileName(GuiState.window, translate("MainWindow", "Open"), "",
+                                              ";;".join(GuiState.filters.values()))
 
     if not sel_file:
         return
@@ -1074,7 +1078,7 @@ def clear_output():
 
 def print_output():
     print(dir(GuiState.code_editor))
-    
+
     p = QGuiApplication.palette()
     print(p.color(QPalette.Window).name())
     print(p.color(QPalette.WindowText).name())
@@ -1208,14 +1212,16 @@ def load_code_editor():
 
     GuiState.mode_ext_select = GuiState.code_editor.modes.append(modes.ExtendedSelectionMode())
 
-    GuiState.syntax_highlighter = GuiState.code_editor.modes.append(modes.PygmentsSyntaxHighlighter(GuiState.code_editor.document()))
+    GuiState.syntax_highlighter = GuiState.code_editor.modes.append(
+        modes.PygmentsSyntaxHighlighter(GuiState.code_editor.document()))
     GuiState.syntax_highlighter.fold_detector = api.IndentFoldDetector()
 
     GuiState.panel_folding = GuiState.code_editor.panels.append(panels.FoldingPanel())
     GuiState.code_editor.panels.append(panels.LineNumberPanel())
     GuiState.code_editor.modes.append(modes.CheckerMode(pyqode.python.backend.run_pep8))
     GuiState.code_editor.panels.append(panels.GlobalCheckerPanel(), panels.GlobalCheckerPanel.Position.LEFT)
-    GuiState.panel_search = GuiState.code_editor.panels.append(panels.SearchAndReplacePanel(), api.Panel.Position.BOTTOM)
+    GuiState.panel_search = GuiState.code_editor.panels.append(panels.SearchAndReplacePanel(),
+                                                               api.Panel.Position.BOTTOM)
 
     GuiState.panel_search._update_label_matches_orig = GuiState.panel_search._update_label_matches
 
@@ -1786,8 +1792,8 @@ def str_stmt(stmt):
             ret = translate("Algo", "[k]DECLARE[/k] [c]{var}[/c]").format(var=stmt.variable)
         else:
             ret = (translate("Algo", "[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]")
-            if GuiState.ui.actionUseArrowNotation.isChecked()
-            else translate("Algo", "[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]")).format(
+                   if GuiState.ui.actionUseArrowNotation.isChecked()
+                   else translate("Algo", "[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]")).format(
                 var=code(stmt.variable),
                 value=code(stmt.value))
 
@@ -2023,7 +2029,7 @@ def algo_scroll(event: QWheelEvent):
             handler_ZoomIn()
         elif event.angleDelta().y() < 0:
             handler_ZoomOut()
-            
+
         event.accept()
     else:
         GuiState.ui.treeWidget.wheelEventOrig(event)
@@ -2034,8 +2040,8 @@ def fix_qt_shitty_margins():
         if wgt.text():
             wgt.setText("  " + wgt.text())
             wgt.setMinimumHeight(28)
-            
-            
+
+
 def init_theme_actions():
     def gen(s):
         return lambda: set_theme(s)
@@ -2078,7 +2084,7 @@ def init_ui():
         GuiState.ui.menubar.setCornerWidget(right_corner)
 
     init_event_handlers()
-    
+
     init_theme_actions()
 
     algo_sel_changed()
@@ -2099,7 +2105,8 @@ def init_ui():
 
     center_widget(GuiState.window, None)
     GuiState.window.show()
-    
+
+
 def init_event_handlers():
     GuiState.ui.btnSendInput.clicked.connect(send_user_input)
     GuiState.ui.btnClearOutput.clicked.connect(clear_output)
@@ -2140,7 +2147,7 @@ def init_event_handlers():
 
     GuiState.ui.treeWidget.itemSelectionChanged.connect(algo_sel_changed)
     GuiState.ui.treeWidget.itemDoubleClicked.connect(algo_double_click)
-    
+
     GuiState.ui.treeWidget.wheelEventOrig = GuiState.ui.treeWidget.wheelEvent
     GuiState.ui.treeWidget.wheelEvent = algo_scroll
 
@@ -2157,7 +2164,7 @@ def autosave_write():
         content = repr(AppState.algo)
 
     util.settings.setValue("autosave_content", content)
-    
+
 
 def autosave_tick():
     if AppState.app_started:

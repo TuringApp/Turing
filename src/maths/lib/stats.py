@@ -208,17 +208,17 @@ doc("erfinv",
 def erfinv(y):
     # courtesy of
     # https://github.com/antelopeusersgroup/antelope_contrib/blob/master/lib/location/libgenloc/erfinv.c#L15
-    a = [0.886226899, -1.645349621,  0.914624893, -0.140543331]
-    b = [-2.118377725,  1.442710462, -0.329097515,  0.012229801]
-    c = [-1.970840454, -1.624906493,  3.429567803,  1.641345311]
-    d = [ 3.543889200,  1.637067800]
+    a = [0.886226899, -1.645349621, 0.914624893, -0.140543331]
+    b = [-2.118377725, 1.442710462, -0.329097515, 0.012229801]
+    c = [-1.970840454, -1.624906493, 3.429567803, 1.641345311]
+    d = [3.543889200, 1.637067800]
     if y > 1:
         return None
     if y == 1:
         return math.copysign(1, y) * float("inf")
     if y <= 0.7:
         z = y * y
-        num = (((a[3]*z + a[2])*z + a[1])*z + a[0])
+        num = (((a[3] * z + a[2]) * z + a[1]) * z + a[0])
         dem = ((((b[3] * z + b[2]) * z + b[1]) * z + b[0]) * z + 1.0)
         x = y * num / dem
     else:
@@ -575,7 +575,8 @@ doc("d_normal_cdf",
         ("sigma", "Real"),
         ("x", "Real")
     ],
-    translate("Docs", "Returns the cumulative probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}."))
+    translate("Docs",
+              "Returns the cumulative probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}."))
 
 
 def d_normal_cdf(mu, sigma, x):
@@ -586,7 +587,8 @@ doc("d_normal_std_cdf",
     [
         ("x", "Real")
     ],
-    translate("Docs", "Returns the cumulative probability for {{x}} with the standard normal distribution (µ=0 and σ=1)."))
+    translate("Docs",
+              "Returns the cumulative probability for {{x}} with the standard normal distribution (µ=0 and σ=1)."))
 
 
 def d_normal_std_cdf(x):
@@ -599,7 +601,8 @@ doc("d_normal_cdf_inv",
         ("sigma", "Real"),
         ("p", "Real")
     ],
-    translate("Docs", "Returns the number with cumulative probability {{p}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}."))
+    translate("Docs",
+              "Returns the number with cumulative probability {{p}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}."))
 
 
 def d_normal_cdf_inv(mu, sigma, p):
@@ -610,7 +613,8 @@ doc("d_normal_std_cdf_inv",
     [
         ("p", "Real")
     ],
-    translate("Docs", "Returns the number with cumulative probability {{p}} with the standard normal distribution (µ=0 and σ=1)."))
+    translate("Docs",
+              "Returns the number with cumulative probability {{p}} with the standard normal distribution (µ=0 and σ=1)."))
 
 
 def d_normal_std_cdf_inv(p):
