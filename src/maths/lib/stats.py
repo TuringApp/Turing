@@ -194,6 +194,50 @@ def erfc(x):
     return math.erfc(x)
 
 
+doc("erfinv",
+    [
+        ("y", "Number")
+    ],
+    translate("Docs", "Returns the inverse of the error function at {{y}}."))
+
+
+def erfinv(y):
+    # courtesy of
+    # https://github.com/antelopeusersgroup/antelope_contrib/blob/master/lib/location/libgenloc/erfinv.c#L15
+    a = [0.886226899, -1.645349621,  0.914624893, -0.140543331]
+    b = [-2.118377725,  1.442710462, -0.329097515,  0.012229801]
+    c = [-1.970840454, -1.624906493,  3.429567803,  1.641345311]
+    d = [ 3.543889200,  1.637067800]
+    if y > 1:
+        return None
+    if y == 1:
+        return math.copysign(1, y) * float("inf")
+    if y <= 0.7:
+        z = y * y
+        num = (((a[3]*z + a[2])*z + a[1])*z + a[0])
+        dem = ((((b[3] * z + b[2]) * z + b[1]) * z + b[0]) * z + 1.0)
+        x = y * num / dem
+    else:
+        z = math.sqrt(-math.log((1.0 - abs(y)) / 2.0))
+        num = ((c[3] * z + c[2]) * z + c[1]) * z + c[0]
+        dem = (d[1] * z + d[0]) * z + 1.0
+        x = (math.copysign(1.0, y)) * num / dem
+    for _ in [1, 2]:
+        x = x - (erf(x) - y) / ((2 / math.sqrt(trig.c_pi)) * math.exp(-x * x))
+    return x
+
+
+doc("erfcinv",
+    [
+        ("y", "Number")
+    ],
+    translate("Docs", "Returns the inverse of the complementary error function at {{y}}."))
+
+
+def erfcinv(y):
+    return erfinv(1 - y)
+
+
 doc("map",
     [
         ("func", "Function(1 arg)"),
