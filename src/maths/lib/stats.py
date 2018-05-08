@@ -115,6 +115,30 @@ def min(args):
     return builtins.min(args)
 
 
+doc("max_index",
+    [
+        ("args", "List(Number)")
+    ],
+    translate("Docs", "Returns the index of maximum value of {{args}}."))
+
+
+@listfunc
+def max_index(args):
+    return args.index(builtins.max(args))
+
+
+doc("min_index",
+    [
+        ("args", "List(Number)")
+    ],
+    translate("Docs", "Returns the index of minimum value of {{args}}."))
+
+
+@listfunc
+def min_index(args):
+    return args.index(builtins.min(args))
+
+
 doc("gamma",
     [
         ("x", "Number")

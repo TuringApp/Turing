@@ -5,6 +5,13 @@ from util import translate
 
 __desc__ = translate("Docs", "Algobox compatibility")
 
+def algobox_listfunc(func):
+    def wrapper(lst, p, n):
+        return func(lst[p:n + 1])
+
+    setattr(wrapper, "algobox_listfunc", True)
+    return wrapper
+
 ALGOBOX_ALEA_ENT = randint
 ALGOBOX_NB_COMBINAISONS = binomial
 ALGOBOX_COEFF_BINOMIAL = binomial
@@ -14,17 +21,17 @@ ALGOBOX_LOI_NORMALE = None
 ALGOBOX_INVERSE_LOI_NORMALE_CR = None
 ALGOBOX_INVERSE_LOI_NORMALE = None
 ALGOBOX_FACTORIELLE = fact
-ALGOBOX_SOMME = lambda lst, p, n: sum(lst[p:n + 1])
-ALGOBOX_MOYENNE = lambda lst, p, n: arithm_mean(lst[p:n + 1])
-ALGOBOX_VARIANCE = lambda lst, p, n: variance(lst[p:n + 1])
-ALGOBOX_ECART_TYPE = lambda lst, p, n: stand_dev(lst[p:n + 1])
-ALGOBOX_MEDIANE = median
+ALGOBOX_SOMME = algobox_listfunc(sum)
+ALGOBOX_MOYENNE = algobox_listfunc(arithm_mean)
+ALGOBOX_VARIANCE = algobox_listfunc(variance)
+ALGOBOX_ECART_TYPE = algobox_listfunc(stand_dev)
+ALGOBOX_MEDIANE = algobox_listfunc(median)
 ALGOBOX_QUARTILE1 = None
 ALGOBOX_QUARTILE3 = None
 ALGOBOX_QUARTILE1_BIS = None
 ALGOBOX_QUARTILE3_BIS = None
-ALGOBOX_MINIMUM = lambda lst, p, n: min(lst[p:n + 1])
-ALGOBOX_MAXIMUM = lambda lst, p, n: max(lst[p:n + 1])
-ALGOBOX_POS_MINIMUM = lambda lst, p, n: lst[p:n + 1].index(ALGOBOX_MINIMUM(lst, p, n))
-ALGOBOX_POS_MAXIMUM = lambda lst, p, n: lst[p:n + 1].index(ALGOBOX_MAXIMUM(lst, p, n))
+ALGOBOX_MINIMUM = algobox_listfunc(min)
+ALGOBOX_MAXIMUM = algobox_listfunc(max)
+ALGOBOX_POS_MINIMUM = algobox_listfunc(min_index)
+ALGOBOX_POS_MAXIMUM = algobox_listfunc(max_index)
 ALGOBOX_ARRONDIR = round
