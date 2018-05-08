@@ -6,8 +6,8 @@ import random as rnd
 import statistics
 import numpy as np
 
-from maths.lib import basic
 from util import translate
+from . import basic, trig
 from .docs import *
 
 __desc__ = translate("Docs", "Statistics")
@@ -536,3 +536,77 @@ def irange(start, end=None, step=None):
         else:
             step = 1
     return np.arange(start, end + step, step)
+
+
+doc("d_normal_pdf",
+    [
+        ("mu", "Real"),
+        ("sigma", "Real"),
+        ("x", "Real")
+    ],
+    translate("Docs",
+              "Returns the probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}."))
+
+
+def d_normal_pdf(mu, sigma, x):
+    return 1 / (sigma * math.sqrt(2 * trig.c_pi)) * math.exp(
+        - (math.pow(x - mu, 2) / (2 * math.pow(sigma, 2))))
+
+
+doc("d_normal_std_pdf",
+    [
+        ("x", "Real")
+    ],
+    translate("Docs", "Returns the probability for {{x}} with the standard normal distribution (µ=0 and σ=1)."))
+
+
+def d_normal_std_pdf(x):
+    return 1 / math.sqrt(2 * trig.c_pi) * math.exp(-pow(x, 2) / 2)
+
+
+doc("d_normal_cdf",
+    [
+        ("mu", "Real"),
+        ("sigma", "Real"),
+        ("x", "Real")
+    ],
+    translate("Docs", "Returns the cumulative probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}."))
+
+
+def d_normal_cdf(mu, sigma, x):
+    return d_normal_std_cdf((x - mu) / sigma)
+
+
+doc("d_normal_std_cdf",
+    [
+        ("x", "Real")
+    ],
+    translate("Docs", "Returns the cumulative probability for {{x}} with the standard normal distribution (µ=0 and σ=1)."))
+
+
+def d_normal_std_cdf(x):
+    return 1 - 0.5 * erfc(x / math.sqrt(2))
+
+
+doc("d_normal_cdf_inv",
+    [
+        ("mu", "Real"),
+        ("sigma", "Real"),
+        ("p", "Real")
+    ],
+    translate("Docs", "Returns the number with cumulative probability {{p}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}."))
+
+
+def d_normal_cdf_inv(mu, sigma, p):
+    return d_normal_std_cdf_inv(p) * sigma + mu
+
+
+doc("d_normal_std_cdf_inv",
+    [
+        ("p", "Real")
+    ],
+    translate("Docs", "Returns the number with cumulative probability {{p}} with the standard normal distribution (µ=0 and σ=1)."))
+
+
+def d_normal_std_cdf_inv(p):
+    return erfcinv((1 - p) * 2) * math.sqrt(2)
