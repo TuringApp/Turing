@@ -4,6 +4,7 @@ import builtins
 import math
 import random as rnd
 import statistics
+
 import numpy as np
 
 from util import translate
@@ -18,6 +19,7 @@ c_catalan = 0.91596559417721901505460351493238411077414937428167
 doc_c("glaisher", "A", "Glaisher-Kinkelin constant")
 c_glaisher = 1.28242712910062263687534256886979172776768892732500
 
+
 def listfunc(func):
     def wrapper(*args):
         if builtins.len(args) == 1:
@@ -30,8 +32,10 @@ def listfunc(func):
                 except:
                     pass
         return func(list(args))
+
     setattr(wrapper, "listfunc", True)
     return wrapper
+
 
 doc("arithm_mean",
     [
@@ -457,7 +461,8 @@ doc("d_binomial",
         ("p", "Real", "0 <= p <= 1"),
         ("k", "Integer")
     ],
-    translate("Docs", "Returns the probability for {{k}} with the binomial distribution of parameters {{n}} and {{p}}."))
+    translate("Docs",
+              "Returns the probability for {{k}} with the binomial distribution of parameters {{n}} and {{p}}."))
 
 
 @listfunc
@@ -476,6 +481,7 @@ doc("len",
 @listfunc
 def len(T):
     return builtins.len(T)
+
 
 taille = len
 
@@ -499,7 +505,6 @@ doc("range",
         ("end", "Number"),
         ("step", "Number", None, 1)
     ],
-    translate("Docs", "Generates a list containing all number from {{start}} (inclusive) to {{end}} (exclusive) with a step of {{step}}."))
     translate("Docs",
               "Generates a list containing all number from {{start}} (inclusive) to {{end}} (exclusive) with a step of {{step}}."))
 

@@ -1085,122 +1085,122 @@ Window Text :</source>
         <translation>Physik</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="13"/>
+        <location filename="../maths/lib/stats.py" line="14"/>
         <source>Statistics</source>
         <translation>Statistiken</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="36"/>
+        <location filename="../maths/lib/stats.py" line="40"/>
         <source>Returns the arithmetic mean of {{args}}.</source>
         <translation>Gibt das arithmetische Mittel von {{args}} zurück.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="52"/>
+        <location filename="../maths/lib/stats.py" line="56"/>
         <source>Returns the harmonic mean of {{args}}.</source>
         <translation>Gibt das harmonische Mittel von {{args}} zurück.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="69"/>
+        <location filename="../maths/lib/stats.py" line="73"/>
         <source>Returns the sum of all the terms of {{args}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="81"/>
+        <location filename="../maths/lib/stats.py" line="85"/>
         <source>Returns the binomial coefficient for a subset of size {{k}} and a set of size {{n}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="94"/>
+        <location filename="../maths/lib/stats.py" line="98"/>
         <source>Returns the maximum value of {{args}}.</source>
         <translation>Gibt den maximalen Wert von {{args}} zurück.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="106"/>
+        <location filename="../maths/lib/stats.py" line="110"/>
         <source>Returns the minimum value of {{args}}.</source>
         <translation>Gibt den minimalen Wert von {{args}} zurück.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="118"/>
+        <location filename="../maths/lib/stats.py" line="146"/>
         <source>Returns the Gamma function at {{x}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="129"/>
+        <location filename="../maths/lib/stats.py" line="157"/>
         <source>Returns the natural logarithm of the absolute value of the Gamma function at {{x}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="140"/>
+        <location filename="../maths/lib/stats.py" line="168"/>
         <source>Returns the factorial of {{x}}.</source>
         <translation>Gibt die Fakultät von {{x}}} zurück.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="151"/>
+        <location filename="../maths/lib/stats.py" line="179"/>
         <source>Returns the error function at {{x}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="162"/>
+        <location filename="../maths/lib/stats.py" line="190"/>
         <source>Returns the complementary error function at {{x}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="173"/>
+        <location filename="../maths/lib/stats.py" line="245"/>
         <source>Applies {{func}} to each element of {{lst}} and returns the resulting list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="188"/>
+        <location filename="../maths/lib/stats.py" line="260"/>
         <source>Returns a list containing all elements of {{lst}} for which {{func}} returns a truthy value.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="203"/>
+        <location filename="../maths/lib/stats.py" line="275"/>
         <source>Returns a slice of the specified list, from index {{start}} (inclusive) to either index {{end}} (exclusive) or the end of the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="225"/>
+        <location filename="../maths/lib/stats.py" line="297"/>
         <source>Returns the population standard deviation of {{lst}}.</source>
         <translation>Gibt die Standardabweichung von {{lst}} zurück.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="240"/>
+        <location filename="../maths/lib/stats.py" line="312"/>
         <source>Returns the population variance of {{lst}}.</source>
         <translation>Gibt die Varianz von {{lst}} zurück.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="252"/>
+        <location filename="../maths/lib/stats.py" line="324"/>
         <source>Returns the sample standard deviation of {{lst}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="267"/>
+        <location filename="../maths/lib/stats.py" line="339"/>
         <source>Returns the sample variance of {{lst}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="282"/>
+        <location filename="../maths/lib/stats.py" line="354"/>
         <source>Returns a random number between 0 (inclusive) and 1 (exclusive).</source>
         <translation>Gibt eine Zufallszahl zwischen 0 (inklusive) und 1 (exklusiv) zurück.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="294"/>
+        <location filename="../maths/lib/stats.py" line="366"/>
         <source>Returns a random integer between {{a}} and {{b}} (inclusive).</source>
         <translation>Gibt eine Zufallszahl zwischen {{a}} und {{b}} (inklusive) zurück.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="312"/>
+        <location filename="../maths/lib/stats.py" line="384"/>
         <source>Returns the {{n}}-th Fibonacci number.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="326"/>
+        <location filename="../maths/lib/stats.py" line="398"/>
         <source>Returns the {{n}}-th Euler number.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="350"/>
+        <location filename="../maths/lib/stats.py" line="422"/>
         <source>Returns the Beta function at {{a}} and {{b}}.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1410,38 +1410,88 @@ Window Text :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="362"/>
+        <location filename="../maths/lib/stats.py" line="434"/>
         <source>Returns the median of {{lst}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="374"/>
+        <location filename="../maths/lib/stats.py" line="446"/>
         <source>Returns the mode of {{lst}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="386"/>
+        <location filename="../maths/lib/stats.py" line="458"/>
         <source>Returns the probability for {{k}} with the binomial distribution of parameters {{n}} and {{p}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="400"/>
+        <location filename="../maths/lib/stats.py" line="473"/>
         <source>Returns the number of elements in {{T}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="414"/>
+        <location filename="../maths/lib/stats.py" line="488"/>
         <source>Swaps the elements of {{t}} at indices {{a}} and {{b}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="428"/>
+        <location filename="../maths/lib/stats.py" line="502"/>
         <source>Generates a list containing all number from {{start}} (inclusive) to {{end}} (exclusive) with a step of {{step}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="446"/>
+        <location filename="../maths/lib/stats.py" line="524"/>
         <source>Generates a list containing all number from {{start}} (inclusive) to {{end}} (inclusive) with a step of {{step}}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="201"/>
+        <source>Returns the inverse of the error function at {{y}}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../maths/lib/stats.py" line="543"/>
+        <source>Returns the probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../maths/lib/stats.py" line="558"/>
+        <source>Returns the probability for {{x}} with the standard normal distribution (µ=0 and σ=1).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../maths/lib/stats.py" line="569"/>
+        <source>Returns the cumulative probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../maths/lib/stats.py" line="582"/>
+        <source>Returns the cumulative probability for {{x}} with the standard normal distribution (µ=0 and σ=1).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../maths/lib/stats.py" line="593"/>
+        <source>Returns the number with cumulative probability {{p}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../maths/lib/stats.py" line="606"/>
+        <source>Returns the number with cumulative probability {{p}} with the standard normal distribution (µ=0 and σ=1).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="234"/>
+        <source>Returns the inverse of the complementary error function at {{y}}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="122"/>
+        <source>Returns the index of maximum value of {{args}}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="134"/>
+        <source>Returns the index of minimum value of {{args}}.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

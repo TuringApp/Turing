@@ -219,8 +219,16 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`beta`|<ul><li>`a` (Number)</li><li>`b` (Number)</li></ul>|Returns the Beta function at `a` and `b`.|
 |`binomial`|<ul><li>`n` (Number)</li><li>`k` (Number)</li></ul>|Returns the binomial coefficient for a subset of size `k` and a set of size `n`.|
 |`d_binomial`|<ul><li>`n` (Integer)</li><li>`p` (Real) 0 <= p <= 1</li><li>`k` (Integer)</li></ul>|Returns the probability for `k` with the binomial distribution of parameters `n` and `p`.|
+|`d_normal_cdf`|<ul><li>`mu` (Real)</li><li>`sigma` (Real)</li><li>`x` (Real)</li></ul>|Returns the cumulative probability for `x` with the normal distribution of parameters µ=`mu` and σ=`sigma`.|
+|`d_normal_cdf_inv`|<ul><li>`mu` (Real)</li><li>`sigma` (Real)</li><li>`p` (Real)</li></ul>|Returns the number with cumulative probability `p` with the normal distribution of parameters µ=`mu` and σ=`sigma`.|
+|`d_normal_pdf`|<ul><li>`mu` (Real)</li><li>`sigma` (Real)</li><li>`x` (Real)</li></ul>|Returns the probability for `x` with the normal distribution of parameters µ=`mu` and σ=`sigma`.|
+|`d_normal_std_cdf`|<ul><li>`x` (Real)</li></ul>|Returns the cumulative probability for `x` with the standard normal distribution (µ=0 and σ=1).|
+|`d_normal_std_cdf_inv`|<ul><li>`p` (Real)</li></ul>|Returns the number with cumulative probability `p` with the standard normal distribution (µ=0 and σ=1).|
+|`d_normal_std_pdf`|<ul><li>`x` (Real)</li></ul>|Returns the probability for `x` with the standard normal distribution (µ=0 and σ=1).|
 |`erf`|<ul><li>`x` (Number)</li></ul>|Returns the error function at `x`.|
 |`erfc`|<ul><li>`x` (Number)</li></ul>|Returns the complementary error function at `x`.|
+|`erfcinv`|<ul><li>`y` (Number)</li></ul>|Returns the inverse of the complementary error function at `y`.|
+|`erfinv`|<ul><li>`y` (Number)</li></ul>|Returns the inverse of the error function at `y`.|
 |`euler`|<ul><li>`n` (Integer)</li></ul>|Returns the `n`-th Euler number.|
 |`fact`|<ul><li>`x` (Integer)</li></ul>|Returns the factorial of `x`.|
 |`fib`|<ul><li>`n` (Integer)</li></ul>|Returns the `n`-th Fibonacci number.|
@@ -232,8 +240,10 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`log_gamma`|<ul><li>`x` (Number)</li></ul>|Returns the natural logarithm of the absolute value of the Gamma function at `x`.|
 |`map` / `appl`|<ul><li>`func` (Function(1 arg))</li><li>`lst` (List)</li></ul>|Applies `func` to each element of `lst` and returns the resulting list.|
 |`max`|<ul><li>`args` (List(Number))</li></ul>|Returns the maximum value of `args`.|
+|`max_index`|<ul><li>`args` (List(Number))</li></ul>|Returns the index of maximum value of `args`.|
 |`median`|<ul><li>`lst` (List(Number))</li></ul>|Returns the median of `lst`.|
 |`min`|<ul><li>`args` (List(Number))</li></ul>|Returns the minimum value of `args`.|
+|`min_index`|<ul><li>`args` (List(Number))</li></ul>|Returns the index of minimum value of `args`.|
 |`mode`|<ul><li>`lst` (List(Number))</li></ul>|Returns the mode of `lst`.|
 |`randint` / `alea_ent`|<ul><li>`a` (Integer)</li><li>`b` (Integer)</li></ul>|Returns a random integer between `a` and `b` (inclusive).|
 |`random` / `alea`|<ul><li>None</li></ul>|Returns a random number between 0 (inclusive) and 1 (exclusive).|
