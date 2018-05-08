@@ -484,6 +484,10 @@ def plot_clear():
     GuiState.plot_axes.clear()
     GuiState.plot_axes.axhline(y=0, color='k')
     GuiState.plot_axes.axvline(x=0, color='k')
+
+
+def plot_reset():
+    plot_clear()
     plot_window(-10, 10, -10, 10)
 
 
@@ -564,7 +568,7 @@ def init_worker():
     ExecState.worker.map[GFuncStmt] = stmt_GFunc
     ExecState.worker.map[SleepStmt] = stmt_Sleep
     set_current_line(None)
-    plot_clear()
+    plot_reset()
 
 
 def end_output():
@@ -736,7 +740,7 @@ def handler_Run(flag=False):
                 ExecState.running = True
                 ExecState.stopped = False
                 ExecState.python_stopped = False
-                plot_clear()
+                plot_reset()
                 ExecState.run_started = datetime.datetime.now()
                 runpy.run_path(file.name, init_globals={
                     "print": python_print,
@@ -767,7 +771,7 @@ def handler_Run(flag=False):
         else:
             if not ExecState.running:
                 init_worker()
-                plot_clear()
+                plot_reset()
                 ExecState.worker.break_on_error = True
                 ExecState.running = True
                 ExecState.stopped = False
@@ -1065,7 +1069,7 @@ def clear_output():
     if not AppState.mode_python:
         set_current_line(None)
     update_output()
-    plot_clear()
+    plot_reset()
 
 
 def print_output():
@@ -1249,8 +1253,7 @@ def load_plot_canvas():
     GuiState.plot_figure = Figure()
     GuiState.plot_axes = GuiState.plot_figure.add_subplot(111)
     GuiState.plot_canvas = FigureCanvas(GuiState.plot_figure)
-    plot_clear()
-    plot_window(-10, 10, -10, 10)
+    plot_reset()
     GuiState.ui.verticalLayout_4.addWidget(GuiState.plot_canvas)
 
 
