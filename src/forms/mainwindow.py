@@ -1662,7 +1662,7 @@ def get_current_stmt():
 def get_current_pos():
     current = []
     found = False
-    ExecState.current_stmt = get_current_stmt()
+    current_stmt = get_current_stmt()
 
     def find_block(block: BlockStmt):
         nonlocal found
@@ -1673,7 +1673,7 @@ def get_current_pos():
         current.append(0)
 
         for child in block.children:
-            if child == ExecState.current_stmt:
+            if child == current_stmt:
                 found = True
                 return
 
@@ -1686,7 +1686,7 @@ def get_current_pos():
 
         current.pop()
 
-    if ExecState.current_stmt is not None:
+    if current_stmt is not None:
         find_block(AppState.algo)
 
     return current
@@ -1956,18 +1956,18 @@ def algo_double_click():
 
 def algo_sel_changed():
     current = get_current_pos()
-    ExecState.current_stmt = get_current_stmt()
+    current_stmt = get_current_stmt()
 
-    is_item = ExecState.current_stmt is not None
+    is_item = current_stmt is not None
     is_root = current == []
     is_changeable = is_item and not is_root
     is_editable = is_changeable \
-                  and not isinstance(ExecState.current_stmt, (BreakStmt, ContinueStmt, ElseStmt)) \
-                  and type(ExecState.current_stmt) not in [BaseStmt, BlockStmt]
+                  and not isinstance(current_stmt, (BreakStmt, ContinueStmt, ElseStmt)) \
+                  and type(current_stmt) not in [BaseStmt, BlockStmt]
 
     GuiState.ui.btnAlgo_Delete.setEnabled(is_changeable)
     GuiState.ui.btnAlgo_Edit.setEnabled(is_editable)
-    GuiState.ui.btnAlgo_Dupl.setEnabled(is_changeable and not isinstance(ExecState.current_stmt, ElseStmt))
+    GuiState.ui.btnAlgo_Dupl.setEnabled(is_changeable and not isinstance(current_stmt, ElseStmt))
 
     can_up = is_changeable and current != [0]
     GuiState.ui.btnAlgo_UpBlock.setEnabled(can_up)
@@ -2007,7 +2007,7 @@ def algo_sel_changed():
         existing_else = current[-1] + 1 < len(parent_stack[-2].children) and isinstance(
             parent_stack[-2].children[current[-1] + 1], ElseStmt)
 
-        GuiState.ui.btnAlgo_Else.setEnabled(isinstance(ExecState.current_stmt, IfStmt) and not existing_else)
+        GuiState.ui.btnAlgo_Else.setEnabled(isinstance(current_stmt, IfStmt) and not existing_else)
 
         in_loop = any(x for x in parent_stack if type(x) in [ForStmt, WhileStmt])
         GuiState.ui.btnAlgo_Continue.setEnabled(in_loop)
