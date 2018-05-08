@@ -817,7 +817,7 @@ def handler_Run(flag=False):
 
 def handler_ConvertToPython():
     py_code = "\n".join(AppState.algo.python())
-    GuiState.code_editor.setPlainText(py_code, "", "")
+    GuiState.code_editor.setPlainText(py_code.replace("\t", "    "), "", "")
     AppState.mode_python = True
     AppState.current_file = None
     refresh()
@@ -825,7 +825,7 @@ def handler_ConvertToPython():
 
 def algo_run_python():
     py_code = "\n".join(AppState.algo.python())
-    GuiState.code_editor.setPlainText(py_code, "", "")
+    GuiState.code_editor.setPlainText(py_code.replace("\t", "    "), "", "")
     AppState.mode_python = True
     handler_Run()
     AppState.mode_python = False
