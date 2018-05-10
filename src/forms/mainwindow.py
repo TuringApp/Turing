@@ -512,7 +512,7 @@ def plot_line(startx, starty, endx, endy, color="red"):
 
 
 def plot_function(func, start, end, step, color="red"):
-    domain = np.arange(start, end, step)
+    domain = [x.item() for x in np.arange(start, end, step)]
     results = [func(x) for x in domain]
     GuiState.plot_axes.plot(domain, results, c=color, linestyle="-")
 

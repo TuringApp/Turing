@@ -521,7 +521,7 @@ def range(start, end=None, step=None):
             step = -1
         else:
             step = 1
-    return np.arange(start, end, step)
+    return [x.item() for x in np.arange(start, end, step)]
 
 
 doc("irange",
@@ -543,7 +543,7 @@ def irange(start, end=None, step=None):
             step = -1
         else:
             step = 1
-    return np.arange(start, end + step, step)
+    return [x.item() for x in np.arange(start, end, step)]
 
 
 doc("d_normal_pdf",
