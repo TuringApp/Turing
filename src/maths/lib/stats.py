@@ -23,14 +23,17 @@ c_glaisher = 1.28242712910062263687534256886979172776768892732500
 def listfunc(func):
     def wrapper(*args):
         if builtins.len(args) == 1:
-            try:
-                if isinstance(args[0], list):
-                    return func(args[0])
-            except:
+            if isinstance(args[0], list):
                 try:
-                    return func(list(iter(args[0])))
+                    return func(args[0])
                 except:
                     pass
+
+            try:
+                return func(list(iter(args[0])))
+            except:
+                pass
+
         return func(list(args))
 
     setattr(wrapper, "listfunc", True)
