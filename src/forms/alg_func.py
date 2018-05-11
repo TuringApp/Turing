@@ -26,6 +26,9 @@ class AlgoFuncStmt(QDialog):
         if res == QDialog.Accepted:
             lst = [x.strip() for x in [self.ui.txtFunction.text()] + self.ui.txtArguments.text().split(",")]
 
+            if not lst[-1]:
+                lst = lst[:-1]
+
             for name in lst:
                 if not is_id(name):
                     box = msg_box_error(translate("Algo", "Invalid name: {name}").format(name=name), parent=self)
