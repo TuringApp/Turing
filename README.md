@@ -66,6 +66,6 @@ You need:
 
 ## Contributing
 
-We're currently looking for translators. For more information, see the [CONTRIBUTING.md](CONTRIBUTING.md) and [https://gitter.im/TuringDevelopment](the Gitter).
+We're currently looking for translators. For more information, see the [CONTRIBUTING.md](CONTRIBUTING.md) file and [the Gitter](https://gitter.im/TuringDevelopment).
 
 If you're a developer and you found a bug somewhere and fixed it, feel free to make a PR, we usually answer in no more than a few hours.
