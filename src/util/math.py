@@ -23,6 +23,9 @@ def is_close(a: Union[util.number, list], b: Union[util.number, list], rel_tol=1
     versions."""
 
     # if only one of the two is Infinity, then they are not identical
+    if type(a) == str or type(b) == str:
+        return str(a) == str(b)
+
     if type(a) == type(b) == list:
         return all(is_close(x, y) for x, y in zip(a, b))
 
