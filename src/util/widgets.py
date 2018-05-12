@@ -23,6 +23,21 @@ class QClickableLabel(QLabel):
         self.last_click = datetime.datetime.now()
 
 
+class QFlatButton(QPushButton):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setFlat(True)
+
+    def event(self, ev: QEvent):
+        if ev.type() == QEvent.HoverEnter:
+            self.setFlat(False)
+
+        if ev.type() == QEvent.HoverLeave:
+            self.setFlat(True)
+
+        return super().event(ev)
+
+
 def center_widget(wgt: QWidget, host: QWidget):
     if not host:
         host = wgt.parent()
