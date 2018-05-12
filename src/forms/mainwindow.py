@@ -1778,7 +1778,7 @@ def str_stmt(stmt):
     code = lambda stmt: stmt.code(True)
 
     if isinstance(stmt, DisplayStmt):
-        ret = translate("Algo", "[k]DISPLAY[/k] [c]{val}[/c]").format(val=code(stmt.content))
+        ret = translate("Algo", "[k]DISPLAY[/k] [c]{val}[/c] {newline}").format(val=code(stmt.content), newline="↵" if stmt.newline else "")
 
     elif isinstance(stmt, BreakStmt):
         ret = translate("Algo", "[k]BREAK[/k]")

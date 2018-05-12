@@ -238,10 +238,20 @@ p, li { white-space: pre-wrap; }
         <source>[c]{var}[/c] [k]??[/k] [c]{value}[/c]</source>
         <translation type="obsolete">[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]</translation>
     </message>
-    <message encoding="UTF-8">
-        <location filename="../forms/mainwindow.py" line="1812"/>
+    <message>
+        <location filename="../forms/mainwindow.py" line="1814"/>
         <source>[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]</source>
-        <translation type="unfinished"></translation>
+        <translation>[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]</translation>
+    </message>
+    <message>
+        <location filename="../forms/mainwindow.py" line="1789"/>
+        <source>[k]DISPLAY[/k] [c]{val}[/c] {newline}</source>
+        <translation>[k]AFFICHER[/k] [c]{val}[/c] {newline}</translation>
+    </message>
+    <message>
+        <location filename="../forms/mainwindow.py" line="1807"/>
+        <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c] {text}</source>
+        <translation>[k]SAISIR[/k] [c]{var}[/c] {text}</translation>
     </message>
 </context>
 <context>
