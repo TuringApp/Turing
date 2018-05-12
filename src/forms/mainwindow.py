@@ -430,7 +430,7 @@ def python_input(prompt="", globals=None, locals=None, unsafe=False):
             sleep(0.050)
             GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
             sleep(0.050)
-            
+
         GuiState.ui.txtInput.setStyleSheet("")
         sleep(0.200)
 
