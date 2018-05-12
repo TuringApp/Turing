@@ -343,19 +343,27 @@ doc("upper",
     [
         ("s", "String")
     ],
-    translate("Docs", "Returns the uppercase version of {{s}}."))
+    translate("Docs", "Returns the uppercase version of {{s}}."),
+    ["maju"])
 
 
 def upper(s):
     return str(s).upper()
 
 
+maju = upper
+
+
 doc("lower",
     [
         ("s", "String")
     ],
-    translate("Docs", "Returns the lowercase version of {{s}}."))
+    translate("Docs", "Returns the lowercase version of {{s}}."),
+    ["minu"])
 
 
 def lower(s):
     return str(s).lower()
+
+
+minu = lower
