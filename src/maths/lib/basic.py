@@ -337,3 +337,25 @@ def integrate(func, a, b, steps=1000):
 
 
 integ = integrate
+
+
+doc("upper",
+    [
+        ("s", "String")
+    ],
+    translate("Docs", "Returns the uppercase version of {{s}}."))
+
+
+def upper(s):
+    return str(s).upper()
+
+
+doc("lower",
+    [
+        ("s", "String")
+    ],
+    translate("Docs", "Returns the lowercase version of {{s}}."))
+
+
+def lower(s):
+    return str(s).lower()

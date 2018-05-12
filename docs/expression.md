@@ -185,6 +185,7 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`ln`|<ul><li>`num` (Number)</li></ul>|Returns the natural (base-*e*) logarithm of `num`.|
 |`log`|<ul><li>`num` (Number)</li><li>`b` (Number) != 0, default = e</li></ul>|Returns the base-`b` logarithm of `num`.|
 |`log10`|<ul><li>`num` (Number)</li></ul>|Returns the base-10 logarithm of `num`.|
+|`lower`|<ul><li>`s` (String)</li></ul>|Returns the lowercase version of `s`.|
 |`polar` / `polaire`|<ul><li>`x` (Number)</li></ul>|Returns a list containing the polar coordinates of `x`, respectively the modulus (radius) and argument (angle).|
 |`pow` / `puiss`|<ul><li>`num` (Number)</li><li>`p` (Number)</li></ul>|Returns `num` to the `p`-th power.|
 |`re`|<ul><li>`x` (Number)</li></ul>|Returns the real part of `x`.|
@@ -193,6 +194,7 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`round` / `arrondi`|<ul><li>`num` (Number)</li><li>`prec` (Integer)</li></ul>|Rounds `num` to the nearest integer / (if specified) to `prec` decimals.|
 |`sign`|<ul><li>`num` (Real)</li></ul>|Returns the sign of `num` (-1 if negative, 1 if positive, 0 otherwise).|
 |`sqrt` / `rac`|<ul><li>`num` (Number)</li></ul>|Returns the square root of `num`. If `num` < 0, the result will be Complex.|
+|`upper`|<ul><li>`s` (String)</li></ul>|Returns the uppercase version of `s`.|
 |&nbsp;|**Geometry**|&nbsp;|
 |`area_circle`|<ul><li>`radius` (Real)</li></ul>|Returns the area of the circle with the specified `radius`.|
 |`area_cube`|<ul><li>`side` (Real)</li></ul>|Returns the surface area of the cube with the specified `side` length.|
