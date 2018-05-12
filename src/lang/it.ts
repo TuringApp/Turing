@@ -38,107 +38,107 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algo</name>
     <message>
-        <location filename="../forms/mainwindow.py" line="1777"/>
+        <location filename="../forms/mainwindow.py" line="1787"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1780"/>
+        <location filename="../forms/mainwindow.py" line="1790"/>
         <source>[k]BREAK[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1783"/>
+        <location filename="../forms/mainwindow.py" line="1793"/>
         <source>[k]CONTINUE[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1786"/>
+        <location filename="../forms/mainwindow.py" line="1796"/>
         <source>[b]ELSE[/b]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1789"/>
+        <location filename="../forms/mainwindow.py" line="1799"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1792"/>
+        <location filename="../forms/mainwindow.py" line="1802"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1795"/>
+        <location filename="../forms/mainwindow.py" line="1805"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1800"/>
+        <location filename="../forms/mainwindow.py" line="1810"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1809"/>
+        <location filename="../forms/mainwindow.py" line="1819"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1812"/>
+        <location filename="../forms/mainwindow.py" line="1822"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1813"/>
+        <location filename="../forms/mainwindow.py" line="1823"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1819"/>
+        <location filename="../forms/mainwindow.py" line="1829"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1823"/>
+        <location filename="../forms/mainwindow.py" line="1833"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1827"/>
+        <location filename="../forms/mainwindow.py" line="1837"/>
         <source>[k]STOP[/k] [c]{val}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1831"/>
+        <location filename="../forms/mainwindow.py" line="1841"/>
         <source>[k]WAIT[/k] [c]{val}[/c] [k]SECONDS[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1837"/>
+        <location filename="../forms/mainwindow.py" line="1847"/>
         <source>[k]CLEAR PLOT[/k]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1840"/>
+        <location filename="../forms/mainwindow.py" line="1850"/>
         <source>[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1850"/>
+        <location filename="../forms/mainwindow.py" line="1860"/>
         <source>[k]DRAW POINT[/k] [c]{color}[/c] [k]AT[/k] ([c]{x}[/c]; [c]{y}[/c])</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1868"/>
+        <location filename="../forms/mainwindow.py" line="1878"/>
         <source>[k]PLOT FUNCTION[/k] [c]{color}[/c] [i]f[/i]({var}) = [c]{expr}[/c] [k]FROM[/k] [c]{begin}[/c] [k]TO[/k] [c]{end}[/c] [k]STEP[/k] [c]{step}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1879"/>
+        <location filename="../forms/mainwindow.py" line="1889"/>
         <source>[b]PROGRAM[/b]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1882"/>
+        <location filename="../forms/mainwindow.py" line="1892"/>
         <source>[i]empty[/i]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -210,12 +210,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1857"/>
+        <location filename="../forms/mainwindow.py" line="1867"/>
         <source>[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1802"/>
+        <location filename="../forms/mainwindow.py" line="1812"/>
         <source>[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -225,7 +225,7 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../forms/mainwindow.py" line="1802"/>
+        <location filename="../forms/mainwindow.py" line="1812"/>
         <source>[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1090,117 +1090,117 @@ Window Text :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="43"/>
+        <location filename="../maths/lib/stats.py" line="59"/>
         <source>Returns the arithmetic mean of {{args}}.</source>
         <translation>Riporta la media aritmetica di {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="59"/>
+        <location filename="../maths/lib/stats.py" line="75"/>
         <source>Returns the harmonic mean of {{args}}.</source>
         <translation>Riporta la media armonica di {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="76"/>
+        <location filename="../maths/lib/stats.py" line="92"/>
         <source>Returns the sum of all the terms of {{args}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="88"/>
+        <location filename="../maths/lib/stats.py" line="104"/>
         <source>Returns the binomial coefficient for a subset of size {{k}} and a set of size {{n}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="101"/>
+        <location filename="../maths/lib/stats.py" line="117"/>
         <source>Returns the maximum value of {{args}}.</source>
         <translation>Riporta il valore massimo di {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="113"/>
+        <location filename="../maths/lib/stats.py" line="129"/>
         <source>Returns the minimum value of {{args}}.</source>
         <translation>Riporta il valore minimo di {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="149"/>
+        <location filename="../maths/lib/stats.py" line="165"/>
         <source>Returns the Gamma function at {{x}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="160"/>
+        <location filename="../maths/lib/stats.py" line="176"/>
         <source>Returns the natural logarithm of the absolute value of the Gamma function at {{x}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="171"/>
+        <location filename="../maths/lib/stats.py" line="187"/>
         <source>Returns the factorial of {{x}}.</source>
         <translation>Riporta il fattoriale di {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="182"/>
+        <location filename="../maths/lib/stats.py" line="198"/>
         <source>Returns the error function at {{x}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="193"/>
+        <location filename="../maths/lib/stats.py" line="209"/>
         <source>Returns the complementary error function at {{x}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="248"/>
+        <location filename="../maths/lib/stats.py" line="264"/>
         <source>Applies {{func}} to each element of {{lst}} and returns the resulting list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="263"/>
+        <location filename="../maths/lib/stats.py" line="279"/>
         <source>Returns a list containing all elements of {{lst}} for which {{func}} returns a truthy value.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="278"/>
+        <location filename="../maths/lib/stats.py" line="294"/>
         <source>Returns a slice of the specified list, from index {{start}} (inclusive) to either index {{end}} (exclusive) or the end of the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="300"/>
+        <location filename="../maths/lib/stats.py" line="316"/>
         <source>Returns the population standard deviation of {{lst}}.</source>
         <translation>Riporta la deviazione standard di {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="315"/>
+        <location filename="../maths/lib/stats.py" line="331"/>
         <source>Returns the population variance of {{lst}}.</source>
         <translation>Riporta la varianza di {{primo}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="327"/>
+        <location filename="../maths/lib/stats.py" line="343"/>
         <source>Returns the sample standard deviation of {{lst}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="342"/>
+        <location filename="../maths/lib/stats.py" line="358"/>
         <source>Returns the sample variance of {{lst}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="357"/>
+        <location filename="../maths/lib/stats.py" line="373"/>
         <source>Returns a random number between 0 (inclusive) and 1 (exclusive).</source>
         <translation>Restituisce un numero casuale compreso tra 0 (incluso) e 1 (escluso).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="369"/>
+        <location filename="../maths/lib/stats.py" line="385"/>
         <source>Returns a random integer between {{a}} and {{b}} (inclusive).</source>
         <translation>Restituisce un numero casuale compreso tra {{a}} e {{b}} (incluso).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="387"/>
+        <location filename="../maths/lib/stats.py" line="403"/>
         <source>Returns the {{n}}-th Fibonacci number.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="401"/>
+        <location filename="../maths/lib/stats.py" line="417"/>
         <source>Returns the {{n}}-th Euler number.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="425"/>
+        <location filename="../maths/lib/stats.py" line="441"/>
         <source>Returns the Beta function at {{a}} and {{b}}.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1410,88 +1410,93 @@ Window Text :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="437"/>
+        <location filename="../maths/lib/stats.py" line="453"/>
         <source>Returns the median of {{lst}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="449"/>
+        <location filename="../maths/lib/stats.py" line="465"/>
         <source>Returns the mode of {{lst}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="461"/>
+        <location filename="../maths/lib/stats.py" line="477"/>
         <source>Returns the probability for {{k}} with the binomial distribution of parameters {{n}} and {{p}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="476"/>
+        <location filename="../maths/lib/stats.py" line="492"/>
         <source>Returns the number of elements in {{T}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="491"/>
+        <location filename="../maths/lib/stats.py" line="507"/>
         <source>Swaps the elements of {{t}} at indices {{a}} and {{b}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="505"/>
+        <location filename="../maths/lib/stats.py" line="521"/>
         <source>Generates a list containing all number from {{start}} (inclusive) to {{end}} (exclusive) with a step of {{step}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="527"/>
+        <location filename="../maths/lib/stats.py" line="543"/>
         <source>Generates a list containing all number from {{start}} (inclusive) to {{end}} (inclusive) with a step of {{step}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="204"/>
+        <location filename="../maths/lib/stats.py" line="220"/>
         <source>Returns the inverse of the error function at {{y}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="549"/>
+        <location filename="../maths/lib/stats.py" line="565"/>
         <source>Returns the probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="564"/>
+        <location filename="../maths/lib/stats.py" line="580"/>
         <source>Returns the probability for {{x}} with the standard normal distribution (µ=0 and σ=1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="575"/>
+        <location filename="../maths/lib/stats.py" line="591"/>
         <source>Returns the cumulative probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="589"/>
+        <location filename="../maths/lib/stats.py" line="605"/>
         <source>Returns the cumulative probability for {{x}} with the standard normal distribution (µ=0 and σ=1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="601"/>
+        <location filename="../maths/lib/stats.py" line="617"/>
         <source>Returns the number with cumulative probability {{p}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="615"/>
+        <location filename="../maths/lib/stats.py" line="631"/>
         <source>Returns the number with cumulative probability {{p}} with the standard normal distribution (µ=0 and σ=1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="237"/>
+        <location filename="../maths/lib/stats.py" line="253"/>
         <source>Returns the inverse of the complementary error function at {{y}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="125"/>
+        <location filename="../maths/lib/stats.py" line="141"/>
         <source>Returns the index of maximum value of {{args}}.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="137"/>
+        <location filename="../maths/lib/stats.py" line="153"/>
         <source>Returns the index of minimum value of {{args}}.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="43"/>
+        <source>Returns a random element from {{args}}.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2079,169 +2084,169 @@ All unsaved changes will be lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="581"/>
+        <location filename="../forms/mainwindow.py" line="591"/>
         <source>end of output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="581"/>
+        <location filename="../forms/mainwindow.py" line="591"/>
         <source>end of output [{time}]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="606"/>
+        <location filename="../forms/mainwindow.py" line="616"/>
         <source>Breakpoint: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="637"/>
+        <location filename="../forms/mainwindow.py" line="647"/>
         <source>program interrupted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="769"/>
+        <location filename="../forms/mainwindow.py" line="779"/>
         <source>Syntax error ({type}) at line {line}, offset {off}: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="893"/>
+        <location filename="../forms/mainwindow.py" line="903"/>
         <source>Save output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="893"/>
+        <location filename="../forms/mainwindow.py" line="903"/>
         <source>Text files (*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="962"/>
+        <location filename="../forms/mainwindow.py" line="972"/>
         <source>Do you really want to create a new file?
 All unsaved changes will be lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1124"/>
+        <location filename="../forms/mainwindow.py" line="1134"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1125"/>
+        <location filename="../forms/mainwindow.py" line="1135"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1127"/>
+        <location filename="../forms/mainwindow.py" line="1137"/>
         <source>Folding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1128"/>
+        <location filename="../forms/mainwindow.py" line="1138"/>
         <source>Collapse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1129"/>
+        <location filename="../forms/mainwindow.py" line="1139"/>
         <source>Expand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1130"/>
+        <location filename="../forms/mainwindow.py" line="1140"/>
         <source>Collapse all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1131"/>
+        <location filename="../forms/mainwindow.py" line="1141"/>
         <source>Expand all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1133"/>
+        <location filename="../forms/mainwindow.py" line="1143"/>
         <source>Select word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1134"/>
+        <location filename="../forms/mainwindow.py" line="1144"/>
         <source>Select extended word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1135"/>
+        <location filename="../forms/mainwindow.py" line="1145"/>
         <source>Matched select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1136"/>
+        <location filename="../forms/mainwindow.py" line="1146"/>
         <source>Select line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1137"/>
+        <location filename="../forms/mainwindow.py" line="1147"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1147"/>
+        <location filename="../forms/mainwindow.py" line="1157"/>
         <source>Regex</source>
         <translation>Espressione regolare</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1148"/>
+        <location filename="../forms/mainwindow.py" line="1158"/>
         <source>Match case</source>
         <translation>L&apos;evidenziazione è case-sensitive</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1149"/>
+        <location filename="../forms/mainwindow.py" line="1159"/>
         <source>Whole words</source>
         <translation>Identifica solo parole intere</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1150"/>
+        <location filename="../forms/mainwindow.py" line="1160"/>
         <source>In Selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1151"/>
+        <location filename="../forms/mainwindow.py" line="1161"/>
         <source>0 matches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1153"/>
+        <location filename="../forms/mainwindow.py" line="1163"/>
         <source>Replace All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1239"/>
+        <location filename="../forms/mainwindow.py" line="1249"/>
         <source>{num} matches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2101"/>
+        <location filename="../forms/mainwindow.py" line="2111"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2102"/>
+        <location filename="../forms/mainwindow.py" line="2112"/>
         <source>Python file (*.py)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2103"/>
+        <location filename="../forms/mainwindow.py" line="2113"/>
         <source>Turing program (*.tr)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2104"/>
+        <location filename="../forms/mainwindow.py" line="2114"/>
         <source>Algobox file (*.alg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2248"/>
+        <location filename="../forms/mainwindow.py" line="2258"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2258"/>
+        <location filename="../forms/mainwindow.py" line="2268"/>
         <source>A modified file has been automatically saved.
 Would you like to recover it?</source>
         <translation type="unfinished"></translation>

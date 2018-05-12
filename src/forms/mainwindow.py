@@ -404,7 +404,7 @@ def check_stop():
         raise KeyboardInterrupt()
 
 
-def python_input(prompt="", globals=None, locals=None):
+def python_input(prompt="", globals=None, locals=None, unsafe=False):
     python_print(prompt, end="")
     plot_update()
 
@@ -448,23 +448,33 @@ def python_input(prompt="", globals=None, locals=None):
     python_print(ExecState.user_input)
     update_output()
 
-    try:
-        evaled = eval(ExecState.user_input, globals, locals)
-        return evaled
-    except:
+    if unsafe:
         try:
-            to_int = int(ExecState.user_input)
-            return to_int
+            evaled = eval(ExecState.user_input, globals, locals)
+            return evaled
         except:
-            try:
-                to_float = float(ExecState.user_input)
-                return to_float
-            except:
-                try:
-                    to_complex = complex(ExecState.user_input)
-                    return to_complex
-                except:
-                    return ExecState.user_input
+            pass
+
+    try:
+        to_int = int(ExecState.user_input)
+        return to_int
+    except:
+        pass
+
+    try:
+        to_float = float(ExecState.user_input)
+        return to_float
+    except:
+        pass
+
+    if unsafe:
+        try:
+            to_complex = complex(ExecState.user_input)
+            return to_complex
+        except:
+            pass
+
+    return ExecState.user_input
 
 
 def python_print_error(msg, end="\n"):
