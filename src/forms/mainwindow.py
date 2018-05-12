@@ -416,24 +416,25 @@ def python_input(prompt="", globals=None, locals=None):
 
     GuiState.ui.btnSendInput.setEnabled(True)
     GuiState.ui.txtInput.setEnabled(True)
+    GuiState.ui.txtInput.setFocus(Qt.OtherFocusReason)
 
     for n in range(3):
-        GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
-        sleep(0.050)
-        GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
-        sleep(0.050)
-        GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff5252; }")
-        sleep(0.050)
-        GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
-        sleep(0.050)
-        GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
-        sleep(0.050)
+        if not GuiState.ui.txtInput.text():
+            GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
+            sleep(0.050)
+            GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
+            sleep(0.050)
+            GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff5252; }")
+            sleep(0.050)
+            GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ff7b7b; }")
+            sleep(0.050)
+            GuiState.ui.txtInput.setStyleSheet("QLineEdit { background-color: #ffbaba; }")
+            sleep(0.050)
+            
         GuiState.ui.txtInput.setStyleSheet("")
         sleep(0.200)
 
     ExecState.user_input = None
-
-    GuiState.ui.txtInput.setFocus(Qt.OtherFocusReason)
 
     while ExecState.user_input is None:
         check_stop()
