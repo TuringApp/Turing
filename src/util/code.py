@@ -21,8 +21,8 @@ __turing_loader__()
 del __turing_loader__
 
 __input__ = input
-def input(prompt=""):
-    return __input__(prompt, globals(), locals())
+def input(prompt="", **kwargs):
+    return __input__(prompt, globals=globals(), locals=locals(), **kwargs)
 
 %s
 """
