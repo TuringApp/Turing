@@ -106,6 +106,7 @@ class ExecState():
     current_stmt: BaseStmt = None
     python_stopped = False
     recent_actions = None
+    recent_buttons = None
     current_output = ""
     after_output = ""
     user_input: str = None
@@ -161,6 +162,7 @@ def recent_update_text():
 
     for i, file in enumerate(recent):
         ExecState.recent_actions[i].setText(os.path.basename(file))
+        ExecState.recent_buttons[i].setText(os.path.basename(file))
         _, ext = os.path.splitext(file.lower())
 
         if ext == ".alg":
@@ -173,12 +175,19 @@ def recent_update_text():
             icon = QIcon()
 
         ExecState.recent_actions[i].setIcon(icon)
+        ExecState.recent_buttons[i].setIcon(icon)
 
         ExecState.recent_actions[i].setVisible(True)
+        ExecState.recent_buttons[i].setVisible(i < 7)
 
     for i in range(len(recent), 10):
         ExecState.recent_actions[i].setVisible(False)
+        ExecState.recent_buttons[i].setVisible(False)
+
         ExecState.recent_actions[i].setIcon(QIcon())
+        ExecState.recent_buttons[i].setIcon(QIcon())
+
+    fix_qt_shitty_margins()
 
 
 def recent_clicked(index):
@@ -190,6 +199,7 @@ def recent_clicked(index):
 
 def recent_init_actions():
     ExecState.recent_actions = []
+    ExecState.recent_buttons = []
 
     def generator(num):
         return lambda: recent_clicked(num)
@@ -201,7 +211,14 @@ def recent_init_actions():
         ExecState.recent_actions.append(act)
         GuiState.ui.menuRecent.insertAction(GuiState.ui.actionClearRecent, act)
 
+        btn = QFlatButton(GuiState.window)
+        btn.setVisible(False)
+        btn.clicked.connect(generator(i))
+        ExecState.recent_buttons.append(btn)
+        GuiState.ui.verticalLayout_10.addWidget(btn)
+
     GuiState.ui.menuRecent.insertSeparator(GuiState.ui.actionClearRecent)
+    GuiState.ui.verticalLayout_10.addItem(QSpacerItem(1, 2, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
     recent_update_text()
 
