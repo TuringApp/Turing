@@ -14,7 +14,7 @@ __desc__ = translate("Docs", "Basic")
 doc("round",
     [
         ("num", "Number"),
-        ("prec", "Integer", None, None)
+        ("prec", "Real", None, None)
     ],
     translate("Docs", "Rounds {{num}} to the nearest integer / (if specified) to {{prec}} decimals."),
     ["arrondi"])

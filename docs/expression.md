@@ -191,7 +191,7 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`re`|<ul><li>`x` (Number)</li></ul>|Returns the real part of `x`.|
 |`rect`|<ul><li>`r` (Number)</li><li>`phi` (Number)</li></ul>|Converts the specified polar coordinates to a complex number.|
 |`root`|<ul><li>`num` (Number)</li><li>`n` (Number) != 0</li></ul>|Returns the `n`-th root of `num`.|
-|`round` / `arrondi`|<ul><li>`num` (Number)</li><li>`prec` (Integer)</li></ul>|Rounds `num` to the nearest integer / (if specified) to `prec` decimals.|
+|`round` / `arrondi`|<ul><li>`num` (Number)</li><li>`prec` (Real)</li></ul>|Rounds `num` to the nearest integer / (if specified) to `prec` decimals.|
 |`sign`|<ul><li>`num` (Real)</li></ul>|Returns the sign of `num` (-1 if negative, 1 if positive, 0 otherwise).|
 |`sqrt` / `rac`|<ul><li>`num` (Number)</li></ul>|Returns the square root of `num`. If `num` < 0, the result will be Complex.|
 |`upper` / `maju`|<ul><li>`s` (String)</li></ul>|Returns the uppercase version of `s`.|
