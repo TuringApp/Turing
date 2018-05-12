@@ -14,7 +14,7 @@ translate = QCoreApplication.translate
 
 
 class AlgoInputStmt(QDialog):
-    def __init__(self, parent, origcode=("", None)):
+    def __init__(self, parent, origcode=("", None, False)):
         super().__init__(parent)
         self.ui = Ui_AlgoInputStmt()
         self.ui.setupUi(self)
@@ -26,6 +26,7 @@ class AlgoInputStmt(QDialog):
         self.ui.cbxHasValue.setChecked(origcode[1] is not None)
         if origcode[1] is not None:
             self.ui.txtValue.setText(origcode[1])
+        self.ui.cbxText.setChecked(origcode[2])
         self.ui.btnCode.clicked.connect(self.click)
         center_widget(self, parent)
 
@@ -56,6 +57,7 @@ class AlgoInputStmt(QDialog):
             else:
                 self.expr = None
 
+            self.text = self.ui.cbxText.isChecked()
             self.varname = parsed
             self.ok = True
 

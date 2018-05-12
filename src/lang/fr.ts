@@ -589,6 +589,11 @@ p, li { white-space: pre-wrap; }
         <source>Read user input</source>
         <translation>Saisir entrée utilisateur</translation>
     </message>
+    <message>
+        <location filename="../forms/ui_alg_input.py" line="79"/>
+        <source>Text</source>
+        <translation>Texte</translation>
+    </message>
 </context>
 <context>
     <name>AlgoReturnStmt</name>

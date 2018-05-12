@@ -49,12 +49,15 @@ class Worker:
         self.evaluator.log = self.log
         self.evaluator.strict_typing = self.strict_typing
 
-    def stmt_input(self, prompt: str = None) -> Any:
+    def stmt_input(self, prompt: str = None, text: bool = False) -> Any:
         """Executes an input statement."""
         if self.callback_input is not None:
             res = self.callback_input(prompt)
         else:
             res = input(prompt)
+
+        if text:
+            return res
 
         p = Parser(str(res))
         return self.evaluator.eval_node(p.parse())
@@ -179,7 +182,7 @@ class Worker:
         prompt = (
             translate("Algo", "Variable {var} = ").format(
                 var=stmt.variable.code())) if stmt.prompt is None else self.evaluator.eval_node(stmt.prompt)
-        self.assign(stmt.variable, self.stmt_input(prompt))
+        self.assign(stmt.variable, self.stmt_input(prompt, stmt.text))
 
     def assign(self, target: AstNode, value):
         """Assigns the specified value to the target (either variable or array access)."""

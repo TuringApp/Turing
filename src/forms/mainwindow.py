@@ -1326,7 +1326,7 @@ def add_input():
     from forms import alg_input
     dlg = alg_input.AlgoInputStmt(GuiState.window)
     if dlg.run():
-        append_line(InputStmt(dlg.varname, dlg.expr))
+        append_line(InputStmt(dlg.varname, dlg.expr, dlg.text))
 
 
 def add_call():
@@ -1507,10 +1507,11 @@ def btn_edit_line():
     elif isinstance(stmt, InputStmt):
         from forms import alg_input
         dlg = alg_input.AlgoInputStmt(GuiState.window,
-                                      (stmt.variable.code(), stmt.prompt.code() if stmt.prompt is not None else None))
+                                      (stmt.variable.code(), stmt.prompt.code() if stmt.prompt is not None else None, stmt.text))
         if dlg.run():
             stmt.variable = dlg.varname
             stmt.prompt = dlg.expr
+            stmt.text = dlg.text
 
     elif isinstance(stmt, IfStmt):
         from forms import alg_if
@@ -1795,8 +1796,8 @@ def str_stmt(stmt):
         ret = translate("Algo", "[b]IF[/b] [c]{cond}[/c]").format(cond=code(stmt.condition))
 
     elif isinstance(stmt, InputStmt):
-        ret = translate("Algo", "[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]").format(
-            prompt="" if stmt.prompt is None else stmt.prompt.code(True), var=code(stmt.variable))
+        ret = translate("Algo", "[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c] {text}").format(
+            prompt="" if stmt.prompt is None else stmt.prompt.code(True), var=code(stmt.variable), text="⌘" if stmt.text else "")
 
     elif isinstance(stmt, AssignStmt):
         if stmt.value is None:
