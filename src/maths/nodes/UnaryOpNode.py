@@ -17,7 +17,7 @@ class UnaryOpNode(AstNode):
         if operator.upper() == "NON":
             operator = "NOT"
         self.value = value
-        self.operator = operator
+        self.operator = operator.upper()
 
     def __str__(self):
         return "[UnaryOp %s %s]" % (self.operator, self.value)
@@ -29,10 +29,12 @@ class UnaryOpNode(AstNode):
         op = self.operator
         if bb:
             op = util.html.sanitize(op)
+        if op == "NOT":
+            op += " "
         return op + self.value.code_fix(bb)
 
     def python(self) -> str:
-        return "(%s (%s))" % (self.operator, self.value.python())
+        return "(%s (%s))" % (self.operator.lower(), self.value.python())
 
     def children(self) -> List["AstNode"]:
         return [self.value]
