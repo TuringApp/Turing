@@ -23,7 +23,7 @@ class InputStmt(BaseStmt):
     def python(self) -> List[str]:
         return ["%s = input(%s%s)" % (self.variable.python(), ('"%s"' % translate("Algo", "Variable {var} = ").format(
             var=self.variable.python())) if self.prompt is None else self.prompt.python(),
-                                      "unsafe=True" if not self.text else "")]
+                                      ", unsafe=True" if not self.text else "")]
 
     def get_children(self) -> List[AstNode]:
         return self.variable.flatten() + ([] if self.prompt is None else self.prompt.flatten())
