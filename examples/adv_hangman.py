@@ -23,14 +23,11 @@ while True:
     if not current:
         continue
         
-    found = False
-    
     for i in range(len(user)):
         if word[i] == current:
             user[i] = current
-            found = True
             
-    if not found:
+    if current not in word:
         tries -= 1
         
     print("\n")
