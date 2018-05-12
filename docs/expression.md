@@ -218,6 +218,7 @@ The `average` function accepts either List(Number) or Number*. Thus, it can be u
 |`arithm_mean` / `moyenne` / `average`|<ul><li>`args` (List(Number))</li></ul>|Returns the arithmetic mean of `args`.|
 |`beta`|<ul><li>`a` (Number)</li><li>`b` (Number)</li></ul>|Returns the Beta function at `a` and `b`.|
 |`binomial`|<ul><li>`n` (Number)</li><li>`k` (Number)</li></ul>|Returns the binomial coefficient for a subset of size `k` and a set of size `n`.|
+|`choice` / `choix`|<ul><li>`args` (List(Any))</li></ul>|Returns a random element from `args`.|
 |`d_binomial`|<ul><li>`n` (Integer)</li><li>`p` (Real) 0 <= p <= 1</li><li>`k` (Integer)</li></ul>|Returns the probability for `k` with the binomial distribution of parameters `n` and `p`.|
 |`d_normal_cdf`|<ul><li>`mu` (Real)</li><li>`sigma` (Real)</li><li>`x` (Real)</li></ul>|Returns the cumulative probability for `x` with the normal distribution of parameters µ=`mu` and σ=`sigma`.|
 |`d_normal_cdf_inv`|<ul><li>`mu` (Real)</li><li>`sigma` (Real)</li><li>`p` (Real)</li></ul>|Returns the number with cumulative probability `p` with the normal distribution of parameters µ=`mu` and σ=`sigma`.|
