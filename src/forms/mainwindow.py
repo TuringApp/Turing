@@ -107,6 +107,8 @@ class ExecState():
     python_stopped = False
     recent_actions = None
     recent_buttons = None
+    article_buttons = None
+    article_list = None
     current_output = ""
     after_output = ""
     user_input: str = None
@@ -221,6 +223,62 @@ def recent_init_actions():
     GuiState.ui.verticalLayout_10.addItem(QSpacerItem(1, 2, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
     recent_update_text()
+
+
+def article_clicked(i):
+    QDesktopServices.openUrl(QUrl(ExecState.article_list[i][1]))
+
+
+def article_fetch(language):
+    import urllib.request
+    from xml.etree import ElementTree
+
+    response = urllib.request.urlopen("https://turingapp.ml/%s/feed/" % language)
+    xml = ElementTree.fromstring(response.read())
+    result = []
+
+    for elem in xml[0].iter("item"):
+        result.append((elem.find("title").text, elem.find("link").text))
+
+    return result
+
+
+def article_init_actions():
+    ExecState.article_buttons = []
+    ExecState.article_list = []
+
+    def generator(i):
+        return lambda: article_clicked(i)
+
+    for i in range(7):
+        btn = QFlatButton(GuiState.window)
+        btn.setVisible(False)
+        btn.clicked.connect(generator(i))
+        ExecState.article_buttons.append(btn)
+        GuiState.ui.verticalLayout_11.addWidget(btn)
+
+    GuiState.ui.verticalLayout_11.addItem(QSpacerItem(1, 2, QSizePolicy.Minimum, QSizePolicy.Expanding))
+
+    article_update_text()
+
+
+def article_loader():
+    ExecState.article_list = article_fetch(translator.current_lang) or article_fetch("")
+
+
+def article_update_text():
+    thr = threading.Thread(target=article_loader, args=())
+    thr.start()
+
+    while thr.is_alive():
+        QCoreApplication.processEvents()
+
+    for i, (name, _) in enumerate(ExecState.article_list):
+        ExecState.article_buttons[i].setText(name)
+        ExecState.article_buttons[i].setVisible(True)
+
+    for i in range(len(ExecState.article_list), 7):
+        ExecState.article_buttons[i].setVisible(False)
 
 
 class MainWindowWrapper(QMainWindow):
@@ -1088,6 +1146,7 @@ def change_language(language: str):
     fix_tabwidget_width()
     if sys.platform == "darwin":
         GuiState.ui.menuLanguage.setTitle(QLocale(language).nativeLanguageName())
+    article_update_text()
     refresh_locs()
     refresh()
 
@@ -2099,6 +2158,7 @@ def init_ui():
     GuiState.algo_base_font = GuiState.ui.treeWidget.font()
 
     recent_init_actions()
+    article_init_actions()
 
     load_code_editor()
     load_plot_canvas()
