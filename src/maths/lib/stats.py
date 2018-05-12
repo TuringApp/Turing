@@ -40,6 +40,22 @@ def listfunc(func):
     return wrapper
 
 
+doc("choice",
+    [
+        ("args", "List(Any)")
+    ],
+    translate("Docs", "Returns a random element from {{args}}."),
+    ["choix"])
+
+
+@listfunc
+def choice(args):
+    return rnd.choice(args)
+
+
+choix = choice
+
+
 doc("arithm_mean",
     [
         ("args", "List(Number)")
