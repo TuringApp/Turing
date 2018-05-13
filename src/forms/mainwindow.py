@@ -147,6 +147,13 @@ def is_modified():
         return repr(AppState.algo) != ExecState.last_saved
 
 
+
+def handler_ClearRecent():
+    util.settings.setValue("recent", [])
+
+    recent_update_text()
+
+
 def recent_add(path):
     from collections import OrderedDict
 
