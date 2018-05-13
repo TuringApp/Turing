@@ -2149,6 +2149,21 @@ def init_theme_actions():
             action.setVisible(bool(theming.themes["custom"][1]))
 
 
+def load_home_actions():
+    def gen(btn, a):
+        def func():
+            btn.setEnabled(a.isEnabled())
+            btn.setText(a.text())
+        return func
+
+    for a in [GuiState.ui.actionNew, GuiState.ui.actionOpen]:
+        btn = QFlatButton(GuiState.window)
+        btn.setIcon(a.icon())
+        btn.clicked.connect(a.triggered)
+        a.changed.connect(gen(btn, a))
+        GuiState.ui.verticalLayout_3.addWidget(btn)
+
+
 def init_ui():
     from forms.ui_mainwindow import Ui_MainWindow
     GuiState.window = MainWindowWrapper()
@@ -2163,6 +2178,8 @@ def init_ui():
 
     recent_init_actions()
     article_init_actions()
+
+    load_home_actions()
 
     load_code_editor()
     load_plot_canvas()
@@ -2197,6 +2214,7 @@ def init_ui():
     GuiState.ui.actionUseArrowNotation.setChecked(util.settings.value("use_arrow_notation", False, type=bool))
 
     center_widget(GuiState.window, None)
+    fix_qt_shitty_margins()
     GuiState.window.show()
 
 
