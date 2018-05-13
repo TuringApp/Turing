@@ -1135,13 +1135,16 @@ def refresh_locs():
 
 def change_language(language: str):
     available = GuiState.lng_actions.keys()
-    if language not in available and util.get_short_lang(language) not in available:
-        language = "en"
+    if language not in available:
+        if util.get_short_lang(language) in available:
+            language = util.get_short_lang(language)
+        else:
+            language = "en"
     translator.load(language)
     GuiState.ui.menubar.resizeEvent(QResizeEvent(GuiState.ui.menubar.size(), GuiState.ui.menubar.size()))
     load_editor_actions()
     for l, a in GuiState.lng_actions.items():
-        a.setChecked(l in [language, util.get_short_lang(language)])
+        a.setChecked(l == language)
     fix_qt_shitty_margins()
     fix_tabwidget_width()
     if sys.platform == "darwin":
