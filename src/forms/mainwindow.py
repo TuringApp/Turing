@@ -911,17 +911,20 @@ def handler_Run(flag=False):
             ExecState.running = False
 
 
-def handler_ConvertToPython():
-    py_code = "\n".join(AppState.algo.python())
+def load_python_code():
+    import autopep8
+    py_code = autopep8.fix_code("\n".join(AppState.algo.python()))
     GuiState.code_editor.setPlainText(py_code.replace("\t", "    "), "", "")
+
+def handler_ConvertToPython():
+    load_python_code()
     AppState.mode_python = True
     AppState.current_file = None
     refresh()
 
 
 def algo_run_python():
-    py_code = "\n".join(AppState.algo.python())
-    GuiState.code_editor.setPlainText(py_code.replace("\t", "    "), "", "")
+    load_python_code()
     AppState.mode_python = True
     handler_Run()
     AppState.mode_python = False
