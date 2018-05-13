@@ -1033,7 +1033,13 @@ def load_file(file):
 
     recent_add(AppState.current_file)
 
+    set_correct_tab()
+
     refresh()
+
+
+def set_correct_tab():
+    GuiState.ui.tabWidget.setCurrentIndex(2 if AppState.mode_python else 1)
 
 
 def handler_New():
@@ -1047,6 +1053,9 @@ def handler_New():
     AppState.current_file = None
     AppState.algo = BlockStmt([])
     GuiState.code_editor.setPlainText("", "", "")
+
+    set_correct_tab()
+
     refresh()
 
 
