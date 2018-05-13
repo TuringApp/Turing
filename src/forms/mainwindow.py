@@ -2347,9 +2347,10 @@ def autosave_check():
 
 def init_main(splash):
     init_ui()
-    change_language(QLocale.system().name())
 
     set_theme(util.settings.value("app_theme", "default"))
+
+    change_language(QLocale.system().name())
 
     GuiState.window.show()
     splash.finish(GuiState.window)
