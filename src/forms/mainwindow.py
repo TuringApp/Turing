@@ -2125,9 +2125,10 @@ def algo_scroll(event: QWheelEvent):
 
 def fix_qt_shitty_margins():
     for wgt in GuiState.window.centralWidget().findChildren(QPushButton):
-        if wgt.text():
+        if not wgt.icon().isNull() and wgt.text() and not wgt.text().startswith("  "):
             wgt.setText("  " + wgt.text())
-            wgt.setMinimumHeight(28)
+
+        wgt.setMinimumHeight(28)
 
 
 def init_theme_actions():
