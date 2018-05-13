@@ -43,6 +43,7 @@ class Ui_AboutWindow(object):
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.tab_2)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.textEdit_2 = QtWidgets.QTextEdit(self.tab_2)
+        self.textEdit_2.setReadOnly(True)
         self.textEdit_2.setHtml("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -63,7 +64,7 @@ class Ui_AboutWindow(object):
         self.verticalLayout.addWidget(self.buttonBox)
 
         self.retranslateUi(AboutWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         self.buttonBox.accepted.connect(AboutWindow.accept)
         self.buttonBox.rejected.connect(AboutWindow.reject)
         QtCore.QMetaObject.connectSlotsByName(AboutWindow)
