@@ -266,19 +266,25 @@ def article_init_actions():
 
     GuiState.ui.verticalLayout_11.addItem(QSpacerItem(1, 2, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
-    article_update_text()
+    return article_update_text_begin()
 
 
 def article_loader():
     ExecState.article_list = article_fetch(translator.current_lang) or article_fetch("")
 
 
-def article_update_text():
+def article_update_text_begin(both=False):
     thr = threading.Thread(target=article_loader, args=())
     thr.start()
+    if both:
+        article_update_text_end(thr)
+    else:
+        return thr
 
-    while thr.is_alive():
-        QCoreApplication.processEvents()
+def article_update_text_end(thr=None):
+    if thr is not None:
+        while thr.is_alive():
+            QCoreApplication.processEvents()
 
     for i, (name, _) in enumerate(ExecState.article_list):
         ExecState.article_buttons[i].setText(name)
@@ -1168,9 +1174,10 @@ def change_language(language: str):
     fix_tabwidget_width()
     if sys.platform == "darwin":
         GuiState.ui.menuLanguage.setTitle(QLocale(language).nativeLanguageName())
-    article_update_text()
+    thr = article_update_text_begin()
     refresh_locs()
     refresh()
+    article_update_text_end(thr)
 
 
 def send_user_input():
@@ -2196,7 +2203,7 @@ def init_ui():
     GuiState.algo_base_font = GuiState.ui.treeWidget.font()
 
     recent_init_actions()
-    article_init_actions()
+    article_thr = article_init_actions()
 
     load_home_actions()
 
@@ -2234,6 +2241,7 @@ def init_ui():
 
     center_widget(GuiState.window, None)
     fix_qt_shitty_margins()
+    article_update_text_end(article_thr)
     GuiState.window.show()
 
 
