@@ -42,6 +42,21 @@ class AppState():
     new_version = False
 
 
+async_import_table = {}
+
+
+def async_import(module):
+    def runner():
+        globals()[module] = __import__(module)
+
+    async_import_table[module] = threading.Thread(target=runner, args=())
+    async_import_table[module].start()
+
+
+def async_imported(module):
+    return not async_import_table[module].is_alive()
+
+
 class GuiState():
     window: QMainWindow = None
     ui = None
@@ -1308,10 +1323,12 @@ def load_code_editor():
         backend = os.path.join(sys._MEIPASS, backend)
     else:
         print("using script file")
-        import editor_backend
-        backend = editor_backend.__file__
-    GuiState.code_editor.backend.start(backend)
 
+        while not async_imported("editor_backend"):
+            QCoreApplication.processEvents()
+
+        backend = globals()["editor_backend"].__file__
+    GuiState.code_editor.backend.start(backend)
     GuiState.code_editor.modes.append(modes.CodeCompletionMode())
     GuiState.code_editor.modes.append(modes.CaretLineHighlighterMode())
     GuiState.code_editor.modes.append(modes.AutoCompleteMode())
@@ -2392,6 +2409,13 @@ def autosave_check():
             autosave_load()
         else:
             autosave_clear()
+
+
+def init_pre():
+    if not hasattr(sys, "frozen"):
+        async_import("editor_backend")
+
+init_pre()
 
 
 def init_main(splash):
