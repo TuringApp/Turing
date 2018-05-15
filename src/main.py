@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import sys
+import sys, os
+## add a path to get the embedded unmaintained package pyqode
+sys.path.append(
+    os.path.dirname(os.path.dirname(__file__))
+)
 import threading
 
 from PyQt5.QtCore import QSettings, QCoreApplication, Qt
