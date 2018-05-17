@@ -94,7 +94,6 @@ class GuiState():
         "Replace",
         "Indent",
         "Unindent",
-        "ConvertToPseudocode",
         "GoToLine"
     ]
     algo_only = [
