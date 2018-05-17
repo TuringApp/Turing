@@ -870,7 +870,9 @@ def handler_Run(flag=False):
                     "g_window": plot_window,
                     "g_point": plot_point,
                     "g_line": plot_line,
-                    "g_func": plot_function
+                    "g_func": plot_function,
+
+                    "plot": GuiState.plot_axes
                 })
                 plot_update()
             except SyntaxError as err:
