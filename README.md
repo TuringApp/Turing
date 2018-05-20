@@ -24,15 +24,23 @@ In both modes, the code can be debugged and executed step-by-step to facilitate 
 
 Turing is cross-platform, but has only been tested on Windows and Linux-based operating systems. macOS should be supported, but no guarantee is made of that.
 
+### Using the package (recommended for Linux)
+
+A package is available for Ubuntu and Debian. You can install it like this:
+
+`sudo apt-get install turing`
+
+If it does not work, use the pre-compiled binaries available below.
+
 ### Using pre-compiled binaries (recommended)
 
 Click on the [**Releases**](https://github.com/TuringApp/Turing/releases) tab at the top of the page and download the release corresponding to your OS.
 
-- windows32: Windows 32 bits (7 or later)
+- `windows32`: Windows 32 bits (7 or later)
 	- tested on 10 x64
-- nix64: Linux 64 bits (Ubuntu 14.04 or later) 
+- `nix64`: Linux 64 bits (Ubuntu 14.04 / Debian 8 or later) 
 	- tested on 18.04
-- osx: macOS 64 bits (10.13 *High Sierra* or later)
+- `osx`: macOS 64 bits (10.13 *High Sierra* or later)
 	- tested on 10.13
 
 ### Using the source code (advanced users)
