@@ -1495,17 +1495,47 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/stats.py" line="43"/>
         <source>Returns a random element from {{args}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Renvoie un élément au hasard de {{args}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="342"/>
         <source>Returns the uppercase version of {{s}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Renvoie une copie en majuscules de {{s}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="357"/>
         <source>Returns the lowercase version of {{s}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Renvoie une copie en minuscules de {{s}}.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="565"/>
+        <source>Returns the probability for {{x}} with the normal distribution of parameters &#xb5;={{mu}} and ?={{sigma}}.</source>
+        <translation type="obsolete">Renvoie la probabilité de {{x}} avec la loi normale de paramètres µ={{mu}} et σ={{sigma}}.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="580"/>
+        <source>Returns the probability for {{x}} with the standard normal distribution (&#xb5;=0 and ?=1).</source>
+        <translation type="obsolete">Renvoie la probabilité de {{x}} avec la loi normale centrée réduite (µ=0 et σ=1).</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="591"/>
+        <source>Returns the cumulative probability for {{x}} with the normal distribution of parameters &#xb5;={{mu}} and ?={{sigma}}.</source>
+        <translation type="obsolete">Renvoie la probabilité cumulative de {{x}} avec la loi normale de paramètres µ={{mu}} et σ={{sigma}}.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="605"/>
+        <source>Returns the cumulative probability for {{x}} with the standard normal distribution (&#xb5;=0 and ?=1).</source>
+        <translation type="obsolete">Renvoie la probabilité cumulative de {{x}} avec la loi normale centrée réduite (µ=0 et σ=1).</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="617"/>
+        <source>Returns the number with cumulative probability {{p}} with the normal distribution of parameters &#xb5;={{mu}} and ?={{sigma}}.</source>
+        <translation type="obsolete">Renvoie le nombre ayant pour probabilité cumulative {{p}} avec la loi normale de paramètres µ={{mu}} et σ={{sigma}}.</translation>
+    </message>
+    <message>
+        <location filename="../maths/lib/stats.py" line="631"/>
+        <source>Returns the number with cumulative probability {{p}} with the standard normal distribution (&#xb5;=0 and ?=1).</source>
+        <translation type="obsolete">Renvoie le nombre ayant pour probabilité cumulative {{p}} avec la loi normale centrée réduite (µ=0 et σ=1).</translation>
     </message>
     <message encoding="UTF-8">
         <location filename="../maths/lib/stats.py" line="565"/>
@@ -2344,7 +2374,7 @@ Souhaitez-vous le récupérer ?</translation>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="964"/>
         <source>Check for updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Vérifier les mises à jour</translation>
     </message>
 </context>
 <context>
