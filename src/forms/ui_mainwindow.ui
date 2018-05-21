@@ -796,6 +796,7 @@
        <normaloff>:/action/media/settings.png</normaloff>:/action/media/settings.png</iconset>
      </property>
      <addaction name="actionUseArrowNotation"/>
+     <addaction name="actionLoadRecentArticles"/>
     </widget>
     <addaction name="actionCalculator"/>
     <addaction name="menuSettings"/>
@@ -1539,6 +1540,14 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="text">
     <string>Use arrow notation</string>
+   </property>
+  </action>
+  <action name="actionLoadRecentArticles">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Load recent articles</string>
    </property>
   </action>
  </widget>

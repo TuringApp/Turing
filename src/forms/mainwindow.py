@@ -108,6 +108,7 @@ class GuiState():
     mode_zoom: modes.ZoomMode = None
     mode_ext_select: modes.ExtendedSelectionMode = None
     panel_folding: panels.FoldingPanel = None
+    article_load_widgets = None
 
 
 class ExecState():
@@ -264,7 +265,7 @@ def article_fetch(language):
     return result
 
 
-def article_init_actions():
+def article_init_actions(update=True):
     ExecState.article_buttons = []
     ExecState.article_list = []
 
@@ -280,14 +281,42 @@ def article_init_actions():
 
     GuiState.ui.verticalLayout_11.addItem(QSpacerItem(1, 2, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
-    return article_update_text_begin()
+    if update:
+        return article_update_text_begin()
 
+
+def article_remove_button():
+    if GuiState.article_load_widgets is not None:
+        GuiState.ui.verticalLayout_11.removeWidget(GuiState.article_load_widgets[0])
+        GuiState.article_load_widgets[0].deleteLater()
+        GuiState.ui.verticalLayout_11.removeItem(GuiState.article_load_widgets[1])
+        GuiState.article_load_widgets = None
+    for btn in ExecState.article_buttons:
+        btn.setVisible(False)
+
+
+def article_init_button():
+    article_remove_button()
+    btn = QFlatButton(GuiState.window)
+    spacer = QSpacerItem(1, 2, QSizePolicy.Minimum, QSizePolicy.Expanding)
+    GuiState.article_load_widgets = (btn, spacer)
+
+    def handler():
+        set_load_recent_articles(True)
+        article_update_text_begin(True)
+
+    btn.setIcon(QIcon(":/action/media/download.png"))
+    btn.setText(translate("MainWindow", "Load recent articles"))
+    btn.clicked.connect(handler)
+    GuiState.ui.verticalLayout_11.addWidget(btn)
+    GuiState.ui.verticalLayout_11.addItem(spacer)
 
 def article_loader():
     ExecState.article_list = article_fetch(translator.current_lang) or article_fetch("")
 
 
 def article_update_text_begin(both=False):
+    article_remove_button()
     thr = threading.Thread(target=article_loader, args=())
     thr.start()
     if both:
@@ -1176,24 +1205,37 @@ def refresh_locs():
 
 def change_language(language: str):
     available = GuiState.lng_actions.keys()
+
     if language not in available:
         if util.get_short_lang(language) in available:
             language = util.get_short_lang(language)
         else:
             language = "en"
+
     translator.load(language)
+
     GuiState.ui.menubar.resizeEvent(QResizeEvent(GuiState.ui.menubar.size(), GuiState.ui.menubar.size()))
     load_editor_actions()
+
     for l, a in GuiState.lng_actions.items():
         a.setChecked(l == language)
+
     fix_qt_shitty_margins()
     fix_tabwidget_width()
+
     if sys.platform == "darwin":
         GuiState.ui.menuLanguage.setTitle(QLocale(language).nativeLanguageName())
-    thr = article_update_text_begin()
+
+    if util.settings.value("load_articles", False, type=bool):
+        thr = article_update_text_begin()
+    else:
+        article_init_button()
+
     refresh_locs()
     refresh()
-    article_update_text_end(thr)
+
+    if util.settings.value("load_articles", False, type=bool):
+        article_update_text_end(thr)
 
 
 def send_user_input():
@@ -1897,6 +1939,15 @@ def handler_UseArrowNotation():
     refresh_algo()
 
 
+def set_load_recent_articles(val):
+    GuiState.ui.actionLoadRecentArticles.setChecked(val)
+    util.settings.setValue("load_articles", val)
+
+
+def handler_LoadRecentArticles():
+    set_load_recent_articles(GuiState.ui.actionLoadRecentArticles.isChecked())
+
+
 def str_stmt(stmt):
     code = lambda stmt: stmt.code(True)
 
@@ -2221,7 +2272,11 @@ def init_ui():
     GuiState.algo_base_font = GuiState.ui.treeWidget.font()
 
     recent_init_actions()
-    article_thr = article_init_actions()
+
+    article_thr = article_init_actions(util.settings.value("load_articles", False, type=bool))
+
+    if article_thr is None:
+        article_init_button()
 
     load_home_actions()
 
@@ -2256,10 +2311,14 @@ def init_ui():
     set_show_toolbar_text(util.settings.value("show_toolbar_text", True, type=bool))
 
     GuiState.ui.actionUseArrowNotation.setChecked(util.settings.value("use_arrow_notation", False, type=bool))
+    GuiState.ui.actionLoadRecentArticles.setChecked(util.settings.value("load_articles", False, type=bool))
 
     center_widget(GuiState.window, None)
     fix_qt_shitty_margins()
-    article_update_text_end(article_thr)
+
+    if util.settings.value("load_articles", False, type=bool):
+        article_update_text_end(article_thr)
+
     GuiState.window.show()
 
 

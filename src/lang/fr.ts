@@ -2336,6 +2336,11 @@ Souhaitez-vous le récupérer ?</translation>
         <comment>Menu</comment>
         <translation>Récents</translation>
     </message>
+    <message>
+        <location filename="../forms/ui_mainwindow.py" line="959"/>
+        <source>Load recent articles</source>
+        <translation>Charger les articles récents</translation>
+    </message>
 </context>
 <context>
     <name>Parser</name>

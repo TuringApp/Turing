@@ -736,6 +736,9 @@ class Ui_MainWindow(object):
         self.actionUseArrowNotation = QtWidgets.QAction(MainWindow)
         self.actionUseArrowNotation.setCheckable(True)
         self.actionUseArrowNotation.setObjectName("actionUseArrowNotation")
+        self.actionLoadRecentArticles = QtWidgets.QAction(MainWindow)
+        self.actionLoadRecentArticles.setCheckable(True)
+        self.actionLoadRecentArticles.setObjectName("actionLoadRecentArticles")
         self.menuRecent.addAction(self.actionClearRecent)
         self.menuFile.addAction(self.actionNew)
         self.menuFile.addAction(self.actionOpen)
@@ -793,6 +796,7 @@ class Ui_MainWindow(object):
         self.menuProgram.addAction(self.actionConvertToPython)
         self.menuProgram.addAction(self.actionConvertToPseudocode)
         self.menuSettings.addAction(self.actionUseArrowNotation)
+        self.menuSettings.addAction(self.actionLoadRecentArticles)
         self.menuTools.addAction(self.actionCalculator)
         self.menuTools.addAction(self.menuSettings.menuAction())
         self.menubar.addAction(self.menuFile.menuAction())
@@ -952,5 +956,6 @@ class Ui_MainWindow(object):
         self.actionResetZoom.setText(_translate("MainWindow", "Reset zoom"))
         self.actionChangTheme.setText(_translate("MainWindow", "Edit theme"))
         self.actionUseArrowNotation.setText(_translate("MainWindow", "Use arrow notation"))
+        self.actionLoadRecentArticles.setText(_translate("MainWindow", "Load recent articles"))
 
 import turing_rc
