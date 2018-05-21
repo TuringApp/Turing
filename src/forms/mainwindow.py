@@ -1306,9 +1306,9 @@ def load_editor_actions():
     GuiState.panel_search.labelSearch.setMaximumSize(QSize(16, 16))
     GuiState.panel_search.labelReplace.setPixmap(GuiState.ui.actionReplace.icon().pixmap(16, 16))
     GuiState.panel_search.labelReplace.setMaximumSize(QSize(16, 16))
-    GuiState.panel_search.toolButtonPrevious.setIcon(QIcon(QPixmap(":/action/media/up.png")))
-    GuiState.panel_search.toolButtonNext.setIcon(QIcon(QPixmap(":/action/media/down.png")))
-    GuiState.panel_search.toolButtonClose.setIcon(QIcon(QPixmap(":/action/media/cross.png")))
+    GuiState.panel_search.toolButtonPrevious.setIcon(QIcon(":/action/media/up.png"))
+    GuiState.panel_search.toolButtonNext.setIcon(QIcon(":/action/media/down.png"))
+    GuiState.panel_search.toolButtonClose.setIcon(QIcon(":/action/media/cross.png"))
 
     GuiState.panel_search.checkBoxRegex.setText(translate("MainWindow", "Regex"))
     GuiState.panel_search.checkBoxCase.setText(translate("MainWindow", "Match case"))
@@ -1318,10 +1318,10 @@ def load_editor_actions():
     GuiState.panel_search.toolButtonReplace.setText(translate("MainWindow", "Replace"))
     GuiState.panel_search.toolButtonReplaceAll.setText(translate("MainWindow", "Replace All"))
     GuiState.panel_search.lineEditSearch.prompt_text = translate("MainWindow", "Find")
-    GuiState.panel_search.lineEditSearch.button.setIcon(QIcon(QPixmap(":/action/media/backspace.png")))
+    GuiState.panel_search.lineEditSearch.button.setIcon(QIcon(":/action/media/backspace.png"))
     GuiState.panel_search.lineEditSearch.button.setMinimumSize(QSize(21, 21))
     GuiState.panel_search.lineEditReplace.prompt_text = translate("MainWindow", "Replace")
-    GuiState.panel_search.lineEditReplace.button.setIcon(QIcon(QPixmap(":/action/media/backspace.png")))
+    GuiState.panel_search.lineEditReplace.button.setIcon(QIcon(":/action/media/backspace.png"))
 
 
 def copy_actions_to_editor(panel):
