@@ -64,7 +64,7 @@ class Ui_AboutWindow(object):
         self.verticalLayout.addWidget(self.buttonBox)
 
         self.retranslateUi(AboutWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         self.buttonBox.accepted.connect(AboutWindow.accept)
         self.buttonBox.rejected.connect(AboutWindow.reject)
         QtCore.QMetaObject.connectSlotsByName(AboutWindow)
