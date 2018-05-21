@@ -1948,6 +1948,13 @@ def handler_LoadRecentArticles():
     set_load_recent_articles(GuiState.ui.actionLoadRecentArticles.isChecked())
 
 
+def handler_CheckForUpdates():
+    util.settings.setValue("check_for_updates", GuiState.ui.actionCheckForUpdates.isChecked())
+
+    if GuiState.ui.actionCheckForUpdates.isChecked():
+        run_updater()
+
+
 def str_stmt(stmt):
     code = lambda stmt: stmt.code(True)
 
@@ -1977,7 +1984,7 @@ def str_stmt(stmt):
         if stmt.value is None:
             ret = translate("Algo", "[k]DECLARE[/k] [c]{var}[/c]").format(var=stmt.variable)
         else:
-            ret = (translate("Algo", "[c]{var}[/c] [k]🡨[/k] [c]{value}[/c]")
+            ret = (translate("Algo", "[c]{var}[/c] [k]&#129128;[/k] [c]{value}[/c]")
                    if GuiState.ui.actionUseArrowNotation.isChecked()
                    else translate("Algo", "[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]")).format(
                 var=code(stmt.variable),
@@ -2312,6 +2319,7 @@ def init_ui():
 
     GuiState.ui.actionUseArrowNotation.setChecked(util.settings.value("use_arrow_notation", False, type=bool))
     GuiState.ui.actionLoadRecentArticles.setChecked(util.settings.value("load_articles", False, type=bool))
+    GuiState.ui.actionCheckForUpdates.setChecked(util.settings.value("check_for_updates", True, type=bool))
 
     center_widget(GuiState.window, None)
     fix_qt_shitty_margins()
@@ -2488,7 +2496,8 @@ def init_main(splash):
     GuiState.window.show()
     splash.finish(GuiState.window)
 
-    run_updater()
+    if GuiState.ui.actionCheckForUpdates.isChecked():
+        run_updater()
 
     GuiState.window.raise_()
     GuiState.window.activateWindow()

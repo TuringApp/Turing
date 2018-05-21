@@ -739,6 +739,9 @@ class Ui_MainWindow(object):
         self.actionLoadRecentArticles = QtWidgets.QAction(MainWindow)
         self.actionLoadRecentArticles.setCheckable(True)
         self.actionLoadRecentArticles.setObjectName("actionLoadRecentArticles")
+        self.actionCheckForUpdates = QtWidgets.QAction(MainWindow)
+        self.actionCheckForUpdates.setCheckable(True)
+        self.actionCheckForUpdates.setObjectName("actionCheckForUpdates")
         self.menuRecent.addAction(self.actionClearRecent)
         self.menuFile.addAction(self.actionNew)
         self.menuFile.addAction(self.actionOpen)
@@ -797,6 +800,7 @@ class Ui_MainWindow(object):
         self.menuProgram.addAction(self.actionConvertToPseudocode)
         self.menuSettings.addAction(self.actionUseArrowNotation)
         self.menuSettings.addAction(self.actionLoadRecentArticles)
+        self.menuSettings.addAction(self.actionCheckForUpdates)
         self.menuTools.addAction(self.actionCalculator)
         self.menuTools.addAction(self.menuSettings.menuAction())
         self.menubar.addAction(self.menuFile.menuAction())
@@ -957,5 +961,6 @@ class Ui_MainWindow(object):
         self.actionChangTheme.setText(_translate("MainWindow", "Edit theme"))
         self.actionUseArrowNotation.setText(_translate("MainWindow", "Use arrow notation"))
         self.actionLoadRecentArticles.setText(_translate("MainWindow", "Load recent articles"))
+        self.actionCheckForUpdates.setText(_translate("MainWindow", "Check for updates"))
 
 import turing_rc
