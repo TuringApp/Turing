@@ -184,6 +184,10 @@ def recent_add(path):
 def recent_update_text():
     recent = util.settings.value("recent", [])
 
+    recent = [f for f in recent if os.path.isfile(f)]
+    
+    util.settings.setValue("recent", recent)
+
     for i, file in enumerate(recent):
         ExecState.recent_actions[i].setText(os.path.basename(file))
         ExecState.recent_buttons[i].setText(os.path.basename(file))
