@@ -5,11 +5,6 @@ from .BaseStmt import *
 
 
 class ForStmt(BlockStmt):
-    variable = None
-    begin = None
-    end = None
-    step = None
-
     def __init__(self, variable: str, begin: AstNode, end: AstNode, children: CodeBlock, step: AstNode = None):
         super().__init__(children)
         self.variable = variable

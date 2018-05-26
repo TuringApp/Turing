@@ -9,8 +9,6 @@ class UnaryOpNode(AstNode):
 
     value  -- value (AstNode)
     operator -- which unary operator (str)"""
-    value = None
-    operator = None
 
     def __init__(self, value: AstNode, operator: str):
         super().__init__(True)

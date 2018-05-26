@@ -9,7 +9,6 @@ class NumberNode(AstNode):
     """Number node
 
     value -- value (number)"""
-    value = None
 
     def __init__(self, value: util.number):
         super().__init__(type(value) != complex or proper_str(value)[-1] != "i")

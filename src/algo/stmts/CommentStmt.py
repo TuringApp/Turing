@@ -4,8 +4,6 @@ from .BaseStmt import *
 
 
 class CommentStmt(BaseStmt):
-    content = None
-
     def __init__(self, content: str):
         super().__init__()
         self.content = content

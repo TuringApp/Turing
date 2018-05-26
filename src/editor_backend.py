@@ -19,10 +19,6 @@ class PythonCompletionProvider:
 
 
 class LibCompletionProvider:
-    functions = None
-    constants = None
-    directory = None
-
     def __init__(self):
         self.functions = [f[0] for fns in maths.lib.get_funcs().values() for f in fns]
         self.constants = [c[0] for cts in maths.lib.get_consts().values() for c in cts]
@@ -33,7 +29,8 @@ class LibCompletionProvider:
 
 
 class FinalCompletionProvider:
-    providers = []
+    def __init__(self):
+        self.providers = []
 
     def complete(self, code, *args):
         return [c for prov in self.providers for c in prov.complete(code, args)]

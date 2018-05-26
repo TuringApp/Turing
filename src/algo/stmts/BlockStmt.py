@@ -7,8 +7,6 @@ from maths.nodes import AstNode
 
 
 class BlockStmt(BaseStmt):
-    children = None
-
     def __init__(self, children: CodeBlock):
         super().__init__()
         self.set_children(children)

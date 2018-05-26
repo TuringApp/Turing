@@ -8,7 +8,6 @@ class StringNode(AstNode):
     """String node
 
     value -- value (str)"""
-    value = None
 
     def __init__(self, value: str):
         super().__init__(True)

@@ -8,8 +8,6 @@ class LambdaNode(AstNode):
 
     args -- arguments (list of str)
     expr -- expression (AstNode)"""
-    args = None
-    expr = None
 
     def __init__(self, args: List[str], expr: AstNode):
         super().__init__(True)

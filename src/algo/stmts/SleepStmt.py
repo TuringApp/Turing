@@ -4,8 +4,6 @@ from .BaseStmt import *
 
 
 class SleepStmt(BaseStmt):
-    duration = None
-
     def __init__(self, value: AstNode):
         super().__init__()
         self.duration = value

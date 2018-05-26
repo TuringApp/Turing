@@ -7,7 +7,6 @@ class IdentifierNode(AstNode):
     """Identifier node
 
     value -- value (str)"""
-    value = None
 
     def __init__(self, value: str):
         super().__init__(True)

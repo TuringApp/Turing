@@ -8,8 +8,6 @@ class CallNode(AstNode):
 
     func -- function (AstNode)
     args -- arguments (list of AstNode)"""
-    func = None
-    args = None
 
     def __init__(self, func: AstNode, args: List[AstNode]):
         super().__init__(True)

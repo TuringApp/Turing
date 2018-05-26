@@ -4,9 +4,6 @@ from .BaseStmt import *
 
 
 class AssignStmt(BaseStmt):
-    variable = None
-    value = None
-
     def __init__(self, variable: AstNode, value: AstNode = None):
         super().__init__()
         self.variable = variable

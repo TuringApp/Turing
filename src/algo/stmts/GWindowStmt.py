@@ -4,13 +4,6 @@ from .BaseStmt import *
 
 
 class GWindowStmt(BaseStmt):
-    x_min = None
-    x_max = None
-    y_min = None
-    y_max = None
-    x_grad = None
-    y_grad = None
-
     def __init__(self, x_min: AstNode, x_max: AstNode, y_min: AstNode, y_max: AstNode, x_grad: AstNode,
                  y_grad: AstNode):
         super().__init__()

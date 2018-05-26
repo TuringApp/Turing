@@ -12,12 +12,6 @@ class BinOpNode(AstNode):
     left   -- left operand (AstNode)
     right  -- right operand (AstNode)
     operator -- which binary operator (str)"""
-    left = None
-    right = None
-    operator = None
-    precedence = None
-    is_imag_part = False
-    is_complex = False
 
     def __init__(self, left: AstNode, right: AstNode, operator: str):
         super().__init__()
@@ -27,12 +21,16 @@ class BinOpNode(AstNode):
             if left == IdentifierNode("i") and type(right) == NumberNode:
                 left, right = right, left
             self.is_imag_part = isinstance(left, NumberNode) and right == IdentifierNode("i")
+        else:
+            self.is_imag_part = False
 
         # check for complex
         if operator in ["+", "-"]:
             if isinstance(right, NumberNode) and isinstance(left, BinOpNode) and left.is_imag_part:
                 left, right = right, left
             self.is_complex = isinstance(left, NumberNode) and isinstance(right, BinOpNode) and right.is_imag_part
+        else:
+            self.is_complex = False
 
         self.left = left
         self.right = right

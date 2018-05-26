@@ -13,11 +13,6 @@ LogMessage = Tuple[LogType, str]
 class Logger:
     """Logger class."""
 
-    context: str = None
-    callback: Callable = None
-    messages: List[LogMessage] = None
-    use_prefix: bool = None
-
     def __init__(self, context="Log"):
         """Initialises the Logger instance."""
         self.context = context

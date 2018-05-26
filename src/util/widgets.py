@@ -9,12 +9,11 @@ from PyQt5.QtWidgets import QWidget, QMessageBox
 
 
 class QClickableLabel(QLabel):
-    clicked = pyqtSignal()
-    dclicked = pyqtSignal()
-    last_click = None
-
     def __init__(self, parent=None):
         QLabel.__init__(self, parent)
+        self.clicked = pyqtSignal()
+        self.dclicked = pyqtSignal()
+        self.last_click = None
 
     def mousePressEvent(self, ev):
         self.clicked.emit()

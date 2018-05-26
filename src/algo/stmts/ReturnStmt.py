@@ -4,8 +4,6 @@ from .BaseStmt import *
 
 
 class ReturnStmt(BaseStmt):
-    value = None
-
     def __init__(self, value: AstNode = None):
         super().__init__()
         self.value = value

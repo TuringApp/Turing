@@ -6,10 +6,6 @@ class UndoRedo:
 
     undo_gen -- function that takes an action and returns the undo function
     redo_gen -- function that takes an action and returns the redo function"""
-    history = None
-    position = None
-    undo_gen = None
-    redo_gen = None
 
     def __init__(self, undo_gen, redo_gen):
         self.history = []

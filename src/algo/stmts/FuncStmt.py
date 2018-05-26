@@ -5,9 +5,6 @@ from .BaseStmt import *
 
 
 class FuncStmt(BlockStmt):
-    name = None
-    parameters = None
-
     def __init__(self, name: str, parameters: List[str], children: CodeBlock):
         super().__init__(children)
         self.name = name

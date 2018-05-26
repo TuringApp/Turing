@@ -4,7 +4,6 @@ from typing import List
 
 class AstNode:
     """Base node class"""
-    atomic = False
 
     def __init__(self, atomic: bool = False):
         self.atomic = atomic

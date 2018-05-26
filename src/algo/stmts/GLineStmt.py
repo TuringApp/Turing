@@ -4,12 +4,6 @@ from .BaseStmt import *
 
 
 class GLineStmt(BaseStmt):
-    start_x = None
-    start_y = None
-    end_x = None
-    end_y = None
-    color = None
-
     def __init__(self, start_x: AstNode, start_y: AstNode, end_x: AstNode, end_y: AstNode, color: AstNode):
         super().__init__()
         self.start_x = start_x

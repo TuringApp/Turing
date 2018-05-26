@@ -4,9 +4,6 @@ from .BaseStmt import *
 
 
 class DisplayStmt(BaseStmt):
-    content = None
-    newline = None
-
     def __init__(self, content: AstNode, newline: bool = True):
         super().__init__()
         self.content = content

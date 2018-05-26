@@ -5,9 +5,6 @@ from .BaseStmt import *
 
 
 class InputStmt(BaseStmt):
-    variable = None
-    prompt = None
-
     def __init__(self, variable: AstNode, prompt: AstNode = None, text: bool = False):
         super().__init__()
         self.variable = variable

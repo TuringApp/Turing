@@ -4,8 +4,6 @@ from .BaseStmt import *
 
 
 class StopStmt(BaseStmt):
-    message = None
-
     def __init__(self, message: AstNode = None):
         super().__init__()
         self.message = message

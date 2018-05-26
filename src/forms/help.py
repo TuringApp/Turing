@@ -38,10 +38,6 @@ class HelpWindow(QDialog):
         self.load_funcs()
         self.show()
 
-    function = Tuple
-    functions: Dict[str, List[function]] = None
-    catItems = []
-
     def on_item_select(self):
         current = self.ui.listFuncs.currentItem()
 
@@ -108,6 +104,7 @@ class HelpWindow(QDialog):
 
     def load_funcs(self):
         self.functions = maths.lib.get_funcs()
+        self.catItems = []
         for k in sorted(self.functions.keys()):
             item_category = QTreeWidgetItem()
             item_category.setText(0, "%s" % k)

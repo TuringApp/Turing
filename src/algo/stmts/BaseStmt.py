@@ -6,10 +6,8 @@ from maths.nodes import AstNode
 
 
 class BaseStmt:
-    parent = None
-
     def __init__(self):
-        pass
+        self.parent = None
 
     def __repr__(self):
         return "BaseStmt()"

@@ -4,10 +4,6 @@ from .BaseStmt import *
 
 
 class GPointStmt(BaseStmt):
-    x = None
-    y = None
-    color = None
-
     def __init__(self, x: AstNode, y: AstNode, color: AstNode):
         super().__init__()
         self.x = x

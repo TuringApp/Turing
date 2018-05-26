@@ -4,13 +4,6 @@ from .BaseStmt import *
 
 
 class GFuncStmt(BaseStmt):
-    var = None
-    expr = None
-    start = None
-    end = None
-    step = None
-    color = None
-
     def __init__(self, var: str, expr: AstNode, start: AstNode, end: AstNode, step: AstNode, color: AstNode):
         super().__init__()
         self.var = var

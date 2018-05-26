@@ -9,7 +9,6 @@ class ListNode(AstNode):
     """Identifier node
 
     value -- value (list of AstNode)"""
-    value = None
 
     def __init__(self, value: List[AstNode]):
         super().__init__(True)

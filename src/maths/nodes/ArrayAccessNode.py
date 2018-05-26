@@ -9,8 +9,6 @@ class ArrayAccessNode(AstNode):
 
     array -- array (AstNode)
     index -- index (AstNode)"""
-    array = None
-    index = None
 
     def __init__(self, array: AstNode, index: AstNode):
         super().__init__(True)

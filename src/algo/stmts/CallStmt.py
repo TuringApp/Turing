@@ -5,9 +5,6 @@ from .BaseStmt import *
 
 
 class CallStmt(BaseStmt):
-    function = None
-    arguments = None
-
     def __init__(self, function: AstNode, arguments: List[AstNode]):
         super().__init__()
         self.function = function
