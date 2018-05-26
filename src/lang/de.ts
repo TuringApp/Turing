@@ -143,7 +143,7 @@ p, li { white-space: pre-wrap; }
         <translation>[i]frei[/i]</translation>
     </message>
     <message>
-        <location filename="../algo/stmts/InputStmt.py" line="24"/>
+        <location filename="../algo/stmts/InputStmt.py" line="21"/>
         <source>Variable {var} = </source>
         <translation>Variable {var} = </translation>
     </message>
@@ -1631,27 +1631,27 @@ Window Text :</source>
         <translation>Hilfethemen</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="57"/>
+        <location filename="../forms/help.py" line="53"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Parameter:&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="61"/>
+        <location filename="../forms/help.py" line="57"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
         <translation>&lt;li&gt;Keiner&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="71"/>
+        <location filename="../forms/help.py" line="67"/>
         <source>default = {deft}</source>
         <translation>Standard = {deft}</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="86"/>
+        <location filename="../forms/help.py" line="82"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Aliase:&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="99"/>
+        <location filename="../forms/help.py" line="95"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Funktionen:&lt;/h2&gt;</translation>
     </message>

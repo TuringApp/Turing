@@ -133,7 +133,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../algo/stmts/InputStmt.py" line="24"/>
+        <location filename="../algo/stmts/InputStmt.py" line="21"/>
         <source>Variable {var} = </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1621,27 +1621,27 @@ Window Text :</source>
         <translation>帮助目录</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="57"/>
+        <location filename="../forms/help.py" line="53"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="61"/>
+        <location filename="../forms/help.py" line="57"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="71"/>
+        <location filename="../forms/help.py" line="67"/>
         <source>default = {deft}</source>
         <translation>缺省 = {deft}</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="86"/>
+        <location filename="../forms/help.py" line="82"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="99"/>
+        <location filename="../forms/help.py" line="95"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
         <translation type="unfinished"></translation>
     </message>

@@ -50,7 +50,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algo</name>
     <message>
-        <location filename="../algo/stmts/InputStmt.py" line="24"/>
+        <location filename="../algo/stmts/InputStmt.py" line="21"/>
         <source>Variable {var} = </source>
         <translation>Variable {var} = </translation>
     </message>
@@ -1679,27 +1679,27 @@ désactivé :</translation>
         <translation>Bibliothèque</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="57"/>
+        <location filename="../forms/help.py" line="53"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Arguments :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="61"/>
+        <location filename="../forms/help.py" line="57"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
         <translation>&lt;li&gt;Aucun&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="71"/>
+        <location filename="../forms/help.py" line="67"/>
         <source>default = {deft}</source>
         <translation>par défaut = {deft}</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="86"/>
+        <location filename="../forms/help.py" line="82"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Alias :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="99"/>
+        <location filename="../forms/help.py" line="95"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Fonctions :&lt;/h2&gt;</translation>
     </message>
