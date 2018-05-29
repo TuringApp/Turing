@@ -2346,6 +2346,16 @@ def version_check():
     import urllib.request
     import re
 
+    # check for Debian/Ubuntu package
+    if os.path.exists("/etc/issue"):
+        issue=open("/etc/issue", encoding="utf-8").read()
+        if re.match("Debian", issue, re.M) or re.match("Ubuntu", issue, re.M):
+            msg=msg_box_info(translate("MainWindow", "In a Debian or Ubuntu distribution,\nit is safer to check for new versions with\nyour favorite package manager."))
+            msg.exec_()
+            # for Debian/Ubuntu packages, do'nt let Turing manage downloads
+            AppState.new_version = False
+            return
+
     result = json.load(urllib.request.urlopen("https://api.github.com/repos/TuringApp/Turing/releases/latest"))
 
     if result and type(result) == dict and "tag_name" in result:
@@ -2357,9 +2367,9 @@ def version_check():
             AppState.new_version = True
 
 
-def run_updater():
+def handler_run_updater():
     AppState.new_version = False
-
+    
     thr = threading.Thread(target=version_check, args=())
     thr.start()
 
@@ -2395,8 +2405,6 @@ def init_main(splash):
 
     GuiState.window.show()
     splash.finish(GuiState.window)
-
-    run_updater()
 
     GuiState.window.raise_()
     GuiState.window.activateWindow()

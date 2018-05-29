@@ -80,6 +80,11 @@ def msg_box(text, title=None, icon=None, parent=None, buttons=QMessageBox.Yes | 
 
     return res
 
+def msg_box_info(text, *args, **kwargs):
+    return msg_box(text, *args, **kwargs,
+                   buttons=QMessageBox.Yes, default=QMessageBox.Yes,
+                   type=QMessageBox.Information)
+
 
 def msg_box_error(text, *args, **kwargs):
     return msg_box(text, *args, **kwargs, buttons=QMessageBox.Ok, default=QMessageBox.Ok, type=QMessageBox.Critical)
