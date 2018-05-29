@@ -2456,7 +2456,7 @@ def version_check():
 
 def run_updater():
     AppState.new_version = False
-
+    
     thr = threading.Thread(target=version_check, args=())
     thr.start()
 
