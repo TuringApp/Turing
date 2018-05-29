@@ -681,7 +681,7 @@
     </property>
     <widget class="QMenu" name="menuRecent">
      <property name="title">
-      <string comment="Menu">&amp;Recent files</string>
+      <string comment="Menu">Recent files</string>
      </property>
      <property name="icon">
       <iconset resource="../turing.qrc">
@@ -699,7 +699,6 @@
     <addaction name="actionPrint"/>
     <addaction name="separator"/>
     <addaction name="menuRecent"/>
-    <addaction name="actionrun_updater"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -744,7 +743,7 @@
     </property>
     <widget class="QMenu" name="menuChangeTheme">
      <property name="title">
-      <string>&amp;Change theme</string>
+      <string>Change theme</string>
      </property>
      <property name="icon">
       <iconset resource="../turing.qrc">
@@ -755,7 +754,7 @@
     </widget>
     <widget class="QMenu" name="menuChangeStyle">
      <property name="title">
-      <string>Cha&amp;nge style</string>
+      <string>Change style</string>
      </property>
      <property name="icon">
       <iconset resource="../turing.qrc">
@@ -790,7 +789,7 @@
     </property>
     <widget class="QMenu" name="menuSettings">
      <property name="title">
-      <string>&amp;Settings</string>
+      <string>Settings</string>
      </property>
      <property name="icon">
       <iconset resource="../turing.qrc">
@@ -861,7 +860,7 @@
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
    <property name="windowTitle">
-    <string>&amp;Output</string>
+    <string>Output</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>8</number>
@@ -891,8 +890,8 @@
           <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="acceptRichText">
           <bool>true</bool>
@@ -1013,7 +1012,7 @@ p, li { white-space: pre-wrap; }
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
    <property name="windowTitle">
-    <string>P&amp;lot</string>
+    <string>Plot</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>8</number>
@@ -1028,7 +1027,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/new.png</normaloff>:/action/media/new.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;New</string>
+    <string>New</string>
    </property>
    <property name="toolTip">
     <string>New</string>
@@ -1043,7 +1042,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/open.png</normaloff>:/action/media/open.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Open</string>
+    <string>Open</string>
    </property>
    <property name="toolTip">
     <string>Open</string>
@@ -1058,7 +1057,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/save.png</normaloff>:/action/media/save.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Save</string>
+    <string>Save</string>
    </property>
    <property name="toolTip">
     <string>Save</string>
@@ -1073,7 +1072,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/save_as.png</normaloff>:/action/media/save_as.png</iconset>
    </property>
    <property name="text">
-    <string>Sa&amp;ve As</string>
+    <string>Save As</string>
    </property>
    <property name="toolTip">
     <string>Save As</string>
@@ -1085,7 +1084,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/exit.png</normaloff>:/action/media/exit.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Exit</string>
+    <string>Exit</string>
    </property>
    <property name="toolTip">
     <string>Exit</string>
@@ -1096,7 +1095,7 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionSaveAll">
    <property name="text">
-    <string>Save A&amp;ll</string>
+    <string>Save All</string>
    </property>
    <property name="toolTip">
     <string>Save All</string>
@@ -1111,7 +1110,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/undo.png</normaloff>:/action/media/undo.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Undo</string>
+    <string>Undo</string>
    </property>
    <property name="toolTip">
     <string>Undo</string>
@@ -1126,7 +1125,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/redo.png</normaloff>:/action/media/redo.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Redo</string>
+    <string>Redo</string>
    </property>
    <property name="toolTip">
     <string>Redo</string>
@@ -1141,7 +1140,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/cut.png</normaloff>:/action/media/cut.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Cut</string>
+    <string>Cut</string>
    </property>
    <property name="toolTip">
     <string>Cut</string>
@@ -1156,7 +1155,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/copy.png</normaloff>:/action/media/copy.png</iconset>
    </property>
    <property name="text">
-    <string>C&amp;opy</string>
+    <string>Copy</string>
    </property>
    <property name="toolTip">
     <string>Copy</string>
@@ -1171,7 +1170,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/paste.png</normaloff>:/action/media/paste.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Paste</string>
+    <string>Paste</string>
    </property>
    <property name="toolTip">
     <string>Paste</string>
@@ -1186,7 +1185,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/quick_start.png</normaloff>:/action/media/quick_start.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Quick Start</string>
+    <string>Quick Start</string>
    </property>
    <property name="toolTip">
     <string>Quick Start</string>
@@ -1198,7 +1197,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/help.png</normaloff>:/action/media/help.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Help Contents</string>
+    <string>Help Contents</string>
    </property>
    <property name="toolTip">
     <string>Help Contents</string>
@@ -1213,7 +1212,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/icon/media/icon_16.png</normaloff>:/icon/media/icon_16.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;About Turing</string>
+    <string>About Turing</string>
    </property>
    <property name="toolTip">
     <string>About Turing</string>
@@ -1231,7 +1230,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/toolbar.png</normaloff>:/action/media/toolbar.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Show toolbar</string>
+    <string>Show toolbar</string>
    </property>
    <property name="toolTip">
     <string>Show toolbar</string>
@@ -1243,7 +1242,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/examples.png</normaloff>:/action/media/examples.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Examples</string>
+    <string>Examples</string>
    </property>
   </action>
   <action name="actionPrint">
@@ -1252,7 +1251,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/print.png</normaloff>:/action/media/print.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Print</string>
+    <string>Print</string>
    </property>
    <property name="toolTip">
     <string>Print</string>
@@ -1267,7 +1266,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/find.png</normaloff>:/action/media/find.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Find</string>
+    <string>Find</string>
    </property>
    <property name="toolTip">
     <string>Find</string>
@@ -1279,7 +1278,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/replace.png</normaloff>:/action/media/replace.png</iconset>
    </property>
    <property name="text">
-    <string>R&amp;eplace</string>
+    <string>Replace</string>
    </property>
    <property name="toolTip">
     <string>Replace</string>
@@ -1291,7 +1290,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/calculator.png</normaloff>:/action/media/calculator.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Calculator</string>
+    <string>Calculator</string>
    </property>
    <property name="toolTip">
     <string>Calculator</string>
@@ -1303,7 +1302,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/recent_clear.png</normaloff>:/action/media/recent_clear.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Clear</string>
+    <string>Clear</string>
    </property>
    <property name="toolTip">
     <string>Clear</string>
@@ -1315,7 +1314,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/select_all.png</normaloff>:/action/media/select_all.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Select All</string>
+    <string>Select All</string>
    </property>
    <property name="toolTip">
     <string>Select All</string>
@@ -1330,7 +1329,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/run.png</normaloff>:/action/media/run.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Run</string>
+    <string>Run</string>
    </property>
    <property name="toolTip">
     <string>Run</string>
@@ -1345,7 +1344,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/step.png</normaloff>:/action/media/step.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Step-by-step</string>
+    <string>Step-by-step</string>
    </property>
    <property name="toolTip">
     <string>Step-by-step</string>
@@ -1366,7 +1365,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/toolbar_text.png</normaloff>:/action/media/toolbar_text.png</iconset>
    </property>
    <property name="text">
-    <string>S&amp;how toolbar text</string>
+    <string>Show toolbar text</string>
    </property>
    <property name="toolTip">
     <string>Show toolbar text</string>
@@ -1378,7 +1377,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/python.ico</normaloff>:/action/media/python.ico</iconset>
    </property>
    <property name="text">
-    <string>&amp;Convert to Python</string>
+    <string>Convert to Python</string>
    </property>
    <property name="toolTip">
     <string>Convert to Python</string>
@@ -1393,7 +1392,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/code.png</normaloff>:/action/media/code.png</iconset>
    </property>
    <property name="text">
-    <string>Convert to &amp;pseudocode</string>
+    <string>Convert to pseudocode</string>
    </property>
    <property name="toolTip">
     <string>Convert to pseudocode</string>
@@ -1405,7 +1404,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/duplicate_line.png</normaloff>:/action/media/duplicate_line.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Duplicate Line</string>
+    <string>Duplicate Line</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+D</string>
@@ -1417,7 +1416,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/indent.png</normaloff>:/action/media/indent.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Indent</string>
+    <string>Indent</string>
    </property>
    <property name="shortcut">
     <string notr="true">Tab</string>
@@ -1441,7 +1440,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/go_to_line.png</normaloff>:/action/media/go_to_line.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Go To Line</string>
+    <string>Go To Line</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+G</string>
@@ -1453,7 +1452,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/find_previous.png</normaloff>:/action/media/find_previous.png</iconset>
    </property>
    <property name="text">
-    <string>Find Pre&amp;vious</string>
+    <string>Find Previous</string>
    </property>
    <property name="shortcut">
     <string notr="true">Shift+F3</string>
@@ -1465,7 +1464,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/find_next.png</normaloff>:/action/media/find_next.png</iconset>
    </property>
    <property name="text">
-    <string>Find &amp;Next</string>
+    <string>Find Next</string>
    </property>
    <property name="shortcut">
     <string notr="true">F3</string>
@@ -1480,7 +1479,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/stop.png</normaloff>:/action/media/stop.png</iconset>
    </property>
    <property name="text">
-    <string>St&amp;op</string>
+    <string>Stop</string>
    </property>
   </action>
   <action name="actionDebug">
@@ -1489,7 +1488,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/debug.png</normaloff>:/action/media/debug.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Debug</string>
+    <string>Debug</string>
    </property>
    <property name="visible">
     <bool>false</bool>
@@ -1501,7 +1500,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/feedback.png</normaloff>:/action/media/feedback.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Send Feedback</string>
+    <string>Send Feedback</string>
    </property>
   </action>
   <action name="actionZoomIn">
@@ -1510,7 +1509,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/zoom_in.png</normaloff>:/action/media/zoom_in.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Zoom in</string>
+    <string>Zoom in</string>
    </property>
   </action>
   <action name="actionZoomOut">
@@ -1519,7 +1518,7 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/zoom_out.png</normaloff>:/action/media/zoom_out.png</iconset>
    </property>
    <property name="text">
-    <string>Zoom &amp;out</string>
+    <string>Zoom out</string>
    </property>
   </action>
   <action name="actionResetZoom">
@@ -1528,12 +1527,12 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/action/media/zoom_reset.png</normaloff>:/action/media/zoom_reset.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Reset zoom</string>
+    <string>Reset zoom</string>
    </property>
   </action>
   <action name="actionChangTheme">
    <property name="text">
-    <string>&amp;Edit theme</string>
+    <string>Edit theme</string>
    </property>
   </action>
   <action name="actionUseArrowNotation">
@@ -1541,12 +1540,7 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;Use arrow notation</string>
-   </property>
-  </action>
-  <action name="actionrun_updater">
-   <property name="text">
-    <string>&amp;Check for new versions</string>
+    <string>Use arrow notation</string>
    </property>
   </action>
   <action name="actionLoadRecentArticles">

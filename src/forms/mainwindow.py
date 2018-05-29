@@ -10,6 +10,8 @@ from datetime import datetime
 
 import numpy as np
 import pygments.styles
+import re
+
 import pyqode.python.backend
 from PyQt5.QtGui import *
 from matplotlib.axes import Axes
@@ -2322,8 +2324,21 @@ def init_ui():
     set_show_toolbar_text(util.settings.value("show_toolbar_text", True, type=bool))
 
     GuiState.ui.actionUseArrowNotation.setChecked(util.settings.value("use_arrow_notation", False, type=bool))
+
+    is_deb = False
+
+    if os.path.exists("/etc/issue"):
+        try:
+            with open("/etc/issue", encoding="utf-8") as fp:
+                issue = fp.read()
+                
+            if re.match("Debian", issue, re.M) or re.match("Ubuntu", issue, re.M):
+                is_deb = True
+        except:
+            pass
+
     GuiState.ui.actionLoadRecentArticles.setChecked(util.settings.value("load_articles", False, type=bool))
-    GuiState.ui.actionCheckForUpdates.setChecked(util.settings.value("check_for_updates", True, type=bool))
+    GuiState.ui.actionCheckForUpdates.setChecked(util.settings.value("check_for_updates", not is_deb, type=bool))
 
     center_widget(GuiState.window, None)
     fix_qt_shitty_margins()
