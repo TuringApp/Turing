@@ -11,6 +11,7 @@ from datetime import datetime
 import numpy as np
 import pygments.styles
 import re
+import json
 
 import pyqode.python.backend
 from PyQt5.QtGui import *
@@ -166,29 +167,27 @@ def is_modified():
 
 
 def handler_ClearRecent():
-    util.settings.setValue("recent", [])
+    util.settings.setValue("recent", json.dumps([]))
 
     recent_update_text()
 
 
 def recent_add(path):
-    from collections import OrderedDict
-
-    recent = util.settings.value("recent", [])
+    recent = json.loads(util.settings.value("recent", "[]"))
     recent.insert(0, path)
-    recent = list(OrderedDict(zip(recent, recent)))[0:10]
+    recent = sorted(list(set(recent)))[0:10]
 
-    util.settings.setValue("recent", recent)
+    util.settings.setValue("recent", json.dumps(recent))
 
     recent_update_text()
 
 
 def recent_update_text():
-    recent = util.settings.value("recent", [])
+    recent = json.loads(util.settings.value("recent", "[]"))
 
     recent = [f for f in recent if os.path.isfile(f)]
     
-    util.settings.setValue("recent", recent)
+    util.settings.setValue("recent", json.dumps(recent))
 
     for i, file in enumerate(recent):
         ExecState.recent_actions[i].setText(os.path.basename(file))
@@ -221,7 +220,7 @@ def recent_update_text():
 
 
 def recent_clicked(index):
-    recent = util.settings.value("recent", [])
+    recent = json.loads(util.settings.value("recent", "[]"))
 
     if index < len(recent) and recent[index]:
         load_file(recent[index])

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import sys, os
+import sys, os, json
 ## add a path to get the embedded unmaintained package pyqode
 sys.path.insert(0,
     os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -61,7 +61,19 @@ if __name__ == "__main__":
     app.setApplicationVersion(util.__version__)
 
     util.settings = QSettings("Turing", "Turing")
-
+    ## check the format of "recent"'s value
+    try:
+        recent=json.loads(util.settings.value("recent", "[]"))
+        assert( type(recent) is list)
+        ## as of 2018-06-03, There was a bug with QSettings, which
+        ## could not deal with empty lists: such a data was stored
+        ## as @Invalid() and restored as None, which is not an empty list.
+        ## so the format will be a string, serialized with JSON which
+        ## is less buggy, and provides a well readable conffile.
+    except:
+        ## so, if some old-fashioned data were in the conffile,
+        ## just forget it.
+        util.settings.setValue("recent", json.dumps([]))
     util.translate_backend = translate
 
     DEFAULT_STYLE = QStyleFactory.create(app.style().objectName())
