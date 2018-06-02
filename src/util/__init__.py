@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import traceback
+import traceback, os
 from typing import Union, List, Iterable
 
 number = Union[int, float, complex]
@@ -37,3 +37,13 @@ def get_short_lang(lang):
 def show_error():
     traceback.print_exc()
     # print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]) + "\n" + str(sys.exc_info()[2]))
+
+def firstFoundDir(dirList):
+    """
+    @return the first exisiting directory out of a list of available
+    directories, or "." as a fallback.
+    """
+    for d in dirList:
+        if os.path.isdir(d):
+            return d
+    return "."
