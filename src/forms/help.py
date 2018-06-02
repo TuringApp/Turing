@@ -2,7 +2,6 @@
 
 import re
 from html import escape
-from typing import Dict, List, Tuple
 
 import maths.lib
 import maths.lib.docs

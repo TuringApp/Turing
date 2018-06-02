@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-import traceback, os
+import os
+import traceback
 from typing import Union, List, Iterable
 
 number = Union[int, float, complex]
@@ -37,6 +38,7 @@ def get_short_lang(lang):
 def show_error():
     traceback.print_exc()
     # print(translate("MainWindow", "Error: ") + str(sys.exc_info()[1]) + "\n" + str(sys.exc_info()[2]))
+
 
 def first_found_dir(dirList):
     """

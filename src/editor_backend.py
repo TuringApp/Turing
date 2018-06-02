@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-import sys, os
+import os
+import sys
+
 ## add a path to get the embedded unmaintained package pyqode
 sys.path.insert(0,
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-)
+                os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                )
 
 import keyword
 

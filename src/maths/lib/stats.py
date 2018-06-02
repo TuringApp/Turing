@@ -55,7 +55,6 @@ def choice(args):
 
 choix = choice
 
-
 doc("arithm_mean",
     [
         ("args", "List(Number)")

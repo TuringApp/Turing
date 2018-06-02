@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import html
+import json
 import os
+import re
 import runpy
 import sys
 import tempfile
@@ -10,27 +12,23 @@ from datetime import datetime
 
 import numpy as np
 import pygments.styles
-import re
-import json
-
-import pyqode.python.backend
 from PyQt5.QtGui import *
-from PyQt5.QtCore import *
 from matplotlib.axes import Axes
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from matplotlib.ticker import AutoLocator, LinearLocator
-from pyqode.core import api
-from pyqode.core import modes
-from pyqode.core import panels
 
+import pyqode.python.backend
 import util.code
 import util.html
-from util import first_found_dir
 from algo.stmts import *
 from lang import translator
 from maths.nodes import *
 from maths.parser import quick_parse as parse
+from pyqode.core import api
+from pyqode.core import modes
+from pyqode.core import panels
+from util import first_found_dir
 from util import theming, show_error
 from util.widgets import *
 
@@ -167,7 +165,6 @@ def is_modified():
         return repr(AppState.algo) != ExecState.last_saved
 
 
-
 def handler_ClearRecent():
     util.settings.setValue("recent", json.dumps([]))
 
@@ -188,7 +185,7 @@ def recent_update_text():
     recent = json.loads(util.settings.value("recent", "[]"))
 
     recent = [f for f in recent if os.path.isfile(f)]
-    
+
     util.settings.setValue("recent", json.dumps(recent))
 
     for i, file in enumerate(recent):
@@ -318,6 +315,7 @@ def article_init_button():
     GuiState.ui.verticalLayout_11.addWidget(btn)
     GuiState.ui.verticalLayout_11.addItem(spacer)
 
+
 def article_loader():
     ExecState.article_list = article_fetch(translator.current_lang) or article_fetch("")
 
@@ -330,6 +328,7 @@ def article_update_text_begin(both=False):
         article_update_text_end(thr)
     else:
         return thr
+
 
 def article_update_text_end(thr=None):
     if thr is not None:
@@ -974,6 +973,7 @@ def load_python_code():
     py_code = autopep8.fix_code("\n".join(AppState.algo.python()))
     GuiState.code_editor.setPlainText(py_code.replace("\t", "    "), "", "")
 
+
 def handler_ConvertToPython():
     load_python_code()
     AppState.mode_python = True
@@ -993,20 +993,22 @@ def handler_AboutTuring():
     import forms.about
     forms.about.AboutWindow(GuiState.window, util.__version__, util.__channel__).run()
 
+
 def handler_Examples():
     """
     callback function for actionExamples.
     Let the user choose one example file, providing some metadata
     about examples to make an easier choice.
     """
-    msg=msg_box_info(translate("MainWindow", "You are about to choose an example file\nfrom the `examples` directory. To guess what examples are,\nyou can guess from the file names."))
+    msg = msg_box_info(translate("MainWindow",
+                                 "You are about to choose an example file\nfrom the `examples` directory. To guess what examples are,\nyou can guess from the file names."))
     msg.exec_()
-    data_dirs=["/usr/share/turing/",
-              os.path.dirname(os.path.realpath(__file__)),
-              os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
-              os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))] + \
-              QStandardPaths.standardLocations(QStandardPaths.DataLocation) + \
-              QStandardPaths.standardLocations(QStandardPaths.AppDataLocation)
+    data_dirs = ["/usr/share/turing/",
+                 os.path.dirname(os.path.realpath(__file__)),
+                 os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
+                 os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))] + \
+                QStandardPaths.standardLocations(QStandardPaths.DataLocation) + \
+                QStandardPaths.standardLocations(QStandardPaths.AppDataLocation)
     data_dirs = [os.path.join(x, "examples") for x in data_dirs]
     handler_Open(whichDir=first_found_dir(data_dirs))
     return
@@ -1083,7 +1085,9 @@ def handler_Save():
     try:
         save(AppState.current_file)
     except PermissionError:
-        msg=msg_box_info(translate("MainWindow", "You are not allowed to write to {},\nplease choose another file path.").format(AppState.current_file))
+        msg = msg_box_info(
+            translate("MainWindow", "You are not allowed to write to {},\nplease choose another file path.").format(
+                AppState.current_file))
         msg.exec_()
         handler_SaveAs()
     return
@@ -1708,7 +1712,8 @@ def btn_edit_line():
     elif isinstance(stmt, InputStmt):
         from forms import alg_input
         dlg = alg_input.AlgoInputStmt(GuiState.window,
-                                      (stmt.variable.code(), stmt.prompt.code() if stmt.prompt is not None else None, stmt.text))
+                                      (stmt.variable.code(), stmt.prompt.code() if stmt.prompt is not None else None,
+                                       stmt.text))
         if dlg.run():
             stmt.variable = dlg.varname
             stmt.prompt = dlg.expr
@@ -1995,7 +2000,8 @@ def str_stmt(stmt):
     code = lambda stmt: stmt.code(True)
 
     if isinstance(stmt, DisplayStmt):
-        ret = translate("Algo", "[k]DISPLAY[/k] [c]{val}[/c] {newline}").format(val=code(stmt.content), newline="↵" if stmt.newline else "")
+        ret = translate("Algo", "[k]DISPLAY[/k] [c]{val}[/c] {newline}").format(val=code(stmt.content),
+                                                                                newline="↵" if stmt.newline else "")
 
     elif isinstance(stmt, BreakStmt):
         ret = translate("Algo", "[k]BREAK[/k]")
@@ -2014,7 +2020,8 @@ def str_stmt(stmt):
 
     elif isinstance(stmt, InputStmt):
         ret = translate("Algo", "[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c] {text}").format(
-            prompt="" if stmt.prompt is None else stmt.prompt.code(True), var=code(stmt.variable), text="⌘" if stmt.text else "")
+            prompt="" if stmt.prompt is None else stmt.prompt.code(True), var=code(stmt.variable),
+            text="⌘" if stmt.text else "")
 
     elif isinstance(stmt, AssignStmt):
         if stmt.value is None:
@@ -2292,6 +2299,7 @@ def load_home_actions():
         def func():
             btn.setEnabled(a.isEnabled())
             btn.setText(a.text())
+
         return func
 
     for a in [GuiState.ui.actionNew, GuiState.ui.actionOpen]:
@@ -2361,7 +2369,7 @@ def init_ui():
         try:
             with open("/etc/issue", encoding="utf-8") as fp:
                 issue = fp.read()
-                
+
             if re.match("Debian", issue, re.M) or re.match("Ubuntu", issue, re.M):
                 is_deb = True
         except:
@@ -2501,7 +2509,7 @@ def version_check():
 
 def run_updater():
     AppState.new_version = False
-    
+
     thr = threading.Thread(target=version_check, args=())
     thr.start()
 
@@ -2531,6 +2539,7 @@ def autosave_check():
 def init_pre():
     if not hasattr(sys, "frozen"):
         async_import("editor_backend")
+
 
 init_pre()
 
