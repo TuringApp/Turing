@@ -999,7 +999,6 @@ def handler_Examples():
     Let the user choose one example file, providing some metadata
     about examples to make an easier choice.
     """
-    print("GRRR handler_Examples is still not implemented")
     msg=msg_box_info(translate("MainWindow", "You are about to choose an example file\nfrom the `examples` directory. To guess what examples are,\nyou can guess from the file names."))
     msg.exec_()
     dataDirs=["/usr/share/turing/examples"] + \
