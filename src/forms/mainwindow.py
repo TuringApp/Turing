@@ -15,6 +15,7 @@ import json
 
 import pyqode.python.backend
 from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 from matplotlib.axes import Axes
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
@@ -25,6 +26,7 @@ from pyqode.core import panels
 
 import util.code
 import util.html
+from util import firstFoundDir
 from algo.stmts import *
 from lang import translator
 from maths.nodes import *
@@ -991,6 +993,21 @@ def handler_AboutTuring():
     import forms.about
     forms.about.AboutWindow(GuiState.window, util.__version__, util.__channel__).run()
 
+def handler_Examples():
+    """
+    callback function for actionExamples.
+    Let the user choose one example file, providing some metadata
+    about examples to make an easier choice.
+    """
+    print("GRRR handler_Examples is still not implemented")
+    msg=msg_box_info(translate("MainWindow", "You are about to choose an example file\nfrom the `examples` directory. To guess what examples are,\nyou can guess from the file names."))
+    msg.exec_()
+    dataDirs=["/usr/share/turing/examples"] + \
+              QStandardPaths.standardLocations(QStandardPaths.DataLocation) + \
+              QStandardPaths.standardLocations(QStandardPaths.AppDataLocation)
+    handler_Open(whichDir=firstFoundDir(dataDirs))
+    return
+
 
 def set_show_toolbar(show):
     if show:
@@ -1060,13 +1077,24 @@ def handler_Save():
     if not AppState.current_file:
         handler_SaveAs()
         return
+    try:
+        save(AppState.current_file)
+    except PermissionError:
+        msg=msg_box_info(translate("MainWindow", "You are not allowed to write to {},\nplease choose another file path.").format(AppState.current_file))
+        msg.exec_()
+        handler_SaveAs()
+    return
 
-    save(AppState.current_file)
 
-
-def handler_Open():
-    sel_file, _ = QFileDialog.getOpenFileName(GuiState.window, translate("MainWindow", "Open"), "",
-                                              ";;".join(GuiState.filters.values()))
+def handler_Open(whichDir=""):
+    """
+    callback function to open a file
+    @param whichDir the directory to browse initially
+    """
+    sel_file, _ = QFileDialog.getOpenFileName(
+        GuiState.window, translate("MainWindow", "Open"),
+        whichDir,
+        ";;".join(GuiState.filters.values()))
 
     if not sel_file:
         return
