@@ -26,7 +26,7 @@ from pyqode.core import panels
 
 import util.code
 import util.html
-from util import firstFoundDir
+from util import first_found_dir
 from algo.stmts import *
 from lang import translator
 from maths.nodes import *
@@ -1001,10 +1001,14 @@ def handler_Examples():
     """
     msg=msg_box_info(translate("MainWindow", "You are about to choose an example file\nfrom the `examples` directory. To guess what examples are,\nyou can guess from the file names."))
     msg.exec_()
-    dataDirs=["/usr/share/turing/examples"] + \
+    data_dirs=["/usr/share/turing/",
+              os.path.dirname(os.path.realpath(__file__)),
+              os.path.dirname(os.path.dirname(os.path.realpath(__file__))),
+              os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))] + \
               QStandardPaths.standardLocations(QStandardPaths.DataLocation) + \
               QStandardPaths.standardLocations(QStandardPaths.AppDataLocation)
-    handler_Open(whichDir=firstFoundDir(dataDirs))
+    data_dirs = [os.path.join(x, "examples") for x in data_dirs]
+    handler_Open(whichDir=first_found_dir(data_dirs))
     return
 
 
