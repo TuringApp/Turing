@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import sys, os, json
+import json
+import os
+import sys
+
 ## add a path to get the embedded unmaintained package pyqode
 sys.path.insert(0,
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-)
+                os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                )
 import threading
 
 from PyQt5.QtCore import QSettings, QCoreApplication, Qt
@@ -63,8 +66,8 @@ if __name__ == "__main__":
     util.settings = QSettings("Turing", "Turing")
     ## check the format of "recent"'s value
     try:
-        recent=json.loads(util.settings.value("recent", "[]"))
-        assert( type(recent) is list)
+        recent = json.loads(util.settings.value("recent", "[]"))
+        assert (type(recent) is list)
         ## as of 2018-06-03, There was a bug with QSettings, which
         ## could not deal with empty lists: such a data was stored
         ## as @Invalid() and restored as None, which is not an empty list.

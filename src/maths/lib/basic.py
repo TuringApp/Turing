@@ -338,7 +338,6 @@ def integrate(func, a, b, steps=1000):
 
 integ = integrate
 
-
 doc("upper",
     [
         ("s", "String")
@@ -352,7 +351,6 @@ def upper(s):
 
 
 maju = upper
-
 
 doc("lower",
     [
