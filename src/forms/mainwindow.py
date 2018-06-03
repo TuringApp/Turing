@@ -1001,10 +1001,13 @@ def handler_Examples():
     """
     msg=msg_box_info(translate("MainWindow", "You are about to choose an example file\nfrom the `examples` directory. To guess what examples are,\nyou can guess from the file names."))
     msg.exec_()
-    dataDirs=["/usr/share/turing/examples"] + \
-              QStandardPaths.standardLocations(QStandardPaths.DataLocation) + \
-              QStandardPaths.standardLocations(QStandardPaths.AppDataLocation)
-    handler_Open(whichDir=firstFoundDir(dataDirs))
+    dataDirs= \
+        ["/usr/share/turing"] + \
+        QStandardPaths.standardLocations(QStandardPaths.DataLocation) + \
+        QStandardPaths.standardLocations(QStandardPaths.AppDataLocation) + \
+        ["."]
+    exampleDirs=[os.path.join(d,"examples") for d in dataDirs]
+    handler_Open(whichDir=firstFoundDir(exampleDirs))
     return
 
 
