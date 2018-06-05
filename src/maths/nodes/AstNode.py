@@ -28,12 +28,14 @@ class AstNode:
 def isSimple(s):
     """
     @ param s a string which may be a left or a right operand
-    @return True when s is a "simple" string. A sting is "simple"
+    @return True when s is a "simple" string. A string is "simple"
     when it is enclosed in parentheses or when it contains a single
     toke, according to shlex
     """
     return len(list(shlex(s)))==1 or \
-        (s[0]=='(' and s[-1]==')')
+        (s[0]=='(' and s[-1]==')') or \
+        (s[0]=='{' and s[-1]=='}') or \
+        (s[0]=='[' and s[-1]==']')
 
 def protectExpr(s):
     """

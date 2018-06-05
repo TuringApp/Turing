@@ -5,7 +5,6 @@ from .IdentifierNode import *
 from .NumberNode import *
 from .AstNode import *
 from .StringNode import StringNode
-from shlex import shlex
 
 
 class BinOpNode(AstNode):
