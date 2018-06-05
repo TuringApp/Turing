@@ -32,7 +32,7 @@ class UnaryOpNode(AstNode):
         return op + self.value.code_fix(bb)
 
     def python(self) -> str:
-        return "(%s (%s))" % (self.operator.lower(), self.value.python())
+        return "(%s %s)" % (self.operator.lower(), protectExpr(self.value.python()))
 
     def children(self) -> List["AstNode"]:
         return [self.value]

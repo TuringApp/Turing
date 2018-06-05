@@ -24,7 +24,7 @@ class CallNode(AstNode):
         return "%s(%s)" % (self.func.code_fix(bb), ", ".join(arg.code(bb) for arg in self.args))
 
     def python(self) -> str:
-        return "(%s)(%s)" % (self.func.python(), ", ".join(arg.python() for arg in self.args))
+        return "%s(%s)" % (protectExpr(self.func.python()), ", ".join(arg.python() for arg in self.args))
 
     def children(self) -> List["AstNode"]:
         return [self.func] + self.args

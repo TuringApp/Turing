@@ -3,6 +3,7 @@ import maths.parser
 import util.html
 from .IdentifierNode import *
 from .NumberNode import *
+from .AstNode import *
 from .StringNode import StringNode
 
 
@@ -63,6 +64,7 @@ class BinOpNode(AstNode):
             self.operand_code(self.right, bb, True))
 
     def python(self) -> str:
+
         op_table = {
             "^": "**",
             "XOR": "^"
@@ -81,7 +83,8 @@ class BinOpNode(AstNode):
             elif type(right) == StringNode and type(left) != StringNode:
                 left_py = "str(%s)" % left_py
 
-        return "((%s) %s (%s))" % (left_py, op_fix, right_py)
+        return "(%s %s %s)" % \
+            (protectExpr(left_py), op_fix, protectExpr(right_py))
 
     def children(self) -> List["AstNode"]:
         return [self.left, self.right]

@@ -26,4 +26,8 @@ class NumberNode(AstNode):
         return proper_str(self.value)
 
     def python(self) -> str:
-        return "(%r)" % self.value
+        if type(self.value) == complex or self.value < 0:
+            # parentheses for complex and negative numbers
+            return "(%r)" % self.value
+        # no parentheses by default
+        return "%r" % self.value
