@@ -44,12 +44,15 @@ class BinOpNode(AstNode):
     def __repr__(self):
         return "BinOpNode(%r, %r, %r)" % (self.left, self.right, self.operator)
 
-    def operand_code(self, operand: AstNode, bb=False, right=False) -> str:
-        return operand.code_fix(bb) \
-            if (isinstance(operand, BinOpNode) and operand.is_complex and operand.operator == self.operator) \
+    def need_fix(self, operand: AstNode, right=False) -> bool:
+        return (isinstance(operand, BinOpNode) and operand.is_complex and operand.operator == self.operator) \
                or (not self.is_complex and isinstance(operand, BinOpNode) and (operand.precedence < self.precedence or (
                 right and operand.precedence == self.precedence and not maths.parser.Operators.is_commutative(
-            self.operator)))) \
+            self.operator))))
+
+    def operand_code(self, operand: AstNode, bb=False, right=False) -> str:
+        return operand.code_fix(bb) \
+            if self.need_fix(operand, right) \
             else operand.code(bb)
 
     def code(self, bb=False) -> str:
