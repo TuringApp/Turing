@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from algo.stmts import *
+from maths.nodes import *
+from maths.parser import quick_parse as parse
+from util import lstreplace
+
 tokens = {
 #    'unused': [[0x00]],
     '►DMS': [[0x01]],
@@ -207,23 +212,23 @@ tokens = {
     'cosh⁻¹(': [[0xCB]],
     'tanh(': [[0xCC]],
     'tanh⁻¹(': [[0xCD]],
-    'If': [[0xCE]],
+    'If ': [[0xCE]],
     'Then': [[0xCF]],
     'Else': [[0xD0]],
-    'While': [[0xD1]],
-    'Repeat': [[0xD2]],
+    'While ': [[0xD1]],
+    'Repeat ': [[0xD2]],
     'For(': [[0xD3]],
     'End': [[0xD4]],
     'Return': [[0xD5]],
-    'Lbl': [[0xD6]],
-    'Goto': [[0xD7]],
-    'Pause': [[0xD8]],
+    'Lbl ': [[0xD6]],
+    'Goto ': [[0xD7]],
+    'Pause ': [[0xD8]],
     'Stop': [[0xD9]],
     'IS>(': [[0xDA]],
     'DS<(': [[0xDB]],
-    'Input': [[0xDC]],
-    'Prompt': [[0xDD]],
-    'Disp': [[0xDE]],
+    'Input ': [[0xDC]],
+    'Prompt ': [[0xDD]],
+    'Disp ': [[0xDE]],
     'DispGraph': [[0xDF]],
     'Output(': [[0xE0]],
     'ClrHome': [[0xE1]],
@@ -899,7 +904,7 @@ tokens = {
     'CENTER': [[0xEF, 0x93]],
     'RIGHT': [[0xEF, 0x94]],
     'invBinom(': [[0xEF, 0x95]],
-    'Wait': [[0xEF, 0x96]],
+    'Wait ': [[0xEF, 0x96]],
     'toString(': [[0xEF, 0x97]],
     'eval': [[0xEF, 0x98]],
 #    '': [[0xEF, 0x99]],
@@ -911,9 +916,117 @@ tokens = {
 #    '': [[0xEF, 0x9F]],
 }
 
+def paren(lst):
+    return ["("] + lst + [")"]
+
 def convert_node(node):
-    pass
+    if isinstance(node, StringNode):
+        return ['"'] + list(node.value) + ['"']
+
+    if isinstance(node, NumberNode):
+        return lstreplace(lstreplace(list(str(node.value)), "e", "EE"), "-", "--")
+
+    if isinstance(node, IdentifierNode):
+        return list(node.value.upper())
+
+    if isinstance(node, ListNode):
+        res = ["{"]
+
+        for n in node.value:
+            res.extend(convert_node(n))
+            res.append(",")
+
+        if res[-1] == ",":
+            res = res[:-1]
+
+        res.append("}")
+        return res
+
+    if isinstance(node, UnaryOpNode):
+        table = {
+            "NOT": ["not("],
+            "-": ["--", "("],
+        }
+        return table[node.operator] + [convert_node(node.value), ")"]
+
+    if isinstance(node, BinOpNode):
+        table = {
+
+        }
+        
+        left = convert_node(node.left)
+        right = convert_node(node.right)
+
+        if node.need_fix(node.left):
+            left = paren(left)
+
+        if node.need_fix(node.right, True):
+            right = paren(right)
+
+        return left + [table.get(node.operator, node.operator)] + right
+
+    print("unimpl node %s" % type(node))
 
 def convert_stmt(stmt):
-    pass
+    if isinstance(stmt, AssignStmt):
+        return convert_node(stmt.value) + ["→"] + convert_node(stmt.variable)
+
+    if isinstance(stmt, InputStmt):
+        res = ["Input "]
+
+        if stmt.prompt is not None:
+            res.extend(convert_node(stmt.prompt))
+            res.append(",")
+
+        res.extend(convert_node(stmt.variable))
+        return res
+
+    if isinstance(stmt, DisplayStmt):
+        return ["Disp "] + convert_node(stmt.content)
+
+    if isinstance(stmt, SleepStmt):
+        return ["Wait "] + convert_node(stmt.duration)
+
+    if isinstance(stmt, ForStmt):
+        res = ["For("] + list(stmt.variable) + [","] + convert_node(stmt.begin) + [","] + convert_node(stmt.end)
+
+        if stmt.step is not None:
+            res.append(",")
+            res.extend(convert_node(stmt.step))
+
+        res.append(")")
+        res.append("\n")
+
+        for line in stmt.children:
+            res.extend(convert_stmt(line))
+            res.append("\n")
+
+        res.append("End")
+        return res
+
+    print("unimpl stmt %s" % type(stmt))
+
+def stringify(toklst):
+    res = ""
+
+    if toklst:
+        for tok in toklst:
+            if len(tokens[tok]) == 2:
+                res += tokens[tok][1]
+            else:
+                res += tok
+
+    return res
+
+algo = [
+            AssignStmt(parse("sum"), parse("0")),
+            InputStmt(parse("N")),
+            ForStmt("i", parse("1"), parse("N"), [
+                AssignStmt(parse("sum"), parse("sum + i"))
+            ]),
+            DisplayStmt(parse("\"Result=\" + sum"))
+        ]
+
+for s in algo:
+    print(stringify(convert_stmt(s)))
 
