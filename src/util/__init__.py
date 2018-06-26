@@ -49,3 +49,7 @@ def first_found_dir(dirList):
         if os.path.isdir(d):
             return d
     return "."
+
+
+def lstreplace(lst, a, b):
+    return [b if x == a else x for x in lst]
