@@ -1117,7 +1117,7 @@ def load_file(file):
         newcode = openfile.read()
 
     if ext == ".alg":
-        from algo.algobox import parse_algobox
+        from algo.frontends.algobox import parse_algobox
         AppState.mode_python = False
         load_block(parse_algobox(newcode))
         ExecState.last_saved = repr(AppState.algo)
