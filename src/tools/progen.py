@@ -25,3 +25,9 @@ TRANSLATIONS += \
 """)
 
     file.write(" \\\n".join("    " + x[3:] for x in glob.iglob('../**/*.ts', recursive=True)))
+
+    file.write(r"""
+    
+CODECFORTR = UTF-8
+CODECFORSRC = UTF-8
+""")
