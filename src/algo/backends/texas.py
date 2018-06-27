@@ -1118,6 +1118,9 @@ def convert_stmt(stmt, next=None):
                convert_node(stmt.x) + [","] + \
                convert_node(stmt.y) + [")"]
 
+    if isinstance(stmt, CallStmt):
+        return convert_node(stmt.function) + ["("] + listjoin((convert_node(a) for a in stmt.arguments), ",") + [")"]
+
     print("unimpl stmt %s" % type(stmt))
 
 def stringify(toklst):
