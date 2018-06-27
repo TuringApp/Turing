@@ -1135,6 +1135,12 @@ def stringify(toklst):
 
     return res
 
+def binify(toklst):
+    if toklst:
+        return [bin for tok in toklst for bin in tokens[tok][0]]
+
+    return []
+
 algo = [
     ForStmt("i", parse("1"), parse("16"), [
         IfStmt(parse("i % 15 == 0"), [
@@ -1156,5 +1162,5 @@ algo = [
     ])
         ]
 
-print(stringify(convert_block(algo)))
+print(["%02X" % x for x in binify(convert_block(algo))])
 
