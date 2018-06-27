@@ -1050,7 +1050,7 @@ def convert_stmt(stmt, next=None):
         return ["Wait "] + convert_node(stmt.duration)
 
     if isinstance(stmt, ForStmt):
-        res = ["For("] + list(stmt.variable) + [","] + convert_node(stmt.begin) + [","] + convert_node(stmt.end)
+        res = ["For("] + list(stmt.variable.upper()) + [","] + convert_node(stmt.begin) + [","] + convert_node(stmt.end)
 
         if stmt.step is not None:
             res.append(",")
