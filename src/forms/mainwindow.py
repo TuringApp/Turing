@@ -259,7 +259,7 @@ def article_fetch(language):
     import urllib.request
     from xml.etree import ElementTree
 
-    response = urllib.request.urlopen("https://turingapp.ml/%s/feed/" % language)
+    response = urllib.request.urlopen(urllib.request.Request("https://turingapp.ml/%s/feed/" % language, headers={'User-Agent': 'Mozilla/5.0'}))
     xml = ElementTree.fromstring(response.read())
     result = []
 
@@ -2496,7 +2496,7 @@ def version_check():
     import urllib.request
     import re
 
-    result = json.load(urllib.request.urlopen("https://api.github.com/repos/TuringApp/Turing/releases/latest"))
+    result = json.load(urllib.request.urlopen(urllib.request.Request("https://api.github.com/repos/TuringApp/Turing/releases/latest", headers={'User-Agent': 'Mozilla/5.0'})))
 
     if result and type(result) == dict and "tag_name" in result:
         version = re.findall(r"[\d.]+", result["tag_name"])[0]
