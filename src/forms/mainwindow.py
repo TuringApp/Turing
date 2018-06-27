@@ -1100,7 +1100,7 @@ def handler_Open(whichDir=""):
     """
     sel_file, _ = QFileDialog.getOpenFileName(
         GuiState.window, translate("MainWindow", "Open"),
-        whichDir,
+        whichDir or "",
         ";;".join(GuiState.filters.values()))
 
     if not sel_file:
