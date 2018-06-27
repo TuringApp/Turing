@@ -781,7 +781,6 @@
     <addaction name="actionStop"/>
     <addaction name="separator"/>
     <addaction name="actionConvertToPython"/>
-    <addaction name="actionConvertToPseudocode"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">

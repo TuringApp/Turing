@@ -402,8 +402,7 @@ def refresh_buttons_status():
         "Replace",
         "Run",
         "Step",
-        "ConvertToPython",
-        "ConvertToPseudocode"
+        "ConvertToPython"
     ]:
         get_action(c).setEnabled(active_code)
 
