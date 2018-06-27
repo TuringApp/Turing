@@ -5,7 +5,7 @@ popd
 pushd tools
 python progen.py
 popd tools
-pylupdate5 project.pro
+pylupdate5 -verbose project.pro
 pushd lang
 for %%f in (*.ts) do lrelease %%f
 popd
