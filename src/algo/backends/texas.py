@@ -925,6 +925,18 @@ def linify(lst):
 def paren(lst):
     return ["("] + lst + [")"]
 
+def listjoin(args, sep):
+    res = []
+
+    for a in args:
+        res.extend(a)
+        res.append(sep)
+
+    if res:
+        res = res[:-1]
+
+    return res
+
 def convert_color(node):
     colors = [
         'BLUE',
@@ -963,17 +975,7 @@ def convert_node(node):
         return list(node.value.upper())
 
     if isinstance(node, ListNode):
-        res = ["{"]
-
-        for n in node.value:
-            res.extend(convert_node(n))
-            res.append(",")
-
-        if res[-1] == ",":
-            res = res[:-1]
-
-        res.append("}")
-        return res
+        return ["{"] + listjoin((convert_node(a) for a in node.value), ",") + ["}"]
 
     if isinstance(node, UnaryOpNode):
         table = {
@@ -1015,6 +1017,9 @@ def convert_node(node):
 
     if isinstance(node, ArrayAccessNode):
         return ["∟"] + convert_node(node.array) + ["("] + convert_node(node.index) + [")"]
+
+    if isinstance(node, CallNode):
+        return convert_node(node.func) + ["("] + listjoin((convert_node(a) for a in node.args), ",") + [")"]
 
     print("unimpl node %s" % type(node))
 
