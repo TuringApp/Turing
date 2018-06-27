@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import struct
 
 from algo.stmts import *
 from maths.nodes import *
@@ -1141,6 +1142,32 @@ def binify(toklst):
 
     return []
 
+def package(name, data):
+    entry = struct.pack("<H H B 8s B B H H",
+                        0x000D,                 # Entry header
+                        len(data) + 2,          # Length of variable data
+                        0x05,                   # Variable type ID
+                        name.encode("ascii"),   # Variable name
+                        0x00,                   # Version
+                        0x00,                   # Flag (archived)
+                        len(data) + 2,          # Length of variable data (copy)
+                        len(data),              # Number of token bytes
+                        ) \
+            + bytes(data)
+
+    checksum = sum(entry) & 0xFFFF # Checksum = lower 16-bits of the sum of all bytes in data
+
+    file = struct.pack("<8s 3s 42s H",
+                       b"**TI83F*",         # Signature
+                       b"\x1A\x0A\x0A",     # 2nd signature
+                       b"Turing rocks!",    # Comment
+                       len(entry)) \
+           + entry \
+           + struct.pack("<H", checksum)
+
+    return file
+
+
 algo = [
     ForStmt("i", parse("1"), parse("16"), [
         IfStmt(parse("i % 15 == 0"), [
@@ -1162,5 +1189,7 @@ algo = [
     ])
         ]
 
-print(["%02X" % x for x in binify(convert_block(algo))])
+arr = ["%02X" % x for x in package("DEADBEEF", binify(convert_block(algo)))]
+print(arr)
+print("".join(arr))
 
