@@ -3,7 +3,7 @@
 from algo.stmts import *
 from maths.nodes import *
 from maths.parser import quick_parse as parse
-from util import lstreplace
+from util import lstreplace, pairwise
 
 tokens = {
 #    'unused': [[0x00]],
@@ -66,11 +66,11 @@ tokens = {
     '9': [[0x39]],
     '.': [[0x3A]],
     'EE': [[0x3B], "E"], # exponent
-    'or': [[0x3C]],
-    'xor': [[0x3D]],
+    ' or ': [[0x3C]],
+    ' xor ': [[0x3D]],
     ':': [[0x3E]],
     '\n': [[0x3F]],
-    'and': [[0x40]],
+    ' and ': [[0x40]],
     'A': [[0x41]],
     'B': [[0x42]],
     'C': [[0x43]],
@@ -916,8 +916,41 @@ tokens = {
 #    '': [[0xEF, 0x9F]],
 }
 
+def linify(lst):
+    if lst:
+        return lst + ["\n"]
+
+    return []
+
 def paren(lst):
     return ["("] + lst + [")"]
+
+def convert_color(node):
+    colors = [
+        'BLUE',
+        'RED',
+        'BLACK',
+        'MAGENTA',
+        'GREEN',
+        'ORANGE',
+        'BROWN'
+        'NAVY',
+        'LTBLUE',
+        'YELLOW',
+        'WHITE',
+        'LTGREY',
+        'MEDGREY',
+        'GREY',
+        'DARKGREY',
+    ]
+
+    if isinstance(node, StringNode):
+        fix = node.value.upper().strip()
+        if fix in colors:
+            return fix
+
+    return "BLUE"
+
 
 def convert_node(node):
     if isinstance(node, StringNode):
@@ -951,11 +984,26 @@ def convert_node(node):
 
     if isinstance(node, BinOpNode):
         table = {
-
+            "^": "",
+            "**": "",
+            "<=": "≤",
+            ">=": "≥",
+            "==": "=",
+            "!=": "≠",
+            "&": " and ",
+            "|": " or ",
+            "XOR": " xor "
         }
-        
+
+        ftable = {
+            "%": "remainder("
+        }
+
         left = convert_node(node.left)
         right = convert_node(node.right)
+
+        if node.operator.upper() in ftable:
+            return [ftable[node.operator.upper()]] + left + [","] + right + [")"]
 
         if node.need_fix(node.left):
             left = paren(left)
@@ -963,11 +1011,17 @@ def convert_node(node):
         if node.need_fix(node.right, True):
             right = paren(right)
 
-        return left + [table.get(node.operator, node.operator)] + right
+        return left + [table.get(node.operator.upper(), node.operator)] + right
+
+    if isinstance(node, ArrayAccessNode):
+        return ["∟"] + convert_node(node.array) + ["("] + convert_node(node.index) + [")"]
 
     print("unimpl node %s" % type(node))
 
-def convert_stmt(stmt):
+def convert_block(block):
+    return [tok for a, b in pairwise(block) for tok in convert_stmt(a, b)]
+
+def convert_stmt(stmt, next=None):
     if isinstance(stmt, AssignStmt):
         return convert_node(stmt.value) + ["→"] + convert_node(stmt.variable)
 
@@ -984,6 +1038,9 @@ def convert_stmt(stmt):
     if isinstance(stmt, DisplayStmt):
         return ["Disp "] + convert_node(stmt.content)
 
+    if isinstance(stmt, StopStmt):
+        return ["Pause "] + (convert_node(stmt.message) if stmt.message is not None else [])
+
     if isinstance(stmt, SleepStmt):
         return ["Wait "] + convert_node(stmt.duration)
 
@@ -997,12 +1054,64 @@ def convert_stmt(stmt):
         res.append(")")
         res.append("\n")
 
-        for line in stmt.children:
-            res.extend(convert_stmt(line))
-            res.append("\n")
+        for line, n in pairwise(stmt.children):
+            res.extend(linify(convert_stmt(line, n)))
 
         res.append("End")
         return res
+
+    if isinstance(stmt, WhileStmt):
+        res = ["While "] + convert_node(stmt.condition) + ["\n"]
+
+        for line, n in pairwise(stmt.children):
+            res.extend(linify(convert_stmt(line, n)))
+
+        res.append("End")
+        return res
+
+    if isinstance(stmt, IfStmt):
+        res = ["If "] + convert_node(stmt.condition) + ["\n", "Then", "\n"]
+
+        for line, n in pairwise(stmt.children):
+            res.extend(linify(convert_stmt(line, n)))
+
+        if isinstance(next, ElseStmt):
+            res.append("Else")
+            res.append("\n")
+
+            for line, n in pairwise(next.children):
+                res.extend(linify(convert_stmt(line, n)))
+
+        res.append("End")
+        return res
+
+    if isinstance(stmt, ElseStmt):
+        return []
+
+    if isinstance(stmt, CommentStmt):
+        return ['"'] + list(stmt.content)
+
+    if isinstance(stmt, GClearStmt):
+        return ["ClrDraw"]
+
+    if isinstance(stmt, GWindowStmt):
+        return convert_node(stmt.x_min) + ["→", "Xmin", ":"] + \
+               convert_node(stmt.x_max) + ["→", "Xmax", ":"] + \
+               convert_node(stmt.y_min) + ["→", "Ymin", ":"] + \
+               convert_node(stmt.y_max) + ["→", "Ymax"]
+
+    if isinstance(stmt, GLineStmt):
+        return ["Line("] + \
+               convert_node(stmt.start_x) + [","] + \
+               convert_node(stmt.start_y) + [","] + \
+               convert_node(stmt.end_x) + [","] + \
+               convert_node(stmt.end_y) + [","] + \
+               convert_color(stmt.color) + [")"]
+
+    if isinstance(stmt, GPointStmt):
+        return ["Pt-On("] + \
+               convert_node(stmt.x) + [","] + \
+               convert_node(stmt.y) + [")"]
 
     print("unimpl stmt %s" % type(stmt))
 
@@ -1019,14 +1128,25 @@ def stringify(toklst):
     return res
 
 algo = [
-            AssignStmt(parse("sum"), parse("0")),
-            InputStmt(parse("N")),
-            ForStmt("i", parse("1"), parse("N"), [
-                AssignStmt(parse("sum"), parse("sum + i"))
+    ForStmt("i", parse("1"), parse("16"), [
+        IfStmt(parse("i % 15 == 0"), [
+            DisplayStmt(parse("\"FizzBuzz\""))
+        ]),
+        ElseStmt([
+            IfStmt(parse("i % 3 == 0"), [
+                DisplayStmt(parse("\"Fizz\""))
             ]),
-            DisplayStmt(parse("\"Result=\" + sum"))
+            ElseStmt([
+                IfStmt(parse("i % 5 == 0"), [
+                    DisplayStmt(parse("\"Buzz\""))
+                ]),
+                ElseStmt([
+                    DisplayStmt(parse("i"))
+                ])
+            ])
+        ]),
+    ])
         ]
 
-for s in algo:
-    print(stringify(convert_stmt(s)))
+print(stringify(convert_block(algo)))
 

@@ -53,3 +53,13 @@ def first_found_dir(dirList):
 
 def lstreplace(lst, a, b):
     return [b if x == a else x for x in lst]
+
+
+def pairwise(lst):
+    if not lst:
+        return
+
+    for i in range(len(lst) - 1):
+        yield lst[i], lst[i + 1]
+
+    yield lst[-1], None
