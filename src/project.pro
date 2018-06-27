@@ -1,3 +1,8 @@
+
+
+CODECFORTR = UTF-8
+CODECFORSRC = UTF-8
+
 RESOURCES += \
     turing.qrc
 
@@ -5,10 +10,13 @@ SOURCES += \
     editor_backend.py \
     main.py \
     turing_rc.py \
-    algo\algobox.py \
     algo\worker.py \
     algo\__init__.py \
     algo\__tests__.py \
+    algo\backends\texas.py \
+    algo\backends\__init__.py \
+    algo\frontends\algobox.py \
+    algo\frontends\__init__.py \
     algo\stmts\AssignStmt.py \
     algo\stmts\BaseStmt.py \
     algo\stmts\BlockStmt.py \

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="2.0" language="fr" sourcelanguage="en">
-<context>
+<context encoding="UTF-8">
     <name>AboutWindow</name>
     <message>
         <location filename="../forms/ui_about.py" line="74"/>
@@ -8,13 +8,23 @@
         <translation>À propos de Turing</translation>
     </message>
     <message>
+        <location filename="../forms/ui_about.py" line="88"/>
+        <source>Program</source>
+        <translation>Programme</translation>
+    </message>
+    <message>
+        <location filename="../forms/ui_about.py" line="89"/>
+        <source>License</source>
+        <translation>Licence</translation>
+    </message>
+    <message encoding="UTF-8">
         <location filename="../forms/ui_about.py" line="75"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Turing {version}&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Release channel : &lt;/span&gt;{channel} &lt;br /&gt;&lt;br /&gt;Free and open-source software to assist the learning of algorithms and programming. &lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Copyright (c) 2018 the Turing development team (Leo Joly, Tom Niget)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Release channel : &lt;/span&gt;{channel} &lt;br /&gt;&lt;br /&gt;Free and open-source software to assist the learning of algorithms and programming. &lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Copyright (c) 2018 the Turing development team (Léo Joly, Tom Niget)&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This software is distributed under the terms of the MIT license and makes use of the &lt;a href=&quot;https://www.qt.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Qt&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;https://riverbankcomputing.com/software/pyqt/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;pyQt&lt;/span&gt;&lt;/a&gt;. frameworks.&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;CS &amp;gt; Maths&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Windows icons under CC-BY 3.0 license - &lt;a href=&quot;http://www.fatcow.com/free-icons&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;(c) Fatcow Web Hosting&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
@@ -27,7 +37,7 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;Turing {version}&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Canal de développement : &lt;/span&gt;{channel} &lt;br /&gt;&lt;br /&gt;Logiciel libre et multi-plateforme d&apos;aide à l&apos;apprentissage de l&apos;algorithmique et de la programmation informatique. &lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Copyright &amp;copy; 2018 l&apos;équipe Turing (L&amp;eacute;o Joly, Tom Niget)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Canal de développement : &lt;/span&gt;{channel} &lt;br /&gt;&lt;br /&gt;Logiciel libre et multi-plateforme d&apos;aide à l&apos;apprentissage de l&apos;algorithmique et de la programmation informatique. &lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Copyright &amp;copy; 2018 l&apos;équipe Turing (Léo Joly, Tom Niget)&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ce logiciel est distribué sous la licence MIT et utilise le framework &lt;a href=&quot;https://www.qt.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Qt&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;https://riverbankcomputing.com/software/pyqt/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;pyQt&lt;/span&gt;&lt;/a&gt;.&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Spé ISN &amp;gt; Spé maths&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Icônes Windows sous licence CC-BY 3.0 - &lt;a href=&quot;http://www.fatcow.com/free-icons&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;&amp;copy; Fatcow Web Hosting&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
@@ -35,16 +45,6 @@ p, li { white-space: pre-wrap; }
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://twitter.com/davR74130&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#0000ff;&quot;&gt;David Roche&lt;/span&gt;&lt;/a&gt;, professeur de physique et d&apos;informatique, dont les cours et la modestie ont été d&apos;une aide incontournable pendant le développement&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Alan Turing&lt;/span&gt;, sans qui ce projet n&apos;existerait pas&lt;/li&gt;&lt;/ul&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;svp mettez nous pas une mauvaise note&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_about.py" line="88"/>
-        <source>Program</source>
-        <translation>Programme</translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_about.py" line="89"/>
-        <source>License</source>
-        <translation>Licence</translation>
     </message>
 </context>
 <context>
@@ -80,77 +80,67 @@ p, li { white-space: pre-wrap; }
         <translation>SINON ne peut être utilisé qu&apos;immédiatement après un bloc SI</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2012"/>
+        <location filename="../forms/mainwindow.py" line="2018"/>
         <source>[k]CONTINUE[/k]</source>
         <translation>[k]CONTINUER[/k]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2015"/>
+        <location filename="../forms/mainwindow.py" line="2021"/>
         <source>[b]ELSE[/b]</source>
         <translation>[b]SINON[/b]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1788"/>
-        <source>[k]DISPLAY[/k] [c]{val}[/c]</source>
-        <translation type="obsolete">[k]AFFICHER[/k] [c]{val}[/c]</translation>
-    </message>
-    <message>
-        <location filename="../forms/mainwindow.py" line="2018"/>
+        <location filename="../forms/mainwindow.py" line="2024"/>
         <source>[b]WHILE[/b] [c]{cond}[/c]</source>
         <translation>[b]TANT QUE[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2021"/>
+        <location filename="../forms/mainwindow.py" line="2027"/>
         <source>[b]IF[/b] [c]{cond}[/c]</source>
         <translation>[b]SI[/b] [c]{cond}[/c]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1806"/>
-        <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c]</source>
-        <translation type="obsolete">[k]SAISIR[/k] [c]{var}[/c]</translation>
-    </message>
-    <message>
-        <location filename="../forms/mainwindow.py" line="2052"/>
+        <location filename="../forms/mainwindow.py" line="2059"/>
         <source>[k]RETURN[/k] [c]{val}[/c]</source>
         <translation>[k]RENVOYER[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2029"/>
+        <location filename="../forms/mainwindow.py" line="2036"/>
         <source>[k]DECLARE[/k] [c]{var}[/c]</source>
         <translation>[k]DÉCLARER[/k] [c]{var}[/c]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2038"/>
+        <location filename="../forms/mainwindow.py" line="2045"/>
         <source>[k]CALL[/k] [c]{code}[/c]</source>
         <translation>[k]APPELER[/k] [c]{code}[/c]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2048"/>
+        <location filename="../forms/mainwindow.py" line="2055"/>
         <source>[b]FUNCTION[/b] [c]{func}({args})[/c]</source>
         <translation>[b]FONCTION[/b] [c]{func}({args})[/c]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2108"/>
+        <location filename="../forms/mainwindow.py" line="2115"/>
         <source>[b]PROGRAM[/b]</source>
         <translation>[b]ALGORITHME[/b]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2009"/>
+        <location filename="../forms/mainwindow.py" line="2015"/>
         <source>[k]BREAK[/k]</source>
         <translation>[k]SORTIR[/k]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2041"/>
+        <location filename="../forms/mainwindow.py" line="2048"/>
         <source>[b]FOR[/b] [c]{var}[/c] [b]FROM[/b] [c]{begin}[/c] [b]TO[/b] [c]{end}[/c] {step}</source>
         <translation>[b]POUR[/b] [c]{var}[/c] [b]DE[/b] [c]{begin}[/c] [b]À[/b] [c]{end}[/c] {step}</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2042"/>
+        <location filename="../forms/mainwindow.py" line="2049"/>
         <source>([b]STEP[/b] [c]{step}[/c])</source>
         <translation>([b]PAS[/b] [c]{step}[/c])</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2111"/>
+        <location filename="../forms/mainwindow.py" line="2118"/>
         <source>[i]empty[/i]</source>
         <translation>[i]vide[/i]</translation>
     </message>
@@ -194,57 +184,57 @@ p, li { white-space: pre-wrap; }
         <translation>Cible d&apos;affectation invalide (doit être une variable ou un élément de liste) : {name}</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2031"/>
+        <location filename="../forms/mainwindow.py" line="2038"/>
         <source>[k]VARIABLE[/k] [c]{var}[/c] [k]TAKES VALUE[/k] [c]{value}[/c]</source>
         <translation>[k]VARIABLE[/k] [c]{var}[/c] [k]PREND LA VALEUR[/b] [c]{value}[/c]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2066"/>
+        <location filename="../forms/mainwindow.py" line="2073"/>
         <source>[k]CLEAR PLOT[/k]</source>
         <translation>[k]EFFACER GRAPHIQUE[/k]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2069"/>
+        <location filename="../forms/mainwindow.py" line="2076"/>
         <source>[k]DRAW LINE[/k] [c]{color}[/c] [k]FROM[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]TO[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</source>
         <translation>[k]DESSINER LIGNE[/k] [c]{color}[/c] [k]DE[/k] ([c]{start_x}[/c]; [c]{start_y}[/c]) [k]À[/k] ([c]{end_x}[/c]; [c]{end_y}[/c])</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2079"/>
+        <location filename="../forms/mainwindow.py" line="2086"/>
         <source>[k]DRAW POINT[/k] [c]{color}[/c] [k]AT[/k] ([c]{x}[/c]; [c]{y}[/c])</source>
         <translation>[k]DESSINER POINT[/k] [c]{color}[/c] [k]À[/k] ([c]{x}[/c]; [c]{y}[/c])</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2086"/>
+        <location filename="../forms/mainwindow.py" line="2093"/>
         <source>[k]SET WINDOW[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</source>
         <translation>[k]DÉFINIR REPÈRE[/k] [i]Xmin=[/i][c]{x_min}[/c] [i]Xmax=[/i][c]{x_max}[/c] [i]Ymin=[/i][c]{y_min}[/c] [i]Ymax=[/i][c]{y_max}[/c] [i]Xgrad=[/i][c]{x_grad}[/c] [i]Ygrad=[/i][c]{y_grad}[/c]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2056"/>
+        <location filename="../forms/mainwindow.py" line="2063"/>
         <source>[k]STOP[/k] [c]{val}[/c]</source>
         <translation>[k]STOP[/k] [c]{val}[/c]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2097"/>
+        <location filename="../forms/mainwindow.py" line="2104"/>
         <source>[k]PLOT FUNCTION[/k] [c]{color}[/c] [i]f[/i]({var}) = [c]{expr}[/c] [k]FROM[/k] [c]{begin}[/c] [k]TO[/k] [c]{end}[/c] [k]STEP[/k] [c]{step}[/c]</source>
         <translation>[k]TRACER FONCTION[/k] [c]{color}[/c] [i]f[/i]({var}) = [c]{expr}[/c] [k]DE[/k] [c]{begin}[/c] [k]À[/k] [c]{end}[/c] [k]PAS[/k] [c]{step}[/c]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2060"/>
+        <location filename="../forms/mainwindow.py" line="2067"/>
         <source>[k]WAIT[/k] [c]{val}[/c] [k]SECONDS[/k]</source>
         <translation>[k]ATTENDRE[/k] [c]{val}[/c] [k]SECONDES[/k]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2006"/>
+        <location filename="../forms/mainwindow.py" line="2011"/>
         <source>[k]DISPLAY[/k] [c]{val}[/c] {newline}</source>
         <translation>[k]AFFICHER[/k] [c]{val}[/c] {newline}</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2024"/>
+        <location filename="../forms/mainwindow.py" line="2030"/>
         <source>[k]INPUT[/k] [c]{prompt}[/c] [k]TO[/k] [c]{var}[/c] {text}</source>
         <translation>[k]SAISIR[/k] [c]{var}[/c] {text}</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2031"/>
+        <location filename="../forms/mainwindow.py" line="2038"/>
         <source>[c]{var}[/c] [k]&amp;#129128;[/k] [c]{value}[/c]</source>
         <translation>[c]{var}[/c] [k]&amp;#129128;[/k] [c]{value}[/c]</translation>
     </message>
@@ -685,12 +675,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Algobox</name>
     <message>
-        <location filename="../algo/algobox.py" line="114"/>
+        <location filename="../algo/frontends/algobox.py" line="114"/>
         <source>Unknown variable type: {type}</source>
         <translation>Type de variable inconnu : {type}</translation>
     </message>
     <message>
-        <location filename="../algo/algobox.py" line="54"/>
+        <location filename="../algo/frontends/algobox.py" line="54"/>
         <source>Unknown color: {color}</source>
         <translation>Couleur inconnue : {color}</translation>
     </message>
@@ -1053,87 +1043,87 @@ désactivé :</translation>
         <translation>Calcule le volume du cylindre de rayon {{radius}} et de hauteur {{height}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="59"/>
+        <location filename="../maths/lib/stats.py" line="58"/>
         <source>Returns the arithmetic mean of {{args}}.</source>
         <translation>Calcule la moyenne arithmétique de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="92"/>
+        <location filename="../maths/lib/stats.py" line="91"/>
         <source>Returns the sum of all the terms of {{args}}.</source>
         <translation>Calcule la somme de tous les éléments de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="104"/>
+        <location filename="../maths/lib/stats.py" line="103"/>
         <source>Returns the binomial coefficient for a subset of size {{k}} and a set of size {{n}}.</source>
         <translation>Calcule le coefficient binomial de {{k}} parmi {{n}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="117"/>
+        <location filename="../maths/lib/stats.py" line="116"/>
         <source>Returns the maximum value of {{args}}.</source>
         <translation>Détermine la valeur maximale de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="129"/>
+        <location filename="../maths/lib/stats.py" line="128"/>
         <source>Returns the minimum value of {{args}}.</source>
         <translation>Détermine la valeur minimale de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="165"/>
+        <location filename="../maths/lib/stats.py" line="164"/>
         <source>Returns the Gamma function at {{x}}.</source>
         <translation>Calcule la fonction Gamma à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="187"/>
+        <location filename="../maths/lib/stats.py" line="186"/>
         <source>Returns the factorial of {{x}}.</source>
         <translation>Calcule la factorielle de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="198"/>
+        <location filename="../maths/lib/stats.py" line="197"/>
         <source>Returns the error function at {{x}}.</source>
         <translation>Calcule la fonction d&apos;erreur à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="209"/>
+        <location filename="../maths/lib/stats.py" line="208"/>
         <source>Returns the complementary error function at {{x}}.</source>
         <translation>Calcule la fonction d&apos;erreur complémentaire à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="264"/>
+        <location filename="../maths/lib/stats.py" line="263"/>
         <source>Applies {{func}} to each element of {{lst}} and returns the resulting list.</source>
         <translation>Applique {{func}} à chaque élément de {{lst}} et renvoie la liste résultante.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="279"/>
+        <location filename="../maths/lib/stats.py" line="278"/>
         <source>Returns a list containing all elements of {{lst}} for which {{func}} returns a truthy value.</source>
         <translation>Renvoie une liste contenant tous les éléments de {{lst}} pour lesquels {{func}} est vraie.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="294"/>
+        <location filename="../maths/lib/stats.py" line="293"/>
         <source>Returns a slice of the specified list, from index {{start}} (inclusive) to either index {{end}} (exclusive) or the end of the list.</source>
         <translation>Renvoie une tranche de {{lst}} de l&apos;indice {{start}} (inclus), à l&apos;indice {{end}} (exclus) si spécifié ou à la fin de la liste.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="316"/>
+        <location filename="../maths/lib/stats.py" line="315"/>
         <source>Returns the population standard deviation of {{lst}}.</source>
         <translation>Calcule l&apos;écart-type de {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="331"/>
+        <location filename="../maths/lib/stats.py" line="330"/>
         <source>Returns the population variance of {{lst}}.</source>
         <translation>Calcule la variance de {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="343"/>
+        <location filename="../maths/lib/stats.py" line="342"/>
         <source>Returns the sample standard deviation of {{lst}}.</source>
         <translation>Calcule l&apos;écart-type de l&apos;échantillon {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="358"/>
+        <location filename="../maths/lib/stats.py" line="357"/>
         <source>Returns the sample variance of {{lst}}.</source>
         <translation>Calcule la variance de l&apos;échantillon {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="373"/>
+        <location filename="../maths/lib/stats.py" line="372"/>
         <source>Returns a random number between 0 (inclusive) and 1 (exclusive).</source>
         <translation>Renvoie un nombre aléatoire compris entre 0 (inclus) et 1 (exclus).</translation>
     </message>
@@ -1373,7 +1363,7 @@ désactivé :</translation>
         <translation>Trigonométrie</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="75"/>
+        <location filename="../maths/lib/stats.py" line="74"/>
         <source>Returns the harmonic mean of {{args}}.</source>
         <translation>Calcule la moyenne harmonique de {{args}}.</translation>
     </message>
@@ -1393,7 +1383,7 @@ désactivé :</translation>
         <translation>Calcule le conjugué de {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="403"/>
+        <location filename="../maths/lib/stats.py" line="402"/>
         <source>Returns the {{n}}-th Fibonacci number.</source>
         <translation>Calcule le {{n}}-ième terme de la suite de Fibonacci.</translation>
     </message>
@@ -1413,17 +1403,17 @@ désactivé :</translation>
         <translation>Calcule l&apos;intégrale de {{a}} à {{b}} de {{func}} (facultatif : nombre d&apos;étapes {{steps}}).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="176"/>
+        <location filename="../maths/lib/stats.py" line="175"/>
         <source>Returns the natural logarithm of the absolute value of the Gamma function at {{x}}.</source>
         <translation>Calcule le logarithme naturel de la valeur absolue de la fonction Gamma à {{x}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="417"/>
+        <location filename="../maths/lib/stats.py" line="416"/>
         <source>Returns the {{n}}-th Euler number.</source>
         <translation>Calcule le {{n}}-ième nombre d&apos;Euler.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="441"/>
+        <location filename="../maths/lib/stats.py" line="440"/>
         <source>Returns the Beta function at {{a}} and {{b}}.</source>
         <translation>Calcule la fonction Beta à {{a}} et {{b}}.</translation>
     </message>
@@ -1433,62 +1423,62 @@ désactivé :</translation>
         <translation>Compatibilité Algobox</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="385"/>
+        <location filename="../maths/lib/stats.py" line="384"/>
         <source>Returns a random integer between {{a}} and {{b}} (inclusive).</source>
         <translation>Renvoie un nombre entier aléatoire compris entre {{a}} et {{b}} (inclus).</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="453"/>
+        <location filename="../maths/lib/stats.py" line="452"/>
         <source>Returns the median of {{lst}}.</source>
         <translation>Renvoie la médiane de {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="465"/>
+        <location filename="../maths/lib/stats.py" line="464"/>
         <source>Returns the mode of {{lst}}.</source>
         <translation>Renvoie le mode (élement le plus fréquent) de {{lst}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="477"/>
+        <location filename="../maths/lib/stats.py" line="476"/>
         <source>Returns the probability for {{k}} with the binomial distribution of parameters {{n}} and {{p}}.</source>
         <translation>Renvoie la probabilité de {{k}} avec la loi binomiale de paramètres {{n}} et {{p}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="492"/>
+        <location filename="../maths/lib/stats.py" line="491"/>
         <source>Returns the number of elements in {{T}}.</source>
         <translation>Renvoie le nombre d&apos;élements de {{T}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="507"/>
+        <location filename="../maths/lib/stats.py" line="506"/>
         <source>Swaps the elements of {{t}} at indices {{a}} and {{b}}.</source>
         <translation>Échange les éléments de {{t}} aux positions {{a}} et {{b}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="521"/>
+        <location filename="../maths/lib/stats.py" line="520"/>
         <source>Generates a list containing all number from {{start}} (inclusive) to {{end}} (exclusive) with a step of {{step}}.</source>
         <translation>Renvoie une liste contenant tous les nombres de {{start}} (inclus) à {{end}} (exclus) avec un pas de {{step}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="543"/>
+        <location filename="../maths/lib/stats.py" line="542"/>
         <source>Generates a list containing all number from {{start}} (inclusive) to {{end}} (inclusive) with a step of {{step}}.</source>
         <translation>Renvoie une liste contenant tous les nombres de {{start}} (inclus) à {{end}} (inclus) avec un pas de {{step}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="220"/>
+        <location filename="../maths/lib/stats.py" line="219"/>
         <source>Returns the inverse of the error function at {{y}}.</source>
         <translation>Calcule la fonction d&apos;erreur inverse à {{y}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="253"/>
+        <location filename="../maths/lib/stats.py" line="252"/>
         <source>Returns the inverse of the complementary error function at {{y}}.</source>
         <translation>Calcule la fonction d&apos;erreur complémentaire inverse à {{y}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="141"/>
+        <location filename="../maths/lib/stats.py" line="140"/>
         <source>Returns the index of maximum value of {{args}}.</source>
         <translation>Renvoie la position de la valeur maximale de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/stats.py" line="153"/>
+        <location filename="../maths/lib/stats.py" line="152"/>
         <source>Returns the index of minimum value of {{args}}.</source>
         <translation>Renvoie la position de la valeur minimale de {{args}}.</translation>
     </message>
@@ -1498,44 +1488,44 @@ désactivé :</translation>
         <translation>Renvoie un élément au hasard de {{args}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="342"/>
+        <location filename="../maths/lib/basic.py" line="341"/>
         <source>Returns the uppercase version of {{s}}.</source>
         <translation>Renvoie une copie en majuscules de {{s}}.</translation>
     </message>
     <message>
-        <location filename="../maths/lib/basic.py" line="357"/>
+        <location filename="../maths/lib/basic.py" line="355"/>
         <source>Returns the lowercase version of {{s}}.</source>
         <translation>Renvoie une copie en minuscules de {{s}}.</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="565"/>
+        <location filename="../maths/lib/stats.py" line="564"/>
         <source>Returns the probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Renvoie la probabilité de {{x}} avec la loi normale de paramètres µ={{mu}} et σ={{sigma}}.</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="580"/>
+        <location filename="../maths/lib/stats.py" line="579"/>
         <source>Returns the probability for {{x}} with the standard normal distribution (µ=0 and σ=1).</source>
-        <translation type="unfinished"></translation>
+        <translation>Renvoie la probabilité de {{x}} avec la loi normale centrée réduite (µ=0 et σ=1).</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="591"/>
+        <location filename="../maths/lib/stats.py" line="590"/>
         <source>Returns the cumulative probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Renvoie la probabilité cumulative de {{x}} avec la loi normale de paramètres µ={{mu}} et σ={{sigma}}.</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="605"/>
+        <location filename="../maths/lib/stats.py" line="604"/>
         <source>Returns the cumulative probability for {{x}} with the standard normal distribution (µ=0 and σ=1).</source>
-        <translation type="unfinished"></translation>
+        <translation>Renvoie la probabilité cumulative de {{x}} avec la loi normale centrée réduite (µ=0 et σ=1).</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="617"/>
+        <location filename="../maths/lib/stats.py" line="616"/>
         <source>Returns the number with cumulative probability {{p}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
-        <translation type="unfinished"></translation>
+        <translation>Renvoie le nombre ayant pour probabilité cumulative {{p}} avec la loi normale de paramètres µ={{mu}} et σ={{sigma}}.</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="../maths/lib/stats.py" line="631"/>
+        <location filename="../maths/lib/stats.py" line="630"/>
         <source>Returns the number with cumulative probability {{p}} with the standard normal distribution (µ=0 and σ=1).</source>
-        <translation type="unfinished"></translation>
+        <translation>Renvoie le nombre ayant pour probabilité cumulative {{p}} avec la loi normale centrée réduite (µ=0 et σ=1).</translation>
     </message>
 </context>
 <context>
@@ -1649,27 +1639,27 @@ désactivé :</translation>
         <translation>Bibliothèque</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="53"/>
+        <location filename="../forms/help.py" line="52"/>
         <source>&lt;h2&gt;Arguments:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Arguments :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="57"/>
+        <location filename="../forms/help.py" line="56"/>
         <source>&lt;li&gt;None&lt;/li&gt;</source>
         <translation>&lt;li&gt;Aucun&lt;/li&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="67"/>
+        <location filename="../forms/help.py" line="66"/>
         <source>default = {deft}</source>
         <translation>par défaut = {deft}</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="82"/>
+        <location filename="../forms/help.py" line="81"/>
         <source>&lt;h2&gt;Aliases:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Alias :&lt;/h2&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/help.py" line="95"/>
+        <location filename="../forms/help.py" line="94"/>
         <source>&lt;h2&gt;Functions:&lt;/h2&gt;</source>
         <translation>&lt;h2&gt;Fonctions :&lt;/h2&gt;</translation>
     </message>
@@ -1860,16 +1850,11 @@ désactivé :</translation>
         <translation>Convertir en pseudocode</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="355"/>
+        <location filename="../forms/mainwindow.py" line="354"/>
         <source>Do you really want to exit?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment quitter ?
 Toutes les modifications non sauvegardées seront perdues.</translation>
-    </message>
-    <message>
-        <location filename="../forms/ui_mainwindow.py" line="873"/>
-        <source>Recent files</source>
-        <translation type="obsolete">Récents</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="890"/>
@@ -1887,17 +1872,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Code</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="730"/>
+        <location filename="../forms/mainwindow.py" line="729"/>
         <source>end of output</source>
         <translation>fin de l&apos;exécution</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="552"/>
+        <location filename="../forms/mainwindow.py" line="551"/>
         <source>Input: </source>
         <translation>Saisir : </translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="920"/>
+        <location filename="../forms/mainwindow.py" line="919"/>
         <source>Syntax error ({type}) at line {line}, offset {off}: </source>
         <translation>Erreur de syntaxe ({type}) à la ligne {line}, caractère {off} : </translation>
     </message>
@@ -1997,27 +1982,27 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Commentaire</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="786"/>
+        <location filename="../forms/mainwindow.py" line="785"/>
         <source>program interrupted</source>
         <translation>algorithme interrompu</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="730"/>
+        <location filename="../forms/mainwindow.py" line="729"/>
         <source>end of output [{time}]</source>
         <translation>fin de l&apos;exécution [{time}]</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2354"/>
+        <location filename="../forms/mainwindow.py" line="2362"/>
         <source>Python file (*.py)</source>
         <translation>Fichier Python (*.py)</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2355"/>
+        <location filename="../forms/mainwindow.py" line="2363"/>
         <source>Turing program (*.tr)</source>
         <translation>Algorithme Turing (*.tr)</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2356"/>
+        <location filename="../forms/mainwindow.py" line="2364"/>
         <source>Algobox file (*.alg)</source>
         <translation>Algorithme Algobox (*.alg)</translation>
     </message>
@@ -2037,11 +2022,6 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>RENVOYER</translation>
     </message>
     <message>
-        <location filename="../forms/ui_mainwindow.py" line="796"/>
-        <source>DEFINE variable</source>
-        <translation type="obsolete">DÉFINIR variable</translation>
-    </message>
-    <message>
         <location filename="../forms/ui_mainwindow.py" line="856"/>
         <source>Read user INPUT</source>
         <translation>SAISIR une entrée</translation>
@@ -2052,17 +2032,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>AFFICHER valeur</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="389"/>
+        <location filename="../forms/mainwindow.py" line="388"/>
         <source>Turing - New File</source>
         <translation>Turing - Sans titre</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="385"/>
+        <location filename="../forms/mainwindow.py" line="384"/>
         <source>Turing - {file} (unsaved)</source>
         <translation>Turing - {file} (modifié)</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="387"/>
+        <location filename="../forms/mainwindow.py" line="386"/>
         <source>Turing - {file}</source>
         <translation>Turing - {file}</translation>
     </message>
@@ -2072,7 +2052,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Déboguer</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2353"/>
+        <location filename="../forms/mainwindow.py" line="2361"/>
         <source>Program file (*.py *.tr *.alg)</source>
         <translation>Fichier de programme (*.py *.tr *.alg)</translation>
     </message>
@@ -2102,17 +2082,17 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Définir le repère</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1065"/>
+        <location filename="../forms/mainwindow.py" line="1067"/>
         <source>Save output</source>
         <translation>Enregistrer la sortie</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1065"/>
+        <location filename="../forms/mainwindow.py" line="1067"/>
         <source>Text files (*.txt)</source>
         <translation>Fichiers texte (*.txt)</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1151"/>
+        <location filename="../forms/mainwindow.py" line="1155"/>
         <source>Do you really want to create a new file?
 All unsaved changes will be lost.</source>
         <translation>Voulez-vous vraiment créer un nouveau fichier ?
@@ -2124,7 +2104,7 @@ Toutes les modifications non sauvegardées seront perdues.</translation>
         <translation>Un commentaire ?</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2520"/>
+        <location filename="../forms/mainwindow.py" line="2528"/>
         <source>A new version of Turing is available.
 Would you like to download it?</source>
         <translation>Une nouvelle version de Turing est disponible.
@@ -2136,7 +2116,7 @@ Voulez-vous la télécharger ?</translation>
         <translation>Point d&apos;arrêt</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="755"/>
+        <location filename="../forms/mainwindow.py" line="754"/>
         <source>Breakpoint: </source>
         <translation>Point d&apos;arrêt : </translation>
     </message>
@@ -2156,7 +2136,7 @@ Voulez-vous la télécharger ?</translation>
         <translation>Par défaut</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1334"/>
+        <location filename="../forms/mainwindow.py" line="1338"/>
         <source>Advanced</source>
         <translation>Avancé</translation>
     </message>
@@ -2177,82 +2157,82 @@ Voulez-vous la télécharger ?</translation>
         <translation>Dupliquer</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1337"/>
+        <location filename="../forms/mainwindow.py" line="1341"/>
         <source>Folding</source>
         <translation>Plan</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1338"/>
+        <location filename="../forms/mainwindow.py" line="1342"/>
         <source>Collapse</source>
         <translation>Réduire</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1339"/>
+        <location filename="../forms/mainwindow.py" line="1343"/>
         <source>Expand</source>
         <translation>Étendre</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1341"/>
+        <location filename="../forms/mainwindow.py" line="1345"/>
         <source>Expand all</source>
         <translation>Tout étendre</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1343"/>
+        <location filename="../forms/mainwindow.py" line="1347"/>
         <source>Select word</source>
         <translation>Sélectionner le mot</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1344"/>
+        <location filename="../forms/mainwindow.py" line="1348"/>
         <source>Select extended word</source>
         <translation>Sélectionner le mot étendu</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1345"/>
+        <location filename="../forms/mainwindow.py" line="1349"/>
         <source>Matched select</source>
         <translation>Sélectionner le résultat</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1346"/>
+        <location filename="../forms/mainwindow.py" line="1350"/>
         <source>Select line</source>
         <translation>Sélectionner la ligne</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1347"/>
+        <location filename="../forms/mainwindow.py" line="1351"/>
         <source>Select</source>
         <translation>Sélection</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1340"/>
+        <location filename="../forms/mainwindow.py" line="1344"/>
         <source>Collapse all</source>
         <translation>Tout réduire</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1357"/>
+        <location filename="../forms/mainwindow.py" line="1361"/>
         <source>Regex</source>
         <translation>Expression régulière</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1358"/>
+        <location filename="../forms/mainwindow.py" line="1362"/>
         <source>Match case</source>
         <translation>Respecter la casse</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1359"/>
+        <location filename="../forms/mainwindow.py" line="1363"/>
         <source>Whole words</source>
         <translation>Mot entier</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1360"/>
+        <location filename="../forms/mainwindow.py" line="1364"/>
         <source>In Selection</source>
         <translation>Dans la sélection</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1361"/>
+        <location filename="../forms/mainwindow.py" line="1365"/>
         <source>0 matches</source>
         <translation>0 correspondances</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1363"/>
+        <location filename="../forms/mainwindow.py" line="1367"/>
         <source>Replace All</source>
         <translation>Remplacer tout</translation>
     </message>
@@ -2282,19 +2262,19 @@ Voulez-vous la télécharger ?</translation>
         <translation>Attendre</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1451"/>
+        <location filename="../forms/mainwindow.py" line="1455"/>
         <source>{num} matches</source>
         <translation>{num} correspondances</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="2530"/>
+        <location filename="../forms/mainwindow.py" line="2538"/>
         <source>A modified file has been automatically saved.
 Would you like to recover it?</source>
         <translation>Un fichier modifié a été enregistré automatiquement.
 Souhaitez-vous le récupérer ?</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1335"/>
+        <location filename="../forms/mainwindow.py" line="1339"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
@@ -2347,7 +2327,7 @@ Souhaitez-vous le récupérer ?</translation>
         <translation>Vérifier les mises à jour</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1009"/>
+        <location filename="../forms/mainwindow.py" line="1010"/>
         <source>You are about to choose an example file
 from the `examples` directory. To guess what examples are,
 you can guess from the file names.</source>
@@ -2356,7 +2336,7 @@ depuis le répertoire « examples ». Pour devinece qu&apos;il y a
 dans les fichiers, fiez-vous à leurs noms.</translation>
     </message>
     <message>
-        <location filename="../forms/mainwindow.py" line="1093"/>
+        <location filename="../forms/mainwindow.py" line="1095"/>
         <source>You are not allowed to write to {},
 please choose another file path.</source>
         <translation>Vous n&apos;êtes pas autorisé à écrire dans {},
