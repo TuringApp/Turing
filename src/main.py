@@ -19,7 +19,7 @@ from util import theming, show_error
 
 translate = QCoreApplication.translate
 
-util.__version__ = "β-0.10"
+util.__version__ = "β-0.11"
 util.__channel__ = "beta"
 
 
