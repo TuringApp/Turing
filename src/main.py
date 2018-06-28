@@ -10,14 +10,9 @@ sys.path.insert(0,
                 )
 import threading
 
-from util.profiler import pf_point, pf_end
-pf_point("just before pyqt")
-
 from PyQt5.QtCore import QSettings, QCoreApplication, Qt
 from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.QtWidgets import QApplication, QStyleFactory, QSplashScreen
-
-pf_point("just after pyqt")
 
 import util
 from util import theming, show_error
@@ -62,7 +57,6 @@ def setup_thread_excepthook():
 
 
 if __name__ == "__main__":
-    pf_point("begin __main__")
     sys.excepthook = except_hook
     setup_thread_excepthook()
 
@@ -105,11 +99,7 @@ if __name__ == "__main__":
     except:
         pass
 
-    pf_point("before import main")
-
     from forms import mainwindow
-
-    pf_point("after import main")
 
     mainwindow.init_main(splash)
 
