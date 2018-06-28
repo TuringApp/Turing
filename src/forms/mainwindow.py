@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from util.profiler import pf_point, pf_end
+
+pf_point("start mod mw")
+
 import html
 import json
 import os
@@ -10,6 +14,8 @@ import tempfile
 import threading
 from datetime import datetime
 
+pf_point("after builtins")
+
 import numpy as np
 import pygments.styles
 from PyQt5.QtGui import *
@@ -18,19 +24,38 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from matplotlib.ticker import AutoLocator, LinearLocator
 
+pf_point("after externals")
+
 import pyqode.python.backend
 import util.code
 import util.html
+
+pf_point("internals 1")
+
 from algo.stmts import *
 from lang import translator
 from maths.nodes import *
+
+pf_point("internals 2")
+
 from maths.parser import quick_parse as parse
+
+pf_point("internals 3")
+
 from pyqode.core import api
+pf_point("internals 4")
 from pyqode.core import modes
+pf_point("internals 5")
 from pyqode.core import panels
+pf_point("internals 6")
 from util import first_found_dir
+pf_point("internals 7")
 from util import theming, show_error
+pf_point("internals 8")
 from util.widgets import *
+
+pf_point("after internals")
+
 
 translate = QCoreApplication.translate
 
@@ -2484,6 +2509,7 @@ def autosave_clear():
 def clean_exit():
     autosave_clear()
     GuiState.code_editor.backend.stop()
+    pf_end()
     sys.exit()
 
 
@@ -2547,8 +2573,9 @@ init_pre()
 
 
 def init_main(splash):
+    pf_point("begin init_main")
     init_ui()
-
+    pf_point("done init_ui")
     set_theme(util.settings.value("app_theme", "default"))
 
     change_language(QLocale.system().name())
@@ -2565,3 +2592,6 @@ def init_main(splash):
     autosave_check()
 
     AppState.app_started = True
+    pf_point("end init_main")
+
+pf_point("end mod mw")

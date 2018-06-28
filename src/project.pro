@@ -124,6 +124,7 @@ SOURCES += \
     util\html.py \
     util\log.py \
     util\math.py \
+    util\profiler.py \
     util\theming.py \
     util\undoredo.py \
     util\widgets.py \
