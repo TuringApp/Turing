@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import maths.parser
 import util.html
+from .AstNode import *
 from .IdentifierNode import *
 from .NumberNode import *
-from .AstNode import *
 from .StringNode import StringNode
 
 
@@ -87,7 +87,7 @@ class BinOpNode(AstNode):
                 left_py = "str(%s)" % left_py
 
         return "(%s %s %s)" % \
-            (protectExpr(left_py), op_fix, protectExpr(right_py))
+               (protectExpr(left_py), op_fix, protectExpr(right_py))
 
     def children(self) -> List["AstNode"]:
         return [self.left, self.right]

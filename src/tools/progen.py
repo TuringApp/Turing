@@ -33,11 +33,9 @@ TRANSLATIONS += \
 
     file.write(" \\\n".join("    " + x[3:] for x in glob.iglob('../**/*.ts', recursive=True)))
 
-
 for ts in glob.iglob('../**/*.ts', recursive=True):
     with open(ts, "r", encoding="utf8") as f:
         orig = f.read()
     orig = orig.replace('<message>', '<message encoding="UTF-8">')
     with open(ts, "w", encoding="utf8") as f:
         f.write(orig)
-

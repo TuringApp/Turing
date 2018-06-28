@@ -4,10 +4,10 @@ import struct
 from algo.stmts import *
 from maths.nodes import *
 from maths.parser import quick_parse as parse
-from util import lstreplace, pairwise
+from util import pairwise
 
 tokens = {
-#    'unused': [[0x00]],
+    #    'unused': [[0x00]],
     '►DMS': [[0x01]],
     '►Dec': [[0x02]],
     '►Frac': [[0x03]],
@@ -21,7 +21,7 @@ tokens = {
     '°': [[0x0B]],
     '⁻¹': [[0x0C]],
     '²': [[0x0D]],
-    'ᵀ': [[0x0E]], # matrix transpose
+    'ᵀ': [[0x0E]],  # matrix transpose
     '³': [[0x0F]],
     '(': [[0x10]],
     ')': [[0x11]],
@@ -45,13 +45,13 @@ tokens = {
     'seq(': [[0x23]],
     'fnInt(': [[0x24]],
     'nDeriv(': [[0x25]],
-#    'unused': [[0x26]],
+    #    'unused': [[0x26]],
     'fMin(': [[0x27]],
     'fMax(': [[0x28]],
     ' ': [[0x29]],
     '"': [[0x2A]],
     ',': [[0x2B]],
-    'ii': [[0x2C], "i"], # imaginary unit
+    'ii': [[0x2C], "i"],  # imaginary unit
     '!': [[0x2D]],
     'CubicReg ': [[0x2E]],
     'QuartReg ': [[0x2F]],
@@ -66,7 +66,7 @@ tokens = {
     '8': [[0x38]],
     '9': [[0x39]],
     '.': [[0x3A]],
-    'ᴇ': [[0x3B]], # exponent
+    'ᴇ': [[0x3B]],  # exponent
     ' or ': [[0x3C]],
     ' xor ': [[0x3D]],
     ':': [[0x3E]],
@@ -99,14 +99,14 @@ tokens = {
     'Y': [[0x59]],
     'Z': [[0x5A]],
     'θ': [[0x5B]],
-#    '2-byte': [[0x5C]], Matrices
-#    '2-byte': [[0x5D]], Lists
-#    '2-byte': [[0x5E]], Equations
+    #    '2-byte': [[0x5C]], Matrices
+    #    '2-byte': [[0x5D]], Lists
+    #    '2-byte': [[0x5E]], Equations
     'prgm': [[0x5F]],
-#    '2-byte': [[0x60]], Pictures
-#    '2-byte': [[0x61]], GDBs
-#    '2-byte': [[0x62]], Statistics
-#    '2-byte': [[0x63]], Window and Finance
+    #    '2-byte': [[0x60]], Pictures
+    #    '2-byte': [[0x61]], GDBs
+    #    '2-byte': [[0x62]], Statistics
+    #    '2-byte': [[0x63]], Window and Finance
     'Radian': [[0x64]],
     'Degree': [[0x65]],
     'Normal': [[0x66]],
@@ -133,7 +133,7 @@ tokens = {
     'IndpntAsk': [[0x7B]],
     'DependAuto': [[0x7C]],
     'DependAsk': [[0x7D]],
-#    '2-byte': [[0x7E]], Graph Format
+    #    '2-byte': [[0x7E]], Graph Format
     '□': [[0x7F]],
     '﹢': [[0x80]],
     '·': [[0x81]],
@@ -177,7 +177,7 @@ tokens = {
     'Tangent(': [[0xA7]],
     'DrawInv ': [[0xA8]],
     'DrawF ': [[0xA9]],
-#    '2-byte': [[0xAA]], Strings
+    #    '2-byte': [[0xAA]], Strings
     'rand': [[0xAB]],
     'π_const': [[0xAC], "π"],
     'getKey': [[0xAD]],
@@ -194,7 +194,7 @@ tokens = {
     'not(': [[0xB8]],
     'iPart(': [[0xB9]],
     'fPart(': [[0xBA]],
-#    '2-byte': [[0xBB]], Miscellaneous
+    #    '2-byte': [[0xBB]], Miscellaneous
     '√(': [[0xBC]],
     '³√(': [[0xBD]],
     'ln(': [[0xBE]],
@@ -246,7 +246,7 @@ tokens = {
     'Plot1(': [[0xEC]],
     'Plot2(': [[0xED]],
     'Plot3(': [[0xEE]],
-#    'TI-84+(C(S)E)': [[0xEF]], TI-84+
+    #    'TI-84+(C(S)E)': [[0xEF]], TI-84+
     '^': [[0xF0]],
     '×√': [[0xF1]],
     '1-Var Stats ': [[0xF2]],
@@ -313,7 +313,7 @@ tokens = {
     'r₄': [[0x5E, 0x43]],
     'r₅': [[0x5E, 0x44]],
     'r₆': [[0x5E, 0x45]],
-    'u_': [[0x5E, 0x80]], # sequences todo
+    'u_': [[0x5E, 0x80]],  # sequences todo
     'v_': [[0x5E, 0x81]],
     'w_': [[0x5E, 0x82]],
 
@@ -354,7 +354,7 @@ tokens = {
     'Str0': [[0xAA, 0x09]],
 
     # Statistics
-#    'internal use only': [[0x62, 0x00]],
+    #    'internal use only': [[0x62, 0x00]],
     'RegEq': [[0x62, 0x01]],
     'n_stat': [[0x62, 0x02], "n"],
     'x̄': [[0x62, 0x03]],
@@ -423,7 +423,7 @@ tokens = {
     'Yscl': [[0x63, 0x03]],
     'u(nMin)': [[0x63, 0x04]],
     'v(nMin)': [[0x63, 0x05]],
-    'u(n-1)_wnd': [[0x63, 0x06], "u(n-1)"], # TI-82 compatibility
+    'u(n-1)_wnd': [[0x63, 0x06], "u(n-1)"],  # TI-82 compatibility
     'v(n-1)_wnd': [[0x63, 0x07], "v(n-1)"],
     'Zu(nMin)': [[0x63, 0x08]],
     'Zv(nMin)': [[0x63, 0x09]],
@@ -589,14 +589,14 @@ tokens = {
     'ANOVA(': [[0xBB, 0x59]],
     'ModBoxplot': [[0xBB, 0x5A]],
     'NormProbPlot': [[0xBB, 0x5B]],
-#    'unused': [[0xBB, 0x5C]],
-#    'unused': [[0xBB, 0x5D]],
-#    'unused': [[0xBB, 0x5E]],
-#    'unused': [[0xBB, 0x5F]],
-#    'unused': [[0xBB, 0x60]],
-#    'unused': [[0xBB, 0x61]],
-#    'unused': [[0xBB, 0x62]],
-#    'unused': [[0xBB, 0x63]],
+    #    'unused': [[0xBB, 0x5C]],
+    #    'unused': [[0xBB, 0x5D]],
+    #    'unused': [[0xBB, 0x5E]],
+    #    'unused': [[0xBB, 0x5F]],
+    #    'unused': [[0xBB, 0x60]],
+    #    'unused': [[0xBB, 0x61]],
+    #    'unused': [[0xBB, 0x62]],
+    #    'unused': [[0xBB, 0x63]],
     'G-T': [[0xBB, 0x64]],
     'ZoomFit': [[0xBB, 0x65]],
     'DiagnosticOn': [[0xBB, 0x66]],
@@ -623,7 +623,7 @@ tokens = {
     'è': [[0xBB, 0x7B]],
     'ê': [[0xBB, 0x7C]],
     'ë': [[0xBB, 0x7D]],
-#    'unused': [[0xBB, 0x7E]],
+    #    'unused': [[0xBB, 0x7E]],
     'Ì': [[0xBB, 0x7F]],
     'Î': [[0xBB, 0x80]],
     'Ï': [[0xBB, 0x81]],
@@ -667,7 +667,7 @@ tokens = {
     'π': [[0xBB, 0xA7]],
     'ρ': [[0xBB, 0xA8]],
     'Σ': [[0xBB, 0xA9]],
-#    'unused': [[0xBB, 0xAA]],
+    #    'unused': [[0xBB, 0xAA]],
     'φ': [[0xBB, 0xAB]],
     'Ω': [[0xBB, 0xAC]],
     'p^_sym': [[0xBB, 0xAD]],
@@ -684,7 +684,7 @@ tokens = {
     'i': [[0xBB, 0xB8]],
     'j': [[0xBB, 0xB9]],
     'k': [[0xBB, 0xBA]],
-#    'unused': [[0xBB, 0xBB]],
+    #    'unused': [[0xBB, 0xBB]],
     'l': [[0xBB, 0xBC]],
     'm': [[0xBB, 0xBD]],
     'n': [[0xBB, 0xBE]],
@@ -736,23 +736,23 @@ tokens = {
     '→_arr': [[0xBB, 0xEC]],
     '↑_arr': [[0xBB, 0xED]],
     '↓_arr': [[0xBB, 0xEE]],
-#    'unused': [[0xBB, 0xEF]],
+    #    'unused': [[0xBB, 0xEF]],
     'x_sym': [[0xBB, 0xF0]],
     '∫': [[0xBB, 0xF1]],
     '↑_sym': [[0xBB, 0xF2]],
     '↓_sym': [[0xBB, 0xF3]],
     '√': [[0xBB, 0xF4]],
     '[=]': [[0xBB, 0xF5]],
-#    '': [[0xBB, 0xF6]],
-#    '': [[0xBB, 0xF7]],
-#    '': [[0xBB, 0xF8]],
-#    '': [[0xBB, 0xF9]],
-#    '': [[0xBB, 0xFA]],
-#    '': [[0xBB, 0xFB]],
-#    '': [[0xBB, 0xFC]],
-#    '': [[0xBB, 0xFD]],
-#    '': [[0xBB, 0xFE]],
-#    '': [[0xBB, 0xFF]],
+    #    '': [[0xBB, 0xF6]],
+    #    '': [[0xBB, 0xF7]],
+    #    '': [[0xBB, 0xF8]],
+    #    '': [[0xBB, 0xF9]],
+    #    '': [[0xBB, 0xFA]],
+    #    '': [[0xBB, 0xFB]],
+    #    '': [[0xBB, 0xFC]],
+    #    '': [[0xBB, 0xFD]],
+    #    '': [[0xBB, 0xFE]],
+    #    '': [[0xBB, 0xFF]],
 
     # TI-84+
     'setDate(': [[0xEF, 0x00]],
@@ -786,23 +786,23 @@ tokens = {
     'ZFrac1/8': [[0xEF, 0x1C]],
     'ZFrac1/10': [[0xEF, 0x1D]],
     'mathprintbox': [[0xEF, 0x1E]],
-#    '': [[0xEF, 0x1F]],
-#    '': [[0xEF, 0x20]],
-#    '': [[0xEF, 0x21]],
-#    '': [[0xEF, 0x22]],
-#    '': [[0xEF, 0x23]],
-#    '': [[0xEF, 0x24]],
-#    '': [[0xEF, 0x25]],
-#    '': [[0xEF, 0x26]],
-#    '': [[0xEF, 0x27]],
-#    '': [[0xEF, 0x28]],
-#    '': [[0xEF, 0x29]],
-#    '': [[0xEF, 0x2A]],
-#    '': [[0xEF, 0x2B]],
-#    '': [[0xEF, 0x2C]],
-#    '': [[0xEF, 0x2D]],
-#    '': [[0xEF, 0x2E]],
-#    '': [[0xEF, 0x2F]],
+    #    '': [[0xEF, 0x1F]],
+    #    '': [[0xEF, 0x20]],
+    #    '': [[0xEF, 0x21]],
+    #    '': [[0xEF, 0x22]],
+    #    '': [[0xEF, 0x23]],
+    #    '': [[0xEF, 0x24]],
+    #    '': [[0xEF, 0x25]],
+    #    '': [[0xEF, 0x26]],
+    #    '': [[0xEF, 0x27]],
+    #    '': [[0xEF, 0x28]],
+    #    '': [[0xEF, 0x29]],
+    #    '': [[0xEF, 0x2A]],
+    #    '': [[0xEF, 0x2B]],
+    #    '': [[0xEF, 0x2C]],
+    #    '': [[0xEF, 0x2D]],
+    #    '': [[0xEF, 0x2E]],
+    #    '': [[0xEF, 0x2F]],
     '►n/d◄►Un/d': [[0xEF, 0x30]],
     '►F◄►D': [[0xEF, 0x31]],
     'remainder(': [[0xEF, 0x32]],
@@ -817,9 +817,9 @@ tokens = {
     'DEC': [[0xEF, 0x3B]],
     'FRAC': [[0xEF, 0x3C]],
     'FRAC-APPROX': [[0xEF, 0x3D]],
-#    '': [[0xEF, 0x3E]],
-#    '': [[0xEF, 0x3F]],
-#    '': [[0xEF, 0x40]],
+    #    '': [[0xEF, 0x3E]],
+    #    '': [[0xEF, 0x3F]],
+    #    '': [[0xEF, 0x40]],
     'BLUE': [[0xEF, 0x41]],
     'RED': [[0xEF, 0x42]],
     'BLACK': [[0xEF, 0x43]],
@@ -847,43 +847,43 @@ tokens = {
     'Image0': [[0xEF, 0x59]],
     'Gridline ': [[0xEF, 0x5A]],
     'BackgroundOn ': [[0xEF, 0x5B]],
-#    '': [[0xEF, 0x5C]],
-#    '': [[0xEF, 0x5D]],
-#    '': [[0xEF, 0x5E]],
-#    '': [[0xEF, 0x5F]],
-#    '': [[0xEF, 0x60]],
-#    '': [[0xEF, 0x61]],
-#    '': [[0xEF, 0x62]],
-#    '': [[0xEF, 0x63]],
+    #    '': [[0xEF, 0x5C]],
+    #    '': [[0xEF, 0x5D]],
+    #    '': [[0xEF, 0x5E]],
+    #    '': [[0xEF, 0x5F]],
+    #    '': [[0xEF, 0x60]],
+    #    '': [[0xEF, 0x61]],
+    #    '': [[0xEF, 0x62]],
+    #    '': [[0xEF, 0x63]],
     'BackgroundOff': [[0xEF, 0x64]],
     'GraphColor(': [[0xEF, 0x65]],
-#    '': [[0xEF, 0x66]],
+    #    '': [[0xEF, 0x66]],
     'TextColor(': [[0xEF, 0x67]],
     'Asm84CPrgm': [[0xEF, 0x68]],
-#    '': [[0xEF, 0x69]],
+    #    '': [[0xEF, 0x69]],
     'DetectAsymOn': [[0xEF, 0x6A]],
     'DetectAsymOff': [[0xEF, 0x6B]],
     'BorderColor ': [[0xEF, 0x6C]],
-#    '': [[0xEF, 0x6D]],
-#    '': [[0xEF, 0x6E]],
-#    '': [[0xEF, 0x6F]],
-#    '': [[0xEF, 0x70]],
-#    '': [[0xEF, 0x71]],
-#    '': [[0xEF, 0x72]],
+    #    '': [[0xEF, 0x6D]],
+    #    '': [[0xEF, 0x6E]],
+    #    '': [[0xEF, 0x6F]],
+    #    '': [[0xEF, 0x70]],
+    #    '': [[0xEF, 0x71]],
+    #    '': [[0xEF, 0x72]],
     'tinydotplot': [[0xEF, 0x73]],
     'Thin': [[0xEF, 0x74]],
     'Dot-Thin': [[0xEF, 0x75]],
-#    '': [[0xEF, 0x76]],
-#    '': [[0xEF, 0x77]],
-#    '': [[0xEF, 0x78]],
+    #    '': [[0xEF, 0x76]],
+    #    '': [[0xEF, 0x77]],
+    #    '': [[0xEF, 0x78]],
     'PlySmth2': [[0xEF, 0x79]],
     'Asm84CEPrgm': [[0xEF, 0x7A]],
-#    '': [[0xEF, 0x7B]],
-#    '': [[0xEF, 0x7C]],
-#    '': [[0xEF, 0x7D]],
-#    '': [[0xEF, 0x7E]],
-#    '': [[0xEF, 0x7F]],
-#    '': [[0xEF, 0x80]],
+    #    '': [[0xEF, 0x7B]],
+    #    '': [[0xEF, 0x7C]],
+    #    '': [[0xEF, 0x7D]],
+    #    '': [[0xEF, 0x7E]],
+    #    '': [[0xEF, 0x7F]],
+    #    '': [[0xEF, 0x80]],
     'QuartilesSetting…': [[0xEF, 0x81]],
     'u(n-2)': [[0xEF, 0x82]],
     'v(n-2)': [[0xEF, 0x83]],
@@ -908,14 +908,15 @@ tokens = {
     'Wait ': [[0xEF, 0x96]],
     'toString(': [[0xEF, 0x97]],
     'eval': [[0xEF, 0x98]],
-#    '': [[0xEF, 0x99]],
-#    '': [[0xEF, 0x9A]],
-#    '': [[0xEF, 0x9B]],
-#    '': [[0xEF, 0x9C]],
-#    '': [[0xEF, 0x9D]],
-#    '': [[0xEF, 0x9E]],
-#    '': [[0xEF, 0x9F]],
+    #    '': [[0xEF, 0x99]],
+    #    '': [[0xEF, 0x9A]],
+    #    '': [[0xEF, 0x9B]],
+    #    '': [[0xEF, 0x9C]],
+    #    '': [[0xEF, 0x9D]],
+    #    '': [[0xEF, 0x9E]],
+    #    '': [[0xEF, 0x9F]],
 }
+
 
 def linify(lst):
     if lst:
@@ -923,8 +924,10 @@ def linify(lst):
 
     return []
 
+
 def paren(lst):
     return ["("] + lst + [")"]
+
 
 def listjoin(args, sep):
     res = []
@@ -937,6 +940,7 @@ def listjoin(args, sep):
         res = res[:-1]
 
     return res
+
 
 def convert_color(node):
     colors = [
@@ -1024,8 +1028,10 @@ def convert_node(node):
 
     print("unimpl node %s" % type(node))
 
+
 def convert_block(block):
     return [tok for a, b in pairwise(block) for tok in convert_stmt(a, b)]
+
 
 def convert_stmt(stmt, next=None):
     if isinstance(stmt, AssignStmt):
@@ -1124,6 +1130,7 @@ def convert_stmt(stmt, next=None):
 
     print("unimpl stmt %s" % type(stmt))
 
+
 def stringify(toklst):
     res = ""
 
@@ -1136,31 +1143,33 @@ def stringify(toklst):
 
     return res
 
+
 def binify(toklst):
     if toklst:
         return [bin for tok in toklst for bin in tokens[tok][0]]
 
     return []
 
+
 def package(name, data):
     entry = struct.pack("<H H B 8s B B H H",
-                        0x000D,                 # Entry header
-                        len(data) + 2,          # Length of variable data
-                        0x05,                   # Variable type ID
-                        name.encode("ascii"),   # Variable name
-                        0x00,                   # Version
-                        0x00,                   # Flag (archived)
-                        len(data) + 2,          # Length of variable data (copy)
-                        len(data),              # Number of token bytes
+                        0x000D,  # Entry header
+                        len(data) + 2,  # Length of variable data
+                        0x05,  # Variable type ID
+                        name.encode("ascii"),  # Variable name
+                        0x00,  # Version
+                        0x00,  # Flag (archived)
+                        len(data) + 2,  # Length of variable data (copy)
+                        len(data),  # Number of token bytes
                         ) \
             + bytes(data)
 
-    checksum = sum(entry) & 0xFFFF # Checksum = lower 16-bits of the sum of all bytes in data
+    checksum = sum(entry) & 0xFFFF  # Checksum = lower 16-bits of the sum of all bytes in data
 
     file = struct.pack("<8s 3s 42s H",
-                       b"**TI83F*",         # Signature
-                       b"\x1A\x0A\x0A",     # 2nd signature
-                       b"Turing rocks!",    # Comment
+                       b"**TI83F*",  # Signature
+                       b"\x1A\x0A\x0A",  # 2nd signature
+                       b"Turing rocks!",  # Comment
                        len(entry)) \
            + entry \
            + struct.pack("<H", checksum)
@@ -1187,9 +1196,8 @@ algo = [
             ])
         ]),
     ])
-        ]
+]
 
 arr = ["%02X" % x for x in package("DEADBEEF", binify(convert_block(algo)))]
 print(arr)
 print("".join(arr))
-
