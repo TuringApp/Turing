@@ -9,7 +9,7 @@ all: $(LANG_TARGET)
 	lrelease $<
 
 clean:
-	rm -f *~
+	rm -f *~ *.qm
 
 install:
 

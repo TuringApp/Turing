@@ -4,7 +4,8 @@ UI_TARGETS = $(patsubst %.ui, %.py, $(UI_SOURCES))
 
 all: $(UI_TARGETS)
 
-clean: rm -f *~
+clean:
+	rm -f *~ ui_*.py
 
 install:
 
