@@ -86,7 +86,7 @@ class BinOpNode(AstNode):
             elif type(right) == StringNode and type(left) != StringNode:
                 left_py = "str(%s)" % left_py
 
-        return "(%s %s %s)" % \
+        return "%s %s %s" % \
                (protectExpr(left_py), op_fix, protectExpr(right_py))
 
     def children(self) -> List["AstNode"]:
