@@ -141,6 +141,8 @@ comment_html = lambda: '<span style="color:%s;font-style:italic">' % theming.alg
 keyword_html = lambda: '<span style="color:%s;font-weight:bold">' % theming.algo_colors[2]
 red_html = lambda: '<span style="color:%s">' % theming.algo_colors[3]
 
+label_format = "&nbsp;<span>%s</span>" + "&nbsp;" * 10
+
 
 def sleep(duration):
     begin = datetime.datetime.now()
@@ -1492,7 +1494,7 @@ def get_item_label(item):
     txt.dclicked.connect(algo_double_click)
     item.lbl = txt
     GuiState.ui.treeWidget.setItemWidget(item, 0, txt)
-    GuiState.ui.treeWidget.header().setSectionResizeMode(QHeaderView.ResizeToContents)
+
 
     return txt
 
@@ -1503,7 +1505,8 @@ def get_item_html(html, data=""):
     item.setFont(0, GuiState.ui.treeWidget.font())
     lbl = get_item_label(item)
     lbl.setFont(item.font(0))
-    lbl.setText('&nbsp;<span>%s</span>' % html)
+    lbl.setText(label_format % html)
+    item.setSizeHint(0, lbl.sizeHint())
 
     GuiState.ui.treeWidget.setItemWidget(item, 0, lbl)
 
@@ -1513,7 +1516,7 @@ def get_item_html(html, data=""):
 def refresh_algo_text():
     for item, stmt in GuiState.item_map.values():
         lbl = get_item_label(item)
-        lbl.setText('&nbsp;<span>%s</span>' % str_stmt(stmt))
+        lbl.setText(label_format % str_stmt(stmt))
 
 
 def add_display():
@@ -2322,6 +2325,8 @@ def init_ui():
     GuiState.ui.setupUi(GuiState.window)
 
     load_languages()
+
+    GuiState.ui.treeWidget.header().setSectionResizeMode(QHeaderView.ResizeToContents)
 
     GuiState.algo_base_font = GuiState.ui.treeWidget.font()
 
