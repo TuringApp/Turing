@@ -25,4 +25,4 @@ class StringNode(AstNode):
         return '"%s"' % repr(self.value)[1:-1]
 
     def python(self) -> str:
-        return "%r" % protectExpr(self.value)
+        return "%r" % self.value
