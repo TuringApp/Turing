@@ -1,2 +1,2 @@
 @echo off
-python -m tests.chat
+python.exe -m tests.chat

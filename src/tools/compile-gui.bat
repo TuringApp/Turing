@@ -3,7 +3,7 @@ pushd forms
 for %%f in (*.ui) do pyuic5 %%f -o %%~nf.py
 popd
 pushd tools
-python progen.py
+python.exe progen.py
 popd tools
 pylupdate5 -verbose project.pro
 pushd lang
