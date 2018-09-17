@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="zh_CN" sourcelanguage="en">
-<context encoding="UTF-8">
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN" sourcelanguage="en">
+<context>
     <name>AboutWindow</name>
     <message>
         <location filename="../forms/ui_about.py" line="74"/>
@@ -17,7 +18,7 @@
         <source>License</source>
         <translation type="unfinished"></translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../forms/ui_about.py" line="75"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1479,32 +1480,32 @@ Window Text :</source>
         <source>Returns the lowercase version of {{s}}.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="564"/>
         <source>Returns the probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="579"/>
         <source>Returns the probability for {{x}} with the standard normal distribution (µ=0 and σ=1).</source>
         <translation type="unfinished"></translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="590"/>
         <source>Returns the cumulative probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="604"/>
         <source>Returns the cumulative probability for {{x}} with the standard normal distribution (µ=0 and σ=1).</source>
         <translation type="unfinished"></translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="616"/>
         <source>Returns the number with cumulative probability {{p}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="630"/>
         <source>Returns the number with cumulative probability {{p}} with the standard normal distribution (µ=0 and σ=1).</source>
         <translation type="unfinished"></translation>
@@ -1590,7 +1591,7 @@ Window Text :</source>
     <message>
         <location filename="../maths/evaluator.py" line="346"/>
         <source> and </source>
-        <translation type="unfinished"></translation>
+        <translation> 和 </translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="351"/>
@@ -1651,7 +1652,7 @@ Window Text :</source>
     <message>
         <location filename="../forms/ui_inline_code.py" line="28"/>
         <source>Expression editor</source>
-        <translation type="unfinished"></translation>
+        <translation>表达式编辑器</translation>
     </message>
 </context>
 <context>
@@ -1830,7 +1831,7 @@ Window Text :</source>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="883"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>帮助(&amp;H)</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="884"/>
@@ -1940,7 +1941,7 @@ Window Text :</source>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="919"/>
         <source>Quick Start</source>
-        <translation type="unfinished"></translation>
+        <translation>快速入门</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="921"/>
@@ -1955,7 +1956,7 @@ Window Text :</source>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="925"/>
         <source>Show toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>显示工具栏</translation>
     </message>
     <message>
         <location filename="../forms/ui_mainwindow.py" line="926"/>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="fr" sourcelanguage="en">
-<context encoding="UTF-8">
+<!DOCTYPE TS>
+<TS version="2.1" language="fr" sourcelanguage="en">
+<context>
     <name>AboutWindow</name>
     <message>
         <location filename="../forms/ui_about.py" line="74"/>
@@ -17,7 +18,7 @@
         <source>License</source>
         <translation>Licence</translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../forms/ui_about.py" line="75"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1497,32 +1498,32 @@ désactivé :</translation>
         <source>Returns the lowercase version of {{s}}.</source>
         <translation>Renvoie une copie en minuscules de {{s}}.</translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="564"/>
         <source>Returns the probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
         <translation>Renvoie la probabilité de {{x}} avec la loi normale de paramètres µ={{mu}} et σ={{sigma}}.</translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="579"/>
         <source>Returns the probability for {{x}} with the standard normal distribution (µ=0 and σ=1).</source>
         <translation>Renvoie la probabilité de {{x}} avec la loi normale centrée réduite (µ=0 et σ=1).</translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="590"/>
         <source>Returns the cumulative probability for {{x}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
         <translation>Renvoie la probabilité cumulative de {{x}} avec la loi normale de paramètres µ={{mu}} et σ={{sigma}}.</translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="604"/>
         <source>Returns the cumulative probability for {{x}} with the standard normal distribution (µ=0 and σ=1).</source>
         <translation>Renvoie la probabilité cumulative de {{x}} avec la loi normale centrée réduite (µ=0 et σ=1).</translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="616"/>
         <source>Returns the number with cumulative probability {{p}} with the normal distribution of parameters µ={{mu}} and σ={{sigma}}.</source>
         <translation>Renvoie le nombre ayant pour probabilité cumulative {{p}} avec la loi normale de paramètres µ={{mu}} et σ={{sigma}}.</translation>
     </message>
-    <message encoding="UTF-8">
+    <message>
         <location filename="../maths/lib/stats.py" line="630"/>
         <source>Returns the number with cumulative probability {{p}} with the standard normal distribution (µ=0 and σ=1).</source>
         <translation>Renvoie le nombre ayant pour probabilité cumulative {{p}} avec la loi normale centrée réduite (µ=0 et σ=1).</translation>
