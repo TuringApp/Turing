@@ -136,7 +136,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../algo/stmts/InputStmt.py" line="21"/>
         <source>Variable {var} = </source>
-        <translation type="unfinished"></translation>
+        <translation>Variable {var} = </translation>
     </message>
     <message>
         <location filename="../algo/worker.py" line="195"/>
