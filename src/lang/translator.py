@@ -2,7 +2,10 @@
 
 import importlib
 import os
-import sip
+try:
+    from PyQt5 import sip
+except:
+    import sip
 import sys
 import types
 from typing import List, Tuple

@@ -2,7 +2,6 @@
 This module contains the code folding API.
 
 """
-from __future__ import print_function
 import logging
 import sys
 from pyqode.core.api.utils import TextBlockHelper

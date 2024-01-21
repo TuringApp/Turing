@@ -1,14 +1,8 @@
 """
 This module contains the base code editor widget.
 """
-from __future__ import print_function
 import os
 import sys
-try:
-    from future.builtins import str, super
-except:
-    # not availabe on python 3.2 (but not needed)
-    pass
 import logging
 import platform
 from pyqode.core import icons

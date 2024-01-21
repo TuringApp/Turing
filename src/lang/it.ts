@@ -31,7 +31,7 @@ p, li { white-space: pre-wrap; }
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Windows icons under CC-BY 3.0 license - &lt;a href=&quot;http://www.fatcow.com/free-icons&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;(c) Fatcow Web Hosting&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Special thanks :&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://twitter.com/davR74130&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#0000ff;&quot;&gt;David Roche&lt;/span&gt;&lt;/a&gt;, physics and computer science teacher, whose lessons and modesty were a big help during the development&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Alan Turing&lt;/span&gt;, without whom the computer you&apos;re looking at wouldn&apos;t be a thing&lt;/li&gt;&lt;/ul&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Alan Turing&lt;/span&gt;, without whom the computer you're looking at wouldn't be a thing&lt;/li&gt;&lt;/ul&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;plz give us a good grade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -229,22 +229,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoCallStmt</name>
     <message>
-        <location filename="../forms/ui_alg_call.py" line="71"/>
+        <location filename="../forms/ui_alg_call.ui" line="17"/>
         <source>Call function</source>
         <translation>Chiamare una funzione</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_call.py" line="72"/>
+        <location filename="../forms/ui_alg_call.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calls the function with the specified arguments.&lt;/p&gt;&lt;p&gt;The argument list must consist of a comma-separated list of arguments.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_call.py" line="73"/>
+        <location filename="../forms/ui_alg_call.ui" line="42"/>
         <source>Function:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_call.py" line="74"/>
+        <location filename="../forms/ui_alg_call.ui" line="80"/>
         <source>Arguments:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -252,17 +252,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoCommentStmt</name>
     <message>
-        <location filename="../forms/ui_alg_comment.py" line="49"/>
+        <location filename="../forms/ui_alg_comment.ui" line="17"/>
         <source>Comment</source>
         <translation>Commenta</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_comment.py" line="50"/>
+        <location filename="../forms/ui_alg_comment.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A comment has no effect whatsoever on the execution of the program.&lt;/p&gt;&lt;p&gt;It can contain anything.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_comment.py" line="51"/>
+        <location filename="../forms/ui_alg_comment.ui" line="45"/>
         <source>Comment:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -270,22 +270,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoDefineStmt</name>
     <message>
-        <location filename="../forms/ui_alg_define.py" line="63"/>
+        <location filename="../forms/ui_alg_define.ui" line="17"/>
         <source>Define variable</source>
         <translation>Definire la variabile</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_define.py" line="64"/>
+        <location filename="../forms/ui_alg_define.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Assigns the specified value to the variable.&lt;/p&gt;&lt;p&gt;If the variable does not exist in the current scope or in any parent scope, it will be created in the current scope.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_define.py" line="65"/>
+        <location filename="../forms/ui_alg_define.ui" line="42"/>
         <source>Value:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_define.py" line="66"/>
+        <location filename="../forms/ui_alg_define.ui" line="52"/>
         <source>Variable:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -293,60 +293,60 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoDisplayStmt</name>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="62"/>
+        <location filename="../forms/ui_alg_display.ui" line="17"/>
         <source>Display value</source>
         <translation>Visualizzazione valore</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="63"/>
+        <location filename="../forms/ui_alg_display.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Displays a value in the output window. &lt;/p&gt;&lt;p&gt;The value can be of any type, it will be automatically converted to a textual representation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="64"/>
+        <location filename="../forms/ui_alg_display.ui" line="56"/>
         <source>Value:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="65"/>
+        <location filename="../forms/ui_alg_display.ui" line="66"/>
         <source>Followed by a line break</source>
-        <translation>Aggiungere un&apos;interruzione di linea</translation>
+        <translation>Aggiungere un'interruzione di linea</translation>
     </message>
 </context>
 <context>
     <name>AlgoForStmt</name>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="101"/>
+        <location filename="../forms/ui_alg_for.ui" line="17"/>
         <source>FOR loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="102"/>
+        <location filename="../forms/ui_alg_for.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Executes the instructions for all values of the variable in the specified range.&lt;/p&gt;&lt;p&gt;At each iteration, the variable will be incremented by the step which is defaulted to 1. &lt;/p&gt;&lt;p&gt;The bounds are inclusive.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="103"/>
+        <location filename="../forms/ui_alg_for.ui" line="48"/>
         <source>From:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="104"/>
+        <location filename="../forms/ui_alg_for.ui" line="58"/>
         <source>To:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="105"/>
+        <location filename="../forms/ui_alg_for.ui" line="103"/>
         <source>Step:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="106"/>
+        <location filename="../forms/ui_alg_for.ui" line="113"/>
         <source>Variable:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="107"/>
+        <location filename="../forms/ui_alg_for.ui" line="126"/>
         <source>Custom step</source>
         <translation type="unfinished"></translation>
     </message>
@@ -354,22 +354,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoFuncStmt</name>
     <message>
-        <location filename="../forms/ui_alg_func.py" line="56"/>
+        <location filename="../forms/ui_alg_func.ui" line="17"/>
         <source>Define function</source>
         <translation>Definire una funzione</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_func.py" line="57"/>
+        <location filename="../forms/ui_alg_func.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Creates a custom function. The parameters must be a comma-separated list of identifiers.&lt;/p&gt;&lt;p&gt;A function may or may not return a value, it can very well only &amp;quot;do&amp;quot; things without ever giving a result. Such a function can be called using the CALL statement.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_func.py" line="58"/>
+        <location filename="../forms/ui_alg_func.ui" line="42"/>
         <source>Function:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_func.py" line="59"/>
+        <location filename="../forms/ui_alg_func.ui" line="58"/>
         <source>Parameters:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -377,42 +377,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGFuncStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="128"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="17"/>
         <source>Plot function</source>
         <translation>Tracciare una funzione</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="129"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws the curve of the function on the specified interval.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="130"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="42"/>
         <source>Start:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="131"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="55"/>
         <source>Step:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="132"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="68"/>
         <source>Function:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="133"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="81"/>
         <source>Variable:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="134"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="153"/>
         <source>Color:</source>
         <translation>Colore:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="135"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="163"/>
         <source>End:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -420,37 +420,37 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGLineStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="120"/>
+        <location filename="../forms/ui_alg_gline.ui" line="17"/>
         <source>Plot line</source>
         <translation>Tracciare una linea</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="121"/>
+        <location filename="../forms/ui_alg_gline.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws a line with the specified coordinates.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="122"/>
+        <location filename="../forms/ui_alg_gline.ui" line="45"/>
         <source>End Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="123"/>
+        <location filename="../forms/ui_alg_gline.ui" line="55"/>
         <source>End X:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="124"/>
+        <location filename="../forms/ui_alg_gline.ui" line="74"/>
         <source>Start X:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="125"/>
+        <location filename="../forms/ui_alg_gline.ui" line="84"/>
         <source>Start Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="126"/>
+        <location filename="../forms/ui_alg_gline.ui" line="167"/>
         <source>Color:</source>
         <translation>Colore:</translation>
     </message>
@@ -458,27 +458,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGPointStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="90"/>
+        <location filename="../forms/ui_alg_gpoint.ui" line="17"/>
         <source>Plot point</source>
         <translation>Tracciare un punto</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="91"/>
+        <location filename="../forms/ui_alg_gpoint.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws a point at the specified coordinates.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="92"/>
+        <location filename="../forms/ui_alg_gpoint.ui" line="42"/>
         <source>Color:</source>
         <translation>Colore:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="93"/>
+        <location filename="../forms/ui_alg_gpoint.ui" line="55"/>
         <source>X:</source>
         <translation>Y:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="94"/>
+        <location filename="../forms/ui_alg_gpoint.ui" line="65"/>
         <source>Y:</source>
         <translation>Y:</translation>
     </message>
@@ -486,42 +486,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGWindowStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="133"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="17"/>
         <source>Set window</source>
         <translation>Impostare la finestra del grafico</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="135"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="45"/>
         <source>Max Y:</source>
         <translation>Max Y:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="136"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="58"/>
         <source>Min Y:</source>
         <translation>Min Y:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="137"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="74"/>
         <source>Min X:</source>
         <translation>Min Y:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="138"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="84"/>
         <source>Max X:</source>
         <translation>Max X:</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="139"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="184"/>
         <source>Grad X:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="140"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="194"/>
         <source>Grad Y:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="134"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Changes the size of the plot window canvas. For Grad, 0 means automatic.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -529,17 +529,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoIfStmt</name>
     <message>
-        <location filename="../forms/ui_alg_if.py" line="56"/>
+        <location filename="../forms/ui_alg_if.ui" line="17"/>
         <source>IF block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_if.py" line="57"/>
+        <location filename="../forms/ui_alg_if.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Checks if the specified condition is true.&lt;/p&gt;&lt;p&gt;The block will only be executed if the condition is true, otherwise the program will continue with the instruction following the block.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_if.py" line="58"/>
+        <location filename="../forms/ui_alg_if.ui" line="56"/>
         <source>Condition:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -547,32 +547,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoInputStmt</name>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="74"/>
+        <location filename="../forms/ui_alg_input.ui" line="17"/>
         <source>Read user input</source>
-        <translation>Lettura dei dati immessi dall&apos;utente</translation>
+        <translation>Lettura dei dati immessi dall'utente</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="75"/>
+        <location filename="../forms/ui_alg_input.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Asks the user for a value and assigns it to the specified variable.&lt;/p&gt;&lt;p&gt;Optionally, a message can be displayed. &lt;span style=&quot; font-weight:600;&quot;&gt;Warning&lt;/span&gt;: the message is an expression, thus if you want to display text you need to enclose everything inside quotes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="76"/>
+        <location filename="../forms/ui_alg_input.ui" line="63"/>
         <source>Display a message</source>
         <translation>Visualizzare un messaggio</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="78"/>
+        <location filename="../forms/ui_alg_input.ui" line="83"/>
         <source>Message:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="77"/>
+        <location filename="../forms/ui_alg_input.ui" line="70"/>
         <source>Variable:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="79"/>
+        <location filename="../forms/ui_alg_input.ui" line="93"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -580,22 +580,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoReturnStmt</name>
     <message>
-        <location filename="../forms/ui_alg_return.py" line="63"/>
+        <location filename="../forms/ui_alg_return.ui" line="17"/>
         <source>Return</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_return.py" line="64"/>
+        <location filename="../forms/ui_alg_return.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exits the current function and optionally passes a value to the caller.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_return.py" line="65"/>
+        <location filename="../forms/ui_alg_return.ui" line="42"/>
         <source>Value:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_return.py" line="66"/>
+        <location filename="../forms/ui_alg_return.ui" line="73"/>
         <source>Return a value</source>
         <translation type="unfinished"></translation>
     </message>
@@ -603,17 +603,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoSleepStmt</name>
     <message>
-        <location filename="../forms/ui_alg_sleep.py" line="57"/>
+        <location filename="../forms/ui_alg_sleep.ui" line="17"/>
         <source>Wait</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_sleep.py" line="58"/>
+        <location filename="../forms/ui_alg_sleep.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Waits for the specified amount of time (in &lt;span style=&quot; font-weight:600;&quot;&gt;seconds&lt;/span&gt;).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_sleep.py" line="59"/>
+        <location filename="../forms/ui_alg_sleep.ui" line="45"/>
         <source>Duration:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -621,22 +621,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoStopStmt</name>
     <message>
-        <location filename="../forms/ui_alg_stop.py" line="63"/>
+        <location filename="../forms/ui_alg_stop.ui" line="17"/>
         <source>Breakpoint</source>
         <translation>Punto di interruzione</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_stop.py" line="64"/>
+        <location filename="../forms/ui_alg_stop.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pauses the program until &amp;quot;Run&amp;quot; or &amp;quot;Debug&amp;quot; is pressed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_stop.py" line="65"/>
+        <location filename="../forms/ui_alg_stop.ui" line="42"/>
         <source>Message:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_stop.py" line="66"/>
+        <location filename="../forms/ui_alg_stop.ui" line="73"/>
         <source>Display a message</source>
         <translation>Visualizzare un messaggio</translation>
     </message>
@@ -644,17 +644,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoWhileStmt</name>
     <message>
-        <location filename="../forms/ui_alg_while.py" line="56"/>
+        <location filename="../forms/ui_alg_while.ui" line="17"/>
         <source>WHILE loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_while.py" line="57"/>
+        <location filename="../forms/ui_alg_while.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Executes the instructions while the condition is true.&lt;/p&gt;&lt;p&gt;As soon as the condition is false, the program continues with the instruction following the block.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_while.py" line="58"/>
+        <location filename="../forms/ui_alg_while.ui" line="56"/>
         <source>Condition:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -664,18 +664,18 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../algo/frontends/algobox.py" line="54"/>
         <source>Unknown color: {color}</source>
-        <translation>Colore sconosciuto: {color}</translation>
+        <translation type="obsolete">Colore sconosciuto: {color}</translation>
     </message>
     <message>
         <location filename="../algo/frontends/algobox.py" line="114"/>
         <source>Unknown variable type: {type}</source>
-        <translation>Tipo di variabile sconosciuto: {type}</translation>
+        <translation type="obsolete">Tipo di variabile sconosciuto: {type}</translation>
     </message>
 </context>
 <context>
     <name>CalcWindow</name>
     <message>
-        <location filename="../forms/ui_calculator.py" line="33"/>
+        <location filename="../forms/ui_calculator.ui" line="14"/>
         <source>Calculator</source>
         <translation>Calcolatrice</translation>
     </message>
@@ -688,131 +688,131 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ChangeThemeWindow</name>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="401"/>
+        <location filename="../forms/ui_changtheme.ui" line="17"/>
         <source>Edit theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="402"/>
+        <location filename="../forms/ui_changtheme.ui" line="32"/>
         <source>Block:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="403"/>
+        <location filename="../forms/ui_changtheme.ui" line="42"/>
         <source>Comment:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="404"/>
+        <location filename="../forms/ui_changtheme.ui" line="55"/>
         <source>Keyword:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="405"/>
+        <location filename="../forms/ui_changtheme.ui" line="96"/>
         <source>Literal:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="406"/>
+        <location filename="../forms/ui_changtheme.ui" line="139"/>
         <source>Window:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="407"/>
+        <location filename="../forms/ui_changtheme.ui" line="149"/>
         <source>Shadow:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="408"/>
+        <location filename="../forms/ui_changtheme.ui" line="329"/>
         <source>Button:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="409"/>
+        <location filename="../forms/ui_changtheme.ui" line="342"/>
         <source>Button Text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="410"/>
+        <location filename="../forms/ui_changtheme.ui" line="355"/>
         <source>Disabled
 Button Text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="412"/>
+        <location filename="../forms/ui_changtheme.ui" line="366"/>
         <source>Bright Text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="413"/>
+        <location filename="../forms/ui_changtheme.ui" line="523"/>
         <source>Disabled
 Highlight:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="415"/>
+        <location filename="../forms/ui_changtheme.ui" line="534"/>
         <source>Highlight:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="416"/>
+        <location filename="../forms/ui_changtheme.ui" line="544"/>
         <source>Highlighted Text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="417"/>
+        <location filename="../forms/ui_changtheme.ui" line="554"/>
         <source>Link:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="418"/>
+        <location filename="../forms/ui_changtheme.ui" line="564"/>
         <source>Disabled
 Highlighted Text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="422"/>
+        <location filename="../forms/ui_changtheme.ui" line="586"/>
         <source>Alternate Base:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="423"/>
+        <location filename="../forms/ui_changtheme.ui" line="596"/>
         <source>Base:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="424"/>
+        <location filename="../forms/ui_changtheme.ui" line="606"/>
         <source>Window Text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="425"/>
+        <location filename="../forms/ui_changtheme.ui" line="616"/>
         <source>Dark:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="426"/>
+        <location filename="../forms/ui_changtheme.ui" line="626"/>
         <source>Disabled
 Text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="428"/>
+        <location filename="../forms/ui_changtheme.ui" line="637"/>
         <source>Tool Tip Text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="429"/>
+        <location filename="../forms/ui_changtheme.ui" line="647"/>
         <source>Text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="430"/>
+        <location filename="../forms/ui_changtheme.ui" line="657"/>
         <source>Tool Tip Base:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="420"/>
+        <location filename="../forms/ui_changtheme.ui" line="575"/>
         <source>Disabled
 Window Text :</source>
         <translation type="unfinished"></translation>
@@ -878,12 +878,12 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/basic.py" line="134"/>
         <source>Returns the largest integer less than or equal to {{num}}.</source>
-        <translation>Riporta l&apos;intero più grande meno grande o uguale a {{num}}.</translation>
+        <translation>Riporta l'intero più grande meno grande o uguale a {{num}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="147"/>
         <source>Returns the smallest integer greater than or equal to {{num}}.</source>
-        <translation>Riporta l&apos;intero più piccolo maggiore o uguale a {{num}}.</translation>
+        <translation>Riporta l'intero più piccolo maggiore o uguale a {{num}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="160"/>
@@ -903,7 +903,7 @@ Window Text :</source>
     <message>
         <location filename="../maths/lib/basic.py" line="205"/>
         <source>Returns the argument (or phase) of {{x}}.</source>
-        <translation>Riporta l&apos;argomento di {{x}}.</translation>
+        <translation>Riporta l'argomento di {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="219"/>
@@ -1617,7 +1617,7 @@ Window Text :</source>
 <context>
     <name>HelpWindow</name>
     <message>
-        <location filename="../forms/ui_help.py" line="68"/>
+        <location filename="../forms/ui_help.ui" line="14"/>
         <source>Help Contents</source>
         <translation>Sommario Guida</translation>
     </message>
@@ -1650,7 +1650,7 @@ Window Text :</source>
 <context>
     <name>InlineCodeDialog</name>
     <message>
-        <location filename="../forms/ui_inline_code.py" line="28"/>
+        <location filename="../forms/ui_inline_code.ui" line="17"/>
         <source>Expression editor</source>
         <translation>Editor espressioni</translation>
     </message>
@@ -2339,7 +2339,7 @@ please choose another file path.</source>
     <message>
         <location filename="../maths/parser.py" line="174"/>
         <source>Expected token ({type}) &apos;{val}&apos;</source>
-        <translation>Token previsto ({type}) &apos;{val}&apos;</translation>
+        <translation>Token previsto ({type}) '{val}'</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="266"/>
@@ -2354,7 +2354,7 @@ please choose another file path.</source>
     <message>
         <location filename="../maths/parser.py" line="474"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
-        <translation>Token imprevisto ({type}) &apos;{val}&apos;</translation>
+        <translation>Token imprevisto ({type}) '{val}'</translation>
     </message>
 </context>
 <context>

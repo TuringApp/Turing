@@ -31,20 +31,20 @@ p, li { white-space: pre-wrap; }
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Windows icons under CC-BY 3.0 license - &lt;a href=&quot;http://www.fatcow.com/free-icons&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;(c) Fatcow Web Hosting&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Special thanks :&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://twitter.com/davR74130&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#0000ff;&quot;&gt;David Roche&lt;/span&gt;&lt;/a&gt;, physics and computer science teacher, whose lessons and modesty were a big help during the development&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Alan Turing&lt;/span&gt;, without whom the computer you&apos;re looking at wouldn&apos;t be a thing&lt;/li&gt;&lt;/ul&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Alan Turing&lt;/span&gt;, without whom the computer you're looking at wouldn't be a thing&lt;/li&gt;&lt;/ul&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;plz give us a good grade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;MS Shell Dlg 2&apos;; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;Turing {version}&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Canal de développement : &lt;/span&gt;{channel} &lt;br /&gt;&lt;br /&gt;Logiciel libre et multi-plateforme d&apos;aide à l&apos;apprentissage de l&apos;algorithmique et de la programmation informatique. &lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Copyright &amp;copy; 2018 l&apos;équipe Turing (Léo Joly, Tom Niget)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Canal de développement : &lt;/span&gt;{channel} &lt;br /&gt;&lt;br /&gt;Logiciel libre et multi-plateforme d'aide à l'apprentissage de l'algorithmique et de la programmation informatique. &lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Copyright &amp;copy; 2018 l'équipe Turing (Léo Joly, Tom Niget)&lt;/span&gt;&lt;/p&gt;
 &lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ce logiciel est distribué sous la licence MIT et utilise le framework &lt;a href=&quot;https://www.qt.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Qt&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;https://riverbankcomputing.com/software/pyqt/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;pyQt&lt;/span&gt;&lt;/a&gt;.&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Spé ISN &amp;gt; Spé maths&lt;/li&gt;
 &lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Icônes Windows sous licence CC-BY 3.0 - &lt;a href=&quot;http://www.fatcow.com/free-icons&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;&amp;copy; Fatcow Web Hosting&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Remerciements :&lt;/span&gt;&lt;/p&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://twitter.com/davR74130&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#0000ff;&quot;&gt;David Roche&lt;/span&gt;&lt;/a&gt;, professeur de physique et d&apos;informatique, dont les cours et la modestie ont été d&apos;une aide incontournable pendant le développement&lt;/li&gt;
-&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Alan Turing&lt;/span&gt;, sans qui ce projet n&apos;existerait pas&lt;/li&gt;&lt;/ul&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://twitter.com/davR74130&quot;&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline; color:#0000ff;&quot;&gt;David Roche&lt;/span&gt;&lt;/a&gt;, professeur de physique et d'informatique, dont les cours et la modestie ont été d'une aide incontournable pendant le développement&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Alan Turing&lt;/span&gt;, sans qui ce projet n'existerait pas&lt;/li&gt;&lt;/ul&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;svp mettez nous pas une mauvaise note&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
@@ -150,7 +150,7 @@ p, li { white-space: pre-wrap; }
         <source>The following errors occured while parsing the expression:
 
 </source>
-        <translation>Les erreurs suivantes sont survenues lors de l&apos;analyse de l&apos;expression :
+        <translation>Les erreurs suivantes sont survenues lors de l'analyse de l'expression :
 
 </translation>
     </message>
@@ -243,22 +243,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoCallStmt</name>
     <message>
-        <location filename="../forms/ui_alg_call.py" line="72"/>
+        <location filename="../forms/ui_alg_call.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calls the function with the specified arguments.&lt;/p&gt;&lt;p&gt;The argument list must consist of a comma-separated list of arguments.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Appelle la fonction avec les arguments spécifiés.&lt;/p&gt;&lt;p&gt;Les arguments doivent être séparés par des virgules.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_call.py" line="73"/>
+        <location filename="../forms/ui_alg_call.ui" line="42"/>
         <source>Function:</source>
         <translation>Fonction :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_call.py" line="74"/>
+        <location filename="../forms/ui_alg_call.ui" line="80"/>
         <source>Arguments:</source>
         <translation>Arguments :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_call.py" line="71"/>
+        <location filename="../forms/ui_alg_call.ui" line="17"/>
         <source>Call function</source>
         <translation>Appeler fonction</translation>
     </message>
@@ -266,17 +266,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoCommentStmt</name>
     <message>
-        <location filename="../forms/ui_alg_comment.py" line="49"/>
+        <location filename="../forms/ui_alg_comment.ui" line="17"/>
         <source>Comment</source>
         <translation>Commentaire</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_comment.py" line="50"/>
+        <location filename="../forms/ui_alg_comment.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A comment has no effect whatsoever on the execution of the program.&lt;/p&gt;&lt;p&gt;It can contain anything.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Un commentaire n&apos;a absolument aucun effet sur l&apos;exécution du programme.&lt;/p&gt;&lt;p&gt;Il peut contenir n&apos;importe quoi.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Un commentaire n'a absolument aucun effet sur l'exécution du programme.&lt;/p&gt;&lt;p&gt;Il peut contenir n'importe quoi.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_comment.py" line="51"/>
+        <location filename="../forms/ui_alg_comment.ui" line="45"/>
         <source>Comment:</source>
         <translation>Commentaire :</translation>
     </message>
@@ -284,22 +284,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoDefineStmt</name>
     <message>
-        <location filename="../forms/ui_alg_define.py" line="64"/>
+        <location filename="../forms/ui_alg_define.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Assigns the specified value to the variable.&lt;/p&gt;&lt;p&gt;If the variable does not exist in the current scope or in any parent scope, it will be created in the current scope.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Assigne la valeur spécifiée à la variable.&lt;/p&gt;&lt;p&gt;Si la variable n&apos;existe pas dans le champ actuel ou dans un quelconque champ parent, elle sera créée dans le champ actuel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Assigne la valeur spécifiée à la variable.&lt;/p&gt;&lt;p&gt;Si la variable n'existe pas dans le champ actuel ou dans un quelconque champ parent, elle sera créée dans le champ actuel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_define.py" line="65"/>
+        <location filename="../forms/ui_alg_define.ui" line="42"/>
         <source>Value:</source>
         <translation>Valeur :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_define.py" line="66"/>
+        <location filename="../forms/ui_alg_define.ui" line="52"/>
         <source>Variable:</source>
         <translation>Variable :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_define.py" line="63"/>
+        <location filename="../forms/ui_alg_define.ui" line="17"/>
         <source>Define variable</source>
         <translation>Définir variable</translation>
     </message>
@@ -307,22 +307,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoDisplayStmt</name>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="62"/>
+        <location filename="../forms/ui_alg_display.ui" line="17"/>
         <source>Display value</source>
         <translation>Afficher valeur</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="63"/>
+        <location filename="../forms/ui_alg_display.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Displays a value in the output window. &lt;/p&gt;&lt;p&gt;The value can be of any type, it will be automatically converted to a textual representation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Affiche une valeur dans ̊la fenêtre de sortie. &lt;/p&gt;&lt;p&gt;La valeur peut être de n&apos;importe quel type, elle sera de toute façon convertie en une représentation textuelle appropriée.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Affiche une valeur dans ̊la fenêtre de sortie. &lt;/p&gt;&lt;p&gt;La valeur peut être de n'importe quel type, elle sera de toute façon convertie en une représentation textuelle appropriée.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="64"/>
+        <location filename="../forms/ui_alg_display.ui" line="56"/>
         <source>Value:</source>
         <translation>Valeur :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_display.py" line="65"/>
+        <location filename="../forms/ui_alg_display.ui" line="66"/>
         <source>Followed by a line break</source>
         <translation>Ajouter un retour à la ligne</translation>
     </message>
@@ -330,37 +330,37 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoForStmt</name>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="102"/>
+        <location filename="../forms/ui_alg_for.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Executes the instructions for all values of the variable in the specified range.&lt;/p&gt;&lt;p&gt;At each iteration, the variable will be incremented by the step which is defaulted to 1. &lt;/p&gt;&lt;p&gt;The bounds are inclusive.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exécute une instruction pour toutes les valeurs de la variable dans l&apos;intervalle spécifié.&lt;/p&gt;&lt;p&gt;À chaque itération, la variable est incrémentée du pas spécifié (1 par défaut). &lt;/p&gt;&lt;p&gt;Les bornes sont inclusives.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exécute une instruction pour toutes les valeurs de la variable dans l'intervalle spécifié.&lt;/p&gt;&lt;p&gt;À chaque itération, la variable est incrémentée du pas spécifié (1 par défaut). &lt;/p&gt;&lt;p&gt;Les bornes sont inclusives.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="103"/>
+        <location filename="../forms/ui_alg_for.ui" line="48"/>
         <source>From:</source>
         <translation>De :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="104"/>
+        <location filename="../forms/ui_alg_for.ui" line="58"/>
         <source>To:</source>
         <translation>À :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="105"/>
+        <location filename="../forms/ui_alg_for.ui" line="103"/>
         <source>Step:</source>
         <translation>Pas :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="106"/>
+        <location filename="../forms/ui_alg_for.ui" line="113"/>
         <source>Variable:</source>
         <translation>Variable :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="107"/>
+        <location filename="../forms/ui_alg_for.ui" line="126"/>
         <source>Custom step</source>
         <translation>Pas personnalisé</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_for.py" line="101"/>
+        <location filename="../forms/ui_alg_for.ui" line="17"/>
         <source>FOR loop</source>
         <translation>Boucle POUR</translation>
     </message>
@@ -368,22 +368,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoFuncStmt</name>
     <message>
-        <location filename="../forms/ui_alg_func.py" line="57"/>
+        <location filename="../forms/ui_alg_func.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Creates a custom function. The parameters must be a comma-separated list of identifiers.&lt;/p&gt;&lt;p&gt;A function may or may not return a value, it can very well only &amp;quot;do&amp;quot; things without ever giving a result. Such a function can be called using the CALL statement.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Définit une fonction personnalisée. Les paramètres doivent être séparés par des virgules.&lt;/p&gt;&lt;p&gt;Une fonction peut renvoyer ou non une valeur, elle peut très bien simplement exécuter des instructions sans donner de résultat. Une telle fonction peut être appelée en utilisant une instruction APPELER.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_func.py" line="58"/>
+        <location filename="../forms/ui_alg_func.ui" line="42"/>
         <source>Function:</source>
         <translation>Fonction :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_func.py" line="59"/>
+        <location filename="../forms/ui_alg_func.ui" line="58"/>
         <source>Parameters:</source>
         <translation>Paramètres :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_func.py" line="56"/>
+        <location filename="../forms/ui_alg_func.ui" line="17"/>
         <source>Define function</source>
         <translation>Définir fonction</translation>
     </message>
@@ -391,42 +391,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGFuncStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="128"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="17"/>
         <source>Plot function</source>
         <translation>Tracer une fonction</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="129"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws the curve of the function on the specified interval.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dessine la courbe représentative de la fonction sur l&apos;intervalle spécifié.&lt;/p&gt;&lt;p&gt;La couleur doit être une chaîne de caractères contenant le nom de la couleur ou la valeur RGB hexadécimale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dessine la courbe représentative de la fonction sur l'intervalle spécifié.&lt;/p&gt;&lt;p&gt;La couleur doit être une chaîne de caractères contenant le nom de la couleur ou la valeur RGB hexadécimale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="130"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="42"/>
         <source>Start:</source>
         <translation>Début :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="131"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="55"/>
         <source>Step:</source>
         <translation>Pas :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="132"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="68"/>
         <source>Function:</source>
         <translation>Fonction :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="133"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="81"/>
         <source>Variable:</source>
         <translation>Variable :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="134"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="153"/>
         <source>Color:</source>
         <translation>Couleur :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gfunc.py" line="135"/>
+        <location filename="../forms/ui_alg_gfunc.ui" line="163"/>
         <source>End:</source>
         <translation>Fin :</translation>
     </message>
@@ -434,37 +434,37 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGLineStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="120"/>
+        <location filename="../forms/ui_alg_gline.ui" line="17"/>
         <source>Plot line</source>
         <translation>Dessiner une ligne</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="121"/>
+        <location filename="../forms/ui_alg_gline.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws a line with the specified coordinates.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dessine une ligne avec les coordonnées spécifiées.&lt;/p&gt;&lt;p&gt;La couleur doit être une chaîne de caractères contenant le nom de la couleur ou la valeur RGB hexadécimale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="122"/>
+        <location filename="../forms/ui_alg_gline.ui" line="45"/>
         <source>End Y:</source>
         <translation>Y arrivée :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="123"/>
+        <location filename="../forms/ui_alg_gline.ui" line="55"/>
         <source>End X:</source>
         <translation>X arrivée :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="124"/>
+        <location filename="../forms/ui_alg_gline.ui" line="74"/>
         <source>Start X:</source>
         <translation>X début :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="125"/>
+        <location filename="../forms/ui_alg_gline.ui" line="84"/>
         <source>Start Y:</source>
         <translation>Y début :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gline.py" line="126"/>
+        <location filename="../forms/ui_alg_gline.ui" line="167"/>
         <source>Color:</source>
         <translation>Couleur :</translation>
     </message>
@@ -472,27 +472,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGPointStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="90"/>
+        <location filename="../forms/ui_alg_gpoint.ui" line="17"/>
         <source>Plot point</source>
         <translation>Dessiner un point</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="91"/>
+        <location filename="../forms/ui_alg_gpoint.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Draws a point at the specified coordinates.&lt;/p&gt;&lt;p&gt;The color must be a string containing the color name or RGB hex string.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dessine un point aux coordonnées spécifiées.&lt;/p&gt;&lt;p&gt;La couleur doit être une chaîne de caractères contenant le nom de la couleur ou la valeur RGB hexadécimale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="92"/>
+        <location filename="../forms/ui_alg_gpoint.ui" line="42"/>
         <source>Color:</source>
         <translation>Couleur :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="93"/>
+        <location filename="../forms/ui_alg_gpoint.ui" line="55"/>
         <source>X:</source>
         <translation>X :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gpoint.py" line="94"/>
+        <location filename="../forms/ui_alg_gpoint.ui" line="65"/>
         <source>Y:</source>
         <translation>Y :</translation>
     </message>
@@ -500,42 +500,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoGWindowStmt</name>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="135"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="45"/>
         <source>Max Y:</source>
         <translation>Y max :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="136"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="58"/>
         <source>Min Y:</source>
         <translation>Y min :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="137"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="74"/>
         <source>Min X:</source>
         <translation>X min :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="138"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="84"/>
         <source>Max X:</source>
         <translation>X max :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="139"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="184"/>
         <source>Grad X:</source>
         <translation>X grad :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="140"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="194"/>
         <source>Grad Y:</source>
         <translation>Y grad :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="133"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="17"/>
         <source>Set window</source>
         <translation>Définir le repère</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_gwindow.py" line="134"/>
+        <location filename="../forms/ui_alg_gwindow.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Changes the size of the plot window canvas. For Grad, 0 means automatic.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Définit la taille du repère et de la fenêtre du graphique. Pour Grad, 0 signifie automatique.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -543,17 +543,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoIfStmt</name>
     <message>
-        <location filename="../forms/ui_alg_if.py" line="58"/>
+        <location filename="../forms/ui_alg_if.ui" line="56"/>
         <source>Condition:</source>
         <translation>Condition :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_if.py" line="57"/>
+        <location filename="../forms/ui_alg_if.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Checks if the specified condition is true.&lt;/p&gt;&lt;p&gt;The block will only be executed if the condition is true, otherwise the program will continue with the instruction following the block.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Vérifie si la condition spécifiée est vraie.&lt;/p&gt;&lt;p&gt;Le bloc sera exécuté uniquement si la condition est vraie, le cas échéant l&apos;exécution du programme continuera à l&apos;instruction suivant le bloc.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Vérifie si la condition spécifiée est vraie.&lt;/p&gt;&lt;p&gt;Le bloc sera exécuté uniquement si la condition est vraie, le cas échéant l'exécution du programme continuera à l'instruction suivant le bloc.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_if.py" line="56"/>
+        <location filename="../forms/ui_alg_if.ui" line="17"/>
         <source>IF block</source>
         <translation>Bloc SI</translation>
     </message>
@@ -561,32 +561,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoInputStmt</name>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="76"/>
+        <location filename="../forms/ui_alg_input.ui" line="63"/>
         <source>Display a message</source>
         <translation>Afficher un message</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="78"/>
+        <location filename="../forms/ui_alg_input.ui" line="83"/>
         <source>Message:</source>
         <translation>Message :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="77"/>
+        <location filename="../forms/ui_alg_input.ui" line="70"/>
         <source>Variable:</source>
         <translation>Variable :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="75"/>
+        <location filename="../forms/ui_alg_input.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Asks the user for a value and assigns it to the specified variable.&lt;/p&gt;&lt;p&gt;Optionally, a message can be displayed. &lt;span style=&quot; font-weight:600;&quot;&gt;Warning&lt;/span&gt;: the message is an expression, thus if you want to display text you need to enclose everything inside quotes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Demande à l&apos;utilisateur de saisir une variable, puis assigne cette valeur à la variable spécifiée.&lt;/p&gt;&lt;p&gt;Optionnellement, un message peut être affiché. &lt;span style=&quot; font-weight:600;&quot;&gt;Attention&lt;/span&gt; : le message est une expression, ainsi si vous souhaitez afficher du texte il faut mettre le tout entre guillemets.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Demande à l'utilisateur de saisir une variable, puis assigne cette valeur à la variable spécifiée.&lt;/p&gt;&lt;p&gt;Optionnellement, un message peut être affiché. &lt;span style=&quot; font-weight:600;&quot;&gt;Attention&lt;/span&gt; : le message est une expression, ainsi si vous souhaitez afficher du texte il faut mettre le tout entre guillemets.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="74"/>
+        <location filename="../forms/ui_alg_input.ui" line="17"/>
         <source>Read user input</source>
         <translation>Saisir entrée utilisateur</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_input.py" line="79"/>
+        <location filename="../forms/ui_alg_input.ui" line="93"/>
         <source>Text</source>
         <translation>Texte</translation>
     </message>
@@ -594,22 +594,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoReturnStmt</name>
     <message>
-        <location filename="../forms/ui_alg_return.py" line="64"/>
+        <location filename="../forms/ui_alg_return.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exits the current function and optionally passes a value to the caller.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sort de la fonction actuelle et renvoie optionnellement une valeur au code appelant.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_return.py" line="65"/>
+        <location filename="../forms/ui_alg_return.ui" line="42"/>
         <source>Value:</source>
         <translation>Valeur :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_return.py" line="66"/>
+        <location filename="../forms/ui_alg_return.ui" line="73"/>
         <source>Return a value</source>
         <translation>Renvoyer une valeur</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_return.py" line="63"/>
+        <location filename="../forms/ui_alg_return.ui" line="17"/>
         <source>Return</source>
         <translation>Renvoyer</translation>
     </message>
@@ -617,17 +617,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoSleepStmt</name>
     <message>
-        <location filename="../forms/ui_alg_sleep.py" line="57"/>
+        <location filename="../forms/ui_alg_sleep.ui" line="17"/>
         <source>Wait</source>
         <translation>Attendre</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_sleep.py" line="58"/>
+        <location filename="../forms/ui_alg_sleep.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Waits for the specified amount of time (in &lt;span style=&quot; font-weight:600;&quot;&gt;seconds&lt;/span&gt;).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Suspend l&apos;exécution du programme pendant la durée spécifiée (en &lt;span style=&quot; font-weight:600;&quot;&gt;secondes&lt;/span&gt;).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Suspend l'exécution du programme pendant la durée spécifiée (en &lt;span style=&quot; font-weight:600;&quot;&gt;secondes&lt;/span&gt;).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_sleep.py" line="59"/>
+        <location filename="../forms/ui_alg_sleep.ui" line="45"/>
         <source>Duration:</source>
         <translation>Durée :</translation>
     </message>
@@ -635,22 +635,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoStopStmt</name>
     <message>
-        <location filename="../forms/ui_alg_stop.py" line="63"/>
+        <location filename="../forms/ui_alg_stop.ui" line="17"/>
         <source>Breakpoint</source>
-        <translation>Point d&apos;arrêt</translation>
+        <translation>Point d'arrêt</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_stop.py" line="64"/>
+        <location filename="../forms/ui_alg_stop.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pauses the program until &amp;quot;Run&amp;quot; or &amp;quot;Debug&amp;quot; is pressed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Suspend l&apos;exécution du programme jusqu&apos;à ce que l&apos;utilisateur clique sur &amp;quot;Exécuter&amp;quot; or &amp;quot;Déboguer&amp;quot;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Suspend l'exécution du programme jusqu'à ce que l'utilisateur clique sur &amp;quot;Exécuter&amp;quot; or &amp;quot;Déboguer&amp;quot;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_stop.py" line="65"/>
+        <location filename="../forms/ui_alg_stop.ui" line="42"/>
         <source>Message:</source>
         <translation>Message :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_stop.py" line="66"/>
+        <location filename="../forms/ui_alg_stop.ui" line="73"/>
         <source>Display a message</source>
         <translation>Afficher un message</translation>
     </message>
@@ -658,17 +658,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AlgoWhileStmt</name>
     <message>
-        <location filename="../forms/ui_alg_while.py" line="57"/>
+        <location filename="../forms/ui_alg_while.ui" line="30"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Executes the instructions while the condition is true.&lt;/p&gt;&lt;p&gt;As soon as the condition is false, the program continues with the instruction following the block.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exécute les instructions tant que la condition est vraie.&lt;/p&gt;&lt;p&gt;Aussitôt que la condition est fausse, l&apos;exécution du programme continue avec l&apos;instruction suivant le bloc.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Exécute les instructions tant que la condition est vraie.&lt;/p&gt;&lt;p&gt;Aussitôt que la condition est fausse, l'exécution du programme continue avec l'instruction suivant le bloc.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_while.py" line="58"/>
+        <location filename="../forms/ui_alg_while.ui" line="56"/>
         <source>Condition:</source>
         <translation>Condition :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_alg_while.py" line="56"/>
+        <location filename="../forms/ui_alg_while.ui" line="17"/>
         <source>WHILE loop</source>
         <translation>Boucle TANT QUE</translation>
     </message>
@@ -678,18 +678,18 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../algo/frontends/algobox.py" line="114"/>
         <source>Unknown variable type: {type}</source>
-        <translation>Type de variable inconnu : {type}</translation>
+        <translation type="obsolete">Type de variable inconnu : {type}</translation>
     </message>
     <message>
         <location filename="../algo/frontends/algobox.py" line="54"/>
         <source>Unknown color: {color}</source>
-        <translation>Couleur inconnue : {color}</translation>
+        <translation type="obsolete">Couleur inconnue : {color}</translation>
     </message>
 </context>
 <context>
     <name>CalcWindow</name>
     <message>
-        <location filename="../forms/ui_calculator.py" line="33"/>
+        <location filename="../forms/ui_calculator.ui" line="14"/>
         <source>Calculator</source>
         <translation>Calculatrice</translation>
     </message>
@@ -702,134 +702,134 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ChangeThemeWindow</name>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="401"/>
+        <location filename="../forms/ui_changtheme.ui" line="17"/>
         <source>Edit theme</source>
         <translation>Modifier le thème</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="402"/>
+        <location filename="../forms/ui_changtheme.ui" line="32"/>
         <source>Block:</source>
         <translation>Bloc :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="403"/>
+        <location filename="../forms/ui_changtheme.ui" line="42"/>
         <source>Comment:</source>
         <translation>Commentaire :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="404"/>
+        <location filename="../forms/ui_changtheme.ui" line="55"/>
         <source>Keyword:</source>
         <translation>Mot-clé :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="405"/>
+        <location filename="../forms/ui_changtheme.ui" line="96"/>
         <source>Literal:</source>
         <translation>Valeur :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="406"/>
+        <location filename="../forms/ui_changtheme.ui" line="139"/>
         <source>Window:</source>
         <translation>Fenêtre :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="407"/>
+        <location filename="../forms/ui_changtheme.ui" line="149"/>
         <source>Shadow:</source>
         <translation>Ombre :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="408"/>
+        <location filename="../forms/ui_changtheme.ui" line="329"/>
         <source>Button:</source>
         <translation>Bouton :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="409"/>
+        <location filename="../forms/ui_changtheme.ui" line="342"/>
         <source>Button Text:</source>
         <translation>Texte de bouton :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="410"/>
+        <location filename="../forms/ui_changtheme.ui" line="355"/>
         <source>Disabled
 Button Text:</source>
         <translation>Texte de bouton
 désactivé :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="412"/>
+        <location filename="../forms/ui_changtheme.ui" line="366"/>
         <source>Bright Text:</source>
         <translation>Texte clair :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="413"/>
+        <location filename="../forms/ui_changtheme.ui" line="523"/>
         <source>Disabled
 Highlight:</source>
         <translation>Surligné
 désactivé :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="415"/>
+        <location filename="../forms/ui_changtheme.ui" line="534"/>
         <source>Highlight:</source>
         <translation>Surligné :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="416"/>
+        <location filename="../forms/ui_changtheme.ui" line="544"/>
         <source>Highlighted Text:</source>
         <translation>Texte surligné :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="417"/>
+        <location filename="../forms/ui_changtheme.ui" line="554"/>
         <source>Link:</source>
         <translation>Lien :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="418"/>
+        <location filename="../forms/ui_changtheme.ui" line="564"/>
         <source>Disabled
 Highlighted Text:</source>
         <translation>Texte surligné
 désactivé :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="422"/>
+        <location filename="../forms/ui_changtheme.ui" line="586"/>
         <source>Alternate Base:</source>
         <translation>Base alternative :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="423"/>
+        <location filename="../forms/ui_changtheme.ui" line="596"/>
         <source>Base:</source>
         <translation>Base :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="424"/>
+        <location filename="../forms/ui_changtheme.ui" line="606"/>
         <source>Window Text:</source>
         <translation>Texte de fenêtre :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="425"/>
+        <location filename="../forms/ui_changtheme.ui" line="616"/>
         <source>Dark:</source>
         <translation>Sombre :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="426"/>
+        <location filename="../forms/ui_changtheme.ui" line="626"/>
         <source>Disabled
 Text:</source>
         <translation>Texte désactivé :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="428"/>
+        <location filename="../forms/ui_changtheme.ui" line="637"/>
         <source>Tool Tip Text:</source>
-        <translation>Texte d&apos;infobulle :</translation>
+        <translation>Texte d'infobulle :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="429"/>
+        <location filename="../forms/ui_changtheme.ui" line="647"/>
         <source>Text:</source>
         <translation>Texte :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="430"/>
+        <location filename="../forms/ui_changtheme.ui" line="657"/>
         <source>Tool Tip Base:</source>
-        <translation>Base d&apos;infobulle :</translation>
+        <translation>Base d'infobulle :</translation>
     </message>
     <message>
-        <location filename="../forms/ui_changtheme.py" line="420"/>
+        <location filename="../forms/ui_changtheme.ui" line="575"/>
         <source>Disabled
 Window Text :</source>
         <translation>Texte de fenêtre
@@ -841,7 +841,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/basic.py" line="14"/>
         <source>Rounds {{num}} to the nearest integer / (if specified) to {{prec}} decimals.</source>
-        <translation>Arrondit {{num}} à l&apos;entier le plus proche / (si spécifié) à {{prec}} décimales.</translation>
+        <translation>Arrondit {{num}} à l'entier le plus proche / (si spécifié) à {{prec}} décimales.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="35"/>
@@ -911,12 +911,12 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/basic.py" line="205"/>
         <source>Returns the argument (or phase) of {{x}}.</source>
-        <translation>Calcule l&apos;argument (ou phase) de {{x}}.</translation>
+        <translation>Calcule l'argument (ou phase) de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="219"/>
         <source>Returns a list containing the polar coordinates of {{x}}, respectively the modulus (radius) and argument (angle).</source>
-        <translation>Renvoie une liste contenant les coordonnées polaires de {{x}}, respectivement le module (rayon) et l&apos;argument (angle).</translation>
+        <translation>Renvoie une liste contenant les coordonnées polaires de {{x}}, respectivement le module (rayon) et l'argument (angle).</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="235"/>
@@ -951,52 +951,52 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/geom.py" line="22"/>
         <source>Returns the area of the triangle with the specified side lengths.</source>
-        <translation>Calcule l&apos;aire du triangle ayant les longueurs de côtés spécifiées.</translation>
+        <translation>Calcule l'aire du triangle ayant les longueurs de côtés spécifiées.</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="36"/>
         <source>Returns the area of the triangle with the specified base and height.</source>
-        <translation>Calcule l&apos;aire du triangle ayant une base de longueur {{base}} et une hauteur de longueur {{height}}.</translation>
+        <translation>Calcule l'aire du triangle ayant une base de longueur {{base}} et une hauteur de longueur {{height}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="48"/>
         <source>Returns the area of the square with the specified {{side}} length.</source>
-        <translation>Calcule l&apos;aire du carré de côté {{side}}.</translation>
+        <translation>Calcule l'aire du carré de côté {{side}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="59"/>
         <source>Returns the area of the rectangle with side lengths {{s1}} and {{s2}}.</source>
-        <translation>Calcule l&apos;aire du rectangle de côtés {{s1}} et {{s2}}.</translation>
+        <translation>Calcule l'aire du rectangle de côtés {{s1}} et {{s2}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="71"/>
         <source>Returns the area of the trapezoid with sides {{a}} and {{b}} and height {{height}}.</source>
-        <translation>Calcule l&apos;aire du trapèze de côtés {{a}} et {{b}} et de longueur {{height}}.</translation>
+        <translation>Calcule l'aire du trapèze de côtés {{a}} et {{b}} et de longueur {{height}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="84"/>
         <source>Returns the area of the circle with the specified {{radius}}.</source>
-        <translation>Calcule l&apos;aire du disque de rayon {{radius}}.</translation>
+        <translation>Calcule l'aire du disque de rayon {{radius}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="95"/>
         <source>Returns the area of the ellipse with radii {{r1}} and {{r2}}.</source>
-        <translation>Calcule l&apos;aire de l&apos;ellipse ayant pour rayons {{r1}} et {{r2}}.</translation>
+        <translation>Calcule l'aire de l'ellipse ayant pour rayons {{r1}} et {{r2}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="107"/>
         <source>Returns the area of the parallelogram with the specified {{base}} and {{height}}.</source>
-        <translation>Calcule l&apos;aire du parallélogramme ayant une base de longueur {{base}} et une hauteur de longueur {{height}}.</translation>
+        <translation>Calcule l'aire du parallélogramme ayant une base de longueur {{base}} et une hauteur de longueur {{height}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="119"/>
         <source>Returns the area of the circle sector with the specified {{radius}} and {{angle}}.</source>
-        <translation>Calcule l&apos;aire du secteur de disque de rayon {{radius}} et d&apos;angle {{angle}}.</translation>
+        <translation>Calcule l'aire du secteur de disque de rayon {{radius}} et d'angle {{angle}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="131"/>
         <source>Returns the area of the regular polygon with the specified number of {{sides}} and side {{length}}.</source>
-        <translation>Calcule l&apos;aire du polygone régulier à {{sides}} côtés de longueur individuelle {{length}}.</translation>
+        <translation>Calcule l'aire du polygone régulier à {{sides}} côtés de longueur individuelle {{length}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/geom.py" line="144"/>
@@ -1081,12 +1081,12 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/stats.py" line="197"/>
         <source>Returns the error function at {{x}}.</source>
-        <translation>Calcule la fonction d&apos;erreur à {{x}}.</translation>
+        <translation>Calcule la fonction d'erreur à {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="208"/>
         <source>Returns the complementary error function at {{x}}.</source>
-        <translation>Calcule la fonction d&apos;erreur complémentaire à {{x}}.</translation>
+        <translation>Calcule la fonction d'erreur complémentaire à {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="263"/>
@@ -1101,12 +1101,12 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/stats.py" line="293"/>
         <source>Returns a slice of the specified list, from index {{start}} (inclusive) to either index {{end}} (exclusive) or the end of the list.</source>
-        <translation>Renvoie une tranche de {{lst}} de l&apos;indice {{start}} (inclus), à l&apos;indice {{end}} (exclus) si spécifié ou à la fin de la liste.</translation>
+        <translation>Renvoie une tranche de {{lst}} de l'indice {{start}} (inclus), à l'indice {{end}} (exclus) si spécifié ou à la fin de la liste.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="315"/>
         <source>Returns the population standard deviation of {{lst}}.</source>
-        <translation>Calcule l&apos;écart-type de {{lst}}.</translation>
+        <translation>Calcule l'écart-type de {{lst}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="330"/>
@@ -1116,12 +1116,12 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/stats.py" line="342"/>
         <source>Returns the sample standard deviation of {{lst}}.</source>
-        <translation>Calcule l&apos;écart-type de l&apos;échantillon {{lst}}.</translation>
+        <translation>Calcule l'écart-type de l'échantillon {{lst}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="357"/>
         <source>Returns the sample variance of {{lst}}.</source>
-        <translation>Calcule la variance de l&apos;échantillon {{lst}}.</translation>
+        <translation>Calcule la variance de l'échantillon {{lst}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="372"/>
@@ -1131,47 +1131,47 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/trig.py" line="19"/>
         <source>Converts angle {{x}} from radians to degrees.</source>
-        <translation>Convertit l&apos;angle {{x}} des radians vers les degrés.</translation>
+        <translation>Convertit l'angle {{x}} des radians vers les degrés.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="33"/>
         <source>Converts angle {{x}} from degrees to radians.</source>
-        <translation>Convertit l&apos;angle {{x}} des degrés vers les radians.</translation>
+        <translation>Convertit l'angle {{x}} des degrés vers les radians.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="47"/>
         <source>Returns the arc sine of {{x}}.</source>
-        <translation>Calcule l&apos;arc sinus de {{x}}.</translation>
+        <translation>Calcule l'arc sinus de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="54"/>
         <source>Returns the arc cosine of {{x}}.</source>
-        <translation>Calcule l&apos;arc cosinus de {{x}}.</translation>
+        <translation>Calcule l'arc cosinus de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="61"/>
         <source>Returns the arc tangent of {{x}}.</source>
-        <translation>Calcule l&apos;arc tangente de {{x}}.</translation>
+        <translation>Calcule l'arc tangente de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="68"/>
         <source>Returns the arc tangent of {{y}} / {{x}}.</source>
-        <translation>Calcule l&apos;arc tangente de {{y}} / {{x}}.</translation>
+        <translation>Calcule l'arc tangente de {{y}} / {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="75"/>
         <source>Returns the inverse hyperbolic sine of {{x}}.</source>
-        <translation>Calcule l&apos;arc sinus hyperbolique de {{x}}.</translation>
+        <translation>Calcule l'arc sinus hyperbolique de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="82"/>
         <source>Returns the inverse hyperbolic cosine of {{x}}.</source>
-        <translation>Calcule l&apos;arc cosinus hyperbolique de {{x}}.</translation>
+        <translation>Calcule l'arc cosinus hyperbolique de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="89"/>
         <source>Returns the inverse hyperbolic tangent of {{x}}.</source>
-        <translation>Calcule l&apos;arc tangente hyperbolique de {{x}}.</translation>
+        <translation>Calcule l'arc tangente hyperbolique de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="96"/>
@@ -1221,12 +1221,12 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/trig.py" line="159"/>
         <source>Returns the exsecant of {{x}}.</source>
-        <translation>Calcule l&apos;exsécante de {{x}}.</translation>
+        <translation>Calcule l'exsécante de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="166"/>
         <source>Returns the excosecant of {{x}}.</source>
-        <translation>Calcule l&apos;excosécante de {{x}}.</translation>
+        <translation>Calcule l'excosécante de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="173"/>
@@ -1251,32 +1251,32 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/trig.py" line="203"/>
         <source>Returns the inverse secant of {{x}}.</source>
-        <translation>Calcule l&apos;arc sécante de {{x}}.</translation>
+        <translation>Calcule l'arc sécante de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="210"/>
         <source>Returns the inverse cosecant of {{x}}.</source>
-        <translation>Calcule l&apos;arc cosécante de {{x}}.</translation>
+        <translation>Calcule l'arc cosécante de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="217"/>
         <source>Returns the inverse cotangent of {{x}}.</source>
-        <translation>Calcule l&apos;arc tangente de {{x}}.</translation>
+        <translation>Calcule l'arc tangente de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="224"/>
         <source>Returns the inverse hyperbolic secant of {{x}}.</source>
-        <translation>Calcule l&apos;arc sécante hyperbolique de {{x}}.</translation>
+        <translation>Calcule l'arc sécante hyperbolique de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="231"/>
         <source>Returns the inverse hyperbolic cosecant of {{x}}.</source>
-        <translation>Calcule l&apos;arc cosécante hyperbolique de {{x}}.</translation>
+        <translation>Calcule l'arc cosécante hyperbolique de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="238"/>
         <source>Returns the inverse hyperbolic cotangent of {{x}}.</source>
-        <translation>Calcule l&apos;arc cotangente hyperbolique de {{x}}.</translation>
+        <translation>Calcule l'arc cotangente hyperbolique de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="245"/>
@@ -1306,27 +1306,27 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/trig.py" line="280"/>
         <source>Returns the haversed sine of {{x}}.</source>
-        <translation>Calcule l&apos;haversine de {{x}}.</translation>
+        <translation>Calcule l'haversine de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="287"/>
         <source>Returns the haversed cosine of {{x}}.</source>
-        <translation>Calcule l&apos;havercosine de {{x}}.</translation>
+        <translation>Calcule l'havercosine de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="294"/>
         <source>Returns the hacoversed sine of {{x}}.</source>
-        <translation>Calcule l&apos;hacoversine de {{x}}.</translation>
+        <translation>Calcule l'hacoversine de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="301"/>
         <source>Returns the hacoversed cosine of {{x}}.</source>
-        <translation>Calcule l&apos;hacovercosine de {{x}}.</translation>
+        <translation>Calcule l'hacovercosine de {{x}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/trig.py" line="308"/>
         <source>Returns the hypotenuse / Euclidean norm of the vector ({{x}}, {{y}}).</source>
-        <translation>Calcule l&apos;hypoténuse / la norme euclidienne du vecteur ({{x}}, {{y}}).</translation>
+        <translation>Calcule l'hypoténuse / la norme euclidienne du vecteur ({{x}}, {{y}}).</translation>
     </message>
     <message>
         <location filename="../maths/lib/basic.py" line="12"/>
@@ -1401,7 +1401,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/basic.py" line="311"/>
         <source>Returns the integral of {{func}} from {{a}} to {{b}} (optional number of steps: {{steps}}).</source>
-        <translation>Calcule l&apos;intégrale de {{a}} à {{b}} de {{func}} (facultatif : nombre d&apos;étapes {{steps}}).</translation>
+        <translation>Calcule l'intégrale de {{a}} à {{b}} de {{func}} (facultatif : nombre d'étapes {{steps}}).</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="175"/>
@@ -1411,7 +1411,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/stats.py" line="416"/>
         <source>Returns the {{n}}-th Euler number.</source>
-        <translation>Calcule le {{n}}-ième nombre d&apos;Euler.</translation>
+        <translation>Calcule le {{n}}-ième nombre d'Euler.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="440"/>
@@ -1446,7 +1446,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/stats.py" line="491"/>
         <source>Returns the number of elements in {{T}}.</source>
-        <translation>Renvoie le nombre d&apos;élements de {{T}}.</translation>
+        <translation>Renvoie le nombre d'élements de {{T}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="506"/>
@@ -1466,12 +1466,12 @@ désactivé :</translation>
     <message>
         <location filename="../maths/lib/stats.py" line="219"/>
         <source>Returns the inverse of the error function at {{y}}.</source>
-        <translation>Calcule la fonction d&apos;erreur inverse à {{y}}.</translation>
+        <translation>Calcule la fonction d'erreur inverse à {{y}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="252"/>
         <source>Returns the inverse of the complementary error function at {{y}}.</source>
-        <translation>Calcule la fonction d&apos;erreur complémentaire inverse à {{y}}.</translation>
+        <translation>Calcule la fonction d'erreur complémentaire inverse à {{y}}.</translation>
     </message>
     <message>
         <location filename="../maths/lib/stats.py" line="140"/>
@@ -1539,7 +1539,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/evaluator.py" line="254"/>
         <source>Argument count mismatch (expected {exp}, got {act})</source>
-        <translation>Nombre d&apos;arguments invalides (attendu : {exp}, reçu : {act})</translation>
+        <translation>Nombre d'arguments invalides (attendu : {exp}, reçu : {act})</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="73"/>
@@ -1559,7 +1559,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/evaluator.py" line="224"/>
         <source>Index &apos;{idx}&apos; too big for array</source>
-        <translation>Indice &apos;{idx}&apos; trop grand pour la liste</translation>
+        <translation>Indice '{idx}' trop grand pour la liste</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="205"/>
@@ -1569,7 +1569,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/evaluator.py" line="294"/>
         <source>Invalid unary operator &apos;{op}&apos;</source>
-        <translation>Opérateur unaire invalide &apos;{op}&apos;</translation>
+        <translation>Opérateur unaire invalide '{op}'</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="308"/>
@@ -1584,7 +1584,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/evaluator.py" line="346"/>
         <source>Invalid value type for {val} and operator &apos;{op}&apos;</source>
-        <translation>Type de valeur invalide pour {val} et l&apos;opérateur &apos;{op}&apos;</translation>
+        <translation>Type de valeur invalide pour {val} et l'opérateur '{op}'</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="346"/>
@@ -1594,7 +1594,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/evaluator.py" line="351"/>
         <source>Operator &apos;{op}&apos; not allowed for value type {type}</source>
-        <translation>Opérateur &apos;{op}&apos; non autorisé pour le type de valeur {type}</translation>
+        <translation>Opérateur '{op}' non autorisé pour le type de valeur {type}</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="376"/>
@@ -1604,7 +1604,7 @@ désactivé :</translation>
     <message>
         <location filename="../maths/evaluator.py" line="418"/>
         <source>Invalid binary operator &apos;{op}&apos; for &apos;{left}&apos; and &apos;{right}&apos;</source>
-        <translation>Opérateur binaire &apos;{op}&apos; invalide pour &apos;{left}&apos; et &apos;{right}&apos;</translation>
+        <translation>Opérateur binaire '{op}' invalide pour '{left}' et '{right}'</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="341"/>
@@ -1619,23 +1619,23 @@ désactivé :</translation>
     <message>
         <location filename="../maths/evaluator.py" line="367"/>
         <source>Trying to multiply List by non-integer ({val})</source>
-        <translation>Tentative de multiplication d&apos;une List par un non-entier ({val})</translation>
+        <translation>Tentative de multiplication d'une List par un non-entier ({val})</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="260"/>
         <source>Type mismatch for argument #{idx} &apos;{arg}&apos; (expected {exp})</source>
-        <translation>Type incorrect pour l&apos;argument #{idx} &apos;{arg}&apos; (attendu : {exp})</translation>
+        <translation>Type incorrect pour l'argument #{idx} '{arg}' (attendu : {exp})</translation>
     </message>
     <message>
         <location filename="../maths/evaluator.py" line="218"/>
         <source>Array access target must be of array type</source>
-        <translation>La cible d&apos;un accès de liste doit être une liste</translation>
+        <translation>La cible d'un accès de liste doit être une liste</translation>
     </message>
 </context>
 <context>
     <name>HelpWindow</name>
     <message>
-        <location filename="../forms/ui_help.py" line="68"/>
+        <location filename="../forms/ui_help.ui" line="14"/>
         <source>Help Contents</source>
         <translation>Bibliothèque</translation>
     </message>
@@ -2349,7 +2349,7 @@ veuillez choisir un chemin vers un autre fichier.</translation>
     <message>
         <location filename="../maths/parser.py" line="174"/>
         <source>Expected token ({type}) &apos;{val}&apos;</source>
-        <translation>Jeton attendu ({type}) &apos;{val}&apos;</translation>
+        <translation>Jeton attendu ({type}) '{val}'</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="472"/>
@@ -2359,7 +2359,7 @@ veuillez choisir un chemin vers un autre fichier.</translation>
     <message>
         <location filename="../maths/parser.py" line="474"/>
         <source>Unexpected token ({type}) &apos;{val}&apos;</source>
-        <translation>Jeton ({type}) &apos;{val}&apos; inattendu</translation>
+        <translation>Jeton ({type}) '{val}' inattendu</translation>
     </message>
     <message>
         <location filename="../maths/parser.py" line="101"/>
@@ -2379,7 +2379,7 @@ veuillez choisir un chemin vers un autre fichier.</translation>
     <message>
         <location filename="../maths/parser.py" line="266"/>
         <source>Unexpected token ({type}) &apos;{val}&apos; after end of expression</source>
-        <translation>Jeton ({type}) &apos;{val}&apos; inattendu après la fin de l&apos;expression</translation>
+        <translation>Jeton ({type}) '{val}' inattendu après la fin de l'expression</translation>
     </message>
 </context>
 <context>

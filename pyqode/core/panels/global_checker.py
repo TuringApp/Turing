@@ -53,9 +53,9 @@ class GlobalCheckerPanel(Panel):
             end = self.editor.visible_blocks[-1][-1]
             rect = QtCore.QRect()
             rect.setX(0)
-            rect.setY(start.blockNumber() * self.get_marker_height())
-            rect.setWidth(self.sizeHint().width())
-            rect.setBottom(end.blockNumber() * self.get_marker_height())
+            rect.setY(int(start.blockNumber() * self.get_marker_height()))
+            rect.setWidth(int(self.sizeHint().width()))
+            rect.setBottom(int(end.blockNumber() * self.get_marker_height()))
             if self.editor.background.lightness() < 128:
                 c = self.editor.background.darker(150)
             else:
