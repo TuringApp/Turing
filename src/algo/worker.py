@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import time
 import typing
-from collections import Iterable
+from collections.abc import Iterable
 from typing import *
 
 from algo.stmts import *

@@ -211,7 +211,7 @@ class FoldingPanel(Panel):
     def sizeHint(self):
         """ Returns the widget size hint (based on the editor font size) """
         fm = QtGui.QFontMetricsF(self.editor.font())
-        size_hint = QtCore.QSize(fm.height(), fm.height())
+        size_hint = QtCore.QSize(int(fm.height()), int(fm.height()))
         if size_hint.width() > 16:
             size_hint.setWidth(16)
         return size_hint
@@ -332,12 +332,12 @@ class FoldingPanel(Panel):
             colorA = QtGui.QColor(colorA)
             colorB = QtGui.QColor(colorB)
             tmp = colorA
-            tmp.setRed((tmp.red() * factor) / maxFactor +
-                       (colorB.red() * (maxFactor - factor)) / maxFactor)
-            tmp.setGreen((tmp.green() * factor) / maxFactor +
-                         (colorB.green() * (maxFactor - factor)) / maxFactor)
-            tmp.setBlue((tmp.blue() * factor) / maxFactor +
-                        (colorB.blue() * (maxFactor - factor)) / maxFactor)
+            tmp.setRed(int((tmp.red() * factor) / maxFactor +
+                       (colorB.red() * (maxFactor - factor)) / maxFactor))
+            tmp.setGreen(int((tmp.green() * factor) / maxFactor +
+                         (colorB.green() * (maxFactor - factor)) / maxFactor))
+            tmp.setBlue(int((tmp.blue() * factor) / maxFactor +
+                        (colorB.blue() * (maxFactor - factor)) / maxFactor))
             return tmp
 
         pal = QtWidgets.QApplication.instance().palette()

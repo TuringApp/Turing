@@ -2,11 +2,6 @@
 This module contains the file helper implementation
 
 """
-try:
-    from future.builtins import open
-    from future.builtins import str
-except:
-    pass  # python 3.2 not supported
 import locale
 import logging
 import mimetypes

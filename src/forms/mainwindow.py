@@ -622,7 +622,7 @@ def python_input(prompt="", globals=None, locals=None, unsafe=False):
 def python_print_error(msg, end="\n"):
     ExecState.current_output += util.html.color_span(msg, "red") + end
 
-    if not AppState.mode_python:
+    if not AppState.mode_python and ExecState.worker is not None:
         set_current_line(ExecState.worker.last, True)
 
     update_output()
@@ -840,7 +840,7 @@ def handler_Step():
         show_error()
     finally:
         plot_update()
-        if ExecState.worker.finished:
+        if ExecState.worker is not None and  ExecState.worker.finished:
             GuiState.ui.actionRun.setDisabled(False)
             if not ExecState.stop_flag:
                 end_output()
@@ -849,9 +849,10 @@ def handler_Step():
             ExecState.running = False
         GuiState.ui.actionDebug.setDisabled(False)
         GuiState.ui.actionStep.setDisabled(False)
-        GuiState.ui.actionNew.setDisabled(not ExecState.worker.finished)
-        GuiState.ui.actionOpen.setDisabled(not ExecState.worker.finished)
-        GuiState.ui.actionStop.setEnabled(not ExecState.worker.finished)
+        if ExecState.worker is not None:
+            GuiState.ui.actionNew.setDisabled(not ExecState.worker.finished)
+            GuiState.ui.actionOpen.setDisabled(not ExecState.worker.finished)
+            GuiState.ui.actionStop.setEnabled(not ExecState.worker.finished)
 
 
 def handler_Debug():

@@ -84,7 +84,10 @@ def setup_apiv2():
     if sys.version_info[0] == 2:
         logging.getLogger(__name__).debug(
             'setting up SIP API to version 2')
-        import sip
+        try:
+            from PyQt5 import sip
+        except:
+            import sip
         try:
             sip.setapi("QString", 2)
             sip.setapi("QVariant", 2)
